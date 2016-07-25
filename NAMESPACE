@@ -1,0 +1,24 @@
+# Exported variables
+export("protcomp", "check_ID", "get_pdat", "ZC_nH2O", "CLES", "xsummary",
+"rankdiff", "rankplot", "Ehplot", "pdat_CRC", "remove_entries", "diffplot",
+"lapply_canprot")
+
+# Imports from default packages
+importFrom("stats", "na.omit")
+
+importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data")
+
+importFrom("graphics", "mtext", "plot", "title", "box", "contour", "image",
+"lines", "text", "abline", "points")
+
+# Imports from CHNOSZ
+importFrom("CHNOSZ", "basis", "msgout", "protein.basis", "protein.formula",
+           "protein.length", "ZC", "add.protein", "affinity", "diagram",
+           "list2array", "palply", "subcrt", "convert")
+
+# Imports from colorspace
+importFrom("colorspace", "diverge_hcl")
+
+# Imports from xtable
+importFrom("xtable", "xtable", "print.xtable")
+

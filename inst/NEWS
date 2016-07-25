@@ -1,0 +1,31 @@
+CHANGES IN canprot 0.0.2 (2016-07-25)
+-------------------------------------
+
+- Add 'updates_file' argument to check_ID() and protcomp().
+
+- Rename stabplot() to rankplot().
+
+- Initial upload to GitHub.
+
+CHANGES IN canprot 0.0.1 (2016-07-16)
+-------------------------------------
+
+- Package development began on 2016-07-03, based on code and data in
+  Supplemental Information Dataset S1 of Dick, 2016
+  (http://doi.org/10.7717/peerj.2238).
+
+- Exported functions (in approximate order of development): "protcomp",
+  "check_ID", "get_pdat", "ZC_nH2O", "CLES", "xsummary", "rankdiff",
+  "stabplot", "Ehplot", "pdat_CRC", "remove_entries", "diffplot",
+  "lapply_canprot".
+
+- Datasets in 'canprot' environment: human_base.Rdata (21006 proteins),
+  human_additional.Rdata (71173 proteins), human_extra.csv (72 proteins),
+  uniprot_updates.csv (26 proteins).
+
+- Datasets in inst/extdata: AKP+10.csv, BPV+11.csv, JCF+11.csv, JKMF10.csv,
+  KKL+12.csv, KWA+14.csv, KYK+12.csv, LPL+16.csv, MCZ+13.csv, MRK+11.csv,
+  PHL+16.csv, STK+15.csv, UNS+14.csv, WDO+15.csv, WKP+14.csv, WOD+12.csv,
+  WTK+08.csv, XZC+10.csv, YLZ+12.csv, ZYS+10.csv.
+
+- Vignettes: data_sources.Rmd, summary_table.Rmd, stability_plots.Rmd.
