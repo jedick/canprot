@@ -3,7 +3,7 @@
 \alias{diffplot}
 \title{Plot Compositional Differences}
 \description{
-  Make a plot showing differences and p-values.
+  Make a plot showing differences and \emph{p}-values.
 }
 
 \usage{
