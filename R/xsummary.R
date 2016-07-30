@@ -31,8 +31,8 @@ xsummary <- function(comptab) {
     jmd <- paste0(k, ".diff")
     comptab[, jmd] <- format(comptab[, jmd])
     comptab[ihigh & ilow, jmd] <- paste("**", comptab[ihigh & ilow, jmd], "**") 
-    # underline mean difference if only p-value is highlighted
-    comptab[ilow & !ihigh, jmd] <- paste("++", comptab[ilow & !ihigh, jmd], "++") 
+    # underline mean difference if only p-value or only effect size is highlighted
+    comptab[xor(ilow, ihigh), jmd] <- paste("++", comptab[xor(ilow, ihigh), jmd], "++") 
   }
   # create xtable
   x <- xtable::xtable(comptab, align=c("c", "l", rep("r", 8)))

@@ -16,6 +16,9 @@
 
 \details{
 This function makes an HTML table (using \code{\link[xtable]{xtable}}) and adds bold and underline formatting to highlight significant compositional differences.
+Specifically, the \emph{p}-value is bolded if it is less than 0.05, and the percent effect size is bolded if it is <= 40 or >= 60.
+The mean difference is [underlined / bolded] if [only one of / both] the \emph{p}-value and effect size pass these cutoffs.
+
 The generated table is written to the console, and can be used in a vignette using the \code{results = "asis"} chunk option.
 }
 
