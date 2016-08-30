@@ -8,10 +8,10 @@ diffplot <- function(comptab, col="black") {
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # get mean difference, common language effect size and p-value
   ZC_d <- comptab$ZC.diff
-  ZC_e <- comptab$ZC.CLES
+  ZC_e <- signif(comptab$ZC.CLES, 2)
   ZC_p <- comptab$ZC.p.value
   nH2O_d <- comptab$nH2O.diff
-  nH2O_e <- comptab$nH2O.CLES
+  nH2O_e <- signif(comptab$nH2O.CLES, 2)
   nH2O_p <- comptab$nH2O.p.value
   # consider thresholds for either effect size or p-value
   ZC_sig <- abs(ZC_e - 50) >= 10 | ZC_p < 0.05
