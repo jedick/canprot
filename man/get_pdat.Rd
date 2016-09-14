@@ -7,7 +7,7 @@
 }
 
 \usage{
-  get_pdat(dataset = NULL, pdat_fun = NULL, basis = "AA")
+  get_pdat(dataset = NULL, pdat_fun = "pdat_CRC", basis = "AA")
 }
 
 \arguments{
@@ -18,9 +18,9 @@
 
 \details{
 \code{get_pdat} serves as a wrapper to the various \code{\link{pdat_}} functions.
-It queries those functions for the availability of \code{dataset}; if one function provides it, the corresponding dataset is returned.
-Zero or more user-defined functions can be named in \code{pdat_fun}.
-Leave \code{dataset} as \code{NULL} to list all datasets provided by all \code{pdat_} functions in the package (and by any given in \code{pdat_fun}).
+The names of the functions, which can include any user-defined functions in addition to those in the package (i.e. \samp{pdat_CRC}), are specified in \code{pdat_fun}.
+Those functions are queried for the availability of \code{dataset}; if one function provides it, the corresponding dataset is returned.
+Leave \code{dataset} as \code{NULL} to list all datasets provided by the \code{pdat_} functions.
 }
 
 \examples{
