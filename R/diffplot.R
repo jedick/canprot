@@ -3,7 +3,7 @@
 # and indicate low p-values with lines
 # 20160715 jmd
 
-diffplot <- function(comptab, col="black", plot.rect=FALSE) {
+diffplot <- function(comptab, col="black", plot.rect=FALSE, plot.text=TRUE) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # get mean difference, common language effect size and p-value
@@ -35,5 +35,12 @@ diffplot <- function(comptab, col="black", plot.rect=FALSE) {
   pch <- ifelse(p_signif==2, 15, ifelse(p_signif==1, 19, 21))
   # plot points with specified color
   col <- rep(col, length.out=nrow(comptab))
-  points(ZC_d, nH2O_d, pch=pch, col=col, bg="white")
+  if(!plot.text) points(ZC_d, nH2O_d, pch=pch, col=col, bg="white")
+  else {
+    # plot bigger points with letters inside
+    points(ZC_d, nH2O_d, pch=pch, col=col, bg="white", cex=2)
+    # use white letters on colored background
+    col[pch %in% c(15, 19)] <- "white"
+    text(ZC_d, nH2O_d, c(letters, LETTERS)[seq_along(ZC_d)], col=col, cex=0.9)
+  }
 }

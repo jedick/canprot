@@ -1,3 +1,12 @@
+CHANGES IN canprot 0.0.2.9000 (2016-10-17)
+------------------------------------------
+
+- New export: get_colors().
+
+- Plot text labels in diffplot().
+
+- Return values in rankplot() and xsummary().
+
 CHANGES IN canprot 0.0.2 (2016-07-25)
 -------------------------------------
 

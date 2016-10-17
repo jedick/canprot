@@ -7,7 +7,7 @@
 }
 
 \usage{
-  rankdiff(rank1, rank2, n1 = NULL, n2 = NULL, as.fraction=FALSE)
+  rankdiff(rank1, rank2, n1 = NULL, n2 = NULL, as.fraction=TRUE)
 }
 
 \arguments{
@@ -29,12 +29,12 @@ If the sizes of the groups are supplied in \code{n1} and \code{n2}, then the sin
 
 \examples{
 # rankings of H and C in H-H-H-H-C-C-C
-rankdiff(1:4, 5:7)  # 12
-rankdiff(1:4, 5:7, as.fraction=TRUE)  # 1
+rankdiff(1:4, 5:7, as.fraction=FALSE)  # 12
+rankdiff(1:4, 5:7)  # 1
 
 # rankings of H and C in C-C-C-H-H-H-H
-rankdiff(4:7, 1:3)  # -12
-rankdiff(4:7, 1:3, as.fraction=TRUE)  # -1
+rankdiff(4:7, 1:3, as.fraction=FALSE)  # -12
+rankdiff(4:7, 1:3)  # -1
 
 # rankings of H and C in H-C-H-C-H-C-H
 rankdiff(c(1, 3, 5, 7), c(2, 4, 6))  # 0

@@ -1,8 +1,8 @@
-# canprot/R/wrdiff.R
+# canprot/R/rankdiff.R
 # calculate weighted difference of sums of ranks
 # 20160710 jmd
 
-rankdiff <- function(rank1, rank2, n1=NULL, n2=NULL, as.fraction=FALSE) {
+rankdiff <- function(rank1, rank2, n1=NULL, n2=NULL, as.fraction=TRUE) {
   if(!is.null(n1)) sum1 <- rank1
   else {
     sum1 <- sum(rank1)

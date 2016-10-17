@@ -5,17 +5,25 @@
 xsummary <- function(comptab) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
+  # create letter labels
+  rownames(comptab) <- c(letters, LETTERS)[1:nrow(comptab)]
+  # return this data frame when the function exits
+  comptab.out <- comptab
   # get the publication key from the dataset name
   publication <- sapply(strsplit(comptab$dataset, "_"), "[", 1)
   # format the publication key (monospaced font)
-  comptab$dataset <- paste0("<code>", publication, "</code>")
-  # combine the first two columns (publication and description)
-  comptab$description <- paste0(comptab$dataset, " (", comptab$description, ")")
+  publication <- paste0("<code>", publication, "</code>")
+  # combine the publication and description
+  comptab$description <- paste0(publication, " (", comptab$description, ")")
+  # datasets have letter labels
+  comptab$dataset <- c(letters, LETTERS)[1:nrow(comptab)]
+  # to save column width, change "dataset" to "set"
+  colnames(comptab)[1] <- "set"
   # select the columns to print
-  comptab <- comptab[, c(2:4, 7:9, 12:14)]
+  comptab <- comptab[, c(1:4, 7:9, 12:14)]
   # round values in some columns
-  comptab[, c(4, 7)] <- round(comptab[, c(4, 7)], 3)    # mean difference
-  comptab[, c(5, 8)] <- signif(comptab[, c(5, 8)], 2)   # CLES
+  comptab[, c(5, 8)] <- round(comptab[, c(5, 8)], 3)    # mean difference
+  comptab[, c(6, 9)] <- signif(comptab[, c(6, 9)], 2)   # CLES
   # place a marker around high effect size and low p-value
   for(k in c("ZC", "nH2O")) {
     # effect size
@@ -35,7 +43,7 @@ xsummary <- function(comptab) {
     comptab[xor(ilow, ihigh), jmd] <- paste("++", comptab[xor(ilow, ihigh), jmd], "++") 
   }
   # create xtable
-  x <- xtable::xtable(comptab, align=c("c", "l", rep("r", 8)))
+  x <- xtable::xtable(comptab, align=c("c", "l", "l", rep("r", 8)))
   x <- capture.output(xtable::print.xtable(x, type="html",
                                    include.rownames=FALSE,
                                    math.style.exponents=TRUE,
@@ -47,7 +55,7 @@ xsummary <- function(comptab) {
   x <- gsub("> ++ ", "> <U>", x, fixed=TRUE)
   x <- gsub(" ++ <", "</U> <", x, fixed=TRUE)
   # add headers that span multiple columns
-  span_empty <- "<th colspan=\"3\"></th>"
+  span_empty <- "<th colspan=\"4\"></th>"
   span_ZC <- "<th colspan=\"3\"><i>Z<i><sub>C</sub></th>"
   span_nH2O <- "<th colspan=\"3\"><i>n<i><sub>H<sub>2</sub>O</sub></sub></th>"
   x <- gsub("<table border=1>",
@@ -65,5 +73,5 @@ xsummary <- function(comptab) {
   x <- gsub("nH2O.p.value", "<i>p</i>-value", x, fixed=TRUE)
   # done!
   write.table(x, "", row.names=FALSE, col.names=FALSE, quote=FALSE)
-  return(invisible(x))
+  return(invisible(comptab.out))
 }

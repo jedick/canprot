@@ -2,28 +2,27 @@
 # make logaH2O - logfO2 diagrams of ranking of chemical affinity
 # 20160710 jmd
 
-rankplot <- function(pdat, T=37, plot.rank=TRUE, main=NULL, res=300) {
+rankplot <- function(pdat, T=37, what="rankdiff", main=NULL, res=300, plot.it=TRUE, xlim=c(-75, -55), ylim=c(-10, 10)) {
   # get protein data
   aa <- pdat$pcomp$aa
   ip <- add.protein(aa)
   # assemble limits of logfO2, logaH2O
   # use res+1 here to ensure that x- and y-directions aren't accidentally transposed
   # (would cause an error in image())
-  H2O <- c(-10, 10, res)
-  if(pdat$basis=="inorganic") O2 <- c(-80, -60, res+1)
-  else O2 <- c(-75, -55, res+1)
+  H2O <- c(ylim, res)
+  O2 <- c(xlim, res+1)
   ys <- seq(H2O[1], H2O[2], length.out=H2O[3])
   xs <- seq(O2[1], O2[2], length.out=O2[3])
   # what is the log activity of protein corresponding to unit activity of residues?
   loga.protein <- log10(1/pdat$pcomp$protein.length)
   # calculate affinities
   a <- affinity(O2=O2, H2O=H2O, T=T, iprotein=ip, loga.protein=loga.protein)
-  if(!plot.rank) {
+  if(identical(what, "predominance")) {
     col <- ifelse(pdat$up2, cpcol$red, cpcol$blue)
     d <- diagram(a, names=pdat$names, fill=col, as.residue=TRUE, tplot=FALSE)
     # redraw box because it gets obscured by the fill
     box()
-  } else {
+  } else if(identical(what, "rankdiff")) {
     # plot affinity difference (healthy - cancer)
     Aarr <- list2array(a$values)
     # grid points on the plot
@@ -42,22 +41,11 @@ rankplot <- function(pdat, T=37, plot.rank=TRUE, main=NULL, res=300) {
     rank_C <- matrix(unlist(rank_C), nrow=length(xs), ncol=length(ys))
     rank_H <- sum(1:(n_C + n_H)) - rank_C
     # calculate weighted rank difference in percent
-    rankdiff <- 100*rankdiff(rank_H, rank_C, n_H, n_C, as.fraction=TRUE)
+    rankdiff <- 100*rankdiff(rank_H, rank_C, n_H, n_C)
     print(paste("weighted rank difference % range", paste(range(rankdiff), collapse=" ")))
+    if(!plot.it) return(list(xs=xs, ys=ys, rankdiff=rankdiff, xlab=cplab$logfO2, ylab=cplab$logaH2O))
     # display greater healthy and cancer ranks by colored zones on image
-    dcol <- colorspace::diverge_hcl(1000, c = 100, l = c(50, 90), power = 1)
-    if(any(rankdiff < 0)) {
-      # so that anything over 50% is deep blue
-      blues <- rev(c(rep(dcol[1], 500), dcol[1:500]))
-      # select range of colors corresponding to rank difference percentage
-      blues <- blues[1:-round(10*range(rankdiff)[1])]
-    } else blues <- character()
-    if(any(rankdiff > 0)) {
-      # so that anything over 50% is deep red
-      reds <- c(dcol[501:1000], rep(dcol[1000], 500))
-      reds <- reds[1:round(10*range(rankdiff)[2])]
-    } else reds <- character()
-    col <- c(rev(blues), reds)
+    col <- get_colors(rankdiff, max50=TRUE)
     image(xs, ys, rankdiff, col=col, useRaster=TRUE, xlab=cplab$logfO2, ylab=cplab$logaH2O)
     # show equal-rank line
     contour(xs, ys, rankdiff, levels=0, add=TRUE, drawlabels=FALSE)
