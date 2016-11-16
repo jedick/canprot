@@ -33,8 +33,11 @@ protcomp <- function(uniprot=NULL, ip=NULL, basis="AA", aa_file=NULL, updates_fi
           paste(oldIDs[idup], newIDs[idup], sep="->", collapse=" "), "are duplicated in dataset"))
         uniprot[!is.na(iold)] <- newIDs
       }
-      # find the proteins listed in 'uniprot'
+      # find the proteins listed in 'uniprot' - first look at the ID after the | separator
       alluni <- sapply(strsplit(aa$protein, "|", fixed=TRUE), "[", 2)
+      # if that is NA (i.e. no | separator is present) use the entire string
+      ina <- is.na(alluni)
+      alluni[ina] <- aa$protein[ina]
       iuni <- match(uniprot, alluni)
       # stop with error if any are not found
       if(any(is.na(iuni))) stop(paste("uniprot IDs not found:", paste(uniprot[is.na(iuni)], collapse=" ")))

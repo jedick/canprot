@@ -16,6 +16,9 @@ check_ID <- function(ID, aa_file=NULL, updates_file=NULL) {
   }
   # find known IDs
   knownIDs <- sapply(strsplit(aa$protein, "|", fixed=TRUE), "[", 2)
+  # if that is NA (i.e. no | separator is present) use the entire string
+  ina <- is.na(knownIDs)
+  knownIDs[ina] <- aa$protein[ina]
   # also check old to new UniProt ID mapping
   updates <- get("uniprot_updates", "canprot")
   if(!is.null(updates_file)) {

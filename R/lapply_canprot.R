@@ -12,12 +12,12 @@ lapply_canprot <- function(X, FUN, ..., varlist=NULL, min.length=10) {
     # don't load methods package, to save startup time - ?makeCluster
     cl <- parallel::makeCluster(nCores, methods=FALSE)
     # load CHNOSZ
-    msgout("palply: loading CHNOSZ\n")
+    msgout("lapply_canprot: loading CHNOSZ\n")
     parallel::clusterEvalQ(cl, library("CHNOSZ"))
     # we don't do this because it's implied by data(canprot):
     #parallel::clusterCall(cl, "data", list="thermo")
     # load canprot
-    msgout("palply: loading canprot and setting up canprot environment\n")
+    msgout("lapply_canprot: loading canprot and setting up canprot environment\n")
     parallel::clusterEvalQ(cl, library("canprot"))
     # we don't do this because a simple data(canprot) is nearly as fast
     #parallel::clusterExport(cl, c("human_aa", "uniprot_updates"), as.environment("canprot"))

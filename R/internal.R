@@ -5,7 +5,13 @@
 # setup basis species
 setbasis <- function(basis="AA") {
   if(basis=="AA") {
-    # amino acids (basis set II)
+    # amino acids (approximate concentrations in human plasma)
+    basis(c("cysteine", "glutamic acid", "glutamine", "H2O", "oxygen"))
+    basis("C3H7NO2S", -3.6)
+    basis("C5H9NO4", -4.5)
+    basis("C5H10N2O3", -3.2)
+  } else if(basis=="AA4") {
+    # amino acids (basis set II from Dick, 2016)
     basis(c("cysteine", "glutamic acid", "glutamine", "H2O", "oxygen"))
     basis("C3H7NO2S", -4)
     basis("C5H9NO4", -4)

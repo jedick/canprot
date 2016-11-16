@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.0.2.9000 (2016-10-17)
+CHANGES IN canprot 0.0.2.9000 (2016-11-16)
 ------------------------------------------
 
 - New export: get_colors().
@@ -6,6 +6,9 @@ CHANGES IN canprot 0.0.2.9000 (2016-10-17)
 - Plot text labels in diffplot().
 
 - Return values in rankplot() and xsummary().
+
+- Change chemical activities in setbasis("AA")
+  (use setbasis("AA4") for old ones).
 
 CHANGES IN canprot 0.0.2 (2016-07-25)
 -------------------------------------
