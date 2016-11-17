@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.0.2.9000 (2016-11-16)
+CHANGES IN canprot 0.0.2.9000 (2016-11-17)
 ------------------------------------------
 
 - New export: get_colors().
@@ -9,6 +9,10 @@ CHANGES IN canprot 0.0.2.9000 (2016-11-16)
 
 - Change chemical activities in setbasis("AA")
   (use setbasis("AA4") for old ones).
+
+- Move protein expression data to extdata/expression/[condition name]/.
+
+- Add LXM+16 dataset for CRC.
 
 CHANGES IN canprot 0.0.2 (2016-07-25)
 -------------------------------------

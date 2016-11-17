@@ -42,13 +42,17 @@ library(xtable)
 xsummary(comptab)
 ```
 
-The numeric values are the same as in Table 1 of [Dick (2016)](http://doi.org/10.7717/peerj.2238).
+The numeric values are the same as in Table 1 of [Dick (2016)](http://doi.org/10.7717/peerj.2238) (with the addition of the [`LXM+16`](data_sources.html#ref-LXM+16) dataset).
 For these datasets, we find that the groups of proteins that are relatively up-expressed in cancer or more advanced cancer stages predominantly have higher `ZC` and/or `nH2O`.
 
 ***
 
 Here is a graphical representation of the mean differences and _p_-values.
+The adenoma / normal datasets are highlighted in red.
 
 ```{r diffplot, fig.width=6, fig.height=6, fig.align="center"}
-diffplot(comptab)
+col <- rep("black", length(datasets))
+# highlight adenoma / normal datasets
+col[grepl("=AD", datasets)] <- "red"
+diffplot(comptab, col=col)
 ```

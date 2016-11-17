@@ -20,7 +20,6 @@ Identify the datasets for protein expression.
 
 ```{r datasets}
 datasets <- c("JKMF10", "UNS+14", "WKP+14", "MRK+11_AD.NC", "MRK+11_AC.AD", "MRK+11_AC.NC", "JCF+11", "KWA+14")
-
 ```
 
 Set up the diagram and make the plots.
@@ -29,7 +28,7 @@ Set up the diagram and make the plots.
 par(mfrow=c(3, 3))
 par(xaxs="i", yaxs="i", las=1, mar=c(4, 4, 2, 2), mgp=c(2.6, 1, 0), cex=1)
 for(i in seq_along(datasets)) {
-  pdat <- get_pdat(datasets[i])
+  pdat <- get_pdat(datasets[i], basis="AA4")
   rankplot(pdat, res=50)
   CHNOSZ::label.figure(LETTERS[i], paren=FALSE, font=2, yfrac=0.94)
 }
