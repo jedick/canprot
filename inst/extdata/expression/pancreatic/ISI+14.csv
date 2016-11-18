@@ -1,0 +1,100 @@
+"Protein accesion number","Primary Protein Name","Gene name","Protein Description","Simple ratio"
+P62258,1433E,YWHAE,"14-3-3 protein epsilon",0.66
+P63104,1433Z,YWHAZ,"14-3-3 protein zeta/delta",1.45
+P49748,ACADV,ACADVL,"Very long-chain specific acyl-CoA dehydrogenase, mitochondrial",0.54
+P12814,ACTN1,ACTN1,Alpha-actinin-1,1.54
+Q09666,AHNK,AHNAK,"Neuroblast differentiation-associated protein AHNAK",1.44
+O95831,AIFM1,AIFM1,"Apoptosis-inducing factor 1, mitochondrial",0.58
+Q12904,AIMP1,AIMP1,"Aminoacyl tRNA synthase complex-interacting multifunctional protein 1",0.54
+P14550,AK1A1,AKR1A1,"Alcohol dehydrogenase [NADP+]",0.72
+P49189,AL9A1,ALDH9A1,"4-trimethylaminobutyraldehyde dehydrogenase",0.54
+P02768,ALBU,ALB,"Serum albumin",1.6
+P04083,ANXA1,ANXA1,"Annexin A1",1.59
+P07355,ANXA2,ANXA2,"Annexin A2",1.4
+P20073,ANXA7,ANXA7,"Annexin A7",0.66
+P02749,APOH,APOH,"Beta-2-glycoprotein 1",1.96
+O15143,ARC1B,ARPC1B,"Actin-related protein 2/3 complex subunit 1B",1.58
+P59998,ARPC4,ARPC4,"Actin-related protein 2/3 complex subunit 4",1.5
+P06576,ATPB,ATP5B,"ATP synthase subunit beta, mitochondrial",0.67
+P61769,B2MG,B2M,Beta-2-microglobulin,1.55
+Q15582,BGH3,TGFBI,"Transforming growth factor-beta-induced protein ig-h3",1.97
+Q01518,CAP1,CAP1,"Adenylyl cyclase-associated protein 1",1.42
+P04040,CATA,CAT,Catalase,0.34
+P07858,CATB,CTSB,"Cathepsin B",2.03
+P19835,CEL,CEL,"Bile salt-activated lipase",0.28
+P10809,CH60,HSPD1,"60 kDa heat shock protein, mitochondrial",0.64
+O00299,CLIC1,CLIC1,"Chloride intracellular channel protein 1",1.33
+P53621,COPA,COPA,"Coatomer subunit alpha",0.5
+P48444,COPD,ARCN1,"Coatomer subunit delta",0.57
+P20674,COX5A,COX5A,"Cytochrome c oxidase subunit 5A, mitochondrial",0.6
+P09622,DLDH,DLD,"Dihydrolipoyl dehydrogenase, mitochondrial",0.5
+Q14195,DPYL3,DPYSL3,"Dihydropyrimidinase-related protein 3",2.29
+P29692,EF1D,EEF1D,"Elongation factor 1-delta",0.56
+Q13347,EIF3I,EIF3I,"Eukaryotic translation initiation factor 3 subunit I",0.63
+P06733,ENOA,ENO1,Alpha-enolase,1.28
+P13804,ETFA,ETFA,"Electron transfer flavoprotein subunit alpha, mitochondrial",0.59
+P38117,ETFB,ETFB,"Electron transfer flavoprotein subunit beta",0.61
+P06396,GELS,GSN,Gelsolin,1.56
+Q16775,GLO2,HAGH,"Hydroxyacylglutathione hydrolase, mitochondrial",0.51
+P38646,GRP75,HSPA9,"Stress-70 protein, mitochondrial",0.6
+P69905,HBA,HBA1,"Hemoglobin subunit alpha",0.39
+Q99714,HCD2,HSD17B10,"3-hydroxyacyl-CoA dehydrogenase type-2",0.58
+Q16836,HCDH,HADH,"Hydroxyacyl-coenzyme A dehydrogenase, mitochondrial",0.65
+P07686,HEXB,HEXB,"Beta-hexosaminidase subunit beta",1.61
+P08107,HSP71,HSPA1A,"Heat shock 70 kDa protein 1A/1B",1.28
+P01860,IGHG3,IGHG3,"Ig gamma-3 chain C region",3.36
+P54819,KAD2,AK2,"Adenylate kinase 2, mitochondrial",0.53
+P13861,KAP2,PRKAR2A,"cAMP-dependent protein kinase type II-alpha regulatory subunit",0.67
+P00338,LDHA,LDHA,"L-lactate dehydrogenase A chain",1.98
+P09382,LEG1,LGALS1,Galectin-1,2.69
+P43243,MATR3,MATR3,Matrin-3,0.79
+P40925,MDHC,MDH1,"Malate dehydrogenase, cytoplasmic",0.72
+P26038,MOES,MSN,Moesin,1.54
+Q14764,MVP,MVP,"Major vault protein",1.75
+P28331,NDUS1,NDUFS1,"NADH-ubiquinone oxidoreductase 75 kDa subunit, mitochondrial",0.58
+P55769,NH2L1,NHP2L1,"NHP2-like protein 1",0.68
+Q5JPE7,NOMO2,NOMO2,"Nodal modulator 2",0.52
+P36957,ODO2,DLST,"Dihydrolipoyllysine-residue succinyltransferase component of 2-oxoglutarate dehydrogenase complex, mitochondrial",0.59
+P11940,PABP1,PABPC1,"Polyadenylate-binding protein 1",0.63
+Q13310,PABP4,PABPC4,"Polyadenylate-binding protein 4",0.32
+Q9UNF0,PACN2,PACSIN2,"Protein kinase C and casein kinase substrate in neurons protein 2",0.66
+Q15084,PDIA6,PDIA6,"Protein disulfide-isomerase A6",0.45
+P36955,PEDF,SERPINF1,"Pigment epithelium-derived factor",2.39
+P07585,PGS2,DCN,Decorin,1.64
+P30048,PRDX3,PRDX3,"Thioredoxin-dependent peroxide reductase, mitochondrial",0.62
+P51888,PRELP,PRELP,Prolargin,2.72
+P28066,PSA5,PSMA5,"Proteasome subunit alpha type-5",0.69
+P28070,PSB4,PSMB4,"Proteasome subunit beta type-4",0.69
+O00487,PSDE,PSMD14,"26S proteasome non-ATPase regulatory subunit 14",0.68
+Q16576,RBBP7,RBBP7,"Histone-binding protein RBBP7",1.59
+P62829,RL23,RPL23,"60S ribosomal protein L23",0.37
+Q9P2E9,RRBP1,RRBP1,"Ribosome-binding protein 1",0.47
+P25398,RS12,RPS12,"40S ribosomal protein S12",0.46
+Q71UM5,RS27L,RPS27L,"40S ribosomal protein S27-like",0.51
+P62081,RS7,RPS7,"40S ribosomal protein S7",0.37
+P31949,S10AB,S100A11,"Protein S100-A11",1.9
+P07602,SAP,PSAP,"Proactivator polypeptide",2.07
+Q13228,SBP1,SELENBP1,"Selenium-binding protein 1",0.51
+Q8WVM8,SCFD1,SCFD1,"Sec1 family domain-containing protein 1",0.43
+P23246,SFPQ,SFPQ,"Splicing factor, proline- and glutamine-rich",0.75
+Q7KZF4,SND1,SND1,"Staphylococcal nuclease domain-containing protein 1",0.45
+P35237,SPB6,SERPINB6,"Serpin B6",0.51
+P51571,SSRD,SSR4,"Translocon-associated protein subunit delta",0.31
+P53597,SUCA,SUCLG1,"Succinyl-CoA ligase [GDP-forming] subunit alpha, mitochondrial",0.53
+P41250,SYG,GARS,"Glycyl-tRNA synthetase",0.42
+P26640,SYVC,VARS,"Valyl-tRNA synthetase",0.43
+P37802,TAGL2,TAGLN2,Transgelin-2,1.58
+P78371,TCPB,CCT2,"T-complex protein 1 subunit beta",0.78
+P50990,TCPQ,CCT8,"T-complex protein 1 subunit theta",0.65
+P40227,TCPZ,CCT6A,"T-complex protein 1 subunit zeta",0.73
+P21980,TGM2,TGM2,"Protein-glutamine gamma-glutamyltransferase 2",2
+P24752,THIL,ACAT1,"Acetyl-CoA acetyltransferase, mitochondrial",0.33
+P42765,THIM,ACAA2,"3-ketoacyl-CoA thiolase, mitochondrial",0.61
+P10599,THIO,TXN,Thioredoxin,1.41
+P62988,UBIQ,RPS27A,Ubiquitin,0.52
+P45974,UBP5,USP5,"Ubiquitin carboxyl-terminal hydrolase 5",0.45
+O60701,UGDH,UGDH,"UDP-glucose 6-dehydrogenase",0.58
+Q9NYU2,UGGG1,UGGT1,"UDP-glucose:glycoprotein glucosyltransferase 1",0.53
+P45880,VDAC2,VDAC2,"Voltage-dependent anion-selective channel protein 2",0.66
+Q00341,VIGLN,HDLBP,Vigilin,0.36
+P02774,VTDB,GC,"Vitamin D-binding protein",2.21

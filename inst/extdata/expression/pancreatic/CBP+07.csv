@@ -1,0 +1,115 @@
+"Database ID","Gene symbol",Entry,"Protein description","Ratio CP/NL",S.D.
+IPI00178744a,ACADVL,P49748,"Acyl-CoA dehydrogenase (splice isoform 2)",14.29,6.12
+IPI00419237,LAP3,P28838,"LAP3 protein",9.09,0.83
+IPI00029039,REG1A,P05451,"Regenerating islet-derived protein 3␣ (pancreatitis-associated protein 1)",8.33,2.78
+IPI00010274a,TPSAB1,Q15661,"Tryptase ␣-1 precursor (splice isoform 1)",7.14,1.53
+IPI00219713a,FGG,P02679,"␥-A of fibrinogen ␥ chain precursor (splice isoform)",6.67,2.22
+IPI00032179a,SERPINC1,P01008,"Antithrombin III variant, SERPINC1 protein",6.25,3.13
+IPI00641737,HP,P00738,"Haptoglobin precursor",6.25,1.17
+IPI00102821,PACAP,Q8WU39,"Pituitary adenylate cyclase-activating polypeptide protein",6.25,2.73
+IPI00019004,TLOC1,Q99442,"Translocation protein-1",6.25,1.17
+IPI00384428,BPHL,Q86WA6,"Valacyclovir hydrolase precursor",5.88,1.04
+IPI00021854,APOA2,P02652,"Apolipoprotein A-II precursor",5.56,2.47
+IPI00639937a,CFB,P00751,"Complement B-factor",5.56,1.23
+IPI00375676,FTL,P02792,"Ferritin light chain",5.26,1.11
+IPI00328113,FBN1,P35555,"Fibrillin-1 precursor",4.76,1.59
+IPI00298994,TLN1,Q9Y490,Talin-1,4.55,4.13
+IPI00021263,YWHAZ,P63104,"14-3-3 protein ␨/␦",4.35,3.78
+IPI00022463,TF,P02787,"Serotransferrin precursor",4.35,1.89
+IPI00017601,CP,P00450,"Ceruloplasmin precursor",4.17,1.22
+IPI00003348,GNB3,P16520,"Guanine nucleotide-binding protein Gi/Gs/Gt ␤ subunit 2",4,0.96
+IPI00022488,HPX,P02790,"Hemopexin precursor",4,1.44
+IPI00293303a,LGMN,Q99538,"Legumain precursor",4,0.8
+IPI00645078,UBE1L,P41226,"Ubiquitin-activating enzyme E1",4,0.8
+IPI00022371,HRG,P04196,"Histidine-rich glycoprotein precursor",3.85,1.18
+IPI00418336a,INTS3,Q68E01,"Hypothetical protein DKFZp686E1950",3.85,0.89
+IPI00465313a,A2M,P01023,"163-kDa protein, ␣2-macroglobulin",3.7,1.51
+IPI00298828,APOH,P02749,"␤2-Glycoprotein I precursor",3.7,1.37
+IPI00477090a,IGHG1,P01857,"Full-length cDNA clone CS0DD006YL02 of neuroblastoma of Homo sapiens",3.7,0.55
+IPI00643041a,RAN,P62826,"GTP-binding nuclear protein RAN",3.7,0.82
+IPI00022434,ALB,P02768,"Serum albumin",3.7,1.78
+IPI00304840,COL6A2,P12110,"2C2 of collagen ␣2(VI) chain precursor (splice isoform)",3.57,1.02
+IPI00215611,CRIP1,P50238,"Cysteine-rich protein 1",3.57,1.53
+IPI00301987,FLJ20323,A0A024RA24,"Hypothetical protein FLJ20323",3.57,1.28
+IPI00298497,FGB,P02675,"Fibrinogen ␤ chain precursor",3.45,1.66
+IPI00010157,MAT2A,P31153,"S-Adenosylmethionine synthetase ␥ form",3.45,0.71
+IPI00473011a,HBD,P02042,"Hemoglobin ␦ subunit",3.23,0.94
+IPI00376798,RPL11,P62913,"Ribosomal protein L11",3.23,3.64
+IPI00513698a,TPM2,P07951,"Tropomyosin 2",3.23,0.73
+IPI00382950,HBB,P68871,"␤-Globin gene from a thalassemia patient",3.13,0.88
+IPI00465343a,ADH1C,P00326,"Alcohol dehydrogenase",3.03,0.28
+IPI00216650,HNMT,P50135,"Histamine N-methyltransferase",3.03,0.64
+IPI00215631a,CSPG2,P13611,"Versican core protein precursor (splice isoform Vint)",3.03,0.64
+IPI00479925,AGRIN,O00468,Agrin,2.86,0.49
+IPI00176193a,COL14A1,Q05707,"Collagen ␣1 chain (splice isoform)",2.86,0.41
+IPI00556148,CFH,P08603,"Complement factor H",2.78,0.39
+IPI00215997,CD9,P21926,"CD9 antigen",2.7,0.66
+IPI00289800a,G6PD,P11413,"Glucose-6-phosphate dehydrogenase",2.7,0.29
+IPI00012011,CFL1,P23528,"Cofilin, non-muscle isoform",2.63,0.69
+IPI00549682,ALDOA,P04075,"Fructose-bisphosphate aldolase A",2.63,1.11
+IPI00216298,TXN,P10599,Thioredoxin,2.63,0.35
+IPI00005160,ARPC1B,O15143,"Actin-related protein 2/3 complex subunit 1B",2.56,0.72
+IPI00005171,HLA-DRA,P01903,"Human leukocyte antigen class II histocompatibility antigen",2.56,1.25
+IPI00028091,ACTR3,P61158,"Actin-like protein 3",2.5,0.25
+IPI00004656,B2M,P61769,"␤2-Microglobulin precursor",2.5,0.56
+IPI00025721,COPS3,Q9UNS2,"COP9 signalosome complex subunit 3",2.5,0.31
+IPI00027827,SOD3,P08294,"Extracellular Cu,Zn-superoxide dismutase precursor",2.5,0.56
+IPI00410714,HBA1,P69905,"Hypothetical protein",2.5,1
+IPI00000760,DDAH2,O95865,"NG-Dimethylarginine dimethylaminohydrolase 2",2.5,0.88
+IPI00216318,YWHAB,P31946,"14-3-3 protein ␤/␣",2.44,0.36
+IPI00556258a,AKR1A1,P14550,"Aldo-keto reductase family 1, member B1 variant",2.44,1.07
+IPI00465121a,GNAI2,P04899,"G␣i2 protein, GNAI2 protein",2.44,0.48
+IPI00032575,C17orf25,Q9HC38,"Hypothetical protein",2.44,0.83
+IPI00294739,SAMHD1,Q9Y3Z3,"Sterile ␣ motif domain and histidine aspartate domain-containing protein 1",2.44,0.89
+IPI00465436,CAT,P04040,Catalase,2.38,0.57
+IPI00382696a,FLNB,O75369,"Filamin-B (splice isoform)",2.38,0.79
+IPI00328415a,CYB5R3,P00387,"NADH-cytochrome b5 reductase",2.38,0.34
+IPI00383500a,PLEKHC1,Q96AC1,"Pleckstrin homology domain- containing family C member 1",2.38,0.17
+IPI00479186a,PKM2,P14618,"Pyruvate kinase 3",2.33,1.3
+IPI00555616,SOD2,P04179,"Superoxide dismutase, Mn- superoxide dismutase, mitochondrial precursor",2.33,0.59
+IPI00431795,KBTBD9,Q96CT2,"Kelch repeat and BTB (POZ) domain-containing 9",2.27,0.41
+IPI00007321,LYPLA1,O75608,"Splice isoform 1 of acyl-protein thioesterase 1",2.27,0.67
+IPI00514020a,GRHPR,Q9UBQ7,"Glyoxylate reductase/hydroxypyruvate reductase",2.22,0.2
+IPI00293276,MIF,P14174,"Macrophage migration-inhibitory factor",2.22,0.89
+IPI00019580,PLG,P00747,"Plasminogen precursor",2.17,0.52
+IPI00289862,SCRN1,Q12765,Secernin-1,2.17,0.33
+IPI00003865,HSPA8,P11142,"Heat shock cognate 71-kDa protein (splice isoform 1)",2.13,1
+IPI00022078a,NDRG1,Q92597,"NDRG1 protein, hypothetical protein FLJ38330",2.13,0.36
+IPI00017672,NP,P00491,"Purine-nucleoside phosphorylase",2.13,0.27
+IPI00218733,SOD1,P00441,"Superoxide dismutase",2.13,0.63
+IPI00005159a,ACTR2,P61160,"Actin-like protein 2",2.08,0.22
+IPI00002243a,GGTLA1,P36269,"␥-Glutamyltransferase 5",2.08,0.3
+IPI00383046,CMBL,Q96DG6,"Hypothetical protein FLJ23617",2.08,0.56
+IPI00031545,ITPR2,Q14571,"Inositol 1,4,5-trisphosphate receptor type 2 (splice isoform long)",2.08,0.3
+IPI00028416a,PBX2,P40425,"Pre-B-cell leukemia transcription factor 2",2.08,0.52
+IPI00017376a,SEC23B,Q15437,"Protein transport protein Sec23B, Sec23 (Saccharomyces cerevisiae) homolog B",2.08,0.22
+IPI00164623,C3,P01024,"Complement C3 precursor",2.04,0.92
+IPI00021408a,NUDT4,Q9NZJ9,"Diphosphoinositol-polyphosphate phosphohydrolase",2.04,0.67
+IPI00025427,RNASE3,P12724,"Eosinophil cationic protein precursor",2.04,0.29
+IPI00013219,ILK,Q13418,"Integrin-linked protein kinase 1",2.04,0.29
+IPI00010471,LCP1,P13796,L-plastin,2.04,0.87
+IPI00018195,MAP2K3,P46734,"Mitogen-activated protein kinase 3",2.04,0.33
+IPI00246058,PDCD6IP,Q8WUM4,"Programmed cell death 6-interacting protein",2.04,0.92
+IPI00009634,SQRDL,Q9Y6N5,"Sulfide:quinone oxidoreductase, mitochondrial precursor",2.04,0.25
+IPI00293305a,ITGB1,P05556,"Integrin ␤1 (splice isoform)",2,0.36
+IPI00098902,OGDH,Q02218,Oxoglutarate,2,0.32
+IPI00003817,ARHGDIB,P52566,"Rho GDP-dissociation inhibitor 2",2,0.24
+IPI00640411a,HGD,Q93099,"H2GD protein, homogentisate 1,2-dioxygenase",0.22,0.03
+IPI00216085a,COX6B1,P14854,"Cytochrome c oxidase subunit VIb",0.23,0.04
+IPI00397808a,LOC388720,P62979,"Similar to bA92K2.2 (similar to ubiquitin)",0.24,0.22
+IPI00382733a,LRRFIP1,Q32MZ4,"Transcription repressor",0.26,0.03
+IPI00478208a,LOC645296,P18621,"60 S ribosomal protein L17, 21-kDa protein",0.27,0.02
+IPI00178440,EEF1B2,P24534,"Elongation factor 1-␤",0.29,0.03
+IPI00550689,C22orf28,Q9Y3I0,"HSPC117 protein",0.37,0.04
+IPI00012772,RPL8,P62917,"60 S ribosomal protein L8",0.39,0.02
+IPI00022232,CLPS,P04118,"Colipase precursor",0.4,0.06
+IPI00477874a,TATDN1,Q6P1N9,"Hepatocarcinoma high expression protein, TatD DNase domain- containing 1",0.41,0.18
+IPI00218568,PCBD1,P61457,"Pterin-4-␣-carbinolamine dehydratase",0.41,0.08
+IPI00007676,HSD17B12,Q53GQ0,"Steroid dehydrogenase homolog",0.41,0.1
+IPI00219156,RPL30,P62888,"60 S ribosomal protein L30",0.44,0.1
+IPI00023048a,EEF1D,P29692,"Elongation factor 1-␦",0.44,0.08
+IPI00412579a,RPL10A,P62906,"60 S ribosomal protein L10a",0.45,0.05
+IPI00027626a,CCT6A,P40227,"T-complex protein 1",0.48,0.07
+IPI00140420,SND1,Q7KZF4,"Staphylococcal nuclease domain- containing protein 1",0.49,0.23
+IPI00010790a,BGN,P21810,"Biglycan precursor",0.5,0.05
+IPI00013452,EPRS,P07814,"Hypothetical protein DKFZp3313B047",0.5,0.15

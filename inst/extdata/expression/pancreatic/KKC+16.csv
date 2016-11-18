@@ -1,0 +1,161 @@
+"Protein ID","Gene symbol",Entry,(T1/T4),(T2/T4),(T3/T4),(T1/N1),(T2/N2),(T3/N3),(T4/N4)
+"Heterogeneous nuclear ribonucleoprotein U",Hnrnpu,Q8VEK3,85.44,1.96,2.74,3.36,2.92,0.94,
+Tenascin,Tnc,Q80YX1,57.1,5.4,,11.13,4.41,,
+Plectin,Plec,Q9QXS1,31.85,1.02,,2.03,0.15,,
+"Tropomysin alpha-4 chain",Tpm4,Q6IRU2,13.76,5.44,,7.95,6.54,,
+Cornifin-A,Sprr1a,Q62266,12.49,,,41.18,,,
+"Heterogeneous nuclear ribonucleoprotein A3",Hnrnpa3,Q8BG05,11.8,1.77,2.37,30.05,6.64,,0.91
+Fibulin-2,Fbln2,P37889,11.79,8.75,,34.87,9.57,,
+"Protein S100-A6",S100a6,P14069,9.97,9.18,,7.37,3.61,,
+Coronin-1A,Coro1a,O89053,9.76,4.37,0.22,8.38,16.57,5.28,
+"Ig gamma-1 chain C region, membrane-bound form",Ighg1,P01869,9.65,,3.66,15.57,,3.89,
+"Annexin A7",Anxa7,Q07076,9.62,2.32,0.07,2.95,1.84,0.75,1.23
+Clusterin,Clu,Q06890,9.14,7.05,3.85,4.54,9.71,2.52,
+Filamin-B,Flnb,Q80X90,7.97,4.86,,15.18,1.92,274.8,
+"Ubiquitin-conjugating enzyme E2 N",Ube2n,P61089,7.91,2.44,2.41,1.78,1.43,,0.73
+Filamin-A,Flna,Q8BTM8,7.82,5.16,2.61,10.73,3.68,0.44,
+Transgelin,Tagln,P37804,7.31,3.93,2.76,6.35,5.44,,
+"Prostaglandin reductase 1",Ptgr1,Q91YR9,7.11,1.55,,16.49,,,
+"Heterogeneous nuclear ribonucleoprotein A1",Hnrnpa1,P49312,7.07,4.85,1.41,9.1,4.22,0.62,
+Plastin-2,Lcp1,Q61233,6.56,6.61,,16.64,5.6,,
+"Eukaryotic translation initiation factor 3 subunit I",Eif3i,Q9QZD9,6.5,,3.06,0.33,0.96,0.17,1.49
+Metallothionein-2,Mt2,P02798,6.42,0.96,3.7,2.16,0.34,1.16,
+"Myeloid-associated differentiation marker",Myadm,O35682,5.91,3.27,1.2,3.25,1.31,,1.26
+"Lysine-specific demethylase 3A",Kdm3a,Q6PCM1,5.9,2.19,,2.99,2.5,1.15,
+"Fructose-bisphosphate aldolase A",Aldoa,P05064,5.75,2.12,7.75,6.39,2.82,,
+Vimentin,Vim,P20152,5.75,4.94,2.08,8.3,5.78,7.76,
+"Integrin beta-1",Itgb1,P09055,5.74,4.81,,32.64,,,
+"Nucleoside diphosphate kinase A",Nme1,P15532,5.68,0.79,2.49,0.68,0.46,1.25,1.04
+"Ubiquinone biosynthesis protein COQ9, mitochondrial",Coq9,Q8K1Z0,5.3,,,,,0.88,
+"Annexin A2",Anxa2,P07356,5.2,2.75,0.59,1.54,2.31,,
+"Pyruvate kinase isozymes M1/M2",Pkm2,P52480,4.98,2.92,1.56,5.23,2.26,2.22,1.35
+Cofilin-1,Cfl1,P18760,4.97,2.93,4.68,4.16,3.09,1.66,
+"Protein S100-A9",S100a9,P31725,4.97,5.86,,,,7.16,
+"Cytochrome b5",Cyb5a,P56395,4.84,,0.8,3.3,1.17,,
+"Phosphoglycerate kinase 1",Pgk1,P09411,4.71,2.17,0.94,2.23,1.12,1.6,1.25
+"Actin-related protein 2/3 complex subunit 4",Arpc4,P59999,4.7,,,3.73,,,
+Moesin,Msn,P26041,4.61,2.82,1.85,24.89,2.93,,1.37
+"Heterogeneous nuclear ribonucleoprotein H",Hnrnph1,O35737,4.6,154.84,1.12,4.29,4.96,4.13,
+"Beta-actin-like protein 2",Actbl2,Q8BFZ3,4.58,3.64,0.14,9.53,7.46,,1.62
+"Aldose reductase",Akr1b1,P45376,4.57,2.43,3.21,1.57,1.08,0.57,0.97
+"Ribonuclease inhibitor",Rnh1,Q91VI7,4.55,1.36,1.42,1.04,0.07,1.12,1.14
+"Ras-related C3 botulinum toxin substrate 1",Rac1,P63001,4.5,5.17,5.41,6.48,3.84,1.08,0.71
+"Glucose-6-phosphate isomerase",Gpi,P06745,4.43,7.26,6.63,3.2,1.77,0.61,
+"Dihydropyrimidinase-related protein 2",Dpysl2,O08553,4.27,3.7,,,2.39,,
+"Ubiquitin-fold modifier 1",Ufm1,P61961,4.23,0.91,2.85,0.4,0.21,0.52,
+Transketolase,Tkt,P40142,4.19,1.67,1.17,4.58,1.18,1.24,0.97
+"Peroxiredoxin-5, mitochondrial",Prdx5,P99029,4.08,2.41,1.66,3.67,2.49,0.35,
+"Ras-related C3 botulinum toxin substrate 2",Rac2,Q05144,4.03,4.18,,,,,
+Alpha-enolase,Eno1,P17182,4.01,3.13,1.11,7.47,3.32,1.03,0.78
+"Ferritin light chain 1",Ftl1,P29391,3.99,2.23,,6.86,21.66,,
+Calmodulin,Calm1,P62204,3.9,2.56,0.84,3.91,3.48,1,0.76
+"Myosin light polypeptide 6",Myl6,Q60605,3.85,7.97,0.37,6.64,12,1.14,
+"Actin, cytoplasmic 1",Actb,P60710,3.81,3.38,1.3,7.98,5.46,2.34,1.49
+"Cytosolic non-specific dipeptidase",Cndp2,Q9D1A2,3.76,0.93,0.76,2.83,1.47,,
+"Protein FAM49B",Fam49b,Q921M7,3.75,,,13.8,,,
+"Heterogeneous nuclear ribonucleoprotein F",Hnrnpf,Q9Z2X1,3.7,2.82,1.11,13.58,4.24,10.02,1.17
+"ADP-ribosylation factor 1",Arf1,P84078,3.69,3.26,1.49,1.59,1.48,,0.81
+"14-3-3 protein beta/alpha",Ywhab,Q9CQV8,3.58,2.09,0.67,4.64,2.41,1.42,0.83
+"Annexin A4",Anxa4,P97429,3.57,1.47,0.97,2.87,0.98,5.85,
+"14-3-3 protein zeta/delta",Ywhaz,P63101,3.53,1.96,1.3,4.41,2.41,1.26,1.38
+"Aldehyde dehydrogenase, mitochondrial",Aldh2,P47738,3.52,1.66,2.12,1.86,3.49,2.12,1.01
+"L-lactate dehydrogenase A chain",Ldha,P06151,3.5,2.92,1.75,6.89,2.27,1.99,0.84
+"Ras GTPase-activating-like protein IQGAP1",Iqgap1,Q9JKF1,3.46,3.01,3.46,3.29,4.55,0.36,
+"RNA-binding protein EWS",Ewsr1,Q61545,3.39,4.95,4.68,17.94,,0.61,
+"Annexin A1",Anxa1,P10107,3.37,1.64,9.93,12.11,,,
+Galectin-1,Lgals1,P16045,3.33,3.19,0.76,6.39,1.66,2.14,
+"Catenin alpha-1",Ctnna1,P26231,3.29,1.05,0.56,3.99,3.05,1.08,1.58
+"Sodium/potassium-transporting ATPase subunit alpha-1",Atp1a1,Q8VDN2,3.28,7.55,1.2,4.24,0.69,42.07,1.56
+Transgelin-2,Tagln2,Q9WVA4,3.28,4.06,1.31,2.86,3.46,2.3,1.29
+"3-ketoacyl-CoA thiolase, mitochondrial",Acaa2,Q8BWT1,3.28,,0.65,6.22,,0.98,1.49
+"Histone H2B type 1-B",Hist1h2bb,Q64475,3.24,1.88,0.94,2.28,1.32,1.25,0.88
+"14-3-3 protein gamma",Ywhag,P61982,3.23,1.96,0.82,4.06,2,1.39,1.26
+"Electron transfer flavoprotein subunit alpha, mitochondrial",Etfa,Q99LC5,3.09,1.18,1.39,0.85,0.59,0.75,1.01
+"Cathepsin D",Ctsd,P18242,3.07,1.28,,0.71,2.74,1.11,
+"Triosephosphate isomerase",Tpi1,P17751,3.05,2.04,1.3,4.18,1.43,1.35,1.04
+"Protein S100-A11",S100a11,P50543,2.97,3.6,,9,19.97,8.25,
+"SH3 domain-binding glutamic acid-rich-like protein",Sh3bgrl,Q9JJU8,2.94,3.22,,2.07,2.12,,1.51
+"Heterogeneous nuclear ribonucleoprotein L",Hnrnpl,Q8R081,2.93,3.1,1.98,9.28,9.79,,
+Profilin-1,Pfn1,P62962,2.89,2.9,1.47,5.38,1.96,2.42,1.1
+Peroxiredoxin-1,Prdx1,P35700,2.87,2.43,1.07,2.32,2.45,1.42,1.55
+"14-3-3 protein theta",Ywhaq,P68254,2.87,2.01,0.86,4.08,1.79,1.25,1.67
+"Serpin B6",Serpinb6,Q60854,2.86,1.99,0.47,4.03,10.23,0.58,1.74
+"Actin-related protein 2/3 complex subunit 1B",Arpc1b,Q9WV32,2.81,0.25,,1.96,,,
+"Heterogeneous nuclear ribonucleoprotein U-like protein 2",Hnrnpul2,Q00PI9,2.79,,1.24,3.97,1.22,,
+"14-3-3 protein epsilon",Ywhae,P62259,2.76,1.56,0.91,3.3,1.98,1.18,0.95
+"GTP-binding nuclear protein Ran",Ran,P62827,2.74,4.45,,6.76,2.99,1.32,1.61
+"Polypyrimidine tract-binding protein 1",Ptbp1,P17225,2.73,1.45,0.64,1.29,1.17,0.74,0.67
+"Complement C3",C3,P01027,2.72,2.82,3.31,,4.74,7.67,
+"Histone H1.2",Hist1h1c,P15864,2.69,1.95,0.7,,,,1.02
+"Peptidyl-prolyl cis-trans isomerase B",Ppib,P24369,2.66,1.03,1.02,1.25,0.44,0.9,1.22
+"Cathepsin Z",Ctsz,Q9WUU7,2.65,1.38,,22.03,3.21,,
+"Tubulin alpha-1A chain",Tuba1a,P68369,2.63,2.47,0.79,2.49,3.38,,0.98
+"Coatomer subunit alpha",Copa,Q8CIE6,2.61,0.8,1.64,0.36,0.62,1.4,1.09
+"Keratin, type II cytoskeletal 8",Krt8,P11679,2.6,3.69,1.3,1.4,0.71,1.5,
+"Glutathione reductase, mitochondrial",Gsr,P47791,2.6,,,2.51,,,
+"Alcohol dehydrogenase [NADP+]",Akr1a1,Q9JII6,2.59,1.23,8.18,3.67,,1.35,
+"Rho GDP-dissociation inhibitor 1",Arhgdia,Q99PT1,2.56,1.22,1.86,4.54,2.46,3.31,0.79
+"Histone H4",Hist1h4a,P62806,2.52,2.61,1.23,7.43,,2.4,1.75
+"Voltage-dependent anion-selective channel protein 1",Vdac1,Q60932,2.52,1.35,1.46,3.23,1.13,1.05,1.25
+"Malate dehydrogenase, mitochondrial",Mdh2,P08249,2.52,1.14,1.58,2.47,0.76,1.19,0.75
+"Glucosidase 2 subunit beta",Prkcsh,O08795,2.5,1.4,3.46,1.34,2.4,,
+"Glutathione S-transferase Mu 2",Gstm2,P15626,2.36,,,2.94,,,
+"Cytoplasmic dynein 1 intermediate chain 2",Dync1i2,O88487,2.33,2.68,2.12,2.12,1.31,1.15,
+"Citrate synthase, mitochondrial",Cs,Q9CZU6,2.33,2.04,3.02,2.91,1.29,3.73,0.93
+"Tropomyosin alpha-3 chain",Tpm3,P21107,2.31,,,4.32,,,
+"Heterogeneous nuclear ribonucleoprotein K",Hnrnpk,P61979,2.31,1.24,1.11,5.63,2.05,1.54,1.59
+"Trifunctional enzyme subunit alpha, mitochondrial",Hadha,Q8BMS1,2.29,1.81,0.99,2.15,0.41,1.17,1.6
+Myosin-9,Myh9,Q8VDD5,2.29,2.83,0.87,2.94,5.57,1.07,0.8
+Destrin,Dstn,Q9R0P5,2.28,3.34,,3.38,2.75,1.2,1.36
+Talin-1,Tln1,P26039,2.26,1.63,0.71,4.41,1.93,0.84,
+"Cytoplasmic dynein 1 heavy chain 1",Dync1h1,Q9JHU4,2.23,2.59,0.92,0.3,3.02,,
+"Long-chain specific acyl-CoA dehydrogenase, mitochondrial",Acadl,P51174,2.21,1.63,,,2.2,,
+"Peptidyl-prolyl cis-trans isomerase A",Ppia,P17742,2.17,1.11,0.99,1.57,0.91,0.9,1.04
+"Rho GDP-dissociation inhibitor 2",Arhgdib,Q61599,2.15,1.97,,,,,
+"Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial",Sdha,Q8K2B3,2.12,2.15,4.28,1.48,0.89,,
+"Tubulin beta-5 chain",Tubb5,P99024,2.1,2.61,0.94,5.25,2.53,2.08,1.07
+Hemopexin,Hpx,Q91X72,2.07,4.11,0.51,1.91,2.95,3.02,
+"Bifunctional aminoacyl-tRNA synthetase",Eprs,Q8CGC7,2.07,1.22,0.8,0.89,0.5,,1.65
+"Stress-70 protein, mitochondrial",Hspa9,P38647,2.05,3.35,1.01,1.26,0.92,0.58,0.97
+Peroxiredoxin-4,Prdx4,O08807,2.04,1.19,1.06,1.82,0.59,1.03,1.19
+"RNA-binding protein FUS",Fus,P56959,2.03,0.77,,0.28,,,
+"Serpin I2",Serpini2,Q9JK88,0.49,0.5,1.45,0.85,6.73,1.47,1.45
+"Protein transport protein Sec61 subunit alpha isoform 1",Sec61a1,P61620,0.48,1.31,0.98,0.18,0.45,1.02,0.93
+"Hypoxia up-regulated protein 1",Hyou1,Q9JKR6,0.45,0.83,2.11,0.2,0.44,1.16,1.36
+"Ribosome-binding protein 1",Rrbp1,Q99PL5,0.43,0.76,1.51,0.6,0.35,0.93,0.76
+"Eukaryotic translation initiation factor 3 subunit F",Eif3f,Q9DCH4,0.43,2.78,,,,,
+"Ribonuclease pancreatic",Rnase1,P00683,0.43,0.48,1.54,0.04,0.26,0.67,1.08
+"Transmembrane emp24 domain-containing protein 2",Tmed2,Q9R0Q3,0.41,0.52,0.5,,,,
+"Protein disulfide-isomerase",P4hb,P09103,0.4,0.57,1.52,0.24,0.32,0.73,0.95
+"Valyl-tRNA synthetase",Vars,Q9Z1Q9,0.38,0.31,0.57,0.16,0.26,0.42,1.24
+"Asparagine synthetase [glutamine-hydrolyzing]",Asns,Q61024,0.37,0.46,1.92,0.18,0.46,1.34,1.4
+"Protein ERGIC-53",Lman1,Q9D0F3,0.36,1.25,0.62,0.28,0.48,0.58,0.86
+Vigilin,Hdlbp,Q8VDJ3,0.35,0.55,1.08,0.4,0.72,1.4,0.87
+Lithostathine-2,Reg2,Q08731,0.35,2.8,2.43,,0.6,0.68,0.85
+"Coatomer subunit delta",Arcn1,Q5XJY5,0.32,0.48,2.14,1.02,0.14,0.67,0.64
+"Protein disulfide-isomerase A2",Pdia2,D3Z6P0,0.31,0.4,0.99,0.14,0.27,0.73,1.07
+"Adenosine kinase",Adk,P55264,0.31,0.42,0.57,0.24,0.39,0.65,
+"Carboxypeptidase A1",Cpa1,Q7TPZ8,0.31,0.4,1.2,0.13,0.3,0.95,0.9
+"Pancreatic lipase-related protein 2",Pnliprp2,P17892,0.3,0.05,0.76,0.18,0.25,0.56,1.19
+"Aldehyde dehydrogenase family 1 member L2, mitochondrial",Aldh1l2,Q8K009,0.29,,1.53,0.45,0.65,1.2,1.08
+"Chymotrypsinogen B",Ctrb1,Q9CR35,0.29,0.72,1.16,0.12,0.5,1.53,1.37
+Insulin-1,Ins1,P01325,0.29,0.27,1.73,1.31,,3.54,
+"Eukaryotic translation initiation factor 5A-1",Eif5a,P63242,0.26,0.82,0.88,0.33,0.35,0.49,
+"Thioredoxin domain-containing protein 17",Txndc17,Q9CQM5,0.25,,,,,,
+"Bile salt-activated lipase",Cel,Q64285,0.24,0.46,0.89,0.25,0.27,0.92,0.78
+Glucagon,Gcg,P55095,0.22,0.46,1.24,,7.41,3.19,
+Colipase,Clps,Q9CQC2,0.21,0.31,0.6,0.08,0.21,1.71,0.99
+"Zymogen granule membrane protein 16",Zg16,Q8K0C5,0.18,0.1,0.74,1.1,1.58,0.61,0.77
+"T-complex protein 1 subunit zeta",Cct6a,P80317,0.18,0.25,0.84,,1.33,1.89,0.72
+Lithostathine-1,Reg1,P43137,0.15,0.56,1.34,0.29,0.63,1.64,0.93
+"Pancreatic lipase-related protein 1",Pnliprp1,Q5BKQ4,0.15,0.33,0.8,0.24,0.56,1.12,0.7
+"Pancreatic alpha-amylase",Amy2,P00688,0.12,0.31,0.94,0.09,0.16,0.65,1.03
+"Anionic trypsin-2",Prss2,P07146,0.09,0.73,1.85,0.07,0.37,1.64,1.12
+"Peptidyl-prolyl cis-trans isomerase FKBP11",Fkbp11,Q9D1M7,0.08,,0.61,0.44,0.26,1.01,1.27
+"Neuronal acetylcholine receptor subunit alpha-6",Chrna6,Q9R0W9,0.07,,0.15,1.84,0.09,0.18,
+"Nuclear receptor subfamily 0 group B member 1",Nr0b1,Q61066,0.06,,,1.78,,,
+"Chymotrypsin-like elastase family member 2A",Cela2a,P05208,0.06,0.19,1.07,0.04,0.17,0.59,0.89
+"2-amino-3-ketobutyrate coenzyme A ligase, mitochondrial",Gcat,O88986,0.03,0.58,2.51,0.21,0.37,1.82,0.74
+"Endoplasmic reticulum resident protein 27",Erp27,Q9D8U3,0.02,0.45,0.94,0.11,0.56,1.28,1.14
+"Pterin-4-alpha-carbinolamine dehydratase",Pcbd1,P61458,0.02,,1.16,,,0.3,
+Syncollin,Sycn,Q8VCK7,0.01,,0.16,0.25,0.13,0.43,

@@ -2,6 +2,7 @@
 \name{pdat_}
 \alias{pdat_}
 \alias{pdat_CRC}
+\alias{pdat_pancreatic}
 \title{Get Protein Data}
 \description{
   Get data on protein expression and chemical composition.
@@ -20,7 +21,7 @@
 The \code{pdat_} functions read CSV data files for data on relatively up- and down-expressed proteins reported in proteomic experiments, then uses \code{\link{protcomp}} to calculate some chemical compositional metrics.
 
 \code{pdat_CRC} retrieves data for protein expression in colorectal cancer.
-Other \code{pdat_} functions will be added in future versions of the package.
+\code{pdat_pancreactic} retrieves data for protein expression in pancreatic cancer.
 
 If \code{dataset} is \code{NULL}, the return value gives the names of all datasets that can be retrieved using this function.
 Each name indicates the study (publication) where the data were reported, constructed by combining the first characters of the (first three or four) authors' family names with the 2-digit year of publication.
