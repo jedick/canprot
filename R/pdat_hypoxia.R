@@ -16,7 +16,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
              "BSA+15",
              "HWA+16",
              "LCS16_transcription", "LCS16_translation",
-             "RSE+16=ASC", "YLW+16=SPH"))
+             "RSE+16=ASC", "XCJ+16_CoCl2", "XCJ+16_SAL=ReOx", "YLW+16=SPH"))
   }
   # get study and stage/condition
   study <- strsplit(dataset, "_")[[1]][1]
@@ -275,6 +275,17 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
     dat$ProteinID <- ID
     pcomp <- protcomp(dat$ProteinID, basis=basis)
     up2 <- dat$Log2Rep1 > 0
+  } else if(study=="XCJ+16") {
+    # 20161119 cardiomyocytes CoCl2 (hypoxia mimetic) or SAL (anti-hypoxic), Xu et al., 2016
+    # XCJ+16_CoCl2, XCJ+16_SAL
+    dat <- read.csv(paste0(datadir, "XCJ+16.csv"), as.is=TRUE)
+    description <- paste("cardiomyocytes", stage)
+    print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
+    # use selected dataset
+    icol <- grep(paste0("Log2.", stage), colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/XCJ+16_aa.csv"))
+    up2 <- dat[, icol] > 0
   } else stop(paste("hypoxia dataset", dataset, "not available"))
   return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, names=names, description=description))
 }

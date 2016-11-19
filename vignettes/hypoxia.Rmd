@@ -39,15 +39,17 @@ csl: peerj.csl
 
 [`WRK+14`](http://doi.org/10.1371/journal.pone.0106973) SPH vs classical cell culture (2D growth). Standard concentrations of gases used for tissue culture (5% CO<sub>2</sub>, 95% air) were used in both cases. The comparisons here include proteins that have a log<sub>2</sub> fold change of at least ±1. Source: P1&lowbar;Data sheet in the SI of @WRK+14.
 
-[`BSA+15`](http://doi.org/) 1% vs 19% O<sub>2</sub>. Source: Table S1 of @BSA+15.
+[`BSA+15`](http://doi.org/10.1155/2015/678527) 1% vs 19% O<sub>2</sub>. Source: Table S1 of @BSA+15.
 
-[`HWA+16`](http://doi.org/) 1% O<sub>2</sub> for 24 hr. The comparisons here include proteins with a fold change of <0.5 or >1 and proteins that were detected in only hypoxic or only normoxic conditions. Source: Table S1 of @HWA+16.
+[`HWA+16`](http://doi.org/10.1016/j.celrep.2016.01.036) 1% O<sub>2</sub> for 24 hr. The comparisons here include proteins with a fold change of <0.5 or >1 and proteins that were detected in only hypoxic or only normoxic conditions. Source: Table S1 of @HWA+16.
 
-[`LCS16`](http://doi.org/) Microarray analysis of differential gene expression in the transcriptome (total rRNA) and translatome (polysomal / total RNA ratio) of cells grown in normal and hypoxic (1% O<sub>2</sub>) conditions. Source: data file supplied by Dr. Ming-Chih Lai (@LCS16).
+[`LCS16`](http://doi.org/10.1371/journal.pone.0153627) Microarray analysis of differential gene expression in the transcriptome (total rRNA) and translatome (polysomal / total RNA ratio) of cells grown in normal and hypoxic (1% O<sub>2</sub>) conditions. Source: data file supplied by Dr. Ming-Chih Lai (@LCS16).
 
-[`RSE+16`](http://doi.org/) ASC from 3 donors cultured for 24 hr. in hypoxic (1% O<sub>2</sub>) vs normoxic (20% O<sub>2</sub>) conditions. Source: Tables 1 and 2 of @RSE+16.
+[`RSE+16`](http://doi.org/10.1186/s13287-016-0310-7) ASC from 3 donors cultured for 24 hr. in hypoxic (1% O<sub>2</sub>) vs normoxic (20% O<sub>2</sub>) conditions. Source: Tables 1 and 2 of @RSE+16.
 
-[`YLW+16`](http://doi.org/) 800 μm spheroids vs 2D monolayers. Source: Tables S1a–b of @YLW+16.
+[`XCJ+16`](http://doi.org/10.1016/j.jprot.2015.09.028) Rat cardiomyocytes treated with CoCl<sub>2</sub> (hypoxia mimetic) vs control or with SAL (anti-hypoxic) vs CoCl<sub>2</sub>. Source: SI Tables 1S and 2S of @XCJ+16.
+
+[`YLW+16`](http://doi.org/10.1021/acs.jproteome.6b00342) 800 μm spheroids vs 2D monolayers. Source: Tables S1a–b of @YLW+16.
 
 ## Summary Table
 
@@ -80,7 +82,7 @@ xsummary(comptab)
 
 ## Mean Differences
 
-The reoxygenation, tumor spheroid, and adipose-derived stem cell datasets are highlighted in blue, red, and orange, respectively.
+The reoxygenation or anti-hypoxic, tumor spheroid, and adipose-derived stem cell datasets are highlighted in blue, red, and orange, respectively.
 
 ```{r diffplot, fig.width=6, fig.height=6, fig.align="center"}
 col <- rep("black", length(datasets))
