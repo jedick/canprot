@@ -1,0 +1,289 @@
+Accession,Gene.Symbol,Gene.Name,UniProt,X115.117..HYP.NGM.,PVal.115.117,EF.115.117,X116.117..LSC.NGM.,PVal.116.117,EF.116.117,HYP.LSC
+IPI:IPI00230941.5,Vim,Vimentin,P31000,1.6261,0,1.02,1.2934,0,1.02,1.257
+IPI:IPI00194103.2,Nes,"Isoform 1 of Nestin",P21263,1.2079,0,1.03,1.0416,0,1.02,1.16
+IPI:IPI00409539.3,Flna_predicted,"similar to Filamin-A",C0JPT7,0.8829,0,1.03,0.9727,0.023,1.02,0.908
+IPI:IPI00201060.4,Lmna,Lamin-A,Q6P6U3;P70482;P48679,1.2491,0,1.04,1.0443,0.012,1.03,1.196
+IPI:IPI00209258.4,Spna2,"Spectrin alpha chain, brain",Q6IRK8;O88663;P70477;Q63363;P16086,0.9101,0,1.03,0.9358,0,1.03,0.973
+IPI:IPI00327630.1,Dync1h1,"Cytoplasmic dynein 1 heavy chain 1",P38650;Q63178;Q6LCG3,0.85,0,1.05,0.9485,0.002,1.03,0.896
+IPI:IPI00362014.5,Tln1,"Tln1 protein",NA,0.8368,0,1.05,0.9206,0,1.03,0.909
+IPI:IPI00655259.1,Tubb2b,"Tubulin beta-2B chain",P04691;A3KMR7;Q3KRE8,0.7303,0.013,1.23,0.8988,0.001,1.03,0.813
+IPI:IPI00206624.1,Hspa5,"78 kDa glucose-regulated protein precursor",P06761,1.24,0,1.04,1.0741,0,1.03,1.154
+IPI:IPI00844828.1,Col1a1,"collagen, type 1, alpha 1",P02454,0.6343,0,1.26,0.5268,0,1.24,1.204
+IPI:IPI00421888.3,Anxa6,"Annexin A6",Q6IMZ3;P48037,0.7861,0,1.05,0.8989,0,1.03,0.875
+IPI:IPI00767147.1,LOC688509,"similar to Alpha-enolase",Q5EB49;Q5BJ93;Q6AYV3;Q66HI3;Q6P504;Q4QR91;P04764,0.6428,0,1.12,0.8181,0,1.08,0.786
+IPI:IPI00212014.2,Vcp,"Transitional endoplasmic reticulum ATPase",P46462,0.8961,0,1.05,0.9699,0.026,1.03,0.924
+IPI:IPI00882501.1,Ncl,Nucleolin,P13383;Q5U328,0.8824,0.001,1.07,0.8908,0,1.06,0.991
+IPI:IPI00763589.1,LOC684681,"similar to Histone H1.2",NA,2.2283,0,1.16,1.6648,0,1.16,1.338
+IPI:IPI00231340.8,-,"11 kDa protein",NA,1.4453,0,1.03,1.2288,0,1.02,1.176
+IPI:IPI00200661.1,Fasn,"Fatty acid synthase",P12785,0.8214,0,1.04,0.9541,0.001,1.03,0.861
+IPI:IPI00213013.1,Stip1,"Stress-induced-phosphoprotein 1",O35814,0.7543,0,1.05,0.9391,0,1.03,0.803
+IPI:IPI00566967.1,Hnrpu,"90 kDa protein",NA,1.2452,0,1.06,1.0544,0.008,1.04,1.181
+IPI:IPI00363265.3,Hspa9a_predicted,"Stress-70 protein, mitochondrial precursor",P48721,1.2239,0,1.05,1.055,0.006,1.04,1.16
+IPI:IPI00372388.1,Cct3,"T-complex protein 1 subunit gamma",Q6P502,0.7724,0,1.08,0.9043,0,1.05,0.854
+IPI:IPI00396910.1,Atp5a1,"ATP synthase subunit alpha, mitochondrial precursor",P15999;Q6P753,1.3625,0,1.06,1.134,0,1.04,1.201
+IPI:IPI00372259.4,Tpm3,"Isoform 1 of Tropomyosin alpha-3 chain",Q63610;Q63599;Q9QX07;Q63601;Q9QX08;Q63600,0.796,0,1.1,0.9332,0.024,1.06,0.853
+IPI:IPI00204703.5,Serpinh1,"Serpin H1 precursor",P29457;Q5RJR9,1.1968,0,1.05,1.056,0.005,1.04,1.133
+IPI:IPI00189074.3,Pabpc1,"Polyadenylate-binding protein 1",Q9EPH8,1.1647,0.001,1.09,1.1054,0.01,1.08,1.054
+IPI:IPI00368347.2,Ube1x,"Ubiquitin-activating enzyme E1, Chr X",Q5U300,0.6968,0,1.06,0.9405,0.001,1.04,0.741
+IPI:IPI00387868.2,Hspa4,"Heat shock 70 kDa protein 4",O88600,0.7855,0,1.08,0.9212,0.001,1.05,0.853
+IPI:IPI00363771.3,Eif3s9,"108 kDa protein",Q4G061,0.8101,0,1.08,0.9176,0,1.05,0.883
+IPI:IPI00366218.3,Cct2,"T-complex protein 1 subunit beta",Q5XIM9,0.7176,0,1.07,0.8824,0,1.05,0.813
+IPI:IPI00779779.1,LOC367171,"118 kDa protein",Q5M7W5;Q75NR5;Q75NR6,0.7862,0,1.08,0.9377,0.016,1.05,0.838
+IPI:IPI00734740.2,LOC498555,"similar to 60S acidic ribosomal protein P2",P02401;Q499W9,0.8028,0,1.08,0.8126,0,1.05,0.988
+IPI:IPI00563088.2,Eif4g1,"similar to eukaryotic translation initiation factor 4, gamma 1 isoform a",NA,0.8088,0,1.1,0.8745,0.001,1.08,0.925
+IPI:IPI00365405.3,Mthfd1l_predicted,"methylenetetrahydrofolate dehydrogenase (NADP+ dependent) 1-like",B2GUZ3,1.0974,0.005,1.07,1.0566,0.025,1.05,1.039
+IPI:IPI00324633.2,Glud1,"Glutamate dehydrogenase 1, mitochondrial precursor",Q66HI8;Q6LC16;P10860,1.4818,0,1.06,1.1967,0,1.04,1.238
+IPI:IPI00421539.3,Aco2,"Aconitate hydratase, mitochondrial precursor",Q6P6V3;Q9ER34,1.2209,0,1.06,1.0569,0.005,1.04,1.155
+IPI:IPI00197696.2,Mdh2,"Malate dehydrogenase, mitochondrial precursor",P04636;Q6GSM4;Q0QF43,1.2355,0,1.03,1.0878,0,1.03,1.136
+IPI:IPI00369683.2,Prpf8,"similar to Pre-mRNA-processing-splicing factor 8",Q4FZS3,1.0887,0.016,1.07,1.078,0.002,1.05,1.01
+IPI:IPI00231418.5,Lmnb1,Lamin-B1,P70615,1.2178,0,1.07,1.0945,0.001,1.05,1.113
+IPI:IPI00366249.4,Dhx9_predicted,"DEAH (Asp-Glu-Ala-His) box polypeptide 9",NA,1.2321,0,1.06,1.075,0,1.04,1.146
+IPI:IPI00776828.1,Nap1l1,"45 kDa protein",Q9Z2G8,0.5873,0,1.14,0.7551,0,1.1,0.778
+IPI:IPI00764064.2,Syncrip,"63 kDa protein",Q7TP47,1.1473,0.001,1.08,1.1359,0,1.06,1.01
+IPI:IPI00627068.1,Sfpq,"Splicing factor proline/glutamine rich",Q4KM71,1.0995,0.007,1.07,1.0583,0.025,1.05,1.039
+IPI:IPI00870777.1,Tcof1_predicted,"Treacher Collins Franceschetti syndrome 1, homolog",NA,1.2927,0,1.11,1.1444,0.002,1.08,1.13
+IPI:IPI00475835.3,Phgdh,"D-3-phosphoglycerate dehydrogenase",Q546Q9;O08651,0.7501,0,1.11,0.9699,0.03,1.03,0.773
+IPI:IPI00193279.1,Oat,"Ornithine aminotransferase, mitochondrial precursor",Q6LDF7;Q6LDF6;P04182,1.1161,0,1.04,1.0566,0.005,1.04,1.056
+IPI:IPI00194974.2,Hnrpk,"Hnrpk protein",P61980;Q922Y7;Q60577;Q5D059;Q15671,0.8756,0,1.05,0.9472,0.041,1.05,0.924
+IPI:IPI00195109.3,Shmt2,"Serine hydroxymethyltransferase",Q5U3Z7,1.1505,0,1.05,1.0643,0.003,1.04,1.081
+IPI:IPI00231693.5,Rps3a,"40S ribosomal protein S3a",P49242;P33443,0.8949,0,1.06,1.0673,0.016,1.05,0.838
+IPI:IPI00421528.1,Psmc3,"Proteasome (Prosome, macropain) 26S subunit, ATPase 3",Q6P6U2;P97638;Q63569,0.7956,0,1.09,0.9103,0.005,1.07,0.874
+IPI:IPI00231426.6,Pgk1,"Phosphoglycerate kinase 1",Q5M945;Q6P508;P16617,0.6629,0,1.09,0.9423,0.019,1.05,0.703
+IPI:IPI00470288.4,Ckb,"Creatine kinase B-type",P07335;Q499P7;A0JPK7;Q6IRE0;Q5PPJ5;Q6P139,0.615,0,1.1,0.9108,0.002,1.06,0.675
+IPI:IPI00373722.3,Ranbp5_predicted,"similar to RAN binding protein 5",NA,0.6358,0,1.19,0.8581,0.011,1.12,0.741
+IPI:IPI00327144.7,Cfl1,Cofilin-1,P45592,0.704,0,1.06,0.9227,0,1.04,0.763
+IPI:IPI00199394.2,Cnp1,"2',3'-cyclic-nucleotide 3'-phosphodiesterase",Q64575;P13233;Q4V796,1.0755,0.01,1.06,1.0746,0,1.04,1.001
+IPI:IPI00212776.1,Rps3,"40S ribosomal protein S3",P62909,0.8972,0.043,1.11,0.9528,0.023,1.04,0.942
+IPI:IPI00369217.1,Trap1,"Heat shock protein 75 kDa, mitochondrial precursor",Q5XHZ0,1.2917,0,1.08,1.1377,0,1.06,1.135
+IPI:IPI00364895.4,Immt,"82 kDa protein",Q3KR86,1.2134,0,1.07,1.0901,0,1.05,1.113
+IPI:IPI00470317.5,Eef1g,"Elongation factor 1-gamma",Q68FR6;Q4FZZ5,0.8422,0,1.06,1.0512,0.032,1.05,0.801
+IPI:IPI00324893.4,Ywhaz,"14-3-3 protein zeta/delta",P63102;Q6IRF4;Q52KK1;P70197;P97286,0.6266,0,1.2,0.8197,0.001,1.11,0.764
+IPI:IPI00870721.1,Hist1h2bn_predicted,"histone cluster 1, H2bn",NA,1.2805,0,1.02,1.1275,0,1.02,1.136
+IPI:IPI00471889.7,Anxa5,"Annexin A5",Q66HH8;P14668,0.835,0,1.08,0.9452,0.039,1.05,0.883
+IPI:IPI00191728.1,Calr,"Calreticulin precursor",P18418;P10452,1.1559,0,1.07,1.0755,0.008,1.05,1.075
+IPI:IPI00371946.3,LOC681252,"similar to Myristoylated alanine-rich C-kinase substrate",NA,0.7874,0.002,1.15,0.8238,0.001,1.12,0.956
+IPI:IPI00205912.3,Nono,"Non-POU domain-containing octamer-binding protein",Q5FVM4,1.4787,0,1.1,1.2808,0,1.11,1.154
+IPI:IPI00190557.2,Phb2,Prohibitin-2,P70629;Q5XIH7;P70630,1.5128,0,1.09,1.1879,0,1.08,1.274
+IPI:IPI00366190.3,RGD1563803_predicted,"similar to Lamin-B2",NA,1.2965,0,1.13,1.1686,0.012,1.13,1.109
+IPI:IPI00766072.1,Gars,"similar to glycyl-tRNA synthetase",Q5I0G4,0.8344,0,1.07,1.073,0.03,1.07,0.778
+IPI:IPI00363828.3,Actr3,"ARP3 actin-related protein 3 homolog",A9CM90;Q4V7C7;Q9ERF9;A9CM89,0.7409,0.001,1.17,0.9017,0.023,1.09,0.822
+IPI:IPI00213644.3,Ppib,"Peptidyl-prolyl cis-trans isomerase B precursor",O88541;P24368,1.2089,0,1.06,1.0662,0.001,1.04,1.134
+IPI:IPI00373218.3,Ppid,"40 kDa peptidyl-prolyl cis-trans isomerase",Q6DGG0,0.6305,0,1.17,0.8597,0,1.07,0.733
+IPI:IPI00882480.1,RGD1561319_predicted,"similar to Poly(rC)-binding protein 1",NA,0.8153,0.008,1.16,0.87,0.003,1.09,0.937
+IPI:IPI00371236.3,Tufm_predicted,"Tu translation elongation factor, mitochondrial",P85834,1.223,0,1.06,1.0906,0,1.04,1.121
+IPI:IPI00211777.5,Thop1,"Thimet oligopeptidase",P24155;Q66HS4,0.7413,0,1.11,0.9445,0.047,1.06,0.785
+IPI:IPI00560977.2,Gpiap1,Caprin-1,Q5M9G3,0.9233,0.013,1.06,0.9265,0,1.04,0.996
+IPI:IPI00554155.3,Nol1_predicted,"similar to nucleolar protein 1",NA,1.1021,0.003,1.06,1.0499,0.012,1.04,1.05
+IPI:IPI00421874.4,Vdac1,"Voltage-dependent anion-selective channel protein 1",Q9Z2L0;Q5M972;Q3MHT8;Q6IN28;Q5M944;Q6P9W9;A1L125,1.4537,0,1.05,1.1923,0,1.04,1.219
+IPI:IPI00421428.9,Pgam1,"Phosphoglycerate mutase 1",P25113,0.7204,0,1.09,0.9461,0.046,1.06,0.761
+IPI:IPI00555171.2,Tagln2,"Transgelin 2",Q5XFX0,0.692,0,1.1,0.8269,0,1.08,0.837
+IPI:IPI00765153.1,Dlat,"similar to dihydrolipoamide S-acetyltransferase",Q3B7V7;P08461,1.2063,0,1.09,1.1155,0.001,1.06,1.081
+IPI:IPI00363670.4,RGD1306717_predicted,"hypothetical protein LOC311257",B5DFI0,1.1943,0,1.09,1.0733,0.03,1.07,1.113
+IPI:IPI00230937.5,Pebp1,"Phosphatidylethanolamine-binding protein 1",P31044;P31045,0.598,0,1.16,0.8879,0.005,1.08,0.673
+IPI:IPI00200466.3,Slc25a5,"ADP/ATP translocase 2",Q09073,1.2737,0,1.09,1.1492,0,1.06,1.108
+IPI:IPI00231767.5,Tpi1,"Triosephosphate isomerase",Q6P793;P48500;A0JN18;Q6SA19,0.665,0,1.08,0.9458,0.004,1.04,0.703
+IPI:IPI00763477.1,LOC689890;LOC688114,"hypothetical protein LOC689890",NA,1.2154,0.002,1.12,1.0899,0.009,1.06,1.115
+IPI:IPI00554058.2,Qki,"Putative uncharacterized protein",B0BNF5;Q91XU1,0.7358,0,1.08,0.8931,0.012,1.09,0.824
+IPI:IPI00366436.1,Eif3s6ip,"Eukaryotic translation initiation factor 3, subunit 6 interacting protein",Q498D2,0.7331,0.003,1.2,0.8303,0.002,1.11,0.883
+IPI:IPI00198467.1,Hadhb,"Trifunctional enzyme subunit beta, mitochondrial precursor",Q60587,1.2844,0,1.1,1.0798,0.016,1.06,1.189
+IPI:IPI00211756.1,Phb,Prohibitin,P67779,1.3253,0,1.08,1.0911,0,1.04,1.215
+IPI:IPI00365582.3,Cad,"carbamyl phosphatate synthetase 2",NA,0.8272,0.001,1.11,1.0664,0.027,1.06,0.776
+IPI:IPI00197490.3,Eif3s8,"similar to eukaryotic translation initiation factor 3, subunit 8",B5DFC8,0.8189,0,1.07,0.8864,0,1.06,0.924
+IPI:IPI00561715.2,Gtf2i,"110 kDa protein",Q80SX4;Q5U2Y1,0.9217,0.002,1.05,0.9159,0,1.04,1.006
+IPI:IPI00417750.3,Tomm70a,"Mitochondrial precursor proteins import receptor",Q75Q39,1.2001,0.004,1.13,1.0856,0.034,1.08,1.106
+IPI:IPI00765842.2,Psmd11_predicted,"proteasome (prosome, macropain) 26S subunit, non-ATPase, 11",B5DEP6,0.8433,0,1.09,0.9387,0.017,1.05,0.898
+IPI:IPI00364311.1,Gpi,"Glucose-6-phosphate isomerase",Q6P6V0,0.6676,0,1.15,0.9152,0.033,1.08,0.729
+IPI:IPI00393595.13,Ptma,"Prothymosin alpha",Q569C8;Q63452;P06302;Q63453,0.7152,0,1.11,0.9486,0.037,1.05,0.754
+IPI:IPI00767495.1,Fxr2h_predicted,"similar to Fragile X mental retardation syndrome-related protein 2",NA,1.1553,0.037,1.14,1.1067,0.006,1.07,1.044
+IPI:IPI00231229.9,Gstp1,"Glutathione S-transferase P",B6DYQ7;P04906,0.7354,0,1.05,1.0642,0.001,1.04,0.691
+IPI:IPI00200271.1,Ehd4,Pincher,Q8R3Z7,0.7969,0,1.09,0.8666,0,1.05,0.92
+IPI:IPI00231134.4,Gnb2l1,"Guanine nucleotide-binding protein subunit beta-2-like 1",P63245,0.6505,0,1.17,0.8153,0,1.1,0.798
+IPI:IPI00372524.3,Pycs_predicted,"pyrroline-5-carboxylate synthetase",NA,1.228,0,1.1,1.0872,0.004,1.06,1.13
+IPI:IPI00365423.1,Ppp2r1a,"Protein phosphatase 2 (Formerly 2A), regulatory subunit A (PR 65), alpha isoform",Q5XI34,0.7897,0,1.08,0.9376,0.014,1.05,0.842
+IPI:IPI00231955.6,Calm2;Calm1;Calm3,Calmodulin,P62161;P02593;Q61380;P99014,0.8519,0.001,1.09,0.9357,0.02,1.06,0.91
+IPI:IPI00194312.3,RGD1307982,"similar to RIKEN cDNA 2810409H07",A0JPJ7,0.7116,0,1.08,0.9121,0.004,1.06,0.78
+IPI:IPI00567784.1,Nsfl1c,"41 kDa protein",O35987,0.7911,0,1.08,0.9552,0.015,1.04,0.828
+IPI:IPI00208215.2,Prdx3,"Thioredoxin-dependent peroxide reductase, mitochondrial precursor",Q6P9W3;Q9Z0V6,1.1263,0,1.06,1.0985,0,1.04,1.025
+IPI:IPI00331772.4,Plod3,"Procollagen-lysine,2-oxoglutarate 5-dioxygenase 3 precursor",Q811A5;Q5U367;Q63069,1.3072,0,1.09,1.0814,0.005,1.05,1.209
+IPI:IPI00339012.4,Rpl10a,"60S ribosomal protein L10a",P62907,0.9289,0.001,1.04,1.0401,0.019,1.03,0.893
+IPI:IPI00199273.1,St13,"Hsc70-interacting protein",P50503,0.5968,0,1.12,0.8648,0,1.05,0.69
+IPI:IPI00471577.1,Uqcrc1,"Cytochrome b-c1 complex subunit 1, mitochondrial precursor",Q68FY0,1.2128,0,1.06,1.0872,0,1.04,1.115
+IPI:IPI00884567.1,Sept7,"septin 7 isoform b",Q9WVC0;A2VCW8,0.7503,0.007,1.22,0.8882,0.024,1.11,0.845
+IPI:IPI00214582.1,LOC497813;Rps7,"40S ribosomal protein S7",P62083;B5DEL9;P23821,1.1029,0.01,1.08,1.1819,0,1.06,0.933
+IPI:IPI00212796.3,Ran,"GTP-binding nuclear protein Ran",P62828;P28747;Q9CSP3;P28746,0.8706,0.014,1.12,0.9384,0.013,1.05,0.928
+IPI:IPI00211216.4,Eif5a,"Eukaryotic translation initiation factor 5A-1",Q3T1J1,0.6772,0,1.09,0.9095,0.001,1.06,0.745
+IPI:IPI00202283.1,Psmd13_predicted,"Proteasome (Prosome, macropain) 26S subunit, non-ATPase, 13",B0BN93,0.7131,0,1.09,0.8961,0.003,1.07,0.796
+IPI:IPI00763813.1,Pls3,"similar to Plastin-3",Q63598,0.7442,0,1.14,0.8959,0,1.05,0.831
+IPI:IPI00421451.4,Rps16,"similar to 40S ribosomal protein S16",Q6P3E1;Q5XFV9;P17008;P62250,1.3967,0,1.09,1.4251,0,1.07,0.98
+IPI:IPI00210158.1,Psmc4,"26S protease regulatory subunit 6B",Q63570,0.8133,0.001,1.13,0.9075,0.038,1.1,0.896
+IPI:IPI00767873.1,LOC683788,"similar to Fascin (Singed-like protein) isoform 2",NA,0.5293,0,1.14,0.8386,0,1.09,0.631
+IPI:IPI00886474.1,Rps5,"Putative uncharacterized protein",NA,0.8732,0,1.05,0.9598,0.025,1.04,0.91
+IPI:IPI00876592.1,Nedd4,"neural precursor cell expressed, developmentally down-regulated gene 4",Q62940,0.8628,0.005,1.1,0.8872,0.001,1.06,0.972
+IPI:IPI00196994.1,Arhgdia,"Rho GDP dissociation inhibitor (GDI) alpha",Q5XI73,0.7073,0,1.11,0.9676,0.031,1.03,0.731
+IPI:IPI00366110.3,Nap1l4,"47 kDa protein",Q5U2Z3,0.811,0.001,1.12,0.8874,0.009,1.09,0.914
+IPI:IPI00476187.2,-,"89 kDa protein",NA,0.7698,0,1.11,0.7847,0.001,1.15,0.981
+IPI:IPI00869767.1,Elavl1_predicted,"ELAV (embryonic lethal, abnormal vision, Drosophila)-like 1",B5DF91,1.1987,0,1.07,1.0551,0.04,1.05,1.136
+IPI:IPI00211616.1,Slc3a2,"4F2 cell-surface antigen heavy chain",Q794F9,1.1367,0.001,1.07,1.0609,0.026,1.05,1.071
+IPI:IPI00211812.1,Copb1,"Coatomer subunit beta",P23514,0.8605,0,1.07,0.9448,0.047,1.06,0.911
+IPI:IPI00287338.2,Xpo1,Exportin-1,Q80U96;Q9WUW7,0.703,0.003,1.23,0.868,0.017,1.12,0.81
+IPI:IPI00213015.1,Dctn2,"Dynactin subunit 2",Q6AYH5,0.7695,0,1.13,0.9005,0.008,1.08,0.855
+IPI:IPI00364603.2,Ewsr1,"similar to Ewing sarcoma breakpoint region 1 isoform EWS",B1WC50;Q4KM41,0.9221,0.042,1.08,1.0701,0.008,1.05,0.862
+IPI:IPI00203753.1,Pspc1,"Paraspeckle component 1",Q4KLH4,1.1301,0.001,1.07,1.0745,0.046,1.07,1.052
+IPI:IPI00209570.2,Me2_predicted,"malic enzyme 2, NAD(+)-dependent, mitochondrial",NA,1.3162,0,1.09,1.1197,0.001,1.07,1.175
+IPI:IPI00231539.1,Psma7,"Isoform RC6-IS of Proteasome subunit alpha type-7",P48004,0.617,0,1.18,0.8086,0,1.11,0.763
+IPI:IPI00364189.2,LOC691947;Eif3s1_predicted,"Eukaryotic translation initiation factor 3 subunit J",A0JPM9,0.6942,0.003,1.24,0.8402,0.009,1.13,0.826
+IPI:IPI00361821.1,Crkl,"V-crk sarcoma virus CT10 oncogene homolog (Avian)-like",Q5U2U2,0.8115,0.007,1.15,0.9395,0.012,1.05,0.864
+IPI:IPI00371408.2,Cars_predicted,"95 kDa protein",B2RYA5,0.7421,0,1.12,0.8686,0.002,1.08,0.854
+IPI:IPI00205332.4,Etfa,"Electron transfer flavoprotein subunit alpha, mitochondrial precursor",P13803;Q5M7W0,1.1595,0.014,1.12,1.0795,0.022,1.07,1.074
+IPI:IPI00231690.5,Csrp1,"Cysteine and glycine-rich protein 1",P47875,0.6418,0,1.16,0.8457,0,1.06,0.759
+IPI:IPI00371204.2,Eif3s5_predicted,"eukaryotic translation initiation factor 3, subunit 5",NA,0.7983,0,1.07,0.9215,0,1.04,0.866
+IPI:IPI00764485.1,Col18a1,"similar to Collagen alpha-1(XVIII) chain precursor",Q9QZD2;Q9WUW5,0.8483,0.021,1.15,0.7911,0.005,1.17,1.072
+IPI:IPI00366797.3,LOC678741,"similar to Zinc finger CCCH-type domain containing protein 6",NA,1.1708,0.008,1.12,1.0977,0.009,1.07,1.067
+IPI:IPI00215208.3,Rpl8,"60S ribosomal protein L8",P62919;P25120;A0JMZ6,1.1273,0,1.06,1.1232,0,1.05,1.004
+IPI:IPI00200047.4,Rbm14,"similar to RNA-binding protein 14",Q920B2,1.2314,0,1.06,1.1331,0,1.03,1.087
+IPI:IPI00567836.2,Ptgs1,"Ptgs1 protein",Q66HK3;Q6QWE0;Q62731;Q63921;Q63684,1.4598,0,1.07,1.1286,0.001,1.06,1.294
+IPI:IPI00768958.1,Acad9,"similar to very-long-chain acyl-CoA dehydrogenase VLCAD homolog isoform 1",NA,1.3295,0,1.14,1.1554,0.006,1.1,1.151
+IPI:IPI00553899.1,Txnl2,"Isoform 1 of Glutaredoxin-3",Q5RK11;Q9JLZ1,0.7079,0,1.15,0.8801,0.004,1.09,0.804
+IPI:IPI00373432.1,Scye1,"Small inducible cytokine subfamily E, member 1",Q9EPV3;Q4G079,0.7057,0,1.12,0.8843,0.003,1.08,0.798
+IPI:IPI00231925.8,Gnai2,"Guanine nucleotide-binding protein G(i), alpha-2 subunit",Q45QN0;P04897;Q5EEY3;Q5EEY4,1.292,0.007,1.19,1.1301,0.017,1.1,1.143
+IPI:IPI00192486.1,Rps6,"40S ribosomal protein S6",P62755,0.9013,0,1.05,1.053,0.04,1.05,0.856
+IPI:IPI00204261.2,Kpnb1,"Importin subunit beta-1",P52296,0.8112,0,1.08,0.9306,0.008,1.05,0.872
+IPI:IPI00471774.3,Rangap1,"RAN GTPase activating protein 1",Q66H32,0.659,0,1.17,0.774,0,1.12,0.851
+IPI:IPI00372213.2,Smc4l1,"similar to SMC4 structural maintenance of chromosomes 4-like 1",Q32PX5,0.8212,0.003,1.13,0.9085,0.003,1.06,0.904
+IPI:IPI00817070.1,LOC684520;LOC685867,"hypothetical protein LOC685867",Q64119,0.8086,0,1.05,0.9479,0.013,1.04,0.853
+IPI:IPI00779534.1,RGD1560805_predicted,"74 kDa protein",NA,1.2073,0.001,1.09,1.0671,0.022,1.06,1.131
+IPI:IPI00325147.1,Fdps,"Farnesyl pyrophosphate synthetase",P05369,0.7604,0,1.1,0.9436,0.007,1.04,0.806
+IPI:IPI00231662.6,Cyb5r3,"Isoform 1 of NADH-cytochrome b5 reductase 3",Q64720;Q64569;P20070,1.4283,0,1.09,1.0955,0.011,1.07,1.304
+IPI:IPI00475488.1,-,"36 kDa protein",NA,0.7742,0.003,1.17,0.9384,0.044,1.06,0.825
+IPI:IPI00421625.6,Mrlcb;RGD1565978_predicted,"Myosin regulatory light chain 2-B, smooth muscle isoform",Q6P9V4;Q63512;Q63781;P18666,0.5538,0,1.19,0.6884,0,1.15,0.804
+IPI:IPI00390343.6,RGD1563476_predicted;Rpl6,"60S ribosomal protein L6",Q4QRA9;P21533;Q6P790;Q64624;Q68G26,1.2151,0,1.05,1.2712,0,1.04,0.956
+IPI:IPI00476899.1,Eef1b2_predicted,"eukaryotic translation elongation factor 1 beta 2",B5DEN5,0.7218,0,1.11,0.896,0,1.06,0.806
+IPI:IPI00392794.1,Sfrs7,"27 kDa protein",NA,1.3337,0.003,1.19,1.1064,0.037,1.1,1.205
+IPI:IPI00480840.2,LOC315970,"30 kDa protein",Q5XIM5,0.6979,0.002,1.23,0.8949,0.016,1.09,0.78
+IPI:IPI00362949.1,Uqcrfs1,"Cytochrome b-c1 complex subunit Rieske, mitochondrial precursor",Q6QI13;P20788,1.3406,0.002,1.19,1.1362,0.022,1.11,1.18
+IPI:IPI00567059.1,-,"15 kDa protein",NA,0.756,0,1.12,0.9273,0.042,1.08,0.815
+IPI:IPI00205193.2,RGD1564337_predicted,"hypothetical protein LOC498000",NA,1.3419,0,1.08,1.1152,0.009,1.08,1.203
+IPI:IPI00765232.1,U2af2,"similar to U2 (RNU2) small nuclear RNA auxiliary factor 2 isoform b isoform 5",Q5EB64,0.7563,0.01,1.22,0.8427,0.036,1.17,0.898
+IPI:IPI00369462.2,RGD1304783,"Deoxyhypusine hydroxylase",Q5PPJ4,0.6746,0,1.12,0.8876,0,1.05,0.76
+IPI:IPI00557194.1,RGD1307222_predicted,"90 kDa protein",NA,0.7228,0,1.12,0.9105,0.007,1.06,0.794
+IPI:IPI00373147.2,Raly,"HnRNP-associated with lethal yellow",Q5PQR0,1.4098,0.016,1.3,1.1904,0.043,1.18,1.184
+IPI:IPI00569357.1,Glt25d1_predicted,"Glycosyltransferase 25 domain containing 1",B1H282,1.3781,0,1.11,1.0858,0.044,1.08,1.269
+IPI:IPI00559699.2,RGD1560994_predicted,"similar to suppressor of initiator codon mutations, related sequence 1",B0K008,0.7718,0.011,1.2,0.8748,0.029,1.12,0.882
+IPI:IPI00560565.1,RGD1309571,"54 kDa protein",Q6AY21,1.1302,0.027,1.11,1.0658,0.031,1.06,1.06
+IPI:IPI00207659.1,Banf1,"Barrier-to-autointegration factor",Q9R1T1,0.6067,0,1.2,0.7055,0.001,1.2,0.86
+IPI:IPI00565197.1,Sf3a3,"Splicing factor 3a, subunit 3",Q4KLI7;Q6TUF1,0.8267,0,1.08,0.8795,0,1.05,0.94
+IPI:IPI00191502.5,Psma5,"Proteasome subunit alpha type-5",Q6P9V6;P34064,0.7701,0,1.12,0.905,0.033,1.09,0.851
+IPI:IPI00561668.2,RGD1564606_predicted,"similar to 60S ribosomal protein L23a",P62752;Q92774,0.8813,0,1.05,1.0635,0.007,1.04,0.829
+IPI:IPI00193816.2,Abce1,"ATP-binding cassette, sub-family E (OABP), member 1",NA,0.7562,0.001,1.15,0.9146,0.015,1.07,0.827
+IPI:IPI00212783.6,Rpl35,"60S ribosomal protein L35",P17078,1.0914,0.003,1.06,1.2132,0,1.04,0.9
+IPI:IPI00231260.5,Prdx6,Peroxiredoxin-6,O35244,0.6269,0,1.19,0.9142,0.003,1.05,0.686
+IPI:IPI00366398.2,Eif3s6,"Eukaryotic translation initiation factor 3 subunit E",Q641X8,0.813,0.016,1.17,0.8854,0.007,1.09,0.918
+IPI:IPI00763272.1,Rbmxrt,"similar to Heterogeneous nuclear ribonucleoprotein G (hnRNP G) (RNA-binding motif protein, X chromosome) isoform 1",Q4V898,1.5839,0,1.1,1.2888,0,1.08,1.229
+IPI:IPI00471908.6,Asns,"Asparagine synthetase",P49088;Q66HR8,0.6461,0,1.21,0.8437,0.004,1.11,0.766
+IPI:IPI00555265.1,Nnt,"Nicotinamide nucleotide transhydrogenase",Q5BJZ3,1.1864,0.022,1.15,1.1105,0.043,1.11,1.068
+IPI:IPI00190559.3,Ube2n,"Ubiquitin-conjugating enzyme E2 N",Q9EQX9,0.662,0,1.21,0.8761,0,1.06,0.756
+IPI:IPI00366247.1,RGD1310430_predicted,"Putative uncharacterized protein",B0BNG0,1.2367,0.001,1.11,1.0536,0.008,1.04,1.174
+IPI:IPI00231445.5,Rpl15,"60S ribosomal protein L15",P61314,1.2766,0,1.05,1.2418,0.005,1.14,1.028
+IPI:IPI00567828.3,Sugt1,"Suppressor of G2 allele of SKP1 homolog",Q7TQ12;B0BN85,0.6786,0,1.16,0.9236,0.016,1.06,0.735
+IPI:IPI00194728.1,Ilk,"Integrin-linked protein kinase",Q99J82,0.8841,0.033,1.12,0.918,0.009,1.06,0.963
+IPI:IPI00390975.3,Krt10,"57 kDa protein",Q6IFW6,0.7215,0.002,1.19,0.7105,0.003,1.22,1.015
+IPI:IPI00763217.1,RGD1564921_predicted,"similar to peptidylprolyl isomerase H",NA,0.7171,0,1.11,0.8804,0.006,1.09,0.815
+IPI:IPI00421995.1,Bat4;C2;Cfb;Lsm2;G7e;Bat5;Ng35;Ng23;Rps25-ps2;Ehmt2;Ly6g6e;Clic1;Rdbp;Ly6g6c;Stk19;LOC684148;Skiv2l;C4a;Neu1,"Chloride intracellular channel 1",Q6MG61,0.7173,0.022,1.32,0.767,0.005,1.18,0.935
+IPI:IPI00231200.5,Por,"NADPH--cytochrome P450 reductase",P00388,1.2083,0.007,1.13,1.0925,0.032,1.08,1.106
+IPI:IPI00190240.1,Rps27a,"Ribosomal protein S27a",P62982,0.7464,0,1.1,0.8594,0.003,1.1,0.868
+IPI:IPI00766113.2,Naca_predicted,"214 kDa protein",NA,0.6951,0,1.18,0.8527,0.002,1.1,0.815
+IPI:IPI00370513.2,Rfc4_predicted,"replication factor C (activator 1) 4",B4F778,0.7928,0,1.1,0.9233,0.002,1.04,0.859
+IPI:IPI00208645.6,Hsd17b12,"Estradiol 17-beta-dehydrogenase 12",Q9Z1B9;Q6P7R8,1.7549,0,1.23,1.3046,0.002,1.17,1.345
+IPI:IPI00203574.4,Hspbp1,"Hsp70-binding protein 1",Q9JLF4;Q6IMX7,0.7015,0.001,1.18,0.8868,0.049,1.13,0.791
+IPI:IPI00324451.3,Ddb1,"DNA damage-binding protein 1",Q9ESW0,0.8251,0.004,1.13,0.8875,0.04,1.12,0.93
+IPI:IPI00231553.4,Atxn10,Ataxin-10,Q9ER24,0.6749,0.028,1.4,0.8729,0.044,1.14,0.773
+IPI:IPI00768086.2,Pdha1,"Pyruvate dehydrogenase E1 alpha 1",Q4FZZ4;P26284,1.2374,0.001,1.12,1.1266,0.004,1.08,1.098
+IPI:IPI00566481.2,RGD1560965_predicted,"similar to histone 2, H2ac",NA,1.8377,0.001,1.34,1.4289,0.002,1.22,1.286
+IPI:IPI00358700.3,Mdn1,"345 kDa protein",B2GV91,1.208,0.007,1.14,1.0687,0.049,1.07,1.13
+IPI:IPI00366953.1,Bzw1,"Basic leucine zipper and W2 domain-containing protein 1",Q6P7P5,0.737,0,1.13,0.796,0,1.08,0.926
+IPI:IPI00204544.3,Klc1,"69 kDa protein",P37285,0.7508,0.002,1.15,0.8829,0.001,1.06,0.85
+IPI:IPI00370294.3,-,"92 kDa protein",NA,0.8687,0.006,1.09,0.9143,0.006,1.06,0.95
+IPI:IPI00208209.1,Prdx4,"PRx IV",Q9Z0V5,1.1695,0.009,1.12,1.1153,0.003,1.07,1.049
+IPI:IPI00204748.1,S100a4,"Protein S100-A4",P05942,0.582,0,1.15,0.7123,0,1.12,0.817
+IPI:IPI00655314.2,Rpl13a,"60S ribosomal protein L13a",P35427;Q5RK10,1.1569,0.017,1.12,1.1384,0,1.07,1.016
+IPI:IPI00231697.5,Stmn1,Stathmin,P13668,0.6509,0,1.14,0.9249,0.004,1.05,0.704
+IPI:IPI00230939.4,Rpl24,"60S ribosomal protein L24",P83732;P38663,0.9258,0.033,1.07,1.0902,0,1.04,0.849
+IPI:IPI00480820.4,Pgrmc1,"Membrane-associated progesterone receptor component 1",Q8K484;P70580;Q549C4;O70606,1.2959,0,1.07,1.0545,0.025,1.04,1.229
+IPI:IPI00194324.2,Pdhb,"Pyruvate dehydrogenase E1 component subunit beta, mitochondrial precursor",Q6AY95;P49432,1.3164,0,1.05,1.0736,0.017,1.06,1.226
+IPI:IPI00555230.1,Sec11l1,"Sec11-like 1",Q6P9X2;P42667,1.2192,0.001,1.1,1.1057,0.035,1.1,1.103
+IPI:IPI00421410.1,Pkn3,"protein kinase N3",NA,0.6979,0,1.15,0.8936,0,1.05,0.781
+IPI:IPI00285606.6,Cdc42,"Isoform 1 of Cell division control protein 42 homolog precursor",Q71TW5;Q6P9Y3;Q8CFN2,0.724,0,1.11,0.8635,0.001,1.08,0.838
+IPI:IPI00231368.5,Txn1,Thioredoxin,P11232,0.4865,0,1.25,0.7753,0.001,1.15,0.627
+IPI:IPI00231927.11,Slc25a4,"ADP/ATP translocase 1",Q05962;Q6P9Y4,0.8626,0,1.08,0.8734,0,1.04,0.988
+IPI:IPI00210212.5,-,"38 kDa protein",B2RYI2,1.7292,0,1.16,1.405,0,1.15,1.231
+IPI:IPI00369465.2,Ncln,"Nicalin precursor",Q5XIA1,1.3573,0,1.08,1.1533,0.003,1.07,1.177
+IPI:IPI00198717.8,Mdh1,"Malate dehydrogenase, cytoplasmic",O88585;O88989;Q6PCV2,0.5871,0,1.2,0.9209,0.004,1.05,0.638
+IPI:IPI00231419.3,Blmh,"bleomycin hydrolase",P70645;A1A5L1,0.6788,0.004,1.25,0.8249,0.029,1.18,0.823
+IPI:IPI00362310.1,Chordc1_predicted,"cysteine and histidine-rich domain (CHORD)-containing, zinc-binding protein 1",D4A4T9,0.7026,0,1.15,0.9237,0.023,1.07,0.761
+IPI:IPI00464920.4,Gnas,"Guanine nucleotide-binding protein G(s) subunit alpha isoforms XLas",Q63803,1.2856,0,1.11,1.1145,0.001,1.06,1.153
+IPI:IPI00780495.1,Psap,"60 kDa protein",NA,0.6951,0.001,1.18,0.7209,0,1.16,0.964
+IPI:IPI00364304.2,Pepd,"Xaa-Pro dipeptidase",Q5I0D7,0.7078,0.002,1.2,0.8702,0.02,1.12,0.813
+IPI:IPI00421711.1,MGC72942,"Similar to CG6105-PA",Q6PDU7,1.3753,0,1.14,1.1715,0,1.07,1.174
+IPI:IPI00779902.1,Wbscr1,"25 kDa protein",Q5XI72,0.6109,0,1.13,0.8771,0.001,1.08,0.696
+IPI:IPI00231346.5,Rpl30,"60S ribosomal protein L30",P62890,1.4253,0,1.07,1.155,0.002,1.08,1.234
+IPI:IPI00196661.1,Ywhaq,"14-3-3 protein theta",P68255,0.8767,0.003,1.08,1.0835,0.011,1.06,0.809
+IPI:IPI00768353.1,LOC688416,"similar to ribosomal protein L31",P62902;P12947,0.8675,0.001,1.08,0.89,0,1.06,0.975
+IPI:IPI00764744.1,Tnpo1,"similar to transportin 1",Q5D008,0.7536,0.018,1.24,0.8241,0.047,1.21,0.915
+IPI:IPI00365613.2,Snx6_predicted,"sorting nexin 6",B5DEY8,0.791,0.004,1.09,0.9213,0.044,1.08,0.859
+IPI:IPI00325260.4,Sgta,"Small glutamine-rich tetratricopeptide repeat-containing protein A",Q548F5;O70593,0.6961,0,1.09,0.9511,0.04,1.05,0.732
+IPI:IPI00870307.1,Papss1_predicted,"3'-phosphoadenosine 5'-phosphosulfate synthase 1",NA,0.6673,0.003,1.24,0.8912,0.016,1.09,0.749
+IPI:IPI00210781.1,LOC362154,"Zinc finger CCCH domain-containing protein 15",Q6U6G5,0.8113,0.01,1.15,0.9042,0.034,1.09,0.897
+IPI:IPI00766278.1,LOC687711,"similar to small nuclear ribonucleoprotein D3",NA,1.9692,0,1.22,1.5853,0,1.15,1.242
+IPI:IPI00213366.1,-,"13 kDa protein",NA,1.2143,0,1.08,1.178,0.001,1.1,1.031
+IPI:IPI00286154.3,Cyb5,"Isoform Long of Cytochrome b5",P00173;O35768,1.1818,0.008,1.11,1.0709,0.041,1.07,1.104
+IPI:IPI00189991.1,Mat2a,"S-adenosylmethionine synthetase isoform type-2",Q6P688;P18298,0.7043,0,1.1,0.9064,0.002,1.06,0.777
+IPI:IPI00208114.3,Tmpo,"Lamina-associated polypeptide 2 isoform beta",Q62733,1.2703,0.007,1.17,1.116,0.037,1.11,1.138
+IPI:IPI00202379.1,Farslb,"Phenylalanine-tRNA synthetase-like, beta subunit",Q68FT7,0.8375,0,1.07,1.0627,0.013,1.05,0.788
+IPI:IPI00198080.1,Pcyox1,"Prenylcysteine oxidase precursor",Q99ML5,1.4245,0.017,1.31,1.3047,0.006,1.18,1.092
+IPI:IPI00204445.1,Ngfr,"Tumor necrosis factor receptor superfamily member 16 precursor",Q62777;P07174,0.7795,0.005,1.11,0.7999,0.01,1.13,0.974
+IPI:IPI00555262.1,Park7,"Park7 protein",O88767;Q5BKC3,0.7157,0,1.1,1.0821,0.002,1.04,0.661
+IPI:IPI00195961.1,Nolc1,"Nucleolar phosphoprotein p130",P41777,1.1484,0.019,1.12,1.0626,0.028,1.05,1.081
+IPI:IPI00480789.1,-,"15 kDa protein",P62850;Q6PEC9;P16632,1.0561,0.032,1.05,1.124,0,1.06,0.94
+IPI:IPI00201548.1,Carhsp1,"Calcium-regulated heat stable protein 1",Q9WU49,0.5987,0,1.24,0.8105,0.001,1.11,0.739
+IPI:IPI00363837.2,Snrpe_predicted,"similar to small nuclear ribonucleoprotein E",NA,1.5799,0,1.24,1.3223,0.001,1.16,1.195
+IPI:IPI00207069.3,Ahnak,"similar to AHNAK nucleoprotein isoform 1",NA,0.8742,0.028,1.12,0.8675,0.01,1.1,1.008
+IPI:IPI00202627.1,Scrn1,Secernin-1,Q6AY84,0.6794,0.001,1.21,0.901,0.045,1.11,0.754
+IPI:IPI00782646.1,Ube2m_predicted,"ubiquitin-conjugating enzyme E2M",B2RZB5,0.6677,0.004,1.24,1.1147,0.007,1.07,0.599
+IPI:IPI00192336.1,Anp32b,"Acidic leucine-rich nuclear phosphoprotein 32 family member B",Q9EST6,0.5223,0,1.24,0.7372,0,1.13,0.709
+IPI:IPI00365961.3,Dazap1,"DAZ associated protein 1",Q4KLZ3,1.0941,0.019,1.07,1.1365,0,1.05,0.963
+IPI:IPI00364093.2,Ckap1_predicted,"ZH14 protein",Q1RP74;Q1W1V7,0.593,0,1.16,0.8332,0.019,1.15,0.712
+IPI:IPI00768063.1,LOC684822,"similar to transcription elongation factor B (SIII), polypeptide 2",NA,0.6674,0.004,1.23,0.86,0.003,1.07,0.776
+IPI:IPI00764999.1,Bat4;C2;Cfb;Lsm2;G7e;Bat5;Ng35;Ng23;Rps25-ps2;Ehmt2;Ly6g6e;Clic1;Rdbp;Ly6g6c;Stk19;LOC684148;Skiv2l;C4a;Neu1,"similar to U6 snRNA-associated Sm-like protein LSm2 (SnRNP core Sm-like protein Sm-x5) (G7b protein) isoform 2",NA,1.1301,0.008,1.08,1.1612,0.045,1.16,0.973
+IPI:IPI00454288.1,Atp5c1,"ATP synthase gamma chain",P35435;Q6QI09;Q6PCU0,1.2561,0.001,1.12,1.1195,0.008,1.08,1.122
+IPI:IPI00780707.1,Psme1,"28 kDa protein",NA,0.7979,0.003,1.11,0.9141,0.039,1.09,0.873
+IPI:IPI00198608.1,Cdk4,"Cell division protein kinase 4",Q71VC8;P35426,0.7726,0.019,1.21,0.8632,0.018,1.12,0.895
+IPI:IPI00417372.1,Dnajc7,"Cytoplasmic CAR retention protein",Q566E2;Q75N36,0.7348,0.044,1.35,0.7989,0.004,1.15,0.92
+IPI:IPI00210381.4,Rab11b,"Ras-related protein Rab-11B",O35509;Q9ET14,1.4256,0.001,1.19,1.225,0.002,1.11,1.164
+IPI:IPI00368799.2,RGD1306067,"ESF1 homolog",Q76MT4;Q3KRE7,0.7682,0.011,1.2,0.8424,0.048,1.19,0.912
+IPI:IPI00205988.2,Ufc1,"Ufm1-conjugating enzyme 1",Q6BBI8,0.7896,0.007,1.14,0.9329,0.012,1.05,0.846
+IPI:IPI00196522.1,Epdr2,"Mammalian ependymin-related protein 1 precursor",Q5XII0,1.433,0.002,1.16,1.2443,0.011,1.15,1.152
+IPI:IPI00777708.1,-,Protein,NA,1.0837,0.048,1.08,1.092,0.011,1.07,0.992
+IPI:IPI00203041.1,Dhx30,"136 kDa protein",Q5BJS0,1.2605,0.031,1.21,1.1689,0.05,1.17,1.078
+IPI:IPI00365078.1,Gpx7_predicted,"glutathione peroxidase 7",NA,1.4752,0.004,1.22,1.2789,0.032,1.24,1.153
+IPI:IPI00767486.1,Hint1_predicted,"similar to Histidine triad nucleotide-binding protein 1",B5DEM9;P62959;P16436,0.6708,0.003,1.24,0.901,0.027,1.09,0.745
+IPI:IPI00230832.7,Cox6c,"Cytochrome c oxidase polypeptide VIc-2",P11951;Q9Z1G9;Q78EE8;Q63703,1.3503,0.002,1.17,1.0889,0.042,1.08,1.24
+IPI:IPI00203725.2,Hmga1,"Isoform HMG-I of High mobility group protein HMG-I/HMG-Y",Q8K1F5;Q8K585,1.3421,0.006,1.2,1.1835,0.023,1.15,1.134
+IPI:IPI00231659.3,Tmed10,"Transmembrane emp24 domain-containing protein 10 precursor",NA,1.6998,0,1.24,1.3508,0,1.11,1.258
+IPI:IPI00779071.1,Ptrf_predicted,"21 kDa protein",P85125,0.6755,0.025,1.35,0.6945,0.039,1.39,0.973
+IPI:IPI00400573.1,Tubb2c,"Tubulin beta-2C chain",Q8VIP3;B4F7C2;Q6P9T8,0.7282,0.002,1.14,0.9509,0.004,1.02,0.766
+IPI:IPI00192541.4,Aip,"AH receptor-interacting protein",Q5FWY5;Q8CGW7,0.674,0.002,1.19,0.8729,0.033,1.13,0.772
+IPI:IPI00230865.7,Gmfb,"Glia maturation factor beta",Q63228,0.609,0.001,1.13,0.9547,0.018,1.03,0.638
+IPI:IPI00364060.1,LOC679748;LOC686548,"similar to Macrophage migration inhibitory factor",P30904,0.5398,0,1.09,0.859,0,1.03,0.628
+IPI:IPI00768404.1,LOC687565,"Putative uncharacterized protein",NA,0.6917,0.012,1.3,0.8137,0.007,1.14,0.85
+IPI:IPI00370003.1,Mrpl45_predicted,"mitochondrial ribosomal protein L45",NA,1.285,0.001,1.03,1.1192,0.05,1.12,1.148
+IPI:IPI00188240.4,Ppil1,"Peptidyl-prolyl cis-trans isomerase",Q4KLI4,1.0806,0.018,1.06,1.0593,0.046,1.06,1.02
+IPI:IPI00476540.1,-,"19 kDa protein",NA,0.7533,0,1.12,0.9462,0.013,1.04,0.796
+IPI:IPI00768919.1,LOC690303,"similar to mago-nashi homolog",Q27W02,1.3767,0,1.07,1.3105,0,1.04,1.05
+IPI:IPI00361820.2,Hip2_predicted,"ubiquitin-conjugating enzyme E2-25K",NA,0.6283,0.014,1.34,0.8182,0.028,1.17,0.768
+IPI:IPI00362229.4,Actr1b,"ARP1 actin-related protein 1 homolog B",B2RYJ7,0.712,0.003,1.12,0.8435,0.005,1.07,0.844
+IPI:IPI00190683.2,Gabpa_predicted,"GA repeat binding protein, alpha",NA,0.7904,0,1.05,0.9291,0.027,1.06,0.851
+IPI:IPI00368053.2,RGD1307010,"Glyoxalase domain-containing protein 4",NA,0.6936,0.004,1.15,0.7908,0.008,1.13,0.877
+IPI:IPI00213436.2,Ndufa4,"similar to NADH-ubiquinone oxidoreductase MLRQ subunit",B2RZD6,1.4476,0,1.16,1.1585,0.021,1.13,1.249
+IPI:IPI00209290.3,Vapa,"Vesicle-associated membrane protein-associated protein A",Q9Z270;Q6P723,1.3608,0.002,1.18,1.174,0.022,1.14,1.159
+IPI:IPI00765881.1,Birc6_predicted,"similar to baculoviral IAP repeat-containing 6",NA,1.3308,0.02,1.25,1.208,0.031,1.18,1.102
+IPI:IPI00777740.1,-,"15 kDa protein",NA,0.7002,0.001,1.18,0.8554,0.028,1.14,0.819

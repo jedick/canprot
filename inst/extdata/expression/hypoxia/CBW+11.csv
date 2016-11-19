@@ -1,0 +1,98 @@
+"Protein Name",UniProt,"Gene Symbol",Be2c,IMR-32
+"Serine protease HTRA2, mitochondrial (EC 3.4.21.108) (High temperature requirement protein A2) (HtrA2) (Omi stress-regulated endoprotease) (Serine proteinase OMI) (Serine protease 25)",O43464-1,HTRA2,0.412,0.757
+"Calumenin (Crocalbin) (IEF SSP 9302)",O43852-1,CALU,0.999,0.699
+"Calumenin (Crocalbin) (IEF SSP 9302)",O43852-1,CALU,0.819,0.436
+"Phosphoglycerate kinase 1 (EC 2.7.2.3) (Primer recognition protein 2) (PRP 2) (Cell migration-inducing gene 10 protein)",P00558,PGK1,1.422,2.123
+"Keratin, type II cytoskeletal 1 (Cytokeratin-1) (CK-1) (Keratin-1) (K1) (67 kDa cytokeratin) (Hair alpha protein)",P04264,KRT1,1.367,2.054
+"Keratin, type II cytoskeletal 1 (Cytokeratin-1) (CK-1) (Keratin-1) (K1) (67 kDa cytokeratin) (Hair alpha protein)",P04264,KRT1,1.344,1.177
+"ATP synthase subunit beta, mitochondrial (EC 3.6.3.14)",P06576,ATP5B,0.784,0.652
+"ATP synthase subunit beta, mitochondrial",P06576,ATP5B,0.675,0.853
+"Alpha-enolase (EC 4.2.1.11) (2-phospho-D-glycerate hydro-lyase) (Non-neural enolase) (NNE) (Enolase 1) (Phosphopyruvate hydratase) (C-myc promoter-binding protein) (MBP-1) (MPB-1) (Plasminogen-binding protein)",P06733-1,ENO1,1.493,2.51
+"Alpha-enolase (EC 4.2.1.11) (2-phospho-D-glycerate hydro-lyase) (Non-neural enolase) (NNE) (Enolase 1) (Phosphopyruvate hydratase) (C-myc promoter-binding protein) (MBP-1) (MPB-1) (Plasminogen-binding protein)",P06733-1,ENO1,1.356,1.147
+"Protein disulfide-isomerase (PDI) (EC 5.3.4.1) (Prolyl 4-hydroxylase subunit beta) (Cellular thyroid hormone- binding protein) (p55)",P07237,P4HB,0.601,0.698
+"Protein disulfide-isomerase (PDI) (EC 5.3.4.1) (Prolyl 4-hydroxylase subunit beta) (Cellular thyroid hormone- binding protein) (p55)",P07237,P4HB,0.593,0.773
+"Protein disulfide-isomerase (PDI) (EC 5.3.4.1) (Prolyl 4-hydroxylase subunit beta) (Cellular thyroid hormone- binding protein) (p55)",P07237,P4HB,1.176,1.775
+"Profilin-1 (Profilin I)",P07737,PFN1,0.949,0.729
+"Heterogeneous nuclear ribonucleoproteins C1/C2 (hnRNP C1 / hnRNP C2)",P07910-2,HNRNPC,2.109,2.744
+"Heterogeneous nuclear ribonucleoproteins C1/C2 (hnRNP C1 / hnRNP C2)",P07910-2,HNRNPC,1.708,2.187
+Vimentin,P08670,VIM,1.371,1.008
+Vimentin,P08670,VIM,1.758,1.185
+Vimentin,P08670,VIM,1.389,2.085
+"Dihydrolipoyl dehydrogenase, mitochondrial (EC 1.8.1.4) (Dihydrolipoamide dehydrogenase) (Glycine cleavage system L protein)",P09622,DLD,1.433,1.668
+"Ubiquitin carboxyl-terminal hydrolase isozyme L1 (UCH-L1) (EC 3.4.19.12) (EC 6.-.-.-) (Ubiquitin thioesterase L1) (Neuron cytoplasmic protein 9.5) (PGP 9.5) (PGP9.5)",P09936,UCHL1,1.386,1.519
+"Chromogranin A (Parathyroid secretory protein 1) (Chromogranin A (Parathyroid secretory protein 1), isoform CRA_a)",P10645,CHGA,0.934,0.623
+"Chromogranin A (Parathyroid secretory protein 1) (Chromogranin A (Parathyroid secretory protein 1), isoform CRA_a)",P10645,CHGA,0.643,0.635
+"Chromogranin A (Parathyroid secretory protein 1) (Chromogranin A (Parathyroid secretory protein 1), isoform CRA_a)",P10645,CHGA,0.247,0.898
+"Chromogranin A (Parathyroid secretory protein 1) (Chromogranin A (Parathyroid secretory protein 1), isoform CRA_a)",P10645,CHGA,0.476,0.668
+"60 kDa heat shock protein, mitochondrial (Heat shock protein 60) (HSP-60) (Hsp60) (60 kDa chaperonin) (Chaperonin 60) (CPN60) (Mitochondrial matrix protein P1) (P60 lymphocyte protein) (HuCHA60)",P10809,HSPD1,0.731,0.702
+"60 kDa heat shock protein, mitochondrial (Heat shock protein 60) (HSP-60) (Hsp60) (60 kDa chaperonin) (Chaperonin 60) (CPN60) (Mitochondrial matrix protein P1) (P60 lymphocyte protein) (HuCHA60)",P10809,HSPD1,0.427,0.861
+"60 kDa heat shock protein, mitochondrial (Heat shock protein 60) (HSP-60) (Hsp60) (60 kDa chaperonin) (Chaperonin 60) (CPN60) (Mitochondrial matrix protein P1) (P60 lymphocyte protein) (HuCHA60)",P10809,HSPD1,0.838,0.726
+"60 kDa heat shock protein, mitochondrial (Heat shock protein 60) (HSP-60) (Hsp60) (60 kDa chaperonin) (Chaperonin 60) (CPN60) (Mitochondrial matrix protein P1) (P60 lymphocyte protein) (HuCHA60)",P10809,HSPD1,0.871,0.686
+"60 kDa heat shock protein, mitochondrial (Heat shock protein 60) (HSP-60) (Hsp60) (60 kDa chaperonin) (Chaperonin 60) (CPN60) (Mitochondrial matrix protein P1) (P60 lymphocyte protein) (HuCHA60)",P10809,HSPD1,1.283,1.381
+"60 kDa heat shock protein, mitochondrial (Heat shock protein 60) (HSP-60) (Hsp60) (60 kDa chaperonin) (Chaperonin 60) (CPN60) (Mitochondrial matrix protein P1) (P60 lymphocyte protein) (HuCHA60)",P10809,HSPD1,1.573,2.262
+"78 kDa glucose-regulated protein (GRP 78) (Heat shock 70 kDa protein 5) (Immunoglobulin heavy chain-binding protein) (BiP) (Endoplasmic reticulum lumenal Ca(2+)-binding protein grp78)",P11021,HSPA5,1.355,1.447
+"78 kDa glucose-regulated protein (GRP 78) (Heat shock 70 kDa protein 5) (Immunoglobulin heavy chain-binding protein) (BiP) (Endoplasmic reticulum lumenal Ca(2+)-binding protein grp78)",P11021,HSPA5,0.351,0.876
+"78 kDa glucose-regulated protein (GRP 78) (Heat shock 70 kDa protein 5) (Immunoglobulin heavy chain-binding protein) (BiP) (Endoplasmic reticulum lumenal Ca(2+)-binding protein grp78)",P11021,HSPA5,0.261,0.469
+"78 kDa glucose-regulated protein (GRP 78) (Heat shock 70 kDa protein 5) (Immunoglobulin heavy chain-binding protein) (BiP) (Endoplasmic reticulum lumenal Ca(2+)-binding protein grp78)",P11021,HSPA5,1.133,1.433
+"78 kDa glucose-regulated protein (GRP 78) (Heat shock 70 kDa protein 5) (Immunoglobulin heavy chain-binding protein) (BiP) (Endoplasmic reticulum lumenal Ca(2+)-binding protein grp78)",P11021,HSPA5,1.302,1.262
+"78 kDa glucose-regulated protein (GRP 78) (Heat shock 70 kDa protein 5) (Immunoglobulin heavy chain-binding protein) (BiP) (Endoplasmic reticulum lumenal Ca(2+)-binding protein grp78)",P11021,HSPA5,1.401,1.566
+"78 kDa glucose-regulated protein (GRP 78) (Heat shock 70 kDa protein 5) (Immunoglobulin heavy chain-binding protein) (BiP) (Endoplasmic reticulum lumenal Ca(2+)-binding protein grp78)",P11021,HSPA5,0.82,0.652
+"78 kDa glucose-regulated protein (GRP 78) (Heat shock 70 kDa protein 5) (Immunoglobulin heavy chain-binding protein) (BiP) (Endoplasmic reticulum lumenal Ca(2+)-binding protein grp78)",P11021,HSPA5,1.151,1.409
+"Heat shock cognate 71 kDa protein (Heat shock 70 kDa protein 8)",P11142-1,HSPA8,0.807,0.738
+"Keratin, type I cytoskeletal 10 (Cytokeratin-10) (CK-10) (Keratin-10) (K10)",P13645,KRT10,1.155,1.46
+"Electron transfer flavoprotein subunit alpha, mitochondrial (Alpha-ETF)",P13804,ETFA,1.138,1.299
+"Pyruvate kinase isozymes M1/M2 (EC 2.7.1.40) (Pyruvate kinase muscle isozyme) (Pyruvate kinase 2/3) (Cytosolic thyroid hormone-binding protein) (CTHBP) (THBP1)",P14618-1,PKM2,0.468,0.836
+"Endoplasmin (Heat shock protein 90 kDa beta member 1) (94 kDa glucose-regulated protein) (GRP94) (gp96 homolog) (Tumor rejection antigen 1)",P14625,HSP90B1,1.216,1.058
+"Endoplasmin (Heat shock protein 90 kDa beta member 1) (94 kDa glucose-regulated protein) (GRP94) (gp96 homolog) (Tumor rejection antigen 1)",P14625,HSP90B1,0.412,0.692
+"Endoplasmin (Heat shock protein 90 kDa beta member 1) (94 kDa glucose-regulated protein) (GRP94) (gp96 homolog) (Tumor rejection antigen 1)",P14625,HSP90B1,1.307,1.105
+"Endoplasmin (Heat shock protein 90 kDa beta member 1) (94 kDa glucose-regulated protein) (GRP94) (gp96 homolog) (Tumor rejection antigen 1)",P14625,HSP90B1,2.197,3.311
+"Nucleolin (Protein C23)",P19338-1,NCL,0.522,0.627
+"Cofilin-1 (Cofilin, non-muscle isoform) (18 kDa phosphoprotein) (p18)",P23528,CFL1,0.19,0.574
+"ATP synthase subunit alpha, mitochondrial",P25705,ATP5A1,0.293,0.88
+"Proteasome subunit alpha type-1 (EC 3.4.25.1) (Proteasome component C2) (Macropain subunit C2) (Multicatalytic endopeptidase complex subunit C2) (Proteasome nu chain) (30 kDa prosomal protein) (PROS-30)",P25786-1,PSMA1,0.851,0.68
+"Calreticulin (CRP55) (Calregulin) (HACBP) (ERp60) (grp60)",P27797,CALR,0.392,0.915
+"Calreticulin (CRP55) (Calregulin) (HACBP) (ERp60) (grp60)",P27797,CALR,0.494,0.942
+"Calreticulin (CRP55) (Calregulin) (HACBP) (ERp60) (grp60)",P27797,CALR,0.384,0.977
+"Calreticulin (CRP55) (Calregulin) (HACBP) (ERp60) (grp60)",P27797,CALR,0.489,0.927
+"Proteasome subunit alpha type-5 (EC 3.4.25.1) (Proteasome zeta chain) (Macropain zeta chain) (Multicatalytic endopeptidase complex zeta chain)",P28066,PSMA5,0.937,0.614
+"Thioredoxin-dependent peroxide reductase, mitochondrial (EC 1.11.1.15) (Peroxiredoxin-3) (PRX III) (Antioxidant protein 1) (AOP-1) (Protein MER5 homolog) (HBC189)",P30048,PRDX3,1.293,1.462
+"Thioredoxin-dependent peroxide reductase, mitochondrial (EC 1.11.1.15) (Peroxiredoxin-3) (PRX III) (Antioxidant protein 1) (AOP-1) (Protein MER5 homolog) (HBC189)",P30048,PRDX3,0.899,0.763
+"Phosphatidylethanolamine-binding protein 1 (PEBP-1) (Prostatic-binding protein) (HCNPpp) (Neuropolypeptide h3) (Raf kinase inhibitor protein) (RKIP) [Cleaved into: Hippocampal cholinergic neurostimulating peptide (HCNP)]",P30086,PEBP1,0.494,0.696
+"Protein disulfide-isomerase A3 (EC 5.3.4.1) (Disulfide isomerase ER-60) (ERp60) (58 kDa microsomal protein) (p58) (ERp57) (58 kDa glucose-regulated protein)",P30101,PDIA3,0.507,0.885
+"Protein disulfide-isomerase A3 (EC 5.3.4.1) (Disulfide isomerase ER-60) (ERp60) (58 kDa microsomal protein) (p58) (ERp57) (58 kDa glucose-regulated protein)",P30101,PDIA3,0.422,0.71
+"Protein disulfide-isomerase A3 (EC 5.3.4.1) (Disulfide isomerase ER-60) (ERp60) (58 kDa microsomal protein) (p58) (ERp57) (58 kDa glucose-regulated protein)",P30101,PDIA3,0.451,0.726
+"Protein disulfide-isomerase A3 (EC 5.3.4.1) (Disulfide isomerase ER-60) (ERp60) (58 kDa microsomal protein) (p58) (ERp57) (58 kDa glucose-regulated protein)",P30101,PDIA3,0.389,0.743
+"Protein disulfide-isomerase A3 (EC 5.3.4.1) (Disulfide isomerase ER-60) (ERp60) (58 kDa microsomal protein) (p58) (ERp57) (58 kDa glucose-regulated protein)",P30101,PDIA3,1.186,1.314
+Profilin-2,P35080,PFN2,1.192,1.412
+"Stress-70 protein, mitochondrial (75 kDa glucose-regulated protein) (GRP 75) (Heat shock 70 kDa protein 9) (Peptide-binding protein 74) (PBP74) (Mortalin) (MOT)",P38646,HSPA9,0.928,0.648
+"Stress-70 protein, mitochondrial (75 kDa glucose-regulated protein) (GRP 75) (Heat shock 70 kDa protein 9) (Peptide-binding protein 74) (PBP74) (Mortalin) (MOT)",P38646,HSPA9,0.594,0.589
+"Stress-70 protein, mitochondrial (75 kDa glucose-regulated protein) (GRP 75) (Heat shock 70 kDa protein 9) (Peptide-binding protein 74) (PBP74) (Mortalin) (MOT)",P38646,HSPA9,0.784,0.481
+"Stress-70 protein, mitochondrial (75 kDa glucose-regulated protein) (GRP 75) (Heat shock 70 kDa protein 9) (Peptide-binding protein 74) (PBP74) (Mortalin) (MOT)",P38646,HSPA9,0.86,0.646
+"Stress-70 protein, mitochondrial (75 kDa glucose-regulated protein) (GRP 75) (Heat shock 70 kDa protein 9) (Peptide-binding protein 74) (PBP74) (Mortalin) (MOT)",P38646,HSPA9,0.808,0.673
+Peripherin,P41219-2,PRPH,0.939,0.3
+"Lamina-associated polypeptide 2, isoform alpha (Thymopoietin isoform alpha) (TP alpha) (Thymopoietin-related peptide isoform alpha) (TPRP isoform alpha) [Cleaved into: Thymopoietin (TP) (Splenin); Thymopentin (TP5)]",P42166,TMPO,1.753,2.338
+"T-complex protein 1 subunit epsilon (TCP-1-epsilon) (CCT-epsilon)",P48643,CCT5,1.009,1.682
+"Fatty acid synthase (EC 2.3.1.85) [Includes: [Acyl-carrier-protein] S-acetyltransferase (EC 2.3.1.38); [Acyl-carrier- protein] S-malonyltransferase (EC 2.3.1.39); 3-oxoacyl-[acyl-carrier-protein] synthase (EC 2.3.1.41); 3-oxoacyl- [acyl-carrier-protein] red",P49327,FASN,0.378,0.786
+"Elongation factor Tu, mitochondrial (EF-Tu) (P43)",P49411,TUFM,1.195,2.092
+"Rho GDP-dissociation inhibitor 1",P52565,ARHGDIA,1.43,1.605
+"UV excision repair protein RAD23 homolog A (hHR23A)",P54725,RAD23A,1.535,1.531
+"Heterogeneous nuclear ribonucleoprotein K (hnRNP K) (Transformation up-regulated nuclear protein) (TUNP)",P61978-1,HNRPK,0.972,0.69
+"Complement component 1 Q subcomponent-binding protein, mitochondrial (Glycoprotein gC1qBP) (C1qBP) (GC1q-R protein) (Hyaluronan-binding protein 1) (Mitochondrial matrix protein p32) (p33)",Q07021,C1QBP,1.245,1.312
+"Interleukin enhancer-binding factor 3 (Nuclear factor of activated T-cells 90 kDa) (NF-AT-90) (Double-stranded RNA-binding protein 76) (DRBP76) (Translational control protein 80) (TCP80) (Nuclear factor associated with dsRNA) (NFAR) (M-phase phosphoprotei",Q12906-5,ILF3,1.387,1.22
+Peroxiredoxin-4,Q13162,PRDX4,1.264,1.796
+"Chromobox protein homolog 3 (Heterochromatin protein 1 homolog gamma) (HP1 gamma) (Modifier 2 protein) (HECH)",Q13185,CBX3;LOC653972,1.148,1.738
+"Heterogeneous nuclear ribonucleoprotein D0 (hnRNP D0) (AU-rich element RNA-binding protein 1)",Q14103-1,HNRPD,1.4,1.858
+"Protein disulfide-isomerase A6 (EC 5.3.4.1) (Protein disulfide isomerase P5) (Thioredoxin domain-containing protein 7)",Q15084-2,PDIA6,0.369,0.853
+"Protein disulfide-isomerase A6 (EC 5.3.4.1) (Protein disulfide isomerase P5) (Thioredoxin domain-containing protein 7)",Q15084-2,PDIA6,0.763,0.468
+Vimentin,Q5JVS8,VIM,0.446,0.593
+"Chromogranin A (Parathyroid secretory protein 1) (Chromogranin A (Parathyroid secretory protein 1), isoform CRA_a)",Q6NR84,CHGA,0.031,0.812
+"Chromogranin A (Parathyroid secretory protein 1) (Chromogranin A (Parathyroid secretory protein 1), isoform CRA_a)",Q6NR84,CHGA,0.069,0.67
+"cDNA FLJ45706 fis, clone FEBRA2028457, highly similar to Nucleolin",Q6ZS99,NCL,0.451,0.661
+"Protein DJ-1 (Oncogene DJ1) (Parkinson disease protein 7)",Q99497,PARK7,0.912,0.619
+"Heterogeneous nuclear ribonucleoprotein A/B (hnRNP A/B) (APOBEC1-binding protein 1) (ABBP-1)",Q99729-2,HNRPAB,1.093,1.503
+Gamma-glutamylcyclotransferase,Q9BS37,C7orf24,0.675,0.478
+"Glyoxalase domain-containing protein 4",Q9HC38-3,GLOD4,0.896,0.59
+"Putative RNA-binding protein Luc7-like 1 (SR+89) (Putative SR protein LUC7B1)",Q9NQ29-1,LUC7L,0.416,0.865
+"Stomatin-like protein 2 (SLP-2) (EPB72-like 2)",Q9UJZ1,STOML2,0.438,0.754
+"ADP-sugar pyrophosphatase (EC 3.6.1.13) (EC 3.6.1.-) (Nucleoside diphosphate-linked moiety X motif 5) (Nudix motif 5) (YSA1H)",Q9UKK9,NUDT5,0.447,0.425
+"Hypoxia up-regulated protein 1 (150 kDa oxygen-regulated protein) (Orp150)",Q9Y4L1,HYOU1,0.808,0.558

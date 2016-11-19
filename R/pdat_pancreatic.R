@@ -56,7 +56,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="AA") {
     # drop ambiguous proteins
     up <- dat$UniProt[dat$Regulated == "up"]
     down <- dat$UniProt[dat$Regulated == "down"]
-    iambi <- dat$UniProt %in% up[up %in% down]
+    iambi <- dat$UniProt %in% intersect(up, down)
     dat <- remove_entries(dat, iambi, dataset, "ambiguous")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
@@ -112,7 +112,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="AA") {
     # drop ambiguous proteins
     up <- dat$Swissprot.ID[dat$C.N > 1]
     down <- dat$Swissprot.ID[dat$C.N < 1]
-    iambi <- dat$Swissprot.ID %in% up[up %in% down]
+    iambi <- dat$Swissprot.ID %in% intersect(up, down)
     dat <- remove_entries(dat, iambi, dataset, "ambiguous")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Swissprot.ID), dataset, "duplicated")
@@ -146,7 +146,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="AA") {
     # drop ambiguous proteins
     up <- dat$Entry[dat$PDAC.Benign.fold.change. > 1]
     down <- dat$Entry[dat$PDAC.Benign.fold.change. < 1]
-    iambi <- dat$Entry %in% up[up %in% down]
+    iambi <- dat$Entry %in% intersect(up, down)
     dat <- remove_entries(dat, iambi, dataset, "ambiguous")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")

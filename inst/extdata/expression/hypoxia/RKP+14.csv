@@ -1,0 +1,282 @@
+"Gene.Symbol","Protein.Name","IPI.Accession","UniProt.Accession","Overall.Fold.Change","P.value"
+HPX,"Hemopexin",IPI00022488,P02790,unique (SPH),5.49E-08
+CFB,"Complement factor B",IPI00019591,Q53F89,unique (SPH),5.17E-06
+SNRPD2,"Small nuclear ribonucleoprotein D2 polypeptide 16.5kDa",IPI00017963,P62316,unique (SPH),1.69E-03
+A1BG,"Alpha-1-B glycoprotein",IPI00022895,P04217,unique (SPH),1.69E-03
+AIMP1,"Aminoacyl tRNA synthetase complex-interacting multifunctional protein 1",IPI00006252,Q12904,unique (SPH),1.73E-03
+PDLIM3,"PDZ and LIM domain 3",IPI00004471,Q53GG5,unique (SPH),8.76E-03
+C4A,"Complement component 4A (Rodgers blood group)",IPI00032258,P0C0L4,unique (SPH),9.96E-07
+EPB41L2,"Erythrocyte membrane protein band 4.1-like 2",IPI00015973,O43491,unique (SPH),4.71E-06
+TTR,"Transthyretin",IPI00022432,P02766,unique (SPH),3.26E-04
+PARP1,"Poly (ADP-ribose) polymerase 1",IPI00449049,P09874,unique (SPH),9.27E-04
+CBX5,"Chromobox homolog 5",IPI00024662,P45973,unique (SPH),1.49E-02
+ITIH4,"Inter-alpha-trypsin inhibitor heavy chain family, member 4",IPI00218192,Q14624,unique (SPH),1.49E-02
+MGST3,"Microsomal glutathione S-transferase 3",IPI00024266,O14880,unique (SPH),2.63E-02
+PYCARD,"PYD and CARD domain containing",IPI00001699,Q9ULZ3,unique (SPH),2.63E-02
+ITIH2,"Inter-alpha-trypsin inhibitor heavy chain 2",IPI00305461,P19823,unique (SPH),2.74E-02
+CSRP2,"Cysteine and glycine-rich protein 2",IPI00002824,Q16527,unique (SPH),9.21E-03
+C4B,"Complement component 4B (Chido blood group)",IPI00418163,Q6U2F8,unique (SPH),1.50E-02
+RAP1A,"RAP1A, member of RAS oncogene family",IPI00019345,P62834,unique (SPH),1.62E-02
+FBN1,"Fibrillin 1",IPI00328113,P35555,unique (SPH),4.56E-06
+CFH,"Complement factor H",IPI00029739,P08603,unique (SPH),1.32E-05
+HP,"Haptoglobin",IPI00641737,P00738,unique (SPH),3.82E-04
+AP2B1,"Adaptor-related protein complex 2, beta 1 subunit",IPI00220991,P63010,unique (SPH),4.61E-03
+PALLD,"Palladin, cytoskeletal associated protein",IPI00292009,Q8WX93,unique (SPH),8.02E-03
+HNRNPUL1,"Heterogeneous nuclear ribonucleoprotein U-like 1",IPI00013070,Q9BUJ2,unique (SPH),8.07E-03
+AGT,"Angiotensinogen (serpin peptidase inhibitor, clade A, member 8)",IPI00032220,P01019,unique (SPH),8.11E-03
+CFHR1,"Complement factor H-related 1",IPI00011264,Q03591,unique (SPH),8.16E-03
+APOA4,"Apolipoprotein A-IV",IPI00304273,P06727,unique (SPH),8.20E-03
+VCAN,"Versican",IPI00009802,P13611,unique (SPH),1.04E-02
+LPP,"LIM domain containing preferred translocation partner in lipoma",IPI00023704,Q93052,unique (SPH),1.46E-02
+LCN15,"Lipocalin 15",IPI00399139,Q6UWW0,unique (SPH),1.56E-02
+PREP,"Prolyl endopeptidase",IPI00008164,P48147,unique (SPH),2.50E-02
+SAMHD1,"SAM domain and HD domain 1",IPI00294739,Q9Y3Z3,unique (SPH),2.50E-02
+SF3B1,"Splicing factor 3b, subunit 1, 155kDa",IPI00026089,O75533,unique (SPH),2.51E-02
+PALLD,"Palladin, cytoskeletal associated protein",IPI00383645,Q7L8P5,unique (SPH),2.51E-02
+CLEC3B,"C-type lectin domain family 3, member B",IPI00009028,P05452,unique (SPH),2.77E-02
+GTF2I,"General transcription factor IIi",IPI00054042,P78347,unique (SPH),4.50E-02
+SLC25A13,"Solute carrier family 25 (aspartate/glutamate carrier), member 13",IPI00007084,Q9UJS0,unique (SPH),4.50E-02
+CUL4B,"Cullin 4B",IPI00179057,Q13620,unique (SPH),4.50E-02
+ANP32B,"Acidic (leucine-rich) nuclear phosphoprotein 32 family, member B",IPI00007423,Q92688,unique (SPH),4.50E-02
+GSTO1,"Glutathione S-transferase omega 1",IPI00019755,P78417,unique (SPH),4.53E-02
+CORO7,"Coronin 7",IPI00027996,P57737,unique (SPH),4.53E-02
+SSRP1,"Structure specific recognition protein 1",IPI00005154,Q08945,unique (SPH),4.69E-02
+EMD,"Emerin",IPI00032003,P50402,unique (SPH),4.91E-02
+C3,"Complement component 3",IPI00164623,P01024,54.26,4.31E-24
+AARS,"Alanyl-tRNA synthetase",IPI00027442,P49588,24.11,4.02E-06
+IGKV4-1,"Immunoglobulin kappa variable 4-1",IPI00026197,P06312,20.74,2.31E-05
+RPL4,"Ribosomal protein L4",IPI00003918,P36578,19.92,3.54E-05
+IGHG2,"Immunoglobulin heavy constant gamma 2 (G2m marker)",IPI00399007,Q6N093,18.14,3.02E-08
+IGHM,"Immunoglobulin heavy constant mu",IPI00168728,Q8NF17,17.93,8.36E-25
+SERPINF1,"Serpin peptidase inhibitor, clade F (alpha-2 antiplasmin, pigment epithelium derived factor), member 1",IPI00006114,P36955,13.46,1.04E-03
+SET,"SET nuclear oncogene",IPI00072377,Q01105,11.69,2.68E-03
+TF,"Transferrin",IPI00022463,P02787,10.97,1.88E-41
+PAICS,"Phosphoribosylaminoimidazole carboxylase, phosphoribosylaminoimidazole succinocarboxamide synthetase",IPI00217223,P22234,10.91,4.07E-03
+DPYSL3,"Dihydropyrimidinase-like 3",IPI00029111,Q8IXW6,10.55,1.82E-08
+RPL10A,"Ribosomal protein L10a",IPI00412579,P62906,9.94,6.85E-03
+HP,"Haptoglobin",IPI00431645,Q6PEJ8,9.85,1.83E-09
+NANS,"N-acetylneuraminic acid synthase",IPI00147874,Q9NR45,8.70,4.65E-04
+HIST1H2APS4,"Histone cluster 1, H2a, pseudogene 4",IPI00014165,Q92646,8.16,4.09E-05
+CLCA1,"Chloride channel accessory 1",IPI00014625,A8K7I4,8.01,1.95E-02
+SERPINA3,"Serpin peptidase inhibitor, clade A (alpha-1 antiproteinase, antitrypsin), member 3",IPI00550991,P01011,7.92,2.14E-07
+NUDT5,"Nudix (nucleoside diphosphate linked moiety X)-type motif 5",IPI00296913,Q9UKK9,7.88,2.09E-02
+RAC1,"Ras-related C3 botulinum toxin substrate 1 (rho family, small GTP binding protein Rac1)",IPI00010271,P63000,7.87,1.10E-03
+SH3BGRL,"SH3 domain binding glutamic acid-rich protein like",IPI00025318,O75368,7.83,2.14E-02
+CPSF6,"Cleavage and polyadenylation specific factor 6, 68kDa",IPI00012998,Q16630,7.74,2.24E-02
+KIF5B,"Kinesin family member 5B",IPI00012837,P33176,7.52,1.58E-03
+HRG,"Histidine-rich glycoprotein",IPI00022371,P04196,7.51,1.60E-03
+CNN3,"Calponin 3, acidic",IPI00216682,Q15417,7.35,1.86E-03
+VPS35,"Vacuolar protein sorting 35 homolog (S. cerevisiae)",IPI00018931,Q96QK1,7.02,3.35E-02
+IGHA1,"Immunoglobulin heavy constant alpha 1",IPI00166866,NA,7.01,3.38E-02
+HNRNPUL2,"Heterogeneous nuclear ribonucleoprotein U-like 2",IPI00456887,Q1KMD3,6.92,2.91E-03
+HNRNPA0,"Heterogeneous nuclear ribonucleoprotein A0",IPI00011913,Q13151,6.90,2.99E-03
+IGL@,"Immunoglobulin lambda locus",IPI00154742,P0CG05,6.84,4.94E-13
+THY1,"Thy-1 cell surface antigen",IPI00022892,P04216,6.33,5.30E-03
+DDX17,"DEAD (Asp-Glu-Ala-Asp) box helicase 17",IPI00023785,NA,5.89,1.23E-03
+PCNA,"Proliferating cell nuclear antigen",IPI00021700,P12004,5.87,8.51E-03
+KCTD12,"Potassium channel tetramerisation domain containing 12",IPI00060715,Q96CX2,5.83,8.81E-03
+SERPINA1,"Serpin peptidase inhibitor, clade A (alpha-1 antiproteinase, antitrypsin), member 1",IPI00305457,C5J0G2,5.61,2.51E-09
+PHPT1,"Phosphohistidine phosphatase 1",IPI00299977,Q9NRX4,5.48,1.28E-02
+CALD1,"Caldesmon 1",IPI00014516,Q05682,5.37,4.46E-08
+MTHFD1,"Methylenetetrahydrofolate dehydrogenase (NADP+ dependent) 1, methenyltetrahydrofolate cyclohydrolase, formyltetrahydrofolate synthetase",IPI00218342,P11586,5.24,3.24E-03
+TLN2,"Talin 2",IPI00219299,Q9Y4G6,5.19,7.52E-04
+ALB,"Albumin",IPI00216773,Q8IUK7,5.04,1.93E-10
+USP7,"Ubiquitin specific peptidase 7 (herpes virus-associated)",IPI00003965,Q93009,5.01,2.07E-02
+MTAP,"Methylthioadenosine phosphorylase",IPI00011876,Q6FHP1,4.98,2.13E-02
+COTL1,"Coactosin-like 1 (Dictyostelium)",IPI00017704,Q14019,4.97,2.15E-02
+LRRC59,"Leucine rich repeat containing 59",IPI00396321,Q96AG4,4.96,2.17E-02
+GLOD4,"Glyoxalase domain containing 4",IPI00007102,A8K8F0,4.92,2.25E-02
+CBX3,"Chromobox homolog 3",IPI00297579,Q13185,4.91,1.27E-03
+RPL21,"Ribosomal protein L21",IPI00247583,P46778,4.91,2.27E-02
+TPP1,"Tripeptidyl peptidase I",IPI00298237,D3DQU2,4.86,2.38E-02
+APOA1,"Apolipoprotein A-I",IPI00021841,P02647,4.80,1.71E-12
+IGHM,"Immunoglobulin heavy constant mu",IPI00477090,NA,4.78,4.42E-04
+IGKV3-20,"Immunoglobulin kappa variable 3-20",IPI00030205,P18135,4.51,8.09E-04
+USP5,"Ubiquitin specific peptidase 5 (isopeptidase T)",IPI00024664,P45974,4.50,3.47E-02
+NIT2,"Nitrilase family, member 2",IPI00549467,Q9NQR4,4.49,3.52E-02
+PDLIM1,"PDZ and LIM domain 1",IPI00010414,O00151,4.25,1.39E-02
+MLEC,"Malectin",IPI00029046,Q14165,4.24,1.40E-02
+HSPA4,"Heat shock 70kDa protein 4",IPI00002966,P34932,4.24,4.65E-03
+PGM1,"Phosphoglucomutase 1",IPI00217872,P36871,4.24,1.41E-02
+PPA1,"Pyrophosphatase (inorganic) 1",IPI00015018,Q15181,4.20,2.00E-04
+ALB,"Albumin",IPI00022434,B4DPP6,4.11,6.61E-129
+TLN1,"Talin 1",IPI00298994,Q9Y490,3.99,2.34E-24
+APCS,"Amyloid P component, serum",IPI00022391,P02743,3.92,8.41E-03
+F7,"Coagulation factor VII (serum prothrombin conversion accelerator)",IPI00382606,NA,3.88,1.23E-11
+HSPH1,"Heat shock 105kDa/110kDa protein 1",IPI00218993,Q92598,3.75,1.16E-02
+SRSF7,"Serine/arginine-rich splicing factor 7",IPI00003377,Q16629,3.64,3.37E-02
+COL4A1,"Collagen, type IV, alpha 1",IPI00743696,P02462,3.62,3.47E-02
+XRCC6,"X-ray repair complementing defective repair in Chinese hamster cells 6",IPI00465430,P12956,3.61,1.25E-03
+RBM14,"RNA binding motif protein 14",IPI00013174,Q96PK6,3.60,3.52E-02
+CSRP1,"Cysteine and glycine-rich protein 1",IPI00442073,P21291,3.58,3.11E-03
+PGLS,"6-phosphogluconolactonase",IPI00029997,O95336,3.57,7.08E-03
+COL4A2,"Collagen, type IV, alpha 2",IPI00306322,P08572,3.53,7.77E-03
+TAGLN,"Transgelin",IPI00216138,Q01995,3.51,2.62E-16
+IGKV1-5,"Immunoglobulin kappa variable 1-5",IPI00419424,NA,3.23,5.31E-24
+ILF3,"Interleukin enhancer binding factor 3, 90kDa",IPI00219330,Q12906,3.13,3.06E-03
+LMNB1,"Lamin B1",IPI00217975,P20700,3.10,1.01E-04
+ALDH1A1,"Aldehyde dehydrogenase 1 family, member A1",IPI00218914,P00352,3.03,4.10E-03
+hCG1998718,"Similar to ribosomal protein S3A",IPI00026138,NA,2.98,2.63E-02
+ATIC,"5-aminoimidazole-4-carboxamide ribonucleotide formyltransferase/IMP cyclohydrolase",IPI00289499,P31939,2.97,2.98E-03
+GPX2,"Glutathione peroxidase 2 (gastrointestinal)",IPI00298176,P18283,2.97,2.72E-02
+SPTBN1,"Spectrin, beta, non-erythrocytic 1",IPI00005614,Q01082,2.96,6.73E-11
+HNRNPA2B1,"Heterogeneous nuclear ribonucleoprotein A2/B1",IPI00396378,P22626,2.94,4.98E-02
+FLNA,"Filamin A, alpha",IPI00302592,P21333,2.92,7.17E-46
+AHNAK,"AHNAK nucleoprotein",IPI00021812,Q09666,2.91,8.22E-04
+MDH1,"Malate dehydrogenase 1, NAD (soluble)",IPI00291005,P40925,2.91,1.79E-04
+HNRNPL,"Heterogeneous nuclear ribonucleoprotein L",IPI00027834,P14866,2.84,2.14E-02
+CACYBP,"Calcyclin binding protein",IPI00395627,Q9HB71,2.77,4.09E-02
+APOE,"Apolipoprotein E",IPI00021842,P02649,2.72,7.33E-03
+PRPH,"Peripherin",IPI00013164,P41219,2.68,8.26E-03
+CTNND1,"Catenin (cadherin-associated protein), delta 1",IPI00182469,O60716,2.68,3.24E-02
+DPEP1,"Dipeptidase 1 (renal)",IPI00059476,P16444,2.66,2.67E-03
+C9,"Complement component 9",IPI00022395,P02748,2.63,2.32E-02
+SRSF3,"Serine/arginine-rich splicing factor 3",IPI00010204,P84103,2.54,3.01E-02
+CANX,"Calnexin",IPI00020984,B4DGP8,2.53,2.32E-03
+NCL,"Nucleolin",IPI00183526,Q9BQ02,2.51,5.95E-04
+SERPINB6,"Serpin peptidase inhibitor, clade B (ovalbumin), member 6",IPI00413451,NA,2.44,3.57E-03
+FN1,"Fibronectin 1",IPI00022418,P02751,2.38,1.77E-38
+NCL,"Nucleolin",IPI00444262,Q6ZS99,2.37,3.74E-03
+DSG2,"Desmoglein 2",IPI00028931,Q14126,2.34,1.12E-02
+FGA,"Fibrinogen alpha chain",IPI00021885,P02671,2.31,1.52E-13
+PPIA,"Peptidylprolyl isomerase A (cyclophilin A)",IPI00419585,P62937,2.26,6.13E-05
+THBS1,"Thrombospondin 1",IPI00296099,P07996,2.25,4.95E-05
+PSME1,"Proteasome (prosome, macropain) activator subunit 1 (PA28 alpha)",IPI00030154,Q06323,2.18,1.34E-02
+CTNNA1,"Catenin (cadherin-associated protein), alpha 1, 102kDa",IPI00215948,P35221,2.17,2.27E-02
+AKR1A1,"Aldo-keto reductase family 1, member A1 (aldehyde reductase)",IPI00220271,P14550,2.15,9.31E-03
+IGHA1,"Immunoglobulin heavy constant alpha 1",IPI00061977,NA,2.15,7.53E-04
+HNRNPA2B1,"Heterogeneous nuclear ribonucleoprotein A2/B1",IPI00386854,NA,2.11,1.49E-02
+TPI1,"Triosephosphate isomerase 1",IPI00451401,P60174,2.09,4.33E-03
+HPRT1,"Hypoxanthine phosphoribosyltransferase 1",IPI00218493,P00492,2.08,4.06E-02
+CBR1,"Carbonyl reductase 1",IPI00295386,P16152,2.01,2.83E-02
+HNRNPC,"Heterogeneous nuclear ribonucleoprotein C (C1/C2)",IPI00216592,P07910,2.00,2.99E-02
+SFPQ,"Splicing factor proline/glutamine-rich",IPI00010740,P23246,1.94,1.20E-02
+SPTAN1,"Spectrin, alpha, non-erythrocytic 1",IPI00478292,Q14917,1.94,3.56E-08
+SYNCRIP,"Synaptotagmin binding, cytoplasmic RNA interacting protein",IPI00018140,O60506,1.90,3.43E-02
+VIM,"Vimentin",IPI00418471,P08670,1.86,6.86E-13
+PFN1,"Profilin 1",IPI00216691,P07737,1.79,1.61E-04
+PEBP1,"Phosphatidylethanolamine binding protein 1",IPI00219446,P30086,1.78,1.30E-02
+PKM,"Pyruvate kinase, muscle",IPI00479186,P14618,1.78,2.84E-02
+YWHAE,"Tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, epsilon polypeptide",IPI00000816,P62258,1.73,1.67E-03
+HSPB1,"Heat shock 27kDa protein 1",IPI00025512,P04792,1.69,4.00E-02
+COL1A2,"Collagen, type I, alpha 2",IPI00304962,P08123,1.61,4.11E-02
+RPS4X,"Ribosomal protein S4, X-linked",IPI00217030,P62701,1.57,4.50E-02
+TAGLN2,"Transgelin 2",IPI00550363,P37802,1.57,7.57E-03
+HSPA8,"Heat shock 70kDa protein 8",IPI00003865,P11142,1.52,3.84E-06
+TPI1P1,"Triosephosphate isomerase 1 pseudogene 1",IPI00383071,P60174,1.50,1.24E-02
+ACO2,"Aconitase 2, mitochondrial",IPI00017855,Q99798,-1.54,2.40E-02
+HBE1,"Hemoglobin, epsilon 1",IPI00217471,P02100,-1.56,2.94E-05
+LAMC1,"Laminin, gamma 1 (formerly LAMB2)",IPI00298281,P11047,-1.57,1.96E-02
+PRELP,"Proline/arginine-rich end leucine-rich repeat protein",IPI00020987,P51888,-1.65,5.64E-03
+PDIA3,"Protein disulfide isomerase family A, member 3",IPI00025252,P30101,-1.65,1.51E-05
+MYH9,"Myosin, heavy chain 9, non-muscle",IPI00019502,P35579,-1.67,1.35E-17
+ATP5B,"ATP synthase, H+ transporting, mitochondrial F1 complex, beta polypeptide",IPI00303476,P06576,-1.73,3.63E-11
+EEF1G,"Eukaryotic translation elongation factor 1 gamma",IPI00000875,B4DTG2,-1.74,2.02E-02
+COL6A2,"Collagen, type VI, alpha 2",IPI00073454,P12110,-1.75,9.74E-05
+DDX3X,"DEAD (Asp-Glu-Ala-Asp) box polypeptide 3, X-linked",IPI00215637,O00571,-1.77,3.87E-02
+ANXA2P2,"Annexin A2 pseudogene 2",IPI00334627,A6NMY6,-1.83,5.96E-11
+HSD17B4,"Hydroxysteroid (17-beta) dehydrogenase 4",IPI00019912,P51659,-1.83,5.46E-03
+ECHS1,"Enoyl CoA hydratase, short chain, 1, mitochondrial",IPI00024993,P30084,-1.90,2.55E-02
+HBB,"Hemoglobin, beta",IPI00654755,P68871,-1.94,1.30E-21
+CA1,"Carbonic anhydrase I",IPI00215983,P00915,-1.97,1.51E-06
+GOT2,"Glutamic-oxaloacetic transaminase 2, mitochondrial (aspartate aminotransferase 2)",IPI00018206,P00505,-2.03,3.76E-03
+PHB2,"Prohibitin 2",IPI00027252,Q99623,-2.04,1.20E-04
+ATP5A1,"ATP synthase, H+ transporting, mitochondrial F1 complex, alpha subunit 1, cardiac muscle",IPI00440493,P25705,-2.04,1.97E-14
+ANXA11,"Annexin A11",IPI00414320,P50995,-2.10,6.85E-03
+SLC3A2,"Solute carrier family 3 (activators of dibasic and neutral amino acid transport), member 2",IPI00027493,P08195,-2.10,2.48E-02
+LONP1,"Lon peptidase 1, mitochondrial",IPI00005158,P36776,-2.14,3.37E-02
+STOML2,"Stomatin (EPB72)-like 2",IPI00334190,Q9UJZ1,-2.16,3.16E-02
+DCN,"Decorin",IPI00012119,P07585,-2.16,5.12E-07
+SERPINH1,"Serpin peptidase inhibitor, clade H (heat shock protein 47), member 1, (collagen binding protein 1)",IPI00032140,P50454,-2.21,3.54E-09
+FH,"Fumarate hydratase",IPI00296053,P07954,-2.25,3.85E-02
+RAB18,"RAB18, member RAS oncogene family",IPI00014577,Q9NP72,-2.26,2.79E-02
+ERO1L,"ERO1-like (S. cerevisiae)",IPI00386755,Q96HE7,-2.31,2.28E-02
+SOD2,"Superoxide dismutase 2, mitochondrial",IPI00022314,P04179,-2.33,1.69E-05
+COL6A2,"Collagen, type VI, alpha 2",IPI00304840,Q9BUM6,-2.34,1.58E-04
+ALDH1B1,"Aldehyde dehydrogenase 1 family, member B1",IPI00103467,P30837,-2.44,2.86E-07
+IMMT,"Inner membrane protein, mitochondrial",IPI00009960,Q16891,-2.46,3.38E-04
+CKAP4,"Cytoskeleton-associated protein 4",IPI00141318,Q07065,-2.46,1.71E-07
+DEFA1,"Defensin, alpha 1",IPI00005721,P59665,-2.47,2.39E-03
+BLVRB,"Biliverdin reductase B (flavin reductase (NADPH))",IPI00219910,NA,-2.53,1.18E-03
+IDH2,"Isocitrate dehydrogenase 2 (NADP+), mitochondrial",IPI00011107,P48735,-2.60,2.24E-07
+NIPSNAP1,"Nipsnap homolog 1 (C. elegans)",IPI00304435,Q9BPW8,-2.69,3.14E-02
+ACAA2,"Acetyl-CoA acyltransferase 2",IPI00001539,P42765,-2.69,6.56E-04
+S100A8,"S100 calcium binding protein A8",IPI00007047,P05109,-2.76,1.09E-02
+UQCRC1,"Ubiquinol-cytochrome c reductase core protein I",IPI00013847,P31930,-2.77,1.62E-02
+ANXA1,"Annexin A1",IPI00218918,P04083,-2.78,6.65E-19
+UQCRC2,"Ubiquinol-cytochrome c reductase core protein II",IPI00305383,P22695,-2.82,1.27E-04
+HADHA,"Hydroxyacyl-CoA dehydrogenase/3-ketoacyl-CoA thiolase/enoyl-CoA hydratase (trifunctional protein), alpha subunit",IPI00031522,P40939,-2.82,6.46E-13
+LETM1,"Leucine zipper-EF-hand containing transmembrane protein 1",IPI00017592,O95202,-2.86,1.22E-02
+DIABLO,"Diablo, IAP-binding mitochondrial protein",IPI00008418,Q9NR28,-2.91,1.07E-02
+HBD,"Hemoglobin, delta",IPI00473011,P02042,-2.97,2.12E-23
+ANXA6,"Annexin A6",IPI00002459,A6NN80,-2.97,3.86E-11
+TNC,"Tenascin C",IPI00031008,P24821,-3.11,1.00E-23
+CAT,"Catalase",IPI00465436,P04040,-3.19,2.04E-05
+ITGAV,"Integrin, alpha V",IPI00027505,P06756,-3.23,8.16E-03
+NID1,"Nidogen 1",IPI00026944,P14543,-3.23,8.09E-03
+UGGT1,"UDP-glucose glycoprotein glucosyltransferase 1",IPI00024466,Q9NYU2,-3.27,2.84E-02
+MPO,"Myeloperoxidase",IPI00007244,P05164,-3.33,4.67E-11
+DLST,"Dihydrolipoamide S-succinyltransferase (E2 component of 2-oxo-glutarate complex)",IPI00384122,Q86TW7,-3.45,9.62E-03
+HBA1,"Hemoglobin, alpha 1",IPI00410714,P69905,-3.45,1.84E-41
+OGN,"Osteoglycin",IPI00025465,P20774,-3.54,8.01E-05
+GLUD1,"Glutamate dehydrogenase 1",IPI00016801,P00367,-3.55,2.04E-07
+ALDH2,"Aldehyde dehydrogenase 2 family (mitochondrial)",IPI00006663,P05091,-3.65,9.59E-17
+PCK2,"Phosphoenolpyruvate carboxykinase 2 (mitochondrial)",IPI00294380,NA,-3.74,1.19E-02
+ERP44,"Endoplasmic reticulum protein 44",IPI00401264,Q9BS26,-3.74,2.95E-02
+PLOD1,"Procollagen-lysine, 2-oxoglutarate 5-dioxygenase 1",IPI00027192,B4DR87,-4.09,2.25E-03
+SQRDL,"Sulfide quinone reductase-like (yeast)",IPI00009634,Q9Y6N5,-4.29,4.15E-09
+SDHA,"Succinate dehydrogenase complex, subunit A, flavoprotein (Fp)",IPI00217143,Q8IW48,-4.31,4.16E-03
+HMGCS2,"3-hydroxy-3-methylglutaryl-CoA synthase 2 (mitochondrial)",IPI00008934,P54868,-4.49,2.88E-03
+NID2,"Nidogen 2 (osteonidogen)",IPI00028908,Q14112,-4.49,8.28E-05
+MRRF,"Mitochondrial ribosome recycling factor",IPI00030596,Q96E11,-4.49,3.50E-02
+LAMA4,"Laminin, alpha 4",IPI00329482,Q16363,-4.51,2.54E-04
+ATAD3B,"ATPase family, AAA domain containing 3B",IPI00045921,Q96T67,-4.62,3.13E-02
+NAMPT,"Nicotinamide phosphoribosyltransferase",IPI00018873,P43490,-4.65,1.31E-06
+AKR1B1,"Aldo-keto reductase family 1, member B1 (aldose reductase)",IPI00413641,P15121,-4.72,2.84E-02
+LEPRE1,"Leucine proline-enriched proteoglycan (leprecan) 1",IPI00045839,Q32P28,-4.85,1.50E-03
+MYH14,"Myosin, heavy chain 14, non-muscle",IPI00337335,Q7Z406,-4.94,3.25E-07
+SDCBP,"Syndecan binding protein (syntenin)",IPI00299086,O00560,-5.04,2.02E-02
+GPD2,"Glycerol-3-phosphate dehydrogenase 2 (mitochondrial)",IPI00017895,P43304,-5.10,4.10E-03
+CPNE1,"Copine I",IPI00018452,Q99829,-5.11,1.90E-02
+MYH14,"Myosin, heavy chain 14, non-muscle",IPI00029818,NA,-5.21,5.16E-09
+NDUFS1,"NADH dehydrogenase (ubiquinone) Fe-S protein 1, 75kDa (NADH-coenzyme Q reductase)",IPI00604664,B4DJA0,-5.47,8.76E-05
+MYL6B,"Myosin, light chain 6B, alkali, smooth muscle and non-muscle",IPI00027255,P14649,-5.52,1.24E-02
+TGM2,"Transglutaminase 2 (C polypeptide, protein-glutamine-gamma-glutamyltransferase)",IPI00294578,B4DIT7,-5.55,1.35E-05
+FTH1,"Ferritin, heavy polypeptide 1",IPI00554521,P02794,-5.57,1.18E-02
+TOMM40,"Translocase of outer mitochondrial membrane 40 homolog (yeast)",IPI00014053,O96008,-5.74,1.01E-02
+STOM,"Stomatin",IPI00219682,P27105,-5.80,1.46E-03
+HADHB,"Hydroxyacyl-CoA dehydrogenase/3-ketoacyl-CoA thiolase/enoyl-CoA hydratase (trifunctional protein), beta subunit",IPI00022793,P55084,-6.38,1.68E-07
+LMO7,"LIM domain 7",IPI00291802,Q8WWI1,-6.52,8.44E-07
+P4HA1,"Prolyl 4-hydroxylase, alpha polypeptide I",IPI00009923,P13674,-6.61,4.06E-03
+PNPT1,"Polyribonucleotide nucleotidyltransferase 1",IPI00291165,Q8TCS8,-7.07,3.28E-02
+NDUFB10,"NADH dehydrogenase (ubiquinone) 1 beta subcomplex, 10, 22kDa",IPI00074489,Q96II6,-7.14,2.36E-03
+TINAGL1,"Tubulointerstitial nephritis antigen-like 1",IPI00005563,Q9GZM7,-7.45,1.23E-04
+MYH10,"Myosin, heavy chain 10, non-muscle",IPI00397526,P35580,-7.62,3.65E-08
+LAMB3,"Laminin, beta 3",IPI00299404,Q13751,-9.01,3.45E-04
+MUC2,"Mucin 2, oligomeric mucus/gel-forming",IPI00027201,Q02817,-9.01,3.43E-04
+MCCC2,"Methylcrotonoyl-CoA carboxylase 2 (beta)",IPI00784044,Q9HCC0,-9.13,1.07E-02
+KRT6B,"Keratin 6B",IPI00293665,P04259,-9.40,6.60E-06
+ITGAM,"Integrin, alpha M (complement component 3 receptor 3 subunit)",IPI00217987,P11215,-9.50,2.17E-04
+VWA1,"Von Willebrand factor A domain containing 1",IPI00396383,Q6PCB0,-10.10,6.33E-03
+ACADVL,"Acyl-CoA dehydrogenase, very long chain",IPI00028031,Q53HR2,-12.61,3.22E-10
+PLIN2,"Perilipin 2",IPI00293307,Q99541,-24.10,4.14E-06
+DPT,"Dermatopontin",IPI00292130,Q07507,unique (CRC),4.78E-05
+OAT,"Ornithine aminotransferase",IPI00022334,P04181,unique (CRC),7.21E-03
+TUBB3,"Tubulin, beta 3 class III",IPI00013683,Q13509,unique (CRC),1.37E-02
+MMP1,"Matrix metallopeptidase 1 (interstitial collagenase)",IPI00008561,P03956,unique (CRC),1.26E-02
+GSR,"Glutathione reductase",IPI00016862,P00390,unique (CRC),7.77E-03
+MRPL1,"Mitochondrial ribosomal protein L1",IPI00024968,Q9BYD6,unique (CRC),4.60E-02
+CALU,"Calumenin",IPI00014537,B3KPG9,unique (CRC),4.60E-02
+COPZ1,"Coatomer protein complex, subunit zeta 1",IPI00032851,P61923,unique (CRC),4.54E-02
+CYB5A,"Cytochrome b5 type A (microsomal)",IPI00182933,P00167,unique (CRC),4.54E-02
+GLT25D1,"Glycosyltransferase 25 domain containing 1",IPI00168262,Q8NBJ5,unique (CRC),4.14E-02
+BSG,"Basigin (Ok blood group)",IPI00019906,P35613,unique (CRC),3.99E-02
+ITGA2B,"Integrin, alpha 2b (platelet glycoprotein IIb of IIb/IIIa complex, antigen CD41)",IPI00218628,P08514,unique (CRC),3.99E-02
+RBM3,"RNA binding motif (RNP1, RRM) protein 3",IPI00024320,P98179,unique (CRC),2.54E-02
+LAMA3,"Laminin, alpha 3",IPI00377045,B0YJ32,unique (CRC),1.43E-02
+C19orf21,"Chromosome 19 open reading frame 21",IPI00217121,Q8IVT2,unique (CRC),8.18E-03
+EMC2,"ER membrane protein complex subunit 2",IPI00014149,Q15006,unique (CRC),6.96E-03
+PI15,"Peptidase inhibitor 15",IPI00026303,O43692,unique (CRC),6.56E-03
+IKBIP,"IKBKB interacting protein",IPI00043598,Q70UQ0,unique (CRC),4.21E-03
+LAMC2,"Laminin, gamma 2",IPI00015117,Q13753,unique (CRC),5.25E-04
+HMOX1,"Heme oxygenase (decycling) 1",IPI00215893,P09601,unique (CRC),3.12E-04

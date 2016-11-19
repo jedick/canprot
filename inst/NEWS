@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.0.2.9000 (2016-11-18)
+CHANGES IN canprot 0.0.2.9000 (2016-11-19)
 ------------------------------------------
 
 - New export: get_colors().
@@ -15,6 +15,8 @@ CHANGES IN canprot 0.0.2.9000 (2016-11-18)
 - Add LXM+16 dataset for colorectal cancer.
 
 - Add datasets from 17 studies for pancreatic cancer.
+
+- Add datasets from 19 studies for hypoxia or 3D culture.
 
 CHANGES IN canprot 0.0.2 (2016-07-25)
 -------------------------------------
