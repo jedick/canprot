@@ -1,0 +1,586 @@
+ECsNumber,Gene.names,yourlist,Entry,Description,25C_aw0.985,14C_aw0.985,25C_aw0.967,14C_aw0.967
+ECs0026,rpsT,ECS0026,P0A7U9,"30S ribosomal protein S20",NA,-3.65,-4.5,-3.36
+ECs0029,ileS,ECS0029,Q8XA49,"isoleucyl-tRNA synthetase",NA,-2.36,-4,-5.28
+ECs0036,carB,ECS0036,P63737,"carbamoyl phosphate synthase large subunit",-1.87,NA,-3.09,NA
+ECs0057,pdxA,ECS0057,P58713,"4-hydroxythreonine-4-phosphate dehydrogenase",NA,2.79,NA,NA
+ECs0063,hepA,ECS0063,P60241,"ATP-dependent helicase HepA",NA,-2.26,-2.43,-3.41
+ECs0077,leuB,ECS0077,Q8X9Z9,"3-isopropylmalate dehydrogenase",NA,NA,NA,1.37
+ECs0084,fruR,ECS0084,P0ACP3,"DNA-binding transcriptional regulator FruR",NA,-3.52,-1.65,-3.52
+ECs0089,murE,ECS0089,Q8X9Z2,"UDP-N-acetylmuramoylalanyl-D-glutamate--2,6-diaminopimelate ligase",NA,-3.95,NA,-2.08
+ECs0090,murF,ECS0090,Q8X9Z1,"UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase",-1.87,-2.35,-1.86,-3.09
+ECs0094,murG,ECS0094,Q8X9Y8,"undecaprenyldiphospho-muramoylpentapeptide beta-N- acetylglucosaminyltransferase",NA,NA,-1.42,-2.64
+ECs0095,murC,ECS0095,P65471,"UDP-N-acetylmuramate--L-alanine ligase",NA,-1.88,-2.67,NA
+ECs0096,ddlB,ECS0096,Q8X9Y6,"D-alanine--D-alanine ligase",NA,-2.79,-1.94,NA
+ECs0098,ftsA,ECS0098,P0ABH2,"cell division protein FtsA",-1.66,NA,NA,NA
+ECs0099,ftsZ,ECS0099,P0A9A8,"cell division protein FtsZ",NA,-1.48,NA,NA
+ECs0102,secA,ECS0102,Q8X996,"preprotein translocase subunit SecA",NA,NA,-2.8,-2.97
+ECs0117,pdhR,ECS0117,P0ACM1,"transcriptional regulator PdhR",NA,-1.86,-2.94,-3.3
+ECs0119,aceF,ECS0119,Q8X966,"dihydrolipoamide acetyltransferase",NA,NA,-2.87,-3.01
+ECs0120,lpdA,ECS0120,P0A9P2,"dihydrolipoamide dehydrogenase",NA,NA,NA,-2.24
+ECs0124,speD,ECS0124,P0A7F7,"S-adenosylmethionine decarboxylase",NA,NA,NA,-4.27
+ECs0125,speE,ECS0125,P66834,"spermidine synthase",NA,NA,NA,-2.24
+ECs0129,hpt,ECS0129,Q8X945,"hypoxanthine-guanine phosphoribosyltransferase",NA,-1.94,-2.68,-5
+ECs0130,can,ECS0130,Q8X938,"carbonic anhydrase",-4.62,NA,-4.62,-4.62
+ECs0131,yadG,ECS0131,Q8X4V8,"putative ATP-binding component of a transport system",1.26,NA,NA,NA
+ECs0137,panC,ECS0137,Q8X930,"pantoate--beta-alanine ligase",NA,NA,NA,-1.62
+ECs0147,pcnB,ECS0147,P0ABF3,"poly(A) polymerase I",-3.95,-3.95,-3.95,-3.95
+ECs0149,dksA,ECS0149,P0ABS3,"DnaK transcriptional regulator DksA",-2.57,-2.28,-4.15,-4.15
+ECs0158,hemL,ECS0158,Q8X4V5,"glutamate-1-semialdehyde aminotransferase",-1.84,-2.01,-3.06,-5.38
+ECs0163,pfs,ECS0163,P0AF14,"5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase",NA,NA,-2.8,NA
+ECs0165,htrA,ECS0165,P0C0V1,"serine endoprotease",-3.91,-2.68,NA,NA
+ECs0168,dapD,ECS0168,Q8X8Y7,"2,3,4,5-tetrahydropyridine-2,6-carboxylate N-succinyltransferase",NA,NA,NA,-4.69
+ECs0170,map,ECS0170,P0AE20,"methionine aminopeptidase",NA,-3.25,-4.48,-4.48
+ECs0171,rpsB,ECS0171,P0A7V2,"30S ribosomal protein S2",NA,NA,NA,-2.36
+ECs0172,tsf,ECS0172,P0A6P3,"elongation factor Ts",NA,NA,NA,-2.49
+ECs0173,pyrH,ECS0173,P0A7F1,"uridylate kinase",NA,-3.04,-3.04,-3.04
+ECs0178,yaeL,ECS0178,P0AEH2,"zinc metallopeptidase RseP",1.59,NA,NA,NA
+ECs0179,yaeT,ECS0179,P0A942,"outer membrane protein assembly factor YaeT",NA,NA,NA,-1.74
+ECs0180,hlpA,ECS0180,P0AEU9,"periplasmic chaperone",NA,NA,NA,-2.92
+ECs0184,lpxB,ECS0184,Q8X8X7,"lipid-A-disaccharide synthase",-2.64,NA,-1.91,-2.64
+ECs0187,accA,ECS0187,P0ABD6,"acetyl-CoA carboxylase carboxyltransferase subunit alpha",NA,-1.77,NA,NA
+ECs0189,yaeR,ECS0189,Q8X8X3,"hypothetical protein ECs0189",2.12,3.17,NA,NA
+ECs0196,proS,ECS0196,Q8X8W2,"prolyl-tRNA synthetase",NA,NA,NA,-3.69
+ECs0202,gmhB,ECS0202,P63229,"D,D-heptose 1,7-bisphosphate phosphatase",NA,-1.06,-2.64,-2.64
+ECs0249,gmhA,ECS0249,P63225,"phosphoheptose isomerase",2.03,1.86,NA,NA
+ECs0265,gpt,ECS0265,P0A9M6,"xanthine-guanine phosphoribosyltransferase",NA,NA,-2.86,-4.44
+ECs0358,betB,ECS0358,Q7AH91,"betaine aldehyde dehydrogenase",3.16,NA,3.25,3.29
+ECs0359,betI,ECS0359,Q8X6C3,"transcriptional regulator BetI",1.87,NA,NA,NA
+ECs0411,adhC,ECS0411,Q8X5J4,"alcohol dehydrogenase class III",NA,NA,-2.63,-3.29
+ECs0423,hemB,ECS0423,A0A0H3JFW2,"delta-aminolevulinic acid dehydratase",NA,-1.49,-1.69,-2.22
+ECs0431,ddlA,ECS0431,P0A6J9,"D-alanyl-alanine synthetase A",-2.03,-2.68,-3.91,-3.91
+ECs0437,proC,ECS0437,Q8XEB1,"pyrroline-5-carboxylate reductase",NA,NA,-1.51,NA
+ECs0456,queA,ECS0456,P0A7G0,"S-adenosylmethionine:tRNA ribosyltransferase-isomerase",NA,NA,NA,-2.22
+ECs0457,tgt,ECS0457,P0A849,"queuine tRNA-ribosyltransferase",NA,NA,-2.42,-3.7
+ECs0460,secF,ECS0460,P0AG95,"preprotein translocase subunit SecF",NA,NA,NA,-1.88
+ECs0469,nusB,ECS0469,P0A782,"transcription antitermination protein NusB",NA,NA,-3.61,-3.61
+ECs0473,yajO,ECS0473,Q8XE84,"putative NAD(P)H-dependent xylose reductase",NA,NA,1.88,3.06
+ECs0477,thiI,ECS0477,Q8XE74,"thiamine biosynthesis protein ThiI",NA,NA,-3.26,-5.13
+ECs0480,yajQ,ECS0480,P0A8E9,"putative nucleotide-binding protein",NA,-3.49,NA,-3.49
+ECs0486,cyoA,ECS0486,Q8XE63,"cytochrome o ubiquinol oxidase subunit II",NA,NA,NA,-2.2
+ECs0488,yajG,ECS0488,Q8XE62,"hypothetical protein ECs0488",NA,NA,NA,-3.36
+ECs0491,clpP,ECS0491,P0A6G9,"ATP-dependent Clp protease proteolytic subunit",NA,-1.66,NA,NA
+ECs0495,ppiD,ECS0495,Q8XE55,"peptidyl-prolyl cis-trans isomerase (rotamase D)",NA,NA,NA,-3.53
+ECs0506,tesB,ECS0506,P0AGG3,"acyl-CoA thioesterase II",NA,NA,-2.39,-2.39
+ECs0507,ybaY,ECS0507,Q8XD73,"glycoprotein/polysaccharide metabolism",NA,2.94,5.29,6.33
+ECs0511,ylaC,ECS0511,P0AAS1,"hypothetical protein ECs0511",NA,-2.12,NA,-2.12
+ECs0516,acrA,ECS0516,P0AE07,"acridine efflux pump",NA,-2.1,NA,NA
+ECs0522,apt,ECS0522,Q8XD48,"adenine phosphoribosyltransferase",NA,NA,-2.14,-3.28
+ECs0523,dnaX,ECS0523,Q8XD46,"DNA polymerase III subunits gamma and tau",-1.59,NA,-1.58,-1.58
+ECs0526,htpG,ECS0526,P0A6Z5,"heat shock protein 90",NA,-2.33,-2.67,-2.67
+ECs0530,gsk,ECS0530,P0AEW8,"inosine-guanosine kinase",NA,-2.77,NA,-3.42
+ECs0555,ybbN,ECS0555,Q8X570,"putative thioredoxin-like protein",-1.41,NA,NA,NA
+ECs0587,ppiB,ECS0587,Q8XCU0,"peptidyl-prolyl cis-trans isomerase B (rotamase B)",NA,-2.44,-4.02,-4.02
+ECs0588,cysS,ECS0588,Q8XCT9,"cysteinyl-tRNA synthetase",NA,NA,-5.52,-5.52
+ECs0591,folD,ECS0591,Q8XCT6,"bifunctional 5,10-methylene-tetrahydrofolate dehydrogenase/ 5,10-methylene-tetrahydrofolate cyclohydrolase",NA,1.74,NA,NA
+ECs0616,nfnB,ECS0616,Q8XBX3,"dihydropteridine reductase",NA,-3.29,-4.02,-4.02
+ECs0619,ybdK,ECS0619,Q8XBX1,"carboxylate-amine ligase",NA,2.94,NA,NA
+ECs0623,fepA,ECS0623,Q8XBW7,"outer membrane receptor FepA",2.25,NA,NA,NA
+ECs0625,entF,ECS0625,Q8XBV9,"enterobactin synthase subunit F",NA,NA,NA,-3.61
+ECs0632,entC,ECS0632,P0AEJ3,"isochorismate synthase",NA,NA,-2.03,-2.68
+ECs0634,entB,ECS0634,P0ADI5,"2,3-dihydro-2,3-dihydroxybenzoate synthetase",NA,NA,NA,-3
+ECs0635,entA,ECS0635,Q8X528,"2,3-dihydroxybenzoate-2,3-dehydrogenase",NA,1.91,NA,NA
+ECs0649,rnk,ECS0649,P0AFW6,"nucleoside diphosphate kinase regulator",-2.52,NA,NA,-2.52
+ECs0666,lipA,ECS0666,P60718,"lipoyl synthase",NA,-3.49,NA,-3.86
+ECs0670,dacA,ECS0670,P0AEB4,"D-alanyl-D-alanine carboxypeptidase fraction A",NA,-2.5,NA,-2.66
+ECs0680,leuS,ECS0680,Q8XBN8,"leucyl-tRNA synthetase",NA,-2.22,NA,-4.01
+ECs0681,ybeL,ECS0681,P0AAU1,"hypothetical protein ECs0681",NA,NA,NA,1.88
+ECs0695,lnt,ECS0695,Q8XBK2,"apolipoprotein N-acyltransferase",NA,2,NA,NA
+ECs0696,ybeX,ECS0696,P0AE80,"putative transport protein",NA,NA,-2.8,-4.02
+ECs0698,ybeZ,ECS0698,P0A9K5,"putative ATP-binding protein in pho regulon",NA,NA,NA,-2.17
+ECs0699,miaB,ECS0699,P0AEI3,"hypothetical protein ECs0699",NA,-2.03,NA,NA
+ECs0705,nagD,ECS0705,P0AF25,"UMP phosphatase",-2.76,NA,-2.75,-2.75
+ECs0710,glnS,ECS0710,Q8X9H8,"glutaminyl-tRNA synthetase",NA,-1.77,NA,-2.75
+ECs0715,fldA,ECS0715,P61951,"flavodoxin FldA",-3.39,NA,-3.39,-3.39
+ECs0717,ybfF,ECS0717,Q8X9H1,"hypothetical protein ECs0717",-3,-2.26,-3,-3
+ECs0718,seqA,ECS0718,Q8X9G7,"replication initiation regulator SeqA",NA,NA,-4.77,-4.77
+ECs0745,gltA,ECS0745,A0A0H3JCM9,"type II citrate synthase",NA,1.87,NA,2.23
+ECs0748,sdhA,ECS0748,P0AC43,"succinate dehydrogenase flavoprotein subunit",2.38,1.71,1.71,NA
+ECs0751,sucA,ECS0751,P0AFG5,"2-oxoglutarate dehydrogenase E1 component",NA,NA,1.77,NA
+ECs0752,sucB,ECS0752,P0AFG7,"dihydrolipoamide succinyltransferase",NA,NA,NA,-3.09
+ECs0773,tolR,ECS0773,P0ABV8,"colicin uptake protein TolR",NA,NA,NA,-2.5
+ECs0775,tolB,ECS0775,P0A857,"translocation protein TolB",NA,-2.62,-2.62,-4.21
+ECs0784,galM,ECS0784,A0A0H3JGJ3,galactose-1-epimerase,NA,-2.32,-2.32,NA
+ECs0785,galK,ECS0785,P0A6T4,galactokinase,2.81,NA,3.06,3.46
+ECs0795,ybhE,ECS0795,Q8X926,6-phosphogluconolactonase,-2.81,NA,NA,NA
+ECs0800,ybhC,ECS0800,Q8X891,"putative pectinesterase",-2.1,-3.32,-3.32,-3.32
+ECs0867,ybhO,ECS0867,P0AA85,"cardiolipin synthase 2",NA,NA,NA,1.59
+ECs0875,rhlE,ECS0875,Q8X7Y7,"ATP-dependent RNA helicase RhlE",NA,NA,-1.65,NA
+ECs0878,ybiB,ECS0878,Q8X7X6,"glycosyl transferase family protein",NA,NA,-2,NA
+ECs0882,ybiX,ECS0882,Q8X7W8,"putative hydroxylase",1.22,2.12,NA,NA
+ECs0883,fiu,ECS0883,Q8X7W7,"catecholate siderophore receptor Fiu",2.74,3.13,NA,NA
+ECs0889,glnH,ECS0889,P0AEQ5,"glutamine ABC transporter periplasmic protein",-1.84,-3.43,-2.69,-3.43
+ECs0890,dps,ECS0890,P0ABT3,"DNA starvation/stationary phase protection protein Dps",NA,NA,3.97,5.19
+ECs0896,ybiS,ECS0896,P0AAY0,"hypothetical protein ECs0896",NA,-1.82,NA,-2.35
+ECs0899,-,ECS0899,Q8X7S8,"hypothetical protein ECs0899",NA,1.88,NA,NA
+ECs0905,moeA,ECS0905,A0A0H3JCV4,"molybdopterin biosynthesis protein MoeA",NA,-2.95,-2.95,-2.22
+ECs0915,yliG,ECS0915,P0AEI5,"hypothetical protein ECs0915",NA,-1.93,-2.89,-3.52
+ECs0918,yliJ,ECS0918,Q8X6U4,"putative transferase",1.59,NA,2.66,2.94
+ECs0924,-,ECS0924,Q8X6T3,"hypothetical protein ECs0924",NA,1.59,NA,3.37
+ECs0931,mdaA,ECS0931,Q8X6S1,"modulator of drug activity A",-2.44,-3.29,-4.02,-4.02
+ECs0946,artI,ECS0946,Q8X6N9,"arginine 3rd transport system periplasmic binding protein",-2.46,-2.46,-2.46,-2.46
+ECs0947,artP,ECS0947,P0AAF8,"arginine transporter ATP-binding subunit",-2.09,NA,NA,-2.09
+ECs0963,ybjX,ECS0963,Q8X6K4,"hypothetical protein ECs0963",NA,-2.64,-4.23,-4.23
+ECs0969,infA,ECS0969,P69224,"translation initiation factor IF-1",NA,-2.84,NA,NA
+ECs0971,cydC,ECS0971,Q8X5I3,"cysteine/glutathione ABC transporter membrane/ATP-binding component",1.17,NA,1.17,NA
+ECs0973,trxB,ECS0973,P0A9P5,"thioredoxin reductase",NA,NA,NA,-2.64
+ECs0976,lolA,ECS0976,P61318,"outer-membrane lipoprotein carrier protein",-3.46,NA,-3.46,-3.46
+ECs0978,serS,ECS0978,P0A8L3,"seryl-tRNA synthetase",NA,-2.61,NA,-3.23
+ECs0982,ycaC,ECS0982,A0A0H3JD10,"hypothetical protein ECs0982",NA,NA,1.59,NA
+ECs0986,pflB,ECS0986,Q8XEB4,"formate acetyltransferase 1",NA,-2.28,NA,NA
+ECs0988,ycaO,ECS0988,Q8XEA9,"hypothetical protein ECs0988",NA,NA,-2.36,-2.08
+ECs0990,serC,ECS0990,Q8XEA7,"phosphoserine aminotransferase",NA,NA,-1.81,-2.66
+ECs0994,rpsA,ECS0994,P0AG69,"30S ribosomal protein S1",NA,NA,NA,-2.37
+ECs0995,himD,ECS0995,P0A6Y3,"integration host factor subunit beta",NA,NA,NA,-2.39
+ECs0997,msbA,ECS0997,P60753,"lipid transporter ATP-binding/permease protein",NA,NA,NA,-2.59
+ECs1003,ycbC,ECS1003,P0AB02,"hypothetical protein ECs1003",NA,2.32,NA,NA
+ECs1007,mukB,ECS1007,Q8XDG0,"cell division protein MukB",NA,-2.45,NA,-2.29
+ECs1012,ompF,ECS1012,Q8XDF1,"outer membrane protein F",1.59,2.59,NA,NA
+ECs1013,asnS,ECS1013,P58694,"asparaginyl-tRNA synthetase",NA,-2.59,-3.06,-3.75
+ECs1014,pncB,ECS1014,Q8XDE8,"nicotinate phosphoribosyltransferase",-3.52,-3.52,-3.52,-3.52
+ECs1032,ycbY,ECS1032,Q8XDB2,"23S rRNA m(2)G2445 methyltransferase",NA,NA,-2.6,-2.42
+ECs1033,-,ECS1033,A0A0H3JCY6,"ABC transporter ATPase component",NA,NA,-2.38,-2.83
+ECs1038,fabA,ECS1038,P0A6Q4,"3-hydroxydecanoyl-(acyl carrier protein) dehydratase",-2.64,-2.64,-2.64,-2.64
+ECs1049,-,ECS1049,Q8XD87,"hypothetical protein ECs1049",NA,-1.7,-1.7,NA
+ECs1051,rlmI,ECS1051,Q8XD85,"putative oxidoreductase",-3.95,-1.84,-2.37,-2.73
+ECs1137,yccC,ECS1137,Q8XC28,"cryptic autophosphorylating protein tyrosine kinase Etk",NA,-2.32,-2.32,-2.32
+ECs1139,yccZ,ECS1139,P0A933,"hypothetical protein ECs1139",NA,-4.01,-4.01,-4.01
+ECs1159,yccJ,ECS1159,P0AB16,"hypothetical protein ECs1159",NA,NA,NA,3.37
+ECs1184,-,ECS1184,A0A0H3JDB4,"hypothetical protein ECs1184",NA,NA,-4.36,-4.36
+ECs1217,borW,ECS1217,A7UQX0,"Bor precursor",NA,-3.91,-3.91,-3.91
+ECs1244,-,ECS1244,A7UQV4,"hypothetical protein ECs1244",-3.81,-3.81,-3.81,-3.81
+ECs1264,ycdO,ECS1264,Q8XAS6,"hypothetical protein ECs1264",NA,NA,-3.32,-3.32
+ECs1351,terZ,ECS1351,Q8X9Q6,TerZ,-3.46,-3.46,-3.46,-3.46
+ECs1352,terA,ECS1352,A0A0H3JCS8,TerA,1.22,NA,NA,NA
+ECs1360,iha,ECS1360,Q9LAP1,"bifunctional enterobactin receptor/adhesin protein",2.32,NA,2,NA
+ECs1433,yceA,ECS1433,Q8X8P2,"hypothetical protein ECs1433",NA,NA,-2.17,-2.17
+ECs1454,flgE,ECS1454,Q8X8L1,"flagellar hook protein FlgE",-2.22,-2.22,-2.22,-2.22
+ECs1462,rne,ECS1462,Q8X8J5,"ribonuclease E",NA,NA,-2.37,-2.13
+ECs1466,yceD,ECS1466,P0AB30,"hypothetical protein ECs1466",-2.22,-2.95,-2.95,-2.95
+ECs1467,rpmF,ECS1467,P0A7N5,"50S ribosomal protein L32",NA,-1.72,NA,-2.01
+ECs1469,fabH,ECS1469,P0A6R2,"3-oxoacyl-(acyl carrier protein) synthase III",NA,-2.49,NA,-2
+ECs1470,fabD,ECS1470,Q8X8I7,"acyl carrier protein S-malonyltransferase",NA,-2.6,NA,-5.54
+ECs1472,acpP,ECS1472,P0A6B0,"acyl carrier protein",NA,NA,-2.71,-2.01
+ECs1473,fabF,ECS1473,P0AAI7,"3-oxoacyl-(acyl carrier protein) synthase II",NA,NA,-2.55,-2.92
+ECs1477,holB,ECS1477,Q8X8H5,"DNA polymerase III subunit delta'",NA,NA,1.74,NA
+ECs1479,ptsG,ECS1479,P69788,"glucose-specific PTS system IIBC components",NA,NA,-3.18,-2.18
+ECs1487,ndh,ECS1487,Q8X8G5,"NADH dehydrogenase",-2.98,NA,-4.91,-5.65
+ECs1488,ycfJ,ECS1488,Q8X8G4,"hypothetical protein ECs1488",NA,1.59,NA,NA
+ECs1493,-,ECS1493,A0A0H3JDV7,"hypothetical protein ECs1493",NA,1.59,NA,NA
+ECs1495,lolD,ECS1495,Q8X8E3,"lipoprotein transporter ATP-binding subunit",2.14,NA,NA,NA
+ECs1497,nagK,ECS1497,Q8X8E1,"N-acetyl-D-glucosamine kinase",NA,1.88,NA,NA
+ECs1499,potD,ECS1499,Q8X8D9,"spermidine/putrescine ABC transporter periplasmic substrate-binding protein",-2.26,-2.01,NA,NA
+ECs1602,phoP,ECS1602,Q8X738,"DNA-binding transcriptional regulator PhoP",NA,NA,NA,-1.94
+ECs1605,trmU,ECS1605,Q8X735,"tRNA-specific 2-thiouridylase MnmA",NA,NA,NA,-1.97
+ECs1625,-,ECS1625,Q8X4P5,"Bor precursor",NA,-3.88,-3.88,-3.88
+ECs1653,-,ECS1653,Q8X589,"hypothetical protein ECs1653",NA,NA,NA,6.52
+ECs1654,-,ECS1654,A0A0H3JE84,"hypothetical protein ECs1654",NA,NA,3.27,5.7
+ECs1662,-,ECS1662,Q8XDP4,"hypothetical protein ECs1662",-2.52,NA,-2.52,-2.52
+ECs1683,ycgB,ECS1683,Q8XDL3,"SpoVR family protein",NA,NA,NA,2.5
+ECs1708,ychF,ECS1708,P0ABU3,"GTP-dependent nucleic acid-binding protein EngD",NA,-1.83,-2.14,-2.88
+ECs1709,pth,ECS1709,P0A7D3,"peptidyl-tRNA hydrolase",NA,-3.59,-3.59,-3.59
+ECs1711,ychM,ECS1711,P0AFR3,"putative sulfate transporter YchM",2.17,1.59,NA,NA
+ECs1712,prsA,ECS1712,P0A719,"ribose-phosphate pyrophosphokinase",NA,-2.29,NA,NA
+ECs1717,hemK,ECS1717,Q8XDF2,"N5-glutamine S-adenosyl-L-methionine-dependent methyltransferase",-2.17,-2.17,-2.17,-2.17
+ECs1724,ychN,ECS1724,P0AB53,"hypothetical protein ECs1724",NA,-1.81,-1.81,-1.81
+ECs1829,yciE,ECS1829,Q7DBI3,"hypothetical protein ECs1829",NA,NA,4.09,7.43
+ECs1830,yciF,ECS1830,Q7DBI4,"putative structural proteins",2.32,3.27,5.16,7.39
+ECs1832,trpA,ECS1832,Q8X7B5,"tryptophan synthase subunit alpha",NA,NA,NA,2.22
+ECs1846,topA,ECS1846,Q8X7C5,"DNA topoisomerase I",NA,NA,-1.81,NA
+ECs1849,acnA,ECS1849,Q8X7C7,"aconitate hydratase",NA,NA,NA,3.17
+ECs1854,pyrF,ECS1854,P58640,"orotidine 5'-phosphate decarboxylase",NA,NA,-1.86,-3.09
+ECs1856,osmB,ECS1856,P0ADA9,"osmotically inducible lipoprotein",3.86,3.44,2.97,2.59
+ECs1859,rnb,ECS1859,Q8X7D6,"exoribonuclease II",NA,-1.5,-2.21,-2.76
+ECs1861,fabI,ECS1861,P0AEK5,"enoyl-(acyl carrier protein) reductase",NA,-2.02,NA,NA
+ECs1881,pspA,ECS1881,P0AFM7,"phage shock protein PspA",NA,NA,NA,1.57
+ECs1914,uspE,ECS1914,P0AAC2,"universal stress protein UspE",NA,2.17,NA,NA
+ECs1927,dbpA,ECS1927,Q8X8Q4,"ATP-dependent RNA helicase DbpA",2.5,NA,NA,NA
+ECs1928,ydaO,ECS1928,Q8X8Q5,"C32 tRNA thiolase",NA,NA,-3.21,-2.47
+ECs2002,ldhA,ECS2002,Q8X9Q7,"D-lactate dehydrogenase",NA,NA,NA,-3.49
+ECs2020,ydcF,ECS2020,Q8X9T9,"hypothetical protein ECs2020",NA,2.32,NA,NA
+ECs2021,aldA,ECS2021,Q8X9U1,"aldehyde dehydrogenase A",NA,NA,NA,1.59
+ECs2029,mdoD,ECS2029,Q8X9V1,"glucan biosynthesis protein D",1.72,NA,1.55,1.46
+ECs2050,ydcY,ECS2050,P64457,"hypothetical protein ECs2050",-3.17,-3.17,-3.17,-3.17
+ECs2055,yncD,ECS2055,A0A0H3JEX9,"putative outer membrane receptor for iron transport",1.59,1.59,1.17,1.59
+ECs2082,-,ECS2082,A0A0H3JJE4,"alcohol dehydrogenase",NA,NA,1.59,2.81
+ECs2086,osmC,ECS2086,Q8XAT8,"osmotically inducible protein",NA,1.59,4.44,4.3
+ECs2197,-,ECS2197,Q8X548,"hypothetical protein ECs2197",-3.81,-3.81,-3.81,-3.81
+ECs2310,-,ECS2310,Q8X773,"hypothetical protein ECs2310",NA,NA,-2.62,-1.77
+ECs2331,add,ECS2331,Q8X661,"adenosine deaminase",NA,-2,NA,NA
+ECs2344,gst,ECS2344,P0A9D3,"glutathionine S-transferase",NA,-1.91,NA,NA
+ECs2346,tyrS,ECS2346,P0AGK0,"tyrosyl-tRNA synthetase",NA,NA,-2.41,-3.75
+ECs2365,sodB,ECS2365,P0AGD5,"superoxide dismutase",-4,NA,-4,-4
+ECs2383,pykF,ECS2383,P0AD62,"pyruvate kinase",NA,-1.82,NA,-2.32
+ECs2384,lpp,ECS2384,P69778,"murein lipoprotein",NA,-4.07,NA,-4.07
+ECs2387,sufS,ECS2387,Q7ADI4,"bifunctional cysteine desulfurase/selenocysteine lyase",NA,2.32,NA,NA
+ECs2388,sufD,ECS2388,Q8X601,"cysteine desulfurase activator complex subunit SufD",NA,2.5,NA,3.46
+ECs2389,sufC,ECS2389,Q8X600,"cysteine desulfurase ATPase component",NA,NA,NA,2.81
+ECs2410,ydiA,ECS2410,P0A8A6,"hypothetical protein ECs2410",NA,1.22,NA,NA
+ECs2413,ydiU,ECS2413,Q8X5W3,"hypothetical protein ECs2413",NA,NA,NA,1.59
+ECs2420,pheT,ECS2420,Q8XE32,"phenylalanyl-tRNA synthetase subunit beta",NA,-2.02,NA,-4.51
+ECs2421,pheS,ECS2421,P67037,"phenylalanyl-tRNA synthetase subunit alpha",NA,-2.48,-2.64,-5.14
+ECs2423,rplT,ECS2423,P0A7L5,"50S ribosomal protein L20",1.74,NA,NA,NA
+ECs2425,infC,ECS2425,P0A709,"translation initiation factor IF-3",NA,NA,NA,-2.16
+ECs2426,thrS,ECS2426,Q8XE27,"threonyl-tRNA synthetase",NA,-2.07,-5.91,-5.91
+ECs2438,katE,ECS2438,A0A0H3JFP5,"hydroperoxidase II",NA,NA,4.09,5.43
+ECs2446,nadE,ECS2446,Q8XDZ9,"NAD synthetase",NA,-2.37,-4.25,-4.25
+ECs2455,xthA,ECS2455,Q8XDY5,"exonuclease III",NA,-1.7,-3.29,-3.29
+ECs2470,selD,ECS2470,P66794,"selenophosphate synthetase",NA,-2.89,-2.36,-3.25
+ECs2471,ydjA,ECS2471,P0ACY2,"hypothetical protein ECs2471",NA,-2.17,NA,NA
+ECs2490,-,ECS2490,Q8XDT9,"putative an aldehyde reductase",NA,2.5,NA,NA
+ECs2492,yeaG,ECS2492,P0ACY5,"hypothetical protein ECs2492",NA,NA,NA,3.84
+ECs2513,rnd,ECS2513,A0A0H3JFG5,"ribonuclease D",-3.29,-2.55,-3.29,-3.29
+ECs2514,fadD,ECS2514,Q8XDR6,"long-chain-fatty-acid--CoA ligase",-2.69,-2.2,-3.43,-3.43
+ECs2517,yoaA,ECS2517,Q8XDR3,"hypothetical protein ECs2517",NA,NA,1.88,NA
+ECs2523,sdaA,ECS2523,A0A0H3JEQ1,"L-serine deaminase",NA,NA,-3.52,NA
+ECs2529,manZ,ECS2529,P69807,"mannose-specific PTS system protein IID",1.59,NA,NA,NA
+ECs2537,kdgR,ECS2537,Q8XCN4,"putative regulator",NA,NA,NA,-1.81
+ECs2541,proQ,ECS2541,Q8XCM4,"putative solute/DNA competence effector",NA,-2,-1.82,-2.45
+ECs2544,-,ECS2544,A0A0H3JKH3,"hypothetical protein ECs2544",NA,NA,NA,2.32
+ECs2545,yebU,ECS2545,Q8XCL9,"rRNA (cytosine-C(5)-)-methyltransferase RsmF",-2.86,-2.12,-2.86,-2.86
+ECs2556,-,ECS2556,A0A0H3JKI2,"hypothetical protein ECs2556",NA,NA,NA,4.84
+ECs2560,eda,ECS2560,P0A957,"keto-hydroxyglutarate-aldolase/keto-deoxy-phosphogluconate aldolase",-3.78,-3.78,-3.78,-3.78
+ECs2561,edd,ECS2561,P0ADF7,"phosphogluconate dehydratase",NA,NA,-2.46,NA
+ECs2562,zwf,ECS2562,Q8XCJ6,"glucose-6-phosphate 1-dehydrogenase",NA,NA,NA,-3.67
+ECs2571,ruvA,ECS2571,P0A811,"Holliday junction DNA helicase RuvA",NA,NA,NA,-1.91
+ECs2574,yebC,ECS2574,P67176,"hypothetical protein ECs2574",-2.52,-2.52,-2.52,-2.52
+ECs2576,aspS,ECS2576,Q8XCI7,"aspartyl-tRNA synthetase",NA,NA,-3.09,-3.21
+ECs2586,argS,ECS2586,Q8XCH2,"arginyl-tRNA synthetase",NA,NA,-2.87,-2.26
+ECs2591,cheZ,ECS2591,Q8XCG0,"chemotaxis regulator CheZ",-3.78,-2.56,-3.78,-3.78
+ECs2598,cheA,ECS2598,Q8XCF5,"chemotaxis protein CheA",-3.78,-2.2,-3.78,-3.78
+ECs2604,otsA,ECS2604,Q8XCE7,"trehalose-6-phosphate synthase",NA,3.06,NA,4.09
+ECs2605,otsB,ECS2605,Q8XCE6,"trehalose-6-phosphate phosphatase",NA,NA,NA,2.66
+ECs2616,yecA,ECS2616,Q8XCD3,"hypothetical protein ECs2616",NA,NA,NA,2.13
+ECs2662,fliC,ECS2662,Q7AD06,flagellin,-5.49,-3.54,-6.71,-6.71
+ECs2690,rcsA,ECS2690,P69406,"transcriptional regulator for ctr capsule biosynthesis",NA,NA,NA,2
+ECs2809,yeeX,ECS2809,P0A8M8,"hypothetical protein ECs2809",NA,NA,-3.38,-2.45
+ECs2816,yeeF,ECS2816,P0AA48,"putative amino acid/amine transport protein",NA,NA,NA,-2.12
+ECs2825,hisA,ECS2825,Q9S5G4,"1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino] imidazole-4-carboxamide isomerase",NA,NA,NA,1.88
+ECs2826,hisF,ECS2826,P60665,"imidazole glycerol phosphate synthase subunit HisF",NA,2.5,NA,NA
+ECs2829,ugd,ECS2829,Q7DBF9,"UDP-glucose 6-dehydrogenase",5.82,5.22,5.24,5.13
+ECs2830,gnd,ECS2830,Q7DBF8,"6-phosphogluconate dehydrogenase",NA,-1.84,NA,NA
+ECs2836,manC,ECS2836,O85342,"mannose-1-P guanosyltransferase",NA,NA,-2.79,-2.79
+ECs2837,wbdQ,ECS2837,O85341,"putative GDP-L-fucose pathway enzyme",NA,-2,NA,-3.59
+ECs2838,fcI,ECS2838,Q7DBF6,"fucose synthetase",NA,NA,-3.99,-3.99
+ECs2839,-,ECS2839,Q7DBF5,"GDP-D-mannose dehydratase",NA,NA,-2.89,-2.6
+ECs2840,wbdP,ECS2840,Q7DBF4,"putative glycosyl transferase",-3.25,-1.97,-4.48,-4.48
+ECs2841,-,ECS2841,Q7DBF3,"perosamine synthetase",NA,-1.87,-3.46,-5.33
+ECs2843,wbdO,ECS2843,Q7DBF1,"putative glycosyl transferase",-2.76,NA,-2.75,-2.75
+ECs2847,-,ECS2847,Q8X7P7,"putative UDP-galactose 4-epimerase",NA,NA,-1.91,-2.96
+ECs2849,wcaL,ECS2849,Q8X7P5,"putative colanic acid biosynthesis glycosyl transferase",NA,2.94,NA,1.88
+ECs2850,wcaK,ECS2850,Q8X7P4,"putative pyruvyl transferase",2.32,5.38,NA,1.22
+ECs2854,cpsB,ECS2854,Q8X7P1,"mannose-1-phosphate guanyltransferase",3.84,5.66,2.5,NA
+ECs2855,wcaI,ECS2855,Q8X7N2,"putative glycosyl transferase",2.66,3.37,3.27,1.22
+ECs2857,wcaG,ECS2857,Q8X4R4,"GDP-fucose synthetase chain A",4.44,5.36,NA,NA
+ECs2858,gmd,ECS2858,P0AC90,"GDP-D-mannose dehydratase",5.8,5.71,5.25,5.47
+ECs2860,wcaE,ECS2860,Q8X4R3,"putative glycosyl transferase",2.5,5.29,NA,NA
+ECs2862,wcaC,ECS2862,Q8X7M8,"putative glycosyl transferase",3.63,NA,3.27,NA
+ECs2865,wzc,ECS2865,Q8X7L9,"tyrosine kinase",4.26,5.27,3.46,3.82
+ECs2867,wza,ECS2867,P0A931,"putative polysaccharide export protein",4.09,4.77,4.01,4.18
+ECs2872,dcd,ECS2872,P63902,"deoxycytidine triphosphate deaminase",NA,1.59,NA,NA
+ECs2873,udk,ECS2873,P0A8F6,"uridine kinase",NA,NA,-4.07,-4.07
+ECs2889,yegQ,ECS2889,Q8X7H9,"hypothetical protein ECs2889",-4.19,-2.97,-4.19,-4.19
+ECs2913,-,ECS2913,Q8X7F5,"hypothetical protein ECs2913",1.32,NA,NA,NA
+ECs2919,mrp,ECS2919,A0A0H3JGP7,"putative ATPase",NA,NA,-3.04,-3.04
+ECs2920,metG,ECS2920,Q8X7E7,"methionyl-tRNA synthetase",NA,-2.24,-2.77,-3.83
+ECs3018,yehZ,ECS3018,Q8X669,"putative transport system permease protein",1.22,NA,3.63,3.77
+ECs3019,bglX,ECS3019,Q8X668,"beta-D-glucoside glucohydrolase",NA,NA,-1.72,-2.82
+ECs3045,folE,ECS3045,P0A6T7,"GTP cyclohydrolase I",-2.52,NA,-2.52,-2.52
+ECs3047,cirA,ECS3047,A0A0H3JIV4,"colicin I receptor",2.64,3.32,NA,NA
+ECs3060,fruK,ECS3060,P0AEX1,1-phosphofructokinase,-3.21,-1.99,NA,-3.21
+ECs3063,yeiP,ECS3063,P0A6P0,"elongation factor P",NA,-1.66,-3.25,-3.25
+ECs3074,bcr,ECS3074,Q8X5A2,"bicyclomycin/multidrug efflux system",NA,NA,NA,1.59
+ECs3075,rsuA,ECS3075,P0AA45,"16S rRNA pseudouridylate synthase A",NA,-2.32,-1.58,-2.32
+ECs3099,mqo,ECS3099,Q8XE45,"malate:quinone oxidoreductase",1.46,NA,NA,NA
+ECs3104,ompC,ECS3104,Q8XE41,"outer membrane porin protein C",NA,NA,-2.91,-2.91
+ECs3105,rcsD,ECS3105,Q8XE40,"phosphotransfer intermediate protein in two-component regulatory system with RcsBC",1.22,NA,NA,NA
+ECs3106,rcsB,ECS3106,P69409,"transcriptional regulator RcsB",NA,NA,1.48,2.25
+ECs3114,gyrA,ECS3114,A0A0H3JH39,"DNA gyrase subunit A",-2.22,NA,-2.42,NA
+ECs3115,ubiG,ECS3115,Q8XE29,"3-demethylubiquinone-9 3-methyltransferase",-3.64,NA,-3.64,-3.64
+ECs3118,nrdB,ECS3118,P69925,"ribonucleotide-diphosphate reductase subunit beta",NA,NA,NA,-2.43
+ECs3154,elaB,ECS3154,P0AEH7,"protein elaB",2.66,4.89,5.45,7.02
+ECs3168,nuoF,ECS3168,Q8XCX1,"NADH dehydrogenase I subunit F",NA,-3.59,-3.59,-3.59
+ECs3174,yfbQ,ECS3174,Q8XCW5,"aminotransferase AlaT",-2.39,-3.61,NA,-3.61
+ECs3175,yfbR,ECS3175,Q8XCV3,"hypothetical protein ECs3175",NA,NA,1.62,NA
+ECs3179,yfbV,ECS3179,P0A8E0,"hypothetical protein ECs3179",NA,NA,NA,1.59
+ECs3180,ackA,ECS3180,P0A6A5,"acetate kinase",NA,-2.72,-3,-4.23
+ECs3181,pta,ECS3181,Q8XCU8,"phosphate acetyltransferase",NA,-2.41,NA,-2.95
+ECs3193,hisJ,ECS3193,P0AEU2,"histidine transport system histidine-binding periplasmic protein",-2.17,NA,-2.17,-2.17
+ECs3199,folC,ECS3199,Q8XCR3,"bifunctional folylpolyglutamate synthase/ dihydrofolate synthase",NA,NA,-2.48,-4.07
+ECs3200,accD,ECS3200,P0A9Q6,"acetyl-CoA carboxylase subunit beta",NA,-4.49,-2.17,-1.83
+ECs3203,usg,ECS3203,A0A0H3JFV4,"putative semialdehyde dehydrogenase",NA,-2,NA,NA
+ECs3207,fabB,ECS3207,A0A0H3JH81,"3-oxoacyl-(acyl carrier protein) synthase I",NA,-1.73,NA,NA
+ECs3213,aroC,ECS3213,P63610,"chorismate synthase",NA,-2.7,NA,NA
+ECs3215,prmB,ECS3215,A0A0H3JGM7,"N5-glutamine S-adenosyl-L-methionine-dependent methyltransferase",NA,-1.65,-3.52,-3.52
+ECs3286,cysK,ECS3286,P0ABK6,"cysteine synthase A",-2.17,-2.17,NA,-2.17
+ECs3287,ptsH,ECS3287,P0AA06,"phosphohistidinoprotein-hexose phosphotransferase component of PTS system (Hpr)",NA,NA,NA,-2.25
+ECs3288,ptsI,ECS3288,Q8XBL3,"phosphoenolpyruvate-protein phosphotransferase",NA,NA,NA,-2.41
+ECs3292,cysM,ECS3292,Q8XBK6,"cysteine synthase B",-1.95,-3.17,-3.17,-3.17
+ECs3296,cysP,ECS3296,Q8XBJ5,"thiosulfate transporter subunit",-2.46,NA,-2.46,-2.46
+ECs3297,ucpA,ECS3297,Q8XBJ4,"short chain dehydrogenase",3.17,NA,NA,NA
+ECs3302,yfeX,ECS3302,Q8XBI9,"hypothetical protein ECs3302",NA,-2.22,-3.81,-3.81
+ECs3325,maeB,ECS3325,A0A0H3JMN3,"malic enzyme",NA,1.74,2.05,NA
+ECs3326,talA,ECS3326,P0A869,"transaldolase A",NA,NA,NA,1.9
+ECs3327,tktB,ECS3327,A0A0H3JGU9,transketolase,NA,1.88,2.81,4.61
+ECs3333,yffB,ECS3333,A0A0H3JGV4,"hypothetical protein ECs3333",-2.03,-3.61,NA,-3.61
+ECs3339,nlpB,ECS3339,Q8XBD3,lipoprotein,NA,NA,NA,-3
+ECs3340,dapA,ECS3340,P63944,"dihydrodipicolinate synthase",-3.09,-2.35,-2.35,-3.09
+ECs3342,bcp,ECS3342,P0AE54,"thioredoxin-dependent thiol peroxidase",-3.1,NA,-2.81,-3.46
+ECs3360,upp,ECS3360,P0A8F2,"uracil phosphoribosyltransferase",NA,-1.77,NA,-5.67
+ECs3369,guaA,ECS3369,P64295,"GMP synthase",NA,NA,NA,-5.31
+ECs3370,guaB,ECS3370,P0ADG8,"inosine 5'-monophosphate dehydrogenase",-1.9,-2.01,NA,NA
+ECs3375,-,ECS3375,A0A0H3JJE5,"hypothetical protein ECs3375",NA,NA,NA,-2.59
+ECs3376,hisS,ECS3376,P60908,"histidyl-tRNA synthetase",NA,-2.08,-2.47,-3.85
+ECs3380,ndk,ECS3380,P0A764,"nucleoside diphosphate kinase",NA,NA,-3.95,-6.06
+ECs3388,sseB,ECS3388,A0A0H3JMT8,"enhanced serine sensitivity protein SseB",NA,NA,-3.22,-2.73
+ECs3390,iscX,ECS3390,P0C0M0,"hypothetical protein ECs3390",NA,-3,-3,-3
+ECs3391,fdx,ECS3391,P0A9R5,"[2FE-2S] ferredoxin",NA,-3.55,NA,NA
+ECs3393,hscB,ECS3393,P0A6M1,"co-chaperone HscB",-3.04,NA,NA,-3.04
+ECs3397,iscR,ECS3397,P0AGL0,"DNA-binding transcriptional regulator IscR",NA,NA,2.67,NA
+ECs3398,yfhQ,ECS3398,Q8XA83,"putative ATP synthase beta subunit",-3.29,-2.55,-3.29,-3.29
+ECs3399,suhB,ECS3399,P0ADG6,"inositol monophosphatase",NA,-2.57,-2.29,-5.32
+ECs3423,purL,ECS3423,Q8XA46,"phosphoribosylformylglycinamidine synthase",NA,-1.71,NA,-2
+ECs3433,rnc,ECS3433,P0A7Y2,"ribonuclease III",NA,-2.37,-3.41,-4.15
+ECs3435,lepA,ECS3435,P60787,"GTP-binding protein LepA",NA,NA,-2.97,-3.15
+ECs3442,srmB,ECS3442,A0A0H3JJG5,"ATP-dependent RNA helicase SrmB",NA,NA,-1.8,NA
+ECs3445,grcA,ECS3445,P68067,"autonomous glycyl radical cofactor GrcA",-3.98,-3.98,-3.98,-3.98
+ECs3447,yfiF,ECS3447,P0AGJ6,"putative methyltransferase",NA,-1.5,-3.61,-2.03
+ECs3455,clpB,ECS3455,P63285,"protein disaggregation chaperone",-2.49,-2.28,-2.48,-3.02
+ECs3457,sfhB,ECS3457,Q8X9F0,"23S rRNA pseudouridine synthase D",NA,NA,-3.36,-3.36
+ECs3460,yfiA,ECS3460,P0AD51,"translation inhibitor protein RaiA",-2.49,NA,-3.38,-2.1
+ECs3463,tyrA,ECS3463,Q8X9E3,"bifunctional chorismate mutase/prephenate dehydrogenase",2.81,NA,3.17,3.17
+ECs3464,aroF,ECS3464,Q8X9E2,"phospho-2-dehydro-3-deoxyheptonate aldolase",1.87,NA,NA,NA
+ECs3469,rplS,ECS3469,P0A7K8,"50S ribosomal protein L19",NA,NA,NA,-2.85
+ECs3471,rimM,ECS3471,P0A7X8,"16S rRNA-processing protein RimM",-2.52,-2.52,NA,-2.52
+ECs3472,rpsP,ECS3472,P0A7T5,"30S ribosomal protein S16",NA,NA,-3.22,-4.05
+ECs3522,gabD,ECS3522,Q8X950,"succinate-semialdehyde dehydrogenase I",NA,NA,NA,4.03
+ECs3530,stpA,ECS3530,P0ACG2,"DNA binding protein, nucleoid-associated",NA,-4.83,NA,-4.83
+ECs3533,ygaM,ECS3533,P0ADQ9,"hypothetical protein ECs3533",2.66,NA,4.53,6.23
+ECs3540,proV,ECS3540,Q8X914,"glycine betaine transporter ATP-binding subunit",3.05,3.4,3.3,2.5
+ECs3541,proW,ECS3541,Q8X912,"glycine betaine transporter membrane protein",2.32,3.46,2.32,NA
+ECs3542,proX,ECS3542,P0AFM3,"glycine betaine transporter periplasmic subunit",NA,1.81,NA,NA
+ECs3546,emrR,ECS3546,P0ACS1,"transcriptional repressor MprA",NA,-1.92,-3.27,-4.86
+ECs3549,luxS,ECS3549,Q8X902,S-ribosylhomocysteinase,-2.34,NA,-4.18,-3.82
+ECs3554,alaS,ECS3554,Q8X3W8,"alanyl-tRNA synthetase",NA,NA,-2.13,-2.31
+ECs3589,mutS,ECS3589,Q9S6P8,"DNA mismatch repair protein MutS",-1.74,-3.32,-3.32,-3.32
+ECs3594,hosA,ECS3594,Q7ABA6,"MarR family transcriptional regulator",1.59,NA,NA,NA
+ECs3595,rpoS,ECS3595,Q7ABA5,"RNA polymerase sigma factor RpoS",2.66,NA,2.5,3.91
+ECs3606,cysD,ECS3606,Q8X7X4,"sulfate adenylyltransferase subunit 2",-2.95,-2.95,-2.95,-2.95
+ECs3618,cysI,ECS3618,Q8X7U2,"sulfite reductase subunit beta",NA,NA,NA,-3.78
+ECs3619,cysJ,ECS3619,Q8X7U1,"sulfite reductase subunit alpha",NA,-2.53,NA,-2.53
+ECs3633,ygcF,ECS3633,P64555,"hypothetical protein ECs3633",NA,NA,NA,-3.32
+ECs3640,pyrG,ECS3640,P0A7E7,"CTP synthetase",NA,-2.48,NA,-4.38
+ECs3653,syd,ECS3653,Q8X6T2,"SecY interacting protein Syd",NA,-2.64,-2.64,-2.64
+ECs3657,sdaB,ECS3657,Q8X6S0,"L-serine dehydratase",-4.17,-2.59,-4.17,-4.17
+ECs3666,ygdE,ECS3666,P0ADR7,"putative RNA 2'-O-ribose methyltransferase",NA,-2.62,-2.14,-3.36
+ECs3671,ygdK,ECS3671,P0AGF3,"hypothetical protein ECs3671",NA,-1.37,NA,NA
+ECs3673,mltA,ECS3673,P0A936,"murein transglycosylase A",NA,NA,NA,-1.77
+ECs3684,thyA,ECS3684,P0A886,"thymidylate synthase",NA,NA,-1.91,NA
+ECs3695,lysA,ECS3695,Q8X6J3,"diaminopimelate decarboxylase",NA,NA,NA,2.66
+ECs3762,lysS,ECS3762,Q8XD57,"lysyl-tRNA synthetase",NA,NA,-2.21,-3.98
+ECs3763,prfB,ECS3763,P66024,"peptide chain release factor 2",NA,-3.98,-2.1,-3.98
+ECs3780,ygfB,ECS3780,P0A8C6,"hypothetical protein ECs3780",-3.21,-1.99,-3.21,-3.21
+ECs3785,rpiA,ECS3785,P0A7Z2,"ribose-5-phosphate isomerase A",NA,-2.87,-2.14,-4.46
+ECs3810,tktA,ECS3810,A0A0H3JGQ0,transketolase,NA,NA,NA,-3.21
+ECs3814,speA,ECS3814,Q8XCX9,"arginine decarboxylase",NA,-3.07,-3.9,-6.01
+ECs3818,metK,ECS3818,P0A819,"S-adenosylmethionine synthetase",NA,NA,NA,-2.34
+ECs3823,gshB,ECS3823,P58578,"glutathione synthetase",-1.35,NA,NA,NA
+ECs3824,yqgE,ECS3824,Q8XCW1,"hypothetical protein ECs3824",-3.52,-2.3,-3.52,NA
+ECs3828,yggT,ECS3828,P64566,"putative resistance protein",NA,2,NA,NA
+ECs3836,trmB,ECS3836,P0A8I6,"tRNA (guanine-N(7)-)-methyltransferase",NA,NA,-3.39,-5.27
+ECs3873,gsp,ECS3873,Q8XBW3,"bifunctional glutathionylspermidine amidase/glutathionylspermidine synthetase",-3.43,NA,-3.43,-3.43
+ECs3887,yghA,ECS3887,P0AG85,oxidoreductase,NA,3.17,2.66,5.91
+ECs3890,exbB,ECS3890,P0ABU8,"biopolymer transport protein ExbB",NA,NA,NA,-1.59
+ECs3894,yqhD,ECS3894,Q8XBT7,"putative oxidoreductase",NA,-2.05,NA,-1.71
+ECs3903,parC,ECS3903,P0AFI3,"DNA topoisomerase IV subunit A",NA,-2.26,-4.38,-2.5
+ECs3918,parE,ECS3918,A0A0H3JIE4,"DNA topoisomerase IV subunit B",-1.95,-1.95,-3.17,-3.17
+ECs3929,ribB,ECS3929,P0A7J1,"3,4-dihydroxy-2-butanone 4-phosphate synthase",NA,NA,NA,-2.88
+ECs3935,rfaE,ECS3935,Q7AAQ7,"bifunctional heptose 7-phosphate kinase/heptose 1-phosphate adenyltransferase",-3.17,-2.43,-3.17,-3.17
+ECs3948,rpsU,ECS3948,P68681,"30S ribosomal protein S21",NA,-2.05,-1.62,-3.33
+ECs3950,rpoD,ECS3950,Q8XAN5,"RNA polymerase sigma factor RpoD",NA,NA,-5.91,-2.74
+ECs3966,ygjO,ECS3966,Q8XAK8,"hypothetical protein ECs3966",NA,NA,-2.64,-2.64
+ECs3980,yqjD,ECS3980,P64583,"hypothetical protein ECs3980",NA,2.87,3.15,3.65
+ECs4034,yhbO,ECS4034,Q8XA99,"hypothetical protein ECs4034",NA,2.32,4.93,5.36
+ECs4046,rpsO,ECS4046,Q8X9M2,"30S ribosomal protein S15",NA,NA,-2.48,-4.51
+ECs4047,truB,ECS4047,P60342,"tRNA pseudouridine synthase B",NA,-1.67,NA,-2.59
+ECs4056,folP,ECS4056,Q8X9L1,"dihydropteroate synthase",-2.59,-2.95,-4.17,-4.17
+ECs4058,ftsJ,ECS4058,P0C0R8,"23S rRNA methyltransferase J",-3.43,-3.43,-3.43,-3.43
+ECs4059,yhbY,ECS4059,P0AGK6,"RNA-binding protein YhbY",NA,NA,-2.38,-2.38
+ECs4060,greA,ECS4060,P0A6W7,"transcription elongation factor GreA",NA,NA,NA,-2.64
+ECs4062,yhbZ,ECS4062,Q8X9K7,"GTPase ObgE",NA,-1.62,NA,NA
+ECs4065,rplU,ECS4065,P0AG49,"50S ribosomal protein L21",NA,-3.43,NA,NA
+ECs4066,ispB,ECS4066,Q8X9K0,"octaprenyl diphosphate synthase",-3.52,-1.94,NA,-3.52
+ECs4069,yrbA,ECS4069,Q9RHA0,"hypothetical protein ECs4069",NA,-2.58,-2.58,-2.58
+ECs4071,yrbC,ECS4071,Q8X9J7,"hypothetical protein ECs4071",-3.67,-3.67,-3.67,-3.67
+ECs4072,yrbD,ECS4072,P64605,"hypothetical protein ECs4072",NA,-2.67,NA,-2.67
+ECs4076,kdsD,ECS4076,Q8X9J0,"D-arabinose 5-phosphate isomerase",-3.04,NA,-1.82,-3.04
+ECs4084,yhbJ,ECS4084,P0A896,"hypothetical protein ECs4084",NA,-2.81,-2.07,-2.81
+ECs4101,sspB,ECS4101,P0AFZ4,"ClpXP protease specificity-enhancing factor",NA,-2.95,NA,-2.95
+ECs4102,sspA,ECS4102,P0ACA5,"stringent starvation protein A",NA,-2.39,-2.82,-2.63
+ECs4103,rpsI,ECS4103,P0A7X5,"30S ribosomal protein S9",NA,NA,NA,-2.74
+ECs4104,rplM,ECS4104,P0AA12,"50S ribosomal protein L13",NA,NA,-2.71,-3.92
+ECs4107,degQ,ECS4107,A0A0H3JH40,"serine endoprotease",NA,NA,1.18,NA
+ECs4123,mreB,ECS4123,A0A0H3JH44,"rod shape-determining protein MreB",NA,-3.45,NA,-5.03
+ECs4128,accC,ECS4128,Q8X9B6,"acetyl-CoA carboxylase biotin carboxylase subunit",NA,-2.68,-2.43,-2.68
+ECs4131,prmA,ECS4131,P0A8T3,"ribosomal protein L11 methyltransferase",-3.13,NA,-3.13,-3.13
+ECs4133,fis,ECS4133,P0A6R5,"DNA-binding protein Fis",NA,-5.12,-2.62,-5.12
+ECs4148,yrdC,ECS4148,Q8X8F8,"putative ribosome maturation factor",NA,-2.25,-2.25,-2.25
+ECs4152,def,ECS4152,P0A6K5,"peptide deformylase",NA,NA,NA,-3.09
+ECs4153,fmt,ECS4153,Q8X8F1,"methionyl-tRNA formyltransferase",-1.31,NA,-2.76,-3.98
+ECs4154,sun,ECS4154,Q8XEE5,"16S rRNA methyltransferase B",NA,NA,NA,-4.48
+ECs4159,rplQ,ECS4159,P0AG46,"50S ribosomal protein L17",NA,-2.35,NA,NA
+ECs4162,rpsK,ECS4162,P0A7S1,"30S ribosomal protein S11",NA,NA,NA,-3.52
+ECs4163,rpsM,ECS4163,P0A7T1,"30S ribosomal protein S13",NA,-2.56,NA,-2.32
+ECs4167,rpmD,ECS4167,P0AG53,"50S ribosomal protein L30",NA,NA,NA,-3.49
+ECs4168,rpsE,ECS4168,P0A7W3,"30S ribosomal protein S5",NA,NA,NA,-2.12
+ECs4169,rplR,ECS4169,P0C020,"50S ribosomal protein L18",NA,-6.94,-2.69,-4.62
+ECs4170,rplF,ECS4170,P0AG57,"50S ribosomal protein L6",NA,-2.25,NA,-2.18
+ECs4171,rpsH,ECS4171,P0A7W9,"30S ribosomal protein S8",NA,NA,NA,-3.12
+ECs4172,rpsN,ECS4172,P0AG61,"30S ribosomal protein S14",NA,-3.05,NA,-5.71
+ECs4173,rplE,ECS4173,P62401,"50S ribosomal protein L5",NA,-2.3,NA,-2.38
+ECs4174,rplX,ECS4174,P60625,"50S ribosomal protein L24",NA,-2.12,NA,-2.6
+ECs4175,rplN,ECS4175,P0ADY5,"50S ribosomal protein L14",NA,NA,-2.3,-3.88
+ECs4176,rpsQ,ECS4176,P0AG65,"30S ribosomal protein S17",-2.67,-5.94,-5.94,-5.94
+ECs4177,rpmC,ECS4177,P0A7M8,"50S ribosomal protein L29",NA,-2.69,NA,NA
+ECs4178,rplP,ECS4178,P0ADY9,"50S ribosomal protein L16",NA,NA,NA,-2.44
+ECs4179,rpsC,ECS4179,P0A7V5,"30S ribosomal protein S3",NA,-2.13,NA,-3.34
+ECs4180,rplV,ECS4180,P61177,"50S ribosomal protein L22",NA,-2.73,-2.22,-2.56
+ECs4181,rpsS,ECS4181,P0A7U5,"30S ribosomal protein S19",NA,NA,-3.11,-4.4
+ECs4182,rplB,ECS4182,P60424,"50S ribosomal protein L2",NA,-3.39,-3.23,-3.56
+ECs4186,rpsJ,ECS4186,P0A7R7,"30S ribosomal protein S10",NA,-2.02,NA,-2.57
+ECs4189,-,ECS4189,Q8X890,bacterioferritin,NA,NA,2.66,3.97
+ECs4193,rpsL,ECS4193,P0A7S5,"30S ribosomal protein S12",NA,NA,-2.41,-3.3
+ECs4203,yheS,ECS4203,P63390,"putative ABC transporter ATP-binding protein",-2.64,-2.64,-2.64,-2.64
+ECs4214,ppiA,ECS4214,P0AFL5,"peptidyl-prolyl cis-trans isomerase A (rotamase A)",NA,NA,-2.06,-1.82
+ECs4226,trpS,ECS4226,P67589,"tryptophanyl-tRNA synthetase",NA,-2.24,NA,NA
+ECs4227,gph,ECS4227,P58422,"phosphoglycolate phosphatase",NA,-2.91,-2.91,-2.91
+ECs4231,aroB,ECS4231,Q8X824,"3-dehydroquinate synthase",-3.46,NA,-3.46,-2.24
+ECs4232,aroK,ECS4232,P0A6D9,"shikimate kinase I",NA,NA,-2.15,-4.48
+ECs4238,mrcA,ECS4238,Q8X809,"peptidoglycan synthetase",1.76,NA,NA,NA
+ECs4245,pckA,ECS4245,Q8X733,"phosphoenolpyruvate carboxykinase",NA,-2.67,NA,-5.33
+ECs4247,ompR,ECS4247,P0AA18,"response regulator OmpR",NA,-1.79,NA,NA
+ECs4251,feoB,ECS4251,Q8XED4,"ferrous iron transport protein B",NA,NA,NA,-2
+ECs4255,bioH,ECS4255,Q8X716,"carboxylesterase BioH",NA,-1.42,-2.64,NA
+ECs4256,gntY,ECS4256,P63022,"putative DNA uptake protein",-2.25,-2.25,NA,NA
+ECs4268,glpE,ECS4268,Q8X6Z5,"thiosulfate sulfurtransferase",2.94,2.32,NA,NA
+ECs4277,glgB,ECS4277,Q8X6X6,"glycogen branching enzyme",NA,NA,NA,2
+ECs4278,asd,ECS4278,P0A9R0,"aspartate-semialdehyde dehydrogenase",-1.71,NA,-1.47,-2.85
+ECs4286,gntK,ECS4286,Q8X6W0,"gluconate kinase 1",NA,NA,-2.61,-2.6
+ECs4306,yhhK,ECS4306,Q8X6S6,"hypothetical protein ECs4306",1.71,NA,NA,NA
+ECs4313,ftsY,ECS4313,Q8X6R2,"cell division protein FtsY",NA,-2.08,NA,NA
+ECs4335,-,ECS4335,Q8X6L5,"hypothetical protein ECs4335",-1.81,-1.81,-1.81,-1.81
+ECs4341,-,ECS4341,Q8X5U5,"3-oxoacyl-(acyl carrier protein) synthase II",-3.09,-1.86,-3.09,-3.09
+ECs4372,gor,ECS4372,A0A0H3JIZ9,"glutathione reductase",NA,NA,-2.33,-3.55
+ECs4377,slp,ECS4377,Q8X5P5,Slp,NA,NA,NA,2.32
+ECs4379,shuS,ECS4379,Q8X5N8,"hypothetical protein ECs4379",NA,-3.95,-2.73,-3.95
+ECs4437,yiaD,ECS4437,Q8XDP2,"putative outer membrane lipoprotein",NA,-3.67,NA,-3.67
+ECs4438,tiaE,ECS4438,P58220,"2-hydroxyacid dehydrogenase",NA,NA,-3,-3
+ECs4439,yiaF,ECS4439,P0ADK2,"hypothetical protein ECs4439",-2.59,-2.59,-2.59,-2.59
+ECs4442,glyS,ECS4442,P67031,"glycyl-tRNA synthetase subunit beta",NA,NA,NA,-2.6
+ECs4443,glyQ,ECS4443,P67026,"glycyl-tRNA synthetase subunit alpha",NA,-2.11,-2,-2.51
+ECs4455,avtA,ECS4455,Q8XDL1,"valine--pyruvate transaminase",NA,NA,-2.52,-2.52
+ECs4469,yibF,ECS4469,Q8XDI6,"putative glutathione S-transferase",NA,NA,NA,1.59
+ECs4475,mtlA,ECS4475,A0A0H3JQ75,"mannitol-specific PTS system enzyme IIABC components",NA,NA,1.32,NA
+ECs4476,mtlD,ECS4476,Q8XDG9,"mannitol-1-phosphate 5-dehydrogenase",NA,-2.09,NA,NA
+ECs4483,lldD,ECS4483,Q8XDF7,"L-lactate dehydrogenase",1.74,NA,NA,1.74
+ECs4486,gpsA,ECS4486,P0A6S9,"NAD(P)H-dependent glycerol-3-phosphate dehydrogenase",NA,-2.51,NA,NA
+ECs4487,secB,ECS4487,P0AG88,"preprotein translocase subunit SecB",NA,-1.58,NA,NA
+ECs4488,grxC,ECS4488,P0AC64,"glutaredoxin 3",-3.09,-3.09,NA,NA
+ECs4490,gpmI,ECS4490,Q8XDE9,phosphoglyceromutase,-2.89,-2.6,-2.6,-4.48
+ECs4494,tdh,ECS4494,Q8XEJ1,"L-threonine 3-dehydrogenase",NA,-2.26,NA,-4.38
+ECs4495,kbl,ECS4495,P0AB78,"2-amino-3-ketobutyrate coenzyme A ligase",NA,-2.34,-5.28,-3.69
+ECs4497,rfaD,ECS4497,P67911,ADP-L-glycero-D-mannoheptose-6-epimerase,NA,NA,NA,-1.89
+ECs4503,waaY,ECS4503,Q8XDC1,"lipopolysaccharide core biosynthesis protein",NA,-2.46,-2.46,-2.46
+ECs4511,rpmG,ECS4511,P0A7P1,"50S ribosomal protein L33",NA,-3.13,-5.63,-5.63
+ECs4512,rpmB,ECS4512,P0A7M4,"50S ribosomal protein L28",NA,NA,NA,-2.39
+ECs4517,pyrE,ECS4517,Q8XD99,"orotate phosphoribosyltransferase",NA,NA,-3.61,-3.61
+ECs4524,rpoZ,ECS4524,P0A802,"DNA-directed RNA polymerase subunit omega",NA,NA,NA,-3.46
+ECs4612,ilvB,ECS4612,A0A0H3JHY6,"acetolactate synthase catalytic subunit",NA,NA,1.59,NA
+ECs4637,dnaA,ECS4637,Q8XBZ3,"chromosomal replication initiation protein",-2.46,NA,NA,-2.46
+ECs4660,phoU,ECS4660,Q8XB06,"transcriptional regulator PhoU",-1.91,NA,-1.91,-1.91
+ECs4671,glmS,ECS4671,Q8XEG2,"glucosamine--fructose-6-phosphate aminotransferase",NA,NA,NA,-2.65
+ECs4672,glmU,ECS4672,P0ACC8,"bifunctional N-acetylglucosamine-1-phosphate uridyltransferase/glucosamine-1-phosphate acetyltransferase",-2.95,NA,NA,-2.95
+ECs4673,atpC,ECS4673,P58646,"membrane-bound ATP synthase epsilon-subunit AtpC",NA,NA,NA,-4.11
+ECs4682,gidB,ECS4682,P0A6U7,"16S rRNA methyltransferase GidB",-2.98,-1.92,-3.64,-3.64
+ECs4683,gidA,ECS4683,Q8XAY0,"tRNA uridine 5-carboxymethylaminomethyl modification enzyme GidA",NA,-3.06,-2.72,-2.11
+ECs4684,mioC,ECS4684,P58208,"MioC protein",NA,-2.81,NA,NA
+ECs4686,asnA,ECS4686,P63624,"asparagine synthetase AsnA",-4.88,-4.15,-4.88,-4.88
+ECs4699,yifE,ECS4699,P0ADN4,"hypothetical protein ECs4699",NA,-3.25,-3.25,-3.25
+ECs4705,ilvD,ECS4705,Q8XAV1,"dihydroxy-acid dehydratase",2.12,NA,2.32,NA
+ECs4708,ilvC,ECS4708,P58256,"ketol-acid reductoisomerase",1.94,NA,NA,NA
+ECs4709,ppiC,ECS4709,P0A9L7,"peptidyl-prolyl cis-trans isomerase C",NA,NA,-3.98,-3.24
+ECs4713,rhlB,ECS4713,Q8XAT4,"ATP-dependent RNA helicase RhlB",NA,NA,NA,-3.41
+ECs4716,rho,ECS4716,P0AG32,"transcription termination factor Rho",NA,-2.26,NA,NA
+ECs4718,wzzE,ECS4718,P0AG01,"lipopolysaccharide biosynthesis protein WzzE",NA,2.32,NA,1.59
+ECs4719,wecB,ECS4719,Q8XAR8,"UDP-N-acetylglucosamine 2-epimerase",-2.64,-2.64,-2.64,-2.64
+ECs4720,wecC,ECS4720,P67066,"UDP-N-acetyl-D-mannosamine dehydrogenase",NA,NA,-3.98,-3.98
+ECs4724,wecE,ECS4724,A0A0H3JLT0,"TDP-4-oxo-6-deoxy-D-glucose transaminase",NA,NA,NA,-3.17
+ECs4743,uvrD,ECS4743,Q8X8P5,"DNA-dependent helicase II",-2.64,-2.64,NA,NA
+ECs4760,ysgA,ECS4760,Q8X8L4,"hypothetical protein ECs4760",NA,1.59,NA,NA
+ECs4765,ubiB,ECS4765,P0A6A1,"putative ubiquinone biosynthesis protein UbiB",NA,NA,NA,2.59
+ECs4770,rfaH,ECS4770,P0AFW1,"transcriptional activator RfaH",NA,-2.64,NA,-2.64
+ECs4775,pepQ,ECS4775,Q8X8I1,"proline dipeptidase",NA,NA,NA,-2.14
+ECs4781,yihD,ECS4781,P0ADQ1,"hypothetical protein ECs4781",NA,-4.27,-2.39,-4.27
+ECs4783,dsbA,ECS4783,P0AEG5,"periplasmic protein disulfide isomerase I",-3.64,NA,-3.64,-3.64
+ECs4786,polA,ECS4786,Q8X8H1,"DNA polymerase I",NA,NA,-1.75,-2.18
+ECs4787,engB,ECS4787,Q8X8H0,"ribosome biogenesis GTP-binding protein YsxC",NA,NA,NA,-2.64
+ECs4820,fdoG,ECS4820,A0A0H3JLY7,"formate dehydrogenase-O major subunit",-2.62,-2.89,-2.89,-4.82
+ECs4834,sodA,ECS4834,P66828,"superoxide dismutase",NA,NA,-4.4,-5.62
+ECs4838,cpxR,ECS4838,P0AE89,"DNA-binding transcriptional regulator CpxR",NA,-1.87,-2.07,NA
+ECs4841,pfkA,ECS4841,P0A797,6-phosphofructokinase,NA,NA,-2.11,-3.03
+ECs4853,zapB,ECS4853,P0AF38,"hypothetical protein ECs4853",NA,NA,-1.99,-3.05
+ECs4859,hslV,ECS4859,P0A7C0,"ATP-dependent protease peptidase subunit",-2.05,-1.85,-1.85,NA
+ECs4863,rpmE,ECS4863,P0A7N0,"50S ribosomal protein L31",NA,-2.39,-3.13,-3.13
+ECs4867,metJ,ECS4867,P0A8U8,"transcriptional repressor protein MetJ",NA,NA,-4.52,-4.52
+ECs4868,metB,ECS4868,Q8X768,"cystathionine gamma-synthase",NA,NA,NA,1.59
+ECs4871,katG,ECS4871,Q7A978,"hydroperoxidase HPI(I)",-2.57,-3.46,-2.18,-4.69
+ECs4889,argH,ECS4889,Q8X730,"argininosuccinate lyase",NA,NA,1.31,0.78
+ECs4891,udhA,ECS4891,Q8X727,"soluble pyridine nucleotide transhydrogenase",2.89,NA,NA,NA
+ECs4896,trmA,ECS4896,Q8X723,"tRNA (uracil-5-)-methyltransferase",NA,NA,-4.46,-4.46
+ECs4897,btuB,ECS4897,Q8X714,"vitamin B12/cobalamin outer membrane transporter",NA,NA,NA,-3.51
+ECs4898,murI,ECS4898,P63633,"glutamate racemase",-2.7,-1.96,-1.96,-2.7
+ECs4905,nusG,ECS4905,P0AFG1,"transcription antitermination protein NusG",NA,NA,-2.31,-3.96
+ECs4908,rplJ,ECS4908,P0A7J5,"50S ribosomal protein L10",NA,NA,NA,-2.29
+ECs4920,hemE,ECS4920,Q8X6X5,"uroporphyrinogen decarboxylase",NA,NA,NA,-2.46
+ECs4922,yjaG,ECS4922,Q8X6X4,"hypothetical protein ECs4922",-3.29,-3.29,-3.29,-3.29
+ECs4937,metH,ECS4937,Q8X5Z8,"B12-dependent methionine synthase",1.59,NA,2.5,NA
+ECs5010,yjbF,ECS5010,Q8X5Y0,"hypothetical protein ECs5010",1.87,NA,NA,NA
+ECs5011,yjbG,ECS5011,Q8X5X9,"hypothetical protein ECs5011",3.17,3.91,3.91,NA
+ECs5012,-,ECS5012,A0A0H3JME7,"hypothetical protein ECs5012",2.59,3.59,1.59,NA
+ECs5024,plsB,ECS5024,P58130,"glycerol-3-phosphate acyltransferase",NA,-2.97,-3.71,-4.56
+ECs5031,yjbN,ECS5031,Q8X5V6,"tRNA-dihydrouridine synthase A",-3,NA,NA,-3
+ECs5036,tyrB,ECS5036,Q8X5V1,"aromatic amino acid aminotransferase",-2.86,NA,NA,-2.12
+ECs5111,lysU,ECS5111,P0A8N6,"lysyl-tRNA synthetase",NA,NA,NA,-4.6
+ECs5120,aspA,ECS5120,Q8XDS0,"aspartate ammonia-lyase",NA,-1.51,NA,-2.25
+ECs5128,efp,ECS5128,P0A6N6,"elongation factor P",NA,NA,NA,-3.4
+ECs5136,poxA,ECS5136,P0A8N9,"lysyl-tRNA synthetase",NA,NA,-3.32,-2.58
+ECs5139,psd,ECS5139,P0A8K3,"phosphatidylserine decarboxylase",NA,-1.98,NA,-1.98
+ECs5153,purA,ECS5153,P0A7D6,"adenylosuccinate synthetase",NA,NA,NA,-2.66
+ECs5154,nsrR,ECS5154,P0AF65,"transcriptional repressor NsrR",NA,NA,2.66,2.32
+ECs5156,rlmB,ECS5156,P63179,"23S rRNA (guanosine-2'-O-)-methyltransferase",NA,-2.79,NA,NA
+ECs5176,rpsF,ECS5176,P0A4D1,"30S ribosomal protein S6",NA,NA,NA,-2.35
+ECs5185,fklB,ECS5185,A0A0H3JJK9,"peptidyl-prolyl cis-trans isomerase",NA,NA,NA,2.56
+ECs5199,-,ECS5199,A0A0H3JMQ0,"hypothetical protein ECs5199",NA,NA,1.59,NA
+ECs5204,ppa,ECS5204,P0A7B0,"inorganic pyrophosphatase",-4.78,-2.67,-4.78,-4.78
+ECs5210,mpl,ECS5210,A0A0H3JRS6,"UDP-N-acetylmuramate:L-alanyl-gamma-D-glutamyl-meso-diaminopimelat e ligase",NA,-2.47,-3.2,-4.79
+ECs5211,yjgA,ECS5211,P0A8X1,"hypothetical protein ECs5211",NA,-3.29,NA,NA
+ECs5213,cybC,ECS5213,P0ABE8,"cytochrome b(562)",NA,-2.39,-2.39,-2.39
+ECs5217,treB,ECS5217,A0A0H3JMR3,"trehalose(maltose)-specific PTS system components IIBC",1.59,NA,NA,NA
+ECs5220,yjgF,ECS5220,A0A0H3JRT5,"hypothetical protein ECs5220",NA,-2.04,NA,-4.85
+ECs5235,valS,ECS5235,Q8XCB3,"valyl-tRNA synthetase",NA,-1.87,-2.62,-3.39
+ECs5237,pepA,ECS5237,P68768,"leucyl aminopeptidase",NA,NA,NA,-2.14
+ECs5241,yjgB,ECS5241,Q8XCA1,"putative oxidoreductase",NA,1.88,NA,NA
+ECs5261,-,ECS5261,A0A0H3JIW4,"putative ATP-dependent helicase",-2.81,-2.81,-2.81,-2.81
+ECs5262,-,ECS5262,A0A152UND9,"hypothetical protein ECs5262",NA,-2.64,-3.86,-3.86
+ECs5307,-,ECS5307,Q8XB70,"type I restriction modification enzyme M subunit",NA,NA,-4.81,-2.14
+ECs5311,-,ECS5311,Q8XB66,"hypothetical protein ECs5311",NA,-1.7,-1.7,NA
+ECs5315,tsr,ECS5315,A0A0H3JS22,"methyl-accepting chemotaxis protein I",-4.34,-2.22,-4.34,-4.34
+ECs5329,yjjT,ECS5329,Q8X510,"16S ribosomal RNA m2G1207 methyltransferase",NA,NA,-1.86,-3.14
+ECs5333,prfC,ECS5333,P0A7I6,"peptide chain release factor 3",-2.09,-1.88,-2.34,-5.15
+ECs5334,osmY,ECS5334,A0A0H3JS36,"hyperosmotically inducible periplasmic protein",NA,3.63,4.61,4.4
+ECs5340,deoC,ECS5340,Q8XB36,"deoxyribose-phosphate aldolase",NA,-1.21,-1.21,NA
+ECs5343,deoD,ECS5343,P0ABP9,"purine nucleoside phosphorylase",-4.7,-2.08,-3.26,-1.95
+ECs5349,yjjK,ECS5349,P0A9W4,"putative ABC transporter ATP-binding protein",NA,-1.93,NA,NA
+ECs5359,arcA,ECS5359,P0A9Q3,"two-component response regulator",NA,NA,-2.53,-2.77
+ECs5381,-,NA,NA,"hypothetical protein ECs5381",NA,NA,2.12,NA
+ECs5463,-,NA,NA,"hypothetical protein ECs5463",NA,2,2,2
+pO157p63,ypt2,NA,NA,"hypothetical protein pO157p63",-2.84,-4.07,-4.07,-4.07

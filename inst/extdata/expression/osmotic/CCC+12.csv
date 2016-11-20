@@ -1,0 +1,57 @@
+"No.","Swiss­ prot No.","Protein name","25mM/5.5mM","T-test 25mM/5.5mM","100mM/5.5mM","T-test 100mM/5.5mM"
+1111,"Q86TM9","Acetylcholinesterase",1.36,0.11,1.78,0.01
+1229,"Q86TM9","Acetylcholinesterase",2.99,0.01,2.38,0.0026
+551,"P27144","Adenylate kinase isoenzyme 4",1,0.97,-1.66,0.032
+874,"P02511","Alpha-crystallin B chain",1.59,0.14,1.87,0.0095
+287,"P08758","Annexin A5",1.3,0.24,1.7,0.044
+478,"Q9Y6Q5","AP-l complex subunit mu-2",1.42,0.00071,-1.22,0.0012
+78,"P07306","Asialoglycoprotein receptor l/ASGRl",-1.52,0.032,-1.29,0.09
+607,"Q9BXH1","Bcl-2-binding component 3/p53 up-regulated modulator of apoptosis/PUMA",1.27,0.17,1.77,0.014
+1118,"Q9NZS5","Cell division protein kinase 11B",1.05,0.99,-1.56,0.022
+870,"O95813","Cerberus",1.56,0.081,1.59,0.013
+1102,"Q9NX63","Coiled-coil-helix-coiled-coil­ helix domain-containing protein 3",1.27,0.076,1.51,0.028
+374,"Q14204","Cytoplasmic dynein 1 heavy chain 1",1.63,0.00071,1.46,0.01
+416,"P15924","Desmoplakin",-1.66,0.0016,-1.57,0.0045
+986,"P33981","Dual specificity protein kinaseTTK",2.12,0.096,-1.3,0.65
+449,"Q6UWE0","E3 ubiquitin-protein ligase LRSAMl",-1.87,0.0013,-1.67,0.0031
+1136,"Q6UWE0","E3 ubiquitin-protein ligase LRSAMl",-1.03,0.6,-2.97,0.0017
+137,"Q96EB1","Elongator complex protein 4",1.69,0.12,2.51,0.041
+30,"Q96J88","Epithelial-stromal interaction protein 1",-1.57,0.0096,-1.45,0.0021
+725,"O75955","Flotillin-l",1.24,0.051,1.66,0.0091
+335,"Q14192","Four and a half LIM domainsprotein 2",1.55,0.02,1.61,0.055
+761,"Q16595","Frataxin",1.75,2.6E-05,-1.3,0.0051
+1186,"Q6ZVF9","G protein-regulated inducer ofneurite outgrowth 3",1.42,0.11,-1.72,0.019
+239,"P04406","Glyceraldehyde-3-phosphate dehydrogenase",1.14,0.73,1.64,0.043
+588,"Q9UC36","Heat shock protein beta-1/HSP-27",1.27,0.013,1.83,0.0002
+280,"O00422","Histone deacetylase complex subunit SAP18",-1.56,0.0069,-1.53,0.0019
+613,"P13645","Keratin, type I cytoskeletal 10",1.06,0.4,2.06,0.0012
+545,"Q99612","Krueppel-like factor 6",-2.15,0.036,-4.16,0.0024
+52,"Q03252","Lamin-B2",-1.68,0.0017,-1.6,0.0024
+928,"P19105","Myosin regulatory light chain 12A",1.3,0.17,1.74,0.0011
+1063,"Q9Y2I1","Nischarin",1.5,0.013,1.72,0.0131
+354,"Q9UJ68","Peptide methionine sulfoxide reductase",1.29,0.12,1.53,0.0028
+570,"P30041","Peroxiredoxin-6",1.68,0.0056,1.6,0.0094
+55,"Q9NUI1","Peroxisomal 2,4-dienoyl-CoA reductase",-1.53,0.0019,-1.42,0.044
+863,"P30086","Phosphatidylethanolamine­ binding protein 1",1.44,0.1,1.59,0.025
+531,"P18669","Phosphoglycerate mutase 1",1.55,0.0054,1.35,0.011
+1059,"Q10471","Polypeptide N—acet­ ylgalactosaminyltransfera se 2",-1.6,0.014,-1.56,0.028
+594,"Q15007","Pre-mRNA-splicing regulator WTAP",1.06,0.4,2.06,0.0012
+764,"Q5GLZ8","Probable E3 ubiquitin-protein ligase HERC4",-1.94,0.00017,-1.69,0.0118
+1183,"P07737","Profilin-l",1.6,0.0076,1.25,0.081
+73,"Q8WXW3","Progesterone-induced-block­ ing factor 1",-1.53,0.037,-1.22,0.026
+1200,"Q99623","Prohibitin-2",-1.33,0.13,-1.71,0.028
+114,"Q8WUD1","Ras-related protein Rab-2B",-1.62,0.006,-1.81,0.0022
+1067,"P62070","Ras-related protein R-Ra2",1.41,0.071,1.51,0.0025
+236,"P48443","Retinoic acid receptor",1.14,0.73,1.64,0.043
+490,"P48443","RXR-gamma Retinoic acid receptor",-1.18,0.3,-1.78,0.011
+572,"P48443","RXR-gamma Retinoic acid receptor",-1.97,0.0025,-1.7,0.0027
+658,"P48443","RXR-gamma Retinoic acid receptor",-1.75,0.0057,-1.53,0.021
+1145,"P48443","RXR-gamma Retinoic acid receptor RXR-gamma",-1.35,0.1,-1.56,0.028
+347,"Q9Y5M8","Signal recognition particle receptor subunit beta",-1.5,0.027,-1.66,6.2E-05
+268,"Q9BX26","Synaptonemal complex protein 2",1.31,0.094,1.52,0.019
+83,"Q9BV79","Trans-2-enoyl-CoA reductase",-1.26,0.03,-1.51,0.0041
+495,"Q13595","Transformer-2 protein homolog alpha",-1.65,0.01,-1.97,0.0059
+606,"Q9NVH6","Trimethyllysine dioxygenase",1.84,0.0081,1.95,0.0007
+296,"Q96IK2","Tropomyosin alpha-1 chain",1.73,0.18,2.01,0.023
+719,"Q9H0Y0","Ubiquitin-like-conjugating enzyme ATG10",-1.68,0.0024,-1.44,0.019
+573,"P11172","Uridine 5’-monophosphate synthase",1.44,0.051,1.68,0.01

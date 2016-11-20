@@ -1,0 +1,303 @@
+ID,Entry,Annotation,"Fold change"
+PAAG_01563,C1GSR8,"Aromatic L amino acid decarboxylase",1.86
+PAAG_06947,C1H8F1,"Gamma glutamyltranspeptidase",Inf
+PAAG_08649,C1HD08,"Cysteine dioxygenase",Inf
+PAAG_07601,C1HAE7,"Ornithine carbamoyltransferase",Inf
+PAAG_06431,C1H6P0,"Ornithine aminotransferase",Inf
+PAAG_01969,C1GTX4,Arginase,Inf
+PAAG_02935,C1GWP0,"Glycine cleavage system H protein",Inf
+PAAG_01432,C1GSD7,"Prephenate dehydrogenase",Inf
+PAAG_07813,C1HA84,"Cysteine synthase",Inf
+PAAG_09095,C1HE96,"ATP phosphoribosyltransferase",Inf
+PAAG_03138,C1GYI4,"Alanine glyoxylate aminotransferase",Inf
+PAAG_01002,C1GR57,"NAD specific glutamate dehydrogenase",Inf
+PAAG_01310,C1GS15,"2 oxoisovalerate dehydrogenase subunit alpha mitochondrial",Inf
+PAAG_02693,C1GVZ8,"Saccharopine dehydrogenase",Inf
+PAAG_01369,C1GS74,"Betaine aldehyde dehydrogenase",Inf
+PAAG_02975,C1GY21,"2 4 dihydroxyhept 2 ene 1 7 dioic acid aldolase",Inf
+PAAG_06217,C1H5M2,"Acetylornithine aminotransferase",Inf
+PAAG_04103,C1H009,"Methylcrotonoyl CoA carboxylase beta chain",Inf
+PAAG_08718,C1HD77,"Succinate semialdehyde dehydrogenase",Inf
+PAAG_01194,C1GRP9,"2 oxoisovalerate dehydrogenase subunit beta",Inf
+PAAG_06506,C1H6W5,"Aspartate aminotransferase",1.54
+PAAG_04309,C1H0L5,"3-dehydroshikimate dehydratase",Inf
+PAAG_05416,C1H3S3,"NADP dependent leukotriene B4 12 hydroxydehydrogenase",Inf
+PAAG_01935,C1GTU0,"Formyl coenzyme A transferase",Inf
+PAAG_01524,C1GSM9,"Fatty acid synthase subunit beta dehydratase",Inf
+PAAG_07900,C1HAS1,"Phosphatidylinositol phosphatidylcholine transfer protein",Inf
+PAAG_00691,C1GQ96,"Fumarylacetoacetate hydrolase domain containing protein",Inf
+PAAG_01536,C1GSP1,"Trans 2 enoyl CoA reductase",Inf
+PAAG_03024,C1GY70,"3 ketodihydrosphingosine reductase tsc10",Inf
+PAAG_02843,C1GWE8,"3-oxoacyl-(Acyl-carrier-protein) reductase",Inf
+PAAG_06333,C1H6E2,"Acyl-CoA thioesterase",Inf
+PAAG_08994,C1HE01,"Leukotriene A 4 hydrolase",Inf
+PAAG_04966,C1H2H3,Nitrilase,Inf
+PAAG_06817,C1H7S6,"UTP glucose 1 phosphate uridylyltransferase",Inf
+PAAG_04181,C1H087,"Sorbitol utilization protein SOU2","1,52"
+PAAG_04602,C1H1F8,"Mannosyl oligosaccharide glucosidase",Inf
+PAAG_00685,C1GQ90,"Alpha mannosidase",Inf
+PAAG_00705,C1GQB0,"Mitochondrial presequence protease",Inf
+PAAG_08901,C1HDP4,"Glyoxylate reductase",Inf
+PAAG_00545,C1GPV0,"Glycogen phosphorylase",Inf
+PAAG_03776,C1GZ32,"Inositol 3 phosphate synthase",Inf
+PAAG_00433,C1GPI8,"Adenosine kinase",2.66
+PAAG_03530,C1GXF6,"Phosphoribosylamine glycine ligase",Inf
+PAAG_00799,C1GQK4,"Uroporphyrinogen decarboxylase",Inf
+PAAG_08856,C1HDL5,"Nicotinate nucleotide pyrophosphorylase",Inf
+PAAG_05904,C1H563,"Ubiquinone biosynthesis protein coq 4",Inf
+PAAG_00564,C1GPW9,Actin,Inf
+PAAG_00875,C1GQT0,"Actin organizing complex subunit Sop2",Inf
+PAAG_00753,C1GQF8,"Proteasome component C11",29.96
+PAAG_00866,C1GQS1,"Proteasome component C5",Inf
+PAAG_03536,C1GXG2,"Proteasome component PRE5",Inf
+PAAG_02907,C1GWL2,"26S proteasome non-ATPase regulatory subunit 10",Inf
+PAAG_03719,C1GYX5,"Thimet oligopeptidase",Inf
+PAAG_00664,C1GQ69,"Aspartyl aminopeptidase",Inf
+PAAG_03279,C1GXZ6,Aminopeptidase,Inf
+PAAG_07500,C1H9Q9,"Xaa Pro aminopeptidase",Inf
+PAAG_07319,C1H978,"Xaa Pro aminopeptidase",Inf
+PAAG_05417,C1H3S4,"Processing peptidase subunit beta",Inf
+PAAG_02135,C1GUE0,"Prefoldin subunit",Inf
+PAAG_07185,C1H8U4,"Arp2/3 complex subunit",Inf
+PAAG_08295,C1HC04,"Pyruvate dehydrogenase E1 component subunit alpha",Inf
+PAAG_01995,Q96UH7,"Fructose 1,6, bisphosphate aldolase",1.67
+PAAG_00726,C1GQD1,"Pyruvate carboxylase",Inf
+PAAG_05621,C1H4C8,"6 phosphogluconolactonase",Inf
+PAAG_05146,C1H303,"Ribose 5 phosphate isomerase A",Inf
+PAAG_02050,C1GU55,"Pyruvate decarboxylase",2.92
+PAAG_04541,C1H197,"Alcohol dehydrogenase",Inf
+PAAG_04542,C1H198,"Malate synthase",Inf
+PAAG_04238,C1H0E4,"Succinate dehydrogenase flavoprotein subunit",Inf
+PAAG_01725,C1GT80,"Succinate dehydrogenase flavoprotein subunit",Inf
+PAAG_08088,C1HBE7,"Cytochrome b c1 complex subunit 2",Inf
+PAAG_02656,C1GVW1,"NADH ubiquinone oxidoreductase 51 kDa subunit",Inf
+PAAG_07672,C1HAL8,"Ubiquinol-cytochrome c reductase subunit 7",Inf
+PAAG_05576,C1H483,"ATP synthase gamma chain",Inf
+PAAG_01252,C1GRV7,"Enoyl-CoA hydratase/isomerase",Inf
+PAAG_03407,C1GX33,"Delta 3 5 Delta 2 4 dienoyl CoA isomerase",Inf
+PAAG_04963,C1H2H0,"Oleate induced peroxisomal protein",Inf
+PAAG_06392,C1H6K1,"Enoyl CoA hydratase isomerase family protein",Inf
+PAAG_02625,C1GVT0,"Vesicle transport v SNARE protein vti1",Inf
+PAAG_02544,C1GV71,"BET3 family protein",Inf
+PAAG_05061,C1H2R8,"AhpC TSA family protein (peroxiredoxin 5)",Inf
+PAAG_08487,C1HCJ6,"CorA family metal ion transporter",Inf
+PAAG_04083,C1GZY9,"Isochorismatase family hydrolase",Inf
+PAAG_03717,C1GYX3,"Myosin regulatory light chain cdc4",Inf
+PAAG_06348,C1H6F7,"DNA replication complex GINS protein psf2",Inf
+PAAG_07296,C1H955,"Single-stranded DNA-binding protein",Inf
+PAAG_06574,C1H733,"Curved DNA binding protein 42 kDa protein",Inf
+PAAG_04571,C1H1C7,"Nascent polypeptide associated complex subunit alpha",Inf
+PAAG_00976,C1GR31,"HIRA-interacting protein",Inf
+PAAG_05147,C1H304,"Mitotic checkpoint protein BUB3",Inf
+PAAG_02725,C1GW30,"Superoxide dismutase",1.57
+PAAG_02926,C1GWN1,"Superoxide dismutase",1.5
+PAAG_05226,C1H383,"Hsp90 binding co chaperone Sba1",1.52
+PAAG_05292,C1H3E9,"Glutathione reductase",Inf
+PAAG_02116,C1GUC1,Hsp70,Inf
+PAAG_07020,C1H843,"Thioredoxin reductase",Inf
+PAAG_05575,C1H482,"Disulfide-isomerase MPD1",Inf
+PAAG_03931,C1GZI7,"Glutathione S transferase Gst3",Inf
+PAAG_00293,C1GP48,"Quinone oxidoreductase",Inf
+PAAG_06442,C1H6Q1,"Phosphopantothenoylcysteine decarboxylase",Inf
+PAAG_07426,C1H9I5,"Prefoldin subunit",Inf
+PAAG_03309,C1GWT5,Suaprga1,Inf
+PAAG_02467,C1GED0,"Transcription initiation factor TFIID subunit 14",Inf
+PAAG_01630,C1GSY5,"Small nuclear ribonucleoprotein LSM2",Inf
+PAAG_00754,C1GQF9,"Ribosomal RNA processing protein",Inf
+PAAG_02379,C1GUQ6,"APSES transcription fator",Inf
+PAAG_06250,C1H5Q5,"Peptidyl-prolyl cis-trans isomerase",Inf
+PAAG_00150,C1GNQ5,"Arginyl tRNA synthetase",Inf
+PAAG_04691,C1H261,"60S acidic ribosomal protein P2",Inf
+PAAG_03572,C1GXJ8,"Glutaminyl tRNA synthetase",Inf
+PAAG_03951,C1GZK7,"Prolyl tRNA synthetase",Inf
+PAAG_04958,C1H222,"Eukaryotic translation initiation factor 6",Inf
+PAAG_01786,C1GTE1,"Phenylalanyl tRNA synthetase beta chain",Inf
+PAAG_02628,C1GVT3,"50S ribosomal protein L24",Inf
+PAAG_06083,C1H5X3,"Dienelactone hydrolase family protein",Inf
+PAAG_08941,C1HDU8,"DUF52 domain containing protein",Inf
+PAAG_03890,C1GZE6,"DUF866 domain containing protein",Inf
+PAAG_04156,C1H062,"DUF1479 domain-containing protein",Inf
+PAAG_00340,C1GP95,"Conserved hypothetical protein",2.69
+PAAG_03251,C1GXW8,"Conserved hypothetical protein",Inf
+PAAG_05720,C1H4M7,"Conserved hypothetical protein",Inf
+PAAG_08370,C1HC79,"Conserved hypothetical protein",Inf
+PAAG_07921,C1HAU2,"Conserved hypothetical protein",Inf
+PAAG_06622,C1H781,"Conserved hypothetical protein",Inf
+PAAG_01143,C1GRJ8,"Conserved hypothetical protein",Inf
+PAAG_01695,C1GT50,"Conserved hypothetical protein",Inf
+PAAG_05550,C1H457,"Hypothetical protein",Inf
+PAAG_07158,C1H8R7,"Hypothetical protein",Inf
+PAAG_02985,C1GY31,"Hypothetical protein",Inf
+PAAG_07684,C1HAN0,"Hypothetical protein",Inf
+PAAG_02237,C1GVG0,"Predicted protein",Inf
+PAAG_03601,C1GXM7,"Predicted protein",Inf
+PAAG_08809,C1HDG8,"Predicted protein",Inf
+PAAG_07650,C1HAJ6,"Predicted protein",Inf
+PAAG_05040,C1H2P7,"Predicted protein",Inf
+PAAG_04523,C1H179,"Predicted protein",Inf
+PAAG_03541,C1GXG7,"Predicted protein",Inf
+PAAG_02964,C1GWR9,"Predicted protein",Inf
+PAAG_00989,C1GR44,"Predicted protein",Inf
+PAAG_00925,C1GQY0,"Predicted protein",Inf
+PAAG_00200,C1GNV5,"Predicted protein",Inf
+PAAG_08986,C1HDZ3,"Cystathionine beta synthase",-1.72
+PAAG_05392,C1H3P9,"Betaine aldehyde dehydrogenase",-2.77
+PAAG_07412,C1H9H1,"Serine hydroxymethyltransferase",-1.82
+PAAG_07114,C1H8M3,"Argininosuccinate synthase",-2.27
+PAAG_00966,C1GR21,"L threonine 3 dehydrogenase",-3.74
+PAAG_08164,C1HBM3,"Homogentisate 1 2 dioxygenase",-2.75
+PAAG_02603,C1GVQ8,"Aspartate aminotransferase",-Inf
+PAAG_03978,C1GZN4,"3 hydroxyisobutyrate dehydrogenase",-Inf
+PAAG_01302,C1GS07,"S-methyl-5-thioadenosine phosphorylase",-Inf
+PAAG_08166,C1HBM5,"4 hydroxyphenylpyruvate dioxygenase",-1.73
+PAAG_07036,C1H859,"Methylmalonate semialdehyde dehydrogenase",-2.16
+PAAG_02901,C1GWK6,"S adenosylmethionine synthetase",-1.93
+PAAG_05847,C1H506,"Saccharopine dehydrogenase",-Inf
+PAAG_06387,C1H6J6,"Homoisocitrate dehydrogenase",-1.58
+PAAG_07505,C1H9R4,"Glutamine amidotransferase subunit pdxT",-Inf
+PAAG_04525,C1H181,"Glutamine synthetase",-Inf
+PAAG_07786,C1HA57,"Acetyl CoA acetyltransferase",-3.16
+PAAG_05151,C1H308,"ATP citrate lyase",-3.9
+PAAG_01321,C1GS26,"Oxidoreductase 2 nitropropane dioxygenase family",-1.8
+PAAG_08277,C1HBY6,"nitroreductase family protein",-Inf
+PAAG_01931,C1GTT6,"Phosphoacetylglucosamine mutase",-Inf
+PAAG_05716,C1H4M3,"Carbonic anhydrase",-1.5
+PAAG_01934,C1GTT9,"Riboflavin synthase alpha chain",-2.2
+PAAG_05611,C1H4B8,"Deoxyuridine 5 triphosphate nucleotidohydrolase",-1.79
+PAAG_08019,C1HB78,"Adenylate kinase cytosolic",-Inf
+PAAG_07089,C1H8B2,"Homocitrate synthase",-Inf
+PAAG_02633,C1GVT8,"Ribose phosphate pyrophosphokinase",-Inf
+PAAG_02115,C1GUC0,"Ribose phosphate pyrophosphokinase",-Inf
+PAAG_06906,C1H815,"Adenine phosphoribosyltransferase",-Inf
+PAAG_05803,C1H4W2,"Inosine 5 monophosphate dehydrogenase IMD2",-Inf
+PAAG_06885,C1H7Z4,"UDP N acetylglucosamine pyrophosphorylase",-Inf
+PAAG_06536,C1H6Z5,Ubiquitin,-1.97
+PAAG_00238,C1GNZ3,Ubiquitin,-Inf
+PAAG_08418,C1HCC7,"Proteasome component PRE3",-Inf
+PAAG_00986,C1GR41,"Disulfide isomerase Pdi1",-1.54
+PAAG_01104,C1GRF9,"Proteasome component PUP1",-1.51
+PAAG_00968,C1GR23,"E3 ubiquitin protein ligase HUWE1",-Inf
+PAAG_02773,C1GW78,"Ubiquitin conjugating enzyme variant MMS2",-Inf
+PAAG_06168,C1H658,"Peptidyl prolyl cis trans isomerase cypE",-1.65
+PAAG_03334,C1GWW0,"Peptidyl prolyl cis trans isomerase D",-1.77
+PAAG_07702,C1H9X3,"ADP ribosylation factor",-1.55
+PAAG_06526,C1H6Y5,"Glucose 6 phosphate isomerase",-1.7
+PAAG_06380,C1H6I9,"Pyruvate kinase",-1.77
+PAAG_08468,Q8X1X3,"Glyceraldehyde 3 phosphate dehydrogenase",-5.93
+PAAG_02869,C1GWH4,"Phosphoglycerate kinase",-1.67
+PAAG_03689,C1GYU5,"Ketoacyl CoA thiolase B",-Inf
+PAAG_02664,C1GVW9,"3 ketoacyl CoA thiolase",-1.84
+PAAG_05454,C1H3W1,"Acyl CoA dehydrogenase",-2.97
+PAAG_08859,C1HDP8,"Peroxisomal multifunctional enzyme",-2.48
+PAAG_06155,C1H645,"Vacuolar ATP synthase subunit E",-2.41
+PAAG_04820,C1H1N4,"ATPase alpha subunit",-4.48
+PAAG_02019,C1GU24,"Mitochondrial F1F0 ATP synthase subunit Atp14",-Inf
+PAAG_08037,C1HB96,"ATP synthase subunit beta",-1.5
+PAAG_04931,C1H1Z5,"Electron transfer flavoprotein subunit beta",-3.78
+PAAG_00173,C1GNS8,"Electron transfer flavoprotein subunit alpha",-Inf
+PAAG_01463,C1GSG8,"Succinyl CoA ligase subunit beta",-2.05
+PAAG_00417,C1GPH2,"Succinyl CoA ligase subunit alpha",-1.68
+PAAG_05150,C1H307,"Citrate synthase",-Inf
+PAAG_00326,C1GP81,"Iron/copper transporter Atx1",-1.6
+PAAG_08082,C1HBE1,"Plasma membrane ATPase",-Inf
+PAAG_04276,C1H0I2,"Phosphatidylinositol transporter",-2.56
+PAAG_07175,C1H8T4,GTPase,-Inf
+PAAG_03701,C1GYV7,"BAR domain protein",-2.01
+PAAG_01539,C1GSP4,"SNF7 family protein Fti1/Did2",-Inf
+PAAG_01265,C1GRX0,"Cytochrome b5",-Inf
+PAAG_07634,C1HAI0,"Small GTPase RhoA",-3.06
+PAAG_05638,C1H4E5,"F actin capping protein subunit beta",-Inf
+PAAG_01647,C1GT02,"Tubulin alpha 1 chain",-Inf
+PAAG_04391,C1H0U7,"Progesterone binding protein",-Inf
+PAAG_03129,C1GYH5,"Dynein light chain",-2.08
+PAAG_09083,C1HE91,"TCTP family protein",-2.48
+PAAG_03532,C1GXF8,Actin,-Inf
+PAAG_07150,C1H8Q9,"UDP galactopyranose mutase",-1.77
+PAAG_05518,C1H425,"Cell division cycle protein",-5.93
+PAAG_07339,C1H998,"S phase kinase associated protein 1A",-1.8
+PAAG_08058,C1HBB7,Cofilin,-1.99
+PAAG_03292,C1GY09,"Cytochrome c peroxidase",-1.27
+PAAG_03502,C1GXC8,"Cytochrome c peroxidase",-Inf
+PAAG_06891,C1H800,"mRNA binding post transcriptional regulator Csx1",-2.72
+PAAG_04164,C1H070,"Superoxide dismutase",-3.71
+PAAG_01454,C1GSF9,Catalase,-Inf
+PAAG_05249,C1H3A6,"Aldehyde dehydrogenase",-2.41
+PAAG_03910,C1GZG6,"Aldehyde dehydrogenase",-Inf
+PAAG_00478,C1GPN3,"DnaJ domain protein Psi",-1.75
+PAAG_06811,C1H7S0,"Heat shock protein STI1",-1.77
+PAAG_05679,C1H4I6,"Heat shock protein",-3.13
+PAAG_07775,C1HA46,"Heat shock protein SSB1",-2.1
+PAAG_08260,C1HBW9,"Hsp90 co chaperone Cdc37",-1.62
+PAAG_00871,C1GQS6,"30 kDa heat shock protein",-Inf
+PAAG_04949,C1H213,"UV excision repair protein Rad23",-1.79
+PAAG_07444,C1H9K3,"Chaperone protein dnak",-Inf
+PAAG_01727,C1GT82,"T complex protein 1 subunit delta",-Inf
+PAAG_06068,C1H5V8,"T complex protein 1 subunit beta",-2.97
+PAAG_08184,C1HBP3,"T complex protein 1 epsilon subunit",-2.61
+PAAG_07165,C1H8S4,"T complex protein 1 subunit gamma",-1.9
+PAAG_00450,C1GPK5,"Protein kinase byr2",-Inf
+PAAG_01097,C1GRF2,"Poly rC binding protein",-2.41
+PAAG_08918,C1HDS5,"Late histone H2B L4",-2.77
+PAAG_08917,C1HDS4,"Histone H2a",-3.29
+PAAG_02329,C1GUK6,"U2 small nuclear ribonucleoprotein A",-Inf
+PAAG_00723,C1GQC8,"Small nuclear ribonucleoprotein SmB",-3.03
+PAAG_05224,C1H381,"RNA annealing protein YRA1",-Inf
+PAAG_07497,C1H9Q6,"RNA polymerase II transcriptional coactivator SUB1",-Inf
+PAAG_01698,C1GT53,"Translation initiation factor eIF3",-1.65
+PAAG_07785,C1HA56,"U5 small nuclear ribonucleoprotein component",-1.8
+PAAG_01929,C1GTT4,"HNRNP arginine N methyltransferase",-Inf
+PAAG_07099,C1H8K8,"Histone H3",-Inf
+PAAG_02055,C1GU60,"Histone chaperone asf1",-Inf
+PAAG_04662,C1H232,"Cleavage and polyadenylation specificity factor subunit 5",-Inf
+PAAG_03941,C1GZJ7,"G4 quadruplex nucleic acid binding protein",-1.84
+PAAG_03152,C1GYJ8,"eukaryotic translation initiation factor 2 subunit gamma",-Inf
+PAAG_02820,C1GWC5,"GTP dependent nucleic acid binding protein engD",-2.86
+PAAG_04651,C1H1K7,"GTP binding nuclear protein GSP1 Ran",-3.63
+PAAG_07957,C1HB16,"pre-mRNA-splicing factor srp1",-Inf
+PAAG_08702,C1HD61,"Seryl tRNA synthetase",-1.57
+PAAG_02921,C1GWM6,"Elongation factor Tu",-4.9
+PAAG_09096,C1HE97,"Ribosomal protein S28A",-2.44
+PAAG_02071,C1GU76,"Glutamyl tRNA synthetase",-1.52
+PAAG_04496,C1H152,"Nascent polypeptide associated complex subunit beta",-1.67
+PAAG_00244,C1GNZ9,"Polyadenylate binding protein",-2.51
+PAAG_04742,C1H2B3,"Valyl tRNA synthetase",-Inf
+PAAG_02024,C1GU29,"Elongation factor 1 alpha",-2.25
+PAAG_00594,C1GPZ9,"Elongation factor 2",-1.82
+PAAG_00030,C1GND5,"Elongation factor 3",-Inf
+PAAG_02111,C1GUB6,"40S ribosomal protein S0",-2.92
+PAAG_01785,C1GTE0,"40S ribosomal protein S3",-Inf
+PAAG_07182,C1H8U1,"40S ribosomal protein S7",-Inf
+PAAG_04690,C1H260,"40S ribosomal protein S15",-Inf
+PAAG_05778,C1H4T8,"40S ribosomal protein S19",-Inf
+PAAG_03322,C1GWU8,"40S ribosomal protein S20",-Inf
+PAAG_00801,C1GQK6,"60S acidic ribosomal protein P0 lyase",-Inf
+PAAG_03019,C1GY65,"60S ribosomal protein L6 B",-Inf
+PAAG_05590,C1H497,"60S ribosomal protein L12",-2.83
+PAAG_01731,C1GT86,"60S ribosomal protein L37",-Inf
+PAAG_01777,C1GTD2,"Alanyl tRNA synthetase",-Inf
+PAAG_00689,C1GQ94,"ATP dependent RNA helicase eIF4A",-Inf
+PAAG_01330,C1GS35,"Eukaryotic translation initiation factor 3 RNA binding subunit 2",-Inf
+PAAG_05882,C1H541,"Translation factor SUI1",-Inf
+PAAG_00772,C1GQH7,"eukaryotic translation initiation factor 3 subunit J",-1.55
+PAAG_03161,C1GYK7,"GTP binding protein ypt5",-Inf
+PAAG_04913,C1H1X7,"RNP domain-containing protein",-1.77
+PAAG_00847,C1GQQ2,"DUF343 domain-containing protein",-Inf
+PAAG_06515,C1H6X4,"DUF833 domain containing protein",-1.68
+PAAG_02217,C1GVE0,"Isochorismatase domain containing protein",-1.6
+PAAG_00503,C1GPQ8,"HAD superfamily hydrolase",-Inf
+PAAG_03152,C1GYJ8,"CobW domain containing protein",-Inf
+PAAG_01280,C1GRY5,"Ser Thr protein phosphatase family protein",-Inf
+PAAG_07989,C1HB48,"Conserved hypothetical protein",-Inf
+PAAG_01914,C1GTR9,"Conserved hypothetical protein",-Inf
+PAAG_00368,C1GPC3,"Conserved hypothetical protein",-Inf
+PAAG_04161,C1H067,"Conserved hypothetical protein",-1.99
+PAAG_02434,C1GUW1,"Hypothetical protein",-Inf
+PAAG_01863,C1GTL8,"Hypothetical protein",-Inf
+PAAG_04076,C1GZY2,"Predicted protein",-Inf
+PAAG_08291,C1HC00,"Predicted protein",-Inf
+PAAG_00039,C1GNE4,"Predicted protein",-Inf
+PAAG_01920,C1GTS5,"Predicted protein",-Inf
+PAAG_04107,C1H013,"Predicted protein",-Inf
+PAAG_05970,C1H5C9,"Predicted protein",-Inf
+PAAG_08004,C1HB63,"Predicted protein",-Inf
+PAAG_08394,C1HCA3,"Predicted protein",-Inf

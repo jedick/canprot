@@ -1,0 +1,80 @@
+---
+title: "Hyperosmotic Stress"
+output: html_vignette
+vignette: >
+  %\VignetteIndexEntry{Hyperosmotic Stress}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+bibliography: data_sources.bib
+csl: peerj.csl
+---
+
+## Data Sources
+
+[`PW08`](http://doi.org/10.1021/pr800331s) VHG (300 g/L) vs control (20 g/L). The comparisons here use proteins with expression ratios < 0.9 or > 1.1 and with p-values < 0.05. Source: SI Table of @PW08.
+
+[`WCM+09`](http://doi.org/10.1073/pnas.0908351106) 24 h at 16.7 mM vs 5.6 mM glucose. Source: extracted from Suppl. Table ST4 of @WCM+09; including the red- and blue-highlighted rows in the source table (those with ANOVA _p_-value < 0.01), and applying the authors' criterion that proteins be identified by 2 or more unique peptides in at least 4 of the 8 most intense LC-MS/MS runs.
+
+[`OBBH11`](http://doi.org/10.1021/pr200030v) 300 mOsm (control) or 400 mOsm (NaCl treatment). Source: Suppl. Table 1 of @OBBH11.
+
+[`CCC+12`](http://doi.org/10.1039/C2MB25331C) Mannitol-balanced 5.5 (control), 25 or 100 mM ᴅ-glucose media. Source: Table 1 of @CCC+12.
+
+[`KKG+12`](http://doi.org/10.1074/mcp.M111.009019) Temperature and NaCl treatment (control: 35 °C, <I>a</I><sub>w</sub> = 0.993). Source: Suppl. Tables S13–S16 of @KKG+12.
+
+[`CCCC13`](http://doi.org/10.1016/j.jnutbio.2013.05.006) 5.5 (control), 25 or 100 mM ᴅ-glucose. Source: Table 1 of @CCCC13.
+
+[`TSZ+13`](http://doi.org/10.1016/j.jprot.2013.05.026) Gill proteome of Japanese eel (<I>Anguilla japonica</I>) adapted to seawater or freshwater. Source: Protein IDs from Suppl. Table 3 and gene names of human orthologs from Suppl. File 4 of @TSZ+13.
+
+[`GSC14`](http://doi.org/10.1186/1477-5956-12-9) 30 min in YNB (2% glucose) vs YPKG (0.5% glucose) media. Source: extracted from Suppl. Files 3 and 5 of @GSC14, using the authors' criterion of _p_-value <0.05.
+
+[`CLG+15`](http://doi.org/10.1021/acs.jproteome.5b00443) 280 (control), 380, or 480 mOsm (NaCl treatment) for 24 h. Source: Table 2 of @CLG+15.
+
+[`KLB+15`](http://doi.org/10.1186/s12866-015-0404-x) Overnight treatment with a final concentration of 40/50 mM NaCl or 200 mM sucrose vs M2 minimal salts medium plus glucose (control). Source: Additional file Table S2 of @KLB+15.
+
+[`LDB+15`](http://doi.org/10.1002/btpr.2090) 15 g/L vs 5 g/L (control) glucose at days 0, 3, 6, and 9. The comparisons here use all proteins reported to have expression patterns in Cluster 1 (up) or Cluster 5 (down), or only the proteins with high expression differences (ratio ≤-0.2 or ≥0.2) at all time points. Source: SI Table S4 of @LDB+15.
+
+[`YDZ+15`](http://doi.org/10.4014/jmb.1412.12026) 4.21 osmol/kg vs 3.17 osmol/kg osmotic pressure (NaCl treatment). Source: Table 1 of @YDZ+15.
+
+[`RBP+16`](http://doi.org/10.1016/j.fgb.2016.08.001) 0.1 M KCl (treatment) vs medium with no added KCl (control). Source: Suppl. Tables 2 and 3 of @RBP+16.
+
+
+## Summary Table
+
+This table compares the chemical compositions of groups of proteins that are relatively down- and up-expressed (`n1` and `n2`, respectively) in cells grown in hyperosmotic stress compared to control conditions.
+
+```{r options, echo=FALSE}
+options(width = 90)
+```
+
+```{r canprot, message=FALSE}
+library(canprot)
+data(canprot)
+```
+
+```{r datasets}
+datasets <- pdat_osmotic()
+```
+
+```{r comptab, results="hide", message=FALSE}
+comptab <- lapply_canprot(datasets, function(dataset) {
+  pdat <- get_pdat(dataset, "pdat_osmotic")
+  ZC_nH2O(pdat, plot.it=FALSE)
+}, varlist="pdat_osmotic")
+```
+
+```{r xsummary, results="asis"}
+library(xtable)
+xsummary(comptab)
+```
+
+## Mean Differences
+
+The dataset for adipose-derived stem cells is highlighted in orange.
+
+```{r diffplot, fig.width=6, fig.height=6, fig.align="center"}
+col <- rep("black", length(datasets))
+col[grepl("=ASC", datasets)] <- "orange"
+diffplot(comptab, col=col)
+```
+
+## References

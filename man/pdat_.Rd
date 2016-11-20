@@ -4,6 +4,7 @@
 \alias{pdat_CRC}
 \alias{pdat_pancreatic}
 \alias{pdat_hypoxia}
+\alias{pdat_osmotic}
 \title{Get Protein Data}
 \description{
   Get data on protein expression and chemical composition.
@@ -24,6 +25,7 @@ The \code{pdat_} functions read CSV data files for data on relatively up- and do
 \code{pdat_CRC} retrieves data for protein expression in colorectal cancer.
 \code{pdat_pancreactic} retrieves data for protein expression in pancreatic cancer.
 \code{pdat_hypoxia} retrieves data for protein expression in hypoxia or 3D culture.
+\code{pdat_osmotic} retrieves data for protein expression in hyperosmotic stress.
 
 If \code{dataset} is \code{NULL}, the return value gives the names of all datasets that can be retrieved using this function.
 Each name indicates the study (publication) where the data were reported, constructed by combining the first characters of the (first three or four) authors' family names with the 2-digit year of publication.

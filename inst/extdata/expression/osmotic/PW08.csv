@@ -1,0 +1,131 @@
+Accession,Entry,Entry.name,Protein.Name,Ratio.115.114,P.Val.115.114,Ratio.116.114,P.Val.116.114,Ratio.117.114,P.Val.117.114
+gi|6323207,P14306,CPYI_YEAST,"(putative) lipid binding protein; supressor of a cdc25 mutation; Tfs1p",0.682,0.0382,0.4528,0.0093,0.4705,0.0134
+gi|6323002,P31539,HS104_YEAST,"104 kDa heat shock protein; Hsp104p",0.5606,0,0.8294,0,2.0845,0
+gi|6321096,P22943,HSP12_YEAST,"12 kDa heat shock protein; Hsp12p",0.5823,0,1.242,0,2.0062,0
+gi|6323537,P38427,TSL1_YEAST,"123 kD regulatory subunit of trehalose-6-phosphate synthase/phosphatase complex; homologous to TPS3 gene product; Tsl1p",1.3056,0.0002,1.2963,0.0001,1.3495,0.004
+gi|6319726,P32449,AROG_YEAST,"3-deoxy-D-arabino-heptulosonate 7-phosphate (DAHP) synthase isoenzyme; Aro4p",0.8604,0.0321,0.8716,0.053,0.8312,0.0391
+gi|6319857,P00560,PGK_YEAST,"3-phosphoglycerate kinase; Pgk1p",1.2191,0,0.8711,0,0.8254,0
+gi|6320918,P0CX31,RS24A_YEAST,"40S ribosomal protein S24A; Rps24ap",1.9808,0.0476,6.8216,0.1394,9.4669,0.0432
+gi|6322120,P0CX32,RS24B_YEAST,"40S ribosomal protein S24B; Rps24bp",1.9808,0.0476,6.8216,0.1394,9.4669,0.0432
+gi|6319602,Q00764,TPS1_YEAST,"56 kD synthase subunit of trehalose-6-phosphate synthase/phosphatase complex; Tps1p",1.3763,0.0024,1.3136,0.0004,1.3659,0.0005
+gi|6319391,P33893,GATB_YEAST,"62-kDa protein; Pet112p",0.8964,0.1697,0.8897,0.1676,0.8528,0.017
+gi|6325016,P02829,HSP82_YEAST,"82 kDa heat shock protein; homolog of mammalian Hsp90; Hsp82p",1.242,0.0012,1.4987,0,1.5212,0
+gi|6321896,P38715,GRE3_YEAST,"a keto-aldose reductase; Gre3p",1.2158,0.0055,1.3048,0.0036,1.3082,0.0002
+gi|6325229,P41338,THIL_YEAST,"acetoacetyl CoA thiolase; Erg10p",0.6352,0.004,0.8778,0.007,0.9451,0.04
+gi|6323387,P06168,ILV5_YEAST,"acetohydroxyacid reductoisomerase; Ilv5p",0.5628,0,0.5895,0,1.7513,0
+gi|6324343,Q00955,ACAC_YEAST,"acetyl-CoA carboxylase; Acc1p",0.8576,0.4246,0.6704,0.0339,0.8071,0.3431
+gi|6323335,P19414,ACON_YEAST,"Aconitase, mitochondrial; Aco1p",0.8265,0.0197,1.0425,0.5272,1.1156,0.1121
+gi|6323351,P41697,BUD6_YEAST,"Actin Interacting Protein; Bud6p",0.7983,0.0156,1.4569,0.4226,1.7269,0.1932
+gi|6321069,P60010,ACT_YEAST,"Actin; Act1p",1.3634,0,1.6041,0,1.632,0
+gi|6324109,P80210,PURA_YEAST,"adenylosuccinate synthetase; Ade12p",1.3629,0.0021,1.144,0.4635,1.3526,0.3567
+gi|6321181,P10127,ADH4_YEAST,"alcohol dehydrogenase isoenzyme IV; Adh4p",1.6232,0,2.2669,0.0026,1.7932,0.0002
+gi|6324486,P00330,ADH1_YEAST,"Alcohol dehydrogenase; Adh1p",1.9747,0,4.6315,0,4.5974,0
+gi|6323821,P54114,ALDH3_YEAST,"aldehyde dehydrogenase; Ald3p",1.8477,0.0018,1.8478,0.0026,2.6277,0
+gi|6322790,P14540,ALF_YEAST,"aldolase; Fba1p",0.9309,0.0036,0.8813,0,0.737,0
+gi|6323138,P38013,AHP1_YEAST,"alkyl hydroperoxide reductase; Ahp1p",1.1891,0.0005,1.112,0.0168,1.2128,0
+gi|6324225,P06208,LEU1_YEAST,"alpha-isopropylmalate synthase (2-Isopropylmalate Synthase); Leu4p",0.5163,0.058,0.4924,0.0059,1.7657,0.0202
+gi|6321236,P53090,ARO8_YEAST,"aromatic amino acid aminotransferase; Aro8p",1.0566,0.4522,1.4933,0.001,1.3829,0.0065
+gi|6321807,P38707,SYNC_YEAST,"Asparaginyl-tRNA synthetase; Ded81p",0.8417,0.472,1.8413,0.005,1.5488,0.4399
+gi|6323055,P23542,AATC_YEAST,"aspartate aminotransferase, cytosolic; Aat2p",1.4133,0.023,2.2756,0.2905,1.6284,0.0042
+gi|6323011,P04802,SYDC_YEAST,"Aspartyl-tRNA synthetase, cytosolic; Dps1p",1.0683,0.3222,2.0879,0.0002,1.8782,0.0179
+gi|6322714,P36000,AP1B1_YEAST,"Beta-adaptin, large subunit of the clathrin-associated protein (AP-1) complex; Apl2p",0.715,0.1268,0.571,0.0355,0.4924,0.0096
+gi|6322002,P38891,BCA1_YEAST,"branched-chain amino acid transaminase, highly similar to mammalian ECA39, which is regulated by the oncogene myc; Bat1p",0.3026,0.0001,0.3333,0.0001,2.3578,0.0002
+gi|6322331,P07259,PYR1_YEAST,"carbamoyl-phophate synthetase, aspartate transcarbamylase, and glutamine amidotransferase; Ura2p",3.4962,0.0025,4.6069,0.0073,5.3085,0.0016
+gi|6324328,P00890,CISY1_YEAST,"citrate synthase. Nuclear encoded mitochondrial protein.; Cit1p",0.9877,0.7527,1.0155,0.6295,1.1842,0
+gi|6320936,P05694,METE_YEAST,"Cobalamin-independent methionine synthase, involved in amino acid biosynthesis; requires a minimum of two glutamates on the methyltetrahydrofolate substrate, similar to bacterial metE homologs; Met6p",0.326,0,0.3812,0,2.6658,0
+gi|6322978,Q03048,COFI_YEAST,"Cofilin, actin binding and severing protein; Cof1p",1.2156,0.0104,1.5141,0.0096,1.458,0.0043
+gi|6322350,P42943,TCPH_YEAST,"Component of Chaperonin Containing T-complex subunit seven; Cct7p",1.3191,0.0561,0.7859,0.0092,0.9469,0.0688
+gi|6322564,P00445,SODC_YEAST,"Cu, Zn superoxide dismutase; Sod1p",0.5922,0.0068,0.9453,0.6579,1.1834,0.0867
+gi|6320359,P14832,CYPH_YEAST,"cyclophilin peptidyl-prolyl cis-trans isomerase; Cph1p",0.4379,0,0.5029,0.0002,0.5623,0.0001
+gi|6321594,P32582,CBS_YEAST,"Cystathionine beta-synthase; Cys4p",0.6936,0.0042,2.4273,0.0014,1.9376,0.0016
+gi|6319307,P31373,CYS3_YEAST,"cystathionine gamma-lyase; Cys3p",1.1269,0.2905,1.6754,0.0008,1.5795,0.0039
+gi|6321525,P06115,CATT_YEAST,"cytoplasmic catalase T; Ctt1p",1.3577,0.0081,1.6349,0.0028,1.9088,0.0003
+gi|6319972,P11484,HSP75_YEAST,"cytoplasmic member of the HSP70 family; Ssb1p",0.6641,0,0.8061,0.0018,1.7322,0.0729
+gi|6325196,P54115,ALDH6_YEAST,"Cytosolic Aldehyde Dehydrogenase; Ald6p",1.7436,0.2055,1.555,0.031,2.3553,0.0543
+gi|6322633,P28272,PYRD_YEAST,"dihydroorotate dehydrogenase; Ura1p",1.0156,0.1283,2.6514,0.012,1.8056,0.1039
+gi|6322476,P39522,ILV3_YEAST,"dihydroxyacid dehydratase; Ilv3p",0.4039,0.0043,2.5124,0.0334,2.5056,0.0043
+gi|6320905,P40106,GPP2_YEAST,"DL-glycerol-3-phosphatase; Hor2p",1.2979,0.0075,2.1288,0,2.0374,0
+gi|6322136,P41277,GPP1_YEAST,"DL-glycerol-3-phosphatase; Rhr2p",1.2172,0.0973,1.2156,0.263,1.469,0.0241
+gi|6323278,P16521,EF3A_YEAST,"EF-3 (translational elongation factor 3); Yef3p",0.679,0.0009,0.8931,0.1321,0.755,0.0043
+gi|6321643,P07245,C1TC_YEAST,"encodes the cytoplasmic trifunctional enzyme C1-tetrahydrofolate synthase; Ade3p",1.0967,0.3689,1.594,0.0032,1.5042,0.0164
+gi|6321968,P00925,ENO2_YEAST,"enolase; Eno2p",0.8045,0,1.0271,0.4162,0.8791,0.0002
+gi|6322581,P00830,ATPB_YEAST,"F(1)F(0)-ATPase complex beta subunit, mitochondrial; Atp2p",2.5598,0.0043,2.9598,0.0077,3.1976,0.0046
+gi|6322294,P08524,FPPS_YEAST,"Farnesyl diphosphate synthetase (FPP synthetase); Erg20p",0.8975,0.1376,1.3324,0.0289,1.1416,0.0853
+gi|6319809,P17709,HXKG_YEAST,"Glucokinase; Glk1p",2.0862,0,1.4088,0.039,1.7241,0.0054
+gi|6319673,P12709,G6PI_YEAST,"Glucose-6-phosphate isomerase; Pgi1p",1.2559,0,1.2994,0,1.1011,0.0001
+gi|6322468,P00358,G3P2_YEAST,"glyceraldehyde 3-phosphate dehydrogenase; Tdh2p",0.7489,0,0.8635,0.0006,0.9469,0.1781
+gi|6322409,P00360,G3P1_YEAST,"Glyceraldehyde-3-phosphate dehydrogenase 1; Tdh1p",1.3197,0,0.8724,0,1.0227,0.1995
+gi|6321631,P00359,G3P3_YEAST,"Glyceraldehyde-3-phosphate dehydrogenase 3; Tdh3p",0.8043,0,0.8689,0.0403,0.9233,0.1152
+gi|6320181,Q00055,GPD1_YEAST,"glycerol-3-phosphate dehydrogenase; Gpd1p",1.3336,0,1.9443,0,1.9956,0
+gi|6325418,P06738,PHSG_YEAST,"Glycogen phosphorylase; Gph1p",1.9133,0.0004,1.3925,0.0457,1.3713,0.0788
+gi|6319597,P38088,SYG_YEAST,"Glycyl-tRNA synthase; Grs1p",1.1523,0.0232,2.661,0,1.5479,0.0036
+gi|6319546,P15992,HSP26_YEAST,"heat shock protein 26; Hsp26p",1.0386,0.3099,1.5542,0,2.0427,0
+gi|6324601,P15705,STI1_YEAST,"Heat shock protein also induced by canavanine and entry into stationary phase; Sti1p",0.7473,0,0.999,0.9876,0.9404,0.1789
+gi|6319314,P10591,HSP71_YEAST,"Heat shock protein of HSP70 family, cytoplasmic; Ssa1p",1.3356,0.0022,1.058,0.5957,1.2776,0.0112
+gi|6324120,P40150,HSP76_YEAST,"Heat shock protein of HSP70 family, homolog of SSB1; Ssb2p",0.6641,0,0.8061,0.0018,0.8322,0.0729
+gi|6321168,P04806,HXKA_YEAST,"Hexokinase I (PI) (also called Hexokinase A); Hxk1p",1.8833,0,1.5691,0,1.2889,0
+gi|6321184,P04807,HXKB_YEAST,"Hexokinase II (PII) (also called Hexokinase B); Hxk2p",1.1953,0.058,1.4791,0.001,1.253,0.0347
+gi|6319819,P00815,HIS2_YEAST,"histidinol dehydrogenase; His4p",1.3683,0.0236,0.9764,0.8846,2.2197,0.2903
+gi|6321025,P29311,BMH1_YEAST,"Homolog of mammalian 14-3-3 proteins; Bmh1p",0.8561,0.1136,0.775,0.0038,0.8984,0.2216
+gi|6319587,Q01976,ADPP_YEAST,"Homolog to serendipity protein (D. melanogaster); Ysa1p",0.8469,0.0921,0.817,0.0147,0.8851,0.1326
+gi|6325151,P32589,HSP7F_YEAST,"HSP70 family member, highly homologous to Ssa1p and Sse2p; Sse1p",0.7183,0,0.7904,0.0018,0.7461,0.0033
+gi|6319483,P00817,IPYR_YEAST,"Inorganic pyrophosphatase; Ipp1p",0.8442,0.0003,1.135,0.0312,1.0138,0.7722
+gi|6320242,P15180,SYKC_YEAST,"lysyl-tRNA synthetase; Krs1p",1.2133,0.3586,3.2144,0.0352,2.5794,0.1458
+gi|6320950,P22202,HSP74_YEAST,"member of 70 kDa heat shock protein family; Ssa4p",0.8351,0.0579,0.9997,0.9968,1.4588,0.0001
+gi|6320304,P34730,BMH2_YEAST,"member of conserved eukaryotic 14-3-3 gene family; Bmh2p",0.8561,0.1136,0.775,0.0038,0.8984,0.2216
+gi|6324950,P46367,ALDH4_YEAST,"mitochondrial aldehyde dehydrogenase; Ald4p",0.8987,0.0028,0.6159,0,0.8995,0.0281
+gi|6322002,P38891,BCA1_YEAST,"Mitochondrial branched-chain amino acid aminotransferase, homolog of murine ECA39; highly expressed during logarithmic phase and repressed during stationary phase; Bat1p",0.3724,0.0004,0.4767,0.0001,0.4285,0.0004
+gi|6323288,P19882,HSP60_YEAST,"mitochondrial chaperonin, homolog of E. coli groEL protein; Hsp60p",0.8314,0.0009,1.143,0.0441,1.2422,0.0002
+gi|6319370,P07251,ATPA_YEAST,"mitochondrial F1F0-ATPase alpha subunit; Atp1p",2.2798,0,2.8429,0,2.845,0
+gi|6324256,P32048,SYKM_YEAST,"mitochondrial lysine-tRNA synthetase; Msk1p",1.0345,0.0232,1.7343,0.043,1.5941,0.054
+gi|6322765,P17505,MDHM_YEAST,"mitochondrial malate dehydrogenase; Mdh1p",0.7162,0.0004,0.702,0.0013,0.8037,0.003
+gi|6322505,P0CS90,HSP77_YEAST,"Mitochondrial matrix protein involved in protein import; subunit of SceI endonuclease; Ssc1p",0.8565,0.0034,0.9868,0.7936,1.8328,0.5106
+gi|6321973,Q03558,OYE2_YEAST,"NAPDH dehydrogenase (old yellow enzyme), isoform 2; Oye2p",0.9004,0.1872,1.0963,0.0362,1.3257,0
+gi|6321338,P53011,SEH1_YEAST,"nuclear pore protein; Seh1p",1.0203,0.3616,1.1051,0.022,1.3087,0.1781
+gi|6324313,P0CT04,IPB2_YEAST,Pbi2p,0.8314,0.24,0.4098,0.0226,0.4985,0.049
+gi|6323089,P15624,SYFB_YEAST,"Phenylalanyl-tRNA synthetase, alpha subunit, cytoplasmic; Frs1p",0.9688,0.0043,2.2014,0.0034,2.2082,0.0034
+gi|6321679,P16861,PFKA1_YEAST,"phosphofructokinase alpha subunit; Pfk1p",1.0553,0.1565,1.3647,0,1.1502,0.0018
+gi|6321679,P16861,PFKA1_YEAST,"phosphofructokinase alpha subunit; Pfk1p",1.1448,0.467,1.4461,0.0887,1.2248,0
+gi|6323861,P16862,PFKA2_YEAST,"phosphofructokinase beta subunit; Pfk2p",0.9544,0.2941,1.2702,0,1.276,0.1321
+gi|6323752,P37012,PGM2_YEAST,"Phosphoglucomutase; Pgm2p",1.9366,0,1.6516,0,1.7018,0
+gi|6322783,P36010,NDK_YEAST,"probable nucleoside-diphosphate kinase (EC 2.7.4.6); Ynk1p",0.7134,0,0.913,0.0019,0.9313,0.0776
+gi|6323570,P54838,DAK1_YEAST,"putative dihydroxyacetone kinase; Dak1p",1.1196,0.3545,1.3319,0.0173,1.7782,0
+gi|6320882,P39954,SAHH_YEAST,"putative S-adenosyl-L-homocysteine hydrolase; Sah1p",0.6406,0.0003,1.1139,0.2211,0.9669,0.7494
+gi|6323073,P06169,PDC1_YEAST,"pyruvate decarboxylase; Pdc1p",0.9157,0,2.6191,0,2.7814,0
+gi|6319279,P00549,KPYK1_YEAST,"Pyruvate kinase; Cdc19p",0.8722,0,0.9368,0.0154,0.7954,0
+gi|6319559,P0CX82,RL19A_YEAST,"Ribosomal protein L19A (L23A) (rpl5L) (YL14); Rpl19ap",1.4911,0.0009,5.0553,0.0141,6.7594,0.0077
+gi|6319444,P0CX83,RL19B_YEAST,"Ribosomal protein L19B (YL14) (L23B) (rpl5L); Rpl19bp",1.4911,0.0009,5.0553,0.0141,6.7594,0.0077
+gi|6321754,P17076,RL8A_YEAST,"Ribosomal protein L8A (rp6) (YL5) (L4A); Rpl8ap",1.0473,0.0012,3.6348,0.0021,4.2964,0.0022
+gi|6321653,P32905,RSSA1_YEAST,"Ribosomal protein S0A; Rps0ap",1.4523,0,3.2181,0.0006,3.69,0.0005
+gi|6323077,P46654,RSSA2_YEAST,"Ribosomal protein S0B; Rps0bp",1.4523,0,3.2181,0.0006,3.69,0.0005
+gi|6323196,P05759,RS27A_YEAST,"Ribosomal protein S31 (S37) (YS24); Rps31p",1.1818,0.0119,1.4585,0.0002,1.5356,0
+gi|6320226,P07284,SYSC_YEAST,"seryl-tRNA synthetase; Ses1p",1.0892,0.0012,1.7612,0.0013,1.5979,0.005
+gi|6321931,P13130,SS100_YEAST,"sporulation-specific wall maturation protein; Sps100p",1.1751,0.0031,1.1399,0.005,1.2977,0.0032
+gi|6321648,P22803,TRX2_YEAST,"thioredoxin; Trx2p",0.6606,0.0011,0.5765,0.0001,0.6197,0
+gi|6323613,P34760,TSA1_YEAST,"thioredoxin-peroxidase (TPx); reduces H2O2 and alkyl hydroperoxides with the use of hydrogens provid",1.1903,0,1.3155,0,1.1644,0
+gi|6324804,Q12363,WTM1_YEAST,"Transcriptional modulator; Wtm1p",1.2564,0.0435,0.96,0.6334,1.0074,0.9401
+gi|6325331,P23254,TKT1_YEAST,"Transketolase 1; Tkl1p",0.5883,0,0.947,0.5829,1.8754,0.6842
+gi|6324707,P32324,EF2_YEAST,"translation elongation factor 2 (EF-2); Eft1p",1.0134,0.7621,0.8861,0.0204,0.995,0.9157
+gi|6320593,NA,NA,"translation elongation factor 2 (EF-2); Eft2p",1.0134,0.7621,0.8861,0.0204,0.995,0.9157
+gi|6322912,P10081,IF4A_YEAST,"translation initiation factor eIF4A; Tif1p",1.2605,0.1311,0.7282,0.0106,0.7356,0.0357
+gi|6322323,NA,NA,"translation initiation factor eIF4A; Tif2p",1.2605,0.1311,0.7282,0.0106,0.7356,0.0357
+gi|6325337,P02994,EF1A_YEAST,"translational elongation factor EF-1 alpha; Tef1p",0.8832,0.3673,1.1765,0.1865,1.3886,0.0194
+gi|6319594,NA,NA,"translational elongation factor EF-1 alpha; Tef2p",0.8832,0.3673,1.1765,0.1865,1.3886,0.0194
+gi|6320279,P31688,TPS2_YEAST,"Trehalose-6-phosphate phosphatase; Tps2p",1.3347,0.0051,1.405,0.0322,1.6799,0.0526
+gi|6320255,P00942,TPIS_YEAST,"triosephosphate isomerase; Tpi1p",0.6962,0,0.988,0.5292,0.9873,0.4245
+gi|6320139,P50623,UBC9_YEAST,"ubiquitin-conjugating enzyme; Ubc9p",0.5624,0.0417,0.4107,0.0095,2.5841,0.0415
+gi|6322815,P32861,UGPA1_YEAST,"Uridinephosphoglucose pyrophosphorylase; Ugp1p",1.3767,0.0026,1.588,0,1.6213,0
+gi|6322746,P14904,AMPL_YEAST,"vacuolar aminopeptidase ysc1; Lap4p",0.6778,0.0001,0.7601,0.0011,0.7311,0
+gi|6320016,P17255,VATA_YEAST,"vacuolar ATPase V1 domain subunit A (69 kDa); Tfp1p",2.0656,0,2.3103,0,1.8095,0
+gi|6319603,P16140,VATB_YEAST,"vacuolar ATPase V1 domain subunit B (60 kDa); Vma2p",2.8895,0,3.3357,0,2.6255,0.0003
+gi|6320079,Q07551,KAR_YEAST,Ydl124wp,1.2259,0.044,0.8837,0.1515,0.9305,0.5479
+gi|6320742,Q04432,HSP31_YEAST,Ydr533cp,0.926,0.2404,1.1633,0.0091,1.5051,0.0002
+gi|6321159,P43616,DUG1_YEAST,Yfr044cp,1.0958,0.1555,1.4845,0,1.3234,0
+gi|6324169,P38616,YGP1_YEAST,"YGP1 encodes gp37, a glycoprotein synthesized in response to nutrient limitation which is homologous",1.0587,0.3331,1.1455,0.1961,1.2822,0.0183
+gi|6322556,P47137,YJ66_YEAST,Yjr096wp,0.6723,0.0195,0.7603,0.004,0.9881,0.7954
+gi|6322932,P36159,RNZ_YEAST,Ykr079cp,1.5081,0.0011,0.9435,0.3228,1.0336,0.5117
+gi|6323464,P50095,IMDH3_YEAST,Ylr432wp,0.6576,0.0405,0.8306,0.0292,0.8635,0.5724
+gi|6323846,Q04322,GYL1_YEAST,Ymr192wp,1.0395,0.4238,1.4454,0.0225,1.2596,0.0524
+gi|6323882,Q05016,YM71_YEAST,Ymr226cp,0.6959,0.0265,1.0655,0.1067,1.0514,0.2993
+gi|6324195,P53912,YNN4_YEAST,Ynl134cp,1.0173,0.5369,1.1762,0.0087,1.5969,0
+gi|9755343,Q3E841,YN034_YEAST,Ynr034w-ap,0.9524,0.6109,0.4894,0.0001,0.513,0.0004

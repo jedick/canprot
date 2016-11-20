@@ -1,10 +1,10 @@
 # Exported variables
 export("protcomp", "check_ID", "get_pdat", "ZC_nH2O", "CLES", "xsummary",
 "rankdiff", "rankplot", "Ehplot", "pdat_CRC", "remove_entries", "diffplot",
-"lapply_canprot", "get_colors", "pdat_pancreatic", "pdat_hypoxia")
+"lapply_canprot", "get_colors", "pdat_pancreatic", "pdat_hypoxia", "pdat_osmotic")
 
 # Imports from default packages
-importFrom("stats", "na.omit")
+importFrom("stats", "na.omit", "median")
 
 importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data")
 

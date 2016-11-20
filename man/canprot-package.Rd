@@ -7,7 +7,7 @@
 }
 
 \section{Overview}{
-  Datasets of differential expression of proteins are included for colorectal cancer (CRC), pancreatic cancer, and hypoxia.
+  Datasets of differential expression of proteins are included for colorectal cancer (CRC), pancreatic cancer, hypoxia, and hyperosmotic stress.
   Please see the vignettes, starting with \href{../doc/CRC.html}{CRC.Rmd}, for the data sources and examples of compositional and potential diagrams.
   This package was initiated using code and datasets for CRC that were assembled for the study of Dick (2016).
 }
