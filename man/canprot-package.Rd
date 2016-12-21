@@ -13,7 +13,7 @@
 }
 
 \section{Acknowledgements}{
-  I thank Dr. Ming-Chih Lai for provided unpublished data related to the study of Lai et al. (2016) and giving permission to distribute it.
+  I thank Dr. Ming-Chih Lai for providing unpublished data related to the study of Lai et al. (2016) and giving permission to include it here.
 }
 
 \examples{
