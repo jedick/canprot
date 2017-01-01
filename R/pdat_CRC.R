@@ -20,7 +20,8 @@ pdat_CRC <- function(dataset=NULL, basis="AA") {
   # get study and stage/condition
   study <- strsplit(dataset, "_")[[1]][1]
   stage <- paste(strsplit(dataset, "_")[[1]][-1], collapse="_")
-  datadir <- paste0(system.file("extdata", package="canprot"), "/expression/CRC/")
+  extdatadir <- system.file("extdata", package="canprot")
+  datadir <- paste0(extdatadir, "/expression/CRC/")
   if(study=="JKMF10") {
     # 20150520 up- and down-regulated CRC-associated proteins reported in 4 or more studies, from Jimenez et al., 2010
     description <- "serum biomarkers up / down"
@@ -73,7 +74,7 @@ pdat_CRC <- function(dataset=NULL, basis="AA") {
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat[, istage] > 1
   } else if(study=="WDO+15") {
-    # 20160414 Wiśniewski et al., 2015
+    # 20160414 Wisniewski et al., 2015
     # WDO+15_A.N, WDO+15_C.A, WDO+15_C.N
     dat <- read.csv(paste0(datadir, "WDO+15.csv"), as.is=TRUE)
     if(stage=="A.N") description <- "adenoma / normal"
@@ -96,7 +97,7 @@ pdat_CRC <- function(dataset=NULL, basis="AA") {
     pcomp <- protcomp(dat$Majority.protein.IDs, basis=basis)
     up2 <- dat[, irat] > 0
   } else if(study=="WOD+12") {
-    # 20160418 CRC tumor tissue, Wiśniewski et al., 2012
+    # 20160418 CRC tumor tissue, Wisniewski et al., 2012
     dat <- read.csv(paste0(datadir, "WOD+12.csv"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat.CRC: ", description, " [", dataset, "]"))

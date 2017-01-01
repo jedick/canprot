@@ -21,8 +21,8 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
   # get study and stage/condition
   study <- strsplit(dataset, "_")[[1]][1]
   stage <- paste(strsplit(dataset, "_")[[1]][-1], collapse="_")
-  aadir <- system.file("extdata/aa/", package="canprot")
-  datadir <- system.file("extdata/expression/osmotic/", package="canprot")
+  extdatadir <- system.file("extdata", package="canprot")
+  datadir <- paste0(extdatadir, "/expression/osmotic/")
   if(study=="KKG+12") {
     # 20160918 Escherichia coli, Kocharunchitt et al., 2012
     # KKG+12_25C_aw0.985, KKG+12_14C_aw0.985, KKG+12_25C_aw0.967, KKG+12_14C_aw0.967
@@ -34,7 +34,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     dat <- dat[!is.na(dat[, icol]), ]
     # drop missing proteins
     dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(aadir, "bacteria/KKG+12_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KKG+12_aa.csv"))
     up2 <- dat[, icol] > 0
   } else if(study=="PW08") {
     # 20160918 yeast VHG
@@ -61,7 +61,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     dat <- remove_entries(dat, 1:nrow(dat) %in% idrop, dataset, "conflicting")
     # drop missing duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(aadir, "fungus/PW08_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/PW08_aa.csv"))
     up2 <- dat[, icol] > 1
   } else if(study=="CCC+12") {
     # 20160925 ARPE-19 retinal pigmented epithelium, Chen et al., 2012
@@ -73,16 +73,16 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     icol <- grep(stage, colnames(dat))
     dat <- dat[dat[, icol[2]] < 0.05, ]
     # drop proteins with differing expression patterns by spot
-    ugi <- unique(dat$Swiss..prot.No.)
+    ugi <- unique(dat$Swiss.prot.No.)
     idrop <- numeric()
     for(gi in ugi) {
-      igi <- which(dat$Swiss..prot.No. == gi)
+      igi <- which(dat$Swiss.prot.No. == gi)
       if(length(unique(dat[igi, icol[1]] > 0)) > 1) idrop <- c(idrop, igi)
     }
     dat <- remove_entries(dat, 1:nrow(dat) %in% idrop, dataset, "conflicting")
     # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Swiss..prot.No.), dataset, "duplicated")
-    pcomp <- protcomp(dat$Swiss..prot.No., basis=basis)
+    dat <- remove_entries(dat, duplicated(dat$Swiss.prot.No.), dataset, "duplicated")
+    pcomp <- protcomp(dat$Swiss.prot.No., basis=basis)
     up2 <- dat[, icol[1]] > 0
   } else if(study=="CCCC13") {
     # 20160925 Chang liver cells, Chen et al., 2013
@@ -126,7 +126,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     if(stage == "high") dat <- dat[rowSums(dat[, 6:8] > 0.2) == 3 | rowSums(dat[, 6:8] < -0.2) == 3, ]
     # drop unidentified proteins
     dat <- remove_entries(dat, is.na(dat$Entry), dataset, "unidentified")
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(aadir, "mouse/LDB+15_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/LDB+15_aa.csv"))
     up2 <- dat$SOM.Cluster == "Cluster 1"
   } else if(study=="OBBH11") {
     # 20160925 adipose-derived stem cells, Oswald et al., 2011
@@ -143,7 +143,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     # drop unidentified and unquantified proteins
     dat <- remove_entries(dat, is.na(dat$Accession.No.), dataset, "unidentified")
     dat <- remove_entries(dat, is.na(dat$Av..ratio..high.low.), dataset, "unquantified")
-    pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(aadir, "fungus/YDZ+15_aa.csv"))
+    pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/YDZ+15_aa.csv"))
     up2 <- dat$Av..ratio..high.low. > 0
   } else if(study=="WCM+09") {
     # 20160926 mouse pancreatic islets, Waanders et al., 2009
@@ -152,7 +152,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use the first UniProt ID, without isoform suffix
     dat$Uniprot <- substr(dat$Uniprot, 1, 6)
-    pcomp <- protcomp(dat$Uniprot, basis=basis, aa_file=paste0(aadir, "mouse/WCM+09_aa.csv"))
+    pcomp <- protcomp(dat$Uniprot, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/WCM+09_aa.csv"))
     up2 <- dat$X.24h.GLUCOSE.Control > 1
   } else if(study=="GSC14") {
     # 20160926 Saccharomyces cerevisiae, Giardina et al., 2014
@@ -168,7 +168,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     lowP <- dat[, icol[2]] < 0.05
     lowP[is.na(lowP)] <- FALSE
     dat <- dat[lowP, ]
-    pcomp <- protcomp(substr(dat$Accession.., 4, 12), basis=basis, aa_file=paste0(aadir, "fungus/GSC14_aa.csv"))
+    pcomp <- protcomp(substr(dat$Accession.., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/GSC14_aa.csv"))
     # proteins that have relatively higher expression ratio than the median
     up2 <- dat[, icol[1]] > median(dat[, icol[1]])
   } else if(study=="KLB+15") {
@@ -184,7 +184,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     # use protein identified in given experiment
     icol <- grep(gsub("-", ".*", stage), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(aadir, "bacteria/KLB+15_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KLB+15_aa.csv"))
     up2 <- dat[, icol] > 0
   } else if(study=="RBP+16") {
     # 20161112 Paracoccidioides lutzii, da Silva Rodrigues et al., 2016
@@ -193,7 +193,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(aadir, "fungus/RBP+16_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/RBP+16_aa.csv"))
     up2 <- dat$Fold.change > 1
   } else if(study=="TSZ+13") {
     # 20161113 eel gill (Anguilla japonica), Tse et al., 2013

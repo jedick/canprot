@@ -38,7 +38,7 @@ Set \code{plot.it} to FALSE to skip the plotting and instead return a list conta
 \examples{
 data(canprot)
 pdat <- get_pdat("JKMF10")
-rankplot(pdat, res=50)
+rankplot(pdat, res=25)
 }
 
 \seealso{
