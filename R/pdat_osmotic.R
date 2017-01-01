@@ -27,7 +27,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     # 20160918 Escherichia coli, Kocharunchitt et al., 2012
     # KKG+12_25C_aw0.985, KKG+12_14C_aw0.985, KKG+12_25C_aw0.967, KKG+12_14C_aw0.967
     dat <- read.csv(paste0(datadir, "KKG+12.csv"), as.is=TRUE)
-    description <- paste("Escherichia coli", stage)
+    description <- paste("ECO57", stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use specified temperature and subcellular fraction
     icol <- grep(stage, colnames(dat))
@@ -40,7 +40,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     # 20160918 yeast VHG
     # PW08_2h, PW08_10h, PW08_12h
     dat <- read.csv(paste0(datadir, "PW08.csv"), as.is=TRUE)
-    description <- paste("yeast VHG", stage)
+    description <- paste("S. cerevisiae VHG", stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use specified population
     if(stage=="2h") icol <- grep("Ratio.115.114", colnames(dat))
@@ -64,10 +64,10 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(aadir, "fungus/PW08_aa.csv"))
     up2 <- dat[, icol] > 1
   } else if(study=="CCC+12") {
-    # 20160925 retinal pigmented epithelium, Chen et al., 2012
+    # 20160925 ARPE-19 retinal pigmented epithelium, Chen et al., 2012
     # CCC+12_25mM, CCC+12_100mM
     dat <- read.csv(paste0(datadir, "CCC+12.csv"), as.is=TRUE)
-    description <- paste(paste("retinal pigmented epithelium"), stage)
+    description <- paste(paste("ARPE-19"), stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use proteins with difference in specified condition
     icol <- grep(stage, colnames(dat))
@@ -85,10 +85,10 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     pcomp <- protcomp(dat$Swiss..prot.No., basis=basis)
     up2 <- dat[, icol[1]] > 0
   } else if(study=="CCCC13") {
-    # 20160925 hepatocytes, Chen et al., 2013
+    # 20160925 Chang liver cells, Chen et al., 2013
     # CCCC13_25mM, CCCC13_100mM
     dat <- read.csv(paste0(datadir, "CCCC13.csv"), as.is=TRUE)
-    description <- paste(paste("hepatocytes"), stage)
+    description <- paste(paste("Chang liver cells"), stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use proteins with difference in specified condition
     icol <- grep(stage, colnames(dat))
@@ -110,7 +110,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
   } else if(study=="CLG+15") {
     # 20160925 conjunctival epithelial cells, Chen et al., 2015
     dat <- read.csv(paste0(datadir, "CLG+15.csv"), as.is=TRUE)
-    description <- paste("conjunctival epithelial cells")
+    description <- paste("IOBA-NHC")
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use proteins that have same direction of change in both conditions
     dat <- dat[(dat$T1 > 1 & dat$T2 > 1) | (dat$T1 < 1 & dat$T2 < 1), ]
@@ -120,7 +120,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     # 20160925 CHO cells, Liu et al., 2015
     # LDB+15_all, LDB+15_high
     dat <- read.csv(paste0(datadir, "LDB+15.csv"), as.is=TRUE)
-    description <- paste("CHO cells", stage)
+    description <- paste("CHO", stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # if "high" change is specified, take only proteins with a high level of change at all time points
     if(stage == "high") dat <- dat[rowSums(dat[, 6:8] > 0.2) == 3 | rowSums(dat[, 6:8] < -0.2) == 3, ]
@@ -133,9 +133,6 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     dat <- read.csv(paste0(datadir, "OBBH11.csv"), as.is=TRUE)
     description <- "adipose-derived stem cells"
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
-    ## use proteins with large significant changes
-    #dat <- dat[ (dat$Elucidator.Expression.Ratio..Treated.Control. > 4/3 | 
-    #             dat$Elucidator.Expression.Ratio..Treated.Control. < 3/4 ) & dat$P.value..Ratio.Data. < 0.05, ]
     pcomp <- protcomp(dat$Uniprot.Protein.Code, basis=basis)
     up2 <- dat$Elucidator.Expression.Ratio..Treated.Control. > 1
   } else if(study=="YDZ+15") {
@@ -149,9 +146,9 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(aadir, "fungus/YDZ+15_aa.csv"))
     up2 <- dat$Av..ratio..high.low. > 0
   } else if(study=="WCM+09") {
-    # 20160926 pancreatic islets, Waanders et al., 2009
+    # 20160926 mouse pancreatic islets, Waanders et al., 2009
     dat <- read.csv(paste0(datadir, "WCM+09.csv"), as.is=TRUE)
-    description <- paste("pancreatic islets")
+    description <- paste("mouse pancreatic islets")
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use the first UniProt ID, without isoform suffix
     dat$Uniprot <- substr(dat$Uniprot, 1, 6)
@@ -161,7 +158,7 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     # 20160926 Saccharomyces cerevisiae, Giardina et al., 2014
     # GSC14_t30a, GSC14_t30b, GSC14_t30c
     dat <- read.csv(paste0(datadir, "GSC14.csv"), as.is=TRUE)
-    description <- paste("Saccharomyces cerevisiae", stage)
+    description <- paste("S. cerevisiae", stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # get data for the selected experiment
     if(stage=="t30a") icol <- grep("115.", colnames(dat))
@@ -178,7 +175,11 @@ pdat_osmotic <- function(dataset=NULL, basis="AA") {
     # 20160926 Caulobacter crescentus, Kohler et al., 2015
     # KLB+15_trans-suc, KLB+15_trans-NaCl, KLB+15_prot-suc, KLB+15_prot-NaCl
     dat <- read.csv(paste0(datadir, "KLB+15.csv"), as.is=TRUE)
-    description <- paste("Caulobacter crescentus", stage)
+    if(grepl("suc", stage)) osmoticum <- "succinate"
+    if(grepl("NaCl", stage)) osmoticum <- "NaCl"
+    if(grepl("trans", stage)) ome <- "tr."
+    if(grepl("prot", stage)) ome <- "pr."
+    description <- paste("CAUCR", osmoticum, ome)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use protein identified in given experiment
     icol <- grep(gsub("-", ".*", stage), colnames(dat))

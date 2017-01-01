@@ -9,11 +9,14 @@ bibliography: data_sources.bib
 csl: peerj.csl
 ---
 
-The sections below give the [Data Sources](#data-sources) for protein expression in colorectal cancer contained in this package,
+The sections below give the [Data Sources](#data-sources) for protein expression in colorectal cancer (CRC) contained in this package,
 a [Summary Table](#summary-table) comparing the chemical compositions of groups of human proteins that are relatively down- and up-expressed (`n1` and `n2`, respectively) in colorectal cancer,
 a plot of the [Mean Differences](#mean-differences) of average oxidation state of carbon (`ZC`) and water demand per residue (`nH2O`),
 [Stability Plots](#stability-plots) showing the weighted rank difference of chemical affinity between down- and up-expressed groups,
 and [References](#references).
+
+## Abbreviations
+T (tumor), N (normal), C (carcinoma or adenocarcinoma), A (adenoma), CM (conditioned media), AD (adenomatous colon polyps), CIS (carcinoma in situ), ICC (invasive colonic carcinoma), NC (non-neoplastic colonic mucosa).
 
 ## Data Sources
 
@@ -140,7 +143,7 @@ diffplot(comptab, col=col)
 ## Stability Plots
 
 [These plots](../html/rankplot.html) show the [weighted rank-sum differences](../html/rankdiff.html) of [chemical affinities of formation](../../CHNOSZ/html/affinity.html) from [basis species](../../CHNOSZ/html/basis.html) of proteins in different groups.
-A higher ranking of [relatively down- or up-expressed proteins](data_sources.html) in colorectal cancer is represented by blue or red color, respectively.
+A higher ranking of relatively down- or up-expressed proteins in colorectal cancer is represented by blue or red color, respectively.
 The last plot shows effective [values of Eh](../html/Ehplot.html) (redox potential) as a function of the same variables (oxygen fugacity and water activity).
 
 Identify the datasets for protein expression.

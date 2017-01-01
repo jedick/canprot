@@ -9,6 +9,9 @@ bibliography: data_sources.bib
 csl: peerj.csl
 ---
 
+## Abbreviations
+VHG (very high glucose), ARPE-19 (human retinal pigmented epithelium cells), ECO57 (_Escherichia coli_ O157:H7 Sakai), IOBA-NHC (human conjunctival epithelial cells), CAUCR (_Caulobacter crescentus_), tr. (transcriptome), pr. (proteome), CHO (Chinese hamster ovary cells).
+
 ## Data Sources
 
 [`PW08`](http://doi.org/10.1021/pr800331s) VHG (300 g/L) vs control (20 g/L). The comparisons here use proteins with expression ratios < 0.9 or > 1.1 and with p-values < 0.05. Source: SI Table of @PW08.

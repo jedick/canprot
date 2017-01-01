@@ -26,12 +26,12 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   if(study=="BSA+15") {
     # 20160412 HeLa hypoxia, Bousquet et al., 2005
     dat <- read.csv(paste0(datadir, "BSA+15.csv"), as.is=TRUE)
-    description <- "HeLa cells"
+    description <- "HeLa"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # use updated UniProt IDs
     inew <- which(dat$Uniprot.new != "")
     dat$Uniprot.accession[inew] <- dat$Uniprot.new[inew]
-    # remove Q8IWE2, which is duplicated with opposite different expression ratio
+    # remove Q8IWE2, which is duplicated with opposite expression ratio
     dat <- dat[dat$Uniprot.accession!="Q8IWE2", ]
     pcomp <- protcomp(dat$Uniprot.accession, basis=basis)
     up2 <- dat$Ratio..H.L. > 1
@@ -45,14 +45,14 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
       iPN <- dat$median.116.114 < 0.77 | dat$median.116.114 > 1.3
       dat <- dat[iPN, ]
       up2 <- dat$median.116.114 > 1.3
-      description <- "spheroid perinecrotic"
+      description <- "SPH perinecrotic"
     }
     if(stage=="necrotic") {
       # select proteins significantly changed in the necrotic core
       iPN <- dat$median.117.114 < 0.77 | dat$median.117.114 > 1.3
       dat <- dat[iPN, ]
       up2 <- dat$median.117.114 > 1.3
-      description <- "spheroid necrotic"
+      description <- "SPH necrotic"
     }
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
@@ -60,7 +60,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
     # 20160415 MCF-7 tumourspheres, Morrison et al., 2012
     # MHG+12_P5, MHG+12_P2
     dat <- read.csv(paste0(datadir, "MHG+12.csv"), as.is=TRUE)
-    description <- paste(stage, "tumourspheres")
+    description <- paste("MCF-7 SPH", stage)
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # use dat for specified experiment
     icol <- grep(stage, colnames(dat))
@@ -76,7 +76,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   } else if(study=="HXS+06") {
     # 20160415 leukemic U937 cells, Han et al., 2006
     dat <- read.csv(paste0(datadir, "HXS+06.csv"), as.is=TRUE)
-    description <- "U937 cells"
+    description <- "U937"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # update IDs with new ones
     inew <- dat$UniProt.new != ""
@@ -89,7 +89,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
     # 20160419 A431 cells, Ren et al., 2013
     # RHD+13_Hx48, RHD+13_Hx72, RHD+13_ReOx
     dat <- read.csv(paste0(datadir, "RHD+13.csv"), as.is=TRUE)
-    description <- paste("A431 cells", stage)
+    description <- paste("A431", stage)
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # columns with the ratios and p-values
     if(stage=="Hx48") icol <- grep("115", colnames(dat))
@@ -106,7 +106,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   } else if(study=="BMJ+11") {
     # 20160713 DU145 cells prolonged hypoxia, van den Beucken et al., 2011
     dat <- read.csv(paste0(datadir, "BMJ+11.csv"), as.is=TRUE)
-    description <- "DU145 cells"
+    description <- "DU145"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # keep proteins detected in prolonged hypoxia
     dat <- dat[dat$induced_prolonged | dat$repressed_prolonged, ]
@@ -117,24 +117,24 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   } else if(study=="FWH+13") {
     # 20160716 THP-1 macrophages CV (control virus) hypoxia, Fuhrmann et al., 2013
     dat <- read.csv(paste0(datadir, "FWH+13.csv"), as.is=TRUE)
-    description <- "THP-1 macrophages"
+    description <- "THP-1"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     up2 <- dat$Norm.CH > 0
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="HWA+16") {
-    # 20160716 translatome, Ho et al., 2016
+    # 20160716 U87MG and 786-O translatome, Ho et al., 2016
     dat <- read.csv(paste0(datadir, "HWA+16.csv"), as.is=TRUE)
     # keep those with fold change < 0.5 or > 2 (log2 < -1 or > 1)
     dat <- dat[ dat$Hypoxia.Heavy - dat$Normoxia.Heavy > 1 |
                 dat$Hypoxia.Heavy - dat$Normoxia.Heavy < -1, ]
-    description <- "translatome"
+    description <- "U87MG and 786-O"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     up2 <- dat$Hypoxia.Heavy - dat$Normoxia.Heavy > 0
     pcomp <- protcomp(dat$Uniprot.Accession, basis=basis)
   } else if(study=="RKP+14") {
     # 20160718 organotypic spheroids, Rajcevic et al., 2014
     dat <- read.csv(paste0(datadir, "RKP+14.csv"), as.is=TRUE)
-    description <- "spheroids / CRC tissue"
+    description <- "CRC-derived SPH"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # drop proteins with duplicated or missing IDs
     dat <- remove_entries(dat, is.na(dat$UniProt.Accession), dataset, "missing")
@@ -150,7 +150,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   } else if(study=="CBW+11") {
     # 20160720 neuroblastoma cells, Cifani et al., 2011
     dat <- read.csv(paste0(datadir, "CBW+11.csv"), as.is=TRUE)
-    description <- "neuroblastoma cells"
+    description <- "SK-N-BE(2)c; IMR-32"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # drop some proteins reported as both up- and down-regulated
     dat <- remove_entries(dat, dat$UniProt %in% c("P07237", "P10809", "P11021", "P14625", "P30048", "P30101"), dataset, "ambiguous")
@@ -163,7 +163,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   } else if(study=="WRK+14") {
     # 20160721 3D spheroids / 2D culture, Wrzesinski et al., 2014
     dat <- read.csv(paste0(datadir, "WRK+14.csv"), as.is=TRUE)
-    description <- "3D spheroids / 2D culture"
+    description <- "HepG2/C3A SPH"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # select highly changed proteins
     dat <- dat[!is.na(dat$log2.fold.change), ]
@@ -171,9 +171,9 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$log2.fold.change > 0
   } else if(study=="DPL+10") {
-    # 20160722 rat neuroblastoma cells, Datta et al., 2010
+    # 20160722 B104 rat neuroblastoma cells, Datta et al., 2010
     dat <- read.csv(paste0(datadir, "DPL+10.csv"), as.is=TRUE)
-    description <- "rat neuroblastoma cells"
+    description <- "B104"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # drop missing proteins
     dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
@@ -207,7 +207,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
     # DYL+14_Hx48-S, DYL+14_Hx72-S, DYL+14_ReOx-S,
     # DYL+14_Hx48-P, DYL+14_Hx72-P, DYL+14_ReOx-P
     dat <- read.csv(paste0(datadir, "DYL+14.csv"), as.is=TRUE)
-    description <- paste("A431 cells", stage)
+    description <- paste("A431", stage)
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # -S (supernatant) and -P (pellet) datasets
     if(stage=="Hx48-S") icol <- grep("114", colnames(dat))
@@ -227,14 +227,14 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   } else if(study=="RSE+16") {
     # 20160729 adipose-derived stem cells, Riis et al., 2016
     dat <- read.csv(paste0(datadir, "RSE+16.csv"), as.is=TRUE)
-    description <- "adipose-derived stem cells"
+    description <- "adipose-derived SC"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Regulated == "up"
   } else if(study=="VTMF13") {
     # 20160804 neuroblastoma cell line, Villeneuve et al., 2013
     dat <- read.csv(paste0(datadir, "VTMF13.csv"), as.is=TRUE)
-    description <- "neuroblastoma cells"
+    description <- "SH-SY5Y"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # drop unquantified and unidentified proteins
     dat <- remove_entries(dat, is.na(dat$Ratio.H.L.Normalized), dataset, "unquantified")
@@ -250,7 +250,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   } else if(study=="BRA+10") {
     # 20160805 placental tissue secretome, Blankley et al., 2010
     dat <- read.csv(paste0(datadir, "BRA+10.csv"), as.is=TRUE)
-    description <- "placental tissue secretome"
+    description <- "placental secretome"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     uniprot <- sapply(strsplit(dat$UniProt.accession, "|", fixed=TRUE), "[", 2)
     pcomp <- protcomp(uniprot, basis=basis)
@@ -258,7 +258,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   } else if(study=="LAR+12") {
     # 20160826 rat heart ischemia, Li et al., 2012
     dat <- read.csv(paste0(datadir, "LAR+12.csv"), as.is=TRUE)
-    description <- "rat heart ischemia"
+    description <- "H9C2"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
@@ -267,7 +267,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="AA") {
   } else if(study=="YLW+16") {
     # 20161109 HT29 colon cancer cell 3D/2D, Yue et al., 2011
     dat <- read.csv(paste0(datadir, "YLW+16.csv"), as.is=TRUE)
-    description <- "HT29 3D/2D"
+    description <- "HT29 SPH"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     # list the known UniProt IDs and take the first (non-NA) match
     knownIDs <- check_ID(dat$ProteinID)

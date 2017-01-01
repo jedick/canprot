@@ -26,10 +26,10 @@ pdat_pancreatic <- function(dataset=NULL, basis="AA") {
     # 20160717 mouse PDAC, Kuo et al., 2016
     # KKC+16_T1, KKC+16_T2, KKC+16_T3, KKC+16_T4 (10, 5, 3.5, 2.5 weeks)
     dat <- read.csv(paste0(datadir, "KKC+16.csv"), as.is=TRUE)
-    if(stage=="T1") description <- "mouse 10 w, T / N"
-    if(stage=="T2") description <- "mouse 5 w, T / N"
-    if(stage=="T3") description <- "mouse 3.5 w, T / N"
-    if(stage=="T4") description <- "mouse 2.5 w, T / N"
+    if(stage=="T1") description <- "mouse 10 w T / N"
+    if(stage=="T2") description <- "mouse 5 w T / N"
+    if(stage=="T3") description <- "mouse 3.5 w T / N"
+    if(stage=="T4") description <- "mouse 2.5 w T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # use only proteins differentially expressed at this stage
     icol <- grep(paste0(stage, ".N"), colnames(dat))
@@ -66,7 +66,8 @@ pdat_pancreatic <- function(dataset=NULL, basis="AA") {
     # 20160828 PDAC, Pan et al., 2011
     # PCS+11_MCP, PCS+11_SCP, PCS+11_PDAC
     dat <- read.csv(paste0(datadir, "PCS+11.csv"), as.is=TRUE)
-    description <- paste("FFPE,", stage, " / NL")
+    if(stage=="PDAC") stext <- "T" else stext <- stage
+    description <- paste("FFPE", stext, " / N")
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # keep proteins with reported ratio
     icol <- grep(stage, colnames(dat))
@@ -121,14 +122,14 @@ pdat_pancreatic <- function(dataset=NULL, basis="AA") {
   } else if(study=="KBK+12") {
     # 20160830 PDAC, Kojima et al., 2012
     dat <- read.csv(paste0(datadir, "KBK+12.csv"), as.is=TRUE)
-    description <- "T / N"
+    description <- "FFPE T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Sequence.Id, basis=basis)
     up2 <- !(grepl("-", dat$Fold.Change..PDAC.Control.) | grepl("Adjacent", dat$Fold.Change..PDAC.Control.))
   } else if(study=="ZNWL13") {
     # 20160830 PDAC, Zhu et al., 2013
     dat <- read.csv(paste0(datadir, "ZNWL13.csv"), as.is=TRUE)
-    description <- "T / N"
+    description <- "LCM PDAC / ANT"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat$Up.Down == "Up"
@@ -136,7 +137,8 @@ pdat_pancreatic <- function(dataset=NULL, basis="AA") {
     # 20160831 Kosanam et al., 2013
     # KPC+13_all, KPC+13_2-fold, KPC+13_2-fold-signif
     dat <- read.csv(paste0(datadir, "KPC+13.csv"), as.is=TRUE)
-    description <- paste(stage, "T / N")
+    if(stage=="all") stext <- "" else stext <- paste0(stage, " ")
+    description <- paste0(stext, "T / N")
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # drop missing proteins
     dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
@@ -194,7 +196,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="AA") {
     # autoimmune pancreatitis (AIP), chronic pancreatitis (CP), and pancreatic cancer (PC) cohorts
     # PKB+13_AIP, PKB+13_CP
     dat <- read.csv(paste0(datadir, "PKB+13.csv"), as.is=TRUE)
-    description <- paste("PC /", stage)
+    description <- paste("FFPE PC /", stage)
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # keep only proteins for the indicated comparison
     dat <- dat[dat$Cohort %in% c(stage, "PC"), ]
@@ -212,6 +214,8 @@ pdat_pancreatic <- function(dataset=NULL, basis="AA") {
     # WLL+13a_PC_NT, WLL+13a_PC.DM_NT.DM
     dat <- read.csv(paste0(datadir, "WLL+13a.csv"), as.is=TRUE)
     description <- stage
+    if(stage=="PC_NT") description <- "T / N (no DM)"
+    if(stage=="PC.DM_NT.DM") description <- "T / N (DM)"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # which columns hold the expression data
     icol <- grep(stage, colnames(dat))

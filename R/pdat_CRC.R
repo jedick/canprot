@@ -229,7 +229,7 @@ pdat_CRC <- function(dataset=NULL, basis="AA") {
   } else if(study=="YLZ+12") {
     # 20160511 conditioned media T / N, Yao et al., 2012
     dat <- read.csv(paste0(datadir, "YLZ+12.csv"), as.is=TRUE)
-    description <- "conditioned media T / N"
+    description <- "CM T / N"
     print(paste0("pdat.CRC: ", description, " [", dataset, "]"))
     # list known UniProt IDs
     knownIDs <- check_ID(dat$UniProt)
@@ -260,11 +260,8 @@ pdat_CRC <- function(dataset=NULL, basis="AA") {
     if(stage=="CIS") description <- "CIS / NC"
     if(stage=="ICC") description <- "ICC / NC"
     print(paste0("pdat.CRC: ", description, " [", dataset, "]"))
+    # AD/NC, CIS/NC, ICC/NC
     if(stage=="AD") ratio <- 2^dat$log.of.113.114 
-    ## CIS/AD, ICC/CIS
-    #if(stage=="CIS") ratio <- 2^(dat$log.of.115.114 - dat$log.of.113.114)
-    #if(stage=="ICC") ratio <- 2^(dat$log.of.116.114 - dat$log.of.115.114)
-    # CIS/NC, ICC/NC
     if(stage=="CIS") ratio <- 2^dat$log.of.115.114
     if(stage=="ICC") ratio <- 2^dat$log.of.116.114
     idiff <- ratio < 0.67 | ratio > 1.5

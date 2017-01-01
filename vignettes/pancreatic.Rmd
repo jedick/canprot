@@ -9,6 +9,9 @@ bibliography: data_sources.bib
 csl: peerj.csl
 ---
 
+## Abbreviations
+T (tumor), N (normal), CP (chronic pancreatitis), AIP (autoimmune pancreatitis), PC (pancreatic cancer), DM (diabetes mellitus), PDAC (pancreatic ductal adenocarcinoma), ANT (adjacent normal tissue), FFPE (Formalin-fixed paraffin-embedded), LCM (laser-capture microdissection), NP (normal pancreas).
+
 ## Data Sources
 
 [`LHE+04`](http://doi.org/10.1002/pmic.200300863) Pooled tissue samples of PC and matched normal tissue from 12 patients. Source: Tables 2 and 3 of @LHE+04.
