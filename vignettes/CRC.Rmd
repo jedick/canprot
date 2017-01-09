@@ -9,6 +9,8 @@ bibliography: data_sources.bib
 csl: peerj.csl
 ---
 
+This vignette reproduces compositional and thermodynamic calculations of oxidation and hydration state that are described in a paper published in _PeerJ_ ([Dick, 2016](https://doi.org/10.7717/peerj.2238)) and in a preprint posted on bioRxiv ([Dick, 2017](https://doi.org/10.1101/097667)).
+
 The sections below give the [Data Sources](#data-sources) for protein expression in colorectal cancer (CRC) contained in this package,
 a [Summary Table](#summary-table) comparing the chemical compositions of groups of human proteins that are relatively down- and up-expressed (`n1` and `n2`, respectively) in colorectal cancer,
 a plot of the [Mean Differences](#mean-differences) of average oxidation state of carbon (`ZC`) and water demand per residue (`nH2O`),
@@ -126,12 +128,10 @@ library(xtable)
 xsummary(comptab)
 ```
 
-The numeric values are the same as in Table 1 of [Dick (2016)](http://doi.org/10.7717/peerj.2238) (with the addition of the [`LXM+16`](#ref-LXM+16) dataset).
-For these datasets, we find that the groups of proteins that are relatively up-expressed in cancer or more advanced cancer stages predominantly have higher `ZC` and/or `nH2O`.
-
 ## Mean Differences
 
-The adenoma / normal datasets are highlighted in red.
+Using data from the table above, this plot shows that the groups of proteins that are relatively up-expressed in colorectal cancer or more advanced cancer stages predominantly have higher `ZC` and/or `nH2O`.
+The datasets comparing adenoma to normal proteomes are highlighted in red.
 
 ```{r diffplot, fig.width=6, fig.height=6, fig.align="center"}
 col <- rep("black", length(datasets))
