@@ -9,7 +9,7 @@ bibliography: data_sources.bib
 csl: peerj.csl
 ---
 
-This vignette from the R package [canprot](http://github.com/jedick/canprot) reproduces compositional and thermodynamic calculations of oxidation state and hydration state that are described in a paper published in _PeerJ_ ([Dick, 2016](https://doi.org/10.7717/peerj.2238)) and in a preprint posted on bioRxiv ([Dick, 2017](https://doi.org/10.1101/097667)).
+This vignette from the R package [canprot](http://github.com/jedick/canprot) reproduces calculations of compositional and thermodynamic oxidation state and hydration state that are described in a paper published in _PeerJ_ ([Dick, 2016](https://doi.org/10.7717/peerj.2238)) and in a preprint posted on bioRxiv ([Dick, 2017](https://doi.org/10.1101/097667)).
 
 The sections below give the [Data Sources](#data-sources) for protein expression in colorectal cancer (CRC) contained in this package,
 a [Summary Table](#summary-table) comparing the chemical compositions of groups of human proteins that are relatively down- and up-expressed (`n1` and `n2`, respectively) in colorectal cancer,
