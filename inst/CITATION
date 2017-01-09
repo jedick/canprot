@@ -1,0 +1,6 @@
+bibentry(bibtype = "Article",
+         title = "Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress",
+         author = c(person(c("Jeffrey", "M."), "Dick")),
+         year = 2017,
+         journal = "bioRxiv",
+         doi = "10.1101/097667")
