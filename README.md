@@ -1,7 +1,5 @@
 # canprot
 
-This is a package for [R](http://r-project.org).
-
 Datasets are collected here for differentially (up- and down-) expressed
 proteins in cancer. All datasets use UniProt IDs, which have been added if not
 present in the original publications. Tables of amino acid compositions of
