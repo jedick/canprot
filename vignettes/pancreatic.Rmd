@@ -9,7 +9,7 @@ bibliography: data_sources.bib
 csl: peerj.csl
 ---
 
-This vignette from the R package [canprot](http://github.com/jedick/canprot) reproduces calculations of compositional oxidation state and hydration state that are described in a preprint posted on bioRxiv ([Dick, 2017](https://doi.org/10.1101/097667)).
+This [<span style="color:red;text-decoration:underline">vignette</span>](index.html) from the R package [canprot](http://github.com/jedick/canprot) reproduces calculations of compositional oxidation state and hydration state that are described in a preprint posted on bioRxiv ([Dick, 2017](https://doi.org/10.1101/097667)).
 
 ## Abbreviations
 T (tumor), N (normal), CP (chronic pancreatitis), AIP (autoimmune pancreatitis), PC (pancreatic cancer), DM (diabetes mellitus), PDAC (pancreatic ductal adenocarcinoma), ANT (adjacent normal tissue), FFPE (Formalin-fixed paraffin-embedded), LCM (laser-capture microdissection), NP (normal pancreas).

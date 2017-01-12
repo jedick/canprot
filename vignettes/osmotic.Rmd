@@ -9,7 +9,7 @@ bibliography: data_sources.bib
 csl: peerj.csl
 ---
 
-This vignette from the R package [canprot](http://github.com/jedick/canprot) reproduces calculations of compositional oxidation state and hydration state that are described in a preprint posted on bioRxiv ([Dick, 2017](https://doi.org/10.1101/097667)).
+This [<span style="color:red;text-decoration:underline">vignette</span>](index.html) from the R package [canprot](http://github.com/jedick/canprot) reproduces calculations of compositional oxidation state and hydration state that are described in a preprint posted on bioRxiv ([Dick, 2017](https://doi.org/10.1101/097667)).
 
 ## Abbreviations
 VHG (very high glucose), ARPE-19 (human retinal pigmented epithelium cells), ECO57 (_Escherichia coli_ O157:H7 Sakai), IOBA-NHC (human conjunctival epithelial cells), CAUCR (_Caulobacter crescentus_), tr. (transcriptome), pr. (proteome), CHO (Chinese hamster ovary cells).
