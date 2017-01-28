@@ -67,7 +67,7 @@ data(canprot)
 datasets <- pdat_pancreatic()
 ```
 
-```{r comptab, results="hide", message=FALSE}
+```{r comptab, message=FALSE}
 comptab <- lapply_canprot(datasets, function(dataset) {
   pdat <- get_pdat(dataset, "pdat_pancreatic")
   ZC_nH2O(pdat, plot.it=FALSE)

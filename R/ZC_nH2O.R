@@ -32,13 +32,13 @@ ZC_nH2O <- function(pdat, plot.it=TRUE) {
   ZC.CLES <- 100*CLES(ZC1, ZC2)
   nH2O.p.value <- stats::wilcox.test(nH2O_1, nH2O_2)$p.value
   nH2O.CLES <- 100*CLES(nH2O_1, nH2O_2)
-  msgout(paste0(pdat$dataset, " (", pdat$description ,"): n1 ", length(ZC1), ", n2 ", length(ZC2), "\n"))
-  msgout(paste0("ZC     MD ", format(round(ZC.diff, 3), nsmall=3, width=6),
+  message(paste0(pdat$dataset, " (", pdat$description ,"): n1 ", length(ZC1), ", n2 ", length(ZC2)))
+  message(paste0("ZC     MD ", format(round(ZC.diff, 3), nsmall=3, width=6),
                ", CLES ", round(ZC.CLES), "%",
-               ", p-value ", format(round(ZC.p.value, 3), nsmall=3), "\n"))
-  msgout(paste0("nH2O   MD ", format(round(nH2O.mean2 - nH2O.mean1, 3), nsmall=3, width=6),
+               ", p-value ", format(round(ZC.p.value, 3), nsmall=3)))
+  message(paste0("nH2O   MD ", format(round(nH2O.mean2 - nH2O.mean1, 3), nsmall=3, width=6),
                ", CLES ", round(nH2O.CLES), "%",
-               ", p-value ", format(round(nH2O.p.value, 3), nsmall=3), "\n\n"))
+               ", p-value ", format(round(nH2O.p.value, 3), nsmall=3), "\n"))
   out <- data.frame(dataset=pdat$dataset, description=pdat$description,
     n1=length(ZC1), n2=length(ZC2),
     ZC.mean1, ZC.mean2, ZC.diff, ZC.CLES, ZC.p.value,

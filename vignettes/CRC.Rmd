@@ -113,7 +113,7 @@ datasets <- pdat_CRC()
 
 Get the amino acid compositions of the up- and down-expressed proteins (`get_pdat`) and make comparisons of indicators of oxidation and hydration state (`ZC_nH2O`).
 
-```{r comptab, results="hide", message=FALSE}
+```{r comptab, message=FALSE}
 comptab <- lapply_canprot(datasets, function(dataset) {
   pdat <- get_pdat(dataset)
   ZC_nH2O(pdat, plot.it=FALSE)

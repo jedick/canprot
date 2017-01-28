@@ -12,12 +12,12 @@ lapply_canprot <- function(X, FUN, ..., varlist=NULL, min.length=10) {
     # don't load methods package, to save startup time - ?makeCluster
     cl <- parallel::makeCluster(nCores, methods=FALSE)
     # load CHNOSZ
-    msgout("lapply_canprot: loading CHNOSZ\n")
+    message("lapply_canprot: loading CHNOSZ")
     parallel::clusterEvalQ(cl, library("CHNOSZ"))
     # we don't do this because it's implied by data(canprot):
     #parallel::clusterCall(cl, "data", list="thermo")
     # load canprot
-    msgout("lapply_canprot: loading canprot and setting up canprot environment\n")
+    message("lapply_canprot: loading canprot and setting up canprot environment")
     parallel::clusterEvalQ(cl, library("canprot"))
     # we don't do this because a simple data(canprot) is nearly as fast
     #parallel::clusterExport(cl, c("human_aa", "uniprot_updates"), as.environment("canprot"))
@@ -30,12 +30,12 @@ lapply_canprot <- function(X, FUN, ..., varlist=NULL, min.length=10) {
     ## export the user's variables
     #if(! "" %in% varlist) {
     #  parallel::clusterExport(cl, varlist, envir)
-    #  msgout(paste("lapply_canprot: exporting variable(s) from",
-    #    attr(envir, "name"), "environment:", paste(varlist, collapse=", "), "\n"))
+    #  message(paste("lapply_canprot: exporting variable(s) from",
+    #    attr(envir, "name"), "environment:", paste(varlist, collapse=", ")))
     #}
     if(!is.null(varlist)) parallel::clusterExport(cl, varlist)
     # run the calculations
-    msgout(paste("lapply_canprot: running", length(X), "calculations on", nCores, "cores\n"))
+    message(paste("lapply_canprot: running", length(X), "calculations on", nCores, "cores"))
     out <- parallel::parLapply(cl, X, FUN, ...)
     parallel::stopCluster(cl)
   } else out <- lapply(X, FUN, ...)
