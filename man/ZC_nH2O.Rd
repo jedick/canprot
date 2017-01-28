@@ -1,13 +1,15 @@
 \encoding{UTF-8}
 \name{ZC_nH2O}
 \alias{ZC_nH2O}
+\alias{CNS}
 \title{Calculate Compositional Differences}
 \description{
-  Compare indicators of oxidation and hydration state between groups of proteins.
+  Compare elemental abundances per residue and compositional oxidation and hydration state between groups of proteins.
 }
 
 \usage{
   ZC_nH2O(pdat, plot.it = TRUE)
+  CNS(pdat)
 }
 
 \arguments{
@@ -21,16 +23,20 @@ The expression pattern is taken from the value of \code{up2} returned by one of 
 The function prints the difference of means, common language effect size (\code{\link{CLES}}, in percent), and \emph{p}-value.
 
 If \code{plot.it} is \code{TRUE}, a scatterplot is also produced.
+
+Similarly, \code{CNS} calculates mean differences, \code{CLES}, and \emph{p}-value for elemental abundance per residue: \code{C}arbon, \code{N}itrogen, and \code{O}xygen.
 }
 
 \value{
-A data frame is returned invisibly containing the columns \samp{dataset}, \samp{description}, \samp{n1}, \samp{n2}, \samp{ZC.mean1}, \samp{ZC.mean2}, \samp{ZC.diff}, \samp{ZC.CLES}, \samp{ZC.p.value}, \samp{nH2O.mean1}, \samp{nH2O.mean2}, \samp{nH2O.diff}, \samp{nH2O.CLES}, and \samp{nH2O.p.value}.
+For \code{ZC_nH2O}, a data frame is returned invisibly containing the columns \samp{dataset}, \samp{description}, \samp{n1}, \samp{n2}, \samp{ZC.mean1}, \samp{ZC.mean2}, \samp{ZC.diff}, \samp{ZC.CLES}, \samp{ZC.p.value}, \samp{nH2O.mean1}, \samp{nH2O.mean2}, \samp{nH2O.diff}, \samp{nH2O.CLES}, and \samp{nH2O.p.value}.
+In \code{CNS}, columns with \samp{mean1}, \samp{mean2}, \samp{diff}, \samp{CLES}, and \samp{p.value} are present for each of \samp{C}, \samp{N}, and \samp{S}.
 }
 
 \examples{
 data(canprot)
 pd <- get_pdat("JKMF10")
 ZC_nH2O(pd)
+CNS(pd)
 }
 
 \concept{Chemical composition}
