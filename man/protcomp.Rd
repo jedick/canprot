@@ -7,7 +7,7 @@
 }
 
 \usage{
-  protcomp(uniprot = NULL, ip = NULL, basis = "AA", aa_file = NULL,
+  protcomp(uniprot = NULL, ip = NULL, basis = "QEC", aa_file = NULL,
            updates_file = NULL)
 }
 
@@ -21,7 +21,7 @@
 
 \details{
 This function retrieves the amino acid compositions of one or more proteins specified by \code{uniprot} or \code{ip}, then calculates some chemical compositional properties using functions provided by \pkg{CHNOSZ}.
-\code{basis} selects the basis species used for the calculations; use \samp{inorganic} for \CO2, \NH3, \H2S, \H2O, and \O2, or \samp{AA} (the default) for cysteine, glutamic acid, glutamine, \H2O, and \O2.
+\code{basis} selects the basis species used for the calculations; use \samp{inorganic} for \CO2, \NH3, \H2S, \H2O, and \O2, or \samp{QEC} (the default) for glutamine, glutamic acid, cysteine, \H2O, and \O2.
 These two settings correspond to \dQuote{basis I} and \dQuote{basis II} as described in Dick, 2016.
 
 This function depends on the amino acid compositions of human proteins, which are made available by \code{data(\link{canprot})}.

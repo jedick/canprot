@@ -1,10 +1,13 @@
-CHANGES IN canprot 0.0.3.9007 (2017-01-28)
-------------------------------------------
+CHANGES IN canprot 0.0.3-9 (2017-03-10)
+---------------------------------------
 
 - New function CNS() calculates proteomic differences of elemental
   abundances per residue.
 
 - Modify diffplot() to accept output from either ZC_nH2O() or CNS().
+
+- Change "AA" and "AA4" in setbasis() to "QEC" and "QEC4"; add "QEC+"
+  (basis including H+).
 
 CHANGES IN canprot 0.0.3 (2017-01-01)
 -------------------------------------

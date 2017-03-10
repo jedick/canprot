@@ -2,7 +2,7 @@
 # show values of Eh as a function of logaH2O/logfO2
 # 20160710 jmd
 
-Ehplot <- function(basis="AA", T=37, pH=7.4) {
+Ehplot <- function(basis="QEC", T=37, pH=7.4) {
   logfO2 <- c(-75, -55)
   H2O <- c(-10, 10)
   # logK for the reaction H2O(liq) = 2H+ + 2e- + 0.5O2(g)
@@ -15,7 +15,7 @@ Ehplot <- function(basis="AA", T=37, pH=7.4) {
   plot(0, 0, xlim=logfO2, ylim=H2O, xlab=cplab$logfO2, ylab=cplab$logaH2O, type="n", xaxs="i", yaxs="i")
   for(Eh in seq(-0.8, 0.2, by=0.2)) {
     lines(logfO2, logaH2O(logfO2, Eh)) 
-    if(basis=="AA") text(-61+19*Eh, logaH2O(-61+19*Eh, Eh) + 1, Eh)
+    if(basis=="QEC") text(-61+19*Eh, logaH2O(-61+19*Eh, Eh) + 1, Eh)
     if(basis=="inorganic") text(-71+19*Eh, logaH2O(-71+19*Eh, Eh) + 1, Eh)
   }
   title(main="Eh (volt)", cex.main=1.1)

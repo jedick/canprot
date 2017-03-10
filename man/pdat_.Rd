@@ -11,7 +11,7 @@
 }
 
 \usage{
-  pdat_CRC(dataset = NULL, basis = "AA")
+  pdat_CRC(dataset = NULL, basis = "QEC")
 }
 
 \arguments{

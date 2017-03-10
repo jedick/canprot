@@ -158,7 +158,7 @@ Set up the diagram and make the plots.
 par(mfrow=c(3, 3))
 par(xaxs="i", yaxs="i", las=1, mar=c(4, 4, 2, 2), mgp=c(2.6, 1, 0), cex=1)
 for(i in seq_along(datasets)) {
-  pdat <- get_pdat(datasets[i], basis="AA4")
+  pdat <- get_pdat(datasets[i], basis="QEC4")
   rankplot(pdat, res=50)
   CHNOSZ::label.figure(LETTERS[i], paren=FALSE, font=2, yfrac=0.94)
 }

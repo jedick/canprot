@@ -7,7 +7,7 @@
 }
 
 \usage{
-  Ehplot(basis = "AA", T = 37, pH = 7.4)
+  Ehplot(basis = "QEC", T = 37, pH = 7.4)
 }
 
 \arguments{

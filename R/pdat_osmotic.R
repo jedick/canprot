@@ -2,7 +2,7 @@
 # retrieve protein IDs for hyperosmotic experiments
 # 20160926 jmd
 
-pdat_osmotic <- function(dataset=NULL, basis="AA") {
+pdat_osmotic <- function(dataset=NULL, basis="QEC") {
   if(is.null(dataset)) {
     return(c(
              "PW08_2h", "PW08_10h", "PW08_12h",

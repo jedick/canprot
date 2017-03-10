@@ -2,7 +2,7 @@
 # retrieve protein IDs for pancreatic cancer studies
 # 20160827 jmd
 
-pdat_pancreatic <- function(dataset=NULL, basis="AA") {
+pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
   if(is.null(dataset)) {
     return(c("LHE+04",
              "CYD+05", "CGB+05",

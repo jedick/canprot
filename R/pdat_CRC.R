@@ -3,7 +3,7 @@
 # 20160703 jmd
 # 20161011 updated with new data [LXM+16] and =AD (adenoma as n2) flags
 
-pdat_CRC <- function(dataset=NULL, basis="AA") {
+pdat_CRC <- function(dataset=NULL, basis="QEC") {
   # list available datasets
   if(is.null(dataset)) { 
     return(c("WTK+08",

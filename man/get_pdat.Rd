@@ -7,7 +7,7 @@
 }
 
 \usage{
-  get_pdat(dataset = NULL, pdat_fun = "pdat_CRC", basis = "AA")
+  get_pdat(dataset = NULL, pdat_fun = "pdat_CRC", basis = "QEC")
 }
 
 \arguments{
