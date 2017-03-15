@@ -6,14 +6,14 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
   if(is.null(dataset)) {
     return(c("LHE+04",
              "CYD+05", "CGB+05",
-             "CBP+07",
+             "CBP+07=low",
              "CTZ+09",
              "MLC+11", "PCS+11_PDAC", #"PCS+11_MCP", "PCS+11_SCP", 
              "TMW+11",
              "KBK+12",
              "KHO+13", "KPC+13_all", #"KPC+13_2-fold-signif",
              "PKB+13_AIP", "PKB+13_CP",
-             "WLL+13_low", "WLL+13_high", "WLL+13a_PC_NT", "WLL+13a_PC.DM_NT.DM",
+             "WLL+13_low=low", "WLL+13_high", "WLL+13a_PC_NT", "WLL+13a_PC.DM_NT.DM",
              "ZNWL13", "ISI+14",
              "KKC+16_T4=mouse", "KKC+16_T3=mouse", "KKC+16_T2=mouse", "KKC+16_T1=mouse"))
   }

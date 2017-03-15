@@ -43,5 +43,7 @@ cplab <- list(
   ZC = expression(italic(Z)[C]),
   DZC = expression(Delta*italic(Z)[C]),
   logfO2 = expression(log*italic("f")[O[2]*group("(", italic("g"), ")")]),
-  logaH2O = expression(log*italic("a")[H[2]*O*group("(", italic("liq"), ")")])
+  logaH2O = expression(log*italic("a")[H[2]*O*group("(", italic("liq"), ")")]),
+  DnN = expression(Delta*bar(italic(n))[N]),
+  DnS = expression(Delta*bar(italic(n))[S])
 )

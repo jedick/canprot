@@ -21,6 +21,8 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   y <- vars[2]
   if(vars[1]=="ZC") x <- cplab$DZC[[1]]
   if(vars[2]=="nH2O") y <- cplab$DnH2O[[1]]
+  if(vars[1]=="N") x <- cplab$DnN[[1]]
+  if(vars[2]=="S") y <- cplab$DnS[[1]]
   xlab <- substitute("mean difference (" * x * ")", list(x=x))
   ylab <- substitute("mean difference (" * y * ")", list(y=y))
   # initialize plot: add a 0 to make sure we can see the axis
