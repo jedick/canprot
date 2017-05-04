@@ -21,7 +21,8 @@
 
 \details{
 This function retrieves the amino acid compositions of one or more proteins specified by \code{uniprot} or \code{ip}, then calculates some chemical compositional properties using functions provided by \pkg{CHNOSZ}.
-\code{basis} selects the basis species used for the calculations; use \samp{inorganic} for \CO2, \NH3, \H2S, \H2O, and \O2, or \samp{QEC} (the default) for glutamine, glutamic acid, cysteine, \H2O, and \O2.
+The \code{basis} argument is used to select the basis species using a keyword (see \code{\link[CHNOSZ]{basis}}).
+For example, use \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2, or \samp{QEC} (the default) for glutamine, glutamic acid, cysteine, \H2O, and \O2.
 These two settings correspond to \dQuote{basis I} and \dQuote{basis II} as described in Dick, 2016.
 
 This function depends on the amino acid compositions of human proteins, which are made available by \code{data(\link{canprot})}.

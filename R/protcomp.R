@@ -53,9 +53,8 @@ protcomp <- function(uniprot=NULL, ip=NULL, basis="QEC", aa_file=NULL, updates_f
   # protein formula, average oxidation state of carbon
   protein.formula <- protein.formula(aa)
   ZC <- ZC(protein.formula)
-  # basis species in protein, protein length, basis species in residue
-  # TODO: use CHNOSZ::basis instead (requires update to code in CHNOSZ)
-  setbasis(basis)
+  # basis species for proteins, protein length, basis species in residue
+  CHNOSZ::basis(basis)
   protein.basis <- protein.basis(aa)
   protein.length <- protein.length(aa)
   residue.basis <- protein.basis / protein.length

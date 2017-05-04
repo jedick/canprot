@@ -1,3 +1,8 @@
+CHANGES IN canprot 0.0.4-1 (2017-05-03)
+---------------------------------------
+
+- Remove internal setbasis(); use CHNOSZ's basis() instead.
+
 CHANGES IN canprot 0.0.4 (2017-03-19)
 -------------------------------------
 

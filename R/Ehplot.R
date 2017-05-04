@@ -16,7 +16,7 @@ Ehplot <- function(basis="QEC", T=37, pH=7.4) {
   for(Eh in seq(-0.8, 0.2, by=0.2)) {
     lines(logfO2, logaH2O(logfO2, Eh)) 
     if(basis=="QEC") text(-61+19*Eh, logaH2O(-61+19*Eh, Eh) + 1, Eh)
-    if(basis=="inorganic") text(-71+19*Eh, logaH2O(-71+19*Eh, Eh) + 1, Eh)
+    if(basis=="CHNOS") text(-71+19*Eh, logaH2O(-71+19*Eh, Eh) + 1, Eh)
   }
   title(main="Eh (volt)", cex.main=1.1)
 }
