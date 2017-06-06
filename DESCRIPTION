@@ -1,11 +1,11 @@
-Date: 2017-05-03
+Date: 2017-05-04
 Package: canprot
-Version: 0.0.4-1
+Version: 0.0.5
 Title: Differential Expression of Proteins in Cancer
 Author: Jeffrey Dick
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
 Depends: R (>= 3.1.0)
-Imports: CHNOSZ (>= 1.0.7), colorspace, xtable
+Imports: CHNOSZ (>= 1.1.0), colorspace, xtable
 Suggests: knitr, rmarkdown
 Description: Datasets are collected here for differentially (up- and down-)
         expressed proteins in cancer. All datasets use UniProt IDs, which have been
