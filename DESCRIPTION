@@ -1,7 +1,7 @@
-Date: 2017-05-04
+Date: 2017-06-11
 Package: canprot
-Version: 0.0.5
-Title: Differential Expression of Proteins in Cancer
+Version: 0.0.5-1
+Title: Chemical Composition of Differential Protein Expression
 Author: Jeffrey Dick
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
 Depends: R (>= 3.1.0)
@@ -11,8 +11,8 @@ Description: Datasets are collected here for differentially (up- and down-)
         expressed proteins in cancer. All datasets use UniProt IDs, which have been
         added if not present in the original publications. Tables of amino acid
         compositions of proteins are provided, and the functions are geared toward the
-        exploration of chemical compositional differences and thermodynamic
-        descriptions using basis species.
+        description of chemical compositional differences using basis species and the
+        calculation of thermodynamic potentials.
 License: GPL-3
 BuildResaveData: no
 VignetteBuilder: knitr
