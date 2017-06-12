@@ -31,4 +31,4 @@ data(thermo, package="CHNOSZ")
 Ehplot()
 }
 
-\concept{Thermodynamic description}
+\concept{Thermodynamic calculations}

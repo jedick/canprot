@@ -1,7 +1,10 @@
-CHANGES IN canprot 0.0.5-1 (2017-06-11)
+CHANGES IN canprot 0.0.5-2 (2017-06-12)
 ---------------------------------------
 
-- Add basis_comp.Rmd.
+- Add basis_comparison.Rmd.
+
+- New functions groupplots() to make rank potential diagrams for
+  groups of datasets and mergedplot() to merge those diagrams.
 
 CHANGES IN canprot 0.0.5 (2017-05-04)
 -------------------------------------

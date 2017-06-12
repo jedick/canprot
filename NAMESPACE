@@ -2,24 +2,25 @@
 export("protcomp", "check_ID", "get_pdat", "ZC_nH2O", "CLES", "xsummary",
 "rankdiff", "rankplot", "Ehplot", "pdat_CRC", "remove_entries", "diffplot",
 "lapply_canprot", "get_colors", "pdat_pancreatic", "pdat_hypoxia", "pdat_osmotic",
-"CNS")
+"CNS", "groupplots", "mergedplot")
 
 # Imports from default packages
-importFrom("stats", "na.omit", "median")
+importFrom("stats", "na.omit", "median", "loess", "predict", "quantile")
 
-importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data")
+importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data", "combn")
 
 importFrom("graphics", "mtext", "plot", "title", "box", "contour", "image",
-"lines", "text", "abline", "points", "rect")
+"lines", "text", "abline", "points", "rect",  "grconvertX", "grconvertY", "par", "plot.new")
+
+importFrom("grDevices", "contourLines")
 
 # Imports from CHNOSZ
 importFrom("CHNOSZ", "basis", "protein.basis", "protein.formula",
            "protein.length", "ZC", "add.protein", "affinity", "diagram",
-           "list2array", "palply", "subcrt", "convert")
+           "list2array", "palply", "subcrt", "convert", "label.figure")
 
 # Imports from colorspace
 importFrom("colorspace", "diverge_hcl")
 
 # Imports from xtable
 importFrom("xtable", "xtable", "print.xtable")
-

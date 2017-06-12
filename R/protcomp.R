@@ -54,7 +54,7 @@ protcomp <- function(uniprot=NULL, ip=NULL, basis="QEC", aa_file=NULL, updates_f
   protein.formula <- protein.formula(aa)
   ZC <- ZC(protein.formula)
   # basis species for proteins, protein length, basis species in residue
-  CHNOSZ::basis(basis)
+  basis(basis)
   protein.basis <- protein.basis(aa)
   protein.length <- protein.length(aa)
   residue.basis <- protein.basis / protein.length

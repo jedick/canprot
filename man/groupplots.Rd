@@ -1,0 +1,53 @@
+\encoding{UTF-8}
+\name{groupplots}
+\alias{groupplots}
+\alias{mergedplot}
+\title{Plot Ranked Potentials for Groups of Datasets}
+\description{
+  Plot ranking of chemical affinities for proteins in various datasets and merge the diagrams.
+}
+
+\usage{
+  groupplots(group="hypoxia_ZC_down", each100=FALSE, res=50, plot.it=TRUE)
+  mergedplot(gpresult, each100=FALSE, res=50)
+}
+
+\arguments{
+  \item{group}{character, description of datasets to include}
+  \item{each100}{logical, rescale rank difference of each dataset individually?}
+  \item{res}{numeric, grid resolution for plots}
+  \item{plot.it}{logical, make plots?}
+  \item{gpresult}{list, value returned by \code{groupplots}}
+}
+
+\details{
+\code{groupplot} makes weighted rank-difference diagrams (see \code{\link{rankplot}}) for each dataset found in the specified \code{group}.
+\code{group} consists of three parts joined by an underscore: the type of experiment (\samp{CRC}, \samp{pancreatic}, \samp{hypoxia}, or \samp{osmotic}; see \code{\link{pdat_}}), the distinguishing compositional variable (\samp{ZC} or \samp{H2O}), and the direction of change of that variable (\samp{up} or \samp{down}).
+
+\code{groupplots} makes calculations over a large range of \logfO2 and \logaH2O in order to capture the equipotential lines for most datasets.
+This way, the positions of the median and interquartiles of the equipotential lines can be calculated correctly for the \code{mergedplot} which covers a smaller range of \logfO2 and \logaH2O.
+}
+
+\examples{
+\dontrun{
+data(canprot)
+gpresult <- groupplots("osmotic_H2O_down", res=25)
+mergedplot(gpresult, res=25)
+
+# reproduce Figure 4 of Dick, 2017
+ZCgroups <- c("CRC_ZC_up","pancreatic_ZC_up", "hypoxia_ZC_down")
+H2Ogroups <- c("CRC_H2O_up", "pancreatic_H2O_up", "osmotic_H2O_down")
+allgroups <- c(ZCgroups, H2Ogroups)
+par(mfrow=c(2, 3))
+for(group in allgroups) {
+  gpresult <- groupplots(group, plot.it=FALSE)
+  mergedplot(gpresult)
+  title(main=group)
+}}
+}
+
+\seealso{
+  \code{\link{rankplot}}
+}
+
+\concept{Thermodynamic calculations}

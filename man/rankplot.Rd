@@ -45,4 +45,4 @@ rankplot(pdat, res=25)
   \code{\link{get_colors}}
 }
 
-\concept{Thermodynamic description}
+\concept{Thermodynamic calculations}

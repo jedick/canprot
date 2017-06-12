@@ -7,9 +7,9 @@
 }
 
 \section{Overview}{
-  Datasets of differential expression of proteins are included for colorectal cancer (CRC), pancreatic cancer, hypoxia, and hyperosmotic stress.
-  Please see the vignettes, starting with \href{../doc/CRC.html}{CRC.Rmd}, for the data sources and examples of compositional and potential diagrams.
-  This package was initiated using code and datasets for CRC that were assembled for the study of Dick (2016).
+  This package includes datasets of differential expression of proteins for colorectal cancer (CRC), pancreatic cancer, hypoxia, and hyperosmotic stress.
+  These datasets are described in Dick (2016, 2017).
+  The functions in this package were derived from the code included as supporting information for those studies.
 }
 
 \section{Acknowledgements}{
@@ -36,8 +36,9 @@ setdiff(extra_keys, refkeys)
 \references{
   Dick, Jeffrey M. (2016) Proteomic indicators of oxidation and hydration state in colorectal cancer. \emph{PeerJ} \bold{4}, e2238. \doi{10.7717/peerj.2238}
 
+  Dick, Jeffrey M. (2017) Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress. \emph{PeerJ} \bold{5}, e3421. \doi{10.7717/peerj.3421}
+
   Lai, Ming-Chih and Chang, Chiao-May and Sun, H. Sunny (2016)  Hypoxia induces autophagy through translational up-regulation of lysosomal proteins in human colon cancer cells. \emph{PLoS ONE} \bold{11}(4), e0153627. \doi{10.1371/journal.pone.0153627}
 }
-
 
 \keyword{package}
