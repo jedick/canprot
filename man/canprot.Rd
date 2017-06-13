@@ -25,7 +25,7 @@ The amino acid compositions of human proteins are stored in three files.
 On loading the data (with \code{data(canprot)}), the individual data files are read and combined using \code{\link{rbind}}, and the result is assigned to the \code{human_aa} object in the \code{canprot} environment.
 
 As an aid for processing some datasets that use old (obsoleted) UniProt IDs, the corresponding new (current) IDs are are stored in \code{uniprot_updates}.
-\code{uniprot_updates} also lists the source (i.e. publication reference key) that uses each old ID.
+\code{uniprot_updates} also lists the source (i.e. reference key) that uses each old ID.
 }
 
 \usage{data(canprot)}
@@ -43,10 +43,6 @@ The columns of \code{human_aa} are compatible with the layout used for amino aci
 }
 
 Here, the \code{protein} column contains the UniProt ID (accession), possibly with a suffix indicating the isoform of the protein (esp. from \code{human_additional.csv}).
-}
-
-\seealso{
-  \code{\link[CHNOSZ]{uniprot.aa}} in \pkg{CHNOSZ} for retrieving the amino acid compositions for particular UniProt IDs from \url{http://uniprot.org}.
 }
 
 \examples{

@@ -24,11 +24,11 @@
 
 \details{
 This function creates a \logaH2O - \logfO2 diagram showing the relative stabilities of the two groups of proteins in the specified \code{dataset}.
-These groups consist of the relatively down- and up-expressed proteins identified by \code{up2} in one of the code \code{\link{pdat_}} functions.
+These groups consist of the relatively down- and up-expressed proteins identified by \code{up2} in one of the \code{\link{pdat_}} functions.
 
 The function generates a colored \code{\link{image}} and \code{\link{contour}} plot showing the weighted difference of sums of ranks of chemical affinities of formation of proteins in the two groups (see \code{\link[CHNOSZ]{affinity}} and \code{\link{rankdiff}}).
 Increasing intensity of blue or red colors represent higher rankings of the down-expressed (\code{up2==FALSE}) or up-expressed (\code{up2==TRUE}) proteins, respectively.
-Alternatively, if \code{whta} is \dQuote{predominance}, a maximal stability (predominance) diagram is produced (see \code{\link[CHNOSZ]{diagram}} in CHNOSZ), with fields colored red or blue according to the relative expression of the protein.
+Alternatively, if \code{what} is \dQuote{affinity}, a maximum affinity diagram is produced (see \code{\link[CHNOSZ]{diagram}} in CHNOSZ), with fields colored red or blue according to the relative expression of the protein.
 
 If \code{main} is NULL, the title for the plot is taken from the description supplied in \code{pdat}.
 
@@ -39,6 +39,7 @@ Set \code{plot.it} to FALSE to skip the plotting and instead return a list conta
 data(canprot)
 pdat <- get_pdat("JKMF10")
 rankplot(pdat, res=25)
+rankplot(pdat, res=25, what="affinity")
 }
 
 \seealso{

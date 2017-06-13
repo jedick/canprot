@@ -62,7 +62,8 @@ for(what in c("CRC", "pancreatic", "hypoxia", "osmotic")) {
   comptab <- do.call(rbind, comptab)
   comptab <- cbind(set = c(letters, LETTERS)[1:nrow(comptab)], comptab)
   comptab[, 6:15] <- signif(comptab[, 6:15], 4)
-  write.csv(comptab, paste0("summary_", what, ".csv"), row.names = FALSE, quote = 3)
+  filename <- paste0("summary_", what, ".csv")
+  write.csv(comptab, filename, row.names = FALSE, quote = 3)
 }}
 }
 

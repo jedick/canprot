@@ -7,9 +7,10 @@
 }
 
 \section{Overview}{
-  This package includes datasets of differential expression of proteins for colorectal cancer (CRC), pancreatic cancer, hypoxia, and hyperosmotic stress.
-  The datasets are described in Dick (2016) and (2017).
-  The functions in this package were derived from the code included as supporting information for these studies.
+  This package includes datasets for differential expression of proteins in colorectal cancer (CRC), pancreatic cancer, hypoxia, and hyperosmotic stress.
+  All datasets use UniProt IDs, which have been added if not present in the original publications. 
+  The sources of data are listed in the vignettes and are further described in Dick (2016) and (2017).
+  The functions in this package were derived from the code included as supplemental information for those studies.
 }
 
 \examples{
@@ -24,7 +25,7 @@ data(canprot)
 update_keys <- unique(unlist(strsplit(uniprot_updates$source, ";")))
 # find the reference keys in the extra human amino acid composition file
 extra_keys <- unique(unlist(strsplit(human_extra$ref, ";")))
-# list the unused keys (these should be cleaned up before the package is released)
+# list the unused keys (these should be empty when the package is released)
 setdiff(update_keys, refkeys)
 setdiff(extra_keys, refkeys)
 }
@@ -33,8 +34,6 @@ setdiff(extra_keys, refkeys)
   Dick, Jeffrey M. (2016) Proteomic indicators of oxidation and hydration state in colorectal cancer. \emph{PeerJ} \bold{4}, e2238. \doi{10.7717/peerj.2238}
 
   Dick, Jeffrey M. (2017) Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress. \emph{PeerJ} \bold{5}, e3421. \doi{10.7717/peerj.3421}
-
-  Lai, Ming-Chih and Chang, Chiao-May and Sun, H. Sunny (2016)  Hypoxia induces autophagy through translational up-regulation of lysosomal proteins in human colon cancer cells. \emph{PLoS ONE} \bold{11}(4), e0153627. \doi{10.1371/journal.pone.0153627}
 }
 
 \keyword{package}

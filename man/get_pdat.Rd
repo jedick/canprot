@@ -18,7 +18,7 @@
 
 \details{
 \code{get_pdat} serves as a wrapper to the various \code{\link{pdat_}} functions.
-The names of the functions, which can include any user-defined functions in addition to those in the package (i.e. \samp{pdat_CRC}), are specified in \code{pdat_fun}.
+The names of the functions, which can include any user-defined functions in addition to those in the package, are specified in \code{pdat_fun}.
 Those functions are queried for the availability of \code{dataset}; if one function provides it, the corresponding dataset is returned.
 Leave \code{dataset} as \code{NULL} to list all datasets provided by the \code{pdat_} functions.
 }

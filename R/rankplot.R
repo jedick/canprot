@@ -17,9 +17,9 @@ rankplot <- function(pdat, T=37, what="rankdiff", main=NULL, res=300, plot.it=TR
   loga.protein <- log10(1/pdat$pcomp$protein.length)
   # calculate affinities
   a <- affinity(O2=O2, H2O=H2O, T=T, iprotein=ip, loga.protein=loga.protein)
-  if(identical(what, "predominance")) {
+  if(identical(what, "affinity")) {
     col <- ifelse(pdat$up2, cpcol$red, cpcol$blue)
-    d <- diagram(a, names=pdat$names, fill=col, as.residue=TRUE, tplot=FALSE)
+    d <- diagram(a, names=pdat$names, fill=col, as.residue=TRUE, tplot=FALSE, format.names=FALSE)
     # redraw box because it gets obscured by the fill
     box()
   } else if(identical(what, "rankdiff")) {

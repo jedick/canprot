@@ -7,8 +7,8 @@
 }
 
 \usage{
-  protcomp(uniprot = NULL, ip = NULL, basis = "QEC", aa_file = NULL,
-           updates_file = NULL)
+  protcomp(uniprot = NULL, ip = NULL, basis = "QEC",
+           aa_file = NULL, updates_file = NULL)
 }
 
 \arguments{

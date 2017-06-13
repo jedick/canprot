@@ -24,8 +24,7 @@ Otherwise, a cluster is initiatied by loading \pkg{CHNOSZ} and \pkg{canprot} and
 If \code{varlist} is supplied, the named variables are exported to the global environment of each node in the cluster using \code{\link[parallel]{clusterExport}}.
 Then, parallel computations in the cluster are run using \code{\link{parLapply}} given the \code{X}, \code{FUN} and \code{...} arguments.
 
-Because of the overhead of loading packages and data, this function is most suitable for parallelizing \dQuote{large} calculations.
-See \url{../doc/summary_table.html} for an example.
+For examples, see the data vignettes and the help for \code{\link{pdat_}}.
 }
 
 \concept{Parallel computation}

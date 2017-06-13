@@ -7,8 +7,8 @@
 }
 
 \usage{
-  diffplot(comptab, vars = c("ZC", "nH2O"), col = "black", plot.rect = FALSE,
-           plot.text = TRUE)
+  diffplot(comptab, vars = c("ZC", "nH2O"), col = "black",
+           plot.rect = FALSE, plot.text = TRUE)
 }
 
 \arguments{
