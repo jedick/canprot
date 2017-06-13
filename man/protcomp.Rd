@@ -23,7 +23,6 @@
 This function retrieves the amino acid compositions of one or more proteins specified by \code{uniprot} or \code{ip}, then calculates some chemical compositional properties using functions provided by \pkg{CHNOSZ}.
 The \code{basis} argument is used to select the basis species using a keyword (see \code{\link[CHNOSZ]{basis}}).
 For example, use \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2, or \samp{QEC} (the default) for glutamine, glutamic acid, cysteine, \H2O, and \O2.
-These two settings correspond to \dQuote{basis I} and \dQuote{basis II} as described in Dick, 2016.
 
 This function depends on the amino acid compositions of human proteins, which are made available by \code{data(\link{canprot})}.
 If \code{aa_file} is specified, additional amino acid compositions to be considered are read from this file, which should be in the same format as e.g. \code{\link{human_extra}.csv} (see also \code{\link[CHNOSZ]{thermo}$protein}).
@@ -37,10 +36,6 @@ The function returns a list with elements \code{protein.formula} (elemental comp
 \examples{
 data(canprot)
 protcomp("P24298")
-}
-
-\references{
-  Dick, Jeffrey M. (2016) Proteomic indicators of oxidation and hydration state in colorectal cancer. \emph{PeerJ} \bold{4}, e2238. \doi{10.7717/peerj.2238}
 }
 
 \concept{Chemical composition}

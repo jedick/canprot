@@ -20,20 +20,20 @@
 }
 
 \details{
-The \code{pdat_} functions read CSV data files for data on relatively up- and down-expressed proteins reported in proteomic experiments, then uses \code{\link{protcomp}} to calculate some chemical compositional metrics.
+The \code{pdat_} functions read CSV data files for data on relatively up- and down-expressed proteins reported in proteomic experiments, then uses \code{\link{protcomp}} to calculate chemical compositional metrics.
 
-\code{pdat_CRC} retrieves data for protein expression in colorectal cancer.
-\code{pdat_pancreactic} retrieves data for protein expression in pancreatic cancer.
-\code{pdat_hypoxia} retrieves data for protein expression in hypoxia or 3D culture.
-\code{pdat_osmotic} retrieves data for protein expression in hyperosmotic stress.
+The data files available in the package are stored in the \code{extdata} directory, with subdirectories corresponding to the names of the functions.
+Use \code{pdat_CRC} to retrieve data for protein expression in colorectal cancer, \code{pdat_pancreactic} for data on pancreatic cancer, \code{pdat_hypoxia} for data on hypoxia or 3D culture, and \code{pdat_osmotic} for data on hyperosmotic stress.
 
-If \code{dataset} is \code{NULL}, the return value gives the names of all datasets that can be retrieved using this function.
-Each name indicates the study (publication) where the data were reported, constructed by combining the first characters of the (first three or four) authors' family names with the 2-digit year of publication.
+If \code{dataset} is \code{NULL}, the return value gives the names of all datasets that can be retrieved using the function.
+Provide one of these names as the \code{dataset} argument to retrieve the data.
+Each dataset name indicates the study (publication) where the data were reported, constructed by combining the first characters of the (first three or four) authors' family names with the 2-digit year of publication.
 This coincides with the key-generation scheme used in some bibliography manager software.
-This abbreviation also corresponds the name of the CSV file containing the data.
+This abbreviation also is used to name the CSV file containing the data.
 If more than one dataset is available from a single study (for example, for relative protein expression in different stages of cancer), \code{dataset} is suffixed by an underscore followed by a short abbreviation indicating the particular dataset.
 
-Provide one of these names as the \code{dataset} argument to retrieve the data.
+Tables listing mean compositional differences between up- and down-expressed proteins for each dataset are saved in \code{extdata/summary/}.
+These files were created using the second example below.
 }
 
 \value{
@@ -48,6 +48,22 @@ A list consisting of \code{dataset} (the name of the dataset), \code{basis} (bas
 data(canprot)
 pdat_CRC()
 pdat_CRC("JKMF10")  # same result as get_pdat("JKMF10")
+
+\dontrun{
+# how the extdata/summary/summary_*.csv files were made
+for(what in c("CRC", "pancreatic", "hypoxia", "osmotic")) {
+  pdat_fun <- paste0("pdat_", what)
+  datasets <- get(pdat_fun)()
+  comptab <- lapply_canprot(datasets, function(dataset) {
+    pdat <- get_pdat(dataset, pdat_fun)
+    ZC_nH2O(pdat, plot.it=FALSE)
+  }, varlist="pdat_fun")
+  # write summary table
+  comptab <- do.call(rbind, comptab)
+  comptab <- cbind(set=c(letters, LETTERS)[1:nrow(comptab)], comptab)
+  comptab[, 6:15] <- signif(comptab[, 6:15], 4)
+  write.csv(comptab, paste0("summary_", what, ".csv"), row.names=FALSE, quote=3)
+}}
 }
 
 \concept{Protein expression}

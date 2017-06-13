@@ -12,10 +12,6 @@
   The functions in this package were derived from the code included as supporting information for those studies.
 }
 
-\section{Acknowledgements}{
-  I thank Dr. Ming-Chih Lai for providing unpublished data related to the study of Lai et al. (2016) and giving permission to include it here.
-}
-
 \examples{
 # list all of the data files for protein expression
 exprdata <- system.file("extdata/expression", package="canprot")
