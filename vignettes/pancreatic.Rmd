@@ -2,7 +2,7 @@
 title: "Pancreatic Cancer"
 output: html_vignette
 vignette: >
-  %\VignetteIndexEntry{Pancreatic Cancer}
+  %\VignetteIndexEntry{Data: Pancreatic Cancer}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 bibliography: data_sources.bib
@@ -65,9 +65,11 @@ xsummary(comptab)
 
 ## Mean Differences
 
+The datasets comparing chronic pancreatitis or low-grade tumor to normal proteomes are highlighted in red.
+
 ```{r diffplot, fig.width=6, fig.height=6, fig.align="center"}
 col <- rep("black", length(datasets))
-col[grepl("=mouse", datasets)] <- "red"
+col[grepl("=low", datasets)] <- "red"
 diffplot(comptab, col=col)
 ```
 

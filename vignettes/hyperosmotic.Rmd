@@ -2,7 +2,7 @@
 title: "Hyperosmotic Stress"
 output: html_vignette
 vignette: >
-  %\VignetteIndexEntry{Hyperosmotic Stress}
+  %\VignetteIndexEntry{Data: Hyperosmotic Stress}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 bibliography: data_sources.bib

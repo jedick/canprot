@@ -8,8 +8,8 @@
 
 \section{Overview}{
   This package includes datasets of differential expression of proteins for colorectal cancer (CRC), pancreatic cancer, hypoxia, and hyperosmotic stress.
-  These datasets are described in Dick (2016, 2017).
-  The functions in this package were derived from the code included as supporting information for those studies.
+  The datasets are described in Dick (2016) and (2017).
+  The functions in this package were derived from the code included as supporting information for these studies.
 }
 
 \examples{

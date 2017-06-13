@@ -56,13 +56,13 @@ for(what in c("CRC", "pancreatic", "hypoxia", "osmotic")) {
   datasets <- get(pdat_fun)()
   comptab <- lapply_canprot(datasets, function(dataset) {
     pdat <- get_pdat(dataset, pdat_fun)
-    ZC_nH2O(pdat, plot.it=FALSE)
-  }, varlist="pdat_fun")
+    ZC_nH2O(pdat, plot.it = FALSE)
+  }, varlist = "pdat_fun")
   # write summary table
   comptab <- do.call(rbind, comptab)
-  comptab <- cbind(set=c(letters, LETTERS)[1:nrow(comptab)], comptab)
+  comptab <- cbind(set = c(letters, LETTERS)[1:nrow(comptab)], comptab)
   comptab[, 6:15] <- signif(comptab[, 6:15], 4)
-  write.csv(comptab, paste0("summary_", what, ".csv"), row.names=FALSE, quote=3)
+  write.csv(comptab, paste0("summary_", what, ".csv"), row.names = FALSE, quote = 3)
 }}
 }
 

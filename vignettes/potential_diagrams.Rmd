@@ -1,0 +1,49 @@
+---
+title: "Potential Diagrams"
+output: html_vignette
+vignette: >
+  %\VignetteIndexEntry{Potential Diagrams}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+bibliography: data_sources.bib
+csl: peerj.csl
+---
+
+```{r HTML, include=FALSE}
+## some frequently used HTML expressions
+# use lowercase here because these tend to be variable names in the examples
+zc <- "<i>Z</i><sub>C</sub>"
+h2o <- "H<sub>2</sub>O"
+```
+
+This [<span style="color:red;text-decoration:underline">vignette</span>](http://chnosz.net/canprot/doc/index.html) from the R package [canprot](http://github.com/jedick/canprot) demonstrates the calculation of potential diagrams for a group of datasets and generation of a merged diagram.
+Specifically, the potential diagrams show the weighted rank difference of chemical affinities between up- and down-expressed proteins in each dataset.
+Groups of datasets are considered that have similar compositional features, i.e. changes in `r zc` and *n*&#773;<sub>`r h2o`</sub>.
+
+```{r options, echo=FALSE}
+options(width = 90)
+```
+
+First, load the `canprot` package and data.
+
+```{r canprot, message=FALSE}
+library(canprot)
+data(canprot)
+```
+
+Here we make plots for datasets for pancreatic cancer having a mean difference of *n*&#773;<sub>`r h2o`</sub> that is > 0.01 and a small `r zc`, as judged by the <i>p</i>-value and CLES.
+Red and blue correspond to greater potential for formation of the up- and down-expressed proteins, respectively; the line of equipotential is shown in white:
+
+```{r groupplots, fig.width=7, fig.height=7, fig.align="center", message=FALSE, results="hide"}
+gpresult <- groupplots("pancreatic_H2O_up", res = 25)
+```
+
+Now let's make a merged diagram.
+The red-white-blue shading is computed from the mean of the previous diagrams.
+The black lines show the median and quartiles for the <i>y</i>-positions of the equipotential lines in the previous diagrams.
+
+```{r mergedplot, fig.width=5, fig.height=5, fig.align="center", message=FALSE}
+mergedplot(gpresult, res = 25)
+```
+
+Higher-resolution versions of these plots have been published in Figure S3 and Figure 3 of Dick, 2017 (Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress. [*PeerJ* 5:e3421](https://doi.org/10.7717/peerj.3421)).

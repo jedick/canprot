@@ -1,8 +1,8 @@
 ---
-title: "Hypoxia and 3D Culture"
+title: "Hypoxia or 3D Culture"
 output: html_vignette
 vignette: >
-  %\VignetteIndexEntry{Hypoxia and 3D Culture}
+  %\VignetteIndexEntry{Data: Hypoxia or 3D Culture}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 bibliography: data_sources.bib

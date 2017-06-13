@@ -2,7 +2,7 @@
 title: "Colorectal Cancer"
 output: html_vignette
 vignette: >
-  %\VignetteIndexEntry{Colorectal Cancer}
+  %\VignetteIndexEntry{Data: Colorectal Cancer}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 bibliography: data_sources.bib
@@ -15,7 +15,7 @@ The sections below give the [Abbreviations](#abbreviations) used here,
 a [Summary Table](#summary-table) comparing the chemical compositions of groups of human proteins that are relatively down- and up-expressed (`n1` and `n2`, respectively) in colorectal cancer (CRC),
 the [Data Sources](#data-sources) for protein expression in CRC,
 a plot of the [Mean Differences](#mean-differences) of average oxidation state of carbon (`ZC`) and water demand per residue (`nH2O`),
-[Stability Plots](#stability-plots) showing the weighted rank difference of chemical affinity between down- and up-expressed groups,
+[Potential Diagrams](#potential-diagrams) showing the weighted rank difference of chemical affinity between down- and up-expressed groups,
 and [References](#references).
 
 ## Abbreviations
@@ -119,7 +119,7 @@ col[grepl("=AD", datasets)] <- "red"
 diffplot(comptab, col=col)
 ```
 
-## Stability Plots
+## Potential Diagrams
 
 [These plots](../html/rankplot.html) show the [weighted rank-sum differences](../html/rankdiff.html) of [chemical affinities of formation](../../CHNOSZ/html/affinity.html) from [basis species](../../CHNOSZ/html/basis.html) of proteins in different groups.
 A higher ranking of relatively down- or up-expressed proteins in colorectal cancer is represented by blue or red color, respectively.

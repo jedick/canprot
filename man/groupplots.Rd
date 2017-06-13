@@ -2,9 +2,9 @@
 \name{groupplots}
 \alias{groupplots}
 \alias{mergedplot}
-\title{Plot Ranked Potentials for Groups of Datasets}
+\title{Plot Potential Diagrams for Groups of Datasets}
 \description{
-  Plot ranking of chemical affinities for proteins in various datasets and merge the diagrams.
+  Plot rank difference of chemical affinities for proteins in various datasets and merge the diagrams.
 }
 
 \usage{
@@ -27,7 +27,7 @@
 To identify the datasets in any group, compositional summaries for each dataset are read from pre-calculated tables in \code{extdata/summary} (see \code{\link{pdat_}}).
 Datasets are included for which the absolute mean difference of either \samp{ZC} or \samp{H2O} between up- and down-expressed proteins is greater than 0.01 and the other of \samp{ZC} or \samp{H2O} has \emph{p}-value >= 0.05 and abs(\code{\link{CLES}}) < 10.
 
-\code{groupplots} makes calculations over a large range of \logfO2 and \logaH2O in order to capture the equipotential lines for most datasets.
+\code{groupplots} makes calculations over a large range of \logfO2 and \logaH2O in order to encompass the equipotential lines for most datasets.
 This way, the positions of the median and interquartiles of the equipotential lines can be calculated correctly for the \code{mergedplot}, which covers a smaller range of \logfO2 and \logaH2O.
 }
 

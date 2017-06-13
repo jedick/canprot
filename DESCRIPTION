@@ -1,6 +1,6 @@
 Date: 2017-06-13
 Package: canprot
-Version: 0.0.5-3
+Version: 0.0.5-4
 Title: Chemical Composition of Differential Protein Expression
 Author: Jeffrey Dick
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
@@ -8,12 +8,13 @@ Depends: R (>= 3.1.0)
 Imports: CHNOSZ (>= 1.1.0), colorspace, xtable
 Suggests: knitr, rmarkdown
 Description: Datasets are collected here for differentially (up- and down-)
-        expressed proteins identified in proteomic studies of cancer and cell
+        expressed proteins identified in proteomic studies of cancer and in cell
         culture experiments. All datasets use UniProt IDs, which have been added
         if not present in the original publications. Tables of amino acid
-        compositions of proteins are included for functions to compute chemical
-        compositions using basis species and thermodynamic potentials for
-        proteomic transformations.
+        compositions of proteins are used for calculations of chemical
+        composition, projected into selected basis species. Plotting functions
+        are used to visualize the compositional differences and thermodynamic
+        potentials for proteomic transformations.
 License: GPL-3
 BuildResaveData: no
 VignetteBuilder: knitr

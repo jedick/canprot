@@ -71,4 +71,4 @@ for(basis in c("QEC", "CHNOS")) {
 }
 ```
 
-This figure corresponds to Figure S1 of Dick, 2017 (Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress. [*PeerJ* 5:e3421](https://doi.org/10.7717/peerj.3421)).
+This figure has been published as Figure S1 of Dick, 2017 (Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress. [*PeerJ* 5:e3421](https://doi.org/10.7717/peerj.3421)).
