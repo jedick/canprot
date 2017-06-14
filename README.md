@@ -1,17 +1,26 @@
 # canprot
 
-Datasets are collected here for differentially (up- and down-) expressed
-proteins in cancer. All datasets use UniProt IDs, which have been added if not
-present in the original publications. Tables of amino acid compositions of
-proteins are provided, and the functions are geared toward the exploration of
-chemical compositional differences and thermodynamic descriptions using basis
-species.
+Datasets are collected here for differentially (up- and down-)
+expressed proteins identified in proteomic studies of cancer and in cell
+culture experiments. Tables of amino acid compositions of proteins are
+used for calculations of chemical composition, projected into selected
+basis species. Plotting functions are used to visualize the compositional
+differences and thermodynamic potentials for proteomic transformations.
 
-The manual (i.e. help pages) and vignettes, which show calculations using
-datasets for colorectal cancer, can be viewed at
+This package has been developed to support a research project that has been
+reported in two papers in *PeerJ* ([2016](http://doi.org/10.7717/peerj.2238)
+and [2017](http://doi.org/10.7717/peerj.3421)).
+
+The manual (help pages) and vignettes can be viewed at
 <http://chnosz.net/canprot/html/00Index.html>.
 
-## Installation
+## Installation from CRAN
+
+```R
+install.packages("canprot")
+```
+
+## Installation from Github
 
 First install the **devtools** package from CRAN:
 
@@ -19,13 +28,13 @@ First install the **devtools** package from CRAN:
 install.packages("devtools")
 ```
 
-Then install **canprot** from GitHub:
+Then install **canprot** from Github:
 
 ```R
 devtools::install_github("jedick/canprot")
 ```
 
-## Installation with vignettes
+## Building vignettes
 
 To install the package including the vignettes:
 
@@ -33,6 +42,6 @@ To install the package including the vignettes:
 devtools::install_github("jedick/canprot", build_vignettes = TRUE)
 ```
 
-You may have to re-run this command one or more times. Note that this pulls in
-more R packages as dependencies, and you also have to have
-[pandoc](http://pandoc.org/installing.html) installed.
+You may need to re-run this command one or more times. Note that this pulls in
+more R packages as dependencies, and [pandoc](http://pandoc.org/installing.html)
+is also required.

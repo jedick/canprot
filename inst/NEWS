@@ -1,10 +1,12 @@
-CHANGES IN canprot 0.0.5-5 (2017-06-13)
----------------------------------------
+CHANGES IN canprot 0.1.0 (2017-06-13)
+-------------------------------------
 
 - Add basis_comparison.Rmd and potential_diagrams.Rmd.
 
 - New functions groupplots() to make potential diagrams for groups of
   datasets and mergedplot() to merge those diagrams.
+
+- First release on CRAN.
 
 CHANGES IN canprot 0.0.5 (2017-05-04)
 -------------------------------------
