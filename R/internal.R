@@ -16,6 +16,12 @@ cplab <- list(
   DZC = expression(Delta*italic(Z)[C]),
   logfO2 = expression(log*italic("f")[O[2]*group("(", italic("g"), ")")]),
   logaH2O = expression(log*italic("a")[H[2]*O*group("(", italic("liq"), ")")]),
+  nC = expression(bar(italic(n))[C]),
+  nN = expression(bar(italic(n))[N]),
+  nS = expression(bar(italic(n))[S]),
+  DnC = expression(Delta*bar(italic(n))[C]),
   DnN = expression(Delta*bar(italic(n))[N]),
-  DnS = expression(Delta*bar(italic(n))[S])
+  DnS = expression(Delta*bar(italic(n))[S]),
+  V0 = expression(list(italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1)),
+  DV0 = expression(list(Delta * italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1))
 )

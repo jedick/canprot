@@ -17,12 +17,10 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   Y_e <- signif(comptab[, iY[2]], 2)
   Y_p <- comptab[, iY[3]]
   # set up plot
-  x <- vars[1]
-  y <- vars[2]
-  if(vars[1]=="ZC") x <- cplab$DZC[[1]]
-  if(vars[2]=="nH2O") y <- cplab$DnH2O[[1]]
-  if(vars[1]=="N") x <- cplab$DnN[[1]]
-  if(vars[2]=="S") y <- cplab$DnS[[1]]
+  Dx <- paste0("D", vars[1])
+  Dy <- paste0("D", vars[2])
+  x <- cplab[[Dx]][[1]]
+  y <- cplab[[Dy]][[1]]
   xlab <- substitute("mean difference (" * x * ")", list(x=x))
   ylab <- substitute("mean difference (" * y * ")", list(y=y))
   # initialize plot: add a 0 to make sure we can see the axis
