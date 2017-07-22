@@ -10,7 +10,30 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=TRUE) {
   nC <- function() pdat$pcomp$residue.formula[, "C"]
   nN <- function() pdat$pcomp$residue.formula[, "N"]
   nS <- function() pdat$pcomp$residue.formula[, "S"]
-  V0 <- function() suppressMessages(protein.obigt(pdat$pcomp$aa)$V) / pdat$pcomp$protein.length
+  #V0 <- function() suppressMessages(protein.obigt(pdat$pcomp$aa)$V) / pdat$pcomp$protein.length
+  # longer code, but faster ...
+  V0 <- function() {
+    # the thermodynamic database entries for the amino acid residues
+    # and the backbone and terminal groups
+    AA3 <- aminoacids(3)
+    indices <- info(c(paste0("[", AA3, "]"), "[UPBB]", "[AABB]"))
+    volumes <- get("thermo", "CHNOSZ")$obigt$V[indices]
+    vAA <- volumes[1:20]
+    vUPBB <- volumes[21]
+    vAABB <- volumes[22]
+    # the columns for the amino acids (== 6:25)
+    icol <- match(AA3, colnames(pdat$pcomp$aa))
+    # the total volume of amino acid residues
+    VAA <- rowSums(t(t(pdat$pcomp$aa[, icol]) * vAA))
+    # the protein length and total volume of the backbone and terminal groups
+    pl <- rowSums(pdat$pcomp$aa[, icol])
+    chains <- pdat$pcomp$aa$chains
+    VUPBB <- (pl - chains) * vUPBB
+    VAABB <- chains * vAABB
+    # the per-residue volume (total volume of the protein divided by the length)
+    (VAA + VUPBB + VAABB) / pl
+  }
+  nAA <- function() pdat$pcomp$protein.length
   # get the values of the variables using the functions
   val1 <- get(var1)()
   val2 <- get(var2)()

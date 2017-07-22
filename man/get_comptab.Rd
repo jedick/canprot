@@ -23,11 +23,14 @@ The available compositional variables are:
 \tabular{ll}{
   \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link[CHNOSZ]{ZC}}) \cr
   \samp{nH2O} \tab water demand per residue (\nH2O{&#772;}) \cr
-  \samp{nC}    \tab number of carbon atoms per residue \cr
-  \samp{nN}    \tab number of nitrogen atoms per residue \cr
-  \samp{nS}    \tab number of sulfur atoms per residue \cr
-  \samp{V0}    \tab standard molal volume per residue \cr
+  \samp{nC}   \tab number of carbon atoms per residue \cr
+  \samp{nN}   \tab number of nitrogen atoms per residue \cr
+  \samp{nS}   \tab number of sulfur atoms per residue \cr
+  \samp{V0}   \tab standard molal volume per residue \cr
+  \samp{nAA}  \tab protein length (number of amino acids) \cr
 }
+Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
+
 The expression pattern is taken from the value of \code{up2} returned by one of the \code{\link{pdat_}} functions: down (\code{up2==FALSE}) or up (\code{up2==TRUE}).
 The function prints the difference of means, common language effect size (\code{\link{CLES}}, in percent), and \emph{p}-value.
 
@@ -43,8 +46,14 @@ data(canprot)
 pd <- get_pdat("JKMF10")
 # default variables: ZC and nH2O
 get_comptab(pd)
-# calculations for nitrogen and sulfur
-get_comptab(pd, "nN", "V0")
+# protein length and per-residue volume
+get_comptab(pd, "nAA", "V0")
+}
+
+\references{
+  Dick, J. M., LaRowe, D. E. and Helgeson, H. C. (2006) Temperature, pressure, and electrochemical constraints on protein speciation: Group additivity calculation of the standard molal thermodynamic properties of ionized unfolded proteins. \emph{Biogeosciences} \bold{3}, 311--336. \url{https://doi.org/10.5194/bg-3-311-2006}
 }
 
 \concept{Chemical composition}
+
+

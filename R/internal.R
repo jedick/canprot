@@ -23,5 +23,7 @@ cplab <- list(
   DnN = expression(Delta*bar(italic(n))[N]),
   DnS = expression(Delta*bar(italic(n))[S]),
   V0 = expression(list(italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1)),
-  DV0 = expression(list(Delta * italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1))
+  DV0 = expression(list(Delta * italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1)),
+  nAA = expression(italic(n)[AA]),
+  DnAA = expression(Delta*italic(n)[AA])
 )

@@ -18,7 +18,7 @@ importFrom("grDevices", "contourLines")
 importFrom("CHNOSZ", "basis", "protein.basis", "protein.formula",
            "protein.length", "ZC", "add.protein", "affinity", "diagram",
            "list2array", "palply", "subcrt", "convert", "label.figure",
-           "protein.obigt")
+           "aminoacids", "info")
 
 # Imports from colorspace
 importFrom("colorspace", "diverge_hcl")
