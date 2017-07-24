@@ -7,7 +7,7 @@
 }
 
 \usage{
-  get_comptab(pdat, var1="ZC", var2="nH2O", plot.it = TRUE)
+  get_comptab(pdat, var1="ZC", var2="nH2O", plot.it = FALSE, mfun = "median")
 }
 
 \arguments{
@@ -15,6 +15,7 @@
   \item{var1}{character, the first variable}
   \item{var2}{character, the second variable}
   \item{plot.it}{logical, make a scatterplot?}
+  \item{mfun}{character, specifying use of the \samp{median} or \samp{mean} function}
 }
 
 \details{
@@ -32,22 +33,22 @@ The available compositional variables are:
 Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
 
 The expression pattern is taken from the value of \code{up2} returned by one of the \code{\link{pdat_}} functions: down (\code{up2==FALSE}) or up (\code{up2==TRUE}).
-The function prints the difference of means, common language effect size (\code{\link{CLES}}, in percent), and \emph{p}-value.
+The function prints the difference of medians (or means), common language effect size (\code{\link{CLES}}, in percent), and \emph{p}-value.
 
 If \code{plot.it} is \code{TRUE}, a scatterplot is also produced.
 }
 
 \value{
-A data frame is returned invisibly containing the columns \samp{dataset}, \samp{description}, \samp{n1}, \samp{n2}, and two sets of columns (\samp{var.mean1}, \samp{var.mean2}, \samp{var.diff}, \samp{var.CLES}, \samp{var.p.value}), where \samp{var} is replaced by the values of \code{var1} and \code{var2}, respectively.
+A data frame is returned invisibly containing the columns \samp{dataset}, \samp{description}, \samp{n1}, \samp{n2}, and two sets of columns (\samp{var.mfun1}, \samp{var.mfun2}, \samp{var.diff}, \samp{var.CLES}, \samp{var.p.value}), where \samp{var} is replaced by the values of \code{var1} and \code{var2}, respectively, and \samp{mfun} is replaced by the value of \code{mfun}.
 }
 
 \examples{
 data(canprot)
 pd <- get_pdat("JKMF10")
 # default variables: ZC and nH2O
-get_comptab(pd)
+get_comptab(pd, plot.it = TRUE)
 # protein length and per-residue volume
-get_comptab(pd, "nAA", "V0")
+get_comptab(pd, "nAA", "V0", plot.it = TRUE)
 }
 
 \references{
@@ -55,5 +56,3 @@ get_comptab(pd, "nAA", "V0")
 }
 
 \concept{Chemical composition}
-
-

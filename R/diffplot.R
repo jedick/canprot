@@ -1,5 +1,5 @@
 # canprot/R/diffplot.R
-# plot mean differences of ZC and nH2O, or other variables
+# plot mean or median differences of ZC and nH2O, or other variables
 # 20160715 jmd
 
 diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, plot.text=TRUE) {
@@ -9,7 +9,7 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   stats <- c("diff", "CLES", "p.value")
   iX <- sapply(paste(vars[1], stats, sep="."), grep, colnames(comptab))
   iY <- sapply(paste(vars[2], stats, sep="."), grep, colnames(comptab))
-  # get mean difference, common language effect size and p-value
+  # get mean/median difference, common language effect size and p-value
   X_d <- comptab[, iX[1]]
   X_e <- signif(comptab[, iX[2]], 2)
   X_p <- comptab[, iX[3]]
@@ -21,8 +21,11 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   Dy <- paste0("D", vars[2])
   x <- cplab[[Dx]][[1]]
   y <- cplab[[Dy]][[1]]
-  xlab <- substitute("mean difference (" * x * ")", list(x=x))
-  ylab <- substitute("mean difference (" * y * ")", list(y=y))
+  # use colnames to figure out whether the difference is of the mean or median
+  if(any(grepl("mean", colnames(comptab)))) mfun <- "mean"
+  if(any(grepl("median", colnames(comptab)))) mfun <- "median"
+  xlab <- substitute(mfun * " difference (" * x * ")", list(mfun=mfun, x=x))
+  ylab <- substitute(mfun * " difference (" * y * ")", list(mfun=mfun, y=y))
   # initialize plot: add a 0 to make sure we can see the axis
   plot(type="n", c(X_d, 0), c(Y_d, 0), xlab=xlab, ylab=ylab)
   # add a reference rectangle

@@ -21,7 +21,7 @@
 
 \details{
 
-A plot is created with points showing the differences in means of two compositional metrics.
+A plot is created with points showing the differences in medians or means of two compositional metrics.
 The default setting of \code{vars} refers to average oxidation state of carbon (\ZC) as the x-variable and water demand per residue in formation reactions from basis species (\nH2O{&#772}) as the y-variable.
 
 For each dataset, the point symbol is a filled square if the \emph{p}-values of both the x-variable and y-variable are less than 0.05, a filled circle if the \emph{p}-value of one of the x- or y-variables is less than 0.05, and an open circle otherwise.
@@ -44,7 +44,7 @@ The labels are taken sequentially from 26 lowercase Roman letters in alphabetica
 data(canprot)
 comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
   pdat <- get_pdat(dataset)
-  get_comptab(pdat, plot.it=FALSE)
+  get_comptab(pdat)
 })
 diffplot(comptab)
 }

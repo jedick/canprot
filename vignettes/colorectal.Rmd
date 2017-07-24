@@ -43,7 +43,7 @@ Get the amino acid compositions of the up- and down-expressed proteins (`get_pda
 ```{r comptab, message=FALSE}
 comptab <- lapply_canprot(datasets, function(dataset) {
   pdat <- get_pdat(dataset)
-  get_comptab(pdat, plot.it=FALSE)
+  get_comptab(pdat, plot.it=FALSE, mfun="mean")
 })
 ```
 

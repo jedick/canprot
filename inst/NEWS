@@ -1,10 +1,12 @@
-CHANGES IN canprot 0.1.0-2 (2017-07-22)
+CHANGES IN canprot 0.1.0-3 (2017-07-24)
 ---------------------------------------
 
 - New function get_comptab() merges and replaces ZC_nH2O() and CNS(),
   and adds capability to calculate standard molal volumes.
 
 - Add protein length ('nAA') as variable in get_comptab().
+
+- Add 'mfun' argument to get_comptab() to choose median or mean.
 
 CHANGES IN canprot 0.1.0 (2017-06-13)
 -------------------------------------

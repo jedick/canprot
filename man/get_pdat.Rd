@@ -25,8 +25,10 @@ Leave \code{dataset} as \code{NULL} to list all datasets provided by the \code{p
 
 \examples{
 data(canprot)
+# list available datasets from pdat_CRC()
 get_pdat()
-get_pdat("JKMF10")  # same result as pdat_CRC("JKMF10")
+# the following produces the same result as pdat_CRC("JKMF10")
+get_pdat("JKMF10")
 }
 
 \concept{Protein expression}
