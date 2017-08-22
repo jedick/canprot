@@ -2,7 +2,7 @@
 # plot mean or median differences of ZC and nH2O, or other variables
 # 20160715 jmd
 
-diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, plot.text=TRUE) {
+diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS)) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # which columns we're using
@@ -45,12 +45,12 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   pch <- ifelse(p_signif==2, 15, ifelse(p_signif==1, 19, 21))
   # plot points with specified color
   col <- rep(col, length.out=nrow(comptab))
-  if(!plot.text) points(X_d, Y_d, pch=pch, col=col, bg="white")
+  if(identical(pt.text, NA) | identical(pt.text, FALSE)) points(X_d, Y_d, pch=pch, col=col, bg="white")
   else {
     # plot bigger points with letters inside
     points(X_d, Y_d, pch=pch, col=col, bg="white", cex=2)
     # use white letters on colored background
     col[pch %in% c(15, 19)] <- "white"
-    text(X_d, Y_d, c(letters, LETTERS)[seq_along(X_d)], col=col, cex=0.9)
+    text(X_d, Y_d, pt.text[seq_along(X_d)], col=col, cex=0.9)
   }
 }

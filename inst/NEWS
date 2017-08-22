@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.0-3 (2017-07-24)
+CHANGES IN canprot 0.1.0-4 (2017-08-19)
 ---------------------------------------
 
 - New function get_comptab() merges and replaces ZC_nH2O() and CNS(),
@@ -7,6 +7,8 @@ CHANGES IN canprot 0.1.0-3 (2017-07-24)
 - Add protein length ('nAA') as variable in get_comptab().
 
 - Add 'mfun' argument to get_comptab() to choose median or mean.
+
+- Add 'vars' argument to xsummary().
 
 CHANGES IN canprot 0.1.0 (2017-06-13)
 -------------------------------------

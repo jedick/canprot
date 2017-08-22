@@ -2,7 +2,7 @@
 # format the summary table using xtable
 # 20160709 jmd
 
-xsummary <- function(comptab) {
+xsummary <- function(comptab, vars=c("ZC", "nH2O")) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # create letter labels
@@ -25,7 +25,7 @@ xsummary <- function(comptab) {
   comptab[, c(5, 8)] <- round(comptab[, c(5, 8)], 3)    # mean difference
   comptab[, c(6, 9)] <- signif(comptab[, c(6, 9)], 2)   # CLES
   # place a marker around high effect size and low p-value
-  for(k in c("ZC", "nH2O")) {
+  for(k in vars) {
     # effect size
     jes <- paste0(k, ".CLES")
     ihigh <- abs(comptab[, jes] - 50) >= 10
@@ -51,26 +51,31 @@ xsummary <- function(comptab) {
   # bold the indicated effect size, p-values and mean differences
   x <- gsub("> ** ", "> <B>", x, fixed=TRUE)
   x <- gsub(" ** <", "</B> <", x, fixed=TRUE)
-  # underling the indicated mean differences
+  # underline the indicated mean differences
   x <- gsub("> ++ ", "> <U>", x, fixed=TRUE)
   x <- gsub(" ++ <", "</U> <", x, fixed=TRUE)
   # add headers that span multiple columns
   span_empty <- "<th colspan=\"4\"></th>"
-  span_ZC <- "<th colspan=\"3\"><i>Z<i><sub>C</sub></th>"
-  span_nH2O <- "<th colspan=\"3\"><i>n<i><sub>H<sub>2</sub>O</sub></sub></th>"
+  span_ZC <- "<th colspan=\"3\"><i>Z</i><sub>C</sub></th>"
+  span_nH2O <- "<th colspan=\"3\"><i>n</i><sub>H<sub>2</sub>O</sub></sub></th>"
+  span_nAA <- "<th colspan=\"3\"><i>n</i><sub>AA</sub></th>"
+  span_var1 <- get(paste0("span_", vars[1]))
+  span_var2 <- get(paste0("span_", vars[2]))
   x <- gsub("<table border=1>",
-            paste("<table border=1> <tr>", span_empty, span_ZC, span_nH2O, "</tr>"),
+            paste("<table border=1> <tr>", span_empty, span_var1, span_var2, "</tr>"),
             x, fixed=TRUE)
   # more formatting of the headers
   x <- gsub("description", "reference (description)", x, fixed=TRUE)
   x <- gsub("n1", "<i>n</i><sub>1</sub>", x, fixed=TRUE)
   x <- gsub("n2", "<i>n</i><sub>2</sub>", x, fixed=TRUE)
-  x <- gsub("ZC.diff", "MD", x, fixed=TRUE)
-  x <- gsub("nH2O.diff", "MD", x, fixed=TRUE)
-  x <- gsub("ZC.CLES", "ES", x, fixed=TRUE)
-  x <- gsub("nH2O.CLES", "ES", x, fixed=TRUE)
-  x <- gsub("ZC.p.value", "<i>p</i>-value", x, fixed=TRUE)
-  x <- gsub("nH2O.p.value", "<i>p</i>-value", x, fixed=TRUE)
+  x <- gsub(paste0(vars[1], ".diff"), "MD", x, fixed=TRUE)
+  x <- gsub(paste0(vars[2], ".diff"), "MD", x, fixed=TRUE)
+  x <- gsub(paste0(vars[1], ".CLES"), "ES", x, fixed=TRUE)
+  x <- gsub(paste0(vars[2], ".CLES"), "ES", x, fixed=TRUE)
+  x <- gsub(paste0(vars[1], ".p.value"), "<i>p</i>-value", x, fixed=TRUE)
+  x <- gsub(paste0(vars[2], ".p.value"), "<i>p</i>-value", x, fixed=TRUE)
+  # take out extraneous spaces (triggers pre-formatted text - in markdown?)
+  x <- gsub("   ", " ", x, fixed=TRUE)
   # done!
   write.table(x, "", row.names=FALSE, col.names=FALSE, quote=FALSE)
   return(invisible(comptab.out))

@@ -8,7 +8,7 @@
 
 \usage{
   diffplot(comptab, vars = c("ZC", "nH2O"), col = "black",
-           plot.rect = FALSE, plot.text = TRUE)
+           plot.rect = FALSE, pt.text = c(letters, LETTERS))
 }
 
 \arguments{
@@ -16,7 +16,7 @@
   \item{vars}{character, which variables to plot}
   \item{col}{the color(s) for points}
   \item{plot.rect}{plot a reference rectangle?}
-  \item{plot.text}{add text labels to the points?}
+  \item{pt.text}{text labels for the points}
 }
 
 \details{
@@ -35,8 +35,8 @@ The colors of the points are controlled by \code{col}, which is recycled to be e
 If \code{plot.rect} is TRUE, a shaded \code{\link{rect}}angle is drawn with coordinates -0.01, -0.01, 0.01, 0.01.
 This is useful for emphasizing the different scales of adjacent plots.
 
-If \code{plot.text} is TRUE, the points are plotted in a bigger size and \code{\link{text}} labels are added.
-The labels are taken sequentially from 26 lowercase Roman letters in alphabetical order (\code{\link{letters}}), followed by the set of uppercase letters (\code{\link{LETTERS}}).
+If \code{pt.text} is not NA or FALSE, the points are plotted in a bigger size and \code{\link{text}} labels are added.
+The default value produces labels that are taken sequentially from 26 lowercase Roman letters in alphabetical order (\code{\link{letters}}), followed by the set of uppercase letters (\code{\link{LETTERS}}).
 
 }
 
