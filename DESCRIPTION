@@ -1,12 +1,12 @@
 Date: 2018-01-08
 Package: canprot
-Version: 0.1.0-6
+Version: 0.1.0-7
 Title: Chemical Composition of Differential Protein Expression
 Author: Jeffrey Dick
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
 Depends: R (>= 3.1.0)
 Imports: CHNOSZ (>= 1.1.0), xtable
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, KernSmooth
 Description: Datasets are collected here for differentially (up- and down-)
         expressed proteins identified in proteomic studies of cancer and in cell
         culture experiments. Tables of amino acid compositions of proteins are

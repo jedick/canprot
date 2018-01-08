@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.0-6 (2018-01-08)
+CHANGES IN canprot 0.1.0-7 (2018-01-08)
 ---------------------------------------
 
 - New function get_comptab() merges and replaces ZC_nH2O() and CNS(),
@@ -13,6 +13,8 @@ CHANGES IN canprot 0.1.0-6 (2018-01-08)
 - Add =NT tag (datasets for comparison with normal tissue).
 
 - Use precomputed colors to remove colorspace dependency.
+
+- DESCRIPTION: Add KernSmooth to Suggests to avoid R CMD check error.
 
 CHANGES IN canprot 0.1.0 (2017-06-13)
 -------------------------------------
