@@ -5,8 +5,12 @@
 get_colors <- function(x, max50=FALSE) {
   # diverging (blue - light grey - red) palette
   # max50: values over 50% are all deepest color (red or blue)
-  if(max50) dcol <- colorspace::diverge_hcl(1000, c = 100, l = c(50, 90), power = 1)
-  else dcol <- colorspace::diverge_hcl(2000, c = 100, l = c(50, 90), power = 1)
+  # read precomputed colors:
+  # colorspace::diverge_hcl(1000, c = 100, l = c(50, 90), power = 1)
+  # colorspace::diverge_hcl(2000, c = 100, l = c(50, 90), power = 1)
+  if(max50) file <- system.file("extdata/colors/bluered1000.txt", package = "canprot")
+  else file <- system.file("extdata/colors/bluered2000.txt", package = "canprot")
+  dcol <- read.table(file, as.is=TRUE)[[1]]
   # the range of values
   xrange <- range(x)
   # select range of colors corresponding to values

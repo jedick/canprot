@@ -1,7 +1,7 @@
 # canprot/R/pdat_pancreatic.R
 # retrieve protein IDs for pancreatic cancer studies
 # 20160827 jmd
-# 20170904 add =TN tag (comparison between cancer and normal tissue)
+# 20170904 add =NT tag (comparison between cancer and normal tissue)
 
 pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
   if(is.null(dataset)) {

@@ -4,8 +4,10 @@
 
 # colors for points on scatterplots
 cpcol <- list(
-  blue = colorspace::diverge_hcl(2, c=100, l=c(50, 90), power=1)[1],
-  red = colorspace::diverge_hcl(2, c=100, l=c(50, 90), power=1)[2]
+  # colorspace::diverge_hcl(2, c=100, l=c(50, 90), power=1)[1],
+  blue = "#4A6FE3",
+  # colorspace::diverge_hcl(2, c=100, l=c(50, 90), power=1)[2]
+  red = "#D33F6A"
 )
 
 # text for figure labels

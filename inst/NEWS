@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.0-5 (2018-01-08)
+CHANGES IN canprot 0.1.0-6 (2018-01-08)
 ---------------------------------------
 
 - New function get_comptab() merges and replaces ZC_nH2O() and CNS(),
@@ -11,6 +11,8 @@ CHANGES IN canprot 0.1.0-5 (2018-01-08)
 - Add 'vars' argument to xsummary().
 
 - Add =NT tag (datasets for comparison with normal tissue).
+
+- Use precomputed colors to remove colorspace dependency.
 
 CHANGES IN canprot 0.1.0 (2017-06-13)
 -------------------------------------
