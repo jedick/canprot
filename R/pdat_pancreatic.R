@@ -1,21 +1,22 @@
 # canprot/R/pdat_pancreatic.R
 # retrieve protein IDs for pancreatic cancer studies
 # 20160827 jmd
+# 20170904 add =TN tag (comparison between cancer and normal tissue)
 
 pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
   if(is.null(dataset)) {
-    return(c("LHE+04",
-             "CYD+05", "CGB+05",
+    return(c("LHE+04=NT",
+             "CYD+05=NT", "CGB+05=NT",
              "CBP+07=low",
-             "CTZ+09",
-             "MLC+11", "PCS+11_PDAC", #"PCS+11_MCP", "PCS+11_SCP", 
-             "TMW+11",
-             "KBK+12",
-             "KHO+13", "KPC+13_all", #"KPC+13_2-fold-signif",
+             "CTZ+09=NT",
+             "MLC+11=NT", "PCS+11_PDAC=NT", #"PCS+11_MCP", "PCS+11_SCP", 
+             "TMW+11=NT",
+             "KBK+12=NT",
+             "KHO+13=NT", "KPC+13_all=NT", #"KPC+13_2-fold-signif=NT",
              "PKB+13_AIP", "PKB+13_CP",
-             "WLL+13_low=low", "WLL+13_high", "WLL+13a_PC_NT", "WLL+13a_PC.DM_NT.DM",
-             "ZNWL13", "ISI+14",
-             "KKC+16_T4=mouse", "KKC+16_T3=mouse", "KKC+16_T2=mouse", "KKC+16_T1=mouse"))
+             "WLL+13_low=low=NT", "WLL+13_high=NT", "WLL+13a_PC_NT=NT", "WLL+13a_PC.DM_NT.DM=NT",
+             "ZNWL13=NT", "ISI+14=NT",
+             "KKC+16_T4=mouse=NT", "KKC+16_T3=mouse=NT", "KKC+16_T2=mouse=NT", "KKC+16_T1=mouse=NT"))
   }
   # get study and stage/condition
   study <- strsplit(dataset, "_")[[1]][1]

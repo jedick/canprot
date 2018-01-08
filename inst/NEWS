@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.0-4 (2017-08-19)
+CHANGES IN canprot 0.1.0-5 (2018-01-08)
 ---------------------------------------
 
 - New function get_comptab() merges and replaces ZC_nH2O() and CNS(),
@@ -9,6 +9,8 @@ CHANGES IN canprot 0.1.0-4 (2017-08-19)
 - Add 'mfun' argument to get_comptab() to choose median or mean.
 
 - Add 'vars' argument to xsummary().
+
+- Add =NT tag (datasets for comparison with normal tissue).
 
 CHANGES IN canprot 0.1.0 (2017-06-13)
 -------------------------------------

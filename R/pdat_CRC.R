@@ -1,21 +1,22 @@
 # canprot/R/pdat_CRC.R
 # get protein data for colorectal cancer
 # 20160703 jmd
-# 20161011 updated with new data [LXM+16] and =AD (adenoma as n2) flags
+# 20161011 updated with new data [LXM+16]; add =AD tag (adenoma as n2)
+# 20170904 add =NT tag (normal tissue as n1)
 
 pdat_CRC <- function(dataset=NULL, basis="QEC") {
   # list available datasets
   if(is.null(dataset)) { 
-    return(c("WTK+08",
-             "AKP+10_CRC", "AKP+10_CIN", "AKP+10_MIN", "JKMF10", "XZC+10_I", "XZC+10_II", "ZYS+10",
-             "BPV+11_adenoma=AD", "BPV+11_stage.I", "BPV+11_stage.II", "BPV+11_stage.III", "BPV+11_stage.IV",
-             "JCF+11", "MRK+11_AD.NC=AD", "MRK+11_AC.AD", "MRK+11_AC.NC",
-             "KKL+12", "KYK+12", "WOD+12", "YLZ+12",
-             "MCZ+13",
-             "KWA+14", "UNS+14=AD", "WKP+14",
-             "STK+15", "WDO+15_A.N=AD", "WDO+15_C.A", "WDO+15_C.N",
-             "LPL+16_ACP=AD", "LPL+16_CIS", "LPL+16_ICC", "LXM+16",
-             "PHL+16_AD=AD", "PHL+16_CIS", "PHL+16_ICC"))
+    return(c("WTK+08=NT",
+             "AKP+10_CRC", "AKP+10_CIN", "AKP+10_MIN", "JKMF10", "XZC+10_I=NT", "XZC+10_II=NT", "ZYS+10=NT",
+             "BPV+11_adenoma=AD=NT", "BPV+11_stage.I=NT", "BPV+11_stage.II=NT", "BPV+11_stage.III=NT", "BPV+11_stage.IV=NT",
+             "JCF+11=NT", "MRK+11_AD.NC=AD=NT", "MRK+11_AC.AD", "MRK+11_AC.NC=NT",
+             "KKL+12", "KYK+12=NT", "WOD+12=NT", "YLZ+12",
+             "MCZ+13=NT",
+             "KWA+14", "UNS+14=AD=NT", "WKP+14",
+             "STK+15=NT", "WDO+15_A.N=AD=NT", "WDO+15_C.A", "WDO+15_C.N=NT",
+             "LPL+16_ACP=AD=NT", "LPL+16_CIS=NT", "LPL+16_ICC=NT", "LXM+16=NT",
+             "PHL+16_AD=AD=NT", "PHL+16_CIS=NT", "PHL+16_ICC=NT"))
   }
   # get study and stage/condition
   study <- strsplit(dataset, "_")[[1]][1]
