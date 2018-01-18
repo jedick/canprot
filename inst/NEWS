@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.0-7 (2018-01-08)
+CHANGES IN canprot 0.1.0-8 (2018-01-12)
 ---------------------------------------
 
 - New function get_comptab() merges and replaces ZC_nH2O() and CNS(),
@@ -8,13 +8,15 @@ CHANGES IN canprot 0.1.0-7 (2018-01-08)
 
 - Add 'mfun' argument to get_comptab() to choose median or mean.
 
-- Add 'vars' argument to xsummary().
+- Add 'vars' argument to xsummary() to choose variables to tabulate.
 
-- Add =NT tag (datasets for comparison with normal tissue).
+- In pdat_ functions, add =NT tag for datasets involving comparisons
+  with normal tissue.
 
 - Use precomputed colors to remove colorspace dependency.
 
-- DESCRIPTION: Add KernSmooth to Suggests to avoid R CMD check error.
+- DESCRIPTION: Add KernSmooth to Suggests to avoid R CMD check error
+  (it is needed for smoothScatter() in basis_comparison.Rmd).
 
 CHANGES IN canprot 0.1.0 (2017-06-13)
 -------------------------------------
