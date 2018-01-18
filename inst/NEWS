@@ -1,5 +1,5 @@
-CHANGES IN canprot 0.1.0-8 (2018-01-12)
----------------------------------------
+CHANGES IN canprot 0.1.1 (2018-01-18)
+-------------------------------------
 
 - New function get_comptab() merges and replaces ZC_nH2O() and CNS(),
   and adds capability to calculate standard molal volumes.

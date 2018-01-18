@@ -16,7 +16,7 @@
 }
 
 \details{
-\code{get_colors} uses \code{\link[colorspace]{diverge_hcl}} to produce a diverging (blue - light gray - red) colorscale.
+\code{get_colors} returns a diverging (blue - light gray - red) color scale.
 Blue and red colors are associated with negative and positive values, respectively.
 The intensity of the color increases with the magnitude of the value.
 For accurate representation, the values should be in a percent scale (i.e. the maximum absolute value is not greater than 100).
