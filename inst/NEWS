@@ -1,3 +1,8 @@
+CHANGES IN canprot 0.1.1-2 (2019-02-25)
+---------------------------------------
+
+- We now need library(CHNOSZ) in some vignettes.
+
 CHANGES IN canprot 0.1.1 (2018-01-18)
 -------------------------------------
 

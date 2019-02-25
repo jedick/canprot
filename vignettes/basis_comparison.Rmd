@@ -26,11 +26,12 @@ Accordingly, the `QEC` basis more clearly exposes two compositional variables --
 options(width = 90)
 ```
 
-First, load the `canprot` package and data.
+First, load the `canprot` and `CHNOSZ` packages.
 
 ```{r canprot, message=FALSE}
 library(canprot)
 data(canprot)
+library(CHNOSZ)
 ```
 
 Here we define some labels used in the plot.

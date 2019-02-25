@@ -30,6 +30,7 @@ options(width = 90)
 ```{r canprot, message=FALSE}
 library(canprot)
 data(canprot)
+library(CHNOSZ)
 ```
 
 Identify the datasets for protein expression.
@@ -141,8 +142,8 @@ for(i in seq_along(datasets)) {
   rankplot(pdat, res=50)
   CHNOSZ::label.figure(LETTERS[i], paren=FALSE, font=2, yfrac=0.94)
 }
-Ehplot()
-CHNOSZ::label.figure("I", paren=FALSE, font=2, yfrac=0.94)
+#Ehplot()
+#CHNOSZ::label.figure("I", paren=FALSE, font=2, yfrac=0.94)
 ```
 
 This is similar to Figure 6 of [Dick (2016)](http://doi.org/10.7717/peerj.2238).
