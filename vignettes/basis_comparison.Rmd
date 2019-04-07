@@ -30,7 +30,6 @@ First, load the `canprot` and `CHNOSZ` packages.
 
 ```{r canprot, message=FALSE}
 library(canprot)
-data(canprot)
 library(CHNOSZ)
 ```
 
@@ -48,7 +47,7 @@ Next, get the amino acid compositions of all proteins in the UniProt human prote
 Note that `r zc` is a sum of elemental ratios and is independent of the choice of basis species.
 
 ```{r aa_formula}
-aa <- human_base
+aa <- get("human_base", canprot)
 protein.formula <- CHNOSZ::protein.formula(aa)
 ZC <- CHNOSZ::ZC(protein.formula)
 ```

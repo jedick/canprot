@@ -41,7 +41,7 @@ The default value produces labels that are taken sequentially from 26 lowercase 
 }
 
 \examples{
-data(canprot)
+library(CHNOSZ)
 comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
   pdat <- get_pdat(dataset)
   get_comptab(pdat)

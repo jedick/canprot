@@ -43,7 +43,7 @@ A data frame is returned invisibly containing the columns \samp{dataset}, \samp{
 }
 
 \examples{
-data(canprot)
+library(CHNOSZ)
 pd <- get_pdat("JKMF10")
 # default variables: ZC and nH2O
 get_comptab(pd, plot.it = TRUE)

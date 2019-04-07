@@ -28,7 +28,6 @@ First, load the `canprot` package and data.
 
 ```{r canprot, message=FALSE}
 library(canprot)
-data(canprot)
 ```
 
 Here we make plots for datasets for pancreatic cancer having a mean difference of *n*&#773;<sub>`r h2o`</sub> that is > 0.01 and a small `r zc`, as judged by the <i>p</i>-value and CLES.

@@ -1,7 +1,11 @@
-CHANGES IN canprot 0.1.1-2 (2019-02-25)
----------------------------------------
+CHANGES IN canprot 0.1.2 (2019-02-26)
+-------------------------------------
 
-- We now need library(CHNOSZ) in some vignettes.
+- Replace data(canprot) with automatic loading of data when package
+  loads, into an environment that is now an exported object ('canprot').
+
+- Because of similar changes in CHNOSZ, we now need library(CHNOSZ) in
+  more places in examples and vignettes.
 
 CHANGES IN canprot 0.1.1 (2018-01-18)
 -------------------------------------

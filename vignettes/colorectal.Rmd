@@ -29,7 +29,6 @@ options(width = 90)
 
 ```{r canprot, message=FALSE}
 library(canprot)
-data(canprot)
 library(CHNOSZ)
 ```
 

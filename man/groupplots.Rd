@@ -33,7 +33,6 @@ This way, the positions of the median and interquartiles of the equipotential li
 
 \examples{
 \dontrun{
-data(canprot)
 gpresult <- groupplots("osmotic_H2O_down", res=25)
 mergedplot(gpresult, res=25)
 

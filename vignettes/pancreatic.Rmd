@@ -24,7 +24,6 @@ options(width = 90)
 
 ```{r canprot, message=FALSE}
 library(canprot)
-data(canprot)
 ```
 
 ```{r datasets}

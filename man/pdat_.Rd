@@ -46,7 +46,7 @@ A list consisting of \code{dataset} (the name of the dataset), \code{basis} (bas
 }
 
 \examples{
-data(canprot)
+library(CHNOSZ)
 pdat_CRC()
 pdat_CRC("JKMF10")  # same result as get_pdat("JKMF10")
 

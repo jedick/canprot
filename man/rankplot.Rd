@@ -36,7 +36,7 @@ Set \code{plot.it} to FALSE to skip the plotting and instead return a list conta
 }
 
 \examples{
-data(canprot)
+library(CHNOSZ)
 pdat <- get_pdat("JKMF10")
 rankplot(pdat, res=25)
 rankplot(pdat, res=25, what="affinity")

@@ -1,6 +1,5 @@
 \encoding{UTF-8}
 \name{canprot}
-\docType{data}
 \alias{canprot}
 \alias{human_aa}
 \alias{human_base}
@@ -22,13 +21,11 @@ The amino acid compositions of human proteins are stored in three files.
 \code{human_additional.Rdata} contains amino acid compositions of additional proteins in the UniProt reference proteome (\ifelse{latex}{\cr}{}\code{UP000005640_9606_additional.fasta.gz} containing isoforms and unreviewed sequences).
 \code{human_extra.csv} contains amino acid compositions of other (\dQuote{extra}) proteins identified in proteomic experiments but not listed in one of the files above.
 
-On loading the data (with \code{data(canprot)}), the individual data files are read and combined using \code{\link{rbind}}, and the result is assigned to the \code{human_aa} object in the \code{canprot} environment.
+On loading the package, the individual data files are read and combined using \code{\link{rbind}}, and the result is assigned to the \code{human_aa} object in the \code{canprot} environment.
 
 As an aid for processing some datasets that use old (obsoleted) UniProt IDs, the corresponding new (current) IDs are are stored in \code{uniprot_updates}.
 \code{uniprot_updates} also lists the source (i.e. reference key) that uses each old ID.
 }
-
-\usage{data(canprot)}
 
 \format{
 The columns of \code{human_aa} are compatible with the layout used for amino acid compositions in \pkg{CHNOSZ} (see \code{\link[CHNOSZ]{thermo}}):
@@ -46,8 +43,7 @@ Here, the \code{protein} column contains the UniProt ID (accession), possibly wi
 }
 
 \examples{
-data(canprot)
-nrow(human_aa)
+nrow(get("human_aa", canprot))
 }
 
 \concept{Amino acid composition}

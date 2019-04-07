@@ -25,7 +25,7 @@ The function also returns (invisibly) the data frame used to make the table; thi
 }
 
 \examples{
-data(canprot)
+library(CHNOSZ)
 comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
   pdat <- get_pdat(dataset)
   get_comptab(pdat)

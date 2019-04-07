@@ -5,7 +5,7 @@
 protcomp <- function(uniprot=NULL, ip=NULL, basis="QEC", aa_file=NULL, updates_file=NULL) {
   if(is.null(ip)) {
     # get amino acid compositions of human proteins
-    aa <- get("human_aa", "canprot")
+    aa <- get("human_aa", canprot)
     # add amino acid compositions from external file if specified
     if(!is.null(aa_file)) {
       aa_dat <- read.csv(aa_file, as.is=TRUE)
@@ -16,7 +16,7 @@ protcomp <- function(uniprot=NULL, ip=NULL, basis="QEC", aa_file=NULL, updates_f
       stop("'uniprot' is NULL")
     } else {
       # convert old to new uniprot IDs
-      updates <- get("uniprot_updates", "canprot")
+      updates <- get("uniprot_updates", canprot)
       # include updates from external file if specified
       if(!is.null(updates_file)) {
         updates_dat <- read.csv(updates_file, as.is=TRUE)
@@ -51,8 +51,8 @@ protcomp <- function(uniprot=NULL, ip=NULL, basis="QEC", aa_file=NULL, updates_f
     aa <- ip
   }
   # protein formula, average oxidation state of carbon
-  protein.formula <- protein.formula(aa)
-  ZC <- ZC(protein.formula)
+  protein.formula <- CHNOSZ::protein.formula(aa)
+  ZC <- CHNOSZ::ZC(protein.formula)
   # basis species for proteins, protein length, basis species in residue
   basis(basis)
   protein.basis <- protein.basis(aa)

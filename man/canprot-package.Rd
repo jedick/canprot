@@ -21,10 +21,11 @@ print(exprfiles)
 # get the reference keys from the filenames
 refkeys <- gsub(".csv", "", sapply(strsplit(exprfiles, "/"), "[", 2))
 # find the reference keys in the UniProt updates file
-data(canprot)
-update_keys <- unique(unlist(strsplit(uniprot_updates$source, ";")))
+uu <- get("uniprot_updates", canprot)
+update_keys <- unique(unlist(strsplit(uu$source, ";")))
 # find the reference keys in the extra human amino acid composition file
-extra_keys <- unique(unlist(strsplit(human_extra$ref, ";")))
+he <- get("human_extra", canprot)
+extra_keys <- unique(unlist(strsplit(he$ref, ";")))
 # list the unused keys (these should be empty when the package is released)
 setdiff(update_keys, refkeys)
 setdiff(extra_keys, refkeys)

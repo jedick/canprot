@@ -27,7 +27,7 @@ The temperature and pH can be adjusted using the \code{T} and \code{pH} argument
 }
 
 \examples{
-data(thermo, package="CHNOSZ")
+library(CHNOSZ)
 Ehplot()
 }
 

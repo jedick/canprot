@@ -30,7 +30,6 @@ The function returns the IDs in a list (dropping the semicolons, but reflecting 
 }
 
 \examples{
-data(canprot)
 # the function replaces the 3 non-existent IDs with NA
 check_ID(c("P61247;PXXXXXX", "PYYYYYY;P46777;P60174", "PZZZZZZ"))
 }

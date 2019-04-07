@@ -8,7 +8,7 @@ check_ID <- function(ID, aa_file=NULL, updates_file=NULL) {
   # the list of IDs as a vector
   ID <- unlist(ID_list)
   # human proteins
-  aa <- get("human_aa", "canprot")
+  aa <- get("human_aa", canprot)
   # add amino acid compositions from external file if specified
   if(!is.null(aa_file)) {
     aa_dat <- read.csv(aa_file, as.is=TRUE)
@@ -20,7 +20,7 @@ check_ID <- function(ID, aa_file=NULL, updates_file=NULL) {
   ina <- is.na(knownIDs)
   knownIDs[ina] <- aa$protein[ina]
   # also check old to new UniProt ID mapping
-  updates <- get("uniprot_updates", "canprot")
+  updates <- get("uniprot_updates", canprot)
   if(!is.null(updates_file)) {
     updates_dat <- read.csv(updates_file, as.is=TRUE)
     updates <- rbind(updates_dat, updates)

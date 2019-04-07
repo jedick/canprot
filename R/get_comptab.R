@@ -17,7 +17,7 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
     # and the backbone and terminal groups
     AA3 <- aminoacids(3)
     indices <- info(c(paste0("[", AA3, "]"), "[UPBB]", "[AABB]"))
-    volumes <- get("thermo", "CHNOSZ")$obigt$V[indices]
+    volumes <- get("thermo", CHNOSZ::CHNOSZ)$obigt$V[indices]
     vAA <- volumes[1:20]
     vUPBB <- volumes[21]
     vAABB <- volumes[22]
