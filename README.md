@@ -7,8 +7,7 @@ used for calculations of chemical composition, projected into selected
 basis species. Plotting functions are used to visualize the compositional
 differences and thermodynamic potentials for proteomic transformations.
 
-This package has been developed to support a research project that has been
-reported in two papers in *PeerJ* ([2016](http://doi.org/10.7717/peerj.2238)
+For more information, see two papers in *PeerJ* ([2016](http://doi.org/10.7717/peerj.2238)
 and [2017](http://doi.org/10.7717/peerj.3421)).
 
 The manual (help pages) and vignettes can be viewed at
