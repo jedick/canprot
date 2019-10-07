@@ -1,8 +1,9 @@
 # canprot/R/diffplot.R
 # plot mean or median differences of ZC and nH2O, or other variables
 # 20160715 jmd
+# 20190329 add oldstyle = FALSE (no drop lines; show kernel density)
 
-diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS)) {
+diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS), oldstyle = TRUE) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # which columns we're using
@@ -33,24 +34,31 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   # show axis lines
   abline(h=0, lty=3)
   abline(v=0, lty=3)
-  # show drop lines: dotted/solid if p-value/effect size meet criteria
-  lty.X <- ifelse(abs(X_e - 50) >= 10, 1, ifelse(X_p < 0.05, 2, 0))
-  lty.Y <- ifelse(abs(Y_e - 50) >= 10, 1, ifelse(Y_p < 0.05, 2, 0))
-  for(i in seq_along(X_d)) {
-    lines(rep(X_d[i], 2), c(0, Y_d[i]), lty=lty.X[i])
-    lines(c(0, X_d[i]), rep(Y_d[i], 2), lty=lty.Y[i])
-  } 
-  # point symbols: open circle, filled circle, filled square (0, 1 or 2 vars with p-value < 0.05)
-  p_signif <- rowSums(data.frame(X_p < 0.05, Y_p < 0.05))
-  pch <- ifelse(p_signif==2, 15, ifelse(p_signif==1, 19, 21))
+  pch <- 1
+  if(oldstyle) {
+    # show drop lines: dotted/solid if p-value/effect size meet criteria
+    lty.X <- ifelse(abs(X_e - 50) >= 10, 1, ifelse(X_p < 0.05, 2, 0))
+    lty.Y <- ifelse(abs(Y_e - 50) >= 10, 1, ifelse(Y_p < 0.05, 2, 0))
+    for(i in seq_along(X_d)) {
+      lines(rep(X_d[i], 2), c(0, Y_d[i]), lty=lty.X[i])
+      lines(c(0, X_d[i]), rep(Y_d[i], 2), lty=lty.Y[i])
+    } 
+    # point symbols: open circle, filled circle, filled square (0, 1 or 2 vars with p-value < 0.05)
+    p_signif <- rowSums(data.frame(X_p < 0.05, Y_p < 0.05))
+    pch <- ifelse(p_signif==2, 15, ifelse(p_signif==1, 19, 21))
+  }
   # plot points with specified color
   col <- rep(col, length.out=nrow(comptab))
-  if(identical(pt.text, NA) | identical(pt.text, FALSE)) points(X_d, Y_d, pch=pch, col=col, bg="white")
-  else {
-    # plot bigger points with letters inside
-    points(X_d, Y_d, pch=pch, col=col, bg="white", cex=2)
-    # use white letters on colored background
+  points(X_d, Y_d, pch=pch, col=col, bg="white", cex=2)
+  if(!identical(pt.text, NA) | !identical(pt.text, FALSE)) {
+    # add letters; for dark background, use white letters
     col[pch %in% c(15, 19)] <- "white"
     text(X_d, Y_d, pt.text[seq_along(X_d)], col=col, cex=0.9)
+  }
+  # added 20190329
+  # https://stats.stackexchange.com/questions/31726/scatterplot-with-contour-heat-overlay
+  if(!oldstyle) {
+    z <- kde2d(X_d, Y_d, n = 50)
+    contour(z, drawlabels = FALSE, nlevels = 3, lty = 2, add = TRUE)
   }
 }

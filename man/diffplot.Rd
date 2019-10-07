@@ -8,7 +8,8 @@
 
 \usage{
   diffplot(comptab, vars = c("ZC", "nH2O"), col = "black",
-           plot.rect = FALSE, pt.text = c(letters, LETTERS))
+           plot.rect = FALSE, pt.text = c(letters, LETTERS),
+           oldstyle = TRUE)
 }
 
 \arguments{
@@ -17,6 +18,7 @@
   \item{col}{the color(s) for points}
   \item{plot.rect}{plot a reference rectangle?}
   \item{pt.text}{text labels for the points}
+  \item{oldstyle}{logical, use old style plot?}
 }
 
 \details{
@@ -38,6 +40,7 @@ This is useful for emphasizing the different scales of adjacent plots.
 If \code{pt.text} is not NA or FALSE, the points are plotted in a bigger size and \code{\link{text}} labels are added.
 The default value produces labels that are taken sequentially from 26 lowercase Roman letters in alphabetical order (\code{\link{letters}}), followed by the set of uppercase letters (\code{\link{LETTERS}}).
 
+Set \code{oldstyle} to FALSE to remove the drop lines and add contours for a 2-D kernel density estimate (\code{\link[MASS]{kde2d}}).
 }
 
 \examples{

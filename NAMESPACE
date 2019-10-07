@@ -22,3 +22,6 @@ importFrom("CHNOSZ", "basis", "protein.basis", "protein.formula",
 
 # Imports from xtable
 importFrom("xtable", "xtable", "print.xtable")
+
+# Imports from MASS
+importFrom("MASS", "kde2d")
