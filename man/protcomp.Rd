@@ -33,6 +33,10 @@ If \code{updates_file} is specified, these ID mappings are included alongside th
 The function returns a list with elements \code{protein.formula} (elemental compositions of the proteins), \code{ZC} (average oxidation state of carbon), \code{protein.basis} (compositions of the proteins in terms of the basis species), \code{protein.length} (lengths of the amino acid sequences), \code{residue.basis} (per-residue compositions of the proteins in terms of the basis species), \code{residue.formula} (per-residue elemental compositions of the proteins), and \code{aa} (amino acid compositions of the proteins).
 }
 
+\seealso{
+\code{\link{cleanup}}
+}
+
 \examples{
 library(CHNOSZ)
 protcomp("P24298")
