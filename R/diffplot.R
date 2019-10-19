@@ -20,8 +20,13 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   # set up plot
   Dx <- paste0("D", vars[1])
   Dy <- paste0("D", vars[2])
-  x <- cplab[[Dx]][[1]]
-  y <- cplab[[Dy]][[1]]
+  if(oldstyle) {
+    x <- cplabbar[[Dx]][[1]]
+    y <- cplabbar[[Dy]][[1]]
+  } else {
+    x <- cplab[[Dx]][[1]]
+    y <- cplab[[Dy]][[1]]
+  }
   # use colnames to figure out whether the difference is of the mean or median
   if(any(grepl("mean", colnames(comptab)))) mfun <- "mean"
   if(any(grepl("median", colnames(comptab)))) mfun <- "median"
