@@ -2,7 +2,10 @@
 export("protcomp", "check_ID", "get_pdat", "get_comptab", "CLES", "xsummary",
 "rankdiff", "rankplot", "Ehplot", "pdat_CRC", "remove_entries", "diffplot",
 "lapply_canprot", "get_colors", "pdat_pancreatic", "pdat_hypoxia", "pdat_osmotic",
-"groupplots", "mergedplot", "canprot", "cleanup")
+"groupplots", "mergedplot", "canprot", "cleanup",
+# metrics added 20191005 - 20191027
+"ZCAA", "H2OAA", "GRAVY", "pI"
+)
 
 # Imports from default packages
 importFrom("stats", "na.omit", "median", "loess", "predict", "quantile")
