@@ -45,9 +45,9 @@ It is provided so that these functions can be called with the same numbers of ar
 
 For \code{GRAVY}, values of the hydropathy index for individual amino acids are from Kyte and Doolittle (1982).
 
-For \code{pI}, The net charge for each ionizable group is pre-calculated from pH 0 to 14 at intervals of 0.01.
+For \code{pI}, the net charge for each ionizable group is pre-calculated from pH 0 to 14 at intervals of 0.01.
 The isoelectric point is found as the pH where the sum of charges of all groups in the protein is closest to zero.
-The \pK values for the terminal groups and sidechains are taken from Bjellqvist et al. (1994) and Bjellqvist et al. (1994); note that the calculation does not implement position-specific adjustments described in the latter paper.
+The \pK values for the terminal groups and sidechains are taken from Bjellqvist et al. (1993) and Bjellqvist et al. (1994); note that the calculation does not implement position-specific adjustments described in the latter paper.
 The number of N- and C-terminal groups is taken to be one, unless a value for \code{chains} (number of polypeptide chains) is given in \code{AAcomp}.
 
 Tests for a few proteins (see examples) indicate that \code{GRAVY} and \code{pI} are equal those calculated with the ProtParam tool (\url{https://web.expasy.org/protparam/}; Gasteiger et al., 2005).

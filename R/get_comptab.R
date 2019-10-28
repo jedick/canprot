@@ -34,6 +34,9 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
     (VAA + VUPBB + VAABB) / pl
   }
   nAA <- function() pdat$pcomp$protein.length
+  # GRAVY and pI added 20191028
+  GRAVY <- function() canprot::GRAVY(pdat$pcomp$aa)
+  pI <- function() canprot::pI(pdat$pcomp$aa)
   # get the values of the variables using the functions
   val1 <- get(var1)()
   val2 <- get(var2)()

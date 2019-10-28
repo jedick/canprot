@@ -23,12 +23,14 @@
 The available compositional variables are:
 \tabular{ll}{
   \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link[CHNOSZ]{ZC}}) \cr
-  \samp{nH2O} \tab water demand per residue (\nH2O{&#772;}) \cr
+  \samp{nH2O} \tab water demand per residue (\nH2O) \cr
   \samp{nC}   \tab number of carbon atoms per residue \cr
   \samp{nN}   \tab number of nitrogen atoms per residue \cr
   \samp{nS}   \tab number of sulfur atoms per residue \cr
   \samp{V0}   \tab standard molal volume per residue \cr
   \samp{nAA}  \tab protein length (number of amino acids) \cr
+  \samp{GRAVY}\tab grand average of hydropathicity (see \code{\link{GRAVY}}) \cr
+  \samp{pI}   \tab isoelectric point (see \code{\link{pI}}) \cr
 }
 Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
 
