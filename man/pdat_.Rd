@@ -5,6 +5,7 @@
 \alias{pdat_pancreatic}
 \alias{pdat_hypoxia}
 \alias{pdat_osmotic}
+\alias{pdat_osmotic2}
 \title{Get Protein Data}
 \description{
   Get data on protein expression and chemical composition.
@@ -12,6 +13,10 @@
 
 \usage{
   pdat_CRC(dataset = NULL, basis = "QEC")
+  pdat_pancreatic(dataset = NULL, basis = "QEC")
+  pdat_hypoxia(dataset = NULL, basis = "QEC")
+  pdat_osmotic(dataset = NULL, basis = "QEC")
+  pdat_osmotic2(dataset = NULL, basis = "rQEC")
 }
 
 \arguments{
@@ -25,6 +30,8 @@ The \code{pdat_} functions calculate chemical compositional metrics (using \code
 Use \code{pdat_CRC} to retrieve data for protein expression in colorectal cancer, \code{pdat_pancreactic} for data on pancreatic cancer, \code{pdat_hypoxia} for data on hypoxia or 3D culture, and \code{pdat_osmotic} for data on hyperosmotic stress.
 The functions get relative expression data from the CSV files stored in \code{extdata/expression/}, with subdirectories corresponding to the names of the functions.
 Some of the functions also retrieve amino acid compositions from the files in \code{extdata/aa/} (for non-human proteins).
+
+\code{pdat_osmotic2} adds more data for osmotic stress experiments on bacteria and archaea, as described in Dick et al. (2019).
 
 If \code{dataset} is \code{NULL}, the return value gives the names of all datasets that can be retrieved using the function.
 Provide one of these names as the \code{dataset} argument to retrieve the data.
@@ -43,6 +50,10 @@ A list consisting of \code{dataset} (the name of the dataset), \code{basis} (bas
 
 \seealso{
   \code{\link{get_pdat}}
+}
+
+\references{
+Dick, J. M., Tan, J. and Yu, M. (2019) Geochemistry of metagenomes: Distinct compositional signatures of environmental redox and salinity gradients. \emph{(preprint)}
 }
 
 \examples{

@@ -4,7 +4,9 @@ export("protcomp", "check_ID", "get_pdat", "get_comptab", "CLES", "xsummary",
 "lapply_canprot", "get_colors", "pdat_pancreatic", "pdat_hypoxia", "pdat_osmotic",
 "groupplots", "mergedplot", "canprot", "cleanup",
 # metrics added 20191005 - 20191027
-"ZCAA", "H2OAA", "GRAVY", "pI"
+"ZCAA", "H2OAA", "GRAVY", "pI",
+# 20191104
+"pdat_osmotic2"
 )
 
 # Imports from default packages

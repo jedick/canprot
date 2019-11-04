@@ -1,0 +1,112 @@
+ID,Entry,Description,Proteome_15,Proteome_60,Proteome_180
+Cg0237,Q8NTW3,"[C]: putative oxidoreductase",1.4,0.6,1.25
+Cg0238,Q8NTW2,"[C]:FAD/FMN-containing dehydrogenase",0.23,0.6,1.33
+Cg0310,Q8NTQ1,"(katA) [C]: Katalase",1.9,1.5,NA
+Cg0418,Q8NTF9,"[C]: putative aminotransferase",0.75,0.9,1.6
+Cg0424,Q8NTF3,"[C]: putative glycosyltransferase",0.7,0.6,1.05
+Cg0441,Q8NTE1,"(lpd) [C]: dihydrolipoamide dehydrogenase",-0.2,1.35,1.15
+Cg0445,Q8NTD7,"(sdhCD) [M]: succinate dehydrogenase CD",-0.3,-0.63,-0.8
+Cg0446,Q8NTD6,"(sdhA) [C]: succinate dehydrogenase A",-0.36,-0.43,-0.73
+Cg0447,Q8NTD5,"(sdhB) [C]: succinate dehydrogenase B",-0.36,-0.5,-0.85
+Cg0448,Q8NTD4,"[M]: conserved hypothetical membrane prot.",-0.47,-0.47,-0.8
+Cg0490,P0C1E4,"(proC) [C]: Pyrroline5carboxylate reductase",NA,NA,NA
+Cg0572,Q8NT29,"(rplJ) [C]: 50S ribosomal protein L10",1,1.43,1.3
+Cg0583,Q8NT19,"(fusA) [C]: elongation factor G",0.56,0.63,1.03
+Cg0587,P42439,"(tuf) [C]: elongation factor TU",0,0.53,1.4
+Cg0699,Q8NSR5,"(guaB2) [C]: inositol-monophosphate DH",-1.3,-2.2,NA
+Cg0703,Q8NSR1,"(guaA) [C]: putative GMP synthase",0.35,0.95,1.1
+Cg0737,Q8NSN1,"(metQ) [S]: ABC-type transport system, secreted lipoprotein",-0.3,-0.55,-1.4
+Cg0752,Q8NSL8,"[S]: putative secreted or membrane protein",2.58,2.58,2.08
+Cg0755,Q79VI4,"(metY) [C]: O-Acetylhomoserine (Thiol)-Lyase",0.5,0.1,1.3
+Cg0756,Q8NSL6,"(cstA) [M]: putative carbon starvation protein A",-1.15,-1.5,-2.8
+Cg0766,P50216,"(icd) [C]: Isocitrate Dehydrogenase",0.3,0.8,2
+Cg0771,Q8NSK2,"(irp1) [S]: DtxR/iron regulated lipoprotein precurser",-0.4,-0.3,-1.35
+Cg0780,Q8NSJ3,"[M]: membrane protein ribonuclease",-1.5,-2.2,-1.5
+Cg0791,H7C7K2,"(pyc) [C]: pyruvate carboxylase",0.4,1.1,0.9
+Cg0802,Q79VI2,"(accBC) [C]: biotin carboxylase",0.3,0.9,1
+Cg0812,Q8NSG7,"(dtsR1) [M]: acetyl/propionyl -CoA carboxylase β-chain",0.7,1.15,1.75
+Cg0834,Q8NSE9,"[M]: ABC-type putative sugar transporter, substrate-bind. lipoprotein",0,-0.58,-1.18
+Cg0843,Q8NSD9,"[C]: putative helicase",0.6,0.9,1.1
+Cg0845,Q8NSD7,"[C]: Superfamily II DNA/RNA helicase",0.4,1.2,1.43
+Cg0924,Q8NS69,"[S]: ABC-type cobalamin/Fe3+-siderophores transport system",-0.1,-0.4,-1.1
+Cg0927,Q6M6X2,"[M]: ABC-type cobalamin/Fe3+-siderophores transport system",-0.4,-1.3,-1.7
+Cg0928,Q8NS66,"[C]: ABC-type cobalamin/Fe3+-siderophores transport system",-0.05,-0.75,-1.6
+Cg0949,P42457,"(gltA) [C]: citrate synthase",0.4,1.2,2.05
+Cg0952,Q8NS50,"[M]: putative integral membrane protein",-0.05,-0.55,-1.35
+Cg0953,Q8NS49,"[M]: (mctC) secondary acetate/propionate/ pyruvate transporter",0,-0.6,-1.25
+Cg0957,C3PK08,"(fas-IB) [C]: fatty acid synthase",0.73,1.21,1.71
+Cg1001,Q8NS07,"(mscL) [M]: large conductance mechanosensitive channel",-0.05,-0.03,-0.23
+Cg1016,P54582,"(betP) [M]: glycine betaine transporter",-0.13,1.06,1.41
+Cg1133,Q93PM7,"(glyA) [C]: Serine Hydroxymethyltransferase",0.3,0.95,3.45
+Cg1145,Q8NRN8,"(fum) [C]: Fumarase",-0.4,-0.3,-0.7
+Cg1203,Q8NRJ1,"[C]: Mg-chelatase subunit ChlI",0.2,0.9,1.5
+Cg1228,Q8NRH0,"[C]: ABC-type cobalt transport system, ATPase component",2.43,2.35,2.46
+Cg1229,Q8NRG9,"[M]: ABC-type cobalt transport system, permease component CbiQ",1.25,0.7,1.55
+Cg1248,Q6M668,"[C]: GTPase involved in stress response",1.03,1.1,2.17
+Cg1280,Q8NRC3,"(odhA) [C]: 2-oxoglutarate dehydrogenase",0.7,0.93,1.57
+Cg1290,Q8NRB3,"(metE) [C]: Homocysteine methyltransferase",1,1,1.57
+Cg1292,Q8NRB1,"[S]: flavin-containing monooxygenase 3",1.05,2.45,4.25
+Cg1314,Q79VH1,"(putP) [M]: Na+/proline symporter",0.05,-0.55,-0.75
+Cg1322,Q8NR83,"[C]: conserved hypothetical protein",0.85,1.55,1.5
+Cg1333,P35868,"(argS) [C]: arginyl-tRNA synthase",0.05,0.53,1.05
+Cg1595,Q8NQM7,"(uspA2) [C]: Universal stress protein",1.3,0.95,1.4
+Cg1724,Q8NQB0,"[C]: putative protein kinase ArgK or related GTPase of G3E family",0.2,0.9,0.55
+Cg1725,Q8NQA9,"(mcmB) [C]: methylmalonyl-CoA mutase large subunit",0.48,1.03,1.45
+Cg1726,Q8NQA8,"(mcmA) [C]: methylmalonyl-CoA mutase small subunit",0.33,0.8,1.36
+Cg1737,Q8NQ98,"(acn) Aconitase",1.5,2,2.5
+Cg1759,Q8NQ80,"[C]: Predicted metal-sulfur cluster biosynthetic enzyme",1.1,NA,NA
+Cg1762,Q8NQ77,"(sufC) [C]: Iron-regulated ABC transporter ATPase subunit",0.3,0.85,1.15
+Cg1764,Q8NQ75,"(sufB) [C]: uncharacterized iron-regulated ABC-type transporter",0.8,0.8,0.8
+Cg1787,P12880,"(ppc) [C]: phosphoelnolpyruvate caboxylase",0.27,0.83,1.37
+Cg1790,Q01655,"(pgk) [C]: phosphoglycerate kinase",0.55,0.85,1.3
+Cg1791,Q01651,"(gap) [C]: glyceraldehyde-3-phosphate dehydrogenase",0.27,0.4,0.97
+Cg1813,P58939,"(carB) [C]: putative carbamoyl-phosphate synthase subunit",0.55,0.75,1.3
+Cg1819,Q6M4Z6,"[C]: nucleoside-diphosphate sugar epimerase",0.8,0.95,1
+Cg1827,Q9X5D2,"(aroB) [C]: 3-Dehydroquinate synthase",0,0.45,1.35
+Cg1829,Q9X5D0,"(aroC) [C]: chorismate synthase",0.8,1.3,1.6
+Cg1855,Q8NQ07,"(hisS) [C]: Histinyl-tRNA synthase",0.7,1.1,1.65
+Cg1880,Q8NPZ0,"(thrS) [C]: threonyl-tRNA synthase",0.35,1.4,1.85
+Cg2136,P48243,"(gluA) [C]: glutamate uptakesystem ATP-binding protein",0.03,-0.4,-1.01
+Cg2137,P48242,"(gluB) [S]: glutamate secreted binding protein",-0.1,-0.35,-1.07
+Cg2138,P48244,"(gluC) [M]: glutamate permease",-0.1,-0.2,-1
+Cg2139,P48245,"(gluD) [M]: glutamate permease",0,-0.3,NA
+Cg2160,P54122,"[C]: hydrolase of metallo-β-lactamase superfamily",0.5,1.3,0.85
+Cg2166,Q8NP50,"(gpsI) [C]: Polyribonucleotide nucleotidyltransferase",0.37,1.53,2.1
+Cg2181,Q8NP35,"[S]: ABC-type peptide transport system",0.17,-0.1,-1.1
+Cg2280,P31026,"(gdh) [C]: Glutamate Dehydrogenase",0.2,1.1,1.1
+Cg2214,Q8NP06,"[C]: Predicted Fe-S-cluster redox enzyme",0.9,1.15,2.3
+Cg2217,Q8NP03,"(frr) [C]: ribosome recycling factor",1.7,3.4,1.9
+Cg2304,Q9KJU4,"(hisC) [C]: probable histidinol-phosphate aminotransferase",0.3,1.35,1.7
+Cg2361,Q8NNN8,"(divIVA) [C]: Cell division initiation protein",1.1,1.2,1.2
+Cg2363,Q8NNN6,"[C]: conserved hypothetical protein",NA,NA,NA
+Cg2366,P94337,"(ftsZ) [C]: Cell division GTPase",1.45,2.3,2.15
+Cg2403,Q79VE9,"(qcrB) [M]: cytochrome B,",-0.7,-0.47,-0.97
+Cg2404,Q79VE8,"(qcrA1) [M]:Rieske iron.sulfur protein",-0.35,-0.3,-0.85
+Cg2405,Q8NNK5,"(qcrC) [M]: cytochrome C1",-0.2,-0.5,-1.1
+Cg2586,P0C1E0,"(proA) [C]: γ-glutamyl phosphate reductase",0.9,1.2,1.57
+Cg2588,P0C1E2,"(proB) [C]: glutamate-5-kinase",NA,NA,NA
+Cg2613,Q8NN33,"(mdh) [C]: Malate Dehydrogenase",-0.5,-1.2,-1.3
+Cg2644,Q8NN02,"(clpP2) [C]: ATP-dependent CLP protease protelytic subunit ClpP2",0.45,1.4,1.35
+Cg2687,Q79VD9,"(metB) [C]: Cystathionine γ-Synthase",1.1,0.4,NA
+Cg2703,Q8NMV5,"[M]: Sugar permease",-0.2,-0.33,-1.1
+Cg2704,Q8NMV4,"[M]: ABC-type sugar transport system, permease component",-0.3,-0.3,-1.3
+Cg2705,Q8NMV3,"(amyE) [S]: maltose-binding protein",-0.35,-0.2,-0.9
+Cg2782,Q8NMP2,"(ftn) [C]: Ferritin-like protein",0.4,1.9,1.8
+Cg2796,Q8NMN3,"[C]: MMGE/PRPD family protein",2.1,1.7,1.4
+Cg2797,Q8NMN2,"[C]: conserved hypothetical protein",1.25,2.4,0.8
+Cg2833,Q8NML1,"(cysK) [C]: O-Acetylserine (Thiol)-Lyase",0.68,0.6,1.9
+Cg2840,Q8NMK4,"(actA) [C]: buryryl-CoA acetate CoA transferase",0.05,0.75,1.15
+Cg2958,Q8NMA4,"(butA) [C]: L-2,3-butanediol dehydrogenase/acetoin reductase",0.25,0.82,1.36
+Cg2963,Q8NMA0,"(clpC) [C]: probable ATP-dependent Protease (heat shock protein)",0.2,0.9,1.15
+Cg2988,Q8NM79,"(ppa) [C]: inorganic pyrophosphatase",0.5,0.75,1.4
+Cg3047,P77845,"(ackA) [C]: acetate kinase",1.13,0.87,1
+Cg3049,Q8NM28,"(fpr1) [S]: Ferredoxin--NADP(+) reductase",1.6,2.47,2.65
+Cg3118,Q8NLW9,"(cysI) [C]: Ferredoxin-sulfite reductase",NA,0.4,0.75
+Cg3119,Q8NLW8,"(fpr2) [C]: Ferredoxinn.s.NADP(+) reductase",NA,1.7,0.9
+Cg3181,Q8NLR4,"[S]: putative secreted protein",-0.2,-0.9,-1.1
+Cg3182,Q83ZP3,"(cop1) [S]: Trehalose corynomycolyl transferase",-0.3,-0.65,-1
+Cg3186,Q8NLR1,"(cmt2) [S]: Trehalose corynomycolyl transferase",-0.53,-0.78,-1.05
+Cg3195,Q8NLQ2,"[C]: Flavin-containing monooxygenase",1.03,1.18,1.43
+Cg3327,Q8NLE3,"(dps) [C]: starvation-.induced DNA protecting protein, ferritin-like",0.4,1.15,0.2
+Cg3395,Q79VC4,"(proP) [M]: proline/ ectoine carrier",0.15,3.65,4.29
+Cg3404,Q8NL74,"[S] ABC-type cobalamin/Fe3+siderophores transport system",-0.35,-0.8,-1.65

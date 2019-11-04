@@ -1,0 +1,140 @@
+Description,Gene.name.a,Gene.name.b,Entry,MW,pI,Length,condition,wt,mutant
+"Mannose-specific PTS system IIAB component manL",LMRG_02345,lmo0096,A0A0H3GCZ4,34972,5.33,321,salt,TRUE,TRUE
+"50S ribosomal protein L5",rplE,rplE,A0A0H3GFB9,19983,9.02,179,salt,TRUE,TRUE
+"50S ribosomal protein L29",rpmC,rpmC,A0A0H3GNL0,7397,9.39,63,salt,TRUE,TRUE
+"Cell cycle protein GpsB",gpsB,gpsB,A0A0H3GLE6,12875,4.57,113,salt,TRUE,TRUE
+"Phosphocarrier protein HPr",LMRG_02102,lmo1002,A0A0H3GFK1,9398,4.81,88,salt,TRUE,TRUE
+"Glycine betaine/carnitine transport ATP-binding protein GbuA",gbuA,gbuA,Q9RR46,43599,6.09,397,salt,TRUE,TRUE
+"Signal peptidase I",LMRG_00721,lmo1271,A0A0H3GC68,20863,6.62,180,salt,TRUE,TRUE
+"Signal peptidase I",LMRG_00719,lmo1269,A0A0H3GFV8,21037,5.14,188,salt,TRUE,TRUE
+"UPF0365 protein LMRG_00085",LMRG_00085,lmo0392,A0A0H3GHN5,33645,4.95,314,salt,TRUE,TRUE
+"Flagellar motor switch protein FliN",LMRG_02874,lmo0675,A0A0H3GIC3,11831,9.22,104,salt,TRUE,TRUE
+"N-acetylmuramoyl-L-alanine amidase",LMRG_02909,lmo2558,A0A0H3GKJ7,102332,9.6,917,salt,TRUE,TRUE
+Enolase,eno,eno,A0A0H3GN27,46444,4.7,430,salt,TRUE,TRUE
+"Chaperone protein DnaK",dnaK,dnaK,G2K046,66104,4.57,613,salt,TRUE,TRUE
+"Preprotein translocase SecG subunit",LMRG_01797,lmo2451,A0A0H3GEU1,8131,9.99,77,salt,TRUE,TRUE
+"ATP synthase subunit delta",atpH,atpH,A0A0H3GJ54,20260,7.79,179,salt,TRUE,TRUE
+"Site-determining protein",LMRG_01426,lmo1544,A0A0H3GKH4,29048,5.03,266,salt,TRUE,TRUE
+"Uncharacterized protein",LMRG_00801,lmo1351,A0A0H3GCF6,14852,10.07,126,salt,TRUE,TRUE
+"Uncharacterized protein",LMRG_02239,lmo2692,A0A0H3GKU4,11806,5,109,salt,TRUE,TRUE
+"Uncharacterized protein",LMRG_01475,lmo1495,A0A0H3GC78,23201,8.58,207,salt,TRUE,TRUE
+"Uncharacterized protein",LMRG_01206,lmo2056,A0A0H3GIT6,40009,6.86,351,salt,TRUE,TRUE
+"Uncharacterized protein",LMRG_01573,lmo2258,A0A0H3GMJ4,7482,4.42,63,salt,TRUE,TRUE
+"Uncharacterized protein",LMRG_00538,lmo1076,A0A0H3GBP9,64115,9.68,572,salt,TRUE,TRUE
+"Uncharacterized protein",LMRG_01583,lmo2248,A0A0H3GMI3,23889,4.68,206,salt,TRUE,TRUE
+"Uncharacterized protein",LMRG_01008,lmo1861,A0A0H3GIA4,23282,8.76,204,salt,TRUE,TRUE
+"Carnitine transport ATP-binding protein OpuCA",opuCA,opuCA,G2JZ44,45209,5.04,397,salt,TRUE,FALSE
+"Carnitine transport permease protein OpuCB",opuCB,opuCB,G2JZ43,23337,8.04,218,salt,TRUE,FALSE
+"Carnitine transport binding protein OpuCC",opuCC,opuCC,G2JZ42,34527,6.47,308,salt,TRUE,FALSE
+"Carnitine transport permease protein OpuCD",opuCD,opuCD,G2JZ41,23967,9.77,223,salt,TRUE,FALSE
+"Uncharacterized protein (lmo1422, similar to glycine betaine/carnitine/choline ABC transporter (membrane protein)",LMRG_00874,lmo1422,A0A0H3GGS7,55661,6.88,504,salt,TRUE,FALSE
+"MIT family metal ion transporter",LMRG_00526,lmo1064,A0A0H3GFC2,36544,4.93,314,salt,TRUE,FALSE
+"ABC transporter",LMRG_00290,lmo0607,A0A0H3GE09,63775,5.68,574,salt,TRUE,FALSE
+"MscS family small conductance mechanosensitive ion channel",LMRG_02113,lmo1013,A0A0H3GBK1,32670,5.85,293,salt,TRUE,FALSE
+"D-methionine transport system permease",LMRG_02588,lmo0283,A0A0H3G902,24001,9.39,220,salt,TRUE,FALSE
+"Divalent metal cation transporter MntH",mntH,mntH,A0A0H3GK75,48591,9.34,448,salt,TRUE,FALSE
+"Protein translocase subunit SecA 2",secA2,secA2,G2K3V6,89391,5.9,776,salt,TRUE,FALSE
+"Protein translocase subunit SecY",secY,secY,A0A0H3GKN5,46830,9.92,431,salt,TRUE,FALSE
+"Methionine import ATP-binding protein MetN",metN,metN,A0A0H3GD63,36956,5.97,338,salt,TRUE,FALSE
+"Mannose-specific PTS system IID component",LMRG_00469,lmo0781,A0A0H3GAW9,31761,8.42,292,salt,TRUE,FALSE
+"Mannose-specific PTS system IIC component",LMRG_02346,lmo0097,A0A0H3G8Z8,27349,4.79,268,salt,TRUE,FALSE
+"Permease IIC component",LMRG_02229,lmo2684,A0A0H3GNS6,46244,6.85,435,salt,TRUE,FALSE
+"50S ribosomal protein L24",rplX,rplX,A0A0H3GJE2,11172,10.04,103,salt,TRUE,FALSE
+"Sigma-54 modulation protein",LMRG_01737,lmo2511,A0A0H3GEZ8,21620,5.25,187,salt,TRUE,FALSE
+"Sensor histidine kinase",LMRG_00830,lmo1378,A0A0H3GBY4,55425,5.29,483,salt,TRUE,FALSE
+"Sensor histidine kinase ResE",LMRG_01094,lmo1947,A0A0H3GE39,66688,5.02,596,salt,TRUE,FALSE
+"Glycerol kinase",glpK,glpK,A0A0H3GCV9,55428,4.96,497,salt,TRUE,FALSE
+"Iron complex transport system ATP-binding protein",LMRG_01107,lmo1960,A0A0H3GHL0,30330,6.07,274,salt,TRUE,FALSE
+"Sodium transport system ATP-binding protein",LMRG_02801,lmo2139,A0A0H3GEL0,33465,6.22,300,salt,TRUE,FALSE
+"Putative heme-dependent peroxidase",LMRG_01267,lmo2113,A0A0H3GJ15,28833,5.03,251,salt,TRUE,FALSE
+"tRNA modification GTPase MnmE",mnmE,mnmE,A0A0H3GGM7,50382,4.59,457,salt,TRUE,FALSE
+"Isoprenyl transferase",LMRG_00765,lmo1315,A0A0H3GGI5,29029,5.18,252,salt,TRUE,FALSE
+Esterase/lipase,LMRG_01240,lmo2089,A0A0H3GDU3,38460,6.18,347,salt,TRUE,FALSE
+"Late competence protein ComEC",LMRG_02949,lmo0945,A0A0H3GJ16,41186,4.9,376,salt,TRUE,FALSE
+"Protein RecA",recA,recA,G2JZ14,37971,5.09,348,salt,TRUE,FALSE
+"Ribonucleoside-diphosphate reductase",LMRG_01677,lmo2155,A0A0H3GI40,87340,5.6,763,salt,TRUE,FALSE
+"UvrABC system protein A",uvrA,uvrA,A0A0H3GKC7,106365,6.19,956,salt,TRUE,FALSE
+"Cell division protein DivIB",divIB,divIB,A0A0H3GLV3,30478,8.68,270,salt,TRUE,FALSE
+"DEAD-box ATP-dependent RNA helicase CshA",cshA,cshA,A0A0H3GAJ1,57274,9.38,520,salt,TRUE,FALSE
+"3-oxoacyl-[acyl-carrier-protein] synthase 3",fabH,fabH,C0LNR0,33949,5.06,312,salt,TRUE,FALSE
+"Membrane protein",LMRG_02021,lmo0921,A0A0H3GFC1,31936,5.89,279,salt,TRUE,FALSE
+"Uncharacterized protein",LMRG_01785,lmo2463,A0A0H3GKA0,81275,8.99,744,salt,TRUE,FALSE
+"Uncharacterized protein",LMRG_00710,lmo1261,A0A0H3GC59,42306,9.42,379,salt,TRUE,FALSE
+"Uncharacterized protein",LMRG_01444,lmo1526,A0A0H3GGH5,12701,9.39,114,salt,TRUE,FALSE
+"Uncharacterized protein",LMRG_01383,lmo1584,A0A0H3GKL6,20554,8.92,178,salt,TRUE,FALSE
+"Uncharacterized protein",LMRG_01869,lmo2829,A0A0H3GJY5,22196,4.7,199,salt,TRUE,FALSE
+"Uncharacterized protein",LMRG_01746,lmo2502,A0A0H3GJ28,44104,8.99,391,salt,TRUE,FALSE
+"Uncharacterized protein",LMRG_02081,lmo0981,A0A0H3GF40,53271,8.65,491,salt,TRUE,FALSE
+"Fructose-specific PTS system IIB component",LMRG_00119,lmo0427,A0A0H3GDY0,11370,9.04,106,salt,FALSE,TRUE
+"Mannose-specific PTS system IIB component",LMRG_01150,lmo2002,A0A0H3GIL9,17243,5.95,155,salt,FALSE,TRUE
+"Multiple sugar transport system substrate-binding protein",LMRG_02282,lmo0859,A0A0H3GB42,48920,4.65,439,salt,FALSE,TRUE
+"Galactitol-specific PTS system IIC component",LMRG_02210,lmo2665,A0A0H3GFG8,45543,8.74,423,salt,FALSE,TRUE
+"50S ribosomal protein L27",rpmA,rpmA,A0A0H3GCB5,10544,10.05,96,salt,FALSE,TRUE
+"Uncharacterized protein",LMRG_01340,lmo1626,A0A0H3GGN8,15782,10.23,145,salt,FALSE,TRUE
+"Iron complex transport system substrate-binding protein",LMRG_00535,lmo1073,A0A0H3GB26,32717,5.15,299,"no salt",TRUE,TRUE
+"ATP synthase subunit alpha",atpA,lmo2531,A0A0H3GCK4,55087,5.33,504,"no salt",TRUE,TRUE
+"Bifunctional preprotein translocase subunit SecD/SecF",LMRG_01443,lmo1527,A0A0H3GH33,82615,9.35,754,"no salt",TRUE,TRUE
+"Phosphate import ATP-binding protein PstB",pstB,lmo2496,A0A0H3GEY3,30408,6.25,271,"no salt",TRUE,TRUE
+"Pyruvate dehydrogenase E1 component",LMRG_00514,lmo1052,A0A0H3GJB7,41267,6.05,371,"no salt",TRUE,TRUE
+"Pyruvate dehydrogenase E1 component subunit beta",LMRG_00515,lmo1053,A0A0H3GB08,35310,4.79,325,"no salt",TRUE,TRUE
+"Pyruvate dehydrogenase E2 component",LMRG_00516,lmo1054,A0A0H3GFB2,58208,4.76,544,"no salt",TRUE,TRUE
+"Dihydrolipoyl dehydrogenase",LMRG_00517,lmo1055,A0A0H3GFQ3,49488,5.24,467,"no salt",TRUE,TRUE
+"HlyD family secretion protein",LMRG_02615,lmo0193,A0A0H3G981,24469,5.64,225,"no salt",TRUE,TRUE
+Flagellin,LMRG_00378,lmo0690,A0A0H3GID7,30444,4.91,287,"no salt",TRUE,TRUE
+"Large-conductance mechanosensitive channel",mscL,lmo2064,A0A0H3GDR6,14225,6.29,128,"no salt",TRUE,TRUE
+"Rod shape-determining protein mreB SV=1",LMRG_01422,lmo1548,A0A0H3GCW9,35503,5.16,337,"no salt",TRUE,TRUE
+"Cell division protein FtsX",LMRG_01742,lmo2506,A0A0H3GEZ3,34817,9.24,308,"no salt",TRUE,TRUE
+Lipoprotein,LMRG_02586,lmo0285,A0A0H3GDK3,29811,5.04,273,"no salt",TRUE,TRUE
+"LysM domain-containing protein",LMRG_01088,lmo1941,A0A0H3GIH2,25836,5.81,239,"no salt",TRUE,TRUE
+"Secreted protein",LMRG_01983,lmo2713,A0A0H3GKW5,35001,9.9,312,"no salt",TRUE,TRUE
+"50S ribosomal protein L13",rplM,lmo2597,A0A0H3GKM6,16200,9.78,145,"no salt",TRUE,TRUE
+"50S ribosomal protein L16",rplP,lmo2625,A0A0H3GFC5,16138,10.54,144,"no salt",TRUE,TRUE
+"50S ribosomal protein L1",rplA,lmo0249,A0A0H3G9H4,24546,9.32,229,"no salt",TRUE,TRUE
+"50S ribosomal protein L4",rplD,lmo2631,A0A0H3GJF3,22603,10.03,207,"no salt",TRUE,TRUE
+"50S ribosomal protein L2",rplB,lmo2629,A0A0H3GNL3,30505,10.54,277,"no salt",TRUE,TRUE
+"50S ribosomal protein L19",rplS,lmo1787,A0A0H3GDI8,13117,11.41,114,"no salt",TRUE,TRUE
+"50S ribosomal protein L20",rplT,lmo1783,A0A0H3GL28,13687,10.99,119,"no salt",TRUE,TRUE
+"30S ribosomal protein S3",rpsC,lmo2626,A0A0H3GJE8,24542,9.74,218,"no salt",TRUE,TRUE
+"30S ribosomal protein S13",rpsM,lmo2608,A0A0H3GFY0,13709,10.51,121,"no salt",TRUE,TRUE
+"30S ribosomal protein S12",rpsL,lmo2656,A0A0H3GJH5,15212,11.36,137,"no salt",TRUE,TRUE
+"30S ribosomal protein S10",rpsJ,lmo2633,A0A0H3GG09,14337,9.94,125,"no salt",TRUE,TRUE
+"30S ribosomal protein S2",rpsB,lmo1658,A0A0H3GHH8,28375,5.86,249,"no salt",TRUE,TRUE
+Autolysin,LMRG_02238,lmo2691,A0A0H3GJK8,63574,9.73,590,"no salt",TRUE,TRUE
+"Cytochrome aa3 quinol oxidase subunit I",LMRG_02443,lmo0014,A0A0H3GGN2,74900,8.82,659,"no salt",TRUE,TRUE
+"Competence protein ComEC",LMRG_02600,lmo0275,A0A0H3GDJ0,30027,10.08,280,"no salt",TRUE,TRUE
+"UPF0145 protein LMRG_02630",LMRG_02630,lmo0208,A0A0H3G994,11992,4.41,110,"no salt",TRUE,TRUE
+"Uncharacterized protein",LMRG_01647,lmo2185,A0A0H3GI62,63394,6.44,569,"no salt",TRUE,TRUE
+"Uncharacterized protein",LMRG_02716,lmo2371,A0A0H3GIR3,40328,6.34,367,"no salt",TRUE,TRUE
+"Uncharacterized protein",LMRG_01365,lmo1602,A0A0H3GD11,16094,6.32,151,"no salt",TRUE,TRUE
+"ABC-2 type transport system permease",LMRG_01329,lmo1637,A0A0H3GHE6,38626,5.58,355,"no salt",TRUE,FALSE
+"Molybdate ABC transporter periplasmic molybdate-binding protein",LMRG_00502,lmo1041,A0A0H3GBM1,27867,5.1,256,"no salt",TRUE,FALSE
+"Polar amino acid transport system substrate-binding protein",LMRG_02533,lmo1738,A0A0H3GKX3,30781,5.05,271,"no salt",TRUE,FALSE
+Lipoprotein,LMRG_00058,lmo0366,A0A0H3G9T8,42917,4.8,384,"no salt",TRUE,FALSE
+"Simple sugar transport system permease",LMRG_00843,lmo1391,A0A0H3GCJ3,33812,9.04,316,"no salt",TRUE,FALSE
+"Glycerol-3-phosphate acyltransferase",plsY,lmo1284,A0A0H3GFY8,21539,10.12,198,"no salt",TRUE,FALSE
+"CvpA family protein",LMRG_00676,lmo1230,A0A0H3GBG0,20191,4.94,180,"no salt",TRUE,FALSE
+"CDP-diacylglycerol-glycerol-3-phosphate 3-phosphatidyltransferase",LMRG_00848,lmo1396,A0A0H3GCJ7,21463,8.6,192,"no salt",TRUE,FALSE
+"Phosphoribosyl-AMP cyclohydrolase",hisI,lmo0562,A0A0H3GDW2,12045,6.06,105,"no salt",TRUE,FALSE
+"Ribonuclease Y",rny,lmo1399,G2JZ15,58318,5.34,520,"no salt",TRUE,FALSE
+"N-acetylmuramoyl-L-alanine amidase",LMRG_01449,lmo1521,A0A0H3GGH0,46085,5.53,427,"no salt",TRUE,FALSE
+"DEAD-box ATP-dependent RNA helicase CshB",cshB,lmo1450,A0A0H3GGC0,49651,9.78,435,"no salt",TRUE,FALSE
+"Fructose-1,6-bisphosphate aldolase class II",LMRG_01691,"lmo2556 (fbaA)",A0A0H3GF41,30067,5.2,284,"no salt",TRUE,FALSE
+"DNA-directed RNA polymerase subunit alpha",rpoA,lmo2606,A0A0H3GJC8,34906,4.8,314,"no salt",TRUE,FALSE
+"Transcriptional regulator",LMRG_00458,lmo0770,A0A0H3GEX9,41398,5.8,372,"no salt",TRUE,FALSE
+"Zinc metalloprotease",LMRG_00768,lmo1318,A0A0H3GBT6,46717,5.2,420,"no salt",TRUE,FALSE
+"Bacteriocin transport accessory protein",LMRG_01050,lmo1903,A0A0H3GLF8,17618,7.6,157,"no salt",TRUE,FALSE
+"Phosphate regulon sensor histidine kinase PhoR",LMRG_01748,lmo2500,A0A0H3GN74,66239,5.05,591,"no salt",TRUE,FALSE
+"Diadenylate cyclase",dacA,lmo2120,A0A0H3GM48,30445,7.9,273,"no salt",TRUE,FALSE
+"30S ribosomal protein S15",rpsO,"lmo1330 (rpsO)",A0A0H3GGJ8,10631,10.21,89,"no salt",TRUE,FALSE
+"50S ribosomal protein L28",rpmB,"lmo1816 (rpmB)",A0A0H3GDP8,6991,11.91,62,"no salt",TRUE,FALSE
+"30S ribosomal protein S9",rpsI,lmo2596,A0A0H3GJC0,14372,10.67,130,"no salt",TRUE,FALSE
+"50S ribosomal protein L10",rplJ,lmo0250,A0A0H3GHB6,17693,5.36,166,"no salt",TRUE,FALSE
+"50S ribosomal protein L22",rplV,"lmo2627 (rplV)",A0A0H3GKP7,12874,9.99,118,"no salt",TRUE,FALSE
+"50S ribosomal protein L3",rplC,"lmo2632 (rplC)",A0A0H3GKP9,22825,9.82,209,"no salt",TRUE,FALSE
+"Glutamyl-tRNA(Gln) amidotransferase subunit A",gatA,lmo1755,A0A0H3GH17,52380,4.92,483,"no salt",TRUE,FALSE
+"1,4-dihydroxy-2-naphthoate octaprenyltransferase",LMRG_02180,lmo2635,A0A0H3GFD6,36215,8.26,319,"no salt",TRUE,FALSE
+"UPF0316 protein",LMRG_02495,lmo1776,A0A0H3GHY3,19720,9.07,174,"no salt",TRUE,FALSE
+"Uncharacterized protein",LMRG_02572,lmo0296,A0A0H3GDL5,23561,9.52,212,"no salt",TRUE,FALSE
+"D-alanine transfer protein",LMRG_02070,lmo0971,A0A0H3GAT9,48535,8.97,424,"no salt",TRUE,FALSE
+"ABC transporter",LMRG_01224,lmo2073,A0A0H3GLZ4,74388,5.11,650,"no salt",FALSE,TRUE
+"Chaperone protein ClpB",LMRG_01626,lmo2206,G2K265,97563,4.98,866,"no salt",FALSE,TRUE
