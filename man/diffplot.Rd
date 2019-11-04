@@ -3,13 +3,13 @@
 \alias{diffplot}
 \title{Plot Compositional Differences}
 \description{
-  Make a plot showing differences and \emph{p}-values.
+  Make a plot showing differences of selected compositional metrics.
 }
 
 \usage{
-  diffplot(comptab, vars = c("ZC", "nH2O"), col = "black",
-           plot.rect = FALSE, pt.text = c(letters, LETTERS),
-           oldstyle = TRUE)
+  diffplot(comptab, vars = c("ZC", "nH2O"), col = "black", plot.rect = FALSE,
+           pt.text = c(letters, LETTERS), cex.text = 0.9, oldstyle = TRUE,
+           pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"))
 }
 
 \arguments{
@@ -18,29 +18,41 @@
   \item{col}{the color(s) for points}
   \item{plot.rect}{plot a reference rectangle?}
   \item{pt.text}{text labels for the points}
-  \item{oldstyle}{logical, use old style plot?}
+  \item{cex.text}{size of text labels}
+  \item{oldstyle}{use old style plot?}
+  \item{pch}{point symbol}
+  \item{cex}{point size}
+  \item{contour}{add contour lines?}
+  \item{col.contour}{color of contour lines}
 }
 
 \details{
 
 A plot is created with points showing the differences in medians or means of two compositional metrics.
-The default setting of \code{vars} refers to average oxidation state of carbon (\ZC) as the x-variable and water demand per residue in formation reactions from basis species (\nH2O) as the y-variable.
-
-For each dataset, the point symbol is a filled square if the \emph{p}-values of both the x-variable and y-variable are less than 0.05, a filled circle if the \emph{p}-value of one of the x- or y-variables is less than 0.05, and an open circle otherwise.
-
-A solid line is drawn from the point to the corresponding axis if the rounded, absolute value of (\code{\link{CLES}} in percent - 50) of the x- or y-variable is greater than or equal 10.
-Otherwise, a dashed line is drawn from the point to the corresponding axis if the \emph{p}-value of the x- or y-variable is less than 0.05.
-Otherwise, no line is drawn.
+The default setting of \code{vars} refers to average oxidation state of carbon (\ZC) as the x-variable and stoichiometric hydration state (\nH2O) as the y-variable.
 
 The colors of the points are controlled by \code{col}, which is recycled to be equal to the number of comparisons in \code{comptab}.
 
 If \code{plot.rect} is TRUE, a shaded \code{\link{rect}}angle is drawn with coordinates -0.01, -0.01, 0.01, 0.01.
 This is useful for emphasizing the different scales of adjacent plots.
 
-If \code{pt.text} is not NA or FALSE, the points are plotted in a bigger size and \code{\link{text}} labels are added.
+If \code{pt.text} is not NA or FALSE, \code{\link{text}} labels are added with size controlled by \code{cex.text}.
 The default value produces labels that are taken sequentially from 26 lowercase Roman letters in alphabetical order (\code{\link{letters}}), followed by the set of uppercase letters (\code{\link{LETTERS}}).
 
-Set \code{oldstyle} to FALSE to remove the drop lines and add contours for a 2-D kernel density estimate (\code{\link[MASS]{kde2d}}).
+}
+
+\section{oldstyle = FALSE}{
+Use \code{pch} and \code{cex} to control the point symbol and size.
+Contours are added for a 2-D kernel density estimate (\code{\link[MASS]{kde2d}}), with color of contour lines set by \code{col.contour}.
+\code{contour} can be a logical vector, indicating which points to include; set it to FALSE to omit the contour lines.
+}
+
+\section{oldstyle = TRUE}{
+For each dataset, the point symbol is a filled square if the \emph{p}-values of both the x-variable and y-variable are less than 0.05, a filled circle if the \emph{p}-value of one of the x- or y-variables is less than 0.05, and an open circle otherwise.
+
+A solid line is drawn from the point to the corresponding axis if the rounded, absolute value of (\code{\link{CLES}} in percent - 50) of the x- or y-variable is greater than or equal 10.
+Otherwise, a dashed line is drawn from the point to the corresponding axis if the \emph{p}-value of the x- or y-variable is less than 0.05.
+Otherwise, no line is drawn.
 }
 
 \examples{

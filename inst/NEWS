@@ -3,7 +3,7 @@ CHANGES IN canprot 0.1.2-2 (2019-10-28)
 
 - Updated plot style in diffplot() shows contours from kernel density
   estimate and eliminates drop lines for 'significant' differences. Use
-  'oldstyle = TRUE' to revert to the older style (default for now).
+  'oldstyle = TRUE' to revert to the older style (still the default for now).
 
 - Add functions for calculating compositional metrics: ZCAA(), H2OAA(),
   GRAVY(), pI(). GRAVY and pI are available for calculation with
