@@ -8,7 +8,7 @@
 
 \usage{
   protcomp(uniprot = NULL, ip = NULL, basis = "QEC",
-           aa_file = NULL, updates_file = NULL)
+           aa_file = NULL)
 }
 
 \arguments{
@@ -16,7 +16,6 @@
   \item{ip}{numeric, indices of active proteins in CHNOSZ}
   \item{basis}{character, keyword for basis species to use}
   \item{aa_file}{character, file name}
-  \item{updates_file}{character, file name}
 }
 
 \details{
@@ -27,7 +26,6 @@ Another option is \samp{rQEC}, which is like the \samp{QEC} basis, except that t
 
 This function depends on the amino acid compositions of human proteins, which are stored in the \code{\link{canprot}} environment when the package is attached.
 If \code{aa_file} is specified, additional amino acid compositions to be considered are read from this file, which should be in the same format as e.g. \code{\link{human_extra}.csv} (see also \code{\link[CHNOSZ]{thermo}$protein}).
-If \code{updates_file} is specified, these ID mappings are included alongside the packaged \code{\link{uniprot_updates}}.
 }
 
 \value{

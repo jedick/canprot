@@ -67,12 +67,12 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat <- dat[!is.na(dat[, icol[1]]), ]
     # list the known UniProt IDs and take the first (non-NA) match
     knownIDs <- check_ID(dat$Protein.IDs)
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
+    dat$Protein.IDs <- sapply(sapply(knownIDs, na.omit), "[", 1)
     # drop proteins with unavailable IDs
-    dat <- remove_entries(dat, is.na(ID), dataset, "unavailable")
-    ID <- ID[!is.na(ID)]
+    dat <- remove_entries(dat, is.na(dat$Protein.IDs), dataset, "unavailable")
     up2 <- dat[, icol[1]] < 0
-    pcomp <- protcomp(ID, basis=basis)
+    dat <- update_IDs(dat, "Protein.IDs")
+    pcomp <- protcomp(dat$Protein.IDs, basis=basis)
   } else if(study=="HXS+06") {
     # 20160415 leukemic U937 cells, Han et al., 2006
     dat <- read.csv(paste0(datadir, "HXS+06.csv.xz"), as.is=TRUE)
@@ -101,6 +101,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # drop unavailable proteins
     knownIDs <- check_ID(dat$Accession)
     dat <- remove_entries(dat, is.na(unlist(knownIDs)), dataset, "unavailable")
+    dat <- update_IDs(dat, "Accession")
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat[, icol[1]] > 1
   } else if(study=="BMJ+11") {
@@ -130,6 +131,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     description <- "U87MG and 786-O"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
     up2 <- dat$Hypoxia.Heavy - dat$Normoxia.Heavy > 0
+    dat <- update_IDs(dat, "Uniprot.Accession")
     pcomp <- protcomp(dat$Uniprot.Accession, basis=basis)
   } else if(study=="RKP+14") {
     # 20160718 organotypic spheroids, Rajcevic et al., 2014
@@ -145,6 +147,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat <- remove_entries(dat, dat$UniProt.Accession=="Q6U2F8", dataset, "duplicated")
     dat$Overall.Fold.Change[dat$Overall.Fold.Change=="unique (SPH)"] <- Inf
     dat$Overall.Fold.Change[dat$Overall.Fold.Change=="unique (CRC)"] <- -Inf
+    dat <- update_IDs(dat, "UniProt.Accession")
     pcomp <- protcomp(dat$UniProt.Accession, basis=basis)
     up2 <- dat$Overall.Fold.Change > 0
   } else if(study=="CBW+11") {
@@ -159,6 +162,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # remove "-1" suffix for isoform 1
     dat$UniProt <- gsub("-1", "", dat$UniProt)
     up2 <- dat$Be2c > 1
+    dat <- update_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="WRK+14") {
     # 20160721 3D spheroids / 2D culture, Wrzesinski et al., 2014
@@ -168,6 +172,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # select highly changed proteins
     dat <- dat[!is.na(dat$log2.fold.change), ]
     dat <- dat[abs(dat$log2.fold.change) > 1, ]
+    dat <- update_IDs(dat, "Entry")
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$log2.fold.change > 0
   } else if(study=="DPL+10") {
@@ -222,6 +227,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # keep significantly changed proteins based on p-value and ratio
     if(!grepl("-P", stage)) dat <- dat[dat[, icol[2]] < 0.05, ]
     dat <- dat[dat[, icol[1]] > sqrt(2) | dat[, icol[1]] < 1/sqrt(2), ]
+    dat <- update_IDs(dat, "Accession")
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat[, icol[1]] > 1
   } else if(study=="RSE+16") {
@@ -245,6 +251,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     knownIDs <- check_ID(dat$Uniprot)
     ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
     dat$Uniprot <- ID
+    dat <- update_IDs(dat, "Uniprot")
     pcomp <- protcomp(dat$Uniprot, basis=basis)
     up2 <- dat$Ratio.H.L.Normalized > 1.2
   } else if(study=="BRA+10") {
@@ -252,8 +259,9 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "BRA+10.csv.xz"), as.is=TRUE)
     description <- "placental secretome"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
-    uniprot <- sapply(strsplit(dat$UniProt.accession, "|", fixed=TRUE), "[", 2)
-    pcomp <- protcomp(uniprot, basis=basis)
+    dat$UniProt.accession <- sapply(strsplit(dat$UniProt.accession, "|", fixed=TRUE), "[", 2)
+    dat <- update_IDs(dat, "UniProt.accession")
+    pcomp <- protcomp(dat$UniProt.accession, basis=basis)
     up2 <- dat$Fold.change > 0
   } else if(study=="LAR+12") {
     # 20160826 rat heart ischemia, Li et al., 2012
@@ -273,6 +281,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     knownIDs <- check_ID(dat$ProteinID)
     ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
     dat$ProteinID <- ID
+    dat <- update_IDs(dat, "ProteinID")
     pcomp <- protcomp(dat$ProteinID, basis=basis)
     up2 <- dat$Log2Rep1 > 0
   } else if(study=="XCJ+16") {

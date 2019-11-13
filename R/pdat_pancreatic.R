@@ -42,6 +42,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "ISI+14.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
+    dat <- update_IDs(dat, "Protein.accesion.number")
     pcomp <- protcomp(dat$Protein.accesion.number, basis=basis)
     up2 <- dat$Simple.ratio > 1
   } else if(study=="MLC+11") {
@@ -61,6 +62,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- remove_entries(dat, iambi, dataset, "ambiguous")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
+    dat <- update_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$Regulated == "up"
   } else if(study=="PCS+11") {
@@ -125,6 +127,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "KBK+12.csv.xz"), as.is=TRUE)
     description <- "FFPE T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
+    dat <- update_IDs(dat, "Sequence.Id")
     pcomp <- protcomp(dat$Sequence.Id, basis=basis)
     up2 <- !(grepl("-", dat$Fold.Change..PDAC.Control.) | grepl("Adjacent", dat$Fold.Change..PDAC.Control.))
   } else if(study=="ZNWL13") {
@@ -189,6 +192,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # drop missing proteins
     dat <- remove_entries(dat, dat$Acc.no.=="", dataset, "missing")
+    dat <- update_IDs(dat, "Acc.no.")
     pcomp <- protcomp(dat$Acc.no., basis=basis)
     up2 <- dat$Higher.in == "cancer"
   } else if(study=="PKB+13") {
@@ -201,6 +205,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # keep only proteins for the indicated comparison
     dat <- dat[dat$Cohort %in% c(stage, "PC"), ]
+    dat <- update_IDs(dat, "UniProt.ID")
     pcomp <- protcomp(dat$UniProt.ID, basis=basis)
     up2 <- dat$Cohort == "PC"
   } else if(study=="TMW+11") {

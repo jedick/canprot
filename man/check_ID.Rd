@@ -20,9 +20,9 @@ Do the IDs correspond to known UniProt IDs?
 \code{check_ID} is used to check candidate \code{ID}s supplied in a character or list object.
 Multiple IDs can be separated by a semicolon.
 \dQuote{Known} IDs are those that are present in the \code{\link{human_aa}} dataset of amino acid compositions.
+Known IDs also include old UniProt IDs that are mapped to new UniProt IDs in \code{\link{uniprot_updates}} and in \code{updates_file} if specified.
 
 If \code{aa_file} is specified, additional amino acid compositions to be considered are read from this file, which should be in the same format as e.g. \code{\link{human_extra}.csv} (see also \code{\link[CHNOSZ]{thermo}$protein}).
-If \code{updates_file} is specified, these ID mappings are included alongside the packaged \code{\link{uniprot_updates}}.
 }
 
 \value{
@@ -31,7 +31,7 @@ The function returns the IDs in a list (dropping the semicolons, but reflecting 
 
 \examples{
 # the function replaces the 3 non-existent IDs with NA
-check_ID(c("P61247;PXXXXXX", "PYYYYYY;P46777;P60174", "PZZZZZZ"))
+check_ID(c("P61247;PXXXXX", "PYYYYY;P46777;P60174", "PZZZZZ"))
 }
 
 \concept{Amino acid composition}

@@ -2,7 +2,7 @@
 # function to read protein data and calculate compositional parameters
 # 20160705 jmd
 
-protcomp <- function(uniprot=NULL, ip=NULL, basis="QEC", aa_file=NULL, updates_file=NULL) {
+protcomp <- function(uniprot=NULL, ip=NULL, basis="QEC", aa_file=NULL) {
   if(is.null(ip)) {
     # get amino acid compositions of human proteins
     aa <- get("human_aa", canprot)
@@ -15,24 +15,6 @@ protcomp <- function(uniprot=NULL, ip=NULL, basis="QEC", aa_file=NULL, updates_f
     if(is.null(uniprot)) {
       stop("'uniprot' is NULL")
     } else {
-      # convert old to new uniprot IDs
-      updates <- get("uniprot_updates", canprot)
-      # include updates from external file if specified
-      if(!is.null(updates_file)) {
-        updates_dat <- read.csv(updates_file, as.is=TRUE)
-        updates <- rbind(updates_dat, updates)
-      }
-      iold <- match(uniprot, updates$old)
-      if(any(!is.na(iold))) {
-        oldIDs <- updates$old[na.omit(iold)]
-        newIDs <- updates$new[na.omit(iold)]
-        print(paste("protcomp: updating", sum(!is.na(iold)), "old UniProt IDs:", paste(oldIDs, collapse=" ")))
-        # check if new IDs are duplicated
-        idup <- newIDs %in% uniprot
-        if(any(idup)) print(paste("protcomp: new IDs in updates",
-          paste(oldIDs[idup], newIDs[idup], sep="->", collapse=" "), "are duplicated in dataset"))
-        uniprot[!is.na(iold)] <- newIDs
-      }
       # find the proteins listed in 'uniprot' - first look at the ID after the | separator
       alluni <- sapply(strsplit(aa$protein, "|", fixed=TRUE), "[", 2)
       # if that is NA (i.e. no | separator is present) use the entire string

@@ -53,7 +53,7 @@ A list consisting of \code{dataset} (the name of the dataset), \code{basis} (bas
 }
 
 \references{
-Dick, J. M., Tan, J. and Yu, M. (2019) Geochemistry of metagenomes: Distinct compositional signatures of environmental redox and salinity gradients. \emph{(preprint)}
+Dick, J. M., Tan, J. and Yu, M. (2019) Geochemistry of metagenomes: Redox and salinity gradients and the chemical compositions of proteins. \emph{(preprint)}
 }
 
 \examples{

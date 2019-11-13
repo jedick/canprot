@@ -82,6 +82,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     dat <- remove_entries(dat, 1:nrow(dat) %in% idrop, dataset, "conflicting")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Swiss.prot.No.), dataset, "duplicated")
+    dat <- update_IDs(dat, "Swiss.prot.No.")
     pcomp <- protcomp(dat$Swiss.prot.No., basis=basis)
     up2 <- dat[, icol[1]] > 0
   } else if(study=="CCCC13") {
@@ -105,6 +106,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     dat <- remove_entries(dat, 1:nrow(dat) %in% idrop, dataset, "conflicting")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Swiss.prot.No.), dataset, "duplicated")
+    dat <- update_IDs(dat, "Swiss.prot.No.")
     pcomp <- protcomp(dat$Swiss.prot.No., basis=basis)
     up2 <- dat[, icol[1]] > 0
   } else if(study=="CLG+15") {
@@ -133,6 +135,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "OBBH11.csv.xz"), as.is=TRUE)
     description <- "adipose-derived stem cells"
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
+    dat <- update_IDs(dat, "Uniprot.Protein.Code")
     pcomp <- protcomp(dat$Uniprot.Protein.Code, basis=basis)
     up2 <- dat$Elucidator.Expression.Ratio..Treated.Control. > 1
   } else if(study=="YDZ+15") {
@@ -152,6 +155,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use the first UniProt ID, without isoform suffix
     dat$Uniprot <- substr(dat$Uniprot, 1, 6)
+    dat <- update_IDs(dat, "Uniprot")
     pcomp <- protcomp(dat$Uniprot, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/WCM+09_aa.csv"))
     up2 <- dat$X.24h.GLUCOSE.Control > 1
   } else if(study=="GSC14") {

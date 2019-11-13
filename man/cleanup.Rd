@@ -21,6 +21,10 @@
 \code{dat} excluding any proteins with unavailable or duplicated IDs, or ambiguous expression ratios (up and down for the same ID).
 }
 
+\seealso{
+\code{\link{update_IDs}}
+}
+
 \examples{
 # cleanup() used in a data analysis workflow
 # here, it removes 2 unavailable and 1 duplicated protein

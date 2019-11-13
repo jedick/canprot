@@ -60,7 +60,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/LRB+09_aa.csv"))
   } else if(study=="LLYL17") {
     # 20191102 Tetragenococcus halophilus NaCl adjustment, Lin et al., 2017
-    # LLYL_0, LLYL_3.5
+    # LLYL17_0, LLYL17_3.5
     dat <- read.csv(file.path(datadir, "LLYL17.csv.xz"), as.is=TRUE)
     if(stage=="0") description <- "Tetragenococcus halophilus 1 M / 0 M NaCl"
     if(stage=="3.5") description <- "Tetragenococcus halophilus 3.5 M / 1 M NaCl"
@@ -108,7 +108,8 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     # keep proteins that have same expression in at least 3 out of 4 time points
     dat <- dat[abs(dat$diff) >= 2, ]
     up2 <- dat$diff > 0
-    # remove duplicated IDs
+    # update IDs / remove duplicated IDs
+    dat <- update_IDs(dat, "UniProtKB")
     dat <- cleanup(dat, "UniProtKB", dataset, up2)
     pcomp <- protcomp(dat$UniProtKB, basis=basis, aa_file=file.path(extdatadir, "aa/bacteria/HMO+10_aa.csv"))
   } else stop(paste("osmotic2 dataset", dataset, "not available"))

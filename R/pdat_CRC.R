@@ -60,6 +60,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # remove duplicated IDs
     dat <- remove_entries(dat, duplicated(dat$uniprot), dataset, "duplicated")
+    dat <- update_IDs(dat, "uniprot")
     pcomp <- protcomp(dat$uniprot, basis=basis)
     up2 <- dat$log2_fold > 0
     names <- dat$Gene
@@ -95,6 +96,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat$Majority.protein.IDs <- ID
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Majority.protein.IDs), dataset, "duplicated")
+    dat <- update_IDs(dat, "Majority.protein.IDs")
     pcomp <- protcomp(dat$Majority.protein.IDs, basis=basis)
     up2 <- dat[, irat] > 0
   } else if(study=="WOD+12") {
@@ -111,6 +113,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat$Uniprot <- ID
     # drop duplicated UniProt IDs
     dat <- remove_entries(dat, duplicated(dat$Uniprot), dataset, "duplicated")
+    dat <- update_IDs(dat, "Uniprot")
     pcomp <- protcomp(dat$Uniprot, basis=basis)
     up2 <- dat$Median.Ratio.C.N > 1
   } else if(study=="JCF+11") {
@@ -139,6 +142,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat$UniProt <- ID
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
+    dat <- update_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat[, icol] > 0
     names <- dat$Gene.Symbol
@@ -170,6 +174,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat$UniProt <- ID
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
+    dat <- update_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$protein.ratio..G.P. < 1
   } else if(study=="WKP+14") {
@@ -202,6 +207,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat$UniProt <- ID
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
+    dat <- update_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$Ratio..cancer.normal. > 1
   } else if(study=="MRK+11") {
@@ -226,6 +232,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat$Swiss.ID <- ID
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Swiss.ID), dataset, "duplicated")
+    dat <- update_IDs(dat, "Swiss.ID")
     pcomp <- protcomp(dat$Swiss.ID, basis=basis)
     up2 <- dat[, iFC] > 1
   } else if(study=="YLZ+12") {
@@ -238,6 +245,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # take the first (non-NA) match
     ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
     dat$UniProt <- ID
+    dat <- update_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$Rsca > 0
   } else if(study=="WTK+08") {
@@ -252,6 +260,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat$Accession.No. <- ID
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Accession.No.), dataset, "duplicated")
+    dat <- update_IDs(dat, "Accession.No.")
     pcomp <- protcomp(dat$Accession.No., basis=basis)
     up2 <- dat$Average.T.N.ratio > 1
   } else if(study=="PHL+16") {
@@ -307,6 +316,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # drop unavailable and duplicated proteins
     dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "unavailable")
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
+    dat <- update_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$Ratio..C.N. > 1
   } else stop(paste("CRC dataset", dataset, "not available"))

@@ -23,8 +23,9 @@ The amino acid compositions of human proteins are stored in three files.
 
 On loading the package, the individual data files are read and combined using \code{\link{rbind}}, and the result is assigned to the \code{human_aa} object in the \code{canprot} environment.
 
-As an aid for processing some datasets that use old (obsoleted) UniProt IDs, the corresponding new (current) IDs are are stored in \code{uniprot_updates}.
-\code{uniprot_updates} also lists the source (i.e. reference key) that uses each old ID.
+As an aid for processing datasets that include old (obsoleted) UniProt IDs, the corresponding new (current) IDs are are stored in \code{uniprot_updates}.
+\code{uniprot_updates} also lists the source (i.e. reference key) that contains each old ID.
+Conversion of old to new IDs is performed with \code{\link{update_IDs}}.
 }
 
 \format{
