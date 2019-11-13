@@ -67,7 +67,7 @@ The dataset for adipose-derived stem cells is highlighted in orange.
 ```{r diffplot, fig.width=6, fig.height=6, fig.align="center"}
 col <- rep("black", length(datasets))
 col[grepl("=ASC", datasets)] <- "orange"
-diffplot(comptab, col=col)
+diffplot(comptab, col = col, oldstyle = TRUE)
 ```
 
 ## References

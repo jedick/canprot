@@ -8,7 +8,7 @@
 
 \usage{
   diffplot(comptab, vars = c("ZC", "nH2O"), col = "black", plot.rect = FALSE,
-           pt.text = c(letters, LETTERS), cex.text = 0.9, oldstyle = TRUE,
+           pt.text = c(letters, LETTERS), cex.text = 0.9, oldstyle = FALSE,
            pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"))
 }
 
@@ -61,7 +61,7 @@ comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
   pdat <- get_pdat(dataset)
   get_comptab(pdat)
 })
-diffplot(comptab)
+diffplot(comptab, oldstyle = TRUE)
 }
 
 \concept{Chemical composition}

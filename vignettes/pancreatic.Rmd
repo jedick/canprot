@@ -71,7 +71,7 @@ The datasets comparing chronic pancreatitis or low-grade tumor to normal proteom
 ```{r diffplot, fig.width=6, fig.height=6, fig.align="center"}
 col <- rep("black", length(datasets))
 col[grepl("=low", datasets)] <- "red"
-diffplot(comptab, col=col)
+diffplot(comptab, col = col, oldstyle = TRUE)
 ```
 
 ## References

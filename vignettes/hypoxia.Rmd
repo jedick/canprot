@@ -76,7 +76,7 @@ col <- rep("black", length(datasets))
 col[grepl("ReOx", datasets)] <- "blue"
 col[grepl("=SPH", datasets)] <- "red"
 col[grepl("=ASC", datasets)] <- "orange"
-diffplot(comptab, col=col)
+diffplot(comptab, col = col, oldstyle = TRUE)
 ```
 
 ## References

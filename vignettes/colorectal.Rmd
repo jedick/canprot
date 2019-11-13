@@ -118,7 +118,7 @@ The datasets comparing adenoma to normal proteomes are highlighted in red.
 col <- rep("black", length(datasets))
 # highlight adenoma / normal datasets
 col[grepl("=AD", datasets)] <- "red"
-diffplot(comptab, col=col)
+diffplot(comptab, col = col, oldstyle = TRUE)
 ```
 
 ## Potential Diagrams
