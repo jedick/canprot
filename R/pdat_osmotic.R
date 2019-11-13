@@ -26,7 +26,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
   if(study=="KKG+12") {
     # 20160918 Escherichia coli, Kocharunchitt et al., 2012
     # KKG+12_25C_aw0.985, KKG+12_14C_aw0.985, KKG+12_25C_aw0.967, KKG+12_14C_aw0.967
-    dat <- read.csv(paste0(datadir, "KKG+12.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "KKG+12.csv.xz"), as.is=TRUE)
     description <- paste("ECO57", stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use specified temperature and subcellular fraction
@@ -39,7 +39,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="PW08") {
     # 20160918 yeast VHG
     # PW08_2h, PW08_10h, PW08_12h
-    dat <- read.csv(paste0(datadir, "PW08.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "PW08.csv.xz"), as.is=TRUE)
     description <- paste("S. cerevisiae VHG", stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use specified population
@@ -66,7 +66,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="CCC+12") {
     # 20160925 ARPE-19 retinal pigmented epithelium, Chen et al., 2012
     # CCC+12_25mM, CCC+12_100mM
-    dat <- read.csv(paste0(datadir, "CCC+12.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "CCC+12.csv.xz"), as.is=TRUE)
     description <- paste(paste("ARPE-19"), stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use proteins with difference in specified condition
@@ -87,7 +87,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="CCCC13") {
     # 20160925 Chang liver cells, Chen et al., 2013
     # CCCC13_25mM, CCCC13_100mM
-    dat <- read.csv(paste0(datadir, "CCCC13.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "CCCC13.csv.xz"), as.is=TRUE)
     description <- paste(paste("Chang liver cells"), stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use proteins with difference in specified condition
@@ -109,7 +109,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat[, icol[1]] > 0
   } else if(study=="CLG+15") {
     # 20160925 conjunctival epithelial cells, Chen et al., 2015
-    dat <- read.csv(paste0(datadir, "CLG+15.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "CLG+15.csv.xz"), as.is=TRUE)
     description <- paste("IOBA-NHC")
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use proteins that have same direction of change in both conditions
@@ -119,7 +119,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="LDB+15") {
     # 20160925 CHO cells, Liu et al., 2015
     # LDB+15_all, LDB+15_high
-    dat <- read.csv(paste0(datadir, "LDB+15.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "LDB+15.csv.xz"), as.is=TRUE)
     description <- paste("CHO", stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # if "high" change is specified, take only proteins with a high level of change at all time points
@@ -130,14 +130,14 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat$SOM.Cluster == "Cluster 1"
   } else if(study=="OBBH11") {
     # 20160925 adipose-derived stem cells, Oswald et al., 2011
-    dat <- read.csv(paste0(datadir, "OBBH11.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "OBBH11.csv.xz"), as.is=TRUE)
     description <- "adipose-derived stem cells"
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Uniprot.Protein.Code, basis=basis)
     up2 <- dat$Elucidator.Expression.Ratio..Treated.Control. > 1
   } else if(study=="YDZ+15") {
     # 20160926 Yarrowia lipolytica, Yang et al., 2015
-    dat <- read.csv(paste0(datadir, "YDZ+15.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "YDZ+15.csv.xz"), as.is=TRUE)
     description <- paste("Yarrowia lipolytica")
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # drop unidentified and unquantified proteins
@@ -147,7 +147,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat$Av..ratio..high.low. > 0
   } else if(study=="WCM+09") {
     # 20160926 mouse pancreatic islets, Waanders et al., 2009
-    dat <- read.csv(paste0(datadir, "WCM+09.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "WCM+09.csv.xz"), as.is=TRUE)
     description <- paste("mouse pancreatic islets")
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use the first UniProt ID, without isoform suffix
@@ -157,7 +157,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="GSC14") {
     # 20160926 Saccharomyces cerevisiae, Giardina et al., 2014
     # GSC14_t30a, GSC14_t30b, GSC14_t30c
-    dat <- read.csv(paste0(datadir, "GSC14.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "GSC14.csv.xz"), as.is=TRUE)
     description <- paste("S. cerevisiae", stage)
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # get data for the selected experiment
@@ -174,7 +174,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="KLB+15") {
     # 20160926 Caulobacter crescentus, Kohler et al., 2015
     # KLB+15_trans-suc, KLB+15_trans-NaCl, KLB+15_prot-suc, KLB+15_prot-NaCl
-    dat <- read.csv(paste0(datadir, "KLB+15.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "KLB+15.csv.xz"), as.is=TRUE)
     if(grepl("suc", stage)) osmoticum <- "succinate"
     if(grepl("NaCl", stage)) osmoticum <- "NaCl"
     if(grepl("trans", stage)) ome <- "tr."
@@ -188,7 +188,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat[, icol] > 0
   } else if(study=="RBP+16") {
     # 20161112 Paracoccidioides lutzii, da Silva Rodrigues et al., 2016
-    dat <- read.csv(paste0(datadir, "RBP+16.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "RBP+16.csv.xz"), as.is=TRUE)
     description <- "Paracoccidioides lutzii"
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # drop duplicated proteins
@@ -197,7 +197,7 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat$Fold.change > 1
   } else if(study=="TSZ+13") {
     # 20161113 eel gill (Anguilla japonica), Tse et al., 2013
-    dat <- read.csv(paste0(datadir, "TSZ+13.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "TSZ+13.csv.xz"), as.is=TRUE)
     description <- "eel gill"
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # drop missing and duplicated proteins

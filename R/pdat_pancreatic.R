@@ -26,7 +26,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
   if(study=="KKC+16") {
     # 20160717 mouse PDAC, Kuo et al., 2016
     # KKC+16_T1, KKC+16_T2, KKC+16_T3, KKC+16_T4 (10, 5, 3.5, 2.5 weeks)
-    dat <- read.csv(paste0(datadir, "KKC+16.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "KKC+16.csv.xz"), as.is=TRUE)
     if(stage=="T1") description <- "mouse 10 w T / N"
     if(stage=="T2") description <- "mouse 5 w T / N"
     if(stage=="T3") description <- "mouse 3.5 w T / N"
@@ -39,14 +39,14 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat[, icol] > 1
   } else if(study=="ISI+14") {
     # 20160827 PDAC, Iuga et al., 2014
-    dat <- read.csv(paste0(datadir, "ISI+14.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "ISI+14.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Protein.accesion.number, basis=basis)
     up2 <- dat$Simple.ratio > 1
   } else if(study=="MLC+11") {
     # 20160827 PDAC, McKinney et al., 2011
-    dat <- read.csv(paste0(datadir, "MLC+11.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "MLC+11.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # drop missing proteins
@@ -66,7 +66,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="PCS+11") {
     # 20160828 PDAC, Pan et al., 2011
     # PCS+11_MCP, PCS+11_SCP, PCS+11_PDAC
-    dat <- read.csv(paste0(datadir, "PCS+11.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "PCS+11.csv.xz"), as.is=TRUE)
     if(stage=="PDAC") stext <- "T" else stext <- stage
     description <- paste("FFPE", stext, " / N")
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
@@ -81,7 +81,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="WLL+13") {
     # 20160829 PDAC, Wang et al., 2013
     # WLL+13_low, WLL+13_high
-    dat <- read.csv(paste0(datadir, "WLL+13.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "WLL+13.csv.xz"), as.is=TRUE)
     description <- paste0(stage, "-grade T / N")
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # which columns hold the expression data
@@ -101,14 +101,14 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     up2 <- apply(dat[, icol] > 1, 1, all)
   } else if(study=="CGB+05") {
     # 20160829 PDAC, Crnogorac-Jurcevic et al., 2005
-    dat <- read.csv(paste0(datadir, "CGB+05.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "CGB+05.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Regulated == "up"
   } else if(study=="CTZ+09") {
     # 20160829 PDAC, Cui et al., 2009
-    dat <- read.csv(paste0(datadir, "CTZ+09.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "CTZ+09.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # drop ambiguous proteins
@@ -122,14 +122,14 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat$C.N > 1
   } else if(study=="KBK+12") {
     # 20160830 PDAC, Kojima et al., 2012
-    dat <- read.csv(paste0(datadir, "KBK+12.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "KBK+12.csv.xz"), as.is=TRUE)
     description <- "FFPE T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Sequence.Id, basis=basis)
     up2 <- !(grepl("-", dat$Fold.Change..PDAC.Control.) | grepl("Adjacent", dat$Fold.Change..PDAC.Control.))
   } else if(study=="ZNWL13") {
     # 20160830 PDAC, Zhu et al., 2013
-    dat <- read.csv(paste0(datadir, "ZNWL13.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "ZNWL13.csv.xz"), as.is=TRUE)
     description <- "LCM PDAC / ANT"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Accession, basis=basis)
@@ -137,7 +137,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="KPC+13") {
     # 20160831 Kosanam et al., 2013
     # KPC+13_all, KPC+13_2-fold, KPC+13_2-fold-signif
-    dat <- read.csv(paste0(datadir, "KPC+13.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "KPC+13.csv.xz"), as.is=TRUE)
     if(stage=="all") stext <- "" else stext <- paste0(stage, " ")
     description <- paste0(stext, "T / N")
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
@@ -157,7 +157,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat$PDAC.Benign.fold.change. > 1
   } else if(study=="CYD+05") {
     # 20160907 Chen et al., 2005
-    dat <- read.csv(paste0(datadir, "CYD+05.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "CYD+05.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # drop missing proteins
@@ -168,14 +168,14 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat$Ratio..cancer.normal. > 1
   } else if(study=="CBP+07") {
     # 20160909 Chen et al., 2007
-    dat <- read.csv(paste0(datadir, "CBP+07.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "CBP+07.csv.xz"), as.is=TRUE)
     description <- "CP / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Ratio.CP.NL > 1
   } else if(study=="KHO+13") {
     # 20160910 Kawahara et al., 2013
-    dat <- read.csv(paste0(datadir, "KHO+13.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "KHO+13.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # drop missing proteins
@@ -184,7 +184,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     up2 <- rowMeans(dat[, 6:12]) > 1
   } else if(study=="LHE+04") {
     # 20160910 Lu et al., 2004
-    dat <- read.csv(paste0(datadir, "LHE+04.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "LHE+04.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # drop missing proteins
@@ -196,7 +196,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # proteins exclusively identified in
     # autoimmune pancreatitis (AIP), chronic pancreatitis (CP), and pancreatic cancer (PC) cohorts
     # PKB+13_AIP, PKB+13_CP
-    dat <- read.csv(paste0(datadir, "PKB+13.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "PKB+13.csv.xz"), as.is=TRUE)
     description <- paste("FFPE PC /", stage)
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # keep only proteins for the indicated comparison
@@ -205,7 +205,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     up2 <- dat$Cohort == "PC"
   } else if(study=="TMW+11") {
     # 20160910 Turtoi et al., 2011
-    dat <- read.csv(paste0(datadir, "TMW+11.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "TMW+11.csv.xz"), as.is=TRUE)
     description <- "accessible T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
@@ -213,7 +213,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
   } else if(study=="WLL+13a") {
     # 20161110 PC +/- diabetes mellitus, Wang et al., 2013
     # WLL+13a_PC_NT, WLL+13a_PC.DM_NT.DM
-    dat <- read.csv(paste0(datadir, "WLL+13a.csv"), as.is=TRUE)
+    dat <- read.csv(paste0(datadir, "WLL+13a.csv.xz"), as.is=TRUE)
     description <- stage
     if(stage=="PC_NT") description <- "T / N (no DM)"
     if(stage=="PC.DM_NT.DM") description <- "T / N (DM)"

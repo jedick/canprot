@@ -27,7 +27,7 @@ This function is made accessible to the user who may wish to write their own \co
 datadir <- paste0(system.file("extdata", package="canprot"), "/expression/CRC/")
 dataset <- "STK+15"
 # an excerpt from pdat_CRC() for dataset="STK+15"
-dat <- read.csv(paste0(datadir, "STK+15.csv"), as.is=TRUE)
+dat <- read.csv(paste0(datadir, "STK+15.csv.xz"), as.is=TRUE)
 dat <- remove_entries(dat, is.na(dat$uniprot), dataset, "missing")
 # the above prints "STK+15: dropping 3 missing proteins"
 }

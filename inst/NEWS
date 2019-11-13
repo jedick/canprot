@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.2-3 (2019-11-13)
+CHANGES IN canprot 0.1.2-4 (2019-11-13)
 ---------------------------------------
 
 - Updated plot style in diffplot() shows contours from kernel density
@@ -11,6 +11,8 @@ CHANGES IN canprot 0.1.2-3 (2019-11-13)
   get_comptab()
 
 - Add data for bacteria and archaea in osmotic stress - pdat_osmotic2().
+
+- Compress csv files in extdata/expression with xz.
 
 CHANGES IN canprot 0.1.2 (2019-02-26)
 -------------------------------------

@@ -27,7 +27,7 @@
 extdatadir <- system.file("extdata", package="canprot")
 datadir <- paste0(extdatadir, "/expression/pancreatic/")
 dataset <- "CYD+05"
-dat <- read.csv(paste0(datadir, dataset, ".csv"), as.is=TRUE)
+dat <- read.csv(paste0(datadir, dataset, ".csv.xz"), as.is=TRUE)
 up2 <- dat$Ratio..cancer.normal. > 1
 dat <- cleanup(dat, "Entry", dataset, up2)
 pcomp <- protcomp(dat$Entry)

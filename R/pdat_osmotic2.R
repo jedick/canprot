@@ -16,7 +16,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
   datadir <- paste0(extdatadir, "/expression/osmotic2/")
   if(study=="FTR+10") {
     # 20161112 Corynebacterium glutamicum, Fränzel et al., 2010
-    dat <- read.csv(file.path(datadir, "FTR+10.csv"), as.is = TRUE)
+    dat <- read.csv(file.path(datadir, "FTR+10.csv.xz"), as.is = TRUE)
     description <- "Corynebacterium glutamicum"
     # exclude entries with any NA protein expression data
     dat <- dat[!rowSums(is.na(dat[, 4:6])) > 0, ]
@@ -27,7 +27,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
   } else if(study=="ZLZ+16") {
     # 20191103 Nocardiopsis xinjiangensis, Zhang et al., 2016
     # ZLZ+16_10, ZLZ+16_17.5
-    dat <- read.csv(file.path(datadir, "ZLZ+16.csv"), as.is = TRUE)
+    dat <- read.csv(file.path(datadir, "ZLZ+16.csv.xz"), as.is = TRUE)
     if(stage=="10") {
       description <- "Nocardiopsis xinjiangensis 10% / 6% NaCl"
       pval <- dat$p.Value..6..vs..10..
@@ -46,7 +46,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
   } else if(study=="LRB+09") {
     # 20191101 Halobacterium salinarum NaCl adjustment, Leuko et al., 2009
     # LRB+09_2.6, LRB+09_5.1
-    dat <- read.csv(file.path(datadir, "LRB+09.csv"), as.is=TRUE)
+    dat <- read.csv(file.path(datadir, "LRB+09.csv.xz"), as.is=TRUE)
     if(stage=="2.6") description <- "H. salinarium 4.3 M / 2.6 M NaCl"
     if(stage=="5.1") description <- "H. salinarium 5.1 M / 4.3 M NaCl"
     # use selected dataset
@@ -61,7 +61,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
   } else if(study=="LLYL17") {
     # 20191102 Tetragenococcus halophilus NaCl adjustment, Lin et al., 2017
     # LLYL_0, LLYL_3.5
-    dat <- read.csv(file.path(datadir, "LLYL17.csv"), as.is=TRUE)
+    dat <- read.csv(file.path(datadir, "LLYL17.csv.xz"), as.is=TRUE)
     if(stage=="0") description <- "Tetragenococcus halophilus 1 M / 0 M NaCl"
     if(stage=="3.5") description <- "Tetragenococcus halophilus 3.5 M / 1 M NaCl"
     # use selected dataset
@@ -73,7 +73,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
   } else if(study=="LJC+18") {
     # 20191102 Listeria monocytogenes membrane vesicles, Lee et al., 2018
     # LJC+18_wt, LJC+18_mutant
-    dat <- read.csv(file.path(datadir, "LJC+18.csv"), as.is=TRUE)
+    dat <- read.csv(file.path(datadir, "LJC+18.csv.xz"), as.is=TRUE)
     description <- paste("Listeria monocytogenes", stage)
     # use selected dataset
     icol <- grep(stage, colnames(dat))
@@ -83,7 +83,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
   } else if(study=="JSP+19") {
     # 20191102 Haloferax volcanii salt and temperature, Jevtić et al., 2019
     # JSP+19_LoS, JSP+19_HiS, JSP+19_LoT, JSP+19_HiT
-    dat <- read.csv(file.path(datadir, "JSP+19.csv"), as.is=TRUE)
+    dat <- read.csv(file.path(datadir, "JSP+19.csv.xz"), as.is=TRUE)
     description <- paste("Haloferax volcanii", stage)
     # use selected condition
     icol <- grep(stage, colnames(dat))
@@ -98,7 +98,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
   } else if(study=="HMO+10") {
     # 20191102 Bacillus subtilis, Hahne et al., 2010
     # HMO+10_prot-cytosol, HMO+10_prot-membrane, HMO+10_transcriptomics
-    dat <- read.csv(file.path(datadir, "HMO+10.csv"), as.is=TRUE)
+    dat <- read.csv(file.path(datadir, "HMO+10.csv.xz"), as.is=TRUE)
     description <- paste("Bacillus subtilis", stage)
     # use selected dataset
     dat <- dat[dat$Experiment==stage, ]
