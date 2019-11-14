@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.2-5 (2019-11-13)
+CHANGES IN canprot 0.1.2-6 (2019-11-14)
 ---------------------------------------
 
 - Updated plot style in diffplot() shows contours from kernel density
@@ -10,12 +10,15 @@ CHANGES IN canprot 0.1.2-5 (2019-11-13)
   GRAVY(), pI(). GRAVY and pI are available for calculation with
   get_comptab()
 
-- Add data for bacteria and archaea in osmotic stress - pdat_osmotic2().
+- Add new data and function (pdat_osmotic2()) for bacteria and archaea
+  in osmotic stress as compiled by Dick et al., 2019. References have
+  been added to the vignette hyperosmotic.Rmd.
 
 - Compress csv files in extdata/expression with xz.
 
 - The code for mapping old to new UniProt IDs has been moved out of
   protcomp() into a new function named update_IDs().
+
 
 CHANGES IN canprot 0.1.2 (2019-02-26)
 -------------------------------------
