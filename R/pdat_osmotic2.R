@@ -47,8 +47,8 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     # 20191101 Halobacterium salinarum NaCl adjustment, Leuko et al., 2009
     # LRB+09_2.6, LRB+09_5.1
     dat <- read.csv(file.path(datadir, "LRB+09.csv.xz"), as.is=TRUE)
-    if(stage=="2.6") description <- "H. salinarium 4.3 M / 2.6 M NaCl"
-    if(stage=="5.1") description <- "H. salinarium 5.1 M / 4.3 M NaCl"
+    if(stage=="2.6") description <- "Halobacterium salinarium 4.3 M / 2.6 M NaCl"
+    if(stage=="5.1") description <- "Halobacterium salinarium 5.1 M / 4.3 M NaCl"
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]

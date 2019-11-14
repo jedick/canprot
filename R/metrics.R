@@ -46,12 +46,14 @@ H2OAA <- function(AAcomp, basis = "rQEC") {
       Arg = -0.8, Ser = -0.4, Thr = -0.2, Val =    0, Trp = -4.8, Tyr = -3.2)
   }
   # residual water content with QEC basis
-  ## round(residuals(lm(nH2O_AA ~ ZC(species()$ispecies))), 3)
   if(basis == "rQEC") {
+    # round(residuals(lm(nH2O_AA ~ ZC(species()$ispecies))), 3)
     nH2O_AA <- c(Ala = 0.724, Cys = 0.33, Asp = 0.233, Glu = 0.248, Phe = -2.213,
       Gly = 0.833, His = -1.47, Ile = 1.015, Lys = 1.118, Leu = 1.015,
       Met = 0.401, Asn = 0.233, Pro = 0.001, Gln = 0.248, Arg = 0.427,
       Ser = 0.93, Thr = 0.924, Val = 0.877, Trp = -3.732, Tyr = -2.144)
+    # subtract a constant to make the mean for human proteins = 0 20191114
+    nH2O_AA <- nH2O_AA - 0.355
   }
   # find columns with names for the amino acids
   isAA <- colnames(AAcomp) %in% names(nH2O_AA)

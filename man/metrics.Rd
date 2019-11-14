@@ -34,7 +34,8 @@ Columns in \code{AAcomp} should be named with the three-letter abbreviations for
 For calculations of \ZC from chemical formulas of organic molecules (not only proteins), use the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
 
 The default for \code{basis} stands for relative water content, calculated as residuals of a linear model for \nH2O vs \ZC of the 20 common amino acids using the basis species glutamine - glutamic acid - cysteine - \H2O - \O2.
-This can be changed to \samp{QEC} to use the stoichiometric water content calculated directly from the basis species (not the residuals of the model).
+Furthermore, a constant of 0.355 is subtracted from these residuals to make the mean for all human proteins = 0.
+This can be changed to \samp{QEC} to use the stoichiometric water content calculated directly from the basis species (as in Dick, 2017).
 See Dick et al. (2019) for more information.
 
 Note that \ZC is a per-carbon average, but \nH2O is a per-residue average.
