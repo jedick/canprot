@@ -28,7 +28,7 @@
 
 \details{
 
-A plot is created with points showing the differences in medians or means of two compositional metrics.
+A plot is created with points showing the differences in means (or medians) of two compositional metrics.
 The default setting of \code{vars} refers to average oxidation state of carbon (\ZC) as the x-variable and stoichiometric hydration state (\nH2O) as the y-variable.
 
 The colors of the points are controlled by \code{col}, which is recycled to be equal to the number of comparisons in \code{comptab}.

@@ -18,7 +18,7 @@
 \details{
 This function makes an HTML table (using \code{\link[xtable]{xtable}}) and adds bold and underline formatting to highlight significant compositional differences.
 The \emph{p}-value is bolded if it is less than 0.05, and the percent common language effect size (\code{\link{CLES}}) is bolded if it is <= 40 or >= 60.
-The median or mean difference is [underlined / bolded] if [only one of / both] the \emph{p}-value and CLES pass these cutoffs.
+The mean (or median) difference is [underlined / bolded] if [only one of / both] the \emph{p}-value and CLES pass these cutoffs.
 
 The generated table is written to the console, and can be used in a vignette using the \code{results = "asis"} chunk option.
 The function also returns (invisibly) the data frame used to make the table; this data frame differs from \code{comptab} by having row names added (alphabetical one-letter IDs for the datasets).

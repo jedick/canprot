@@ -35,7 +35,7 @@ datasets <- pdat_pancreatic()
 ```{r comptab, message=FALSE}
 comptab <- lapply_canprot(datasets, function(dataset) {
   pdat <- get_pdat(dataset, "pdat_pancreatic")
-  get_comptab(pdat, plot.it=FALSE, mfun="mean")
+  get_comptab(pdat, plot.it=FALSE)
 }, varlist="pdat_pancreatic")
 ```
 

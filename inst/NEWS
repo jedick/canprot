@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.2-7 (2019-11-14)
+CHANGES IN canprot 0.1.2-8 (2019-11-16)
 ---------------------------------------
 
 - Updated plot style in diffplot() shows contours from kernel density
@@ -23,6 +23,8 @@ CHANGES IN canprot 0.1.2-7 (2019-11-14)
 
 - The code for mapping old to new UniProt IDs has been moved out of
   protcomp() into a new function named update_IDs().
+
+- In get_comptab(), change default to mfun = "mean".
 
 CHANGES IN canprot 0.1.2 (2019-02-26)
 -------------------------------------

@@ -3,7 +3,7 @@
 # CNS: elemental abundance (C, N, S) per residue 20170124
 # ZC_nH2O: plot and summarize ZC and nH2O/residue of proteins 20160706
 
-get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median") {
+get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="mean") {
   # define functions for the possible variables of interest
   nH2O <- function() pdat$pcomp$residue.basis[, "H2O"]
   ZC <- function() pdat$pcomp$ZC
