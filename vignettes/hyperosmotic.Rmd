@@ -75,7 +75,7 @@ xsummary(comptab)
 <b>A</b>. <b>B</b>. Tables 1 and 2 of @LRB+09.
 <b>C</b>. Supplementary Table 8 of @FTR+10. Only proteins with consistent expression ratios (all > 1 or all < 1) at each time point (15, 60, and 180 min.) were included.
 <b>D</b>. <b>E</b>. Supplementary Tables 2 (membrane proteomics) and 3 (transcriptomics) of @HMO+10. The cytosol proteomics experiment was not included because of the low number of proteins identified with a significant expression difference. Only proteins with consistent expression ratios in at least 3 of 4 time points (10, 30, 60, and 120 min.) were included.
-<b>F</b>. <b>G</b>. Table S-1 of @ZLZ+16. Values of reporter intensities at each condition (6%, 10%, and 17.5%) were normalized to a mean of 1; normalized values were used to compute intensity ratios (10% / 6% and 17.5% / 10%). Only proteins with expression ratios > 1.3 in either direction [@ZLZ+16], p-values < 0.05, and at least 2 peptides were included.
+<b>F</b>. <b>G</b>. Table S-1 of @ZLZ+16. Values of reporter intensities at each condition (6%, 10%, and 17.5% NaCl) were normalized to a mean of 1; normalized values were used to compute intensity ratios (10% / 6% NaCl and 17.5% / 10% NaCl). Only proteins with expression ratios > 1.3 in either direction [@ZLZ+16], p-values < 0.05, and at least 2 peptides were included.
 <b>H</b>. <b>I</b>. Tables S2 and S3 of @LLYL17.
 <b>J</b>. <b>K</b>. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆*sigB* mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
 <b>L</b>. <b>M</b>. Supporting Table 1C of @JSP+19. Only proteins with at least 2-fold expression difference and marked as significant were included.
