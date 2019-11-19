@@ -1,8 +1,10 @@
-CHANGES IN canprot 0.1.4-2 (2019-11-19)
+CHANGES IN canprot 0.1.4-3 (2019-11-19)
 ---------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
   function now uses a data frame for input and output.
+
+- Remove update_IDs(). check_IDs() now maps old to new UniProt IDs.
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------

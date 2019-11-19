@@ -2,7 +2,7 @@
 # function to identify known UniProt IDs
 # 20160703 jmd
 
-check_IDs <- function(dat, IDcol, aa_file=NULL, updates_file=NULL) {
+check_IDs <- function(dat, IDcol, aa_file = NULL, updates_file = NULL) {
   # the candidate IDs separated into a list
   ID_list <- strsplit(dat[, IDcol], ";")
   # the list of IDs as a vector
@@ -14,15 +14,15 @@ check_IDs <- function(dat, IDcol, aa_file=NULL, updates_file=NULL) {
     aa_dat <- read.csv(aa_file, as.is=TRUE)
     aa <- rbind(aa_dat, aa)
   }
-  # find known IDs
-  knownIDs <- sapply(strsplit(aa$protein, "|", fixed=TRUE), "[", 2)
+  # assemble known IDs
+  knownIDs <- sapply(strsplit(aa$protein, "|", fixed = TRUE), "[", 2)
   # if that is NA (i.e. no | separator is present) use the entire string
   ina <- is.na(knownIDs)
   knownIDs[ina] <- aa$protein[ina]
-  # also check old to new UniProt ID mapping
+  # also include obsolete UniProt ID
   updates <- get("uniprot_updates", canprot)
   if(!is.null(updates_file)) {
-    updates_dat <- read.csv(updates_file, as.is=TRUE)
+    updates_dat <- read.csv(updates_file, as.is = TRUE)
     updates <- rbind(updates_dat, updates)
   }
   knownIDs <- c(knownIDs, updates$old)
@@ -33,6 +33,14 @@ check_IDs <- function(dat, IDcol, aa_file=NULL, updates_file=NULL) {
   known_IDs <- relist(known_IDs, ID_list)
   # take the first (non-NA) match 20191119
   ID <- sapply(sapply(known_IDs, na.omit), "[", 1)
+  # now apply the updates 20191119
+  iold <- match(ID, updates$old)
+  if(any(!is.na(iold))) {
+    oldIDs <- updates$old[na.omit(iold)]
+    newIDs <- updates$new[na.omit(iold)]
+    print(paste("check_IDs: updating", sum(!is.na(iold)), "old UniProt IDs:", paste(oldIDs, collapse = " ")))
+    ID[!is.na(iold)] <- newIDs
+  }
   dat[, IDcol] <- ID
   dat
 }

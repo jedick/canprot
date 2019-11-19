@@ -25,7 +25,7 @@ On loading the package, the individual data files are read and combined using \c
 
 As an aid for processing datasets that include old (obsoleted) UniProt IDs, the corresponding new (current) IDs are are stored in \code{uniprot_updates}.
 \code{uniprot_updates} also lists the source (i.e. reference key) that contains each old ID.
-Conversion of old to new IDs is performed with \code{\link{update_IDs}}.
+Conversion of old to new IDs is performed with \code{\link{check_IDs}}.
 }
 
 \format{

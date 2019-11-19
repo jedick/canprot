@@ -22,7 +22,7 @@
 }
 
 \seealso{
-\code{\link{update_IDs}}
+\code{\link{check_IDs}}
 }
 
 \examples{

@@ -18,8 +18,9 @@ Do the IDs correspond to known UniProt IDs?
 }
 
 \details{
-\code{check_IDs} is used to check candidate UniProt IDs in the \code{IDcol} column of \code{dat}.
-Multiple IDs for one protein can be separated by a semicolon.
+\code{check_IDs} is used to check for known UniProt IDs and to update known obsolete IDs.
+The IDs are in the \code{IDcol} column of \code{dat}; multiple IDs for one protein can be separated by a semicolon.
+
 \dQuote{Known} IDs are those that are present in the \code{\link{human_aa}} dataset of amino acid compositions.
 Known IDs also include old UniProt IDs that are mapped to new UniProt IDs in \code{\link{uniprot_updates}} and in \code{updates_file} if specified.
 
@@ -28,13 +29,22 @@ If \code{aa_file} is specified, additional amino acid compositions to be conside
 
 \value{
 The function returns \code{dat} with possibly updated values in \code{IDcol}.
-All unknown IDs are replaced with \code{NA}.
+All unknown IDs are replaced with \code{NA}, and old IDs (if known) are replaced with new ones.
+}
+
+\seealso{
+\code{\link{cleanup}}
 }
 
 \examples{
+# gets the known IDs (one per protein)
 ID <- c("P61247;PXXXXX", "PYYYYY;P46777;P60174", "PZZZZZ")
 dat <- data.frame(ID = ID, stringsAsFactors = FALSE)
 check_IDs(dat, "ID")
+
+# updates the ID
+dat <- data.frame(Entry = "P50224", stringsAsFactors = FALSE)
+check_IDs(dat, "Entry")
 }
 
-\concept{Amino acid composition}
+\concept{Protein expression}
