@@ -1,8 +1,8 @@
-# canprot/R/check_ID.R
+# canprot/R/check_IDs.R
 # function to identify known UniProt IDs
 # 20160703 jmd
 
-check_ID <- function(ID, aa_file=NULL, updates_file=NULL) {
+check_IDs <- function(ID, aa_file=NULL, updates_file=NULL) {
   # the candidate IDs separated into a list
   ID_list <- strsplit(ID, ";")
   # the list of IDs as a vector
@@ -28,9 +28,9 @@ check_ID <- function(ID, aa_file=NULL, updates_file=NULL) {
   knownIDs <- c(knownIDs, updates$old)
   # check if the candidate IDs are known
   known <- match(ID, knownIDs)
-  check_ID <- ID[known > 0]
+  check_IDs <- ID[known > 0]
   # get the IDs back into list form
-  check_ID <- relist(check_ID, ID_list)
-  return(check_ID)
+  check_IDs <- relist(check_IDs, ID_list)
+  return(check_IDs)
 }
 

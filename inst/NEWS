@@ -1,5 +1,10 @@
-CHANGES IN canprot 0.1.4 (2019-11-18)
+CHANGES IN canprot 0.1.4-1 (2019-11-19)
 ---------------------------------------
+
+- Rename check_ID() to check_IDs().
+
+CHANGES IN canprot 0.1.4 (2019-11-18)
+-------------------------------------
 
 - Updated plot style in diffplot() shows contours from kernel density
   estimate and eliminates drop lines for 'significant' differences. Use

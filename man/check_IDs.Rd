@@ -1,13 +1,13 @@
 \encoding{UTF-8}
-\name{check_ID}
-\alias{check_ID}
+\name{check_IDs}
+\alias{check_IDs}
 \title{Check UniProt IDs}
 \description{
 Do the IDs correspond to known UniProt IDs?
 }
 
 \usage{
-  check_ID(ID, aa_file = NULL, updates_file = NULL)
+  check_IDs(ID, aa_file = NULL, updates_file = NULL)
 }
 
 \arguments{
@@ -17,7 +17,7 @@ Do the IDs correspond to known UniProt IDs?
 }
 
 \details{
-\code{check_ID} is used to check candidate \code{ID}s supplied in a character or list object.
+\code{check_IDs} is used to check candidate \code{ID}s supplied in a character or list object.
 Multiple IDs can be separated by a semicolon.
 \dQuote{Known} IDs are those that are present in the \code{\link{human_aa}} dataset of amino acid compositions.
 Known IDs also include old UniProt IDs that are mapped to new UniProt IDs in \code{\link{uniprot_updates}} and in \code{updates_file} if specified.
@@ -31,7 +31,7 @@ The function returns the IDs in a list (dropping the semicolons, but reflecting 
 
 \examples{
 # the function replaces the 3 non-existent IDs with NA
-check_ID(c("P61247;PXXXXX", "PYYYYY;P46777;P60174", "PZZZZZ"))
+check_IDs(c("P61247;PXXXXX", "PYYYYY;P46777;P60174", "PZZZZZ"))
 }
 
 \concept{Amino acid composition}

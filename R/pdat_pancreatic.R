@@ -53,7 +53,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # drop missing proteins
     dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
     # list the known UniProt IDs and take the first (non-NA) match
-    knownIDs <- check_ID(dat$UniProt)
+    knownIDs <- check_IDs(dat$UniProt)
     dat$UniProt <- sapply(sapply(knownIDs, na.omit), "[", 1)
     # drop ambiguous proteins
     up <- dat$UniProt[dat$Regulated == "up"]

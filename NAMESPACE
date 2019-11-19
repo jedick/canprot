@@ -1,5 +1,5 @@
 # Exported variables
-export("protcomp", "check_ID", "get_pdat", "get_comptab", "CLES", "xsummary",
+export("protcomp", "check_IDs", "get_pdat", "get_comptab", "CLES", "xsummary",
 "rankdiff", "rankplot", "Ehplot", "pdat_CRC", "remove_entries", "diffplot",
 "lapply_canprot", "get_colors", "pdat_pancreatic", "pdat_hypoxia", "pdat_osmotic",
 "groupplots", "mergedplot", "canprot", "cleanup",
