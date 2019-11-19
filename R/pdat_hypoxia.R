@@ -65,9 +65,8 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # use dat for specified experiment
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol[1]]), ]
-    # list the known UniProt IDs and take the first (non-NA) match
-    knownIDs <- check_IDs(dat$Protein.IDs)
-    dat$Protein.IDs <- sapply(sapply(knownIDs, na.omit), "[", 1)
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "Protein.IDs")
     # drop proteins with unavailable IDs
     dat <- remove_entries(dat, is.na(dat$Protein.IDs), dataset, "unavailable")
     up2 <- dat[, icol[1]] < 0
@@ -98,9 +97,10 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # use significantly highly changed proteins
     dat <- dat[dat[, icol[2]] < 0.05, ]
     dat <- dat[dat[, icol[1]] > sqrt(2) | dat[, icol[1]] < 1/sqrt(2), ]
+    # get known UniProt IDs
+    dat <- check_IDs(dat, "Accession")
     # drop unavailable proteins
-    knownIDs <- check_IDs(dat$Accession)
-    dat <- remove_entries(dat, is.na(unlist(knownIDs)), dataset, "unavailable")
+    dat <- remove_entries(dat, is.na(dat$Accession), dataset, "unavailable")
     dat <- update_IDs(dat, "Accession")
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat[, icol[1]] > 1
@@ -184,10 +184,8 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
     # select highly changed proteins
     dat <- dat[dat$HYP.LSC > 1.2 | dat$HYP.LSC < 0.83, ]
-    # list the known UniProt IDs and take the first (non-NA) match
-    knownIDs <- check_IDs(dat$UniProt, aa_file=paste0(extdatadir, "/aa/rat/DPL+10_aa.csv"))
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$UniProt <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "UniProt", aa_file=paste0(extdatadir, "/aa/rat/DPL+10_aa.csv"))
     pcomp <- protcomp(dat$UniProt, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/DPL+10_aa.csv"))
     up2 <- dat$HYP.LSC > 1
   } else if(study=="LCS16") {
@@ -247,10 +245,8 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat <- remove_entries(dat, dat$Uniprot=="", dataset, "unidentified")
     # keep proteins with large expression ratio
     dat <- dat[dat$Ratio.H.L.Normalized > 1.2 | dat$Ratio.H.L.Normalized < 0.83, ]
-    # list the known UniProt IDs and take the first (non-NA) match
-    knownIDs <- check_IDs(dat$Uniprot)
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$Uniprot <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "Uniprot")
     dat <- update_IDs(dat, "Uniprot")
     pcomp <- protcomp(dat$Uniprot, basis=basis)
     up2 <- dat$Ratio.H.L.Normalized > 1.2
@@ -277,10 +273,8 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "YLW+16.csv.xz"), as.is=TRUE)
     description <- "HT29 SPH"
     print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
-    # list the known UniProt IDs and take the first (non-NA) match
-    knownIDs <- check_IDs(dat$ProteinID)
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$ProteinID <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "ProteinID")
     dat <- update_IDs(dat, "ProteinID")
     pcomp <- protcomp(dat$ProteinID, basis=basis)
     up2 <- dat$Log2Rep1 > 0

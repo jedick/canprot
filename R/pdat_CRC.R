@@ -90,10 +90,8 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- dat[dat[, isig]=="+", ]
     # remove the CON__ prefix
     dat$Majority.protein.IDs <- gsub("CON__", "", dat$Majority.protein.IDs)
-    # list the known UniProt IDs and take the first (non-NA) match
-    knownIDs <- check_IDs(dat$Majority.protein.IDs)
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$Majority.protein.IDs <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "Majority.protein.IDs")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Majority.protein.IDs), dataset, "duplicated")
     dat <- update_IDs(dat, "Majority.protein.IDs")
@@ -106,11 +104,8 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # drop missing UniProt IDs
     dat <- remove_entries(dat, is.na(dat$Uniprot), dataset, "missing")
-    # list known UniProt IDs
-    knownIDs <- check_IDs(dat$Uniprot)
-    # take the first (non-NA) match
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$Uniprot <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "Uniprot")
     # drop duplicated UniProt IDs
     dat <- remove_entries(dat, duplicated(dat$Uniprot), dataset, "duplicated")
     dat <- update_IDs(dat, "Uniprot")
@@ -135,11 +130,8 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     # drop missing proteins
     dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
-    # list known UniProt IDs
-    knownIDs <- check_IDs(dat$UniProt)
-    # take the first (non-NA) match
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$UniProt <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "UniProt")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
     dat <- update_IDs(dat, "UniProt")
@@ -167,11 +159,8 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # drop missing proteins
     dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
-    # list known UniProt IDs
-    knownIDs <- check_IDs(dat$UniProt)
-    # take the first (non-NA) match
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$UniProt <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "UniProt")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
     dat <- update_IDs(dat, "UniProt")
@@ -200,11 +189,8 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # drop missing proteins
     dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
-    # list known UniProt IDs
-    knownIDs <- check_IDs(dat$UniProt)
-    # take the first (non-NA) match
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$UniProt <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "UniProt")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
     dat <- update_IDs(dat, "UniProt")
@@ -225,11 +211,8 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     isFC <- dat[, iFC] >= 3/2 | dat[, iFC] <= 2/3
     isFDR <- dat[, iFDR] <= 0.01
     dat <- dat[isFC & isFDR, ]
-    # list known UniProt IDs
-    knownIDs <- check_IDs(dat$Swiss.ID)
-    # take the first (non-NA) match
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$Swiss.ID <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "Swiss.ID")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Swiss.ID), dataset, "duplicated")
     dat <- update_IDs(dat, "Swiss.ID")
@@ -240,11 +223,8 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "YLZ+12.csv.xz"), as.is=TRUE)
     description <- "CM T / N"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # list known UniProt IDs
-    knownIDs <- check_IDs(dat$UniProt)
-    # take the first (non-NA) match
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$UniProt <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "UniProt")
     dat <- update_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$Rsca > 0
@@ -253,11 +233,8 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "WTK+08.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # list known UniProt IDs
-    knownIDs <- check_IDs(dat$Accession.No.)
-    # take the first (non-NA) match
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$Accession.No. <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "Accession.No.")
     # drop duplicated proteins
     dat <- remove_entries(dat, duplicated(dat$Accession.No.), dataset, "duplicated")
     dat <- update_IDs(dat, "Accession.No.")
@@ -309,10 +286,8 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # drop missing proteins
     dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
-    # list the known UniProt IDs and take the first (non-NA) match
-    knownIDs <- check_IDs(dat$UniProt)
-    ID <- sapply(sapply(knownIDs, na.omit), "[", 1)
-    dat$UniProt <- ID
+    # find known UniProt IDs
+    dat <- check_IDs(dat, "UniProt")
     # drop unavailable and duplicated proteins
     dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "unavailable")
     dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")

@@ -1,7 +1,8 @@
-CHANGES IN canprot 0.1.4-1 (2019-11-19)
+CHANGES IN canprot 0.1.4-2 (2019-11-19)
 ---------------------------------------
 
-- Rename check_ID() to check_IDs().
+- Rename check_ID() to check_IDs() and add 'IDcol' argument. The
+  function now uses a data frame for input and output.
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------

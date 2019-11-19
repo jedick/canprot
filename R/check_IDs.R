@@ -2,9 +2,9 @@
 # function to identify known UniProt IDs
 # 20160703 jmd
 
-check_IDs <- function(ID, aa_file=NULL, updates_file=NULL) {
+check_IDs <- function(dat, IDcol, aa_file=NULL, updates_file=NULL) {
   # the candidate IDs separated into a list
-  ID_list <- strsplit(ID, ";")
+  ID_list <- strsplit(dat[, IDcol], ";")
   # the list of IDs as a vector
   ID <- unlist(ID_list)
   # human proteins
@@ -28,9 +28,11 @@ check_IDs <- function(ID, aa_file=NULL, updates_file=NULL) {
   knownIDs <- c(knownIDs, updates$old)
   # check if the candidate IDs are known
   known <- match(ID, knownIDs)
-  check_IDs <- ID[known > 0]
+  known_IDs <- ID[known > 0]
   # get the IDs back into list form
-  check_IDs <- relist(check_IDs, ID_list)
-  return(check_IDs)
+  known_IDs <- relist(known_IDs, ID_list)
+  # take the first (non-NA) match 20191119
+  ID <- sapply(sapply(known_IDs, na.omit), "[", 1)
+  dat[, IDcol] <- ID
+  dat
 }
-
