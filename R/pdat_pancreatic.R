@@ -50,19 +50,10 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "MLC+11.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
-    # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
-    # drop ambiguous proteins
-    up <- dat$UniProt[dat$Regulated == "up"]
-    down <- dat$UniProt[dat$Regulated == "down"]
-    iambi <- dat$UniProt %in% intersect(up, down)
-    dat <- remove_entries(dat, iambi, dataset, "ambiguous")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
-    pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$Regulated == "up"
+    dat <- cleanup(dat, "UniProt", dataset, up2)
+    pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="PCS+11") {
     # 20160828 PDAC, Pan et al., 2011
     # PCS+11_MCP, PCS+11_SCP, PCS+11_PDAC
@@ -73,11 +64,9 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # keep proteins with reported ratio
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    # drop missing and duplicated proteins
-    dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
-    dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat[, icol] > 1
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="WLL+13") {
     # 20160829 PDAC, Wang et al., 2013
     # WLL+13_low, WLL+13_high
@@ -111,15 +100,9 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "CTZ+09.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
-    # drop ambiguous proteins
-    up <- dat$Swissprot.ID[dat$C.N > 1]
-    down <- dat$Swissprot.ID[dat$C.N < 1]
-    iambi <- dat$Swissprot.ID %in% intersect(up, down)
-    dat <- remove_entries(dat, iambi, dataset, "ambiguous")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Swissprot.ID), dataset, "duplicated")
-    pcomp <- protcomp(dat$Swissprot.ID, basis=basis)
     up2 <- dat$C.N > 1
+    dat <- cleanup(dat, "Swissprot.ID", dataset, up2)
+    pcomp <- protcomp(dat$Swissprot.ID, basis=basis)
   } else if(study=="KBK+12") {
     # 20160830 PDAC, Kojima et al., 2012
     dat <- read.csv(paste0(datadir, "KBK+12.csv.xz"), as.is=TRUE)
@@ -142,31 +125,20 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     if(stage=="all") stext <- "" else stext <- paste0(stage, " ")
     description <- paste0(stext, "T / N")
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
     # use all listed proteins or at least 2-fold differentially expressed ones
     if(grepl("2-fold", stage)) dat <- dat[dat$PDAC.Benign.fold.change. >= 2 | dat$PDAC.Benign.fold.change. <= 0.5, ]
     if(grepl("signif", stage)) dat <- dat[dat$t.test.pvalue < 0.1, ]
-    # drop ambiguous proteins
-    up <- dat$Entry[dat$PDAC.Benign.fold.change. > 1]
-    down <- dat$Entry[dat$PDAC.Benign.fold.change. < 1]
-    iambi <- dat$Entry %in% intersect(up, down)
-    dat <- remove_entries(dat, iambi, dataset, "ambiguous")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$PDAC.Benign.fold.change. > 1
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="CYD+05") {
     # 20160907 Chen et al., 2005
     dat <- read.csv(paste0(datadir, "CYD+05.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Ratio..cancer.normal. > 1
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="CBP+07") {
     # 20160909 Chen et al., 2007
     dat <- read.csv(paste0(datadir, "CBP+07.csv.xz"), as.is=TRUE)
@@ -179,20 +151,18 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "KHO+13.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
-    pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- rowMeans(dat[, 6:12]) > 1
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="LHE+04") {
     # 20160910 Lu et al., 2004
     dat <- read.csv(paste0(datadir, "LHE+04.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
-    # drop missing proteins
-    dat <- remove_entries(dat, dat$Acc.no.=="", dataset, "missing")
     dat <- check_IDs(dat, "Acc.no.")
-    pcomp <- protcomp(dat$Acc.no., basis=basis)
     up2 <- dat$Higher.in == "cancer"
+    dat <- cleanup(dat, "Acc.no.", dataset, up2)
+    pcomp <- protcomp(dat$Acc.no., basis=basis)
   } else if(study=="PKB+13") {
     # 20160910 Paulo et al., 2013
     # proteins exclusively identified in
@@ -231,5 +201,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- apply(dat[, icol] > 1, 1, sum) >= 3
   } else stop(paste("pancreatic dataset", dataset, "not available"))
+  # use the up2 from the cleaned-up data, if it exists 20191120
+  if("up2" %in% colnames(dat)) up2 <- dat$up2
   return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, names=names, description=description))
 }

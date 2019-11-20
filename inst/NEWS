@@ -1,10 +1,18 @@
-CHANGES IN canprot 0.1.4-3 (2019-11-19)
+CHANGES IN canprot 0.1.4-4 (2019-11-20)
 ---------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
   function now uses a data frame for input and output.
 
 - Remove update_IDs(). check_IDs() now maps old to new UniProt IDs.
+
+- In all pdat_* functions, use cleanup() instead of remove_entries().
+
+- Because of the more standardized workflow using check_ID() and cleanup()
+  (especially, detection of duplicates in cleanup() after ID updates in
+  check_ID()), there are minor differences in results for some datasets
+  compared to Dick (2017). The known changes are: ZYS+10 in pdat_CRC(),
+  and HXS+06, BMJ+11, CBW+11, RKP+14 in pdat_hypoxia().
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------

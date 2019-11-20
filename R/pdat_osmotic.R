@@ -32,10 +32,9 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # use specified temperature and subcellular fraction
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KKG+12_aa.csv"))
     up2 <- dat[, icol] > 0
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KKG+12_aa.csv"))
   } else if(study=="PW08") {
     # 20160918 yeast VHG
     # PW08_2h, PW08_10h, PW08_12h
@@ -49,20 +48,10 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # filter p-values and ratios
     dat <- dat[dat[, icol+1] < 0.05, ]
     dat <- dat[dat[, icol] < 0.9 | dat[, icol] > 1.1, ]
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
-    # drop proteins with differing expression patterns by spot
-    ugi <- unique(dat$Entry)
-    idrop <- numeric()
-    for(gi in ugi) {
-      igi <- which(dat$Entry == gi)
-      if(length(unique(dat[igi, icol] > 1)) > 1) idrop <- c(idrop, igi)
-    }
-    dat <- remove_entries(dat, 1:nrow(dat) %in% idrop, dataset, "conflicting")
     # drop missing duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/PW08_aa.csv"))
     up2 <- dat[, icol] > 1
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/PW08_aa.csv"))
   } else if(study=="CCC+12") {
     # 20160925 ARPE-19 retinal pigmented epithelium, Chen et al., 2012
     # CCC+12_25mM, CCC+12_100mM
@@ -72,19 +61,10 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # use proteins with difference in specified condition
     icol <- grep(stage, colnames(dat))
     dat <- dat[dat[, icol[2]] < 0.05, ]
-    # drop proteins with differing expression patterns by spot
-    ugi <- unique(dat$Swiss.prot.No.)
-    idrop <- numeric()
-    for(gi in ugi) {
-      igi <- which(dat$Swiss.prot.No. == gi)
-      if(length(unique(dat[igi, icol[1]] > 0)) > 1) idrop <- c(idrop, igi)
-    }
-    dat <- remove_entries(dat, 1:nrow(dat) %in% idrop, dataset, "conflicting")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Swiss.prot.No.), dataset, "duplicated")
     dat <- check_IDs(dat, "Swiss.prot.No.")
-    pcomp <- protcomp(dat$Swiss.prot.No., basis=basis)
     up2 <- dat[, icol[1]] > 0
+    dat <- cleanup(dat, "Swiss.prot.No.", dataset, up2)
+    pcomp <- protcomp(dat$Swiss.prot.No., basis=basis)
   } else if(study=="CCCC13") {
     # 20160925 Chang liver cells, Chen et al., 2013
     # CCCC13_25mM, CCCC13_100mM
@@ -94,21 +74,10 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # use proteins with difference in specified condition
     icol <- grep(stage, colnames(dat))
     dat <- dat[dat[, icol[2]] < 0.05, ]
-    # drop unidentified proteins
-    dat <- remove_entries(dat, is.na(dat$Swiss.prot.No.), dataset, "unidentified")
-    # drop proteins with differing expression patterns by spot
-    ugi <- unique(dat$Swiss.prot.No.)
-    idrop <- numeric()
-    for(gi in ugi) {
-      igi <- which(dat$Swiss.prot.No. == gi)
-      if(length(unique(dat[igi, icol[1]] > 0)) > 1) idrop <- c(idrop, igi)
-    }
-    dat <- remove_entries(dat, 1:nrow(dat) %in% idrop, dataset, "conflicting")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Swiss.prot.No.), dataset, "duplicated")
     dat <- check_IDs(dat, "Swiss.prot.No.")
-    pcomp <- protcomp(dat$Swiss.prot.No., basis=basis)
     up2 <- dat[, icol[1]] > 0
+    dat <- cleanup(dat, "Swiss.prot.No.", dataset, up2)
+    pcomp <- protcomp(dat$Swiss.prot.No., basis=basis)
   } else if(study=="CLG+15") {
     # 20160925 conjunctival epithelial cells, Chen et al., 2015
     dat <- read.csv(paste0(datadir, "CLG+15.csv.xz"), as.is=TRUE)
@@ -126,10 +95,9 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # if "high" change is specified, take only proteins with a high level of change at all time points
     if(stage == "high") dat <- dat[rowSums(dat[, 6:8] > 0.2) == 3 | rowSums(dat[, 6:8] < -0.2) == 3, ]
-    # drop unidentified proteins
-    dat <- remove_entries(dat, is.na(dat$Entry), dataset, "unidentified")
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/LDB+15_aa.csv"))
     up2 <- dat$SOM.Cluster == "Cluster 1"
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/LDB+15_aa.csv"))
   } else if(study=="OBBH11") {
     # 20160925 adipose-derived stem cells, Oswald et al., 2011
     dat <- read.csv(paste0(datadir, "OBBH11.csv.xz"), as.is=TRUE)
@@ -143,11 +111,9 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "YDZ+15.csv.xz"), as.is=TRUE)
     description <- paste("Yarrowia lipolytica")
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
-    # drop unidentified and unquantified proteins
-    dat <- remove_entries(dat, is.na(dat$Accession.No.), dataset, "unidentified")
-    dat <- remove_entries(dat, is.na(dat$Av..ratio..high.low.), dataset, "unquantified")
-    pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/YDZ+15_aa.csv"))
     up2 <- dat$Av..ratio..high.low. > 0
+    dat <- cleanup(dat, "Accession.No.", dataset, up2)
+    pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/YDZ+15_aa.csv"))
   } else if(study=="WCM+09") {
     # 20160926 mouse pancreatic islets, Waanders et al., 2009
     dat <- read.csv(paste0(datadir, "WCM+09.csv.xz"), as.is=TRUE)
@@ -196,20 +162,19 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "RBP+16.csv.xz"), as.is=TRUE)
     description <- "Paracoccidioides lutzii"
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/RBP+16_aa.csv"))
     up2 <- dat$Fold.change > 1
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/RBP+16_aa.csv"))
   } else if(study=="TSZ+13") {
     # 20161113 eel gill (Anguilla japonica), Tse et al., 2013
     dat <- read.csv(paste0(datadir, "TSZ+13.csv.xz"), as.is=TRUE)
     description <- "eel gill"
     print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
-    # drop missing and duplicated proteins
-    dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
-    dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Fold.Change..FW.SW. > 1
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
   } else stop(paste("osmotic dataset", dataset, "not available"))
+  # use the up2 from the cleaned-up data, if it exists 20191120
+  if("up2" %in% colnames(dat)) up2 <- dat$up2
   return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, names=names, description=description))
 }

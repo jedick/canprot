@@ -46,23 +46,19 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "STK+15.csv.xz"), as.is=TRUE)
     description <- "membrane enriched T / N"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # drop uncharacterized proteins
-    dat <- remove_entries(dat, is.na(dat$uniprot), dataset, "missing")
-    # take out one that is listed as both up and down
-    dat <- remove_entries(dat, dat$uniprot=="Q9NZM1", dataset, "conflicting")
-    pcomp <- protcomp(dat$uniprot, basis=basis)
     up2 <- dat$invratio > 1
+    dat <- cleanup(dat, "uniprot", dataset, up2)
+    pcomp <- protcomp(dat$uniprot, basis=basis)
     names <- dat$gene
   } else if(study=="UNS+14") {
     # 20151005 epithelial cell signature, Uzozie et al., 2014
     dat <- read.csv(paste0(datadir, "UNS+14.csv.xz"), as.is=TRUE)
     description <- "epithelial adenoma / normal"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # remove duplicated IDs
-    dat <- remove_entries(dat, duplicated(dat$uniprot), dataset, "duplicated")
     dat <- check_IDs(dat, "uniprot")
-    pcomp <- protcomp(dat$uniprot, basis=basis)
     up2 <- dat$log2_fold > 0
+    dat <- cleanup(dat, "uniprot", dataset, up2)
+    pcomp <- protcomp(dat$uniprot, basis=basis)
     names <- dat$Gene
   } else if(study=="BPV+11") {
     # 20160414 CRC Besson et al., 2015
@@ -90,25 +86,19 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- dat[dat[, isig]=="+", ]
     # remove the CON__ prefix
     dat$Majority.protein.IDs <- gsub("CON__", "", dat$Majority.protein.IDs)
-    # find known UniProt IDs
     dat <- check_IDs(dat, "Majority.protein.IDs")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Majority.protein.IDs), dataset, "duplicated")
-    pcomp <- protcomp(dat$Majority.protein.IDs, basis=basis)
     up2 <- dat[, irat] > 0
+    dat <- cleanup(dat, "Majority.protein.IDs", dataset, up2)
+    pcomp <- protcomp(dat$Majority.protein.IDs, basis=basis)
   } else if(study=="WOD+12") {
     # 20160418 CRC tumor tissue, Wisniewski et al., 2012
     dat <- read.csv(paste0(datadir, "WOD+12.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # drop missing UniProt IDs
-    dat <- remove_entries(dat, is.na(dat$Uniprot), dataset, "missing")
-    # find known UniProt IDs
     dat <- check_IDs(dat, "Uniprot")
-    # drop duplicated UniProt IDs
-    dat <- remove_entries(dat, duplicated(dat$Uniprot), dataset, "duplicated")
-    pcomp <- protcomp(dat$Uniprot, basis=basis)
     up2 <- dat$Median.Ratio.C.N > 1
+    dat <- cleanup(dat, "Uniprot", dataset, up2)
+    pcomp <- protcomp(dat$Uniprot, basis=basis)
   } else if(study=="JCF+11") {
     # 20160422 tumor vs normal, Jankova et al., 2011
     dat <- read.csv(paste0(datadir, "JCF+11.csv.xz"), as.is=TRUE)
@@ -126,14 +116,11 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # use data for the specified stage
     icol <- grep(paste0("Log2.", stage, ".N"), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
     # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
-    pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat[, icol] > 0
+    dat <- cleanup(dat, "UniProt", dataset, up2)
+    pcomp <- protcomp(dat$UniProt, basis=basis)
     names <- dat$Gene.Symbol
   } else if(study=="AKP+10") {
     # 20160427 adenoma ADE vs CRC, CIN, MIN, Albrethsen et al., 2010
@@ -144,24 +131,20 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # use the specified data set
     icol <- grep(paste0("Fold.Change.ADE.", stage), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat[, icol] > 0
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
     names <- dat$Gene.Symbol
   } else if(study=="KKL+12") {
     # 20160428 poor / good prognosis, Kim et al., 2012
     dat <- read.csv(paste0(datadir, "KKL+12.csv.xz"), as.is=TRUE)
     description <- "poor / good prognosis"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
     # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
-    pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$protein.ratio..G.P. < 1
+    dat <- cleanup(dat, "UniProt", dataset, up2)
+    pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="WKP+14") {
     # 20160428 tissue secretome, de Wit et al., 2014
     dat <- read.csv(paste0(datadir, "WKP+14.csv.xz"), as.is=TRUE)
@@ -183,14 +166,11 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "ZYS+10.csv.xz"), as.is=TRUE)
     description <- "microdissected T / N"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
     # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
-    pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$Ratio..cancer.normal. > 1
+    dat <- cleanup(dat, "UniProt", dataset, up2)
+    pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="MRK+11") {
     # 20160509 T / N, Mikula et al., 2011
     # MRK+11_AD.NC, MRK+11_AC.AD, MRK+11_AC.NC
@@ -206,12 +186,10 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     isFC <- dat[, iFC] >= 3/2 | dat[, iFC] <= 2/3
     isFDR <- dat[, iFDR] <= 0.01
     dat <- dat[isFC & isFDR, ]
-    # find known UniProt IDs
     dat <- check_IDs(dat, "Swiss.ID")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Swiss.ID), dataset, "duplicated")
-    pcomp <- protcomp(dat$Swiss.ID, basis=basis)
     up2 <- dat[, iFC] > 1
+    dat <- cleanup(dat, "Swiss.ID", dataset, up2)
+    pcomp <- protcomp(dat$Swiss.ID, basis=basis)
   } else if(study=="YLZ+12") {
     # 20160511 conditioned media T / N, Yao et al., 2012
     dat <- read.csv(paste0(datadir, "YLZ+12.csv.xz"), as.is=TRUE)
@@ -226,12 +204,10 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "WTK+08.csv.xz"), as.is=TRUE)
     description <- "T / N"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # find known UniProt IDs
     dat <- check_IDs(dat, "Accession.No.")
-    # drop duplicated proteins
-    dat <- remove_entries(dat, duplicated(dat$Accession.No.), dataset, "duplicated")
-    pcomp <- protcomp(dat$Accession.No., basis=basis)
     up2 <- dat$Average.T.N.ratio > 1
+    dat <- cleanup(dat, "Accession.No.", dataset, up2)
+    pcomp <- protcomp(dat$Accession.No., basis=basis)
   } else if(study=="PHL+16") {
     # 20160602 AD/NC, CIS/NC, ICC/NC, Peng et al., 2016
     # PHL+16_AD, PHL+16_CIS, PHL+16_ICC
@@ -266,25 +242,20 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "MCZ+13.csv.xz"), as.is=TRUE)
     description <- "stromal T / N"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # drop missing proteins and duplicated proteins
-    dat <- remove_entries(dat, is.na(dat$Entry), dataset, "missing")
-    dat <- remove_entries(dat, duplicated(dat$Entry), dataset, "duplicated")
-    pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$CS.vs..NS > 0
+    dat <- cleanup(dat, "Entry", dataset, up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="LXM+16") {
     # 20160728 CRC, Liu et al., 2016
     dat <- read.csv(paste0(datadir, "LXM+16.csv.xz"), as.is=TRUE)
     description <- "biopsy T / N"
     print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-    # drop missing proteins
-    dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "missing")
-    # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
-    # drop unavailable and duplicated proteins
-    dat <- remove_entries(dat, is.na(dat$UniProt), dataset, "unavailable")
-    dat <- remove_entries(dat, duplicated(dat$UniProt), dataset, "duplicated")
-    pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$Ratio..C.N. > 1
+    dat <- cleanup(dat, "UniProt", dataset, up2)
+    pcomp <- protcomp(dat$UniProt, basis=basis)
   } else stop(paste("CRC dataset", dataset, "not available"))
+  # use the up2 from the cleaned-up data, if it exists 20191120
+  if("up2" %in% colnames(dat)) up2 <- dat$up2
   return(list(dataset=dataset, basis=basis, description=description, pcomp=pcomp, up2=up2, names=names))
 }

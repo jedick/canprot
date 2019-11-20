@@ -11,6 +11,8 @@ cleanup <- function(dat, IDcol, dataset, up2) {
   # drop NA or "" IDs
   unav <- is.na(dat[, IDcol]) | dat[, IDcol] == ""
   dat <- remove_entries(dat, unav, dataset, "unavailable")
+  # drop unquantified proteins 20191120
+  dat <- remove_entries(dat, is.na(dat$up2), dataset, "unquantified")
   # drop proteins with ambiguous expression ratios
   up <- dat[dat$up2, IDcol]
   down <- dat[!dat$up2, IDcol]

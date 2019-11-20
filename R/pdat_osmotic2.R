@@ -109,9 +109,10 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     dat <- dat[abs(dat$diff) >= 2, ]
     up2 <- dat$diff > 0
     # update IDs / remove duplicated IDs
-    dat <- check_IDs(dat, "UniProtKB")
+    aa_file <- file.path(extdatadir, "aa/bacteria/HMO+10_aa.csv")
+    dat <- check_IDs(dat, "UniProtKB", aa_file)
     dat <- cleanup(dat, "UniProtKB", dataset, up2)
-    pcomp <- protcomp(dat$UniProtKB, basis=basis, aa_file=file.path(extdatadir, "aa/bacteria/HMO+10_aa.csv"))
+    pcomp <- protcomp(dat$UniProtKB, basis = basis, aa_file = aa_file)
   } else stop(paste("osmotic2 dataset", dataset, "not available"))
   print(paste0("pdat_osmotic2: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
