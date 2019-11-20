@@ -26,46 +26,37 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
   if(study=="JKMF10") {
     # 20150520 up- and down-regulated CRC-associated proteins reported in 4 or more studies, from Jimenez et al., 2010
     description <- "serum biomarkers up / down"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     dat <- read.csv(paste0(datadir, "JKMF10.csv.xz"), as.is=TRUE)
     # get compositional features
     pcomp <- protcomp(dat$Uniprot.ID, basis=basis)
     up2 <- dat$Change=="UP"
-    names <- dat$Gene.name
   } else if(study=="KWA+14") {
     # 20150908 chromatin-binding fraction, Knol et al., 2014
     dat <- read.csv(paste0(datadir, "KWA+14.csv.xz"), as.is=TRUE)
     description <- "chromatin-binding C / A"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Fold.change > 0 | dat$Only.in == "CRC"
     up2[is.na(up2)] <- FALSE
-    names <- dat$Symbol
   } else if(study=="STK+15") {
     # 20151004 CRC membrane-enriched proteome, Sethi et al., 2015
     dat <- read.csv(paste0(datadir, "STK+15.csv.xz"), as.is=TRUE)
     description <- "membrane enriched T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     up2 <- dat$invratio > 1
     dat <- cleanup(dat, "uniprot", dataset, up2)
     pcomp <- protcomp(dat$uniprot, basis=basis)
-    names <- dat$gene
   } else if(study=="UNS+14") {
     # 20151005 epithelial cell signature, Uzozie et al., 2014
     dat <- read.csv(paste0(datadir, "UNS+14.csv.xz"), as.is=TRUE)
     description <- "epithelial adenoma / normal"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     dat <- check_IDs(dat, "uniprot")
     up2 <- dat$log2_fold > 0
     dat <- cleanup(dat, "uniprot", dataset, up2)
     pcomp <- protcomp(dat$uniprot, basis=basis)
-    names <- dat$Gene
   } else if(study=="BPV+11") {
     # 20160414 CRC Besson et al., 2015
     # BPV+11_adenoma, BPV+11_stage.I, BPV+11_stage.II, BPV+11_stage.III, BPV+11_stage.IV
     dat <- read.csv(paste0(datadir, "BPV+11.csv.xz"), as.is=TRUE)
     description <- paste0(gsub("\\.", " ", stage), " / normal")
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # keep signifcantly changed proteins for the cancer stage
     istage <- match(tolower(stage), tolower(colnames(dat)))
     dat <- dat[dat[, istage] != 1, ]
@@ -78,7 +69,6 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     if(stage=="A.N") description <- "adenoma / normal"
     if(stage=="C.A") description <- "carcinoma / adenoma"
     if(stage=="C.N") description <- "carcinoma / normal"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # columns with the signficance and ratio
     isig <- grep(paste("Significant", stage, sep="."), colnames(dat), fixed=TRUE)
     irat <- grep(paste("ratio", stage, sep="."), colnames(dat), fixed=TRUE)
@@ -94,7 +84,6 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # 20160418 CRC tumor tissue, Wisniewski et al., 2012
     dat <- read.csv(paste0(datadir, "WOD+12.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     dat <- check_IDs(dat, "Uniprot")
     up2 <- dat$Median.Ratio.C.N > 1
     dat <- cleanup(dat, "Uniprot", dataset, up2)
@@ -103,16 +92,13 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # 20160422 tumor vs normal, Jankova et al., 2011
     dat <- read.csv(paste0(datadir, "JCF+11.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat$Av..Fold.Change > 0
-    names <- dat$Name
   } else if(study=="XZC+10") {
     # 20160426 stage I and II vs normal, Xie et al., 2010
     # XZC+10_I, XZC+10_II
     dat <- read.csv(paste0(datadir, "XZC+10.csv.xz"), as.is=TRUE)
     description <- paste("stage", stage, "/ normal")
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # use data for the specified stage
     icol <- grep(paste0("Log2.", stage, ".N"), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -121,25 +107,21 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "UniProt", dataset, up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
-    names <- dat$Gene.Symbol
   } else if(study=="AKP+10") {
     # 20160427 adenoma ADE vs CRC, CIN, MIN, Albrethsen et al., 2010
     # AKP+10_CRC, AKP+10_CIN, AKP+10_MIN
     dat <- read.csv(paste0(datadir, "AKP+10.csv.xz"), as.is=TRUE)
     description <- paste(stage, "nuclear matrix C / A")
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # use the specified data set
     icol <- grep(paste0("Fold.Change.ADE.", stage), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Entry", dataset, up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
-    names <- dat$Gene.Symbol
   } else if(study=="KKL+12") {
     # 20160428 poor / good prognosis, Kim et al., 2012
     dat <- read.csv(paste0(datadir, "KKL+12.csv.xz"), as.is=TRUE)
     description <- "poor / good prognosis"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$protein.ratio..G.P. < 1
@@ -149,23 +131,18 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # 20160428 tissue secretome, de Wit et al., 2014
     dat <- read.csv(paste0(datadir, "WKP+14.csv.xz"), as.is=TRUE)
     description <- "tissue secretome T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Fold.change > 0
-    names <- dat$Gene.Symbol
   } else if(study=="KYK+12") {
     # 20160428 MSS-type CRC, Kang et al., 2012
     dat <- read.csv(paste0(datadir, "KYK+12.csv.xz"), as.is=TRUE)
     description <- "MSS-type T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$mTRAQ.ratio..N.C.a < 0.5
-    names <- dat$gene.name
   } else if(study=="ZYS+10") {
     # 20160430 microdissected T / N, Zhang et al., 2010
     dat <- read.csv(paste0(datadir, "ZYS+10.csv.xz"), as.is=TRUE)
     description <- "microdissected T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Ratio..cancer.normal. > 1
@@ -178,7 +155,6 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     if(stage=="AD.NC") description <- "adenoma / normal"
     if(stage=="AC.AD") description <- "adenocarcinoma / adenoma"
     if(stage=="AC.NC") description <- "adenocarcinoma / normal"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # the fold change and false discovery rate columns
     iFC <- grep(paste0(stage, ".FC"), colnames(dat))
     iFDR <- grep(paste0(stage, ".FDR"), colnames(dat))
@@ -194,7 +170,6 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # 20160511 conditioned media T / N, Yao et al., 2012
     dat <- read.csv(paste0(datadir, "YLZ+12.csv.xz"), as.is=TRUE)
     description <- "CM T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
@@ -203,7 +178,6 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # 20160511 T / N, Watanabe et al., 2008
     dat <- read.csv(paste0(datadir, "WTK+08.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     dat <- check_IDs(dat, "Accession.No.")
     up2 <- dat$Average.T.N.ratio > 1
     dat <- cleanup(dat, "Accession.No.", dataset, up2)
@@ -215,7 +189,6 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     if(stage=="AD") description <- "AD / NC"
     if(stage=="CIS") description <- "CIS / NC"
     if(stage=="ICC") description <- "ICC / NC"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     # AD/NC, CIS/NC, ICC/NC
     if(stage=="AD") ratio <- 2^dat$log.of.113.114 
     if(stage=="CIS") ratio <- 2^dat$log.of.115.114
@@ -231,7 +204,6 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     if(stage=="ACP") description <- "stromal AD / NC"
     if(stage=="CIS") description <- "stromal CIS / NC"
     if(stage=="ICC") description <- "stromal ICC / NC"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     icol <- grep(stage, colnames(dat))
     # keep only significantly changed proteins
     dat <- dat[dat[, icol] < 0.67 | dat[, icol] > 1.5, ]
@@ -241,7 +213,6 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # 20160602 stromal T/N, Mu et al., 2013
     dat <- read.csv(paste0(datadir, "MCZ+13.csv.xz"), as.is=TRUE)
     description <- "stromal T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     up2 <- dat$CS.vs..NS > 0
     dat <- cleanup(dat, "Entry", dataset, up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
@@ -249,13 +220,13 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # 20160728 CRC, Liu et al., 2016
     dat <- read.csv(paste0(datadir, "LXM+16.csv.xz"), as.is=TRUE)
     description <- "biopsy T / N"
-    print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Ratio..C.N. > 1
     dat <- cleanup(dat, "UniProt", dataset, up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else stop(paste("CRC dataset", dataset, "not available"))
+  print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
   if("up2" %in% colnames(dat)) up2 <- dat$up2
-  return(list(dataset=dataset, basis=basis, description=description, pcomp=pcomp, up2=up2, names=names))
+  return(list(dataset=dataset, basis=basis, description=description, pcomp=pcomp, up2=up2))
 }

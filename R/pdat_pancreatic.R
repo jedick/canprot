@@ -31,7 +31,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     if(stage=="T2") description <- "mouse 5 w T / N"
     if(stage=="T3") description <- "mouse 3.5 w T / N"
     if(stage=="T4") description <- "mouse 2.5 w T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # use only proteins differentially expressed at this stage
     icol <- grep(paste0(stage, ".N"), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -41,7 +40,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # 20160827 PDAC, Iuga et al., 2014
     dat <- read.csv(paste0(datadir, "ISI+14.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     dat <- check_IDs(dat, "Protein.accesion.number")
     pcomp <- protcomp(dat$Protein.accesion.number, basis=basis)
     up2 <- dat$Simple.ratio > 1
@@ -49,7 +47,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # 20160827 PDAC, McKinney et al., 2011
     dat <- read.csv(paste0(datadir, "MLC+11.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Regulated == "up"
     dat <- cleanup(dat, "UniProt", dataset, up2)
@@ -60,7 +57,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "PCS+11.csv.xz"), as.is=TRUE)
     if(stage=="PDAC") stext <- "T" else stext <- stage
     description <- paste("FFPE", stext, " / N")
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # keep proteins with reported ratio
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -72,7 +68,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # WLL+13_low, WLL+13_high
     dat <- read.csv(paste0(datadir, "WLL+13.csv.xz"), as.is=TRUE)
     description <- paste0(stage, "-grade T / N")
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # which columns hold the expression data
     if(stage=="low") icol <- 4:7
     if(stage=="high") icol <- 8:11
@@ -92,14 +87,12 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # 20160829 PDAC, Crnogorac-Jurcevic et al., 2005
     dat <- read.csv(paste0(datadir, "CGB+05.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Regulated == "up"
   } else if(study=="CTZ+09") {
     # 20160829 PDAC, Cui et al., 2009
     dat <- read.csv(paste0(datadir, "CTZ+09.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     up2 <- dat$C.N > 1
     dat <- cleanup(dat, "Swissprot.ID", dataset, up2)
     pcomp <- protcomp(dat$Swissprot.ID, basis=basis)
@@ -107,7 +100,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # 20160830 PDAC, Kojima et al., 2012
     dat <- read.csv(paste0(datadir, "KBK+12.csv.xz"), as.is=TRUE)
     description <- "FFPE T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     dat <- check_IDs(dat, "Sequence.Id")
     pcomp <- protcomp(dat$Sequence.Id, basis=basis)
     up2 <- !(grepl("-", dat$Fold.Change..PDAC.Control.) | grepl("Adjacent", dat$Fold.Change..PDAC.Control.))
@@ -115,7 +107,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # 20160830 PDAC, Zhu et al., 2013
     dat <- read.csv(paste0(datadir, "ZNWL13.csv.xz"), as.is=TRUE)
     description <- "LCM PDAC / ANT"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat$Up.Down == "Up"
   } else if(study=="KPC+13") {
@@ -124,7 +115,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "KPC+13.csv.xz"), as.is=TRUE)
     if(stage=="all") stext <- "" else stext <- paste0(stage, " ")
     description <- paste0(stext, "T / N")
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # use all listed proteins or at least 2-fold differentially expressed ones
     if(grepl("2-fold", stage)) dat <- dat[dat$PDAC.Benign.fold.change. >= 2 | dat$PDAC.Benign.fold.change. <= 0.5, ]
     if(grepl("signif", stage)) dat <- dat[dat$t.test.pvalue < 0.1, ]
@@ -135,7 +125,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # 20160907 Chen et al., 2005
     dat <- read.csv(paste0(datadir, "CYD+05.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     up2 <- dat$Ratio..cancer.normal. > 1
     dat <- cleanup(dat, "Entry", dataset, up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
@@ -143,14 +132,12 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # 20160909 Chen et al., 2007
     dat <- read.csv(paste0(datadir, "CBP+07.csv.xz"), as.is=TRUE)
     description <- "CP / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Ratio.CP.NL > 1
   } else if(study=="KHO+13") {
     # 20160910 Kawahara et al., 2013
     dat <- read.csv(paste0(datadir, "KHO+13.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     up2 <- rowMeans(dat[, 6:12]) > 1
     dat <- cleanup(dat, "Entry", dataset, up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
@@ -158,7 +145,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # 20160910 Lu et al., 2004
     dat <- read.csv(paste0(datadir, "LHE+04.csv.xz"), as.is=TRUE)
     description <- "T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     dat <- check_IDs(dat, "Acc.no.")
     up2 <- dat$Higher.in == "cancer"
     dat <- cleanup(dat, "Acc.no.", dataset, up2)
@@ -170,7 +156,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # PKB+13_AIP, PKB+13_CP
     dat <- read.csv(paste0(datadir, "PKB+13.csv.xz"), as.is=TRUE)
     description <- paste("FFPE PC /", stage)
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # keep only proteins for the indicated comparison
     dat <- dat[dat$Cohort %in% c(stage, "PC"), ]
     dat <- check_IDs(dat, "UniProt.ID")
@@ -180,7 +165,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     # 20160910 Turtoi et al., 2011
     dat <- read.csv(paste0(datadir, "TMW+11.csv.xz"), as.is=TRUE)
     description <- "accessible T / N"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$tumor - dat$normal > 1
   } else if(study=="WLL+13a") {
@@ -190,7 +174,6 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     description <- stage
     if(stage=="PC_NT") description <- "T / N (no DM)"
     if(stage=="PC.DM_NT.DM") description <- "T / N (DM)"
-    print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
     # which columns hold the expression data
     icol <- grep(stage, colnames(dat))
     # 3 of 4 experiments must have ratios >=1.5 or <=0.667
@@ -201,7 +184,8 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- apply(dat[, icol] > 1, 1, sum) >= 3
   } else stop(paste("pancreatic dataset", dataset, "not available"))
+  print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
   if("up2" %in% colnames(dat)) up2 <- dat$up2
-  return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, names=names, description=description))
+  return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, description=description))
 }

@@ -7,7 +7,7 @@ cleanup <- function(dat, IDcol, dataset, up2) {
   # add up2 column to dat
   dat <- cbind(dat, up2 = up2)
   # which column has the IDs
-  IDcol <- match(IDcol, colnames(dat))
+  if(is.character(IDcol)) IDcol <- match(IDcol, colnames(dat))
   # drop NA or "" IDs
   unav <- is.na(dat[, IDcol]) | dat[, IDcol] == ""
   dat <- remove_entries(dat, unav, dataset, "unavailable")

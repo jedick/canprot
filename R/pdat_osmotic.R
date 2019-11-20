@@ -28,7 +28,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # KKG+12_25C_aw0.985, KKG+12_14C_aw0.985, KKG+12_25C_aw0.967, KKG+12_14C_aw0.967
     dat <- read.csv(paste0(datadir, "KKG+12.csv.xz"), as.is=TRUE)
     description <- paste("ECO57", stage)
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use specified temperature and subcellular fraction
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -40,7 +39,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # PW08_2h, PW08_10h, PW08_12h
     dat <- read.csv(paste0(datadir, "PW08.csv.xz"), as.is=TRUE)
     description <- paste("S. cerevisiae VHG", stage)
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use specified population
     if(stage=="2h") icol <- grep("Ratio.115.114", colnames(dat))
     if(stage=="10h") icol <- grep("Ratio.116.114", colnames(dat))
@@ -57,7 +55,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # CCC+12_25mM, CCC+12_100mM
     dat <- read.csv(paste0(datadir, "CCC+12.csv.xz"), as.is=TRUE)
     description <- paste(paste("ARPE-19"), stage)
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use proteins with difference in specified condition
     icol <- grep(stage, colnames(dat))
     dat <- dat[dat[, icol[2]] < 0.05, ]
@@ -70,7 +67,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # CCCC13_25mM, CCCC13_100mM
     dat <- read.csv(paste0(datadir, "CCCC13.csv.xz"), as.is=TRUE)
     description <- paste(paste("Chang liver cells"), stage)
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use proteins with difference in specified condition
     icol <- grep(stage, colnames(dat))
     dat <- dat[dat[, icol[2]] < 0.05, ]
@@ -82,7 +78,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # 20160925 conjunctival epithelial cells, Chen et al., 2015
     dat <- read.csv(paste0(datadir, "CLG+15.csv.xz"), as.is=TRUE)
     description <- paste("IOBA-NHC")
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use proteins that have same direction of change in both conditions
     dat <- dat[(dat$T1 > 1 & dat$T2 > 1) | (dat$T1 < 1 & dat$T2 < 1), ]
     pcomp <- protcomp(dat$accession..UniProtKB.Swiss.Prot., basis=basis)
@@ -92,7 +87,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # LDB+15_all, LDB+15_high
     dat <- read.csv(paste0(datadir, "LDB+15.csv.xz"), as.is=TRUE)
     description <- paste("CHO", stage)
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # if "high" change is specified, take only proteins with a high level of change at all time points
     if(stage == "high") dat <- dat[rowSums(dat[, 6:8] > 0.2) == 3 | rowSums(dat[, 6:8] < -0.2) == 3, ]
     up2 <- dat$SOM.Cluster == "Cluster 1"
@@ -102,7 +96,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # 20160925 adipose-derived stem cells, Oswald et al., 2011
     dat <- read.csv(paste0(datadir, "OBBH11.csv.xz"), as.is=TRUE)
     description <- "adipose-derived stem cells"
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     dat <- check_IDs(dat, "Uniprot.Protein.Code")
     pcomp <- protcomp(dat$Uniprot.Protein.Code, basis=basis)
     up2 <- dat$Elucidator.Expression.Ratio..Treated.Control. > 1
@@ -110,7 +103,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # 20160926 Yarrowia lipolytica, Yang et al., 2015
     dat <- read.csv(paste0(datadir, "YDZ+15.csv.xz"), as.is=TRUE)
     description <- paste("Yarrowia lipolytica")
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     up2 <- dat$Av..ratio..high.low. > 0
     dat <- cleanup(dat, "Accession.No.", dataset, up2)
     pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/YDZ+15_aa.csv"))
@@ -118,7 +110,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # 20160926 mouse pancreatic islets, Waanders et al., 2009
     dat <- read.csv(paste0(datadir, "WCM+09.csv.xz"), as.is=TRUE)
     description <- paste("mouse pancreatic islets")
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use the first UniProt ID, without isoform suffix
     dat$Uniprot <- substr(dat$Uniprot, 1, 6)
     aa_file <- paste0(extdatadir, "/aa/mouse/WCM+09_aa.csv")
@@ -130,7 +121,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # GSC14_t30a, GSC14_t30b, GSC14_t30c
     dat <- read.csv(paste0(datadir, "GSC14.csv.xz"), as.is=TRUE)
     description <- paste("S. cerevisiae", stage)
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # get data for the selected experiment
     if(stage=="t30a") icol <- grep("115.", colnames(dat))
     if(stage=="t30b") icol <- grep("116.", colnames(dat))
@@ -151,7 +141,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     if(grepl("trans", stage)) ome <- "tr."
     if(grepl("prot", stage)) ome <- "pr."
     description <- paste("CAUCR", osmoticum, ome)
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     # use protein identified in given experiment
     icol <- grep(gsub("-", ".*", stage), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -161,7 +150,6 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # 20161112 Paracoccidioides lutzii, da Silva Rodrigues et al., 2016
     dat <- read.csv(paste0(datadir, "RBP+16.csv.xz"), as.is=TRUE)
     description <- "Paracoccidioides lutzii"
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     up2 <- dat$Fold.change > 1
     dat <- cleanup(dat, "Entry", dataset, up2)
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/RBP+16_aa.csv"))
@@ -169,12 +157,12 @@ pdat_osmotic <- function(dataset=NULL, basis="QEC") {
     # 20161113 eel gill (Anguilla japonica), Tse et al., 2013
     dat <- read.csv(paste0(datadir, "TSZ+13.csv.xz"), as.is=TRUE)
     description <- "eel gill"
-    print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
     up2 <- dat$Fold.Change..FW.SW. > 1
     dat <- cleanup(dat, "Entry", dataset, up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else stop(paste("osmotic dataset", dataset, "not available"))
+  print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
   if("up2" %in% colnames(dat)) up2 <- dat$up2
-  return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, names=names, description=description))
+  return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, description=description))
 }
