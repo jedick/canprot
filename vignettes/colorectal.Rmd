@@ -43,10 +43,8 @@ datasets <- pdat_CRC()
 Get the amino acid compositions of the up- and down-expressed proteins (`get_pdat`) and make comparisons of indicators of oxidation and hydration state (`get_comptab`).
 
 ```{r comptab, message=FALSE}
-comptab <- lapply_canprot(datasets, function(dataset) {
-  pdat <- get_pdat(dataset)
-  get_comptab(pdat, plot.it=FALSE)
-})
+pdat <- lapply_canprot(datasets, get_pdat, "pdat_CRC", basis = "QEC")
+comptab <- lapply_canprot(pdat, get_comptab, plot.it = FALSE)
 ```
 
 Generate the HTML table with `xsummary`, which adds bold and underline formatting to the output of `xtable`.

@@ -59,7 +59,7 @@ Bjellqvist, B., Hughes, G. J., Pasquali, C., Paquet, N., Ravier, F., Sanchez, J.
 
 Bjellqvist, B. and Basse, B. and Olsen, E. and Celis, J. E. (1994) Reference points for comparisons of two-dimensional maps of proteins from different human cell types defined in a {pH} scale where isoelectric points correlate with polypeptide compositions. \emph{Electrophoresis} \bold{15}, 529--539. \doi{10.1002/elps.1150150171}
 
-Dick, J. M., Tan, J. and Yu, M. (2019) Geochemistry of metagenomes: Redox and salinity gradients and the chemical compositions of proteins. \emph{(preprint)}
+Dick, J. M., Yu, M. and Tan, J. (2019) Geochemistry of metagenomes: Redox and salinity gradients and the chemical compositions of proteins. \emph{(preprint)}
 
 Gasteiger, E., Hoogland, C., Gattiker, A., Duvaud, S., Wilkins, M. R., Appel, R. D. and Bairoch, A. (2005) Protein identification and analysis tools on the ExPASy server. In J. M. Walker (Ed.), \emph{The Proteomics Protocols Handbook} (pp. 571--607). Totowa, NJ: Humana Press Inc. \doi{10.1385/1-59259-890-0:571}
 

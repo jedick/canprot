@@ -32,9 +32,9 @@ Get datasets considered in [Dick, 2017](https://doi.org/10.7717/peerj.3421) and 
 
 ```{r pdats, message=FALSE}
 datasets <- pdat_osmotic()
-pdat <- lapply_canprot(datasets, get_pdat, pdat_fun = "pdat_osmotic")
+pdat <- lapply_canprot(datasets, get_pdat, "pdat_osmotic", basis = "QEC")
 datasets2 <- pdat_osmotic2()
-pdat2 <- lapply_canprot(datasets2, get_pdat, pdat_fun = "pdat_osmotic2")
+pdat2 <- lapply_canprot(datasets2, get_pdat, "pdat_osmotic2", basis = "QEC")
 ```
 
 Put the datasets together.

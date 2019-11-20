@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-4 (2019-11-20)
+CHANGES IN canprot 0.1.4-6 (2019-11-20)
 ---------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -13,6 +13,8 @@ CHANGES IN canprot 0.1.4-4 (2019-11-20)
   check_ID()), there are minor differences in results for some datasets
   compared to Dick (2017). The known changes are: ZYS+10 in pdat_CRC(),
   and HXS+06, BMJ+11, CBW+11, RKP+14 in pdat_hypoxia().
+
+- Change default to basis = "rQEC" in protcomp() and get_pdat().
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------

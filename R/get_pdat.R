@@ -2,7 +2,7 @@
 # get protein expression and composition data
 # 20160712 jmd
 
-get_pdat <- function(dataset=NULL, pdat_fun="pdat_CRC", basis="QEC") {
+get_pdat <- function(dataset=NULL, pdat_fun="pdat_CRC", basis="rQEC") {
   # available datasets from all functions (including =XX suffixes)
   datasets <- lapply(pdat_fun, function(x) get(x)())
   names(datasets) <- pdat_fun

@@ -2,7 +2,7 @@
 # function to read protein data and calculate compositional parameters
 # 20160705 jmd
 
-protcomp <- function(uniprot=NULL, ip=NULL, basis="QEC", aa_file=NULL) {
+protcomp <- function(uniprot=NULL, ip=NULL, basis="rQEC", aa_file=NULL) {
   if(is.null(ip)) {
     # get amino acid compositions of human proteins
     aa <- get("human_aa", canprot)

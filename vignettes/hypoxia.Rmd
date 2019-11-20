@@ -33,10 +33,8 @@ datasets <- pdat_hypoxia()
 ```
 
 ```{r comptab, message=FALSE}
-comptab <- lapply_canprot(datasets, function(dataset) {
-  pdat <- get_pdat(dataset, "pdat_hypoxia")
-  get_comptab(pdat, plot.it=FALSE)
-}, varlist="pdat_hypoxia")
+pdat <- lapply_canprot(datasets, get_pdat, "pdat_hypoxia", basis = "QEC")
+comptab <- lapply_canprot(pdat, get_comptab, plot.it = FALSE)
 ```
 
 ```{r xsummary, results="asis"}
