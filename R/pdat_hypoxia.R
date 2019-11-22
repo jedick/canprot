@@ -63,7 +63,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat <- dat[!is.na(dat[, icol[1]]), ]
     dat <- check_IDs(dat, "Protein.IDs")
     up2 <- dat[, icol[1]] < 0
-    dat <- cleanup(dat, "Protein.IDs", dataset, up2)
+    dat <- cleanup(dat, "Protein.IDs", up2)
     pcomp <- protcomp(dat$Protein.IDs, basis=basis)
   } else if(study=="HXS+06") {
     # 20160415 leukemic U937 cells, Han et al., 2006
@@ -73,7 +73,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     inew <- dat$UniProt.new != ""
     dat$Swiss.Prot.accession.no.[inew] <- dat$UniProt.new[inew]
     up2 <- dat$Mean.fold.H.N > 1
-    dat <- cleanup(dat, "Swiss.Prot.accession.no.", dataset, up2)
+    dat <- cleanup(dat, "Swiss.Prot.accession.no.", up2)
     pcomp <- protcomp(dat$Swiss.Prot.accession.no., basis=basis)
   } else if(study=="RHD+13") {
     # 20160419 A431 cells, Ren et al., 2013
@@ -90,7 +90,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # get known UniProt IDs
     dat <- check_IDs(dat, "Accession")
     up2 <- dat[, icol[1]] > 1
-    dat <- cleanup(dat, "Accession", dataset, up2)
+    dat <- cleanup(dat, "Accession", up2)
     pcomp <- protcomp(dat$Accession, basis=basis)
   } else if(study=="BMJ+11") {
     # 20160713 DU145 cells prolonged hypoxia, van den Beucken et al., 2011
@@ -99,7 +99,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # keep proteins detected in prolonged hypoxia
     dat <- dat[dat$induced_prolonged | dat$repressed_prolonged, ]
     up2 <- dat$induced_prolonged
-    dat <- cleanup(dat, "uniprot", dataset, up2)
+    dat <- cleanup(dat, "uniprot", up2)
     pcomp <- protcomp(dat$uniprot, basis=basis)
   } else if(study=="FWH+13") {
     # 20160716 THP-1 macrophages CV (control virus) hypoxia, Fuhrmann et al., 2013
@@ -123,7 +123,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     description <- "CRC-derived SPH"
     dat <- check_IDs(dat, "UniProt.Accession")
     up2 <- dat$Overall.Fold.Change > 0
-    dat <- cleanup(dat, "UniProt.Accession", dataset, up2)
+    dat <- cleanup(dat, "UniProt.Accession", up2)
     pcomp <- protcomp(dat$UniProt.Accession, basis=basis)
   } else if(study=="CBW+11") {
     # 20160720 neuroblastoma cells, Cifani et al., 2011
@@ -133,7 +133,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat$UniProt <- gsub("-1", "", dat$UniProt)
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Be2c > 1
-    dat <- cleanup(dat, "UniProt", dataset, up2)
+    dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="WRK+14") {
     # 20160721 3D spheroids / 2D culture, Wrzesinski et al., 2014
@@ -153,7 +153,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat <- dat[dat$HYP.LSC > 1.2 | dat$HYP.LSC < 0.83, ]
     dat <- check_IDs(dat, "UniProt", aa_file=paste0(extdatadir, "/aa/rat/DPL+10_aa.csv"))
     up2 <- dat$HYP.LSC > 1
-    dat <- cleanup(dat, "UniProt", dataset, up2)
+    dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/DPL+10_aa.csv"))
   } else if(study=="LCS16") {
     # 20160728 HCT116 transcription and translation, Lai et al., 2016
@@ -167,7 +167,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # which proteins (genes) are up-regulated
     iicol <- icol[grep("up", colnames(dat)[icol])]
     up2 <- sapply(dat[, iicol], isTRUE)
-    dat <- cleanup(dat, "UniProt", dataset, up2)
+    dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="DYL+14") {
     # 20160729 A431 cells, Dutta et al., 2014
@@ -206,7 +206,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     # find known UniProt IDs
     dat <- check_IDs(dat, "Uniprot")
     up2 <- dat$Ratio.H.L.Normalized > 1.2
-    dat <- cleanup(dat, "Uniprot", dataset, up2)
+    dat <- cleanup(dat, "Uniprot", up2)
     pcomp <- protcomp(dat$Uniprot, basis=basis)
   } else if(study=="BRA+10") {
     # 20160805 placental tissue secretome, Blankley et al., 2010
@@ -221,7 +221,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "LAR+12.csv.xz"), as.is=TRUE)
     description <- "H9C2"
     up2 <- dat$Isch.Ctrl > 1
-    dat <- cleanup(dat, "UniProt", dataset, up2)
+    dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/LAR+12_aa.csv"))
   } else if(study=="YLW+16") {
     # 20161109 HT29 colon cancer cell 3D/2D, Yue et al., 2011

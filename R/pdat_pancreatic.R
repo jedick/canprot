@@ -49,7 +49,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     description <- "T / N"
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Regulated == "up"
-    dat <- cleanup(dat, "UniProt", dataset, up2)
+    dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="PCS+11") {
     # 20160828 PDAC, Pan et al., 2011
@@ -61,7 +61,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
-    dat <- cleanup(dat, "Entry", dataset, up2)
+    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="WLL+13") {
     # 20160829 PDAC, Wang et al., 2013
@@ -94,7 +94,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "CTZ+09.csv.xz"), as.is=TRUE)
     description <- "T / N"
     up2 <- dat$C.N > 1
-    dat <- cleanup(dat, "Swissprot.ID", dataset, up2)
+    dat <- cleanup(dat, "Swissprot.ID", up2)
     pcomp <- protcomp(dat$Swissprot.ID, basis=basis)
   } else if(study=="KBK+12") {
     # 20160830 PDAC, Kojima et al., 2012
@@ -119,14 +119,14 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     if(grepl("2-fold", stage)) dat <- dat[dat$PDAC.Benign.fold.change. >= 2 | dat$PDAC.Benign.fold.change. <= 0.5, ]
     if(grepl("signif", stage)) dat <- dat[dat$t.test.pvalue < 0.1, ]
     up2 <- dat$PDAC.Benign.fold.change. > 1
-    dat <- cleanup(dat, "Entry", dataset, up2)
+    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="CYD+05") {
     # 20160907 Chen et al., 2005
     dat <- read.csv(paste0(datadir, "CYD+05.csv.xz"), as.is=TRUE)
     description <- "T / N"
     up2 <- dat$Ratio..cancer.normal. > 1
-    dat <- cleanup(dat, "Entry", dataset, up2)
+    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="CBP+07") {
     # 20160909 Chen et al., 2007
@@ -139,7 +139,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "KHO+13.csv.xz"), as.is=TRUE)
     description <- "T / N"
     up2 <- rowMeans(dat[, 6:12]) > 1
-    dat <- cleanup(dat, "Entry", dataset, up2)
+    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="LHE+04") {
     # 20160910 Lu et al., 2004
@@ -147,7 +147,7 @@ pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
     description <- "T / N"
     dat <- check_IDs(dat, "Acc.no.")
     up2 <- dat$Higher.in == "cancer"
-    dat <- cleanup(dat, "Acc.no.", dataset, up2)
+    dat <- cleanup(dat, "Acc.no.", up2)
     pcomp <- protcomp(dat$Acc.no., basis=basis)
   } else if(study=="PKB+13") {
     # 20160910 Paulo et al., 2013

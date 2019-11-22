@@ -56,7 +56,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     if(stage=="5.1") up2 <- dat[, icol] > 0
     if(stage=="2.6") up2 <- dat[, icol] < 0
     # drop missing proteins
-    dat <- cleanup(dat, "Entry", dataset, up2)
+    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/LRB+09_aa.csv"))
   } else if(study=="LLYL17") {
     # 20191102 Tetragenococcus halophilus NaCl adjustment, Lin et al., 2017
@@ -93,7 +93,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     if(stage=="LoS") up2 <- dat[, icol[1]] < 0
     else up2 <- dat[, icol[1]] > 0
     # remove NA accessions
-    dat <- cleanup(dat, "UniProt.Accession", dataset, up2)
+    dat <- cleanup(dat, "UniProt.Accession", up2)
     pcomp <- protcomp(dat$UniProt.Accession, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/JSP+19_aa.csv"))
   } else if(study=="HMO+10") {
     # 20191102 Bacillus subtilis, Hahne et al., 2010
@@ -111,7 +111,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     # update IDs / remove duplicated IDs
     aa_file <- file.path(extdatadir, "aa/bacteria/HMO+10_aa.csv")
     dat <- check_IDs(dat, "UniProtKB", aa_file)
-    dat <- cleanup(dat, "UniProtKB", dataset, up2)
+    dat <- cleanup(dat, "UniProtKB", up2)
     pcomp <- protcomp(dat$UniProtKB, basis = basis, aa_file = aa_file)
   } else stop(paste("osmotic2 dataset", dataset, "not available"))
   print(paste0("pdat_osmotic2: ", description, " [", dataset, "]"))

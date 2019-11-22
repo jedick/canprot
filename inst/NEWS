@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-6 (2019-11-20)
+CHANGES IN canprot 0.1.4-7 (2019-11-22)
 ---------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -15,6 +15,9 @@ CHANGES IN canprot 0.1.4-6 (2019-11-20)
   and HXS+06, BMJ+11, CBW+11, RKP+14 in pdat_hypoxia().
 
 - Change default to basis = "rQEC" in protcomp() and get_pdat().
+
+- Remove 'dataset' argument from cleanup() (it was used only for
+  printing messages).
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------

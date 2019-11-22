@@ -42,7 +42,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "STK+15.csv.xz"), as.is=TRUE)
     description <- "membrane enriched T / N"
     up2 <- dat$invratio > 1
-    dat <- cleanup(dat, "uniprot", dataset, up2)
+    dat <- cleanup(dat, "uniprot", up2)
     pcomp <- protcomp(dat$uniprot, basis=basis)
   } else if(study=="UNS+14") {
     # 20151005 epithelial cell signature, Uzozie et al., 2014
@@ -50,7 +50,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     description <- "epithelial adenoma / normal"
     dat <- check_IDs(dat, "uniprot")
     up2 <- dat$log2_fold > 0
-    dat <- cleanup(dat, "uniprot", dataset, up2)
+    dat <- cleanup(dat, "uniprot", up2)
     pcomp <- protcomp(dat$uniprot, basis=basis)
   } else if(study=="BPV+11") {
     # 20160414 CRC Besson et al., 2015
@@ -78,7 +78,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat$Majority.protein.IDs <- gsub("CON__", "", dat$Majority.protein.IDs)
     dat <- check_IDs(dat, "Majority.protein.IDs")
     up2 <- dat[, irat] > 0
-    dat <- cleanup(dat, "Majority.protein.IDs", dataset, up2)
+    dat <- cleanup(dat, "Majority.protein.IDs", up2)
     pcomp <- protcomp(dat$Majority.protein.IDs, basis=basis)
   } else if(study=="WOD+12") {
     # 20160418 CRC tumor tissue, Wisniewski et al., 2012
@@ -86,7 +86,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     description <- "T / N"
     dat <- check_IDs(dat, "Uniprot")
     up2 <- dat$Median.Ratio.C.N > 1
-    dat <- cleanup(dat, "Uniprot", dataset, up2)
+    dat <- cleanup(dat, "Uniprot", up2)
     pcomp <- protcomp(dat$Uniprot, basis=basis)
   } else if(study=="JCF+11") {
     # 20160422 tumor vs normal, Jankova et al., 2011
@@ -105,7 +105,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat[, icol] > 0
-    dat <- cleanup(dat, "UniProt", dataset, up2)
+    dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="AKP+10") {
     # 20160427 adenoma ADE vs CRC, CIN, MIN, Albrethsen et al., 2010
@@ -116,7 +116,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     icol <- grep(paste0("Fold.Change.ADE.", stage), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 0
-    dat <- cleanup(dat, "Entry", dataset, up2)
+    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="KKL+12") {
     # 20160428 poor / good prognosis, Kim et al., 2012
@@ -125,7 +125,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$protein.ratio..G.P. < 1
-    dat <- cleanup(dat, "UniProt", dataset, up2)
+    dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="WKP+14") {
     # 20160428 tissue secretome, de Wit et al., 2014
@@ -146,7 +146,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Ratio..cancer.normal. > 1
-    dat <- cleanup(dat, "UniProt", dataset, up2)
+    dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="MRK+11") {
     # 20160509 T / N, Mikula et al., 2011
@@ -164,7 +164,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- dat[isFC & isFDR, ]
     dat <- check_IDs(dat, "Swiss.ID")
     up2 <- dat[, iFC] > 1
-    dat <- cleanup(dat, "Swiss.ID", dataset, up2)
+    dat <- cleanup(dat, "Swiss.ID", up2)
     pcomp <- protcomp(dat$Swiss.ID, basis=basis)
   } else if(study=="YLZ+12") {
     # 20160511 conditioned media T / N, Yao et al., 2012
@@ -180,7 +180,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     description <- "T / N"
     dat <- check_IDs(dat, "Accession.No.")
     up2 <- dat$Average.T.N.ratio > 1
-    dat <- cleanup(dat, "Accession.No.", dataset, up2)
+    dat <- cleanup(dat, "Accession.No.", up2)
     pcomp <- protcomp(dat$Accession.No., basis=basis)
   } else if(study=="PHL+16") {
     # 20160602 AD/NC, CIS/NC, ICC/NC, Peng et al., 2016
@@ -214,7 +214,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     dat <- read.csv(paste0(datadir, "MCZ+13.csv.xz"), as.is=TRUE)
     description <- "stromal T / N"
     up2 <- dat$CS.vs..NS > 0
-    dat <- cleanup(dat, "Entry", dataset, up2)
+    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="LXM+16") {
     # 20160728 CRC, Liu et al., 2016
@@ -222,7 +222,7 @@ pdat_CRC <- function(dataset=NULL, basis="QEC") {
     description <- "biopsy T / N"
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Ratio..C.N. > 1
-    dat <- cleanup(dat, "UniProt", dataset, up2)
+    dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else stop(paste("CRC dataset", dataset, "not available"))
   print(paste0("pdat_CRC: ", description, " [", dataset, "]"))

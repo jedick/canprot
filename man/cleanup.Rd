@@ -8,28 +8,25 @@
 }
 
 \usage{
-  cleanup(dat, IDcol, dataset, up2)
+  cleanup(dat, IDcol, up2)
   remove_entries(dat, irm, dataset, description) 
 }
 
 \arguments{
   \item{dat}{data frame, protein expression data}
   \item{IDcol}{character, name of column that has the UniProt IDs}
-  \item{dataset}{character, name of dataset}
   \item{up2}{logical, which proteins are up-regulated}
   \item{irm}{logical, which rows to remove}
+  \item{dataset}{character, name of dataset}
   \item{description}{character, description used in message}
 }
 
 \details{
-\code{cleanup} is used in the \code{\link{pdat_}} functions to \dQuote{clean up} particular datasets.
+\code{cleanup} is used in the \code{\link{pdat_}} functions to \dQuote{clean up} a dataset in \code{dat}.
+The function removes unquantified proteins (those that have NA values of up2) and any proteins with unavailable or duplicated IDs or ambiguous expression ratios (up and down for the same ID).
 
 \code{remove_entries} is the \dQuote{low-level} function that actually removes the rows, and prints a message.
 The values of \code{description} that are used in \code{cleanup} are \samp{unavailable}, \samp{unquantified}, \samp{ambiguous}, and \samp{duplicated}.
-}
-
-\value{
-\code{dat} excluding any unquantified proteins (those that have NA values of up2) and any proteins with unavailable or duplicated IDs or ambiguous expression ratios (up and down for the same ID).
 }
 
 \seealso{
@@ -44,7 +41,7 @@ datadir <- paste0(extdatadir, "/expression/pancreatic/")
 dataset <- "CYD+05"
 dat <- read.csv(paste0(datadir, dataset, ".csv.xz"), as.is=TRUE)
 up2 <- dat$Ratio..cancer.normal. > 1
-dat <- cleanup(dat, "Entry", dataset, up2)
+dat <- cleanup(dat, "Entry", up2)
 pcomp <- protcomp(dat$Entry)
 
 # using remove_entries() "by hand"
