@@ -1,6 +1,6 @@
 # Exported variables
 export("protcomp", "check_IDs", "get_pdat", "get_comptab", "CLES", "xsummary",
-"rankdiff", "rankplot", "Ehplot", "pdat_CRC", "remove_entries", "diffplot",
+"rankdiff", "rankplot", "Ehplot", "pdat_CRC", "diffplot",
 "lapply_canprot", "get_colors", "pdat_pancreatic", "pdat_hypoxia", "pdat_osmotic",
 "groupplots", "mergedplot", "canprot", "cleanup",
 # metrics added 20191005 - 20191027

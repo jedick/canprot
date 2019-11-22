@@ -1,32 +1,29 @@
 \encoding{UTF-8}
 \name{cleanup}
 \alias{cleanup}
-\alias{remove_entries}
 \title{Clean up Data}
 \description{
   Remove proteins with unavailable IDs, ambiguous expression ratios, and duplicated IDs.
 }
 
 \usage{
-  cleanup(dat, IDcol, up2)
-  remove_entries(dat, irm, dataset, description) 
+  cleanup(dat, IDcol, up2 = NULL)
 }
 
 \arguments{
   \item{dat}{data frame, protein expression data}
   \item{IDcol}{character, name of column that has the UniProt IDs}
-  \item{up2}{logical, which proteins are up-regulated}
-  \item{irm}{logical, which rows to remove}
-  \item{dataset}{character, name of dataset}
-  \item{description}{character, description used in message}
+  \item{up2}{logical, TRUE for proteins that are up-expressed}
 }
 
 \details{
 \code{cleanup} is used in the \code{\link{pdat_}} functions to \dQuote{clean up} a dataset in \code{dat}.
-The function removes unquantified proteins (those that have NA values of up2) and any proteins with unavailable or duplicated IDs or ambiguous expression ratios (up and down for the same ID).
+\code{IDcol} should identify the column that has the UniProt IDs, and \code{up2} indicates the expression change for proteins (TRUE for up-expressed).
+The function removes proteins with unavailable or duplicated IDs.
+If \code{up2} is provided, the function also remove unquantified proteins (those that have NA values of \code{up2}) and those with ambiguous expression ratios (up and down for the same ID).
+For each operation, a message is printed describing the number of proteins that are \samp{unavailable}, \samp{unquantified}, \samp{ambiguous}, and \samp{duplicated}.
 
-\code{remove_entries} is the \dQuote{low-level} function that actually removes the rows, and prints a message.
-The values of \code{description} that are used in \code{cleanup} are \samp{unavailable}, \samp{unquantified}, \samp{ambiguous}, and \samp{duplicated}.
+Alternatively, if \code{IDcol} is a logical value, it selects proteins to be unconditionally removed.
 }
 
 \seealso{
@@ -44,11 +41,11 @@ up2 <- dat$Ratio..cancer.normal. > 1
 dat <- cleanup(dat, "Entry", up2)
 pcomp <- protcomp(dat$Entry)
 
-# using remove_entries() "by hand"
+# using cleanup() to remove "manually" selected proteins
 datadir <- paste0(system.file("extdata", package="canprot"), "/expression/CRC/")
 dataset <- "STK+15"
 dat <- read.csv(paste0(datadir, "STK+15.csv.xz"), as.is=TRUE)
-dat <- remove_entries(dat, is.na(dat$uniprot), dataset, "unavailable")
+dat <- cleanup(dat, is.na(dat$uniprot))
 }
 
 \concept{Protein expression}

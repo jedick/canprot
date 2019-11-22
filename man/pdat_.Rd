@@ -12,10 +12,10 @@
 }
 
 \usage{
-  pdat_CRC(dataset = NULL, basis = "QEC")
-  pdat_pancreatic(dataset = NULL, basis = "QEC")
-  pdat_hypoxia(dataset = NULL, basis = "QEC")
-  pdat_osmotic(dataset = NULL, basis = "QEC")
+  pdat_CRC(dataset = NULL, basis = "rQEC")
+  pdat_pancreatic(dataset = NULL, basis = "rQEC")
+  pdat_hypoxia(dataset = NULL, basis = "rQEC")
+  pdat_osmotic(dataset = NULL, basis = "rQEC")
   pdat_osmotic2(dataset = NULL, basis = "rQEC")
 }
 

@@ -2,7 +2,7 @@
 # retrieve protein IDs for hypoxia data sets
 # 20160414 jmd
 
-pdat_hypoxia <- function(dataset=NULL, basis="QEC") {
+pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
   if(is.null(dataset)) {
     return(c("HXS+06",
              "BRA+10", "DPL+10",

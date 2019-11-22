@@ -3,7 +3,7 @@
 # 20160827 jmd
 # 20170904 add =NT tag (comparison between cancer and normal tissue)
 
-pdat_pancreatic <- function(dataset=NULL, basis="QEC") {
+pdat_pancreatic <- function(dataset=NULL, basis="rQEC") {
   if(is.null(dataset)) {
     return(c("LHE+04=NT",
              "CYD+05=NT", "CGB+05=NT",

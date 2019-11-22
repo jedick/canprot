@@ -4,7 +4,7 @@
 # 20161011 updated with new data [LXM+16]; add =AD tag (adenoma as n2)
 # 20170904 add =NT tag (normal tissue as n1)
 
-pdat_CRC <- function(dataset=NULL, basis="QEC") {
+pdat_CRC <- function(dataset=NULL, basis="rQEC") {
   # list available datasets
   if(is.null(dataset)) { 
     return(c("WTK+08=NT",
