@@ -29,7 +29,7 @@ If \code{aa_file} is specified, additional amino acid compositions to be conside
 }
 
 \value{
-The function returns a list with elements \code{protein.formula} (elemental compositions of the proteins), \code{ZC} (average oxidation state of carbon), \code{protein.basis} (compositions of the proteins in terms of the basis species), \code{protein.length} (lengths of the amino acid sequences), \code{residue.basis} (per-residue compositions of the proteins in terms of the basis species), \code{residue.formula} (per-residue elemental compositions of the proteins), and \code{aa} (amino acid compositions of the proteins).
+The function returns a list with elements \code{uniprot} (UniProt IDs as given in the arguments), \code{protein.formula} (elemental compositions of the proteins), \code{ZC} (average oxidation state of carbon), \code{protein.basis} (compositions of the proteins in terms of the basis species), \code{protein.length} (lengths of the amino acid sequences), \code{residue.basis} (per-residue compositions of the proteins in terms of the basis species), \code{residue.formula} (per-residue elemental compositions of the proteins), and \code{aa} (amino acid compositions of the proteins).
 }
 
 \seealso{

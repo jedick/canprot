@@ -10,7 +10,7 @@ export("protcomp", "check_IDs", "get_pdat", "get_comptab", "CLES", "xsummary",
 )
 
 # Imports from default packages
-importFrom("stats", "na.omit", "median", "loess", "predict", "quantile")
+importFrom("stats", "na.omit", "median", "loess", "predict", "quantile", "approx")
 
 importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data", "combn", "read.table")
 

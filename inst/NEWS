@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-8 (2019-11-22)
+CHANGES IN canprot 0.1.4-9 (2019-11-26)
 ---------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -19,6 +19,9 @@ CHANGES IN canprot 0.1.4-8 (2019-11-22)
 
 - Remove 'dataset' argument from cleanup() (it was used only for
   printing messages).
+
+- Add 'probs' argument to diffplot(), giving the probability levels
+  for the contour(s).
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------

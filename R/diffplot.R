@@ -4,49 +4,60 @@
 # 20190329 add oldstyle = FALSE (no drop lines; show kernel density)
 
 diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS),
-                     cex.text = 0.9, oldstyle = FALSE, pch = 1, cex = 2, contour = TRUE, col.contour = par("fg")) {
+                     cex.text = 0.9, oldstyle = FALSE, pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"), probs = 0.5) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # which columns we're using
   stats <- c("diff", "CLES", "p.value")
-  iX <- sapply(paste(vars[1], stats, sep="."), grep, colnames(comptab))
-  iY <- sapply(paste(vars[2], stats, sep="."), grep, colnames(comptab))
+  iX <- unlist(sapply(paste(vars[1], stats, sep="."), grep, colnames(comptab)))
+  iY <- unlist(sapply(paste(vars[2], stats, sep="."), grep, colnames(comptab)))
   # get mean/median difference, common language effect size and p-value
   X_d <- comptab[, iX[1]]
-  X_e <- signif(comptab[, iX[2]], 2)
-  X_p <- comptab[, iX[3]]
   Y_d <- comptab[, iY[1]]
-  Y_e <- signif(comptab[, iY[2]], 2)
-  Y_p <- comptab[, iY[3]]
   # set up plot
   Dx <- paste0("D", vars[1])
   Dy <- paste0("D", vars[2])
   if(oldstyle) {
-    x <- cplabbar[[Dx]][[1]]
-    y <- cplabbar[[Dy]][[1]]
+    xvar <- cplabbar[[Dx]][[1]]
+    yvar <- cplabbar[[Dy]][[1]]
+    # for oldstyle plots, also get common language effect size and p-value
+    X_e <- signif(comptab[, iX[2]], 2)
+    X_p <- comptab[, iX[3]]
+    Y_e <- signif(comptab[, iY[2]], 2)
+    Y_p <- comptab[, iY[3]]
   } else {
-    x <- cplab[[Dx]][[1]]
-    y <- cplab[[Dy]][[1]]
+    xvar <- cplab[[Dx]][[1]]
+    yvar <- cplab[[Dy]][[1]]
   }
   # use colnames to figure out whether the difference is of the mean or median
-  if(any(grepl("mean", colnames(comptab)))) mfun <- "mean"
+  mfun <- "mean"
   if(any(grepl("median", colnames(comptab)))) mfun <- "median"
-  xlab <- substitute(mfun * " difference (" * x * ")", list(mfun=mfun, x=x))
-  ylab <- substitute(mfun * " difference (" * y * ")", list(mfun=mfun, y=y))
+  xlab <- substitute(mfun * " difference (" * x * ")", list(mfun=mfun, x=xvar))
+  ylab <- substitute(mfun * " difference (" * y * ")", list(mfun=mfun, y=yvar))
   # initialize plot: add a 0 to make sure we can see the axis
   plot(type="n", c(X_d, 0), c(Y_d, 0), xlab=xlab, ylab=ylab)
   # contour 2-D kernel density estimate 20190329
   # https://stats.stackexchange.com/questions/31726/scatterplot-with-contour-heat-overlay
   if(!oldstyle & any(contour)) {
     # include points specified by 'contour' 20191102
-    z <- kde2d(X_d[contour], Y_d[contour], n = 50)
-    contour(z, drawlabels = FALSE, nlevels = 3, lty = 2, add = TRUE, col = col.contour)
+    dens <- kde2d(X_d[contour], Y_d[contour], n = 50)
+    # add contour around 50% of points (or other fractions specified by 'probs') 20191126
+    # https://stackoverflow.com/questions/16225530/contours-of-percentiles-on-level-plot
+    # (snippet from emdbook::HPDregionplot from @benbolker)
+    dx <- diff(dens$x[1:2])
+    dy <- diff(dens$y[1:2])
+    sz <- sort(dens$z)
+    c1 <- cumsum(sz) * dx * dy
+    levels <- sapply(probs, function(x) {
+      approx(c1, sz, xout = 1 - x)$y
+    })
+    contour(dens, drawlabels = FALSE, levels = levels, lty = 2, add = TRUE, col = col.contour)
   }
   # add a reference rectangle
   if(plot.rect) rect(-0.01, -0.01, 0.01, 0.01, col="grey80", lwd=0)
   # show axis lines
-  abline(h=0, lty=3)
-  abline(v=0, lty=3)
+  abline(h=0, lty=3, col = "gray30")
+  abline(v=0, lty=3, col = "gray30")
   if(oldstyle) {
     # show drop lines: dotted/solid if p-value/effect size meet criteria
     lty.X <- ifelse(abs(X_e - 50) >= 10, 1, ifelse(X_p < 0.05, 2, 0))

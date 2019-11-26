@@ -44,7 +44,7 @@ protcomp <- function(uniprot=NULL, ip=NULL, basis="rQEC", aa_file=NULL) {
   # residue formula
   residue.formula <- protein.formula / protein.length
   # return data
-  out <- list(protein.formula=protein.formula, ZC=ZC, protein.basis=protein.basis,
+  out <- list(uniprot = uniprot, protein.formula=protein.formula, ZC=ZC, protein.basis=protein.basis,
     protein.length=protein.length, residue.basis=residue.basis, residue.formula=residue.formula, aa=aa)
   return(out)
 }

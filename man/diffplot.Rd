@@ -9,7 +9,7 @@
 \usage{
   diffplot(comptab, vars = c("ZC", "nH2O"), col = "black", plot.rect = FALSE,
            pt.text = c(letters, LETTERS), cex.text = 0.9, oldstyle = FALSE,
-           pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"))
+           pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"), probs = 0.5)
 }
 
 \arguments{
@@ -24,6 +24,7 @@
   \item{cex}{point size}
   \item{contour}{add contour lines?}
   \item{col.contour}{color of contour lines}
+  \item{probs}{numeric, probability level(s) for contours}
 }
 
 \details{
@@ -45,6 +46,7 @@ The default value produces labels that are taken sequentially from 26 lowercase 
 Use \code{pch} and \code{cex} to control the point symbol and size.
 Contours are added for a 2-D kernel density estimate (\code{\link[MASS]{kde2d}}), with color of contour lines set by \code{col.contour}.
 \code{contour} can be a logical vector, indicating which points to include; set it to FALSE to omit the contour lines.
+\code{probs} specifies the probability levels, which may correspond to the fraction of points within the contour (add more values to \code{probs} to get more contours).
 }
 
 \section{oldstyle = TRUE}{
