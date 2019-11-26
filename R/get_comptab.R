@@ -3,7 +3,7 @@
 # CNS: elemental abundance (C, N, S) per residue 20170124
 # ZC_nH2O: plot and summarize ZC and nH2O/residue of proteins 20160706
 
-get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="mean") {
+get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median") {
   # define functions for the possible variables of interest
   nH2O <- function() pdat$pcomp$residue.basis[, "H2O"]
   ZC <- function() pdat$pcomp$ZC
@@ -55,14 +55,14 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="mean"
   # calculate and print sample size, difference of means/medians, CLES, p-value
   val1_dn <- val1[!pdat$up2]
   val1_up <- val1[pdat$up2]
-  mean1_dn <- get(mfun)(val1_dn)
-  mean1_up <- get(mfun)(val1_up)
-  val1.diff <- mean1_up - mean1_dn
+  mfun1_dn <- get(mfun)(val1_dn)
+  mfun1_up <- get(mfun)(val1_up)
+  val1.diff <- mfun1_up - mfun1_dn
   val2_dn <- val2[!pdat$up2]
   val2_up <- val2[pdat$up2]
-  mean2_dn <- get(mfun)(val2_dn)
-  mean2_up <- get(mfun)(val2_up)
-  val2.diff <- mean2_up - mean2_dn
+  mfun2_dn <- get(mfun)(val2_dn)
+  mfun2_up <- get(mfun)(val2_up)
+  val2.diff <- mfun2_up - mfun2_dn
   val1.p.value <- stats::wilcox.test(val1_dn, val1_up)$p.value
   val1.CLES <- 100*CLES(val1_dn, val1_up)
   val2.p.value <- stats::wilcox.test(val2_dn, val2_up)$p.value
@@ -81,12 +81,12 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="mean"
                ", p-value ", format(round(val2.p.value, 3), nsmall=3), "\n"))
   out <- data.frame(dataset=pdat$dataset, description=pdat$description,
     n1=length(val1_dn), n2=length(val1_up),
-    val1.mean1=mean1_dn, val1.mean2=mean1_up, val1.diff, val1.CLES, val1.p.value,
-    val2.mean1=mean2_dn, val2.mean2=mean2_up, val2.diff, val2.CLES, val2.p.value, stringsAsFactors=FALSE)
+    val1.median1=mfun1_dn, val1.median2=mfun1_up, val1.diff, val1.CLES, val1.p.value,
+    val2.median1=mfun2_dn, val2.median2=mfun2_up, val2.diff, val2.CLES, val2.p.value, stringsAsFactors=FALSE)
   # convert colnames to use names of variables 
   colnames(out) <- gsub("val1", var1, colnames(out))
   colnames(out) <- gsub("val2", var2, colnames(out))
-  # convert "mean" to "median" colnames
-  if(mfun == "median") colnames(out) <- gsub("mean", "median", colnames(out))
+  # convert colnames
+  if(mfun == "mean") colnames(out) <- gsub("median", "mean", colnames(out))
   return(invisible(out))
 }

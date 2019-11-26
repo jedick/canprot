@@ -1,5 +1,5 @@
-CHANGES IN canprot 0.1.4-9 (2019-11-26)
----------------------------------------
+CHANGES IN canprot 0.1.4-10 (2019-11-26)
+----------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
   function now uses a data frame for input and output.
@@ -22,6 +22,8 @@ CHANGES IN canprot 0.1.4-9 (2019-11-26)
 
 - Add 'probs' argument to diffplot(), giving the probability levels
   for the contour(s).
+
+- Revert to mfun = "median" for the default in get_comptab().
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------

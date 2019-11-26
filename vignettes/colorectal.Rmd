@@ -44,7 +44,7 @@ Get the amino acid compositions of the up- and down-expressed proteins (`get_pda
 
 ```{r comptab, message=FALSE}
 pdat <- lapply_canprot(datasets, get_pdat, "pdat_CRC", basis = "QEC")
-comptab <- lapply_canprot(pdat, get_comptab, plot.it = FALSE)
+comptab <- lapply_canprot(pdat, get_comptab, plot.it = FALSE, mfun = "mean")
 ```
 
 Generate the HTML table with `xsummary`, which adds bold and underline formatting to the output of `xtable`.

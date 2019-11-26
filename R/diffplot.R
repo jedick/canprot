@@ -30,8 +30,8 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     yvar <- cplab[[Dy]][[1]]
   }
   # use colnames to figure out whether the difference is of the mean or median
-  mfun <- "mean"
-  if(any(grepl("median", colnames(comptab)))) mfun <- "median"
+  mfun <- "median"
+  if(any(grepl("mean", colnames(comptab)))) mfun <- "mean"
   xlab <- substitute(mfun * " difference (" * x * ")", list(mfun=mfun, x=xvar))
   ylab <- substitute(mfun * " difference (" * y * ")", list(mfun=mfun, y=yvar))
   # initialize plot: add a 0 to make sure we can see the axis

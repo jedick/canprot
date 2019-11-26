@@ -48,7 +48,7 @@ pdat <- c(pdat, pdat2)
 Make the table of compositional metrics (carbon oxidation state and stoichiometric hydration state).
 
 ```{r comptab, message=FALSE}
-comptab <- lapply_canprot(pdat, get_comptab, plot.it = FALSE)
+comptab <- lapply_canprot(pdat, get_comptab, plot.it = FALSE, mfun = "mean")
 ```
 
 ```{r xsummary, results="asis"}
