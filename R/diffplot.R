@@ -4,7 +4,8 @@
 # 20190329 add oldstyle = FALSE (no drop lines; show kernel density)
 
 diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS),
-                     cex.text = 0.9, oldstyle = FALSE, pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"), probs = 0.5) {
+                     cex.text = 0.9, oldstyle = FALSE, pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"),
+                     probs = 0.5, add = FALSE) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # which columns we're using
@@ -32,15 +33,15 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   # use colnames to figure out whether the difference is of the mean or median
   mfun <- "median"
   if(any(grepl("mean", colnames(comptab)))) mfun <- "mean"
-  xlab <- substitute(mfun * " difference (" * x * ")", list(mfun=mfun, x=xvar))
-  ylab <- substitute(mfun * " difference (" * y * ")", list(mfun=mfun, y=yvar))
+  xlab <- substitute(x * " (" * mfun * " difference)", list(mfun=mfun, x=xvar))
+  ylab <- substitute(y * " (" * mfun * " difference)", list(mfun=mfun, y=yvar))
   # initialize plot: add a 0 to make sure we can see the axis
-  plot(type="n", c(X_d, 0), c(Y_d, 0), xlab=xlab, ylab=ylab)
+  if(!add) plot(type="n", c(X_d, 0), c(Y_d, 0), xlab=xlab, ylab=ylab)
   # contour 2-D kernel density estimate 20190329
   # https://stats.stackexchange.com/questions/31726/scatterplot-with-contour-heat-overlay
   if(!oldstyle & any(contour)) {
     # include points specified by 'contour' 20191102
-    dens <- kde2d(X_d[contour], Y_d[contour], n = 50)
+    dens <- kde2d(X_d[contour], Y_d[contour], n = 200)
     # add contour around 50% of points (or other fractions specified by 'probs') 20191126
     # https://stackoverflow.com/questions/16225530/contours-of-percentiles-on-level-plot
     # (snippet from emdbook::HPDregionplot from @benbolker)
@@ -51,7 +52,10 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     levels <- sapply(probs, function(x) {
       approx(c1, sz, xout = 1 - x)$y
     })
-    contour(dens, drawlabels = FALSE, levels = levels, lty = 2, add = TRUE, col = col.contour)
+    # use lty = 2 and lwd = 1 if points are being plotted, or lty = 1 and lwd = 2 otherwise 20191126
+    if(identical(pch, NA)) lty <- 1 else lty <- 2
+    if(identical(pch, NA)) lwd <- 2 else lwd <- 1
+    contour(dens, drawlabels = FALSE, levels = levels, lty = lty, lwd = lwd, add = TRUE, col = col.contour)
   }
   # add a reference rectangle
   if(plot.rect) rect(-0.01, -0.01, 0.01, 0.01, col="grey80", lwd=0)

@@ -7,7 +7,7 @@
 }
 
 \usage{
-  get_comptab(pdat, var1="ZC", var2="nH2O", plot.it = FALSE, mfun = "mean")
+  get_comptab(pdat, var1="ZC", var2="nH2O", plot.it = FALSE, mfun = "median")
 }
 
 \arguments{
@@ -15,7 +15,7 @@
   \item{var1}{character, the first variable}
   \item{var2}{character, the second variable}
   \item{plot.it}{logical, make a scatterplot?}
-  \item{mfun}{character, specifying use of the \samp{mean} or \samp{median} function}
+  \item{mfun}{character, specifying use of the \samp{median} or \samp{mean} function}
 }
 
 \details{
@@ -35,7 +35,7 @@ The available compositional variables are:
 Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
 
 The expression pattern is taken from the value of \code{up2} returned by one of the \code{\link{pdat_}} functions: down (\code{up2==FALSE}) or up (\code{up2==TRUE}).
-The function prints the difference of means (or medians), common language effect size (\code{\link{CLES}}, in percent), and \emph{p}-value.
+The function prints the difference of medians (or means), common language effect size (\code{\link{CLES}}, in percent), and \emph{p}-value.
 
 If \code{plot.it} is \code{TRUE}, a scatterplot is also produced.
 }

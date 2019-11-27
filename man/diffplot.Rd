@@ -9,7 +9,8 @@
 \usage{
   diffplot(comptab, vars = c("ZC", "nH2O"), col = "black", plot.rect = FALSE,
            pt.text = c(letters, LETTERS), cex.text = 0.9, oldstyle = FALSE,
-           pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"), probs = 0.5)
+           pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"),
+           probs = 0.5, add = FALSE)
 }
 
 \arguments{
@@ -25,6 +26,7 @@
   \item{contour}{add contour lines?}
   \item{col.contour}{color of contour lines}
   \item{probs}{numeric, probability level(s) for contours}
+  \item{add}{logical, add to an existing plot?}
 }
 
 \details{
