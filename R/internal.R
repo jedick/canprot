@@ -31,7 +31,9 @@ cplab <- list(
   GRAVY = "GRAVY",
   DGRAVY = expression(Delta*"GRAVY"),
   pI = "pI",
-  DpI = expression(Delta*"pI")
+  DpI = expression(Delta*"pI"),
+  PS = "PS",
+  DPS = expression(Delta*"PS")
 )
 
 # "oldstyle" labels including overbar

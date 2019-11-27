@@ -19,11 +19,11 @@
 }
 
 \details{
-\code{get_comptab} can be used to summarize differences of compositional variables between down (group 1)- and up (group 2)-expressed proteins.
+\code{get_comptab} can be used to summarize differences of compositional variables between down- and up-expressed proteins.
 The available compositional variables are:
 \tabular{ll}{
-  \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link[CHNOSZ]{ZC}}) \cr
-  \samp{nH2O} \tab water demand per residue (\nH2O) \cr
+  \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link{ZCAA}}) \cr
+  \samp{nH2O} \tab water demand per residue (\nH2O; see \code{\link{H2OAA}}) \cr
   \samp{nC}   \tab number of carbon atoms per residue \cr
   \samp{nN}   \tab number of nitrogen atoms per residue \cr
   \samp{nS}   \tab number of sulfur atoms per residue \cr
@@ -31,17 +31,25 @@ The available compositional variables are:
   \samp{nAA}  \tab protein length (number of amino acids) \cr
   \samp{GRAVY}\tab grand average of hydropathicity (see \code{\link{GRAVY}}) \cr
   \samp{pI}   \tab isoelectric point (see \code{\link{pI}}) \cr
+  \samp{PS}   \tab phylostrata (see \code{\link{PS}}) \cr
 }
 Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
 
-The expression pattern is taken from the value of \code{up2} returned by one of the \code{\link{pdat_}} functions: down (\code{up2==FALSE}) or up (\code{up2==TRUE}).
-The function prints the difference of medians (or means), common language effect size (\code{\link{CLES}}, in percent), and \emph{p}-value.
+The expression pattern is taken from \code{pdat$up2}: down (\code{up2==FALSE}) or up (\code{up2==TRUE}) for each protein (see \code{\link{pdat_}}).
+The difference between medians is calculated, or means if \code{mfun} is \samp{mean}.
+The function also calculates the common language effect size (\code{\link{CLES}}, in percent) and \emph{p}-value for each variable.
+
+Phylostrata is not calculated from the chemical compositions of proteins, but is retrieved by matching UniProt accession numbers to a data file (see \code{\link{PS}}).
+It is not a continuous variable, so mean values are calculated for it regardless of the value of \code{mfun}.
 
 If \code{plot.it} is \code{TRUE}, a scatterplot is also produced.
+Open red squares and filled blue circles stand for up-expressed and down-expressed proteins, respectively.
 }
 
 \value{
-A data frame is returned invisibly containing the columns \samp{dataset}, \samp{description}, \samp{n1}, \samp{n2}, and two sets of columns (\samp{var.mfun1}, \samp{var.mfun2}, \samp{var.diff}, \samp{var.CLES}, \samp{var.p.value}), where \samp{var} is replaced by the values of \code{var1} and \code{var2}, respectively, and \samp{mfun} is replaced by the value of \code{mfun}.
+A data frame is returned invisibly containing the columns \samp{dataset}, \samp{description}, \samp{n1} (number of down-expressed proteins), \samp{n2} (number of up-expressed proteins), followed two sets of columns for the variables.
+These are denoted generically as (\samp{var.mfun1}, \samp{var.mfun2}, \samp{var.diff}, \samp{var.CLES}, \samp{var.p.value}), where \samp{var} is replaced by the name of \code{var1} or \code{var2}, and \samp{mfun} is replaced by the value of \code{mfun}.
+For example, \samp{ZC.median1} and \samp{ZC.median2} are the median \ZC of the down- and up-expressed proteins, respectively.
 }
 
 \examples{
@@ -54,7 +62,7 @@ get_comptab(pd, "nAA", "V0", plot.it = TRUE)
 }
 
 \references{
-  Dick, J. M., LaRowe, D. E. and Helgeson, H. C. (2006) Temperature, pressure, and electrochemical constraints on protein speciation: Group additivity calculation of the standard molal thermodynamic properties of ionized unfolded proteins. \emph{Biogeosciences} \bold{3}, 311--336. \url{https://doi.org/10.5194/bg-3-311-2006}
+Dick, J. M., LaRowe, D. E. and Helgeson, H. C. (2006) Temperature, pressure, and electrochemical constraints on protein speciation: Group additivity calculation of the standard molal thermodynamic properties of ionized unfolded proteins. \emph{Biogeosciences} \bold{3}, 311--336. \url{https://doi.org/10.5194/bg-3-311-2006}
 }
 
 \concept{Chemical composition}

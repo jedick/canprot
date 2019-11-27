@@ -6,7 +6,9 @@ export("protcomp", "check_IDs", "get_pdat", "get_comptab", "CLES", "xsummary",
 # metrics added 20191005 - 20191027
 "ZCAA", "H2OAA", "GRAVY", "pI",
 # 20191104
-"pdat_osmotic2"
+"pdat_osmotic2",
+# 20191127
+"PS"
 )
 
 # Imports from default packages

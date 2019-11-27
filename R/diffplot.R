@@ -31,31 +31,40 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     yvar <- cplab[[Dy]][[1]]
   }
   # use colnames to figure out whether the difference is of the mean or median
-  mfun <- "median"
-  if(any(grepl("mean", colnames(comptab)))) mfun <- "mean"
-  xlab <- substitute(x * " (" * mfun * " difference)", list(mfun=mfun, x=xvar))
-  ylab <- substitute(y * " (" * mfun * " difference)", list(mfun=mfun, y=yvar))
+  # specifically find the x- and y-variables here in case one is median and one is mean (possible with PS) 20191127
+  xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
+  yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
+  xlab <- substitute(x * " (" * xfun * " difference)", list(xfun=xfun, x=xvar))
+  ylab <- substitute(y * " (" * yfun * " difference)", list(yfun=yfun, y=yvar))
   # initialize plot: add a 0 to make sure we can see the axis
   if(!add) plot(type="n", c(X_d, 0), c(Y_d, 0), xlab=xlab, ylab=ylab)
   # contour 2-D kernel density estimate 20190329
   # https://stats.stackexchange.com/questions/31726/scatterplot-with-contour-heat-overlay
   if(!oldstyle & any(contour)) {
     # include points specified by 'contour' 20191102
-    dens <- kde2d(X_d[contour], Y_d[contour], n = 200)
-    # add contour around 50% of points (or other fractions specified by 'probs') 20191126
-    # https://stackoverflow.com/questions/16225530/contours-of-percentiles-on-level-plot
-    # (snippet from emdbook::HPDregionplot from @benbolker)
-    dx <- diff(dens$x[1:2])
-    dy <- diff(dens$y[1:2])
-    sz <- sort(dens$z)
-    c1 <- cumsum(sz) * dx * dy
-    levels <- sapply(probs, function(x) {
-      approx(c1, sz, xout = 1 - x)$y
-    })
-    # use lty = 2 and lwd = 1 if points are being plotted, or lty = 1 and lwd = 2 otherwise 20191126
-    if(identical(pch, NA)) lty <- 1 else lty <- 2
-    if(identical(pch, NA)) lwd <- 2 else lwd <- 1
-    contour(dens, drawlabels = FALSE, levels = levels, lty = lty, lwd = lwd, add = TRUE, col = col.contour)
+    Xcont <- X_d[contour]
+    Ycont <- Y_d[contour]
+    # remove NA points (possible with PS (phylostrata)) 20191127
+    iNA <- is.na(Xcont) | is.na(Ycont)
+    Xcont <- Xcont[!iNA]
+    Ycont <- Ycont[!iNA]
+    if(length(Xcont) > 0) {
+      dens <- kde2d(Xcont, Ycont, n = 200)
+      # add contour around 50% of points (or other fractions specified by 'probs') 20191126
+      # https://stackoverflow.com/questions/16225530/contours-of-percentiles-on-level-plot
+      # (snippet from emdbook::HPDregionplot from @benbolker)
+      dx <- diff(dens$x[1:2])
+      dy <- diff(dens$y[1:2])
+      sz <- sort(dens$z)
+      c1 <- cumsum(sz) * dx * dy
+      levels <- sapply(probs, function(x) {
+        approx(c1, sz, xout = 1 - x)$y
+      })
+      # use lty = 2 and lwd = 1 if points are being plotted, or lty = 1 and lwd = 2 otherwise 20191126
+      if(identical(pch, NA)) lty <- 1 else lty <- 2
+      if(identical(pch, NA)) lwd <- 2 else lwd <- 1
+      contour(dens, drawlabels = FALSE, levels = levels, lty = lty, lwd = lwd, add = TRUE, col = col.contour)
+    }
   }
   # add a reference rectangle
   if(plot.rect) rect(-0.01, -0.01, 0.01, 0.01, col="grey80", lwd=0)

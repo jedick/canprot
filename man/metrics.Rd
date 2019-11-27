@@ -66,6 +66,10 @@ Gasteiger, E., Hoogland, C., Gattiker, A., Duvaud, S., Wilkins, M. R., Appel, R.
 Kyte, J. and Doolittle, R. F. (1982) A simple method for displaying the hydropathic character of a protein. \emph{J. Mol. Biol.} \bold{157}, 105--132. \doi{10.1016/0022-2836(82)90515-0}
 }
 
+\seealso{
+\code{\link{PS}}
+}
+
 \examples{
 # we need CHNOSZ for these examples
 require(CHNOSZ)

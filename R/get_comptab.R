@@ -35,8 +35,11 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   }
   nAA <- function() pdat$pcomp$protein.length
   # GRAVY and pI added 20191028
+  # canprot:: is used to access the functions in the package namespace, not the ones defined here
   GRAVY <- function() canprot::GRAVY(pdat$pcomp$aa)
   pI <- function() canprot::pI(pdat$pcomp$aa)
+  # PS (phylostrata) added 20191127
+  PS <- function() canprot::PS(pdat$pcomp$uniprot)
   # get the values of the variables using the functions
   val1 <- get(var1)()
   val2 <- get(var2)()
@@ -52,23 +55,36 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
     title(pdat$description)
     mtext(pdat$dataset, side=4, cex=0.85, las=0, adj=0, line=-0.1)
   }
-  # calculate and print sample size, difference of means/medians, CLES, p-value
+  # calculate and print sample size
   val1_dn <- val1[!pdat$up2]
   val1_up <- val1[pdat$up2]
-  mfun1_dn <- get(mfun)(val1_dn)
-  mfun1_up <- get(mfun)(val1_up)
-  val1.diff <- mfun1_up - mfun1_dn
   val2_dn <- val2[!pdat$up2]
   val2_up <- val2[pdat$up2]
-  mfun2_dn <- get(mfun)(val2_dn)
-  mfun2_up <- get(mfun)(val2_up)
-  val2.diff <- mfun2_up - mfun2_dn
-  val1.p.value <- stats::wilcox.test(val1_dn, val1_up)$p.value
-  val1.CLES <- 100*CLES(val1_dn, val1_up)
-  val2.p.value <- stats::wilcox.test(val2_dn, val2_up)$p.value
-  val2.CLES <- 100*CLES(val2_dn, val2_up)
-  # print summary messages
   message(paste0(pdat$dataset, " (", pdat$description ,"): n1 ", length(val1_dn), ", n2 ", length(val1_up)))
+  # calculate difference of means/medians, CLES, p-value
+  # always use mean for PS 20191127
+  if(var1 == "PS") {
+    mfun1_dn <- mean(val1_dn, na.rm = TRUE)
+    mfun1_up <- mean(val1_up, na.rm = TRUE)
+  } else {
+    mfun1_dn <- get(mfun)(val1_dn)
+    mfun1_up <- get(mfun)(val1_up)
+  }
+  if(var2 == "PS") {
+    mfun2_dn <- mean(val2_dn, na.rm = TRUE)
+    mfun2_up <- mean(val2_up, na.rm = TRUE)
+  } else {
+    mfun2_dn <- get(mfun)(val2_dn)
+    mfun2_up <- get(mfun)(val2_up)
+  }
+  val1.diff <- mfun1_up - mfun1_dn
+  val2.diff <- mfun2_up - mfun2_dn
+  val1.CLES <- 100*CLES(val1_dn, val1_up)
+  val2.CLES <- 100*CLES(val2_dn, val2_up)
+  val1.p.value <- val2.p.value <- NA
+  if(!any(is.na(val1_dn)) & !any(is.na(val1_up))) val1.p.value <- stats::wilcox.test(val1_dn, val1_up)$p.value
+  if(!any(is.na(val2_dn)) & !any(is.na(val2_up))) val2.p.value <- stats::wilcox.test(val2_dn, val2_up)$p.value
+  # print summary messages
   nchar1 <- nchar(var1)
   nchar2 <- nchar(var2)
   start1 <- paste0(var1, substr("      MD ", nchar1, 10))
@@ -88,5 +104,7 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   colnames(out) <- gsub("val2", var2, colnames(out))
   # convert colnames
   if(mfun == "mean") colnames(out) <- gsub("median", "mean", colnames(out))
+  iPS <- grepl("PS", colnames(out))
+  if(any(iPS)) colnames(out)[iPS] <- gsub("median", "mean", colnames(out)[iPS])
   return(invisible(out))
 }
