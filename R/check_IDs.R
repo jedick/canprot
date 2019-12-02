@@ -7,6 +7,8 @@ check_IDs <- function(dat, IDcol, aa_file = NULL, updates_file = NULL) {
   ID_list <- strsplit(dat[, IDcol], ";")
   # the list of IDs as a vector
   ID <- unlist(ID_list)
+  # the input IDs that are NA
+  input.NA <- is.na(ID) | ID == ""
   # human proteins
   aa <- get("human_aa", canprot)
   # add amino acid compositions from external file if specified
@@ -33,6 +35,14 @@ check_IDs <- function(dat, IDcol, aa_file = NULL, updates_file = NULL) {
   known_IDs <- relist(known_IDs, ID_list)
   # take the first (non-NA) match 20191119
   ID <- sapply(sapply(known_IDs, na.omit), "[", 1)
+  # the output IDs that are NA
+  output.NA <- is.na(ID) | ID == ""
+  # print which IDs became NA 20191127
+  if(sum(output.NA) > sum(input.NA)) {
+    new.NA <- output.NA & !input.NA
+    NA.IDs <- dat[new.NA, IDcol]
+    print(paste("check_IDs:", sum(new.NA), "unavailable UniProt IDs:", paste(NA.IDs, collapse = " ")))
+  }
   # now apply the updates 20191119
   iold <- match(ID, updates$old)
   if(any(!is.na(iold))) {

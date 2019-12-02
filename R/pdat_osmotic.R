@@ -13,7 +13,7 @@ pdat_osmotic <- function(dataset=NULL, basis="rQEC") {
              "CCCC13_25mM", "CCCC13_100mM", "TSZ+13",
              "GSC14_t30a", "GSC14_t30b", "GSC14_t30c",
              "CLG+15",
-             "KLB+15_trans-suc", "KLB+15_trans-NaCl", "KLB+15_prot-suc", "KLB+15_prot-NaCl",
+             "KLB+15_trans-suc=transcriptome", "KLB+15_trans-NaCl=transcriptome", "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "LDB+15_all", "LDB+15_high", "YDZ+15",
              "RBP+16"
              ))

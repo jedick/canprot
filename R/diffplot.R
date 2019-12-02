@@ -31,9 +31,12 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     yvar <- cplab[[Dy]][[1]]
   }
   # use colnames to figure out whether the difference is of the mean or median
-  # specifically find the x- and y-variables here in case one is median and one is mean (possible with PS) 20191127
+  # treat the x- and y-variables separately in case one is median and one is mean (possible with PS) 20191127
   xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
   yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
+  # if that didn't work, fall back to "median", or "mean" for PS 20191129
+  if(!xfun %in% c("median", "mean")) xfun <- ifelse(vars[1]=="PS", "mean", "median")
+  if(!yfun %in% c("median", "mean")) yfun <- ifelse(vars[2]=="PS", "mean", "median")
   xlab <- substitute(x * " (" * xfun * " difference)", list(xfun=xfun, x=xvar))
   ylab <- substitute(y * " (" * yfun * " difference)", list(yfun=yfun, y=yvar))
   # initialize plot: add a 0 to make sure we can see the axis
