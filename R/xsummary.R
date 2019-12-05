@@ -58,6 +58,7 @@ xsummary <- function(comptab, vars=c("ZC", "nH2O")) {
   span_empty <- "<th colspan=\"4\"></th>"
   span_ZC <- "<th colspan=\"3\"><i>Z</i><sub>C</sub></th>"
   span_nH2O <- "<th colspan=\"3\"><i>n</i><sub>H<sub>2</sub>O</sub></sub></th>"
+  span_nO2 <- "<th colspan=\"3\"><i>n</i><sub>O<sub>2</sub></sub></sub></th>"
   span_nAA <- "<th colspan=\"3\"><i>n</i><sub>AA</sub></th>"
   span_var1 <- get(paste0("span_", vars[1]))
   span_var2 <- get(paste0("span_", vars[2]))

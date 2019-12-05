@@ -3,12 +3,12 @@
 # 20160703 jmd
 
 check_IDs <- function(dat, IDcol, aa_file = NULL, updates_file = NULL) {
+  # the input IDs that are NA
+  input.NA <- is.na(dat[, IDcol]) | dat[, IDcol] == ""
   # the candidate IDs separated into a list
   ID_list <- strsplit(dat[, IDcol], ";")
   # the list of IDs as a vector
   ID <- unlist(ID_list)
-  # the input IDs that are NA
-  input.NA <- is.na(ID) | ID == ""
   # human proteins
   aa <- get("human_aa", canprot)
   # add amino acid compositions from external file if specified
