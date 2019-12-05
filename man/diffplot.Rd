@@ -10,7 +10,7 @@
   diffplot(comptab, vars = c("ZC", "nH2O"), col = "black", plot.rect = FALSE,
            pt.text = c(letters, LETTERS), cex.text = 0.9, oldstyle = FALSE,
            pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"),
-           probs = 0.5, add = FALSE)
+           probs = 0.5, add = FALSE, labtext = NULL)
 }
 
 \arguments{
@@ -27,6 +27,7 @@
   \item{col.contour}{color of contour lines}
   \item{probs}{numeric, probability level(s) for contours}
   \item{add}{logical, add to an existing plot?}
+  \item{labtext}{character, text to add in axis labels}
 }
 
 \details{
@@ -41,6 +42,9 @@ This is useful for emphasizing the different scales of adjacent plots.
 
 If \code{pt.text} is not NA or FALSE, \code{\link{text}} labels are added with size controlled by \code{cex.text}.
 The default value produces labels that are taken sequentially from 26 lowercase Roman letters in alphabetical order (\code{\link{letters}}), followed by the set of uppercase letters (\code{\link{LETTERS}}).
+
+For \code{labtext} = NULL, descriptive text (\dQuote{median difference} or \dQuote{mean difference}) is added to the axis labels in parentheses.
+This text can be changed by giving a value in \code{labtext}, or NA to suppress the text.
 
 }
 

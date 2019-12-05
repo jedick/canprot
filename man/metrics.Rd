@@ -2,6 +2,7 @@
 \name{metrics}
 \alias{metrics}
 \alias{H2OAA}
+\alias{O2AA}
 \alias{ZCAA}
 \alias{GRAVY}
 \alias{pI}
@@ -13,6 +14,7 @@ These functions calculate compositional metrics of proteins given a data frame o
 \usage{
   ZCAA(AAcomp, nothing = NULL)
   H2OAA(AAcomp, basis = "rQEC")
+  O2AA(AAcomp, basis = "biosynth")
   GRAVY(AAcomp)
   pI(AAcomp)
 }
@@ -26,6 +28,7 @@ These functions calculate compositional metrics of proteins given a data frame o
 \details{
 \code{ZCAA} calculates average oxidation state of carbon (\ZC).
 \code{H2OAA} calculates stoichiometric hydration state (\nH2O) per residue.
+\code{O2AA} calculates stoichiometric hydration state (\nO2) per residue.
 \code{GRAVY} calculates the grand average of hydropathicity.
 \code{pI} calculates the isoelectric point.
 
@@ -37,6 +40,10 @@ The default for \code{basis} stands for relative water content, calculated as re
 Furthermore, a constant of 0.355 is subtracted from these residuals to make the mean for all human proteins = 0.
 This can be changed to \samp{QEC} to use the stoichiometric water content calculated directly from the basis species (as in Dick, 2017).
 See Dick et al. (2019) for more information.
+
+\code{H2OAA} and \code{O2AA} accept a value of \samp{biosynth} for \code{basis}.
+In this case, the respective values correspond to the stoichiometric coefficients of \H2O and \O2 in biosynthetic reactions of amino acids from metabolic precursors.
+The reactions are based on this diagram: \url{https://upload.wikimedia.org/wikipedia/commons/2/21/Amino_acid_biosynthesis_overview.png}.
 
 Note that \ZC is a per-carbon average, but \nH2O is a per-residue average.
 The contribution of \H2O from the terminal groups of proteins is counted, so shorter proteins have slightly greater \nH2O.
@@ -118,4 +125,30 @@ pI_calc <- pI(AAcomp)
 # LYSC_CHICK: residues 19-147 (sequence v1)
 pI_ref <- c(3.37, 5.46, 8.64, 9.32)
 stopifnot(all.equal(as.numeric(pI_calc), pI_ref))
+
+# This shows how the stoichiometric coefficients of H2O and O2
+# in biosynthetic reactions were obtained. The list of precursors is based on
+# https://upload.wikimedia.org/wikipedia/commons/2/21/Amino_acid_biosynthesis_overview.png
+file <- system.file("extdata/misc/aminoacid_precursors.csv", package = "canprot")
+precursors <- read.csv(file, as.is = TRUE)
+# balance the reactions using CHNOPS basis (including H+)
+basis("CHNOPS+")
+# add precursors not in OBIGT
+mod.obigt("chorismate", formula = "C10H9O6-")
+mod.obigt("3-phosphoglycerate", formula = "C3H6O7P-")
+mod.obigt("ribose 5-phosphate", formula = "C5H10O8P-")
+allAA <- aminoacids("")
+names(allAA) <- aminoacids(3)
+out <- lapply(allAA, function(AA) {
+  ipre <- match(AA, precursors$amino.acid)
+  # react precursor and amino acid in 1:1 proportion
+  sres <- subcrt(c(precursors$precursor[ipre], AA), c(-1, 1))
+  nH2O <- -subset(sres$reaction, formula == "H2O")$coeff
+  nO2 <- -subset(sres$reaction, formula == "O2")$coeff
+  if(length(nH2O) == 0) nH2O <- 0
+  if(length(nO2) == 0) nO2 <- 0
+  list(nH2O = nH2O, nO2 = nO2)
+})
+sapply(out, "[[", 1) # nH2O for each amino acid
+sapply(out, "[[", 2) # nO2 for each amino acid
 }

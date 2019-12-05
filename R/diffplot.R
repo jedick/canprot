@@ -5,7 +5,7 @@
 
 diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS),
                      cex.text = 0.9, oldstyle = FALSE, pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"),
-                     probs = 0.5, add = FALSE) {
+                     probs = 0.5, add = FALSE, labtext = NULL) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # which columns we're using
@@ -31,14 +31,25 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     yvar <- cplab[[Dy]][[1]]
   }
   # use colnames to figure out whether the difference is of the mean or median
-  # treat the x- and y-variables separately in case one is median and one is mean (possible with PS) 20191127
-  xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
-  yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
-  # if that didn't work, fall back to "median", or "mean" for PS 20191129
-  if(!xfun %in% c("median", "mean")) xfun <- ifelse(vars[1]=="PS", "mean", "median")
-  if(!yfun %in% c("median", "mean")) yfun <- ifelse(vars[2]=="PS", "mean", "median")
-  xlab <- substitute(x * " (" * xfun * " difference)", list(xfun=xfun, x=xvar))
-  ylab <- substitute(y * " (" * yfun * " difference)", list(yfun=yfun, y=yvar))
+  if(is.null(labtext)) {
+    # treat the x- and y-variables separately in case one is median and one is mean (possible with PS) 20191127
+    xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
+    yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
+    # if that didn't work, fall back to "median", or "mean" for PS 20191129
+    if(!xfun %in% c("median", "mean")) xfun <- ifelse(vars[1]=="PS", "mean", "median")
+    if(!yfun %in% c("median", "mean")) yfun <- ifelse(vars[2]=="PS", "mean", "median")
+    xparen <- paste0("(", xfun, " difference)")
+    yparen <- paste0("(", yfun, " difference)")
+  } else {
+    xparen <- yparen <- paste0("(", labtext, ")")
+  }
+  if(identical(labtext, NA)) {
+    xlab <- xvar
+    ylab <- yvar
+  } else {
+    xlab <- substitute(x ~ xparen, list(xparen=xparen, x=xvar))
+    ylab <- substitute(y ~ yparen, list(yparen=yparen, y=yvar))
+  }
   # initialize plot: add a 0 to make sure we can see the axis
   if(!add) plot(type="n", c(X_d, 0), c(Y_d, 0), xlab=xlab, ylab=ylab)
   # contour 2-D kernel density estimate 20190329

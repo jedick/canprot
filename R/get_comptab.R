@@ -6,6 +6,7 @@
 get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median") {
   # define functions for the possible variables of interest
   nH2O <- function() pdat$pcomp$residue.basis[, "H2O"]
+  nO2 <- function() pdat$pcomp$residue.basis[, "O2"]
   ZC <- function() pdat$pcomp$ZC
   nC <- function() pdat$pcomp$residue.formula[, "C"]
   nN <- function() pdat$pcomp$residue.formula[, "N"]

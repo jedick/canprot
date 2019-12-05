@@ -23,7 +23,8 @@
 The available compositional variables are:
 \tabular{ll}{
   \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link{ZCAA}}) \cr
-  \samp{nH2O} \tab water demand per residue (\nH2O; see \code{\link{H2OAA}}) \cr
+  \samp{nH2O} \tab stoichiometric hydration state (\nH2O; see \code{\link{H2OAA}}) \cr
+  \samp{nO2}  \tab stoichiometric oxidation state (\nO2; see \code{\link{O2AA}}) \cr
   \samp{nC}   \tab number of carbon atoms per residue \cr
   \samp{nN}   \tab number of nitrogen atoms per residue \cr
   \samp{nS}   \tab number of sulfur atoms per residue \cr

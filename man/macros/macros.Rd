@@ -6,6 +6,7 @@
 
 \newcommand{\ZC}{\ifelse{latex}{\eqn{Z_\mathrm{C}}}{\ifelse{html}{\out{<I>Z</I><sub>C</sub>}}{ZC}}}
 \newcommand{\nH2O}{\ifelse{latex}{\eqn{n_{\mathrm{H_{2}O}}}}{\ifelse{html}{\out{<i>n</i><sub>H<sub>2</sub>O</sub>}}{nH2O}}}
+\newcommand{\nO2}{\ifelse{latex}{\eqn{n_{\mathrm{O_{2}}}}}{\ifelse{html}{\out{<i>n</i><sub>O<sub>2</sub></sub>}}{nO2}}}
 % use \barnH2O{&#772;} to call this macro (the html code can't be defined in the macro,
 % which interprets '#' followed by a number as a placeholder for an argument)
 \newcommand{\barnH2O}{\ifelse{latex}{\eqn{\bar{n}_{\mathrm{H_{2}O}}}}{\ifelse{html}{\out{<i>n</i>#1<sub>H<sub>2</sub>O</sub>}}{nH2O}}}

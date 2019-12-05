@@ -14,6 +14,8 @@ cpcol <- list(
 cplab <- list(
   nH2O = expression(italic(n)[H[2]*O]),
   DnH2O = expression(Delta*italic(n)[H[2]*O]),
+  nO2 = expression(italic(n)[O[2]]),
+  DnO2 = expression(Delta*italic(n)[O[2]]),
   ZC = expression(italic(Z)[C]),
   DZC = expression(Delta*italic(Z)[C]),
   logfO2 = expression(log*italic("f")[O[2]*group("(", italic("g"), ")")]),
