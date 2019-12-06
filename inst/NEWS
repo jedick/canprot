@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-15 (2019-12-05)
+CHANGES IN canprot 0.1.4-16 (2019-12-06)
 ----------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -25,8 +25,9 @@ CHANGES IN canprot 0.1.4-15 (2019-12-05)
 
 - Revert to mfun = "median" for the default in get_comptab().
 
-- Add PS() function for retrieving phylostrata from Trigos et al.
-  (2017). PS is available for calculation with get_comptab().
+- Add PS() function for retrieving phylostrata from Liebeskind et al.
+  (2016) or Trigos et al. (2017). PS is available for calculation with
+  get_comptab().
 
 - Add O2AA() and basis = "biosynth" option to H2OAA(), used to obtain
   stoichiometric coefficient of O2 and H2O in amino acid biosynthetic

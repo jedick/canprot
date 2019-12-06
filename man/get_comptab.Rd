@@ -7,7 +7,8 @@
 }
 
 \usage{
-  get_comptab(pdat, var1="ZC", var2="nH2O", plot.it = FALSE, mfun = "median")
+  get_comptab(pdat, var1="ZC", var2="nH2O", plot.it = FALSE, mfun = "median",
+    PS_source = "TPPG17")
 }
 
 \arguments{
@@ -16,6 +17,7 @@
   \item{var2}{character, the second variable}
   \item{plot.it}{logical, make a scatterplot?}
   \item{mfun}{character, specifying use of the \samp{median} or \samp{mean} function}
+  \item{PS_source}{character, data source for phylostrata calculations (see \code{\link{PS}})}
 }
 
 \details{
