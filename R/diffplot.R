@@ -4,7 +4,7 @@
 # 20190329 add oldstyle = FALSE (no drop lines; show kernel density)
 
 diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS),
-                     cex.text = 0.9, oldstyle = FALSE, pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"),
+                     cex.text = 0.85, oldstyle = FALSE, pch = 1, cex = 2.1, contour = TRUE, col.contour = par("fg"),
                      probs = 0.5, add = FALSE, labtext = NULL) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)

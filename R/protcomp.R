@@ -2,8 +2,8 @@
 # function to read protein data and calculate compositional parameters
 # 20160705 jmd
 
-protcomp <- function(uniprot=NULL, ip=NULL, basis="rQEC", aa_file=NULL) {
-  if(is.null(ip)) {
+protcomp <- function(uniprot = NULL, basis = "rQEC", aa = NULL, aa_file = NULL) {
+  if(is.null(aa)) {
     # get amino acid compositions of human proteins
     aa <- get("human_aa", canprot)
     # add amino acid compositions from external file if specified
@@ -28,9 +28,6 @@ protcomp <- function(uniprot=NULL, ip=NULL, basis="rQEC", aa_file=NULL) {
         paste(uniprot[duplicated(iuni)], collapse=" ")), immediate.=TRUE)
       aa <- aa[iuni, ]
     }
-  } else {
-    # ip is given, for pre-loaded proteins, used by canstab()
-    aa <- ip
   }
   # protein formula, average oxidation state of carbon
   protein.formula <- CHNOSZ::protein.formula(aa)

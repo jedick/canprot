@@ -7,14 +7,14 @@
 }
 
 \usage{
-  protcomp(uniprot = NULL, ip = NULL, basis = "rQEC",
-           aa_file = NULL)
+  protcomp(uniprot = NULL, basis = "rQEC",
+           aa = NULL, aa_file = NULL)
 }
 
 \arguments{
   \item{uniprot}{character, UniProt IDs of proteins}
-  \item{ip}{numeric, indices of active proteins in CHNOSZ}
   \item{basis}{character, keyword for basis species to use}
+  \item{aa}{data frame, amino acid compositions}
   \item{aa_file}{character, file name}
 }
 
@@ -26,6 +26,7 @@ The default is \samp{rQEC}, which is like the \samp{QEC} basis, except that the 
 
 This function depends on the amino acid compositions of human proteins, which are stored in the \code{\link{canprot}} environment when the package is attached.
 If \code{aa_file} is specified, additional amino acid compositions to be considered are read from this file, which should be in the same format as e.g. \code{\link{human_extra}.csv} (see also \code{\link[CHNOSZ]{thermo}$protein}).
+Alternatively, the amino acid compositions can be given in \code{aa}, bypassing the search step.
 }
 
 \value{
