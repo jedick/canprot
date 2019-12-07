@@ -8,8 +8,8 @@
 
 \usage{
   diffplot(comptab, vars = c("ZC", "nH2O"), col = "black", plot.rect = FALSE,
-           pt.text = c(letters, LETTERS), cex.text = 0.9, oldstyle = FALSE,
-           pch = 1, cex = 2, contour = TRUE, col.contour = par("fg"),
+           pt.text = c(letters, LETTERS), cex.text = 0.85, oldstyle = FALSE,
+           pch = 1, cex = 2.1, contour = TRUE, col.contour = par("fg"),
            probs = 0.5, add = FALSE, labtext = NULL)
 }
 
@@ -66,8 +66,8 @@ Otherwise, no line is drawn.
 \examples{
 library(CHNOSZ)
 comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
-  pdat <- get_pdat(dataset)
-  get_comptab(pdat)
+  pdat <- pdat_CRC(dataset)
+  get_comptab(pdat, oldstyle = TRUE)
 })
 diffplot(comptab, oldstyle = TRUE)
 }

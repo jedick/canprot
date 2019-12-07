@@ -27,8 +27,8 @@ The function also returns (invisibly) the data frame used to make the table; thi
 \examples{
 library(CHNOSZ)
 comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
-  pdat <- get_pdat(dataset)
-  get_comptab(pdat)
+  pdat <- pdat_CRC(dataset)
+  get_comptab(pdat, oldstyle = TRUE)
 })
 xsummary(comptab)
 }

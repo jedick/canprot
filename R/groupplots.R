@@ -161,7 +161,7 @@ calcpot <- function(what="pancreatic", datasets=c("LHE+04", "PCS+11_PDAC"),
   # get the data
   pdat_fun <- paste0("pdat_", what)
   rankdat <- lapply_canprot(datasets, function(dataset) {
-    pdat <- get_pdat(dataset, pdat_fun, basis)
+    pdat <- get(pdat_fun)(dataset, basis)
     rankplot(pdat, res=res, plot.it=FALSE, xlim=xlim, ylim=ylim)
   }, varlist=pdat_fun, min.length=5)
   rankdiff <- lapply(rankdat, "[[", "rankdiff")

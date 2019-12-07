@@ -18,6 +18,8 @@ pdat_CRC <- function(dataset=NULL, basis="rQEC") {
              "LPL+16_ACP=AD=NT", "LPL+16_CIS=NT", "LPL+16_ICC=NT", "LXM+16=NT",
              "PHL+16_AD=AD=NT", "PHL+16_CIS=NT", "PHL+16_ICC=NT"))
   }
+  # remove tags
+  dataset <- strsplit(dataset, "=")[[1]][1]
   # get study and stage/condition
   study <- strsplit(dataset, "_")[[1]][1]
   stage <- paste(strsplit(dataset, "_")[[1]][-1], collapse="_")

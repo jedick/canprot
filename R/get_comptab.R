@@ -3,7 +3,7 @@
 # CNS: elemental abundance (C, N, S) per residue 20170124
 # ZC_nH2O: plot and summarize ZC and nH2O/residue of proteins 20160706
 
-get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median", PS_source = "TPPG17") {
+get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median", PS_source = "TPPG17", oldstyle = FALSE) {
   # define functions for the possible variables of interest
   nH2O <- function() pdat$pcomp$residue.basis[, "H2O"]
   nO2 <- function() pdat$pcomp$residue.basis[, "O2"]
@@ -80,26 +80,32 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   }
   val1.diff <- mfun1_up - mfun1_dn
   val2.diff <- mfun2_up - mfun2_dn
-  val1.CLES <- 100*CLES(val1_dn, val1_up)
-  val2.CLES <- 100*CLES(val2_dn, val2_up)
-  val1.p.value <- val2.p.value <- NA
-  if(!any(is.na(val1_dn)) & !any(is.na(val1_up))) val1.p.value <- stats::wilcox.test(val1_dn, val1_up)$p.value
-  if(!any(is.na(val2_dn)) & !any(is.na(val2_up))) val2.p.value <- stats::wilcox.test(val2_dn, val2_up)$p.value
-  # print summary messages
-  nchar1 <- nchar(var1)
-  nchar2 <- nchar(var2)
-  start1 <- paste0(var1, substr("      MD ", nchar1, 10))
-  start2 <- paste0(var2, substr("      MD ", nchar2, 10))
-  message(paste0(start1, format(round(val1.diff, 3), nsmall=3, width=6),
-               ", CLES ", round(val1.CLES), "%",
-               ", p-value ", format(round(val1.p.value, 3), nsmall=3)))
-  message(paste0(start2, format(round(val2.diff, 3), nsmall=3, width=6),
-               ", CLES ", round(val2.CLES), "%",
-               ", p-value ", format(round(val2.p.value, 3), nsmall=3), "\n"))
   out <- data.frame(dataset=pdat$dataset, description=pdat$description,
     n1=length(val1_dn), n2=length(val1_up),
-    val1.median1=mfun1_dn, val1.median2=mfun1_up, val1.diff, val1.CLES, val1.p.value,
-    val2.median1=mfun2_dn, val2.median2=mfun2_up, val2.diff, val2.CLES, val2.p.value, stringsAsFactors=FALSE)
+    val1.median1=mfun1_dn, val1.median2=mfun1_up, val1.diff,
+    val2.median1=mfun2_dn, val2.median2=mfun2_up, val2.diff, stringsAsFactors=FALSE)
+  if(oldstyle) {
+    val1.CLES <- 100*CLES(val1_dn, val1_up)
+    val2.CLES <- 100*CLES(val2_dn, val2_up)
+    val1.p.value <- val2.p.value <- NA
+    if(!any(is.na(val1_dn)) & !any(is.na(val1_up))) val1.p.value <- stats::wilcox.test(val1_dn, val1_up)$p.value
+    if(!any(is.na(val2_dn)) & !any(is.na(val2_up))) val2.p.value <- stats::wilcox.test(val2_dn, val2_up)$p.value
+    # print summary messages
+    nchar1 <- nchar(var1)
+    nchar2 <- nchar(var2)
+    start1 <- paste0(var1, substr("      MD ", nchar1, 10))
+    start2 <- paste0(var2, substr("      MD ", nchar2, 10))
+    message(paste0(start1, format(round(val1.diff, 3), nsmall=3, width=6),
+                 ", CLES ", round(val1.CLES), "%",
+                 ", p-value ", format(round(val1.p.value, 3), nsmall=3)))
+    message(paste0(start2, format(round(val2.diff, 3), nsmall=3, width=6),
+                 ", CLES ", round(val2.CLES), "%",
+                 ", p-value ", format(round(val2.p.value, 3), nsmall=3), "\n"))
+    out <- data.frame(dataset=pdat$dataset, description=pdat$description,
+      n1=length(val1_dn), n2=length(val1_up),
+      val1.median1=mfun1_dn, val1.median2=mfun1_up, val1.diff, val1.CLES, val1.p.value,
+      val2.median1=mfun2_dn, val2.median2=mfun2_up, val2.diff, val2.CLES, val2.p.value, stringsAsFactors=FALSE)
+  }
   # convert colnames to use names of variables 
   colnames(out) <- gsub("val1", var1, colnames(out))
   colnames(out) <- gsub("val2", var2, colnames(out))

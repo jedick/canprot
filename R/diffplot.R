@@ -10,14 +10,15 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # which columns we're using
   stats <- c("diff", "CLES", "p.value")
-  iX <- unlist(sapply(paste(vars[1], stats, sep="."), grep, colnames(comptab)))
-  iY <- unlist(sapply(paste(vars[2], stats, sep="."), grep, colnames(comptab)))
+  iX <- unlist(sapply(paste(vars[1], stats, sep=".*"), grep, colnames(comptab)))
+  iY <- unlist(sapply(paste(vars[2], stats, sep=".*"), grep, colnames(comptab)))
   # get mean/median difference, common language effect size and p-value
   X_d <- comptab[, iX[1]]
   Y_d <- comptab[, iY[1]]
-  # set up plot
-  Dx <- paste0("D", vars[1])
-  Dy <- paste0("D", vars[2])
+  # figure out axis labels
+  # only use part before underscore 20191207
+  Dx <- paste0("D", strsplit(vars[1], "_")[[1]][1])
+  Dy <- paste0("D", strsplit(vars[2], "_")[[1]][1])
   if(oldstyle) {
     xvar <- cplabbar[[Dx]][[1]]
     yvar <- cplabbar[[Dy]][[1]]
@@ -36,8 +37,8 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
     yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
     # if that didn't work, fall back to "median", or "mean" for PS 20191129
-    if(!xfun %in% c("median", "mean")) xfun <- ifelse(vars[1]=="PS", "mean", "median")
-    if(!yfun %in% c("median", "mean")) yfun <- ifelse(vars[2]=="PS", "mean", "median")
+    if(!xfun %in% c("median", "mean")) xfun <- ifelse(grepl("PS", vars[1]), "mean", "median")
+    if(!yfun %in% c("median", "mean")) yfun <- ifelse(grepl("PS", vars[2]), "mean", "median")
     xparen <- paste0("(", xfun, " difference)")
     yparen <- paste0("(", yfun, " difference)")
   } else {

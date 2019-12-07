@@ -9,6 +9,8 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
              "JSP+19_LoS", "JSP+19_HiS" #, "JSP+19_LoT", "JSP+19_HiT"
              ))
   }
+  # remove tags
+  dataset <- strsplit(dataset, "=")[[1]][1]
   # get study and stage/condition
   study <- strsplit(dataset, "_")[[1]][1]
   stage <- paste(strsplit(dataset, "_")[[1]][-1], collapse="_")

@@ -18,6 +18,8 @@ pdat_osmotic <- function(dataset=NULL, basis="rQEC") {
              "RBP+16"
              ))
   }
+  # remove tags
+  dataset <- strsplit(dataset, "=")[[1]][1]
   # get study and stage/condition
   study <- strsplit(dataset, "_")[[1]][1]
   stage <- paste(strsplit(dataset, "_")[[1]][-1], collapse="_")

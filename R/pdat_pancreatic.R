@@ -18,6 +18,8 @@ pdat_pancreatic <- function(dataset=NULL, basis="rQEC") {
              "ZNWL13=NT", "ISI+14=NT",
              "KKC+16_T4=mouse=NT", "KKC+16_T3=mouse=NT", "KKC+16_T2=mouse=NT", "KKC+16_T1=mouse=NT"))
   }
+  # remove tags
+  dataset <- strsplit(dataset, "=")[[1]][1]
   # get study and stage/condition
   study <- strsplit(dataset, "_")[[1]][1]
   stage <- paste(strsplit(dataset, "_")[[1]][-1], collapse="_")

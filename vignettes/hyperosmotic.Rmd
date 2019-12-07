@@ -32,9 +32,9 @@ Get datasets considered in [Dick, 2017](https://doi.org/10.7717/peerj.3421) and 
 
 ```{r pdats, message=FALSE}
 datasets <- pdat_osmotic()
-pdat <- lapply_canprot(datasets, get_pdat, "pdat_osmotic", basis = "QEC")
+pdat <- lapply_canprot(datasets, pdat_osmotic, basis = "QEC")
 datasets2 <- pdat_osmotic2()
-pdat2 <- lapply_canprot(datasets2, get_pdat, "pdat_osmotic2", basis = "QEC")
+pdat2 <- lapply_canprot(datasets2, pdat_osmotic2, basis = "QEC")
 ```
 
 Put the datasets together.
@@ -48,7 +48,7 @@ pdat <- c(pdat, pdat2)
 Make the table of compositional metrics (carbon oxidation state and stoichiometric hydration state).
 
 ```{r comptab, message=FALSE}
-comptab <- lapply_canprot(pdat, get_comptab, plot.it = FALSE, mfun = "mean")
+comptab <- lapply_canprot(pdat, get_comptab, plot.it = FALSE, mfun = "mean", oldstyle = TRUE)
 ```
 
 ```{r xsummary, results="asis"}

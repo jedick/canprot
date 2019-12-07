@@ -34,7 +34,7 @@ protcomp <- function(uniprot = NULL, basis = "rQEC", aa = NULL, aa_file = NULL) 
   ZC <- CHNOSZ::ZC(protein.formula)
   # basis species for proteins, protein length, basis species in residue
   if(basis=="rQEC") basis("QEC") 
-  else if(basis=="biosynth") basis("CHNOPS+")
+  else if(basis=="biosynth") basis("CHNOS")
   else basis(basis)
   protein.basis <- protein.basis(aa)
   protein.length <- protein.length(aa)
