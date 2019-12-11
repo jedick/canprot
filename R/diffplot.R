@@ -78,7 +78,8 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
       # use lty = 2 and lwd = 1 if points are being plotted, or lty = 1 and lwd = 2 otherwise 20191126
       if(identical(pch, NA)) lty <- 1 else lty <- 2
       if(identical(pch, NA)) lwd <- 2 else lwd <- 1
-      contour(dens, drawlabels = FALSE, levels = levels, lty = lty, lwd = lwd, add = TRUE, col = col.contour)
+      # don't try to plot contours for NA levels 20191207
+      if(!any(is.na(levels))) contour(dens, drawlabels = FALSE, levels = levels, lty = lty, lwd = lwd, add = TRUE, col = col.contour)
     }
   }
   # add a reference rectangle

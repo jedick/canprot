@@ -1,18 +1,24 @@
-Date: 2019-12-07
+Date: 2019-12-08
 Package: canprot
-Version: 0.1.4-18
-Title: Chemical Composition of Differential Protein Expression
+Version: 0.1.4-19
+Title: Chemical Composition of Differentially Expressed Proteins
 Author: Jeffrey Dick
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
 Depends: R (>= 3.1.0)
 Imports: CHNOSZ (>= 1.3.0), xtable, MASS
 Suggests: knitr, rmarkdown, KernSmooth
-Description: Datasets are collected here for differentially (up- and down-)
-        expressed proteins identified in proteomic studies of cancer and in cell
-        culture experiments. Tables of amino acid compositions of proteins are
-        used for calculations of chemical composition, projected into selected
-        basis species. Plotting functions are used to visualize the compositional
-        differences and thermodynamic potentials for proteomic transformations.
+Description: Compositional analysis of differentially expressed proteins in
+  cancer and cell culture proteomics experiments. The data include lists of up-
+  and down-expressed proteins in different types of cancer (colorectal,
+  pancreatic) and laboratory conditions (hypoxia, hyperosmotic stress), together
+  with amino acid compositions obtained from protein sequences on UniProt.
+  Functions are provided to compute compositional metrics including protein
+  length, carbon oxidation state, and stoichiometric hydration state. In
+  addition, phylostrata (ages) of protein-coding genes are available using data
+  from Liebeskind et al. (2016) <doi:10.1093/gbe/evw113> or Trigos et al. (2017)
+  <doi:10.1073/pnas.1617743114>. Plots of the differences in the chemical
+  compositions and phylostrata for each cancer type and experimental condition
+  are shown in the vignettes.
 License: GPL-3
 BuildResaveData: no
 VignetteBuilder: knitr

@@ -4,7 +4,7 @@
 
 # calculate carbon oxidation state for amino acid compositions 20180228
 ZCAA <- function(AAcomp, nothing=NULL) {
-  # a dummy second argument is needed because of how this function is used in plotMG()
+  # a dummy second argument is needed because of how this function is used in JMDplots::plotMG
   # the number of carbons of the amino acids
   nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
     Ile = 6, Lys = 6, Leu = 6, Met = 5, Asn = 4, Pro = 5, Gln = 5, 

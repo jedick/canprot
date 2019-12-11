@@ -50,9 +50,10 @@ This text can be changed by giving a value in \code{labtext}, or NA to suppress 
 
 \section{oldstyle = FALSE}{
 Use \code{pch} and \code{cex} to control the point symbol and size.
-Contours are added for a 2-D kernel density estimate (\code{\link[MASS]{kde2d}}), with color of contour lines set by \code{col.contour}.
+Contours are added for credible regions of highest probability density, computed using a 2-D kernel density estimate (\code{\link[MASS]{kde2d}}).
+The color of contour lines is set by \code{col.contour}.
 \code{contour} can be a logical vector, indicating which points to include; set it to FALSE to omit the contour lines.
-\code{probs} specifies the probability levels, which may correspond to the fraction of points within the contour (add more values to \code{probs} to get more contours).
+\code{probs} specifies the probability levels (add more values to \code{probs} to get more contours).
 }
 
 \section{oldstyle = TRUE}{
