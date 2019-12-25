@@ -13,7 +13,7 @@
 
 \usage{
   pdat_CRC(dataset = 2020, basis = "rQEC")
-  pdat_pancreatic(dataset = NULL, basis = "rQEC")
+  pdat_pancreatic(dataset = 2020, basis = "rQEC")
   pdat_hypoxia(dataset = NULL, basis = "rQEC")
   pdat_osmotic(dataset = NULL, basis = "rQEC")
   pdat_osmotic2(dataset = NULL, basis = "rQEC")

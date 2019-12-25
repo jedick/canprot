@@ -29,7 +29,7 @@ library(canprot)
 ```
 
 ```{r datasets}
-datasets <- pdat_pancreatic()
+datasets <- pdat_pancreatic(2017)
 ```
 
 ```{r comptab, message=FALSE}

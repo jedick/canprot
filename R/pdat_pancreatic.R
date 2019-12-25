@@ -2,9 +2,25 @@
 # retrieve protein IDs for pancreatic cancer studies
 # 20160827 jmd
 # 20170904 add =NT tag (comparison between cancer and normal tissue)
+# 20190239-20191206 2020 updates
 
-pdat_pancreatic <- function(dataset=NULL, basis="rQEC") {
-  if(is.null(dataset)) {
+pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
+  if(identical(dataset, 2020)) {
+    return(c("LHE+04",
+             "CYD+05", "CGB+05",
+             "CLC+06=transcriptome",
+             "CTZ+09",
+             "MLC+11", "PCS+11_PDAC", "TMW+11",
+             "KBK+12",
+             "KHO+13", "KPC+13_all", "WLL+13a_PC_NT", "WLL+13a_PC.DM_NT.DM", "YKK+13", "ZNWL13",
+             "ISI+14", "BZQ+14", "MZH+14=mouse",
+             "BHB+15_T=mouse",
+             "KKC+16_T1=mouse",
+             "SWW+18",
+             "ZAH+19"
+             ))
+  }
+  if(identical(dataset, 2017)) {
     return(c("LHE+04=NT",
              "CYD+05=NT", "CGB+05=NT",
              "CBP+07=low",
@@ -185,9 +201,82 @@ pdat_pancreatic <- function(dataset=NULL, basis="rQEC") {
     dat <- dat[is.diff, ]
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- apply(dat[, icol] > 1, 1, sum) >= 3
+  } else if(study=="BHB+15") {
+    # 20190329 mouse organoids, Boj et al., 2015
+    # BHB+15_P, BHB+15_T
+    dat <- read.csv(paste0(datadir, "BHB+15.csv.xz"), as.is=TRUE)
+    description <- paste("mouse organoids", stage, "/ N")
+    # use selected dataset
+    icol <- grep(paste0("logFC.", stage, "vsN"), colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    # remove isoform suffixes
+    dat$ProteinID <- sapply(strsplit(dat$ProteinID, "-"), "[", 1)
+    dat <- check_IDs(dat, "ProteinID", aa_file=paste0(extdatadir, "/aa/mouse/BHB+15_aa.csv"))
+    up2 <- dat[, icol] > 0
+    dat <- cleanup(dat, "ProteinID", up2)
+    pcomp <- protcomp(dat$ProteinID, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/BHB+15_aa.csv"))
+  } else if(study=="BZQ+14") {
+    # 20190329 PDAC / normal, Britton et al., 2014
+    dat <- read.csv(paste0(datadir, "BZQ+14.csv.xz"), as.is=TRUE)
+    description <- "PDAC / N"
+    dat <- check_IDs(dat, "Uniprot.ID")
+    pcomp <- protcomp(dat$Uniprot.ID, basis=basis)
+    up2 <- dat$log2.T.NT.ratios > 0 
+  } else if(study=="MZH+14") {
+    # 20190407 tumor / healthy, Mirus et al., 2014
+    dat <- read.csv(paste0(datadir, "MZH+14.csv.xz"), as.is=TRUE)
+    description <- "tumor / healthy"
+    up2 <- dat$Coefficient > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/MZH+14_aa.csv"))
+  } else if(study=="YKK+13") {
+    # 20190408 PDAC / normal, Yu et al., 2013
+    dat <- read.csv(paste0(datadir, "YKK+13.csv.xz"), as.is=TRUE)
+    description <- "PDAC / N"
+    # keep proteins identified in at least 2 patients
+    dat <- dat[dat$No..patients > 1, ]
+    dat <- check_IDs(dat, "Accession")
+    up2 <- dat$Mean > 1
+    dat <- cleanup(dat, "Accession", up2)
+    pcomp <- protcomp(dat$Accession, basis=basis)
+  } else if(study=="SWW+18") {
+    # 20191204 PDAC tumor / adjacent, Song et al., 2018
+    dat <- read.csv(paste0(datadir, "SWW+18.csv.xz"), as.is=TRUE)
+    description <- "PDAC tumor / adjacent"
+    # calculate fold change in each sample
+    FC1 <- log2(dat$t1 / dat$n1)
+    FC2 <- log2(dat$t2 / dat$n2)
+    FC3 <- log2(dat$t3 / dat$n3)
+    dat <- cbind(dat, FC1 = FC1, FC2 = FC2, FC3 = FC3)
+    # remove proteins with ambiguous (up- and down-) expression
+    iup <- dat$FC1 > 0 | dat$FC2 > 0 | dat$FC3 > 0
+    idn <- dat$FC1 < 0 | dat$FC2 < 0 | dat$FC3 < 0
+    iambi <- iup & idn
+    iambi[is.na(iambi)] <- FALSE
+    dat <- dat[!iambi, ]
+    dat <- check_IDs(dat, "Accession")
+    up2 <- dat$FC1 > 0 | dat$FC2 > 0 | dat$FC3 > 0
+    up2[is.na(up2)] <- FALSE
+    dat <- cleanup(dat, "Accession", up2)
+    pcomp <- protcomp(dat$Accession, basis=basis)
+  } else if(study=="ZAH+19") {
+    # 20191204 cancer / normal, Zhou et al., 2019
+    dat <- read.csv(paste0(datadir, "ZAH+19.csv.xz"), as.is=TRUE)
+    description <- "cancer / normal"
+    up2 <- dat$Regulation == "Up"
+    pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="CLC+06") {
+    # 20191206 tumors / islets gene expression, Capurso et al., 2006
+    dat <- read.csv(paste0(datadir, "CLC+06.csv.xz"), as.is=TRUE)
+    description <- "tumors / islets gene expression"
+    dat <- check_IDs(dat, "Entry")
+    up2 <- dat$Tstat > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
   } else stop(paste("pancreatic dataset", dataset, "not available"))
   print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
-  # use the up2 from the cleaned-up data, if it exists 20191120
+  # use the up2 from the cleaned-up data, if it exists 20190407
   if("up2" %in% colnames(dat)) up2 <- dat$up2
   return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, description=description))
 }
+
