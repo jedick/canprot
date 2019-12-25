@@ -12,7 +12,7 @@
 }
 
 \usage{
-  pdat_CRC(dataset = NULL, basis = "rQEC")
+  pdat_CRC(dataset = 2020, basis = "rQEC")
   pdat_pancreatic(dataset = NULL, basis = "rQEC")
   pdat_hypoxia(dataset = NULL, basis = "rQEC")
   pdat_osmotic(dataset = NULL, basis = "rQEC")
@@ -20,7 +20,7 @@
 }
 
 \arguments{
-  \item{dataset}{character, specifies which dataset to retrieve}
+  \item{dataset}{character, dataset name}
   \item{basis}{character, keyword for basis species to use}
 }
 
@@ -33,12 +33,14 @@ Some of the functions also retrieve amino acid compositions from the files in \c
 
 \code{pdat_osmotic2} adds more data for osmotic stress experiments on bacteria and archaea, as described in Dick et al. (2019).
 
-If \code{dataset} is \code{NULL}, the return value gives the names of all datasets that can be retrieved using the function.
-Provide one of these names as the \code{dataset} argument to retrieve the data.
+If \code{dataset} is \code{NULL}, the function returns the names of all datasets in the compilation.
+If \code{dataset} is \samp{2017} or \samp{2017}, it indicates the year of the compilation.
+
+Provide one of the dataset names as the \code{dataset} argument to retrieve the data.
 Each dataset name indicates the study (publication) where the data were reported, constructed by combining the first characters of the (first three or four) authors' family names with the 2-digit year of publication.
 This coincides with the key-generation scheme used in some bibliography manager software.
-This abbreviation also is used to name the CSV file containing the data.
-If more than one dataset is available from a single study (for example, for relative protein expression in different stages of cancer), \code{dataset} is suffixed by an underscore followed by a short abbreviation indicating the particular dataset.
+This abbreviation is also used to name the CSV file containing the data.
+If more than one dataset is available from a single study (for example, for relative protein expression in different stages of cancer), \code{dataset} an underscore followed by a short suffix indicating the particular dataset.
 
 Tables listing mean compositional differences between up- and down-expressed proteins for each dataset are saved in \code{extdata/summary/}.
 These files were created using the second example below.
@@ -54,7 +56,8 @@ Dick, J. M., Tan, J. and Yu, M. (2019) Geochemistry of metagenomes: Redox and sa
 
 \examples{
 library(CHNOSZ)
-pdat_CRC()
+# list datasets in 2017 complilation
+pdat_CRC(2017)
 pdat_CRC("JKMF10")
 
 \dontrun{

@@ -37,7 +37,7 @@ library(CHNOSZ)
 Identify the datasets for protein expression.
 
 ```{r datasets}
-datasets <- pdat_CRC()
+datasets <- pdat_CRC(2017)
 ```
 
 Get the amino acid compositions of the up- and down-expressed proteins (`pdat_CRC`) and make comparisons of indicators of oxidation and hydration state (`get_comptab`).

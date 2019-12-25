@@ -4,9 +4,23 @@
 # 20161011 updated with new data [LXM+16]; add =AD tag (adenoma as n2)
 # 20170904 add =NT tag (normal tissue as n1)
 
-pdat_CRC <- function(dataset=NULL, basis="rQEC") {
-  # list available datasets
-  if(is.null(dataset)) { 
+pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
+  # list available datasets in 2020 compilation
+  if(identical(dataset, 2020)) { 
+    return(c("KPF+07=transcriptome",
+             "WTK+08",
+             "XZC+10_I", "XZC+10_II", "ZYS+10",
+             "BPV+11_stage.I", "BPV+11_stage.II", "BPV+11_stage.III", "BPV+11_stage.IV",
+             "JCF+11", "MRK+11_AC.NC", "SHHS11",
+             "KYK+12", "WOD+12",
+             "CZD+14",
+             "STK+15", "WDO+15_C.N",
+             "LXM+16", "PHL+16_CIS", "PHL+16_ICC",
+             "CTW+17", "HZW+17", "NKG+17", "QMB+17", "TMS+17", "ZLY+17",
+             "AKG+18"))
+  }
+  # list available datasets in 2017 compilation
+  if(identical(dataset, 2017)) { 
     return(c("WTK+08=NT",
              "AKP+10_CRC", "AKP+10_CIN", "AKP+10_MIN", "JKMF10", "XZC+10_I=NT", "XZC+10_II=NT", "ZYS+10=NT",
              "BPV+11_adenoma=AD=NT", "BPV+11_stage.I=NT", "BPV+11_stage.II=NT", "BPV+11_stage.III=NT", "BPV+11_stage.IV=NT",
@@ -104,7 +118,6 @@ pdat_CRC <- function(dataset=NULL, basis="rQEC") {
     # use data for the specified stage
     icol <- grep(paste0("Log2.", stage, ".N"), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "UniProt", up2)
@@ -124,7 +137,6 @@ pdat_CRC <- function(dataset=NULL, basis="rQEC") {
     # 20160428 poor / good prognosis, Kim et al., 2012
     dat <- read.csv(paste0(datadir, "KKL+12.csv.xz"), as.is=TRUE)
     description <- "poor / good prognosis"
-    # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$protein.ratio..G.P. < 1
     dat <- cleanup(dat, "UniProt", up2)
@@ -145,7 +157,6 @@ pdat_CRC <- function(dataset=NULL, basis="rQEC") {
     # 20160430 microdissected T / N, Zhang et al., 2010
     dat <- read.csv(paste0(datadir, "ZYS+10.csv.xz"), as.is=TRUE)
     description <- "microdissected T / N"
-    # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Ratio..cancer.normal. > 1
     dat <- cleanup(dat, "UniProt", up2)
@@ -172,7 +183,6 @@ pdat_CRC <- function(dataset=NULL, basis="rQEC") {
     # 20160511 conditioned media T / N, Yao et al., 2012
     dat <- read.csv(paste0(datadir, "YLZ+12.csv.xz"), as.is=TRUE)
     description <- "CM T / N"
-    # find known UniProt IDs
     dat <- check_IDs(dat, "UniProt")
     pcomp <- protcomp(dat$UniProt, basis=basis)
     up2 <- dat$Rsca > 0
@@ -226,9 +236,80 @@ pdat_CRC <- function(dataset=NULL, basis="rQEC") {
     up2 <- dat$Ratio..C.N. > 1
     dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
+  } else if(study=="CTW+17") {
+    # 20190318 colorectal organoid, Cristobal et al., 2017
+    dat <- read.csv(paste0(datadir, "CTW+17.csv.xz"), as.is=TRUE)
+    description <- "colorectal organoid"
+    dat <- check_IDs(dat, "Accession")
+    pcomp <- protcomp(dat$Accession, basis=basis)
+    up2 <- dat$Tumor.Healthy > 0
+  } else if(study=="SHHS11") {
+    # 20160422 tumor vs normal, Shi et al., 2011
+    # re-added 20190326
+    dat <- read.csv(paste0(datadir, "SHHS11.csv.xz"), as.is=TRUE)
+    description <- "T/N"
+    pcomp <- protcomp(dat$Accession.no., basis=basis)
+    up2 <- dat$Fold.of.change > 0
+  } else if(study=="CZD+14") {
+    # 20190328 tumor vs normal, Chen et al., 2014
+    dat <- read.csv(paste0(datadir, "CZD+14.csv.xz"), as.is=TRUE)
+    description <- "T/N"
+    pcomp <- protcomp(dat$Entry, basis=basis)
+    up2 <- dat$CRC.vs..Normal > 1
+  } else if(study=="NKG+17") {
+    # 20190328 tumor vs normal, Nishio et al., 2017
+    dat <- read.csv(paste0(datadir, "NKG+17.csv.xz"), as.is=TRUE)
+    description <- "T/N"
+    up2 <- dat$Average.ratio.of.115.114..cancer.normal. > 1
+    dat <- cleanup(dat, "Accession.no.", up2)
+    pcomp <- protcomp(dat$Accession.no., basis=basis)
+  } else if(study=="QMB+17") {
+    # 20190331 cancer vs control, Quesada-Calvo et al., 2017
+    dat <- read.csv(paste0(datadir, "QMB+17.csv.xz"), as.is=TRUE)
+    description <- "cancer / control"
+    # use first Uniprot ID
+    dat$Uniprot.Accession.number. <- sapply(strsplit(dat$Uniprot.Accession.number., ";"), "[", 1)
+    pcomp <- protcomp(dat$Uniprot.Accession.number., basis=basis)
+    up2 <- grepl("ADK", dat$Highest.mean.condition)
+  } else if(study=="ZLY+17") {
+    # 20190403 tumor / normal, Zhang et al., 2017
+    dat <- read.csv(paste0(datadir, "ZLY+17.csv.xz"), as.is=TRUE)
+    description <- "T/N"
+    dat <- check_IDs(dat, "UniProt")
+    up2 <- dat$Ratio..cancer.normal. > 1
+    dat <- cleanup(dat, "UniProt", up2)
+    pcomp <- protcomp(dat$UniProt, basis=basis)
+  } else if(study=="KPF+07") {
+    # 20150617 up- and down-regulated genes human colorectal cancer (Kaiser et al., 2007)
+    dat <- read.csv(paste0(datadir, "KPF+07.csv.xz"), as.is=TRUE)
+    description <- "T/N gene expression"
+    up2 <- dat$crc=="up"
+    dat <- cleanup(dat, "uniprot", up2)
+    pcomp <- protcomp(dat$uniprot, basis=basis)
+  } else if(study=="TMS+17") {
+    # 20191203 cancer / normal, Tu et al., 2017
+    dat <- read.csv(paste0(datadir, "TMS+17.csv.xz"), as.is=TRUE)
+    description <- "T/N"
+    up2 <- dat$Regulation=="up"
+    pcomp <- protcomp(dat$Accession.Number, basis=basis)
+  } else if(study=="AKG+18") {
+    # 20191223 cancer / normal, Atak et al., 2018
+    dat <- read.csv(paste0(datadir, "AKG+18.csv.xz"), as.is=TRUE)
+    description <- "T/N"
+    # keep highly differential proteins
+    dat <- dat[dat$Average.Fold.change..n.11. > 1.5 | dat$Average.Fold.change..n.11. < 1/1.5, ]
+    up2 <- dat$Average.Fold.change..n.11. > 1.5
+    pcomp <- protcomp(dat$accession_number, basis=basis)
+  } else if(study=="HZW+17") {
+    # 20191224 cancer / adjacent normal, Hao et al., 2017
+    dat <- read.csv(paste0(datadir, "HZW+17.csv.xz"), as.is=TRUE)
+    description <- "tumor / adjacent"
+    dat <- check_IDs(dat, "SP")
+    up2 <- dat$Ratio > 1
+    pcomp <- protcomp(dat$SP, basis=basis)
   } else stop(paste("CRC dataset", dataset, "not available"))
   print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
-  # use the up2 from the cleaned-up data, if it exists 20191120
+  # use the up2 from the cleaned-up data, if it exists 20190429
   if("up2" %in% colnames(dat)) up2 <- dat$up2
   return(list(dataset=dataset, basis=basis, description=description, pcomp=pcomp, up2=up2))
 }

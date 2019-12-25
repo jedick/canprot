@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-18 (2019-12-07)
+CHANGES IN canprot 0.1.4-20 (2019-12-24)
 ----------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -36,6 +36,8 @@ CHANGES IN canprot 0.1.4-18 (2019-12-07)
 - Remove get_pdat(). It is better to use e.g. get(pdat_CRC)().
 
 - Add 'oldstyle' argument to get_comptab() to compute CLES and p-values.
+
+- Update data for CRC.
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------
