@@ -195,10 +195,11 @@ pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
     up2 <- dat[, icol[1]] > 1
   } else if(study=="RSE+16") {
     # 20160729 adipose-derived stem cells, Riis et al., 2016
-    dat <- read.csv(paste0(datadir, "RSE+16.csv.xz"), as.is=TRUE)
-    description <- "adipose-derived SC"
-    pcomp <- protcomp(dat$Entry, basis=basis)
-    up2 <- dat$Regulated == "up"
+    pdat <- pdat_secreted(dataset, basis)
+    pcomp <- pdat$pcomp
+    up2 <- pdat$up2
+    description <- pdat$description
+    dat <- NULL
   } else if(study=="VTMF13") {
     # 20160804 neuroblastoma cell line, Villeneuve et al., 2013
     dat <- read.csv(paste0(datadir, "VTMF13.csv.xz"), as.is=TRUE)
@@ -212,12 +213,11 @@ pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
     pcomp <- protcomp(dat$Uniprot, basis=basis)
   } else if(study=="BRA+10") {
     # 20160805 placental tissue secretome, Blankley et al., 2010
-    dat <- read.csv(paste0(datadir, "BRA+10.csv.xz"), as.is=TRUE)
-    description <- "placental secretome"
-    dat$UniProt.accession <- sapply(strsplit(dat$UniProt.accession, "|", fixed=TRUE), "[", 2)
-    dat <- check_IDs(dat, "UniProt.accession")
-    pcomp <- protcomp(dat$UniProt.accession, basis=basis)
-    up2 <- dat$Fold.change > 0
+    pdat <- pdat_secreted(dataset, basis)
+    pcomp <- pdat$pcomp
+    up2 <- pdat$up2
+    description <- pdat$description
+    dat <- NULL
   } else if(study=="LAR+12") {
     # 20160826 rat heart ischemia, Li et al., 2012
     dat <- read.csv(paste0(datadir, "LAR+12.csv.xz"), as.is=TRUE)

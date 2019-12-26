@@ -7,7 +7,8 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 "ZCAA", "H2OAA", "GRAVY", "pI",
 "pdat_osmotic2", # 20191104
 "PS", # 20191127
-"O2AA" # 20191205
+"O2AA", # 20191205
+"pdat_multi", "pdat_secreted" # 20191226
 )
 
 # Imports from default packages

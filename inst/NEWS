@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-21 (2019-12-25)
+CHANGES IN canprot 0.1.4-23 (2019-12-26)
 ----------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -38,6 +38,8 @@ CHANGES IN canprot 0.1.4-21 (2019-12-25)
 - Add 'oldstyle' argument to get_comptab() to compute CLES and p-values.
 
 - Update data for CRC and pancreatic cancer.
+
+- Add data for proteins secreted in hypoxia.
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------

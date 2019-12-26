@@ -204,6 +204,8 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="BHB+15") {
     # 20190329 mouse organoids, Boj et al., 2015
     # BHB+15_P, BHB+15_T
+    # P - pancreatic epithelial neoplasm organoid
+    # T - tumor organoid
     dat <- read.csv(paste0(datadir, "BHB+15.csv.xz"), as.is=TRUE)
     description <- paste("mouse organoids", stage, "/ N")
     # use selected dataset
