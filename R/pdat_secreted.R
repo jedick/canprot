@@ -9,11 +9,10 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
              "KCW+13=transcriptome", "SKA+13", "SRS+13a_3", "SRS+13a_8",
              "LRS+14_Hy", # "LRS+14_ReoX",
              "YKK+14_soluble", "YKK+14_exosome",
-             "RTA+15",
              "RSE+16",
              "CGH+17_exosomes", "CGH+17_secretome",
-             "CLY+18_secretome", "DWW+18",
-             "PDT+19"))
+             "CLY+18_secretome", "DWW+18", "FPR+18",
+             "KAN+19_secretome", "NJVS19_CAM", "NJVS19_NTM", "PDT+19"))
   }
   # remove tags
   dataset <- strsplit(dataset, "=")[[1]][1]
@@ -121,13 +120,6 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Fold.change > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
-  } else if(study=="RTA+15") {
-    # 20191207 LNCaP and PC3 cells, Ramteke et al., 2015
-    dat <- read.csv(paste0(datadir, "RTA+15.csv.xz"), as.is=TRUE)
-    description <- "LNCaP and PC3 cells"
-    # up (only hypoxic) / down (normoxic or hypoxic)
-    up2 <- dat$Hypoxic & !dat$Normoxic
-    pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="SKA+13") {
     # 20191207 cytotrophoblast-derived exosomes, Salomon et al., 2013
     dat <- read.csv(paste0(datadir, "SKA+13.csv.xz"), as.is=TRUE)
@@ -148,6 +140,31 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, icol] > 0.5
     dat <- cleanup(dat, "Uniprot.Acc", up2)
     pcomp <- protcomp(dat$Uniprot.Acc, basis=basis)
+  } else if(study=="NJVS19") {
+    # 20191226 cancer-associated and normal tissue myofibroblasts, Najgebauer et al., 2019
+    # NJVS19_CAM, NJVS19_NTM
+    dat <- read.csv(paste0(datadir, "NJVS19.csv.xz"), as.is=TRUE)
+    if(stage=="CAM") description <- "cancer-associated myofibroblasts"
+    if(stage=="NTM") description <- "normal tissue myofibroblasts"
+    # use selected dataset
+    dat <- dat[!is.na(dat[, stage]), ]
+    dat <- check_IDs(dat, "Majority.protein.IDs")
+    pcomp <- protcomp(dat$Majority.protein.IDs, basis=basis)
+    up2 <- dat[, stage] > 1
+  } else if(study=="FPR+18") {
+    # 20191226 endothelial progenitor cells, Felice et al., 2018
+    dat <- read.csv(paste0(datadir, "FPR+18.csv.xz"), as.is=TRUE)
+    description <- "endothelial progenitor cells"
+    up2 <- dat$Modulation == "UP"
+    pcomp <- protcomp(dat$Accession.number, basis=basis)
+  } else if(study=="KAN+19") {
+    # 20191226 human umbilical vein ECs, Kugeratski et al., 2019
+    # KAN+19_secretome
+    pdat <- pdat_multi(dataset, basis)
+    pcomp <- pdat$pcomp
+    up2 <- pdat$up2
+    description <- pdat$description
+    dat <- NULL
   } else stop(paste("secreted dataset", dataset, "not available"))
   print(paste0("pdat_secreted: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

@@ -1,11 +1,13 @@
 # canprot/R/pdat_multi.R
 # retrieve protein IDs from studies that have multiple conditions
+# (i.e. both proteome and secretome in hypoxia)
 # 20191204 extracted from pdat_secreted.R
 
 pdat_multi <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
-    return(c("CGH+17_exosomes=SEC", "CGH+17_secretome=SEC", "CGH+17_whole",
-             "CLY+18_proteome", "CLY+18_secretome=SEC"
+    return(c("CGH+17_exosomes", "CGH+17_secretome", "CGH+17_whole",
+             "CLY+18_proteome", "CLY+18_secretome",
+             "KAN+19_proteome", "KAN+19_secretome"
              ))
   }
   # remove tags
@@ -35,6 +37,29 @@ pdat_multi <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat[, icol] > 0
+  } else if(study=="KAN+19") {
+    # 20191226 human umbilical vein ECs, Kugeratski et al., 2019
+    # KAN+19_proteome, KAN+19_secretome
+    dat <- read.csv(paste0(datadir, "KAN+19.csv.xz"), as.is=TRUE)
+    description <- paste("human umbilical vein ECs", stage)
+    if(stage=="proteome") icol <- "Proteome"
+    if(stage=="secretome") {
+      # for secretome, combine data for Soluble Secretome and EVs
+      dat <- cbind(dat, secretome = NA)
+      dat <- dat[!is.na(dat$SolubleSecretome) | !is.na(dat$EVs), ]
+      # remove proteins with opposite change in Soluble Secretome and EVs
+      iambi <- dat$SolubleSecretome != dat$EVs
+      iambi[is.na(iambi)] <- FALSE
+      dat <- dat[!iambi, ]
+      dat$secretome <- dat$SolubleSecretome
+      dat$secretome[is.na(dat$secretome)] <- dat$EVs[is.na(dat$secretome)]
+      icol <- "secretome"
+    }
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- check_IDs(dat, "Protein.IDs..UniProt.")
+    up2 <- dat[, icol] == "Up"
+    dat <- cleanup(dat, "Protein.IDs..UniProt.", up2)
+    pcomp <- protcomp(dat$Protein.IDs..UniProt., basis=basis)
   } else stop(paste("multi dataset", dataset, "not available"))
   print(paste0("pdat_multi: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

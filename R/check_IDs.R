@@ -9,6 +9,9 @@ check_IDs <- function(dat, IDcol, aa_file = NULL, updates_file = NULL) {
   ID_list <- strsplit(dat[, IDcol], ";")
   # the list of IDs as a vector
   ID <- unlist(ID_list)
+  # get the UniProt ID in case we have e.g. sp|P62308|RUXG_HUMAN
+  # for NJVS19 dataset 20191226
+  if(any(grepl("\\|", ID))) ID <- sapply(strsplit(ID, "\\|"), "[", 2)
   # human proteins
   aa <- get("human_aa", canprot)
   # add amino acid compositions from external file if specified
