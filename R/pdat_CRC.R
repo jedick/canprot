@@ -3,6 +3,7 @@
 # 20160703 jmd
 # 20161011 updated with new data [LXM+16]; add =AD tag (adenoma as n2)
 # 20170904 add =NT tag (normal tissue as n1)
+# 20190318-20191224 updates for 2020 compilation
 
 pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
   # list available datasets in 2020 compilation
@@ -289,7 +290,7 @@ pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="TMS+17") {
     # 20191203 cancer / normal, Tu et al., 2017
     dat <- read.csv(paste0(datadir, "TMS+17.csv.xz"), as.is=TRUE)
-    description <- "T/N"
+    description <- "epithelial T/N"
     up2 <- dat$Regulation=="up"
     pcomp <- protcomp(dat$Accession.Number, basis=basis)
   } else if(study=="AKG+18") {

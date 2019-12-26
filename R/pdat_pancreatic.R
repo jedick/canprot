@@ -2,7 +2,7 @@
 # retrieve protein IDs for pancreatic cancer studies
 # 20160827 jmd
 # 20170904 add =NT tag (comparison between cancer and normal tissue)
-# 20190239-20191206 2020 updates
+# 20190239-20191206 updates for 2020 compilation
 
 pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
@@ -16,7 +16,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
              "ISI+14", "BZQ+14", "MZH+14=mouse",
              "BHB+15_T=mouse",
              "KKC+16_T1=mouse",
-             "SWW+18",
+             "CHO+18", "SWW+18",
              "ZAH+19"
              ))
   }
@@ -225,7 +225,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="MZH+14") {
     # 20190407 tumor / healthy, Mirus et al., 2014
     dat <- read.csv(paste0(datadir, "MZH+14.csv.xz"), as.is=TRUE)
-    description <- "tumor / healthy"
+    description <- "mouse tumor / healthy"
     up2 <- dat$Coefficient > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/MZH+14_aa.csv"))
@@ -273,6 +273,12 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Tstat > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="CHO+18") {
+    # 20191206 tumor / adjacent normal, Coleman et al., 2018
+    dat <- read.csv(paste0(datadir, "CHO+18.csv.xz"), as.is=TRUE)
+    description <- "tumor / adjacent normal"
+    up2 <- dat$Highest.mean.condition == "Tumour"
+    pcomp <- protcomp(dat$Accession, basis=basis)
   } else stop(paste("pancreatic dataset", dataset, "not available"))
   print(paste0("pdat_pancreatic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
