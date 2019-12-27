@@ -8,6 +8,7 @@
 \alias{pdat_osmotic2}
 \alias{pdat_multi}
 \alias{pdat_secreted}
+\alias{pdat_breast}
 \title{Get Protein Expression Data}
 \description{
   Get data on protein expression and chemical composition.
@@ -16,6 +17,7 @@
 \usage{
   pdat_CRC(dataset = 2020, basis = "rQEC")
   pdat_pancreatic(dataset = 2020, basis = "rQEC")
+  pdat_breast(dataset = 2020, basis = "rQEC")
   pdat_hypoxia(dataset = NULL, basis = "rQEC")
   pdat_osmotic(dataset = NULL, basis = "rQEC")
   pdat_osmotic2(dataset = NULL, basis = "rQEC")
@@ -31,7 +33,7 @@
 \details{
 The \code{pdat_} functions calculate chemical compositional metrics (using \code{\link{protcomp}}) for relatively up- and down-expressed proteins reported in proteomic experiments.
 
-Use \code{pdat_CRC} to retrieve data for protein expression in colorectal cancer, \code{pdat_pancreactic} for data on pancreatic cancer, \code{pdat_hypoxia} for data on hypoxia or 3D culture, and \code{pdat_osmotic} for data on hyperosmotic stress.
+Use \code{pdat_CRC}, \code{pdat_pancreatic}, and \code{pdat_breast} to retrieve data for protein expression in different cancer types, \code{pdat_hypoxia} for data on hypoxia or 3D culture, and \code{pdat_osmotic} for data on hyperosmotic stress.
 \code{pdat_secreted} retrieves data for secreted proteins, including exosomes, in hypoxia.
 \code{pdat_multi} has data from studies that include multiple conditions (e.g. cellular and secreted proteins in hypoxia), and is called by the corresponding functions (\code{pdat_hypoxia}, \code{pdat_secreted}).
 The functions get relative expression data from the CSV files stored in \code{extdata/expression/}, with subdirectories corresponding to the names of the functions.
