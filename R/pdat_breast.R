@@ -221,14 +221,14 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="LLC+19") {
     # 20190318 tumor / adjacent normal, Liu et al., 2019
     dat <- read.csv(paste0(datadir, "LLC+19.csv.xz"), as.is=TRUE)
-    description <- "T / N"
+    description <- "tumor / adjacent normal tissue"
     pcomp <- protcomp(dat$Protein.accession, basis=basis)
     up2 <- dat$Regulated.Type == "Up"
   } else if(study=="TZD+18") {
     # 20190321 tumor / adjacent normal (all subtypes or basal), Tang et al., 2018
     # TZD+18_all, TZD+18_basal
     dat <- read.csv(paste0(datadir, "TZD+18.csv.xz"), as.is=TRUE)
-    description <- paste("T / N", stage)
+    description <- paste("tumor / adjacent non-cancerous", stage)
     # keep proteins differentially expressed in all or basal tumors
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
