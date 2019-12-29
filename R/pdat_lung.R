@@ -72,21 +72,21 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="FGP+16") {
     # 20190318 lung adenocarcinoma, Fahrmann et al., 2016
     dat <- read.csv(paste0(datadir, "FGP+16.csv.xz"), as.is=TRUE)
-    description <- "lung adenocarcinoma"
+    description <- "adenocarcinoma / adjacent non-malignant"
     up2 <- dat$Fold.Change > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="JCP+16") {
-    # 20190318 mouse tumor / normal epithelial cells, Jin et al., 2016
+    # 20190318 mouse tumor / normal endothelial cells, Jin et al., 2016
     dat <- read.csv(paste0(datadir, "JCP+16.csv.xz"), as.is=TRUE)
-    description <- "mouse epithelial T / N"
+    description <- "mouse endothelial T / N"
     up2 <- dat$Ratio.TEC.NEC > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/JCP+16_aa.csv"))
   } else if(study=="FGW+17") {
     # 20190325 lung adenocarcinoma, Fahrmann et al., 2017
     dat <- read.csv(paste0(datadir, "FGW+17.csv.xz"), as.is=TRUE)
-    description <- "lung adenocarcinoma"
+    description <- "adenocarcinoma / adjacent non-malignant"
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Fold.Change..Tumor.Control. > 1
   } else if(study=="KHA+12") {
@@ -156,7 +156,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="ZZD+12") {
     # 20190408 SCC, Zeng et al., 2012
     dat <- read.csv(paste0(datadir, "ZZD+12.csv.xz"), as.is=TRUE)
-    description <- "SCC T / N"
+    description <- "LCM LSCC / NBE"
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$NBE.vs..LSCC > 1
     dat <- cleanup(dat, "UniProt", up2)

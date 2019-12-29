@@ -10,7 +10,8 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 "O2AA", # 20191205
 "pdat_multi", "pdat_secreted", # 20191226
 "pdat_breast", # 20191227
-"pdat_lung" # 20191227
+"pdat_lung", # 20191228
+"pdat_prostate" # 20191229
 )
 
 # Imports from default packages
