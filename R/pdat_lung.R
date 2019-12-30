@@ -1,12 +1,11 @@
 # canprot/R/pdat_lung.R
 # retrieve protein IDs for lung cancer studies
-# 20160717-20190408 assemble data for 2020 compilation
+# 20160720-20190408 assemble data for 2020 compilation
 
 pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
              "LXC+06",
-             "KNT+10",
              "KHA+12_ADC", "KHA+12_SCC", "YLL+12", "ZZD+12",
              "ZZY+13",
              "LLY+14", "LWT+14", "ZLH+14",
@@ -27,14 +26,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   stage <- paste(strsplit(dataset, "_")[[1]][-1], collapse="_")
   extdatadir <- system.file("extdata", package="canprot")
   datadir <- paste0(extdatadir, "/expression/lung/")
-  if(study=="KNT+10") {
-    # 20160717 lung stage IIIA / I, Kawamura et al., 2010
-    dat <- read.csv(paste0(datadir, "KNT+10.csv.xz"), as.is=TRUE)
-    description <- "lung IIIA/I"
-    dat <- check_IDs(dat, "Accession.number")
-    pcomp <- protcomp(dat$Accession.number, basis=basis)
-    up2 <- dat$Fold.change < 1
-  } else if(study=="HHH+16") {
+  if(study=="HHH+16") {
     # 20160720 lung stages, Hu et al., 2016
     # HHH+16_pN0, HHH+16_pN1, HHH+16_pN2.M1
     dat <- read.csv(paste0(datadir, "HHH+16.csv.xz"), as.is=TRUE)
@@ -49,7 +41,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="YLL+12") {
     # 20170113 human lung squamous carcinoma, Yan et al., 2012
     dat <- read.csv(paste0(datadir, "YLL+12.csv.xz"), as.is=TRUE)
-    description <- "HLSC T/N"
+    description <- "LCM SCC / NBE"
     dat <- check_IDs(dat, "AC")
     up2 <- dat$X115.113 > 1
     dat <- cleanup(dat, "AC", up2)
@@ -57,7 +49,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="ZLH+14") {
     # 20170113 lung adenocarcinoma, Zhang et al., 2014
     dat <- read.csv(paste0(datadir, "ZLH+14.csv.xz"), as.is=TRUE)
-    description <- "lung adenocarcinoma T/N"
+    description <- "membrane microdissected ADC / ANT"
     dat <- check_IDs(dat, "Accession")
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat$X117.118 > 1
@@ -72,7 +64,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="FGP+16") {
     # 20190318 lung adenocarcinoma, Fahrmann et al., 2016
     dat <- read.csv(paste0(datadir, "FGP+16.csv.xz"), as.is=TRUE)
-    description <- "adenocarcinoma / adjacent non-malignant"
+    description <- "adenocarcinoma / ANT"
     up2 <- dat$Fold.Change > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
@@ -86,14 +78,14 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="FGW+17") {
     # 20190325 lung adenocarcinoma, Fahrmann et al., 2017
     dat <- read.csv(paste0(datadir, "FGW+17.csv.xz"), as.is=TRUE)
-    description <- "adenocarcinoma / adjacent non-malignant"
+    description <- "adenocarcinoma / ANT"
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Fold.Change..Tumor.Control. > 1
   } else if(study=="KHA+12") {
     # 20190325 ADC or SCC versus normal, Kikuchi et al., 2012
     # KHA+12_ADC, KHA+12_SCC
     dat <- read.csv(paste0(datadir, "KHA+12.csv.xz"), as.is=TRUE)
-    description <- paste(stage, "vs normal")
+    description <- paste(stage, "/ pooled normal")
     # use ADC or SCC dataset
     dat <- dat[dat$Higher.in == stage | dat$Lower.in == stage, ]
     up2 <- dat$Higher.in == stage
@@ -112,7 +104,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="LWT+14") {
     # 20190325 NSCLC tumor / normal, Li et al., 2014
     dat <- read.csv(paste0(datadir, "LWT+14.csv.xz"), as.is=TRUE)
-    description <- "NSCLC tumor / normal"
+    description <- "NSCLC / ANT"
     dat <- check_IDs(dat, "Swissprot.ID")
     pcomp <- protcomp(dat$Swissprot.ID, basis=basis)
     up2 <- dat$logFC > 0
@@ -120,7 +112,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
     # 20190326 lung tumor / normal (method comparison), Stewart et al., 2017
     # SFS+17_LF, SFS+17_TMT, SFS+17_DIA
     dat <- read.csv(paste0(datadir, "SFS+17.csv.xz"), as.is=TRUE)
-    description <- paste("lung tumor / normal", stage)
+    description <- paste("SCC / ANT", stage)
     # use data for specified method
     icol <- grep(stage, colnames(dat))
     up2 <- dat[, icol] > 0
@@ -129,7 +121,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="TLB+16") {
     # 20190402 tumor/control, Tenzer et al., 2016
     dat <- read.csv(paste0(datadir, "TLB+16.csv.xz"), as.is=TRUE)
-    description <- "tumor / control"
+    description <- "NSCLC / ANT"
     # ratios in table are control/cancer: up in cancer is less than 1
     up2 <- dat$fold.change < 1
     dat <- cleanup(dat, "Entry", up2)
@@ -137,7 +129,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="WLC+17") {
     # 20190403 NSCLC, Wang et al., 2017
     dat <- read.csv(paste0(datadir, "WLC+17.csv.xz"), as.is=TRUE)
-    description <- "NSCLC"
+    description <- "NSCLC / ANT"
     # use first protein ID
     dat$Entry <- sapply(strsplit(dat$Entry, ";"), "[", 1)
     pcomp <- protcomp(dat$Entry, basis=basis)
@@ -147,7 +139,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
     # YCC+17_SqCC.Oncogene, YCC+17_SqCC.TSG, YCC+17_SqCC.Glycoprotein
     # YCC+17_ADC.Oncogene, YCC+17_ADC.TSG, YCC+17_ADC.Glycoprotein
     dat <- read.csv(paste0(datadir, "YCC+17.csv.xz"), as.is=TRUE)
-    description <- stage
+    description <- paste(gsub("SqCC", "SCC", stage), "/ ANT")
     # use specified dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -162,9 +154,9 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
     dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="ZZY+13") {
-    # 20190408 AdC vs normal, Zhang et al., 2013
+    # 20190408 plasma membrane AdC vs normal, Zhang et al., 2013
     dat <- read.csv(paste0(datadir, "ZZY+13.csv.xz"), as.is=TRUE)
-    description <- "AdC vs normal"
+    description <- "plasma membrane ADC / ANT"
     pcomp <- protcomp(dat$Accession.no., basis=basis)
     up2 <- dat$AdC.vs..PNLT > 1
   } else stop(paste("lung dataset", dataset, "not available"))
