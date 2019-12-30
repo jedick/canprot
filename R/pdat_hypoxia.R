@@ -39,34 +39,11 @@ pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
   } else if(study=="MVC+12") {
     # 20160413 spheriod hypoxia, McMahon et al., 2012
     # MVC+12_perinecrotic, MVC+12_necrotic
-    dat <- read.csv(paste0(datadir, "MVC+12.csv.xz"), as.is=TRUE)
-    if(stage=="perinecrotic") {
-      # select proteins significantly changed in the perinecrotic region
-      iPN <- dat$median.116.114 < 0.77 | dat$median.116.114 > 1.3
-      dat <- dat[iPN, ]
-      up2 <- dat$median.116.114 > 1.3
-      description <- "SPH perinecrotic"
-    }
-    if(stage=="necrotic") {
-      # select proteins significantly changed in the necrotic core
-      iPN <- dat$median.117.114 < 0.77 | dat$median.117.114 > 1.3
-      dat <- dat[iPN, ]
-      up2 <- dat$median.117.114 > 1.3
-      description <- "SPH necrotic"
-    }
-    pcomp <- protcomp(dat$Entry, basis=basis)
+    return(pdat_3D(dataset, basis))
   } else if(study=="MHG+12") {
     # 20160415 MCF-7 tumourspheres, Morrison et al., 2012
     # MHG+12_P5, MHG+12_P2
-    dat <- read.csv(paste0(datadir, "MHG+12.csv.xz"), as.is=TRUE)
-    description <- paste("MCF-7 SPH", stage)
-    # use dat for specified experiment
-    icol <- grep(stage, colnames(dat))
-    dat <- dat[!is.na(dat[, icol[1]]), ]
-    dat <- check_IDs(dat, "Protein.IDs")
-    up2 <- dat[, icol[1]] < 0
-    dat <- cleanup(dat, "Protein.IDs", up2)
-    pcomp <- protcomp(dat$Protein.IDs, basis=basis)
+    return(pdat_3D(dataset, basis))
   } else if(study=="HXS+06") {
     # 20160415 leukemic U937 cells, Han et al., 2006
     dat <- read.csv(paste0(datadir, "HXS+06.csv.xz"), as.is=TRUE)
@@ -121,12 +98,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
     pcomp <- protcomp(dat$Uniprot.Accession, basis=basis)
   } else if(study=="RKP+14") {
     # 20160718 organotypic spheroids, Rajcevic et al., 2014
-    dat <- read.csv(paste0(datadir, "RKP+14.csv.xz"), as.is=TRUE)
-    description <- "CRC-derived SPH"
-    dat <- check_IDs(dat, "UniProt.Accession")
-    up2 <- dat$Overall.Fold.Change > 0
-    dat <- cleanup(dat, "UniProt.Accession", up2)
-    pcomp <- protcomp(dat$UniProt.Accession, basis=basis)
+    return(pdat_3D(dataset, basis))
   } else if(study=="CBW+11") {
     # 20160720 neuroblastoma cells, Cifani et al., 2011
     dat <- read.csv(paste0(datadir, "CBW+11.csv.xz"), as.is=TRUE)
@@ -139,14 +111,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="WRK+14") {
     # 20160721 3D spheroids / 2D culture, Wrzesinski et al., 2014
-    dat <- read.csv(paste0(datadir, "WRK+14.csv.xz"), as.is=TRUE)
-    description <- "HepG2/C3A SPH"
-    # select highly changed proteins
-    dat <- dat[!is.na(dat$log2.fold.change), ]
-    dat <- dat[abs(dat$log2.fold.change) > 1, ]
-    dat <- check_IDs(dat, "Entry")
-    pcomp <- protcomp(dat$Entry, basis=basis)
-    up2 <- dat$log2.fold.change > 0
+    return(pdat_3D(dataset, basis))
   } else if(study=="DPL+10") {
     # 20160722 B104 rat neuroblastoma cells, Datta et al., 2010
     dat <- read.csv(paste0(datadir, "DPL+10.csv.xz"), as.is=TRUE)
@@ -195,11 +160,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
     up2 <- dat[, icol[1]] > 1
   } else if(study=="RSE+16") {
     # 20160729 adipose-derived stem cells, Riis et al., 2016
-    pdat <- pdat_secreted(dataset, basis)
-    pcomp <- pdat$pcomp
-    up2 <- pdat$up2
-    description <- pdat$description
-    dat <- NULL
+    return(pdat_secreted(dataset, basis))
   } else if(study=="VTMF13") {
     # 20160804 neuroblastoma cell line, Villeneuve et al., 2013
     dat <- read.csv(paste0(datadir, "VTMF13.csv.xz"), as.is=TRUE)
@@ -213,11 +174,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
     pcomp <- protcomp(dat$Uniprot, basis=basis)
   } else if(study=="BRA+10") {
     # 20160805 placental tissue secretome, Blankley et al., 2010
-    pdat <- pdat_secreted(dataset, basis)
-    pcomp <- pdat$pcomp
-    up2 <- pdat$up2
-    description <- pdat$description
-    dat <- NULL
+    return(pdat_secreted(dataset, basis))
   } else if(study=="LAR+12") {
     # 20160826 rat heart ischemia, Li et al., 2012
     dat <- read.csv(paste0(datadir, "LAR+12.csv.xz"), as.is=TRUE)
@@ -227,12 +184,7 @@ pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
     pcomp <- protcomp(dat$UniProt, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/LAR+12_aa.csv"))
   } else if(study=="YLW+16") {
     # 20161109 HT29 colon cancer cell 3D/2D, Yue et al., 2011
-    dat <- read.csv(paste0(datadir, "YLW+16.csv.xz"), as.is=TRUE)
-    description <- "HT29 SPH"
-    # find known UniProt IDs
-    dat <- check_IDs(dat, "ProteinID")
-    pcomp <- protcomp(dat$ProteinID, basis=basis)
-    up2 <- dat$Log2Rep1 > 0
+    return(pdat_3D(dataset, basis))
   } else if(study=="XCJ+16") {
     # 20161119 cardiomyocytes CoCl2 (hypoxia mimetic) or SAL (anti-hypoxic), Xu et al., 2016
     # XCJ+16_CoCl2, XCJ+16_SAL

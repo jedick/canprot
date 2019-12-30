@@ -73,19 +73,11 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CGH+17") {
     # 20190324 mouse cardiac fibroblast exosomes, secretome, Cosme et al., 2017
     # CGH+17_exosomes, CGH+17_secretome
-    pdat <- pdat_multi(dataset, basis)
-    pcomp <- pdat$pcomp
-    up2 <- pdat$up2
-    description <- pdat$description
-    dat <- NULL
+    return(pdat_multi(dataset, basis))
   } else if(study=="CLY+18") {
     # 20190324 HCT116 cells, Chen et al., 2018
     # CLY+18_secretome
-    pdat <- pdat_multi(dataset, basis)
-    pcomp <- pdat$pcomp
-    up2 <- pdat$up2
-    description <- pdat$description
-    dat <- NULL
+    return(pdat_multi(dataset, basis))
   } else if(study=="PDT+19") {
     # 20190326 tumor exosomes, Park et al., 2019
     dat <- read.csv(paste0(datadir, "PDT+19.csv.xz"), as.is=TRUE)
@@ -160,11 +152,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="KAN+19") {
     # 20191226 human umbilical vein ECs, Kugeratski et al., 2019
     # KAN+19_secretome
-    pdat <- pdat_multi(dataset, basis)
-    pcomp <- pdat$pcomp
-    up2 <- pdat$up2
-    description <- pdat$description
-    dat <- NULL
+    return(pdat_multi(dataset, basis))
   } else stop(paste("secreted dataset", dataset, "not available"))
   print(paste0("pdat_secreted: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

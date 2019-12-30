@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-27 (2019-12-29)
+CHANGES IN canprot 0.1.4-29 (2019-12-30)
 ----------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -41,7 +41,7 @@ CHANGES IN canprot 0.1.4-27 (2019-12-29)
 
 - Add data for breast, lung and prostate cancer.
 
-- Add data for proteins secreted in hypoxia.
+- Add data for 3D cell culture and proteins secreted in hypoxia.
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------
