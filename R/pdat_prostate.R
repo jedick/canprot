@@ -11,7 +11,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
              "JHZ+13",
              "LCS+14",
              "IWT+16",
-             "LAJ+18_PC", "LAJ+18_CRPC", "MAN+18", "TAK+18",
+             "LAJ+18_PC", "LAJ+18_CRPC", "MAN+18",
              "KRN+19_G1", "KRN+19_G2", "KRN+19_G3", "KRN+19_G4", "KRN+19_G5",
              "MMF+19_GS6", "MMF+19", "TOT+19", "ZYW+19_LG", "ZYW+19_HG"
              ))
@@ -27,7 +27,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     # 20160420 localized and metastatic prostate cancer, Khan et al., 2010
     # KPB+10_localized, KPB+10_metastatic
     dat <- read.csv(paste0(datadir, "KPB+10.csv.xz"), as.is=TRUE)
-    if(stage=="localized") description <- "localized / benign"
+    if(stage=="localized") description <- "PCa / adjacent benign"
     if(stage=="metastatic") description <- "metastatic / localized"
     #print(paste0("pdat_metastasis: ", description, " [", dataset, "]"))
     # choose localized or metastatic
@@ -39,7 +39,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="IWT+16") {
     # 20170115 prostate cancer, Iglesias-Gato et al., 2016
     dat <- read.csv(paste0(datadir, "IWT+16.csv.xz"), as.is=TRUE)
-    description <- "prostate T/N"
+    description <- "FFPE tumor / adjacent benign"
     dat <- check_IDs(dat, "Protein.IDs")
     pcomp <- protcomp(dat$Protein.IDs, basis=basis)
     up2 <- dat$Tmean.Cmean > 0
@@ -53,19 +53,13 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="LCS+14") {
     # 20190320 prostate glycoproteins, Liu et al., 2014
     dat <- read.csv(paste0(datadir, "LCS+14.csv.xz"), as.is=TRUE)
-    description <- "glycoproteins"
+    description <- "glycoproteins PCa / normal"
     pcomp <- protcomp(dat$Uniprot, basis=basis)
     up2 <- dat$Cancer..Normal > 1
-  } else if(study=="TAK+18") {
-    # 20190321 PCa / BPH, Totten et al., 2019
-    dat <- read.csv(paste0(datadir, "TAK+18.csv.xz"), as.is=TRUE)
-    description <- "PCa / BPH"
-    pcomp <- protcomp(dat$Entry, basis=basis)
-    up2 <- dat$Delta > 0
   } else if(study=="TOT+19") {
     # 20190321 tissue cancer / healthy
     dat <- read.csv(paste0(datadir, "TOT+19.csv.xz"), as.is=TRUE)
-    description <- "tissue cancer / healthy"
+    description <- "FFPE TMA PCa / normal"
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Change == "increase"
   } else if(study=="LAJ+18") {
@@ -92,7 +86,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="JHZ+13") {
     # 20191202 PCa / benign, Jiang et al., 2013
     dat <- read.csv(paste0(datadir, "JHZ+13.csv.xz"), as.is=TRUE)
-    description <- "PCa / benign"
+    description <- "PCa / adjacent benign"
     up2 <- dat$Ratio.fold. > 0
     dat <- cleanup(dat, "Protein_ID", up2)
     pcomp <- protcomp(dat$Protein_ID, basis = basis)
@@ -100,7 +94,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     # 20191202 PCa / benign (proteome and transcriptome), Han et al., 2012
     # HZH+12_Gene, HZH+12_Protein
     dat <- read.csv(paste0(datadir, "HZH+12.csv.xz"), as.is=TRUE)
-    description <- paste("PCa / benign", stage)
+    description <- paste("PCa / adjacent benign", stage)
     icol <- grep(paste0(stage, "_Fold_Change"), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     dat <- check_IDs(dat, "Entry")
@@ -111,7 +105,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     # 20191202 Low-grade or high-grade vs normal, Zhou et al., 2019
     # ZYW+19_LG, ZYW+19_HG
     dat <- read.csv(paste0(datadir, "ZYW+19.csv.xz"), as.is=TRUE)
-    description <- paste(stage, "/ adjacent normal")
+    description <- paste("OCT", stage, "PCa / adjacent normal")
     icol <- grep(stage, colnames(dat))
     dat <- dat[dat[, icol] != "", ]
     dat <- check_IDs(dat, "Majority.protein.IDs")
@@ -122,7 +116,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     # 20191202 PCa / benign (GS=6 or GS=6 and GS>=8), Mantsiou et al., 2019
     # MMF+19_GS6, MMF+19
     dat <- read.csv(paste0(datadir, "MMF+19.csv.xz"), as.is=TRUE)
-    description <- paste("PCa / adjacent benign", stage)
+    description <- paste("FFPE PCa / adjacent benign", stage)
     if(stage == "GS6") icol <- grep("ratio.GS6.cancer.Vs.GS6.benign", colnames(dat)) else icol <- grep("ratio.cancer.Vs.benign", colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
@@ -131,7 +125,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     # 20191212 cancer grades vs benign prostatic hyperplasia, Kawahara et al., 2019
     # KRN+19_G1, KRN+19_G2, KRN+19_G3, KRN+19_G4, KRN+19_G5
     dat <- read.csv(paste0(datadir, "KRN+19.csv.xz"), as.is=TRUE)
-    description <- paste(stage, "/ BPH")
+    description <- paste("PCa", stage, "/ BPH")
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     # ratios are given as BPH / GX
