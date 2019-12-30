@@ -15,7 +15,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
              "SSPR16=transcriptome", "YLW+16",
              "PPM+17=transcriptome",
              "KJK+18", "TGD18_NHF", "TGD18_CAF",
-             "GSL+19", "HLC19", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages"
+             "HLC19", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages"
              ))
   }
   # remove tags
@@ -100,13 +100,6 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "Majority.protein.IDs")
     pcomp <- protcomp(dat$Majority.protein.IDs, basis)
     up2 <- dat$Log2.3D.culture.2D.culture > 0
-  } else if(study=="GSL+19") {
-    # 20191127 4T1 cells (dense/sparse), Guo et al., 2019
-    dat <- read.csv(paste0(datadir, "GSL+19.csv.xz"), as.is = TRUE)
-    description <- "4T1 cells (dense/sparse)"
-    dat <- check_IDs(dat, "Protein.ID", aa_file = paste0(extdatadir, "/aa/mouse/GSL+19_aa.csv"))
-    pcomp <- protcomp(dat$Protein.ID, basis, aa_file = paste0(extdatadir, "/aa/mouse/GSL+19_aa.csv"))
-    up2 <- dat$Ratio..Sparse.Dense. < 1
   } else if(study=="HKX+14") {
     # 20191206 U251 cells, He et al., 2014
     dat <- read.csv(paste0(datadir, "HKX+14.csv.xz"), as.is = TRUE)
@@ -118,7 +111,8 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     # 20191206 HepG2 cells, Hurrell et al., 2019
     dat <- read.csv(paste0(datadir, "HLC19.csv.xz"), as.is = TRUE)
     description <- "HepG2 cells"
-    up2 <- dat$Difference > 0
+    # 20191230 this should be less than to make the differences consistent with text (590 up, 573 down)
+    up2 <- dat$Difference < 0
     pcomp <- protcomp(dat$Main.Accession, basis)
   } else if(study=="LPK+19") {
     # 20191206 3T3-L1 cells, Lee et al., 2019
