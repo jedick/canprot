@@ -1,7 +1,7 @@
 # canprot/R/pdat_3D.R
 # retrieve protein IDs for 3D cell culture (including tumor spheroid) datasets
 # 20191125 initial version: some datasets moved from pdat_hypoxia.R
-# 20191125-20191226 add data for 2020 compilation
+# 20191125-20191230 add data for 2020 compilation
 
 pdat_3D <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
@@ -15,6 +15,8 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
              "SSPR16=transcriptome", "YLW+16",
              "PPM+17=transcriptome",
              "KJK+18", "TGD18_NHF", "TGD18_CAF",
+#             "GADS19_control", "GADS19_CBD", "GADS19_UVA", "GADS19_UVA.CBD", "GADS19_UVB", "GADS19_UVB.CBD",
+             "GADS19",
              "HLC19", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages"
              ))
   }
@@ -159,6 +161,17 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$logFC > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="GADS19") {
+    # 20191230 skin fibroblasts 3D/2D with various treatments, Gęgotek et al., 2019
+    dat <- read.csv(paste0(datadir, "GADS19.csv.xz"), as.is = TRUE)
+    description <- "skin fibroblasts 3D / 2D"
+    dat <- check_IDs(dat, "ID")
+    up2 <- rep(NA, nrow(dat))
+    # proteins with differential expression in at least 4 of 6 treatments
+    up2[rowSums(dat[, -1] > 1.2) > 3] <- TRUE
+    up2[rowSums(dat[, -1] < 1/1.2) > 3] <- FALSE
+    dat <- cleanup(dat, "ID", up2)
+    pcomp <- protcomp(dat$ID, basis)
   } else stop(paste("3D dataset", dataset, "not available"))
   print(paste0("pdat_3D: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407

@@ -1,6 +1,6 @@
 # canprot/R/pdat_prostate.R
 # retrieve protein IDs for prostate cancer studies
-# 20160420-20191212 assemble data for 2020 compilation
+# 20160420-20191230 assemble data for 2020 compilation
 
 pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
@@ -10,8 +10,8 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
              "HZH+12_Gene=transcriptome", "HZH+12_Protein",
              "JHZ+13",
              "LCS+14",
-             "IWT+16",
-             "LAJ+18_PC", "LAJ+18_CRPC", "MAN+18",
+             "CZL+16", "IWT+16",
+             "GLZ+18_acinar", "GLZ+18_ductal", "LAJ+18_PC", "LAJ+18_CRPC", "MAN+18",
              "KRN+19_G1", "KRN+19_G2", "KRN+19_G3", "KRN+19_G4", "KRN+19_G5",
              "MMF+19_GS6", "MMF+19", "TOT+19", "ZYW+19_LG", "ZYW+19_HG"
              ))
@@ -131,6 +131,23 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     # ratios are given as BPH / GX
     up2 <- dat[, icol] == "Down"
     pcomp <- protcomp(dat$Majority.protein.IDs, basis = basis)
+  } else if(study=="CZL+16") {
+    # 20191230 prostate cancer bioinformatics analysis, Chen et al., 2016
+    dat <- read.csv(paste0(datadir, "CZL+16.csv.xz"), as.is=TRUE)
+    description <- "protein expression bioinformatics"
+    dat <- check_IDs(dat, "Entry")
+    up2 <- dat$Differentially.expressed == "Up-regulation"
+    pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="GLZ+18") {
+    # 20191230 prostate acinar and ductal adenocarcinoma, Guo et al., 2018
+    # GLZ+18_acinar, GLZ+18_ductal
+    dat <- read.csv(paste0(datadir, "GLZ+18.csv.xz"), as.is=TRUE)
+    description <- paste(stage, "prostate cancer")
+    icol <- grep(stage, colnames(dat))
+    # kep highly differential proteins
+    dat <- dat[dat[, icol] > 1.5 | dat[, icol] < 2/3, ]
+    up2 <- dat[, icol] > 1.5
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("prostate dataset", dataset, "not available"))
   print(paste0("pdat_prostate: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429

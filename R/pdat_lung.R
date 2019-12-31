@@ -1,6 +1,6 @@
 # canprot/R/pdat_lung.R
 # retrieve protein IDs for lung cancer studies
-# 20160720-20190408 assemble data for 2020 compilation
+# 20160720-20191230 assemble data for 2020 compilation
 
 pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
@@ -8,15 +8,14 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
              "LXC+06",
              "KHA+12_ADC", "KHA+12_SCC", "YLL+12", "ZZD+12",
              "ZZY+13",
-             "LLY+14", "LWT+14", "ZLH+14",
-             "FGP+16", "JCP+16",
-             "HHH+16_pN0=PP", "HHH+16_pN1=PP", "HHH+16_pN2.M1=PP",
-             "TLB+16",
-             "FGW+17",
-             "SFS+17_LF",
-             "WLC+17",
+             "LLY+14", "LWT+14", "ZLH+14", "ZLS+14",
+             "KNT+15",
+             "BLL+16_gene=transcriptome", "BLL+16_protein", "FGP+16", "JCP+16",
+             "HHH+16_pN0", "HHH+16_pN1", "HHH+16_pN2.M1", "TLB+16",
+             "FGW+17", "LZW+17", "SFS+17_LF", "WLC+17",
              "YCC+17_SqCC.Oncogene", "YCC+17_SqCC.TSG", "YCC+17_SqCC.Glycoprotein",
-             "YCC+17_ADC.Oncogene", "YCC+17_ADC.TSG", "YCC+17_ADC.Glycoprotein"
+             "YCC+17_ADC.Oncogene", "YCC+17_ADC.TSG", "YCC+17_ADC.Glycoprotein",
+             "NLW+18=transcriptome"
              ))
   }
   # remove tags
@@ -56,7 +55,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="LXC+06") {
     # 20190317 lung squamous carcinoma, Li et al., 2006
     dat <- read.csv(paste0(datadir, "LXC+06.csv.xz"), as.is=TRUE)
-    description <- "lung squamous carcinoma"
+    description <- "SCC / NBE"
     dat <- check_IDs(dat, "Accession.no.")
     up2 <- grepl("^T", dat$Spot.no.)
     dat <- cleanup(dat, "Accession.no.", up2)
@@ -159,6 +158,51 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
     description <- "plasma membrane ADC / ANT"
     pcomp <- protcomp(dat$Accession.no., basis=basis)
     up2 <- dat$AdC.vs..PNLT > 1
+  } else if(study=="BLL+16") {
+    # 20191228 non small-cell lung cancer transcriptomics and proteomics, Backes et al., 2016
+    # BLL+16_gene, BLL+16_protein
+    dat <- read.csv(paste0(datadir, "BLL+16.csv.xz"), as.is=TRUE)
+    if(stage=="gene") description <- "NSCLC transcriptome"
+    if(stage=="protein") description <- "NSCLC proteome"
+    # use selected dataset
+    dat <- dat[!is.na(dat[, stage]), ]
+    dat <- dat[abs(dat$log.2..fold.change) > 1, ]
+    dat <- check_IDs(dat, "Entry")
+    up2 <- dat$log.2..fold.change > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="NLW+18") {
+    # 20191228 bioinformatics transcriptome, Ni et al., 2018
+    dat <- read.csv(paste0(datadir, "NLW+18.csv.xz"), as.is=TRUE)
+    description <- "NSCLC bioinformatics transcriptome"
+    up2 <- dat$logFC > 0
+    pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="KNT+15") {
+    # 20191228 FFPE lepidic predominant invasive adenocarcinoma / pseudo-Normal, Kato et al., 2015
+    dat <- read.csv(paste0(datadir, "KNT+15.csv.xz"), as.is=TRUE)
+    description <- "FFPE LPIA / pseudo-normal"
+    # remove HIP000 accession nubmers
+    dat$Accession.Number.Code[grepl("HIP000", dat$Accession.Number.Code)] <- NA
+    # remove _1 suffixes
+    dat$Accession.Number.Code <- sapply(strsplit(dat$Accession.Number.Code, "_"), "[", 1)
+    up2 <- dat$Fold.changeLPIA.vs.pN > 0
+    dat <- cleanup(dat, "Accession.Number.Code", up2)
+    pcomp <- protcomp(dat$Accession.Number.Code, basis)
+  } else if(study=="LZW+17") {
+    # 20191228 mitochondria-related proteins adenocarcinoma / normal, Li et al., 2017
+    dat <- read.csv(paste0(datadir, "LZW+17.csv.xz"), as.is=TRUE)
+    description <- "mitochondria-related proteins adenocarcinoma / normal"
+    dat <- check_IDs(dat, "Accession.number")
+    up2 <- dat$C.N > 1
+    dat <- cleanup(dat, "Accession.number", up2)
+    pcomp <- protcomp(dat$Accession.number, basis)
+  } else if(study=="ZLS+14") {
+    # 20191230 lung SCC, Zhou et al., 2014
+    dat <- read.csv(paste0(datadir, "ZLS+14.csv.xz"), as.is=TRUE)
+    description <- "endothelial SCC / normal"
+    up2 <- dat$Ratio.114.113 > 1.5
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("lung dataset", dataset, "not available"))
   print(paste0("pdat_lung: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407

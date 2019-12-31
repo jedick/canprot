@@ -3,7 +3,7 @@
 # 20160703 jmd
 # 20161011 updated with new data [LXM+16]; add =AD tag (adenoma as n2)
 # 20170904 add =NT tag (normal tissue as n1)
-# 20190318-20191224 updates for 2020 compilation
+# 20190318-20191228 updates for 2020 compilation
 
 pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
   # list available datasets in 2020 compilation
@@ -17,8 +17,10 @@ pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
              "CZD+14",
              "STK+15", "WDO+15_C.N",
              "LXM+16", "PHL+16_CIS", "PHL+16_ICC",
-             "CTW+17", "HZW+17", "NKG+17", "QMB+17", "TMS+17", "ZLY+17",
-             "AKG+18"))
+             "CTW+17", "HZW+17", "LLL+17", "NKG+17", "QMB+17", "TMS+17", "ZLY+17",
+             "AKG+18",
+             "WYL+19"
+             ))
   }
   # list available datasets in 2017 compilation
   if(identical(dataset, 2017)) { 
@@ -308,6 +310,22 @@ pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "SP")
     up2 <- dat$Ratio > 1
     pcomp <- protcomp(dat$SP, basis=basis)
+  } else if(study=="LLL+17") {
+    # 20191228 LCM cancer / non-neoplastic mucosa, Li et al., 2017
+    dat <- read.csv(paste0(datadir, "LLL+17.csv.xz"), as.is=TRUE)
+    description <- "LCM cancer / non-neoplastic mucosa"
+    dat$Accession <- sapply(strsplit(dat$Accession, "\\|"), "[", 2)
+    dat <- check_IDs(dat, "Accession")
+    up2 <- dat$coloncancer.NNCM > 1
+    dat <- cleanup(dat, "Accession", up2)
+    pcomp <- protcomp(dat$Accession, basis)
+  } else if(study=="WYL+19") {
+    # 20191228 tumor-associated / normal vascular endothelial cells, Wang et al., 2019
+    dat <- read.csv(paste0(datadir, "WYL+19.csv.xz"), as.is=TRUE)
+    description <- "tumor-associated / normal vascular endothelial cells"
+    dat <- check_IDs(dat, "Accession")
+    up2 <- dat$Ratio.T.N. > 1
+    pcomp <- protcomp(dat$Accession, basis)
   } else stop(paste("CRC dataset", dataset, "not available"))
   print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429

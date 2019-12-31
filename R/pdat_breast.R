@@ -1,6 +1,6 @@
 # canprot/R/pdat_breast.R
 # retrieve protein IDs for breast cancer studies
-# 20160411-20191120 assemble data for 2020 compilation
+# 20160411-20191228 assemble data for 2020 compilation
 
 pdat_breast <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
@@ -19,7 +19,7 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
              "PBR+16_tumor",
              "BST+17_epithelium",
              "TZD+18_all", "TZD+18_basal",
-             "GCS+19_PTxNCT", "GCS+19_PTxANT", "LLC+19"
+             "GCS+19_PTxNCT", "GCS+19_PTxANT", "LLC+19", "MBP+19=transcriptome"
              ))
   }
   # remove tags
@@ -245,6 +245,14 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="MBP+19") {
+    # 20191228 breast cancer transcriptome, Malvia et al., 2019
+    dat <- read.csv(paste0(datadir, "MBP+19.csv.xz"), as.is=TRUE)
+    description <- "tumor / normal transcriptome"
+    dat <- check_IDs(dat, "Entry")
+    up2 <- dat$X.FC._Total.breast.tumours > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("breast dataset", dataset, "not available"))
   print(paste0("pdat_breast: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429
