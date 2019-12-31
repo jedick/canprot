@@ -11,12 +11,9 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
              "HTP+11",
              "GTM+12_IDC.benign", "GTM+12_IDC",
              "LLL+13=basal", "SRS+13_DCIS", "SRS+13_IC",
-             "GSB+14_tumor",
-             "PPH+14",
-             "CVJ+15=basal",
-             "FKZ+15_A=luminalA=transcriptome", "FKZ+15_B=luminalB=transcriptome", "FKZ+15_TN=basal=transcriptome",
-             "PGT+16_ES", "PGT+16_LS",
-             "PBR+16_tumor",
+             "GSB+14", "PPH+14",
+             "CVJ+15=basal", "FKZ+15_A=luminalA=transcriptome", "FKZ+15_B=luminalB=transcriptome", "FKZ+15_TN=basal=transcriptome",
+             "PGT+16_ES", "PGT+16_LS", "PBR+16_tumor",
              "BST+17_epithelium",
              "TZD+18_all", "TZD+18_basal",
              "GCS+19_PTxNCT", "GCS+19_PTxANT", "LLC+19", "MBP+19=transcriptome"
@@ -155,22 +152,11 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     dat <- cleanup(dat, "Accession.number", up2)
     pcomp <- protcomp(dat$Accession.number, basis=basis)
   } else if(study=="GSB+14") {
-    # 20170116 breast adenocarcinoma and treatment of ZR-75-1 with TGFβ or IL-1β, Groessl et al., 2014
-    # GSB+14_tumor, GSB+14_near, GSB+14_IL-1β, GSB+14_TGFβ
+    # 20170116 breast adenocarcinoma tumor / distant, Groessl et al., 2014
     dat <- read.csv(paste0(datadir, "GSB+14.csv.xz"), as.is=TRUE, check.names = FALSE)
-    if(stage %in% c("tumor", "near")) description <- paste0("adenocarcinoma ", stage, "/distant")
-    #if(stage %in% c("IL-1β", "TGFβ")) description <- paste("breast ZR-75-1;", stage)
-    # use specified experiment
-    icol <- grep(stage, colnames(dat))
-    if(stage %in% c("tumor", "near")) icon <- grep("LFQ distant", colnames(dat))
-    #if(stage %in% c("IL-1β", "TGFβ")) icon <- grep("LFQ con", colnames(dat))
-    # fold change > 1.05 or < 0.95 
-    dat <- dat[!is.na(dat[, icol]), ]
-    rat <- dat[, icol] / dat[, icon]
-    dat <- dat[rat > 1.05 | rat < 0.95, ]
+    description <- paste("adenocarcinoma tumor / distant")
+    up2 <- dat$LFQ.tumor.distant > 1.2
     dat <- check_IDs(dat, "Accession")
-    up2 <- dat[, icol] / dat[, icon] > 1
-    dat <- cleanup(dat, "Accession", up2)
     pcomp <- protcomp(dat$Accession, basis=basis)
   } else if(study=="BST+17") {
     # 20170811 breast epithelium and stroma, Braakman et al., 2017
@@ -206,9 +192,9 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     # 20170829 gene expression luminal A, luminal B, triple negative / normal, Fu et al., 2015
     # FKZ+15_A, FKZ+15_B, FKZ+15_TN
     dat <- read.csv(paste0(datadir, "FKZ+15.csv.xz"), as.is=TRUE)
-    if(stage=="A") { description <- "luminal A / normal transcriptome"; icol <- grep("luminalA", colnames(dat))[2] }
-    if(stage=="B") { description <- "luminal B / normal transcriptome"; icol <- grep("luminalB", colnames(dat))[2] }
-    if(stage=="TN") { description <- "triple negative / normal transcriptome"; icol <- grep("TN", colnames(dat))[2] }
+    if(stage=="A") { description <- "luminal A / normal transcriptome"; icol <- grep("luminalA", colnames(dat)) }
+    if(stage=="B") { description <- "luminal B / normal transcriptome"; icol <- grep("luminalB", colnames(dat)) }
+    if(stage=="TN") { description <- "triple negative / normal transcriptome"; icol <- grep("TN", colnames(dat)) }
     # use indicated subtype
     dat <- dat[!is.na(dat[, icol]), ]
     # remove "-1" isoform suffixes
@@ -232,6 +218,8 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     # keep proteins differentially expressed in all or basal tumors
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
+    # cutoff log2FC = 1 20191231
+    dat <- dat[abs(dat[, icol]) > 1, ]
     dat <- check_IDs(dat, "UNIPROT")
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "UNIPROT", up2)
