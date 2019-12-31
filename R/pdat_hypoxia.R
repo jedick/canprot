@@ -221,12 +221,6 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     # 20190324 HCT116 cells, Chen et al., 2018
     # CLY+18_proteome
     return(pdat_multi(dataset, basis))
-  } else if(study=="HWP+13") {
-    # 20190326 rat bone marrow-derived endothelial progenitor cells VEGF-A pathway, Hoffmann et al., 2013
-    dat <- read.csv(paste0(datadir, "HWP+13.csv.xz"), as.is=TRUE)
-    description <- paste("mouse EPC VEGF-A pathway", stage)
-    pcomp <- protcomp(dat$Accession.Number, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/HWP+13_aa.csv"))
-    up2 <- dat$Log2.Ratio > 0
   } else if(study=="DCH+14") {
     # 20160109 hypoxia-regulated proteins in mouse breast cancer, Djidja et al., 2014
     # 20191204 use all proteins in Table S1
