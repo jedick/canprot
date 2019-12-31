@@ -71,7 +71,6 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     icol <- match(stage, colnames(dat))
     idiff <- dat[, icol] / dat$BPH > 2 | dat[, icol] / dat$BPH < 0.5
     dat <- dat[idiff, ]
-    dat$Protein <- sapply(strsplit(dat$Protein, "\\|"), "[", 2)
     dat <- check_IDs(dat, "Protein")
     up2 <- dat[, icol] / dat$BPH > 2
     dat <- cleanup(dat, "Protein", up2)

@@ -87,8 +87,8 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
     dat <- read.csv(paste0(datadir, "WLL+13.csv.xz"), as.is=TRUE)
     description <- paste0(stage, "-grade T / N")
     # which columns hold the expression data
-    if(stage=="low") icol <- 4:7
-    if(stage=="high") icol <- 8:11
+    if(stage=="low") icol <- 2:5
+    if(stage=="high") icol <- 6:9
     # 2 of the 4 ratios must be >=1.5 or <=0.667
     is.signif <- dat[, icol] >= 1.5 | dat[, icol] <= 0.667
     is.signif <- rowSums(is.signif) >= 2

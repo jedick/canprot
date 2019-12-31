@@ -77,13 +77,14 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     # RHD+13_Hx48, RHD+13_Hx72, RHD+13_ReOx
     dat <- read.csv(paste0(datadir, "RHD+13.csv.xz"), as.is=TRUE)
     description <- paste("A431", stage)
-    # columns with the ratios and p-values
+    # columns with the ratios
     if(stage=="Hx48") icol <- grep("115", colnames(dat))
     if(stage=="Hx72") icol <- grep("116", colnames(dat))
     if(stage=="ReOx") icol <- grep("117", colnames(dat))
-    # use significantly highly changed proteins
-    dat <- dat[dat[, icol[2]] < 0.05, ]
-    dat <- dat[dat[, icol[1]] > sqrt(2) | dat[, icol[1]] < 1/sqrt(2), ]
+    # remove NA values (indicates p-value >= 0.05)
+    dat <- dat[!is.na(dat[, icol]), ]
+    # get highly differential proteins
+    dat <- dat[dat[, icol] > sqrt(2) | dat[, icol] < 1/sqrt(2), ]
     # get known UniProt IDs
     dat <- check_IDs(dat, "Accession")
     up2 <- dat[, icol[1]] > 1
