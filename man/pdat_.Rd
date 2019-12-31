@@ -23,7 +23,7 @@
   pdat_breast(dataset = 2020, basis = "rQEC")
   pdat_lung(dataset = 2020, basis = "rQEC")
   pdat_prostate(dataset = 2020, basis = "rQEC")
-  pdat_hypoxia(dataset = NULL, basis = "rQEC")
+  pdat_hypoxia(dataset = 2020, basis = "rQEC")
   pdat_osmotic(dataset = NULL, basis = "rQEC")
   pdat_osmotic2(dataset = NULL, basis = "rQEC")
   pdat_secreted(dataset = 2020, basis = "rQEC")

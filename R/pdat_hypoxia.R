@@ -1,9 +1,27 @@
 # canprot/R/pdat_hypoxia.R
 # retrieve protein IDs for hypoxia data sets
-# 20160414 jmd
+# 20160414 jmd first version
+# 20190322-20191226 assemble data for 2020 compilation
+# - exclude datasets with < 30 either up- or down-regulated proteins
+# - exclude ReOx datasets
+# - move secretome data to pdat_secreted.R
+# - move 3D data to pdat_3D.R
+# - add new datasets
 
-pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
-  if(is.null(dataset)) {
+pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
+  if(identical(dataset, 2020)) {
+    return(c(
+             "BKS+09=transcriptome",
+             "FWH+13", "RHD+13_Hx48", "RHD+13_Hx72", "VTMF13",
+             "DCH+14", "DYL+14_Hx48-S", "DYL+14_Hx72-S", "DYL+14_Hx48-P", "DYL+14_Hx72-P", "OHS+14=transcriptome",
+             "BSA+15",
+             "HWA+16", "LCS16_transcription=transcriptome", "LCS16_translation",
+             "CGH+17_whole", "ZXS+17",
+             "CLY+18_proteome", "GBH+18", "LKK+18", "WTG+18",
+             "CSK+19", "KAN+19_proteome"
+             ))
+  }
+  if(identical(dataset, 2017)) {
     return(c("HXS+06",
              "BRA+10", "DPL+10",
              "BMJ+11", "CBW+11",
@@ -195,6 +213,87 @@ pdat_hypoxia <- function(dataset=NULL, basis="rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/XCJ+16_aa.csv"))
     up2 <- dat[, icol] > 0
+  } else if(study=="CGH+17") {
+    # 20190324 mouse cardiac whole-cell lysate, Cosme et al., 2017
+    # CGH+17_whole
+    return(pdat_multi(dataset, basis))
+  } else if(study=="CLY+18") {
+    # 20190324 HCT116 cells, Chen et al., 2018
+    # CLY+18_proteome
+    return(pdat_multi(dataset, basis))
+  } else if(study=="HWP+13") {
+    # 20190326 rat bone marrow-derived endothelial progenitor cells VEGF-A pathway, Hoffmann et al., 2013
+    dat <- read.csv(paste0(datadir, "HWP+13.csv.xz"), as.is=TRUE)
+    description <- paste("mouse EPC VEGF-A pathway", stage)
+    pcomp <- protcomp(dat$Accession.Number, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/HWP+13_aa.csv"))
+    up2 <- dat$Log2.Ratio > 0
+  } else if(study=="DCH+14") {
+    # 20160109 hypoxia-regulated proteins in mouse breast cancer, Djidja et al., 2014
+    # 20191204 use all proteins in Table S1
+    dat <- read.csv(paste0(datadir, "DCH+14.csv.xz"), as.is=TRUE)
+    description <- "mouse 4T1 cells"
+    # remove isoform suffixes
+    dat$Accession <- substr(dat$Accession, 1, 6)
+    dat <- check_IDs(dat, "Accession", aa_file=paste0(extdatadir, "/aa/mouse/DCH+14_aa.csv"))
+    up2 <- dat$Regulation == "Up"
+    pcomp <- protcomp(dat$Accession, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/DCH+14_aa.csv"))
+  } else if(study=="ZXS+17") {
+    # 20190407 glioblastoma cells, Zhang et al., 2017
+    dat <- read.csv(paste0(datadir, "ZXS+17.csv.xz"), as.is=TRUE)
+    description <- "glioblastoma cells"
+    pcomp <- protcomp(dat$Accession, basis=basis)
+    up2 <- dat$Fold.Change > 0
+  } else if(study=="GBH+18") {
+    # 20190409 SW620 cells 1% / 21% O2, Greenhough et al., 2018
+    dat <- read.csv(paste0(datadir, "GBH+18.csv.xz"), as.is=TRUE)
+    description <- "SW620 cells"
+    up2 <- dat$Av..Fold.change..hyp.norm. > 1
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="WTG+18") {
+    # 20190413 mesenchymal stem cells, Wobma et al., 2018
+    dat <- read.csv(paste0(datadir, "WTG+18.csv.xz"), as.is=TRUE)
+    description <- "mesehnchymal stem cells"
+    dat <- check_IDs(dat, "UniProt.Accession")
+    pcomp <- protcomp(dat$UniProt.Accession, basis=basis)
+    up2 <- dat$Normalized.Ratio..Hypoxia.MSC..Control.MSC. > 1
+  } else if(study=="LKK+18") {
+    # 20191127 mesenchymal stem cells, Lee et al., 2018
+    dat <- read.csv(paste0(datadir, "LKK+18.csv.xz"), as.is=TRUE)
+    description <- "mesehnchymal stem cells"
+    dat <- check_IDs(dat, "Entry")
+    up2 <- dat$Regulation == "up"
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="OHS+14") {
+    # 20191203 cancer cell lines (gene expression), Olbryt et al., 2014
+    dat <- read.csv(paste0(datadir, "OHS+14.csv.xz"), as.is=TRUE)
+    description <- "cancer cell lines transcriptome"
+    # keep genes with same expression change in all three cell lines
+    isame <- abs(colSums(apply(dat[, 4:6] - 1, 1, sign)))==3
+    dat <- dat[isame, ]
+    up2 <- dat[, 4] > 1
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="BKS+09") {
+    # 20191203 multiple cell datasets (gene expression), Benita et al., 2009
+    dat <- read.csv(paste0(datadir, "BKS+09.csv.xz"), as.is=TRUE)
+    description <- "multiple cell datasets transcriptome"
+    # keep genes with consistent expression ratio in at least 2 cell types
+    dat <- dat[dat$num.of.cells.in.which.gene.responds.to.hypoxia > 1 & dat$consistent.response.in.hypoxia == "Yes", ]
+    up2 <- dat$Average.fold.change.in.hypoxia > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="CSK+19") {
+    # 20191204 HeLa cells, Chachami et al., 2019
+    dat <- read.csv(paste0(datadir, "CSK+19.csv.xz"), as.is=TRUE)
+    description <- "HeLa cells"
+    up2 <- dat$input_Log2ratioHL_firstIP > 0
+    pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="KAN+19") {
+    # 20191226 human umbilical vein ECs, Kugeratski et al., 2019
+    # KAN+19_proteome
+    return(pdat_multi(dataset, basis))
   } else stop(paste("hypoxia dataset", dataset, "not available"))
   print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

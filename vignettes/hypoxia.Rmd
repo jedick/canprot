@@ -29,7 +29,7 @@ library(canprot)
 ```
 
 ```{r datasets}
-datasets <- pdat_hypoxia()
+datasets <- pdat_hypoxia(2017)
 ```
 
 ```{r comptab, message=FALSE}
