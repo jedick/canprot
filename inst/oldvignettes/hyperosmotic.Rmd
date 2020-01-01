@@ -7,7 +7,7 @@ vignette: >
   %\VignetteIndexEntry{Data: Hyperosmotic Stress}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-bibliography: data_sources.bib
+bibliography: cpdat.bib
 csl: peerj.csl
 ---
 

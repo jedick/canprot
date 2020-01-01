@@ -2,3 +2,4 @@ vignettes/*.html
 vignettes/*.csv
 R/testpdat.R.tmp
 inst/extdata/expression/dates.dat
+inst/oldvignettes/*.html

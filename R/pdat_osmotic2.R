@@ -1,6 +1,6 @@
 # new datasets added 20191104
-pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
-  if(is.null(dataset)) {
+pdat_osmotic2 <- function(dataset = 2020, basis = "rQEC") {
+  if(identical(dataset, 2020)) {
     return(c("LRB+09_2.6", "LRB+09_5.1",
              "FTR+10", "HMO+10_prot-membrane", "HMO+10_transcriptomics", # "HMO+10_prot-cytosol", # 14 up, 9 down
              "ZLZ+16_10", "ZLZ+16_17.5",

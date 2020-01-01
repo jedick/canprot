@@ -24,8 +24,8 @@
   pdat_lung(dataset = 2020, basis = "rQEC")
   pdat_prostate(dataset = 2020, basis = "rQEC")
   pdat_hypoxia(dataset = 2020, basis = "rQEC")
-  pdat_osmotic(dataset = NULL, basis = "rQEC")
-  pdat_osmotic2(dataset = NULL, basis = "rQEC")
+  pdat_osmotic(dataset = 2017, basis = "rQEC")
+  pdat_osmotic2(dataset = 2020, basis = "rQEC")
   pdat_secreted(dataset = 2020, basis = "rQEC")
   pdat_3D(dataset = 2020, basis = "rQEC")
   pdat_multi(dataset = 2020, basis = "rQEC")
@@ -55,9 +55,6 @@ Each dataset name indicates the study (publication) where the data were reported
 This coincides with the key-generation scheme used in some bibliography manager software.
 This abbreviation is also used to name the CSV file containing the data.
 If more than one dataset is available from a single study (for example, for relative protein expression in different stages of cancer), \code{dataset} an underscore followed by a short suffix indicating the particular dataset.
-
-Tables listing mean compositional differences between up- and down-expressed proteins for each dataset are saved in \code{extdata/summary/}.
-These files were created using the second example below.
 }
 
 \value{
@@ -70,26 +67,10 @@ Dick, J. M., Tan, J. and Yu, M. (2019) Geochemistry of metagenomes: Redox and sa
 
 \examples{
 library(CHNOSZ)
-# list datasets in 2017 complilation
+# list datasets in 2017 complilation for colorectal cancer
 pdat_CRC(2017)
+# process one dataset
 pdat_CRC("JKMF10")
-
-\dontrun{
-# how the extdata/summary/summary_*.csv files were made
-for(what in c("CRC", "pancreatic", "hypoxia", "osmotic")) {
-  pdat_fun <- paste0("pdat_", what)
-  datasets <- get(pdat_fun)()
-  comptab <- lapply_canprot(datasets, function(dataset) {
-    pdat <- get(pdat_fun)(dataset)
-    get_comptab(pdat)
-  }, varlist = "pdat_fun")
-  # write summary table
-  comptab <- do.call(rbind, comptab)
-  comptab <- cbind(set = c(letters, LETTERS)[1:nrow(comptab)], comptab)
-  comptab[, 6:15] <- signif(comptab[, 6:15], 4)
-  filename <- paste0("summary_", what, ".csv")
-  write.csv(comptab, filename, row.names = FALSE, quote = 3)
-}}
 }
 
 \concept{Protein expression}

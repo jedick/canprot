@@ -7,7 +7,7 @@ vignette: >
   %\VignetteIndexEntry{Data: Hypoxia or 3D Culture}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-bibliography: data_sources.bib
+bibliography: cpdat.bib
 csl: peerj.csl
 ---
 
