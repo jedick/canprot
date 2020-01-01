@@ -65,7 +65,7 @@ Abbreviations:
 
 ```{r diffplot, fig.width=8, fig.height=8, fig.align = "center", echo = FALSE, pngquant = pngquant}
 par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
-pch <- ifelse(grepl("transcriptome", datasets), 2, 1)
+pch <- ifelse(grepl("transcript", datasets), 2, 1)
 diffplot(comptab1, pch = pch)
 title(quote("rQEC"~italic(n)[H[2]*O]), font.main = 1)
 diffplot(comptab2, c("nO2", "nH2O"), pch = pch)

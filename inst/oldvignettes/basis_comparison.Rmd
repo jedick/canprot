@@ -20,8 +20,8 @@ h2o <- "H<sub>2</sub>O"
 ```
 
 This [<span style="color:red;text-decoration:underline">vignette</span>](http://chnosz.net/canprot/doc/index.html) from the R package [canprot](http://github.com/jedick/canprot) shows projections of protein composition made using two sets of basis species.
-Using the `CHNOS` basis species (CO<sub>2</sub>, NH<sub>3</sub>, H<sub>2</sub>S, `r h2o`, `r o2`), the plots show that *n*&#773;<sub>`r h2o`</sub> and *n*&#773;<sub>`r o2`</sub>, i.e. the number of `r h2o` and `r o2` in the formation per residue of the proteins from basis species, are both moderately correlated with `r zc` (average oxidation state of carbon).
-Using the `QEC` basis species (glutamine, glutamic acid, cysteine, `r h2o`, `r o2`), we find that *n*&#773;<sub>`r o2`</sub> is strongly correlated with `r zc`, but *n*&#773;<sub>`r h2o`</sub> shows very little correlation.
+Using the `CHNOS` basis species (CO<sub>2</sub>, NH<sub>3</sub>, H<sub>2</sub>S, `r h2o`, `r o2`), the plots show that _n_&#773;<sub>`r h2o`</sub> and _n_&#773;<sub>`r o2`</sub>, i.e. the number of `r h2o` and `r o2` in the formation per residue of the proteins from basis species, are both moderately correlated with `r zc` (average oxidation state of carbon).
+Using the `QEC` basis species (glutamine, glutamic acid, cysteine, `r h2o`, `r o2`), we find that _n_&#773;<sub>`r o2`</sub> is strongly correlated with `r zc`, but _n_&#773;<sub>`r h2o`</sub> shows very little correlation.
 Accordingly, the `QEC` basis more clearly exposes two compositional variables -- oxidation state and hydration state -- in proteomic data.
 
 ```{r options, echo=FALSE}
@@ -73,4 +73,4 @@ for(basis in c("QEC", "CHNOS")) {
 }
 ```
 
-This figure has been published as Figure S1 of Dick, 2017 (Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress. [*PeerJ* 5:e3421](https://doi.org/10.7717/peerj.3421)).
+This figure has been published as Figure S1 of Dick, 2017 (Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress. [_PeerJ_ 5:e3421](https://doi.org/10.7717/peerj.3421)).

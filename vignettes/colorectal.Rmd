@@ -29,7 +29,7 @@ Abbreviations:
   * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
   * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
 
-Stoichiometric values are calculated using basis species (rQEC; Dick et al., 2020) or amino acid biosynthetic reactions.
+Stoichiometric values are calculated using basis species (rQEC method; Dick et al., 2020) or amino acid biosynthetic reactions.
 References for gene ages: [Trigos et al. (2017)](https://doi.org/10.1073/pnas.1617743114) (TPPG17); [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) (LMM16).
 
 ```{r options, echo=FALSE}
@@ -62,7 +62,7 @@ Triangle symbols indicate transcriptomic datasets; all others are protein expres
 
 ```{r diffplot, fig.width=8, fig.height=8, fig.align = "center", echo = FALSE, pngquant = pngquant}
 par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
-pch <- ifelse(grepl("transcriptome", datasets), 2, 1)
+pch <- ifelse(grepl("transcript", datasets), 2, 1)
 diffplot(comptab1, pch = pch)
 title(quote("rQEC"~italic(n)[H[2]*O]), font.main = 1)
 diffplot(comptab2, c("nO2", "nH2O"), pch = pch)

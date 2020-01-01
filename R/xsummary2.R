@@ -48,8 +48,11 @@ xsummary2 <- function(comptab1, comptab2, comptab3, comptab4) {
     x[ineg, icol] <- paste("**", x[ineg, icol], "**")
   }
 
+  # remove PS columns if all values are NA 20200101
+  if(all(is.na(x[, 10:11]))) x <- x[, -(10:11)]
+
   # create xtable
-  x <- xtable::xtable(x, align=c("c", "l", "l", rep("r", 9)))
+  x <- xtable::xtable(x, align=c("c", "l", "l", rep("r", ncol(x) - 2)))
   x <- capture.output(xtable::print.xtable(x, type="html",
                                    include.rownames=FALSE,
                                    math.style.exponents=TRUE,
@@ -68,10 +71,9 @@ xsummary2 <- function(comptab1, comptab2, comptab3, comptab4) {
   span_empty1 <- "<td align=\"center\" colspan=\"1\"></td>"
   span_TPPG17 <- "<td align=\"center\" colspan=\"1\"><B>TPPG17</B></td>"
   span_LMM16 <- "<td align=\"center\" colspan=\"1\"><B>LMM16</B></td>"
-  x <- gsub("<table border=1>",
-            paste("<table border=1> <tr>", span_empty5, span_rQEC,
-              span_biosynth, span_empty1, span_TPPG17, span_LMM16, "</tr>"),
-            x, fixed=TRUE)
+  border <- paste("<table border=1> <tr>", span_empty5, span_rQEC, span_biosynth, span_empty1, span_TPPG17, span_LMM16, "</tr>")
+  if(!any(grepl("PS_", x))) border <- paste("<table border=1> <tr>", span_empty5, span_rQEC, span_biosynth, span_empty1, "</tr>")
+  x <- gsub("<table border=1>", border, x, fixed=TRUE)
 
   # more formatting of the headers
   x <- gsub("description", "reference (description)", x, fixed=TRUE)

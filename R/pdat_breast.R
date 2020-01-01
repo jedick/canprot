@@ -184,6 +184,10 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     description <- "cancer / periphery"
     # remove "-1" isoform suffixes
     dat$ID <- gsub("-1", "", dat$ID)
+    # replace non-UniProt IDs
+    dat$ID[grepl("^ENSP", dat$ID)] <- NA
+    dat$ID[grepl("^XP_", dat$ID)] <- NA
+    dat$ID[grepl("^HIT", dat$ID)] <- NA
     dat <- check_IDs(dat, "ID")
     up2 <- dat$Cancer_Peptides > 0
     dat <- cleanup(dat, "ID", up2)

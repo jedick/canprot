@@ -1,3 +1,4 @@
+# canprot/R/osmotic2.R
 # new datasets added 20191104
 pdat_osmotic2 <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
