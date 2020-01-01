@@ -12,24 +12,26 @@
 }
 
 \details{
-These amino acid compositions were compiled from amino acid sequences downloaded from \href{http://www.uniprot.org/}{UniProt}.
-Amino acid sequences of human proteins were obtained from files in the UniProt reference proteome, dated 2016-04-03,
-downloaded from \url{ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/}. 
+The amino acid compositions of human proteins were computed from amino acid sequences in the \href{http://www.uniprot.org/}{UniProt} reference proteome, dated 2016-04-03.
+The amino acid compositions of human proteins are stored in three files under \code{extdata/protein}.
+\itemize{
+  \item \code{human_base.rds} contains amino acid compositions of proteins in the UniProt reference proteome (\code{UP000005640_9606.fasta.gz} containing canonical, manually reviewed sequences).
+  \item \code{human_additional.rds} contains amino acid compositions of additional proteins (\ifelse{latex}{\cr}{}\code{UP000005640_9606_additional.fasta.gz}) including isoforms and unreviewed sequences. This file has been trimmed to include only those proteins that are used in the package as of version 0.1.4-40 (2020-01-01).
+  \item \code{human_extra.csv} contains amino acid compositions of other (\dQuote{extra}) proteins identified in specific proteomic experiments but not listed in one of the files above; these have been manually added along with the datasets, and may be obsolete, unreviewed, or are newer additions to the UniProt reference proteome. Not all sequences here are strictly HUMAN (see the \code{organism} column), but use the IDs or accession numbers reported in the sources (see the \code{ref} column for the references).
+}
 
-The amino acid compositions of human proteins are stored in three files.
-\code{human_base.Rdata} contains amino acid compositions of proteins in the UniProt reference proteome (\code{UP000005640_9606.fasta.gz} containing canonical, manually reviewed sequences).
-\code{human_additional.Rdata} contains amino acid compositions of additional proteins in the UniProt reference proteome (\ifelse{latex}{\cr}{}\code{UP000005640_9606_additional.fasta.gz} containing isoforms and unreviewed sequences).
-\code{human_extra.csv} contains amino acid compositions of other (\dQuote{extra}) proteins identified in proteomic experiments but not listed in one of the files above.
-
-On loading the package, the individual data files are read and combined using \code{\link{rbind}}, and the result is assigned to the \code{human_aa} object in the \code{canprot} environment.
+On loading the package, the individual data files are read and combined, and the result is assigned to the \code{human_aa} object in the \code{canprot} environment.
 
 As an aid for processing datasets that include old (obsoleted) UniProt IDs, the corresponding new (current) IDs are are stored in \code{uniprot_updates}.
-\code{uniprot_updates} also lists the source (i.e. reference key) that contains each old ID.
+The \code{source} column in \code{uniprot_updates} gives the reference(s) for the datasets that use these IDs.
 Conversion of old to new IDs is performed with \code{\link{check_IDs}}.
+
+Amino acid compositions of non-human proteins are stored under \code{extdata/aa} (directories \code{archaea}, \code{bacteria}, \code{fungus}, \code{mouse}, \code{rat}).
+Datasets that use these proteins can be identified by the \code{aa_file} argument to \code{\link{protcomp}} in the various \code{\link{pdat_}} functions.
 }
 
 \format{
-The columns of \code{human_aa} are compatible with the layout used for amino acid compositions in \pkg{CHNOSZ} (see \code{\link[CHNOSZ]{thermo}}):
+\code{human_aa} follows the format used for storing amino acid compositions in \pkg{CHNOSZ} (see \code{\link[CHNOSZ]{thermo}}):
 
 \tabular{lll}{
   \code{protein} \tab character \tab Identification of protein\cr
@@ -40,7 +42,7 @@ The columns of \code{human_aa} are compatible with the layout used for amino aci
   \code{Ala}\dots\code{Tyr} \tab numeric \tab Number of each amino acid in the protein
 }
 
-Here, the \code{protein} column contains the UniProt ID (accession), possibly with a suffix indicating the isoform of the protein (esp. from \code{human_additional.csv}).
+Here, the \code{protein} column contains the UniProt ID (accession), possibly with a suffix indicating the isoform of the protein (esp. from \code{human_additional}).
 }
 
 \examples{

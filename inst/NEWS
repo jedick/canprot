@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-37 (2020-01-01)
+CHANGES IN canprot 0.1.4-40 (2020-01-01)
 ----------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -50,6 +50,10 @@ CHANGES IN canprot 0.1.4-37 (2020-01-01)
 
 - Update vignettes for 2020 data compilation. The old vignettes (Rmd
   files only) are in inst/oldvignettes.
+
+- Trim human_additional.rds to contain only the proteins actually used
+  in the package. This significantly reduces the size of the package
+  as well as the time needed to build the vignettes.
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------
