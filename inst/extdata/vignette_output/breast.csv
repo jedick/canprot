@@ -1,0 +1,26 @@
+"dataset","description","tags","n1","n2","ZC.diff","nH2O_rQEC.diff","nO2_biosynth.diff","nH2O_biosynth.diff","nAA.diff","PS_TPPG17.diff","PS_LMM16.diff"
+AMG+08,"cancer / periphery",,56,128,-0.01,0.003,-0.0322,0.0254,126.5,-0.6843,-0.1927
+CIR+10,"ER+ T/N",luminalA,59,62,-0.0433,-0.0025,-0.1308,0.083,-8,-2.1466,-1.1482
+SRG+10,"invasive carcinoma / normal",,56,61,0.0278,0.0559,0.096,0.0128,-133.5,-0.4427,0.3964
+HTP+11,"microvessels IDC / nonmalignant",,40,86,-0.026,0.0177,-0.1228,0.071,-45.5,-2.4522,-1.7994
+GTM+12_IDC.benign,"IDC / benign",,27,166,-0.0173,0.0646,-0.1684,0.0581,-112,-4.6984,-1.582
+GTM+12_IDC,"IDC / normal adj.",,71,122,-0.002,0.0696,-0.1135,0.0472,-64.5,-2.6495,-1.2983
+LLL+13,"TNBC tumor / paraneoplastic",basal,128,80,-0.0034,-0.0134,-0.0494,0.0346,12,-0.4726,-0.013
+SRS+13_DCIS,"DCIS / normal",,56,50,-0.0011,0.0089,-0.037,0.0383,-27,-1.43,-0.4184
+SRS+13_IC,"IC / normal",,73,71,0.0119,0.0383,0.0248,0.0276,-172,-1.4659,-0.728
+GSB+14,"adenocarcinoma tumor / distant",,88,108,-0.0021,0.0359,-0.0563,0.0263,-187,-0.6379,-0.385
+PPH+14,"multiple subtypes T/N",,54,40,-7e-04,-0.0323,0.0237,0.021,-254,0.8511,-0.5
+CVJ+15,"TNBC tumor / normal",basal,92,124,-0.0111,0.0023,-0.0533,0.0708,-55.5,-2.9048,-0.8048
+FKZ+15_A,"luminal A / normal transcriptome",luminalA;transcriptome,1247,736,-0.0075,0.0143,-0.0435,0.026,-33.5,-0.1918,-0.2129
+FKZ+15_B,"luminal B / normal transcriptome",luminalB;transcriptome,436,252,-0.0058,0.0081,-0.0063,4e-04,-44.5,-0.5797,-0.3881
+FKZ+15_TN,"triple negative / normal transcriptome",basal;transcriptome,66,34,0.0032,0.0277,-0.0016,0.0377,-24,-0.2019,-0.0162
+PGT+16_ES,"early stage T / N",,21,38,-0.0106,0.0298,-0.0323,0.0518,-72.5,-1.8492,-0.4237
+PGT+16_LS,"late stage T / N",,24,42,-0.0129,0.0272,-0.0107,0.0347,-97,-2.3141,-0.5362
+PBR+16_tumor,"T/N",,406,563,2e-04,-0.0175,0.0458,-0.0621,-515,0.091,0.129
+BST+17_epithelium,"tumor epithelium / normal",,234,245,-0.0284,-0.013,-0.107,0.0541,9.5,-2.0726,-1.0177
+TZD+18_all,"tumor / adjacent non-cancerous all",,268,1836,-0.0386,-0.0119,-0.1257,0.0693,40.5,-2.8198,-1.6666
+TZD+18_basal,"tumor / adjacent non-cancerous basal",,291,1058,-0.0405,-0.0102,-0.1116,0.0673,97,-2.5769,-1.5841
+GCS+19_PTxNCT,"PTxNCT",,162,235,-0.0092,0.034,-0.0696,0.0689,18.5,-2.4538,-1.2073
+GCS+19_PTxANT,"PTxANT",,159,246,-0.005,0.035,-0.0584,0.049,44,-2.1071,-1.0989
+LLC+19,"tumor / adjacent normal tissue",,93,48,-0.022,0.0222,-0.1233,0.135,-99,-3.7609,-1.6449
+MBP+19,"tumor / normal transcriptome",transcriptome,1240,921,-0.0137,0.0171,-0.0638,0.0484,1.5,-1.4897,-0.7217

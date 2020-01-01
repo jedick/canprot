@@ -1,10 +1,10 @@
 ---
-title: "Colorectal Cancer"
+title: "Prostate Cancer"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Colorectal Cancer}
+  %\VignetteIndexEntry{Prostate Cancer}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib
@@ -22,14 +22,13 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-This vignette shows compositional metrics and phylostrata for proteins that are differentially expressed in colorectal cancer compared to normal tissue.
+This vignette shows compositional metrics and phylostrata for proteins that are differentially expressed in prostate cancer compared to normal tissue.
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
   * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
-  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
 
-Stoichiometric values are calculated using basis species (rQEC; Dick et al., 2020) or amino acid biosynthetic reactions.
+Stoichiometric values are derived from basis species using the rQEC method (Dick et al., 2020) or from amino acid biosynthetic reactions.
 References for gene ages: [Trigos et al. (2017)](https://doi.org/10.1073/pnas.1617743114) (TPPG17); [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) (LMM16).
 
 ```{r options, echo=FALSE}
@@ -45,11 +44,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_CRC(2020)
+datasets <- pdat_prostate()
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_CRC)
+pdat1 <- lapply_canprot(datasets, pdat_prostate)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -74,6 +73,11 @@ title("Liebeskind et al. (2016) ages", font.main = 1)
 ```
 
 In the table, values of &Delta;<i>Z</i><sub>C</sub>, &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> and &Delta;<i>n</i><sub>O<sub>2</sub></sub> are multiplied by 1000, values of &Delta;PS are multiplied by 100, and negative values are shown in bold.
+Abbreviations:
+
+  * <i>n</i><sub>down</sub> &ndash; number of down-expressed proteins; <i>n</i><sub>up</sub> &ndash; number of up-expressed proteins.
+  * PCa &ndash; prostate cancer; BPH &ndash; benign prostatic hyperplasia.
+  * FFPE &ndash; formalin-fixed paraffin-embedded; OCT &ndash; optimal cutting temperature compound-embedded; TMA &ndash; tissue microarray.
 
 ```{r xsummary, results="asis", echo = FALSE}
 library(xtable)
@@ -82,35 +86,25 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:11])
 out[, 6:12] <- round(out[, 6:12], 4)
-write.csv(out, "colorectal.csv", row.names = FALSE, quote = 2)
+write.csv(out, "prostate.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
-Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>, except for IPI accession numbers, which were converted using the <a href="https://david-d.ncifcrf.gov/conversion.jsp">DAVID 6.7 conversion tool</a>.
+Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
 
-<b>a</b>. Genes identified as up- or down-expressed in human CRC in Table 4 of @KPF+07.
-<b>b</b>. Table 1 and Supplementary Data 1 of @WTK+08 (Swiss-Prot and UniProt accession numbers from Supplementary Data 2).
-<b>c</b>. <b>d</b>. IPI accession numbers from Supplemental Table 4 of @XZC+10.
-<b>e</b>. IPI accession numbers from Supplemental Table 4 of @ZYS+10.
-<b>f</b>. <b>g</b>. <b>h</b>. <b>i</b>. Gene names from supplemental Table 9 of @BPV+11.
-<b>j</b>. Supplementary Table 2 of @JCF+11.
-<b>k</b>. Table S8 of @MRK+11.
-<b>l</b>. Supplementary Table 1 of @SHHS11.
-<b>m</b>. Gene names from Supplementary Table 4 of @KYK+12, filtered to include proteins with expression ratio >2 or <0.5 in both mTRAQ and cICAT analyses.
-<b>n</b>. Supplementary Table 4 of @WOD+12.
-<b>o</b>. Table 2 of @CZD+14.
-<b>p</b>. Ensembl protein IDs from Supporting Table 2 of @STK+15.
-<b>q</b>. Proteins marked as having a significant change between normal tissue (N) and adenocarcinoma (C) in SI Table 3 of @WDO+15.
-<b>r</b>. SI Table S3 of @LXM+16, filtered to include proteins with _p_-value <0.05.
-<b>s</b>. <b>t</b>. Gene names from Supplementary Table 4 of @PHL+16, for differential expression between normal colonic mucosa (NC) and carcinoma in situ (CIS) or invasive colorectal cancer (ICC).
-<b>u</b>. Table S3 of @CTW+17.
-<b>v</b>. Dataset 6A of @HZW+17.
-<b>w</b>. Supplementary Material Table S1 of @LLL+17.
-<b>x</b>. Table 2 of @NKG+17.
-<b>y</b>. Table S2 of @QMB+17, filtered to include comparisons between adenocarcinoma and diverticular disease.
-<b>z</b>. Table S1 of @TMS+17, filtered to include proteins that are consistently up- or down-expressed in at least 11 of 12 patients.
-<b>A</b>. IPI accession numbers from Table S2 of @ZLY+17.
-<b>B</b>. Supplementary Table 1B of @AKG+18, filtered to include proteins with expression ratio > 3/2 or < 2/3.
-<b>C</b>. Supplementary Information Table S2 of @WYL+19
+<b>a</b>. Table 2 of @GTR+08.
+<b>b</b>. Supplementary Tables 3 and 4 of @KPB+10.
+<b>c</b>. <b>d</b>. Table S1 (genes) and S2 (proteins) of @HZH+12.
+<b>e</b>. Table S1 of @JHZ+13.
+<b>f</b>. Supplemental Table S7 of @LCS+14.
+<b>g</b>. Supplementary Table 1 @CZL+16 (proteins recorded with only Down-regulation or Up-regulation).
+<b>h</b>. Supplementary Table S3 of @IWT+16, filtered to include proteins listed with FDR <0.1.
+<b>i</b>. <b>j</b>. Extracted from Table S4 @GLZ+18. Values were quantile normalized (R function preprocessCore::normalize.quantiles) ([Bolstad et al., 2003](https://doi.org/10.1093/bioinformatics/19.2.185)), then ratios were calculated between the median values for each cancer type (acinar and ductal) and corresponding normal tissue; ratios > 1.5 or < 2/3 were used to identify differentially expressed proteins.
+<b>k</b>. <b>l</b>. Extracted from Supplementary Data 1 of @LAJ+18 (sheet "Area-proteins") by applying quantile normalization to peak areas then calculating median values across all runs and samples for each of BPH , PC (primary prostate cancer), and CRPC (castration resistant prostate cancer). A cutoff of 2-fold in ratios of medians (PC / BPH or CRPC / BPH) was used to identify differentially expressed proteins.
+<b>m</b>. Table 2 of @MAN+18.
+<b>n</b>. <b>o</b>. <b>p</b>. <b>q</b>.  <b>r</b>. Supporting Information Table S3 of @KRN+19 (G1&ndash;G5: PCa grades).
+<b>s</b>. <b>t</b>. Tables S4d (GS = 6) and S4f (GS ≥ 8 or GS = 6) of @MMF+19 (GS: Gleason Score).
+<b>u</b>. Supplementary Table S3a of @TOT+19.
+<b>v</b>. <b>w</b>. Table S5 of @ZYW+19 (LG: low-grade PCa; HG: high-grade PCa).
 
 ## References

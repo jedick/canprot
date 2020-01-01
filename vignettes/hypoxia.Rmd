@@ -1,80 +1,116 @@
 ---
-title: "Hypoxia or 3D Culture"
-output: 
-  rmarkdown::html_vignette:
+title: "Hypoxia"
+output:
+  html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Data: Hypoxia or 3D Culture}
+  %\VignetteIndexEntry{Hypoxia}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-bibliography: data_sources.bib
+bibliography: cpdat.bib
 csl: peerj.csl
 ---
 
-This [<span style="color:red;text-decoration:underline">vignette</span>](http://chnosz.net/canprot/doc/index.html) from the R package [canprot](http://github.com/jedick/canprot) reproduces calculations of compositional oxidation state and hydration state that are described in a paper published in _PeerJ_ ([Dick, 2017](https://doi.org/10.7717/peerj.3421)).
+```{r setup, include=FALSE}
+library(canprot)
+library(CHNOSZ)
+library(knitr)
+## use pngquant to reduce size of PNG images
+knit_hooks$set(pngquant = hook_pngquant)
+pngquant <- "--speed=1 --quality=0-25"
+# in case pngquant isn't available (R-Forge?)
+if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
+```
 
-## Abbreviations
-U937 (acute promonocytic leukemic cells), B104 (rat neuroblastoma cells), DU145 (prostate carcinoma cells), SK-N-BE(2)c; IMR-32; SH-SY5Y (neuroblastoma cells), H9C2 (rat heart myoblast), MCF-7 (breast cancer cells), THP-1 (macrophages), A431 (epithelial carcinoma cells), Hx48 (hypoxia 48 h), Hx72 (hypoxia 72 h), ReOx (hypoxia 48 h followed by reoxygenation for 24 h), -S (supernatant fraction), -P (pellet fraction), SPH (spheroids), HepG2/C3A (hepatocellular carcinoma cells), U87MG (glioblastoma), 786-O (renal clear cell carcinoma cells), HCT116; HT29 (colon cancer cells), SC (stem cells), SAL (salidroside).
+This vignette shows compositional metrics and phylostrata for proteins that are differentially expressed in hypoxia compared to control conditions.
+Abbreviations:
 
-## Summary Table
+  * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
+  * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
+  * <i>n</i><sub>down</sub> &ndash; number of down-expressed proteins; <i>n</i><sub>up</sub> &ndash; number of up-expressed proteins.
 
-This table compares the chemical compositions of groups of proteins that are relatively down- and up-expressed (`n1` and `n2`, respectively) in cells grown in hypoxia or 3D culture compared to control conditions.
+Stoichiometric values are derived from basis species using the rQEC method (Dick et al., 2020) or from amino acid biosynthetic reactions.
+References for gene ages: [Trigos et al. (2017)](https://doi.org/10.1073/pnas.1617743114) (TPPG17); [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) (LMM16).
 
 ```{r options, echo=FALSE}
 options(width = 90)
 ```
 
-```{r canprot, message=FALSE}
-library(canprot)
-```
+<style type="text/css">
+body {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 
 ```{r datasets}
-datasets <- pdat_hypoxia(2017)
+datasets <- pdat_hypoxia()
 ```
 
-```{r comptab, message=FALSE}
-pdat <- lapply_canprot(datasets, pdat_hypoxia, basis = "QEC")
-comptab <- lapply(pdat, get_comptab, plot.it = FALSE, mfun = "mean", oldstyle = TRUE)
+```{r comptab, results="hide", message=FALSE, echo = FALSE}
+pdat1 <- lapply_canprot(datasets, pdat_hypoxia)
+comptab1 <- lapply(pdat1, get_comptab)
+pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
+comptab2 <- lapply(pdat2, get_comptab, "nO2")
+comptab3 <- lapply(pdat1, get_comptab, "nAA", "PS")
+comptab4 <- lapply(pdat1, get_comptab, "nAA", "PS", PS_source = "LMM16")
 ```
 
-```{r xsummary, results="asis"}
+Dashed contour lines in the plots outline the 50% credible region for highest probability density.
+Triangle symbols indicate transcriptomic datasets; all others are protein expression.
+Abbreviations:
+
+  * Hx48 &ndash; hypoxia 48 h; Hx72 &ndash; hypoxia 72 h.
+
+```{r diffplot, fig.width=8, fig.height=8, fig.align = "center", echo = FALSE, pngquant = pngquant}
+par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
+pch <- ifelse(grepl("transcriptome", datasets), 2, 1)
+diffplot(comptab1, pch = pch)
+title(quote("rQEC"~italic(n)[H[2]*O]), font.main = 1)
+diffplot(comptab2, c("nO2", "nH2O"), pch = pch)
+title(quote("Biosynthetic"~italic(n)[H[2]*O]~"and"~italic(n)[O[2]]), font.main = 1)
+diffplot(comptab3, c("nAA", "PS"), pch = pch)
+title("Trigos et al. (2017) ages", font.main = 1)
+diffplot(comptab4, c("nAA", "PS"), pch = pch)
+title("Liebeskind et al. (2016) ages", font.main = 1)
+```
+
+In the table, values of &Delta;<i>Z</i><sub>C</sub>, &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> and &Delta;<i>n</i><sub>O<sub>2</sub></sub> are multiplied by 1000, values of &Delta;PS are multiplied by 100, and negative values are shown in bold.
+
+```{r xsummary, results="asis", echo = FALSE}
 library(xtable)
-xsummary(comptab)
+out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
+# round values and include dataset tags
+tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
+out <- cbind(out[, 1:2], tags = tags, out[, 3:11])
+out[, 6:12] <- round(out[, 6:12], 4)
+write.csv(out, "hypoxia.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
+Where given, gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
 
-<b>a</b>. 2% O<sub>2</sub> vs normoxic conditions. Source: Table 1 of @HXS+06.
-<b>b</b>. 1% vs 6% O<sub>2</sub>. Source: Tables 2 and 3 of @BRA+10.
-<b>c</b>. The comparisons here use expression ratios HYP/LSC (oxygen deprivation / low serum control) >1.2 or <0.83, calculated from the reported ratios. Source: extracted from Suppl. Table 2 of @DPL+10, including proteins with _p_-value <0.05 and EF <1.4.
-<b>d</b>. Translationally regulated genes. Source: Suppl. Tables 1–4 of @BMJ+11.
-<b>e</b>. 1% O<sub>2</sub> for 72 h vs standard conditions. Source: Suppl. Table 1(a) of @CBW+11.
-<b>f</b>. Hypoxic vs control conditions for 16 h. Source: Suppl. Table S5 of @LAR+12.
-<b>g</b>. <b>h</b>. Tumourspheres (50 to 200 μm diameter) at passage 5 (P5) or 2 (P2) compared to adherent cells. Source: Sheets 2 and 3 in Table S1 of @MHG+12.
-<b>i</b>. <b>j</b>. Perinecrotic and necrotic regions compared to surface of multicell spheroids (~600 μm diameter). The comparisons here use expression ratios <0.77 or >1.3. Source: Suppl. Table 1C of @MVC+12.
-<b>k</b>. Incubation for several days under hypoxia (1% O<sub>2</sub>). Source: Suppl. Table 2A of @FWH+13 (control virus cells).
-<b>l</b>. <b>m</b>. <b>n</b>. Source: extracted from Suppl. Table 1 of @RHD+13, including proteins with iTRAQ ratios <0.83 or >1.2 and _p_-value <0.05.
-<b>o</b>. 5% O<sub>2</sub> vs atmospheric levels of O<sub>2</sub>. The comparisons here include proteins with a normalized expression ratio of >1.2 or <0.83. Source: SI table of @VTMF13.
-<b>p</b>. <b>q</b>. <b>r</b>. <b>s</b>. <b>t</b>. <b>u</b>. The comparisons here include proteins with _p_ <0.05. Source: Suppl. Table S1 of @DYL+14.
-<b>v</b>. Organotypic spheroids (~250 μm diameter) vs lysed CRC tissue. Source: extracted from Table S2 of @RKP+14, filtered as follows: at least two of three experiments have differences in spectral counts, absolute overall fold change is at least 1.5, and _p_-value is less than 0.05.
-<b>w</b>. SPH vs classical cell culture (2D growth). Standard concentrations of gases used for tissue culture (5% CO<sub>2</sub>, 95% air) were used in both cases. The comparisons here include proteins that have a log<sub>2</sub> fold change of at least ±1. Source: P1&lowbar;Data sheet in the SI of @WRK+14.
-<b>x</b>. 1% vs 19% O<sub>2</sub>. Source: Table S1 of @BSA+15.
-<b>y</b>. 1% O<sub>2</sub> for 24 hr. The comparisons here include proteins with a fold change of <0.5 or >1 and proteins that were detected in only hypoxic or only normoxic conditions. Source: Table S1 of @HWA+16.
-<b>z</b>. <b>A</b>. Microarray analysis of differential gene expression in the transcriptome (total rRNA) and translatome (polysomal / total RNA ratio) of cells grown in normal and hypoxic (1% O<sub>2</sub>) conditions. Source: data file supplied by Dr. Ming-Chih Lai (@LCS16).
-<b>B</b>. ASC from 3 donors cultured for 24 hr. in hypoxic (1% O<sub>2</sub>) vs normoxic (20% O<sub>2</sub>) conditions. Source: Tables 1 and 2 of @RSE+16.
-<b>C</b>. <b>D</b>. Rat cardiomyocytes treated with CoCl<sub>2</sub> (hypoxia mimetic) vs control or with SAL (anti-hypoxic) vs CoCl<sub>2</sub>. Source: SI Tables 1S and 2S of @XCJ+16.
-<b>E</b>. 800 μm spheroids vs 2D monolayers. Source: Tables S1a–b of @YLW+16.
+<b>a</b>. Gene IDs from Supplementary Table S4 @BKS+09.
+<b>b</b>. Supplemental Table 2A of @FWH+13 (control virus cells).
+<b>c</b>. <b>d</b>. Supplemental Table S1 of @RHD+13, filtered to include proteins with iTRAQ ratios < 0.83 or > 1.2 and _p_-value < 0.05.
+<b>e</b>. Supporting Information table of @VTMF13, filtered to include proteins with a normalized expression ratio of > 1.2 or < 0.83.
+<b>f</b>. Supporting Information Table S1 @DCH+14.
+<b>g</b>. <b>h</b>. <b>i</b>. <b>j</b>. Supplemental Table S1 of @DYL+14, filtered to include proteins with _p_-value < 0.05 (-S: supernatant fraction; -P: pellet fraction).
+<b>k</b>. Gene names from Supporting Information Table S10 of @OHS+14.
+<b>l</b>. Supplementary Table S1 of @BSA+15.
+<b>m</b>. Supplemental Information Table S1 of @HWA+16, filtered to include proteins with a fold change of < 0.5 or > 1 and that were detected in only hypoxic or only normoxic conditions.
+<b>n</b>. <b>o</b>. Gene names from @LCS16 (data files provided by Ming-Chih Lai).
+<b>p</b>. Extracted from Table S2E (whole cell lysate) of @CGH+17, keeping proteins with FDR < 0.05.
+<b>q</b>. Supplemental Table S4 of @ZXS+17.
+<b>r</b>. Supplementary Tables S6-S7 (proteome) of @CLY+18.
+<b>s</b>. List of up- and down-regulated proteins from @GBH+18 (provided by Alex Greenhough), filtered to include proteins with average fold change ≥ 1.5 or ≤ 2/3.
+<b>t</b>. Gene names from Figure 1F of @LKK+18.
+<b>u</b>. Supplemental file 1 of @WTG+18 (provided by Gordana Vunjak-Novakovic), filtered to include proteins with Normalized Ratio [Hypoxia MSC/Control MSC] ≥ 1.5 or ≤ 2/3 and _p_-value < 0.05.
+<b>v</b>. Gene names from Supplementary file S1 of @CSK+19 for the two replicates labelled as "input_Log2ratioHL_firstIP" and "input_Log2ratioLH_secondIP" (soluble extracts before immunoprecipitation), filtered to include proteins where Log2ratio is > 0.2 or < -0.2 for both replicates.
+<b>w</b>. Proteins identified as up- or down-regulated > 1 SD in Data File S1 of @KAN+19 (sheet "Proteome").
 
-## Mean Differences
-
-The reoxygenation or anti-hypoxic, tumor spheroid, and adipose-derived stem cell datasets are highlighted in blue, red, and orange, respectively.
-
-```{r diffplot, fig.width=6, fig.height=6, fig.align="center"}
-col <- rep("black", length(datasets))
-col[grepl("ReOx", datasets)] <- "blue"
-col[grepl("=SPH", datasets)] <- "red"
-col[grepl("=ASC", datasets)] <- "orange"
-diffplot(comptab, col = col, oldstyle = TRUE)
-```
+## Acknowledgements
+Thanks to Alex Greenhough, Ming-Chih Lai, and Gordana Vunjak-Novakovic for providing data files.
 
 ## References

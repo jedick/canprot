@@ -1,10 +1,10 @@
 ---
-title: "Pancreatic Cancer"
+title: "Breast Cancer"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Pancreatic Cancer}
+  %\VignetteIndexEntry{Breast Cancer}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib
@@ -22,7 +22,7 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-This vignette shows compositional metrics and phylostrata for proteins that are differentially expressed in pancreatic cancer compared to normal tissue.
+This vignette shows compositional metrics and phylostrata for proteins that are differentially expressed in breast cancer compared to normal tissue.
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
@@ -45,11 +45,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_pancreatic(2020)
+datasets <- pdat_breast(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_pancreatic)
+pdat1 <- lapply_canprot(datasets, pdat_breast)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -82,36 +82,29 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:11])
 out[, 6:12] <- round(out[, 6:12], 4)
-write.csv(out, "pancreatic.csv", row.names = FALSE, quote = 2)
+write.csv(out, "breast.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
-Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>, except for IPI accession numbers, which were converted using the <a href="https://david-d.ncifcrf.gov/conversion.jsp">DAVID 6.7 conversion tool</a>.
+Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
 
-<b>a</b>. Tables 2 and 3 of @LHE+04.
-<b>b</b>. Tables 1 and 2 of @CYD+05.
-<b>c</b>. Table 2 of @CGB+05.
-<b>d</b>. Supplementary Table 1 of @CLC+06.
-<b>e</b>. Table 1 of @CTZ+09.
-<b>f</b>. IPI numbers from Supplementary Table S2 of @MLC+11.
-<b>g</b>. Supplementary Table 3 of @PCS+11.
-<b>h</b>. Extracted from the SI Table of @TMW+11.
-<b>i</b>. Supplementary Tables 2 and 3 of @KBK+12.
-<b>j</b>. SI Table S3 of @KHO+13, filtered to include proteins with an expression ratio >2 [or <0.5] in at least 5 of the 7 experiments and ratio >1 [or <1] in all experiments.
-<b>k</b>. Supplementary Table 2 of @KPC+13.
-<b>l</b>. <b>m</b>. Supplementary Tables S3 and S4 of @WLL+13a, including proteins with >3/2 or <2/3 fold change in at least 3 of 4 iTRAQ experiments for different pooled samples.
-<b>n</b>. Supplementary Tables 2 and 3 of @YKK+13 (data file provided by Youngsoo Kim).
-<b>o</b>. SI Table S5 of @ZNWL13.
-<b>p</b>. SI Table S5 of @ISI+14, filtered to exclude proteins marked as "not passed", i.e. having inconsistent regulation.
-<b>q</b>. Table S6, Sheet 2 of @BZQ+14.
-<b>r</b>. Table 1 of @MZH+14.
-<b>s</b>. Table S6 of @BHB+15.
-<b>t</b>. Supplementary Table of @KKC+16.
-<b>u</b>. Supplementary Table S3 of @CHO+18.
-<b>v</b>. Table S1 of @SWW+18, filtered to exclude proteins with opposite expression changes in different patients.
-<b>w</b>. Gene names extracted from Figure 1b of @ZAH+19.
-
-## Acknowledgement
-Thanks to Youngsoo Kim for providing a data file.
+<b>a</b>. Extracted from Supporting Information RTF files of @AMG+08. Proteins identified by any number of peptides in both cancer and matched periphery were excluded; of the remaining proteins those identified by at least two peptides were used.
+<b>b</b>. Table S2(a) of @CIR+10 (proteins differentially abundant at or above 99% confidence level).
+<b>c</b>. Table 4 of @SRG+10.
+<b>d</b>. Tables 1 and 2 of @HTP+11.
+<b>e</b>. <b>f</b>. Supporting Table 6 of @GTM+12.
+<b>g</b>. Table S1 of @LLL+13.
+<b>h</b>. <b>i</b>. Table 2 of @SRS+13. For DCIS (3 patients), proteins were classified as up/down expressed if 2 or more ratios were greater/less than 1, and no ratios were less/greater than 1. For IC (4 patients), proteins were classified as up/down expressed if 3 or more ratios were greater/less than 1, and no ratios were less/greater than 1.
+<b>j</b>. Extracted from Table S2 of @GSB+14. Values in all LFQ columns (distant, near, tumor) were quantile normalized (R function preprocessCore::normalize.quantiles) ([Bolstad et al., 2003](https://doi.org/10.1093/bioinformatics/19.2.185)), then the ratio between tumor and distant was calculated. Proteins with normalized LFQ ratios > 1.2 or < 1/1.2 and _p_-value < 0.05 were identified as differentially expressed.
+<b>k</b>. Supplementary Tables 12, 13, 14 and 15 of @PPH+14, filtered to include proteins that are up- or down-regulated in all subtypes (LUM, LUMHER, HER, TN).
+<b>l</b>. Supplemental Data S3 of @CVJ+15, filtered to include proteins with min and max credible intervals for expression ratios that are both <1 or >1.
+<b>m</b>. <b>n</b>. <b>o</b>. Differential gene expression was calculated for [GSE57297](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE57297) [@FKZ+15] using the NCBI GEO2R service, with cutoffs for Benjamini and Hochberg adjusted _p_-value < 0.05 and log2 fold-change ≥ 2.
+<b>p</b>. <b>q</b>. Supplementary Table S3 of @PGT+16.
+<b>r</b>. Table S4A of @PBR+16.
+<b>s</b>. Supplemental Table 4 of @BST+17, filtered to include proteins with _p_-value < 2.
+<b>t</b>. <b>u</b>. Tables S5-1 (differentially expressed proteins for 52 tumor / non-cancerous tissue pairs) and S5-2 (13 basal-like tumor / non-cancerous tissue pairs) of @TZD+18, filtered to include proteins with log<sub>2</sub> fold change > 1 or < -1.
+<b>v</b>. <b>w</b>. Supplementary File S1 of @GCS+19 (PT: primary breast tissue; NCT: non tumor contralateral breast tissue; ANT: non tumor adjacent breast tissue).
+<b>x</b>. Supplementary Table 2 of @LLC+19.
+<b>y</b>. Gene names from Supplementary Table S4 of @MBP+19.
 
 ## References

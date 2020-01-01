@@ -15,7 +15,6 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
              "SSPR16=transcriptome", "YLW+16",
              "PPM+17=transcriptome",
              "KJK+18", "TGD18_NHF", "TGD18_CAF",
-#             "GADS19_control", "GADS19_CBD", "GADS19_UVA", "GADS19_UVA.CBD", "GADS19_UVB", "GADS19_UVB.CBD",
              "GADS19",
              "HLC19", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages"
              ))

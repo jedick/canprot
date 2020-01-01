@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-32 (2019-12-31)
+CHANGES IN canprot 0.1.4-37 (2020-01-01)
 ----------------------------------------
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -42,6 +42,14 @@ CHANGES IN canprot 0.1.4-32 (2019-12-31)
 - Add data for breast, lung and prostate cancer.
 
 - Add data for 3D cell culture and proteins secreted in hypoxia.
+
+- Add pdat_recomp() to recompute chemical compositions of proteins for a
+  different 'basis' setting (saves time in vignettes).
+
+- Add xsummary2() for tables in new vignettes.
+
+- Update vignettes for 2020 data compilation. The old vignettes (Rmd
+  files only) are in inst/oldvignettes.
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------
