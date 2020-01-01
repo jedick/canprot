@@ -122,9 +122,9 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     description <- paste("3T3-L1", stage)
     icol <- match(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    dat <- check_IDs(dat, "Accession", aa_file = paste0(extdatadir, "/aa/mouse/LPK+19_aa.csv"))
+    dat <- check_IDs(dat, "Accession", aa_file = paste0(extdatadir, "/aa/mouse/LPK+19_aa.csv.xz"))
     up2 <- dat[, icol] > 0
-    pcomp <- protcomp(dat$Accession, basis, aa_file = paste0(extdatadir, "/aa/mouse/LPK+19_aa.csv"))
+    pcomp <- protcomp(dat$Accession, basis, aa_file = paste0(extdatadir, "/aa/mouse/LPK+19_aa.csv.xz"))
   } else if(study=="MTK+15") {
     # 20191207 OV-90AD multicellular aggregates, Musrap et al., 2015
     dat <- read.csv(paste0(datadir, "MTK+15.csv.xz"), as.is = TRUE)

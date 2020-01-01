@@ -52,7 +52,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
     # use only proteins differentially expressed at this stage
     icol <- grep(paste0(stage, ".N"), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/KKC+16_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/KKC+16_aa.csv.xz"))
     up2 <- dat[, icol] > 1
   } else if(study=="ISI+14") {
     # 20160827 PDAC, Iuga et al., 2014
@@ -213,10 +213,10 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     # remove isoform suffixes
     dat$ProteinID <- sapply(strsplit(dat$ProteinID, "-"), "[", 1)
-    dat <- check_IDs(dat, "ProteinID", aa_file=paste0(extdatadir, "/aa/mouse/BHB+15_aa.csv"))
+    dat <- check_IDs(dat, "ProteinID", aa_file=paste0(extdatadir, "/aa/mouse/BHB+15_aa.csv.xz"))
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "ProteinID", up2)
-    pcomp <- protcomp(dat$ProteinID, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/BHB+15_aa.csv"))
+    pcomp <- protcomp(dat$ProteinID, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/BHB+15_aa.csv.xz"))
   } else if(study=="BZQ+14") {
     # 20190329 PDAC / normal, Britton et al., 2014
     dat <- read.csv(paste0(datadir, "BZQ+14.csv.xz"), as.is=TRUE)
@@ -230,7 +230,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
     description <- "mouse tumor / healthy"
     up2 <- dat$Coefficient > 0
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/MZH+14_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/MZH+14_aa.csv.xz"))
   } else if(study=="YKK+13") {
     # 20190408 PDAC / normal, Yu et al., 2013
     dat <- read.csv(paste0(datadir, "YKK+13.csv.xz"), as.is=TRUE)

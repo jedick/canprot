@@ -25,7 +25,7 @@ pdat_multi <- function(dataset = 2020, basis = "rQEC") {
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol[1]]), ]
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/CGH+17_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/CGH+17_aa.csv.xz"))
     up2 <- dat[, icol[1]] > 0
   } else if(study=="CLY+18") {
     # 20190324 HCT116 cells, Chen et al., 2018

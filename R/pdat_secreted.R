@@ -31,7 +31,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
     icol <- grep(paste0(stage, ".Ctrl_iTRAQ"), colnames(dat))
     up2 <- dat[, icol] > 1
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/LRS+14_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/LRS+14_aa.csv.xz"))
   } else if(study=="RSE+16") {
     # 20160729 adipose-derived stem cells, Riis et al., 2016
     dat <- read.csv(paste0(datadir, "RSE+16.csv.xz"), as.is=TRUE)
@@ -84,10 +84,10 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
     description <- "mouse melanoma B16-F0 exosomes"
     # drop isoform suffixes
     dat$Accession <- sapply(strsplit(dat$Accession, "-"), "[", 1)
-    dat <- check_IDs(dat, "Accession", aa_file=paste0(extdatadir, "/aa/mouse/PDT+19_aa.csv"))
+    dat <- check_IDs(dat, "Accession", aa_file=paste0(extdatadir, "/aa/mouse/PDT+19_aa.csv.xz"))
     up2 <- dat$Log2.127.126. > 0
     dat <- cleanup(dat, "Accession", up2)
-    pcomp <- protcomp(dat$Accession, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/PDT+19_aa.csv"))
+    pcomp <- protcomp(dat$Accession, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/PDT+19_aa.csv.xz"))
   } else if(study=="SRS+13a") {
     # 20190327 placental mesenchymal stem cells 3% and 8% vs 1% O2, Salomon et al., 2013
     # SRS+13a_3, SRS+13a_8

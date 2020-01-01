@@ -137,10 +137,10 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     description <- "B104"
     # select highly changed proteins
     dat <- dat[dat$HYP.LSC > 1.2 | dat$HYP.LSC < 0.83, ]
-    dat <- check_IDs(dat, "UniProt", aa_file=paste0(extdatadir, "/aa/rat/DPL+10_aa.csv"))
+    dat <- check_IDs(dat, "UniProt", aa_file=paste0(extdatadir, "/aa/rat/DPL+10_aa.csv.xz"))
     up2 <- dat$HYP.LSC > 1
     dat <- cleanup(dat, "UniProt", up2)
-    pcomp <- protcomp(dat$UniProt, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/DPL+10_aa.csv"))
+    pcomp <- protcomp(dat$UniProt, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/DPL+10_aa.csv.xz"))
   } else if(study=="LCS16") {
     # 20160728 HCT116 transcription and translation, Lai et al., 2016
     # LCS16_transcription, LCS16_translation
@@ -200,7 +200,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     description <- "H9C2"
     up2 <- dat$Isch.Ctrl > 1
     dat <- cleanup(dat, "UniProt", up2)
-    pcomp <- protcomp(dat$UniProt, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/LAR+12_aa.csv"))
+    pcomp <- protcomp(dat$UniProt, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/LAR+12_aa.csv.xz"))
   } else if(study=="YLW+16") {
     # 20161109 HT29 colon cancer cell 3D/2D, Yue et al., 2011
     return(pdat_3D(dataset, basis))
@@ -212,7 +212,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     # use selected dataset
     icol <- grep(paste0("Log2.", stage), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/XCJ+16_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/rat/XCJ+16_aa.csv.xz"))
     up2 <- dat[, icol] > 0
   } else if(study=="CGH+17") {
     # 20190324 mouse cardiac whole-cell lysate, Cosme et al., 2017
@@ -229,9 +229,9 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     description <- "mouse 4T1 cells"
     # remove isoform suffixes
     dat$Accession <- substr(dat$Accession, 1, 6)
-    dat <- check_IDs(dat, "Accession", aa_file=paste0(extdatadir, "/aa/mouse/DCH+14_aa.csv"))
+    dat <- check_IDs(dat, "Accession", aa_file=paste0(extdatadir, "/aa/mouse/DCH+14_aa.csv.xz"))
     up2 <- dat$Regulation == "Up"
-    pcomp <- protcomp(dat$Accession, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/DCH+14_aa.csv"))
+    pcomp <- protcomp(dat$Accession, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/DCH+14_aa.csv.xz"))
   } else if(study=="ZXS+17") {
     # 20190407 glioblastoma cells, Zhang et al., 2017
     dat <- read.csv(paste0(datadir, "ZXS+17.csv.xz"), as.is=TRUE)

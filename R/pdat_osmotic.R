@@ -35,7 +35,7 @@ pdat_osmotic <- function(dataset=NULL, basis="rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KKG+12_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KKG+12_aa.csv.xz"))
   } else if(study=="PW08") {
     # 20160918 yeast VHG
     # PW08_2h, PW08_10h, PW08_12h
@@ -51,7 +51,7 @@ pdat_osmotic <- function(dataset=NULL, basis="rQEC") {
     # drop missing duplicated proteins
     up2 <- dat[, icol] > 1
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/PW08_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/PW08_aa.csv.xz"))
   } else if(study=="CCC+12") {
     # 20160925 ARPE-19 retinal pigmented epithelium, Chen et al., 2012
     # CCC+12_25mM, CCC+12_100mM
@@ -93,7 +93,7 @@ pdat_osmotic <- function(dataset=NULL, basis="rQEC") {
     if(stage == "high") dat <- dat[rowSums(dat[, 6:8] > 0.2) == 3 | rowSums(dat[, 6:8] < -0.2) == 3, ]
     up2 <- dat$SOM.Cluster == "Cluster 1"
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/LDB+15_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/LDB+15_aa.csv.xz"))
   } else if(study=="OBBH11") {
     # 20160925 adipose-derived stem cells, Oswald et al., 2011
     dat <- read.csv(paste0(datadir, "OBBH11.csv.xz"), as.is=TRUE)
@@ -107,14 +107,14 @@ pdat_osmotic <- function(dataset=NULL, basis="rQEC") {
     description <- paste("Yarrowia lipolytica")
     up2 <- dat$Av..ratio..high.low. > 0
     dat <- cleanup(dat, "Accession.No.", up2)
-    pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/YDZ+15_aa.csv"))
+    pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/YDZ+15_aa.csv.xz"))
   } else if(study=="WCM+09") {
     # 20160926 mouse pancreatic islets, Waanders et al., 2009
     dat <- read.csv(paste0(datadir, "WCM+09.csv.xz"), as.is=TRUE)
     description <- paste("mouse pancreatic islets")
     # use the first UniProt ID, without isoform suffix
     dat$Uniprot <- substr(dat$Uniprot, 1, 6)
-    aa_file <- paste0(extdatadir, "/aa/mouse/WCM+09_aa.csv")
+    aa_file <- paste0(extdatadir, "/aa/mouse/WCM+09_aa.csv.xz")
     dat <- check_IDs(dat, "Uniprot", aa_file)
     pcomp <- protcomp(dat$Uniprot, basis = basis, aa_file = aa_file)
     up2 <- dat$X.24h.GLUCOSE.Control > 1
@@ -131,7 +131,7 @@ pdat_osmotic <- function(dataset=NULL, basis="rQEC") {
     lowP <- dat[, icol[2]] < 0.05
     lowP[is.na(lowP)] <- FALSE
     dat <- dat[lowP, ]
-    pcomp <- protcomp(substr(dat$Accession.., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/GSC14_aa.csv"))
+    pcomp <- protcomp(substr(dat$Accession.., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/GSC14_aa.csv.xz"))
     # proteins that have relatively higher expression ratio than the median
     up2 <- dat[, icol[1]] > median(dat[, icol[1]])
   } else if(study=="KLB+15") {
@@ -146,7 +146,7 @@ pdat_osmotic <- function(dataset=NULL, basis="rQEC") {
     # use protein identified in given experiment
     icol <- grep(gsub("-", ".*", stage), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KLB+15_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KLB+15_aa.csv.xz"))
     up2 <- dat[, icol] > 0
   } else if(study=="RBP+16") {
     # 20161112 Paracoccidioides lutzii, da Silva Rodrigues et al., 2016
@@ -154,7 +154,7 @@ pdat_osmotic <- function(dataset=NULL, basis="rQEC") {
     description <- "Paracoccidioides lutzii"
     up2 <- dat$Fold.change > 1
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/RBP+16_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/fungus/RBP+16_aa.csv.xz"))
   } else if(study=="TSZ+13") {
     # 20161113 eel gill (Anguilla japonica), Tse et al., 2013
     dat <- read.csv(paste0(datadir, "TSZ+13.csv.xz"), as.is=TRUE)

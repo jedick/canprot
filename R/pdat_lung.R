@@ -73,7 +73,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
     description <- "mouse endothelial T / N"
     up2 <- dat$Ratio.TEC.NEC > 1
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/JCP+16_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/JCP+16_aa.csv.xz"))
   } else if(study=="FGW+17") {
     # 20190325 lung adenocarcinoma, Fahrmann et al., 2017
     dat <- read.csv(paste0(datadir, "FGW+17.csv.xz"), as.is=TRUE)

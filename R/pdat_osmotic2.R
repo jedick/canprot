@@ -24,7 +24,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     dat <- dat[!rowSums(is.na(dat[, 4:6])) > 0, ]
     # use only proteins with consistent expression at 3 time points
     dat <- dat[abs(rowSums(sign(dat[, 4:6]))) == 3, ]
-    pcomp <- protcomp(dat$Entry, basis = basis, aa_file = file.path(extdatadir, "aa/bacteria/FTR+10_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis = basis, aa_file = file.path(extdatadir, "aa/bacteria/FTR+10_aa.csv.xz"))
     up2 <- rowSums(sign(dat[, 4:6])) == 3
   } else if(study=="ZLZ+16") {
     # 20191103 Nocardiopsis xinjiangensis, Zhang et al., 2016
@@ -44,7 +44,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     idiff <- (dat[, icolratio] > 1.3 | dat[, icolratio] < 1/1.3) & pval < 0.05
     dat <- dat[idiff, ]
     up2 <- dat[, icolratio] > 1.3
-    pcomp <- protcomp(dat$Entry, basis = basis, aa_file = file.path(extdatadir, "aa/bacteria/ZLZ+16_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis = basis, aa_file = file.path(extdatadir, "aa/bacteria/ZLZ+16_aa.csv.xz"))
   } else if(study=="LRB+09") {
     # 20191101 Halobacterium salinarum NaCl adjustment, Leuko et al., 2009
     # LRB+09_2.6, LRB+09_5.1
@@ -59,7 +59,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     if(stage=="2.6") up2 <- dat[, icol] < 0
     # drop missing proteins
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/LRB+09_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/LRB+09_aa.csv.xz"))
   } else if(study=="LLYL17") {
     # 20191102 Tetragenococcus halophilus NaCl adjustment, Lin et al., 2017
     # LLYL17_0, LLYL17_3.5
@@ -71,7 +71,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     # up-expressed proteins in high salinity (1 M / 0 M or 3.5 M / 1 M)
     up2 <- dat[, icol] < 0
-    pcomp <- protcomp(dat$UniProtKB.Entry, basis=basis, aa_file=file.path(extdatadir, "aa/bacteria/LLYL17_aa.csv"))
+    pcomp <- protcomp(dat$UniProtKB.Entry, basis=basis, aa_file=file.path(extdatadir, "aa/bacteria/LLYL17_aa.csv.xz"))
   } else if(study=="LJC+18") {
     # 20191102 Listeria monocytogenes membrane vesicles, Lee et al., 2018
     # LJC+18_wt, LJC+18_mutant
@@ -80,7 +80,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[dat[, icol], ]
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=file.path(extdatadir, "aa/bacteria/LJC+18_aa.csv"))
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=file.path(extdatadir, "aa/bacteria/LJC+18_aa.csv.xz"))
     up2 <- dat$condition=="salt"
   } else if(study=="JSP+19") {
     # 20191102 Haloferax volcanii salt and temperature, Jevtić et al., 2019
@@ -96,7 +96,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     else up2 <- dat[, icol[1]] > 0
     # remove NA accessions
     dat <- cleanup(dat, "UniProt.Accession", up2)
-    pcomp <- protcomp(dat$UniProt.Accession, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/JSP+19_aa.csv"))
+    pcomp <- protcomp(dat$UniProt.Accession, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/JSP+19_aa.csv.xz"))
   } else if(study=="HMO+10") {
     # 20191102 Bacillus subtilis, Hahne et al., 2010
     # HMO+10_prot-cytosol, HMO+10_prot-membrane, HMO+10_transcriptomics
@@ -111,7 +111,7 @@ pdat_osmotic2 <- function(dataset=NULL, basis="rQEC") {
     dat <- dat[abs(dat$diff) >= 2, ]
     up2 <- dat$diff > 0
     # update IDs / remove duplicated IDs
-    aa_file <- file.path(extdatadir, "aa/bacteria/HMO+10_aa.csv")
+    aa_file <- file.path(extdatadir, "aa/bacteria/HMO+10_aa.csv.xz")
     dat <- check_IDs(dat, "UniProtKB", aa_file)
     dat <- cleanup(dat, "UniProtKB", up2)
     pcomp <- protcomp(dat$UniProtKB, basis = basis, aa_file = aa_file)
