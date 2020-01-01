@@ -13,8 +13,8 @@ SSPR16,"HNSCC spheroids transcriptome",transcriptome,77,56,0.0229,-0.0564,0.1164
 YLW+16,"HT29 SPH",,116,225,-0.036,-0.0281,-0.0384,0.0165,-108.5,0.4165,-0.2281
 PPM+17,"HEY cells transcriptome",transcriptome,842,1004,0.0166,0.0078,0.0534,-0.0359,-192,0.7376,0.408
 KJK+18,"SW480 cells",,247,136,-0.0555,-0.0488,-0.1168,0.0866,98,-1.274,-1.4706
-TGD18_NHF,"normal human skin fibroblasts",,15,57,0.0284,-0.0375,0.0499,-0.1397,-185,1.6354,0.5302
-TGD18_CAF,"cancer-associated fibroblasts",,43,90,0.0267,-0.0354,0.1106,-0.1025,29.5,0.9946,-0.4027
+TGD18_NHF,"normal human skin fibroblasts",,15,57,0.0284,-0.0375,0.0499,-0.1397,-185,1.7796,0.6503
+TGD18_CAF,"cancer-associated fibroblasts",,43,90,0.0267,-0.0354,0.1106,-0.1025,29.5,1.0655,-0.337
 GADS19,"skin fibroblasts 3D / 2D",,94,49,0.0108,-0.0284,-0.009,-0.0347,196,1.3025,0.9606
 HLC19,"HepG2 cells",,573,590,-0.0236,-0.0575,0.0138,-0.0262,-9.5,1.0017,0.7626
 LPK+19_preadipocytes,"3T3-L1 preadipocytes",,76,105,-0.0316,-0.0304,0.0142,0.0159,18.5,NA,NA
