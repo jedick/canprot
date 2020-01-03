@@ -52,7 +52,9 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     ylab <- substitute(y ~ yparen, list(yparen=yparen, y=yvar))
   }
   # initialize plot: add a 0 to make sure we can see the axis
-  if(!add) plot(type="n", c(X_d, 0), c(Y_d, 0), xlab=xlab, ylab=ylab)
+  # prevent NA values from influencing the scale of the plot 20200103
+  ina <- is.na(X_d) | is.na(Y_d)
+  if(!add) plot(type="n", c(X_d[!ina], 0), c(Y_d[!ina], 0), xlab=xlab, ylab=ylab)
   # contour 2-D kernel density estimate 20190329
   # https://stats.stackexchange.com/questions/31726/scatterplot-with-contour-heat-overlay
   if(!oldstyle & any(contour)) {
