@@ -38,10 +38,10 @@ pdat_multi <- function(dataset = 2020, basis = "rQEC") {
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat[, icol] > 0
   } else if(study=="KAN+19") {
-    # 20191226 human umbilical vein ECs, Kugeratski et al., 2019
+    # 20191226 cancer-associated fibroblasts, Kugeratski et al., 2019
     # KAN+19_proteome, KAN+19_secretome
     dat <- read.csv(paste0(datadir, "KAN+19.csv.xz"), as.is=TRUE)
-    description <- paste("human umbilical vein ECs", stage)
+    description <- paste("cancer-associated fibroblasts", stage)
     if(stage=="proteome") icol <- "Proteome"
     if(stage=="secretome") {
       # for secretome, combine data for Soluble Secretome and EVs

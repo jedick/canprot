@@ -1,5 +1,7 @@
-CHANGES IN canprot 0.1.4-40 (2020-01-01)
+CHANGES IN canprot 0.1.4-44 (2020-01-03)
 ----------------------------------------
+
+- Change license from GPL-3 to MIT.
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
   function now uses a data frame for input and output.

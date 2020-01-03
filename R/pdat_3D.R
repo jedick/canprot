@@ -5,18 +5,18 @@
 
 pdat_3D <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
-    return(c("PLC+10",
-             "MHG+12_P5", "MHG+12_P2",
-             "MVC+12_perinecrotic", "MVC+12_necrotic",
-             "YYW+13",
-             "HKX+14",
-             "RKP+14", "WRK+14",
-             "MTK+15",
-             "SSPR16=transcriptome", "YLW+16",
-             "PPM+17=transcriptome",
-             "KJK+18", "TGD18_NHF", "TGD18_CAF",
+    return(c("PLC+10=cancer",
+             "MHG+12_P5=cancer", "MHG+12_P2=cancer",
+             "MVC+12_perinecrotic=cancer", "MVC+12_necrotic=cancer",
+             "YYW+13=cancer",
+             "HKX+14=cancer",
+             "RKP+14=cancer", "WRK+14=cancer",
+             "MTK+15=cancer",
+             "SSPR16=transcriptome=cancer", "YLW+16=cancer",
+             "PPM+17=transcriptome=cancer",
+             "KJK+18=cancer", "TGD18_NHF", "TGD18_CAF=cancer",
              "GADS19",
-             "HLC19", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages"
+             "HLC19=cancer", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages"
              ))
   }
   # remove tags
@@ -30,26 +30,25 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     # 20160413 spheriod hypoxia, McMahon et al., 2012
     # MVC+12_perinecrotic, MVC+12_necrotic
     dat <- read.csv(paste0(datadir, "MVC+12.csv.xz"), as.is=TRUE)
+    description <- paste("HT29 colon cancer cells", stage)
     if(stage=="perinecrotic") {
       # select proteins significantly changed in the perinecrotic region
       iPN <- dat$median.116.114 < 0.77 | dat$median.116.114 > 1.3
       dat <- dat[iPN, ]
       up2 <- dat$median.116.114 > 1.3
-      description <- "SPH perinecrotic"
     }
     if(stage=="necrotic") {
       # select proteins significantly changed in the necrotic core
       iPN <- dat$median.117.114 < 0.77 | dat$median.117.114 > 1.3
       dat <- dat[iPN, ]
       up2 <- dat$median.117.114 > 1.3
-      description <- "SPH necrotic"
     }
     pcomp <- protcomp(dat$Entry, basis)
   } else if(study=="MHG+12") {
     # 20160415 MCF-7 tumourspheres, Morrison et al., 2012
     # MHG+12_P5, MHG+12_P2
     dat <- read.csv(paste0(datadir, "MHG+12.csv.xz"), as.is = TRUE)
-    description <- paste("MCF-7", stage)
+    description <- paste("MCF-7 breast cancer cells", stage)
     # use data for specified experiment
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol[1]]), ]
@@ -60,7 +59,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="RKP+14") {
     # 20160718 organotypic spheroids, Rajcevic et al., 2014
     dat <- read.csv(paste0(datadir, "RKP+14.csv.xz"), as.is = TRUE)
-    description <- "CRC-derived SPH"
+    description <- "colorectal cancer-derived cells"
     dat <- check_IDs(dat, "UniProt.Accession")
     up2 <- dat$Overall.Fold.Change > 0
     dat <- cleanup(dat, "UniProt.Accession", up2)
@@ -68,7 +67,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="WRK+14") {
     # 20160721 3D spheroids / 2D culture, Wrzesinski et al., 2014
     dat <- read.csv(paste0(datadir, "WRK+14.csv.xz"), as.is = TRUE)
-    description <- "HepG2/C3A SPH"
+    description <- "HepG2/C3A hepatocellular carcinoma"
     # select highly changed proteins
     dat <- dat[!is.na(dat$log2.fold.change), ]
     dat <- dat[abs(dat$log2.fold.change) > 1, ]
@@ -78,7 +77,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="YLW+16") {
     # 20161109 HT29 colon cancer cell 3D/2D, Yue et al., 2011
     dat <- read.csv(paste0(datadir, "YLW+16.csv.xz"), as.is = TRUE)
-    description <- "HT29 SPH"
+    description <- "HT29 colon carcinoma"
     # find known UniProt IDs
     dat <- check_IDs(dat, "ProteinID")
     pcomp <- protcomp(dat$ProteinID, basis)
@@ -97,21 +96,21 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="KJK+18") {
     # 20191126 SW480 cells, Kim et al., 2018
     dat <- read.csv(paste0(datadir, "KJK+18.csv.xz"), as.is = TRUE)
-    description <- "SW480 cells"
+    description <- "SW480 colorectal cancer"
     dat <- check_IDs(dat, "Majority.protein.IDs")
     pcomp <- protcomp(dat$Majority.protein.IDs, basis)
     up2 <- dat$Log2.3D.culture.2D.culture > 0
   } else if(study=="HKX+14") {
     # 20191206 U251 cells, He et al., 2014
     dat <- read.csv(paste0(datadir, "HKX+14.csv.xz"), as.is = TRUE)
-    description <- "U251 cells"
+    description <- "U251 glioma cells"
     dat <- check_IDs(dat, "UniprotKB.AC")
     up2 <- dat$Ratio > 1
     pcomp <- protcomp(dat$UniprotKB.AC, basis)
   } else if(study=="HLC19") {
     # 20191206 HepG2 cells, Hurrell et al., 2019
     dat <- read.csv(paste0(datadir, "HLC19.csv.xz"), as.is = TRUE)
-    description <- "HepG2 cells"
+    description <- "HepG2 hepatocellular carcinoma"
     # 20191230 this should be less than to make the differences consistent with text (590 up, 573 down)
     up2 <- dat$Difference < 0
     pcomp <- protcomp(dat$Main.Accession, basis)
@@ -128,21 +127,21 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="MTK+15") {
     # 20191207 OV-90AD multicellular aggregates, Musrap et al., 2015
     dat <- read.csv(paste0(datadir, "MTK+15.csv.xz"), as.is = TRUE)
-    description <- "OV-90AD multicellular aggregates"
+    description <- "OV-90AD ovarian cancer multicellular aggregates"
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Ratio.H.L.normalized > 1
     pcomp <- protcomp(dat$UniProt, basis)
   } else if(study=="PLC+10") {
     # 20191207 HepG2 cells, Pruksakorn et al., 2010
     dat <- read.csv(paste0(datadir, "PLC+10.csv.xz"), as.is = TRUE)
-    description <- "HepG2 cells"
+    description <- "HepG2 hepatocellular carcinoma cells"
     dat <- check_IDs(dat, "Accession.no.")
     up2 <- dat$Difference == "Up"
     pcomp <- protcomp(dat$Accession.no., basis)
   } else if(study=="PPM+17") {
     # 20191207 HEY cell transcriptome, Paullin et al., 2017
     dat <- read.csv(paste0(datadir, "PPM+17.csv.xz"), as.is = TRUE)
-    description <- "HEY cells transcriptome"
+    description <- "HEY epithelial ovarian cancer transcriptome"
     dat <- check_IDs(dat, "Entry")
     up2 <- dat$Fold.change > 0
     dat <- cleanup(dat, "Entry", up2)

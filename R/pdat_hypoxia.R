@@ -12,13 +12,13 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
              "BKS+09=transcriptome",
-             "FWH+13", "RHD+13_Hx48", "RHD+13_Hx72", "VTMF13",
-             "DCH+14", "DYL+14_Hx48-S", "DYL+14_Hx72-S", "DYL+14_Hx48-P", "DYL+14_Hx72-P", "OHS+14=transcriptome",
-             "BSA+15",
-             "HWA+16", "LCS16_transcription=transcriptome", "LCS16_translation",
-             "CGH+17_whole", "ZXS+17",
-             "CLY+18_proteome", "GBH+18", "LKK+18", "WTG+18",
-             "CSK+19", "KAN+19_proteome"
+             "FWH+13", "RHD+13_Hx48=cancer", "RHD+13_Hx72=cancer", "VTMF13",
+             "DCH+14=cancer", "DYL+14_Hx48-S=cancer", "DYL+14_Hx72-S=cancer", "DYL+14_Hx48-P=cancer", "DYL+14_Hx72-P=cancer", "OHS+14=transcriptome=cancer",
+             "BSA+15=cancer",
+             "HWA+16=cancer", "LCS16_transcription=transcriptome=cancer", "LCS16_translation=cancer",
+             "CGH+17_whole", "ZXS+17=cancer",
+             "CLY+18_proteome", "GBH+18=cancer", "LKK+18", "WTG+18",
+             "CSK+19=cancer", "KAN+19_proteome=cancer"
              ))
   }
   if(identical(dataset, 2017)) {
@@ -46,7 +46,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   if(study=="BSA+15") {
     # 20160412 HeLa hypoxia, Bousquet et al., 2005
     dat <- read.csv(paste0(datadir, "BSA+15.csv.xz"), as.is=TRUE)
-    description <- "HeLa"
+    description <- "HeLa cervical cancer"
     # use updated UniProt IDs
     inew <- which(dat$Uniprot.new != "")
     dat$Uniprot.accession[inew] <- dat$Uniprot.new[inew]
@@ -76,7 +76,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     # 20160419 A431 cells, Ren et al., 2013
     # RHD+13_Hx48, RHD+13_Hx72, RHD+13_ReOx
     dat <- read.csv(paste0(datadir, "RHD+13.csv.xz"), as.is=TRUE)
-    description <- paste("A431", stage)
+    description <- paste("A431 epithelial carcinoma", stage)
     # columns with the ratios
     if(stage=="Hx48") icol <- grep("115", colnames(dat))
     if(stage=="Hx72") icol <- grep("116", colnames(dat))
@@ -102,7 +102,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="FWH+13") {
     # 20160716 THP-1 macrophages CV (control virus) hypoxia, Fuhrmann et al., 2013
     dat <- read.csv(paste0(datadir, "FWH+13.csv.xz"), as.is=TRUE)
-    description <- "THP-1"
+    description <- "THP-1 macrophages"
     up2 <- dat$Norm.CH > 0
     pcomp <- protcomp(dat$UniProt, basis=basis)
   } else if(study=="HWA+16") {
@@ -111,7 +111,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     # keep those with fold change < 0.5 or > 2 (log2 < -1 or > 1)
     dat <- dat[ dat$Hypoxia.Heavy - dat$Normoxia.Heavy > 1 |
                 dat$Hypoxia.Heavy - dat$Normoxia.Heavy < -1, ]
-    description <- "U87MG and 786-O"
+    description <- "U87MG and 786-O cancer cells"
     up2 <- dat$Hypoxia.Heavy - dat$Normoxia.Heavy > 0
     dat <- check_IDs(dat, "Uniprot.Accession")
     pcomp <- protcomp(dat$Uniprot.Accession, basis=basis)
@@ -145,7 +145,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     # 20160728 HCT116 transcription and translation, Lai et al., 2016
     # LCS16_transcription, LCS16_translation
     dat <- read.csv(paste0(datadir, "LCS16.csv.xz"), as.is=TRUE)
-    description <- paste("HCT116", stage)
+    description <- paste("HCT116 colon cancer", stage)
     # select the experiment
     icol <- grep(stage, tolower(colnames(dat)))
     idiff <- sapply(dat[, icol[1]] | dat[, icol[2]], isTRUE)
@@ -183,7 +183,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="VTMF13") {
     # 20160804 neuroblastoma cell line, Villeneuve et al., 2013
     dat <- read.csv(paste0(datadir, "VTMF13.csv.xz"), as.is=TRUE)
-    description <- "SH-SY5Y"
+    description <- "SH-SY5Y neuroblastoma"
     # keep proteins with large expression ratio
     dat <- dat[dat$Ratio.H.L.Normalized > 1.2 | dat$Ratio.H.L.Normalized < 0.83, ]
     # find known UniProt IDs
@@ -235,27 +235,27 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="ZXS+17") {
     # 20190407 glioblastoma cells, Zhang et al., 2017
     dat <- read.csv(paste0(datadir, "ZXS+17.csv.xz"), as.is=TRUE)
-    description <- "glioblastoma cells"
+    description <- "U87 and U251 glioblastoma cells"
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat$Fold.Change > 0
   } else if(study=="GBH+18") {
     # 20190409 SW620 cells 1% / 21% O2, Greenhough et al., 2018
     dat <- read.csv(paste0(datadir, "GBH+18.csv.xz"), as.is=TRUE)
-    description <- "SW620 cells"
+    description <- "SW620 colorectal cancer cells"
     up2 <- dat$Av..Fold.change..hyp.norm. > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="WTG+18") {
     # 20190413 mesenchymal stem cells, Wobma et al., 2018
     dat <- read.csv(paste0(datadir, "WTG+18.csv.xz"), as.is=TRUE)
-    description <- "mesehnchymal stem cells"
+    description <- "adipose-derived mesehnchymal stem cells"
     dat <- check_IDs(dat, "UniProt.Accession")
     pcomp <- protcomp(dat$UniProt.Accession, basis=basis)
     up2 <- dat$Normalized.Ratio..Hypoxia.MSC..Control.MSC. > 1
   } else if(study=="LKK+18") {
     # 20191127 mesenchymal stem cells, Lee et al., 2018
     dat <- read.csv(paste0(datadir, "LKK+18.csv.xz"), as.is=TRUE)
-    description <- "mesehnchymal stem cells"
+    description <- "hUCB mesehnchymal stem cells"
     dat <- check_IDs(dat, "Entry")
     up2 <- dat$Regulation == "up"
     dat <- cleanup(dat, "Entry", up2)
@@ -282,7 +282,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CSK+19") {
     # 20191204 HeLa cells, Chachami et al., 2019
     dat <- read.csv(paste0(datadir, "CSK+19.csv.xz"), as.is=TRUE)
-    description <- "HeLa cells"
+    description <- "HeLa cervical cancer cells"
     up2 <- dat$input_Log2ratioHL_firstIP > 0
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="KAN+19") {

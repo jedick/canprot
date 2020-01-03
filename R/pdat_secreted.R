@@ -4,15 +4,15 @@
 
 pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
-    return(c("BRA+10", "PTD+10_Hx48", "PTD+10_Hx72", #"PTD+10_ReOx=ReOx",
+    return(c("BRA+10", "PTD+10_Hx48=cancer", "PTD+10_Hx72=cancer",
              "JVC+12",
-             "KCW+13=transcriptome", "SKA+13", "SRS+13a_3", "SRS+13a_8",
-             "LRS+14_Hy", # "LRS+14_ReoX",
-             "YKK+14_soluble", "YKK+14_exosome",
+             "KCW+13=transcriptome=cancer", "SKA+13", "SRS+13a_3", "SRS+13a_8",
+             "LRS+14_Hy",
+             "YKK+14_soluble=cancer", "YKK+14_exosome=cancer",
              "RSE+16",
              "CGH+17_exosomes", "CGH+17_secretome",
-             "CLY+18_secretome", "DWW+18", "FPR+18",
-             "KAN+19_secretome", "NJVS19_CAM", "NJVS19_NTM", "PDT+19"))
+             "CLY+18_secretome=cancer", "DWW+18=cancer", "FPR+18",
+             "KAN+19_secretome=cancer", "NJVS19_CAM=cancer", "NJVS19_NTM", "PDT+19=cancer"))
   }
   # remove tags
   dataset <- strsplit(dataset, "=")[[1]][1]
@@ -66,7 +66,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="DWW+18") {
     # 20190322 hypoxia-induced exosomes, Dorayappan et al., 2018
     dat <- read.csv(paste0(datadir, "DWW+18.csv.xz"), as.is=TRUE)
-    description <- "hypoxia-induced exosomes"
+    description <- "ovarian cancer cell exosomes"
     dat <- check_IDs(dat, "Genes.symbol")
     pcomp <- protcomp(dat$Genes.symbol, basis=basis)
     up2 <- dat$FC > 1
@@ -108,7 +108,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="KCW+13") {
     # 20191206 glioma cells, gene expression, Kucharzewska et al., 2013
     dat <- read.csv(paste0(datadir, "KCW+13.csv.xz"), as.is=TRUE)
-    description <- "glioma cells gene expression"
+    description <- "glioma cells transcriptome"
     up2 <- dat$Fold.change > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)

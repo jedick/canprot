@@ -1,22 +1,22 @@
 "dataset","description","tags","n1","n2","ZC.diff","nH2O_rQEC.diff","nO2_biosynth.diff","nH2O_biosynth.diff","nAA.diff","PS_TPPG17.diff","PS_LMM16.diff"
-PLC+10,"HepG2 cells",,35,47,-0.0042,0.0309,-0.1115,0.086,-155,0.1673,-0.0639
-MHG+12_P5,"MCF-7 P5",,409,337,-0.0176,-0.0079,-0.026,0.0428,-194,0.2337,-0.2432
-MHG+12_P2,"MCF-7 P2",,248,214,-0.0143,-0.0027,0.0054,0.0198,-168,0.5627,-0.0766
-MVC+12_perinecrotic,"SPH perinecrotic",,48,52,-0.0053,-0.029,0.0255,-0.0021,128.5,-0.27,0.0769
-MVC+12_necrotic,"SPH necrotic",,101,186,-0.0199,-0.0321,-0.0291,0.0244,117.5,-0.3634,-0.5908
-YYW+13,"HNSCC tumor spheres",,58,65,4e-04,-0.0124,-0.0059,0.0271,44.5,0.0562,0.3878
-HKX+14,"U251 cells",,295,68,0.0036,-0.0273,0.045,-0.0092,121,0.3658,0.1147
-RKP+14,"CRC-derived SPH",,93,174,0.0152,-0.0072,0.0199,-0.0056,-82,1.0355,0.4721
-WRK+14,"HepG2/C3A SPH",,125,291,-0.0217,-0.0358,-0.0768,0.0707,22,-1.3376,-1.1614
-MTK+15,"OV-90AD multicellular aggregates",,39,90,-0.0148,-0.0398,0.0385,-0.0028,-30.5,-0.6282,-0.2125
-SSPR16,"HNSCC spheroids transcriptome",transcriptome,77,56,0.0229,-0.0564,0.1164,-0.0786,-79,4.1548,1.8442
-YLW+16,"HT29 SPH",,116,225,-0.036,-0.0281,-0.0384,0.0165,-108.5,0.4165,-0.2281
-PPM+17,"HEY cells transcriptome",transcriptome,842,1004,0.0166,0.0078,0.0534,-0.0359,-192,0.7376,0.408
-KJK+18,"SW480 cells",,247,136,-0.0555,-0.0488,-0.1168,0.0866,98,-1.274,-1.4706
+PLC+10,"HepG2 hepatocellular carcinoma cells",cancer,35,47,-0.0042,0.0309,-0.1115,0.086,-155,0.1673,-0.0639
+MHG+12_P5,"MCF-7 breast cancer cells P5",cancer,409,337,-0.0176,-0.0079,-0.026,0.0428,-194,0.2337,-0.2432
+MHG+12_P2,"MCF-7 breast cancer cells P2",cancer,248,214,-0.0143,-0.0027,0.0054,0.0198,-168,0.5627,-0.0766
+MVC+12_perinecrotic,"HT29 colon cancer cells perinecrotic",cancer,48,52,-0.0053,-0.029,0.0255,-0.0021,128.5,-0.27,0.0769
+MVC+12_necrotic,"HT29 colon cancer cells necrotic",cancer,101,186,-0.0199,-0.0321,-0.0291,0.0244,117.5,-0.3634,-0.5908
+YYW+13,"HNSCC tumor spheres",cancer,58,65,4e-04,-0.0124,-0.0059,0.0271,44.5,0.0562,0.3878
+HKX+14,"U251 glioma cells",cancer,295,68,0.0036,-0.0273,0.045,-0.0092,121,0.3658,0.1147
+RKP+14,"colorectal cancer-derived cells",cancer,93,174,0.0152,-0.0072,0.0199,-0.0056,-82,1.0355,0.4721
+WRK+14,"HepG2/C3A hepatocellular carcinoma",cancer,125,291,-0.0217,-0.0358,-0.0768,0.0707,22,-1.3376,-1.1614
+MTK+15,"OV-90AD ovarian cancer multicellular aggregates",cancer,39,90,-0.0148,-0.0398,0.0385,-0.0028,-30.5,-0.6282,-0.2125
+SSPR16,"HNSCC spheroids transcriptome",transcriptome;cancer,77,56,0.0229,-0.0564,0.1164,-0.0786,-79,4.1548,1.8442
+YLW+16,"HT29 colon carcinoma",cancer,116,225,-0.036,-0.0281,-0.0384,0.0165,-108.5,0.4165,-0.2281
+PPM+17,"HEY epithelial ovarian cancer transcriptome",transcriptome;cancer,842,1004,0.0166,0.0078,0.0534,-0.0359,-192,0.7376,0.408
+KJK+18,"SW480 colorectal cancer",cancer,247,136,-0.0555,-0.0488,-0.1168,0.0866,98,-1.274,-1.4706
 TGD18_NHF,"normal human skin fibroblasts",,15,57,0.0284,-0.0375,0.0499,-0.1397,-185,1.7796,0.6503
-TGD18_CAF,"cancer-associated fibroblasts",,43,90,0.0267,-0.0354,0.1106,-0.1025,29.5,1.0655,-0.337
+TGD18_CAF,"cancer-associated fibroblasts",cancer,43,90,0.0267,-0.0354,0.1106,-0.1025,29.5,1.0655,-0.337
 GADS19,"skin fibroblasts 3D / 2D",,94,49,0.0108,-0.0284,-0.009,-0.0347,196,1.3025,0.9606
-HLC19,"HepG2 cells",,573,590,-0.0236,-0.0575,0.0138,-0.0262,-9.5,1.0017,0.7626
+HLC19,"HepG2 hepatocellular carcinoma",cancer,573,590,-0.0236,-0.0575,0.0138,-0.0262,-9.5,1.0017,0.7626
 LPK+19_preadipocytes,"3T3-L1 preadipocytes",,76,105,-0.0316,-0.0304,0.0142,0.0159,18.5,NA,NA
 LPK+19_adipocytes,"3T3-L1 adipocytes",,97,208,-0.0581,0.0086,-0.1007,0.051,-147,NA,NA
 LPK+19_macrophages,"3T3-L1 macrophages",,220,134,-6e-04,0.0289,-0.0318,0.0195,-130,NA,NA
