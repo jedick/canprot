@@ -1,5 +1,5 @@
 vignettes/*.html
 vignettes/*.csv
-R/testpdat.R.tmp
-inst/extdata/expression/dates.dat
+R/*.tmp
 inst/oldvignettes/*.html
+LICENCE

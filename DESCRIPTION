@@ -1,6 +1,6 @@
 Date: 2020-01-02
 Package: canprot
-Version: 0.1.4-43
+Version: 0.1.4-44
 Title: Chemical Composition of Differentially Expressed Proteins
 Author: Jeffrey Dick
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
@@ -19,7 +19,7 @@ Description: Compositional analysis of differentially expressed proteins in
   <doi:10.1073/pnas.1617743114>. Plots of the differences in the chemical
   compositions and phylostrata for each cancer type and experimental condition
   are shown in the vignettes.
-License: GPL-3
+License: MIT + file LICENCE
 BuildResaveData: no
 VignetteBuilder: knitr
 URL: http://github.com/jedick/canprot
