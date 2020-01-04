@@ -88,23 +88,23 @@ write.csv(out, "breast.csv", row.names = FALSE, quote = 2)
 ## Data Sources
 Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
 
-<b>a</b>. Extracted from Supporting Information RTF files of @AMG+08. Proteins identified by any number of peptides in both cancer and matched periphery were excluded; of the remaining proteins those identified by at least two peptides were used.
-<b>b</b>. Table S2(a) of @CIR+10 (proteins differentially abundant at or above 99% confidence level).
-<b>c</b>. Table 4 of @SRG+10.
-<b>d</b>. Tables 1 and 2 of @HTP+11.
-<b>e</b>. <b>f</b>. Supporting Table 6 of @GTM+12.
-<b>g</b>. Table S1 of @LLL+13.
-<b>h</b>. <b>i</b>. Table 2 of @SRS+13. For DCIS (3 patients), proteins were classified as up/down expressed if 2 or more ratios were greater/less than 1, and no ratios were less/greater than 1. For IC (4 patients), proteins were classified as up/down expressed if 3 or more ratios were greater/less than 1, and no ratios were less/greater than 1.
-<b>j</b>. Extracted from Table S2 of @GSB+14. Values in all LFQ columns (distant, near, tumor) were quantile normalized (R function preprocessCore::normalize.quantiles) ([Bolstad et al., 2003](https://doi.org/10.1093/bioinformatics/19.2.185)), then the ratio between tumor and distant was calculated. Proteins with normalized LFQ ratios > 1.2 or < 1/1.2 and _p_-value < 0.05 were identified as differentially expressed.
-<b>k</b>. Supplementary Tables 12, 13, 14 and 15 of @PPH+14, filtered to include proteins that are up- or down-regulated in all subtypes (LUM, LUMHER, HER, TN).
-<b>l</b>. Supplemental Data S3 of @CVJ+15, filtered to include proteins with min and max credible intervals for expression ratios that are both <1 or >1.
-<b>m</b>. <b>n</b>. <b>o</b>. Differential gene expression was calculated for [GSE57297](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE57297) [@FKZ+15] using the NCBI GEO2R service, with cutoffs for Benjamini and Hochberg adjusted _p_-value < 0.05 and log2 fold-change ≥ 2.
-<b>p</b>. <b>q</b>. Supplementary Table S3 of @PGT+16.
-<b>r</b>. Table S4A of @PBR+16.
-<b>s</b>. Supplemental Table 4 of @BST+17, filtered to include proteins with _p_-value < 2.
-<b>t</b>. <b>u</b>. Tables S5-1 (differentially expressed proteins for 52 tumor / non-cancerous tissue pairs) and S5-2 (13 basal-like tumor / non-cancerous tissue pairs) of @TZD+18, filtered to include proteins with log<sub>2</sub> fold change > 1 or < -1.
-<b>v</b>. <b>w</b>. Supplementary File S1 of @GCS+19 (PT: primary breast tissue; NCT: non tumor contralateral breast tissue; ANT: non tumor adjacent breast tissue).
-<b>x</b>. Supplementary Table 2 of @LLC+19.
-<b>y</b>. Gene names from Supplementary Table S4 of @MBP+19.
+__a__. Extracted from Supporting Information RTF files of @AMG+08. Proteins identified by any number of peptides in both cancer and matched periphery were excluded; of the remaining proteins those identified by at least two peptides were used.
+__b__. Table S2(a) of @CIR+10 (proteins differentially abundant at or above 99% confidence level).
+__c__. Table 4 of @SRG+10.
+__d__. Tables 1 and 2 of @HTP+11.
+__e__. __f__. Supporting Table 6 of @GTM+12.
+__g__. Table S1 of @LLL+13.
+__h__. __i__. Table 2 of @SRS+13. For DCIS (3 patients), proteins were classified as up/down expressed if 2 or more ratios were greater/less than 1, and no ratios were less/greater than 1. For IC (4 patients), proteins were classified as up/down expressed if 3 or more ratios were greater/less than 1, and no ratios were less/greater than 1.
+__j__. Extracted from Table S2 of @GSB+14. Values in all LFQ columns (distant, near, tumor) were quantile normalized, then the ratio between tumor and distant was calculated. Proteins with normalized LFQ ratios > 1.2 or < 1/1.2 and _p_-value < 0.05 were identified as differentially expressed.
+__k__. Supplementary Tables 12, 13, 14 and 15 of @PPH+14, filtered to include proteins that are up- or down-regulated in all subtypes (LUM, LUMHER, HER, TN).
+__l__. Supplemental Data S3 of @CVJ+15, filtered to include proteins with min and max credible intervals for expression ratios that are both <1 or >1.
+__m__. __n__. __o__. Differential gene expression was calculated for [GSE57297](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE57297) [@FKZ+15] using the NCBI GEO2R service, with cutoffs for Benjamini and Hochberg adjusted _p_-value < 0.05 and log~2~ fold-change ≥ 2.
+__p__. __q__. Supplementary Table S3 of @PGT+16.
+__r__. Table S4A of @PBR+16.
+__s__. Supplemental Table 4 of @BST+17, filtered to include proteins with _p_-value < 2.
+__t__. __u__. Tables S5-1 (differentially expressed proteins for 52 tumor / non-cancerous tissue pairs) and S5-2 (13 basal-like tumor / non-cancerous tissue pairs) of @TZD+18, filtered to include proteins with log~2~ fold change > 1 or < -1.
+__v__. __w__. Supplementary File S1 of @GCS+19 (PT: primary breast tissue; NCT: non tumor contralateral breast tissue; ANT: non tumor adjacent breast tissue).
+__x__. Supplementary Table 2 of @LLC+19.
+__y__. Gene names from Supplementary Table S4 of @MBP+19.
 
 ## References

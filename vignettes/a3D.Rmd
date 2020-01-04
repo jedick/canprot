@@ -88,21 +88,21 @@ write.csv(out, "3D.csv", row.names = FALSE, quote = 2)
 ## Data Sources
 Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
 
-<b>a</b>. Gene names from Supporting Information Table 1S of @PLC+10.
-<b>b</b>. <b>c</b>. Sheets 2 and 3 in Table S1 of @MHG+12 (P2: passage 2; P5: passage 5).
-<b>d</b>. <b>e</b>. Supplemental Table 1C of @MVC+12, filtered to include proteins with expression ratios < 0.77 or > 1.3.
-<b>f</b>. Supplemental Table S5 of @YYW+13.
-<b>g</b>. Table S1 of @HKX+14.
-<b>h</b>. Table S2 of @RKP+14, filtered to include proteins that have differences in spectral counts recorded in at least two of three experiments, absolute overall fold change is ≥ 1.5 or ≤ 2/3, and _p_-value is < 0.05.
-<b>i</b>. P1&lowbar;Data sheet in the Supporting Information file of @WRK+14.
-<b>j</b>. Supplemental Table S1 of @MTK+15, filtered to exclude marked contaminants and reverse sequences and to include proteins with "Ratio H/L normalized" > 1.5 or < 2/3.
-<b>k</b>. Gene names from Table II of @SSPR16.
-<b>l</b>. Tables S1a and S1b of @YLW+16.
-<b>m</b>. Supporting Information S2 Table of @PPM+17, filtered to include transcripts with "fold change (3D treatment, 2D control)" > 2 or < -2 and "Adjusted p-Value for Diff of Treatment = (2D) - (3D)" < 0.05.
-<b>n</b>. Tables S2 and S3 of @KJK+18.
-<b>o</b>. <b>p</b>. Supplementary Table 3 of @TGD18. 
-<b>q</b>. Extracted from Supplementary Table 1 of @GADS19. Values were quantile normalized (R function preprocessCore::normalize.quantiles) ([Bolstad et al., 2003](https://doi.org/10.1093/bioinformatics/19.2.185)), then ratios were calculated between 3D and 2D cultures for each treatment (control, CBD, UVA, UVA+CBD, UVB, UVB+CBD). Ratios > 1.2 or < 1/1.2 in at least 4 treatments were used to identify differentially expressed proteins.
-<b>r</b>. Supplementary Data I, sheet "Volcano plot 2Dv3D" of @HLC19.
-<b>s</b>. <b>t</b>. <b>u</b>. Supporting Table 1 of @LPK+19, sheets "3P2P" (mono-cultured preadipocytes), "3A2A" (mono-cultured adipocytes), "3C2C" (co-cultured adipocytes with macrophages), filtered to include proteins marked as "T-test Significant" and with absolute value of "N: T-test Difference" > log<sub>2</sub>(0.5).
+__a__. Gene names from Supporting Information Table 1S of @PLC+10.
+__b__. __c__. Sheets 2 and 3 in Table S1 of @MHG+12 (P2: passage 2; P5: passage 5).
+__d__. __e__. Supplemental Table 1C of @MVC+12, filtered to include proteins with expression ratios < 0.77 or > 1.3.
+__f__. Supplemental Table S5 of @YYW+13.
+__g__. Table S1 of @HKX+14.
+__h__. Table S2 of @RKP+14, filtered to include proteins that have differences in spectral counts recorded in at least two of three experiments, absolute overall fold change is ≥ 1.5 or ≤ 2/3, and _p_-value is < 0.05.
+__i__. P1&lowbar;Data sheet in the Supporting Information file of @WRK+14.
+__j__. Supplemental Table S1 of @MTK+15, filtered to exclude marked contaminants and reverse sequences and to include proteins with "Ratio H/L normalized" > 1.5 or < 2/3.
+__k__. Gene names from Table II of @SSPR16.
+__l__. Tables S1a and S1b of @YLW+16.
+__m__. Supporting Information S2 Table of @PPM+17, filtered to include transcripts with "fold change (3D treatment, 2D control)" > 2 or < -2 and "Adjusted p-Value for Diff of Treatment = (2D) - (3D)" < 0.05.
+__n__. Tables S2 and S3 of @KJK+18.
+__o__. __p__. Supplementary Table 3 of @TGD18. 
+__q__. Extracted from Supplementary Table 1 of @GADS19. Values were quantile normalized, then ratios were calculated between 3D and 2D cultures for each treatment (control, CBD, UVA, UVA+CBD, UVB, UVB+CBD). Ratios > 1.2 or < 1/1.2 in at least 4 treatments were used to identify differentially expressed proteins.
+__r__. Supplementary Data I, sheet "Volcano plot 2Dv3D" of @HLC19.
+__s__. __t__. __u__. Supporting Table 1 of @LPK+19, sheets "3P2P" (mono-cultured preadipocytes), "3A2A" (mono-cultured adipocytes), "3C2C" (co-cultured adipocytes with macrophages), filtered to include proteins marked as "T-test Significant" and with absolute value of "N: T-test Difference" > log~2~(0.5).
 
 ## References

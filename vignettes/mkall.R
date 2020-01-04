@@ -1,5 +1,7 @@
 # canH2O/vignettes/mkall.R
-# process all vignettes 20191207
+# use this to process all vignettes in order to make
+# the csv files that are installed with the package
+
 files <- dir(pattern = "Rmd")
 print(system.time(
   for(f in files) {

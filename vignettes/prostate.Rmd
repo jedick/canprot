@@ -92,19 +92,19 @@ write.csv(out, "prostate.csv", row.names = FALSE, quote = 2)
 ## Data Sources
 Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
 
-<b>a</b>. Table 2 of @GTR+08.
-<b>b</b>. Supplementary Tables 3 and 4 of @KPB+10.
-<b>c</b>. <b>d</b>. Table S1 (genes) and S2 (proteins) of @HZH+12.
-<b>e</b>. Table S1 of @JHZ+13.
-<b>f</b>. Supplemental Table S7 of @LCS+14.
-<b>g</b>. Supplementary Table 1 @CZL+16 (proteins recorded with only Down-regulation or Up-regulation).
-<b>h</b>. Supplementary Table S3 of @IWT+16, filtered to include proteins listed with FDR <0.1.
-<b>i</b>. <b>j</b>. Extracted from Table S4 @GLZ+18. Values were quantile normalized (R function preprocessCore::normalize.quantiles) ([Bolstad et al., 2003](https://doi.org/10.1093/bioinformatics/19.2.185)), then ratios were calculated between the median values for each cancer type (acinar and ductal) and corresponding normal tissue; ratios > 1.5 or < 2/3 were used to identify differentially expressed proteins.
-<b>k</b>. <b>l</b>. Extracted from Supplementary Data 1 of @LAJ+18 (sheet "Area-proteins") by applying quantile normalization to peak areas then calculating median values across all runs and samples for each of BPH , PC (primary prostate cancer), and CRPC (castration resistant prostate cancer). A cutoff of 2-fold in ratios of medians (PC / BPH or CRPC / BPH) was used to identify differentially expressed proteins.
-<b>m</b>. Table 2 of @MAN+18.
-<b>n</b>. <b>o</b>. <b>p</b>. <b>q</b>.  <b>r</b>. Supporting Information Table S3 of @KRN+19 (G1&ndash;G5: PCa grades).
-<b>s</b>. <b>t</b>. Tables S4d (GS = 6) and S4f (GS ≥ 8 or GS = 6) of @MMF+19 (GS: Gleason Score).
-<b>u</b>. Supplementary Table S3a of @TOT+19.
-<b>v</b>. <b>w</b>. Table S5 of @ZYW+19 (LG: low-grade PCa; HG: high-grade PCa).
+__a__. Table 2 of @GTR+08.
+__b__. Supplementary Tables 3 and 4 of @KPB+10.
+__c__. __d__. Table S1 (genes) and S2 (proteins) of @HZH+12.
+__e__. Table S1 of @JHZ+13.
+__f__. Supplemental Table S7 of @LCS+14.
+__g__. Supplementary Table 1 @CZL+16 (proteins recorded with only Down-regulation or Up-regulation).
+__h__. Supplementary Table S3 of @IWT+16, filtered to include proteins listed with FDR < 0.1.
+__i__. __j__. Extracted from Table S4 @GLZ+18. Values were quantile normalized, then ratios were calculated between the median values for each cancer type (acinar and ductal) and corresponding normal tissue; ratios > 1.5 or < 2/3 were used to identify differentially expressed proteins.
+__k__. __l__. Extracted from Supplementary Data 1 of @LAJ+18 (sheet "Area-proteins") by applying quantile normalization to peak areas then calculating median values across all runs and samples for each of BPH , PC (primary prostate cancer), and CRPC (castration resistant prostate cancer). A cutoff of 2-fold in ratios of medians (PC / BPH or CRPC / BPH) was used to identify differentially expressed proteins.
+__m__. Table 2 of @MAN+18.
+__n__. __o__. __p__. __q__.  __r__. Supporting Information Table S3 of @KRN+19 (G1--G5: PCa grades).
+__s__. __t__. Tables S4d (GS = 6) and S4f (GS ≥ 8 or GS = 6) of @MMF+19 (GS: Gleason Score).
+__u__. Supplementary Table S3a of @TOT+19.
+__v__. __w__. Table S5 of @ZYW+19 (LG: low-grade PCa; HG: high-grade PCa).
 
 ## References

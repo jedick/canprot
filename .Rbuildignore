@@ -1,3 +1,4 @@
+vignettes/.*.html
 inst/oldvignettes/.*.html
 inst/oldvignettes/cpdat.bib
 inst/oldvignettes/peerj.csl
