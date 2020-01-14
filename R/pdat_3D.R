@@ -8,7 +8,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     return(c("PLC+10=cancer",
              "MHG+12_P5=cancer", "MHG+12_P2=cancer",
              "MVC+12_perinecrotic=cancer", "MVC+12_necrotic=cancer",
-             "YYW+13=cancer",
+             "YYW+13=cancer", "ZMH+13_Matr.12h", "ZMH+13_Matr.24h",
              "HKX+14=cancer",
              "RKP+14=cancer", "WRK+14=cancer",
              "MTK+15=cancer",
@@ -170,6 +170,19 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     up2[rowSums(dat[, -1] < 1/1.2) > 3] <- FALSE
     dat <- cleanup(dat, "ID", up2)
     pcomp <- protcomp(dat$ID, basis)
+  } else if(study=="ZMH+13") {
+    # 20200114 human umbilical vein endothelial cells, Zanivan et al., 2013
+    # grown in Matrigel (3D): ZMH+13_Matr.12h, ZMH+13_Matr.24h, ZMH+13_Matr.GFR, ZMH+13_Matr.30h
+    # spreading on culture dish: ZMH+13_Matr.dil, ZMH+13_LAM, ZMH+13_FN, ZMH+13_BSA
+    dat <- read.csv(paste0(datadir, "ZMH+13.csv.xz"), as.is = TRUE)
+    description <- paste("HUVEC", gsub("Matr.", "Matrigel ", stage, fixed = TRUE))
+    # get data for selected experiment
+    idn <- match(paste0(stage, ".down"), colnames(dat))
+    iup <- match(paste0(stage, ".up"), colnames(dat))
+    dat <- dat[dat[, idn] == "yes" | dat[, iup] == "yes", ]
+    dat <- check_IDs(dat, "Protein.IDs")
+    pcomp <- protcomp(dat$Protein.IDs, basis)
+    up2 <- dat[, iup] == "yes"
   } else stop(paste("3D dataset", dataset, "not available"))
   print(paste0("pdat_3D: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407

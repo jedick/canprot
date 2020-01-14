@@ -91,7 +91,7 @@ write.csv(out, "hypoxia.csv", row.names = FALSE, quote = 2)
 ## Data Sources
 Where given, gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
 
-__a__. Gene IDs from Supplementary Table S4 @BKS+09.
+__a__. Gene IDs from Supplementary Table S4 of @BKS+09.
 __b__. Supplemental Table 2A of @FWH+13 (control virus cells).
 __c__. __d__. Supplemental Table S1 of @RHD+13, filtered to include proteins with iTRAQ ratios < 0.83 or > 1.2 and _p_-value < 0.05.
 __e__. Supporting Information table of @VTMF13, filtered to include proteins with a normalized expression ratio of > 1.2 or < 0.83.

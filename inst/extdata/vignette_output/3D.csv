@@ -5,6 +5,8 @@ MHG+12_P2,"MCF-7 breast cancer cells P2",cancer,248,214,-0.0143,-0.0027,0.0054,0
 MVC+12_perinecrotic,"HT29 colon cancer cells perinecrotic",cancer,48,52,-0.0053,-0.029,0.0255,-0.0021,128.5,-0.27,0.0769
 MVC+12_necrotic,"HT29 colon cancer cells necrotic",cancer,101,186,-0.0199,-0.0321,-0.0291,0.0244,117.5,-0.3634,-0.5908
 YYW+13,"HNSCC tumor spheres",cancer,58,65,4e-04,-0.0124,-0.0059,0.0271,44.5,0.0562,0.3878
+ZMH+13_Matr.12h,"HUVEC Matrigel 12h",,48,58,-0.0147,-0.0135,0.0336,-0.0179,180.5,0.58,0.3462
+ZMH+13_Matr.24h,"HUVEC Matrigel 24h",,196,239,-0.0256,-0.0468,0.018,-0.0206,143,0.3148,0.2849
 HKX+14,"U251 glioma cells",cancer,295,68,0.0036,-0.0273,0.045,-0.0092,121,0.3658,0.1147
 RKP+14,"colorectal cancer-derived cells",cancer,93,174,0.0152,-0.0072,0.0199,-0.0056,-82,1.0355,0.4721
 WRK+14,"HepG2/C3A hepatocellular carcinoma",cancer,125,291,-0.0217,-0.0358,-0.0768,0.0707,22,-1.3376,-1.1614
