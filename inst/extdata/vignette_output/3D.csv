@@ -11,6 +11,7 @@ HKX+14,"U251 glioma cells",cancer,295,68,0.0036,-0.0273,0.045,-0.0092,121,0.3658
 RKP+14,"colorectal cancer-derived cells",cancer,93,174,0.0152,-0.0072,0.0199,-0.0056,-82,1.0355,0.4721
 WRK+14,"HepG2/C3A hepatocellular carcinoma",cancer,125,291,-0.0217,-0.0358,-0.0768,0.0707,22,-1.3376,-1.1614
 MTK+15,"OV-90AD ovarian cancer multicellular aggregates",cancer,39,90,-0.0148,-0.0398,0.0385,-0.0028,-30.5,-0.6282,-0.2125
+MDN+16,"placental syncytiotrophoblast JEG-3 cells transcriptome",transcriptome,1867,293,-0.0131,0.008,-0.0692,0.0591,-57,-1.4162,-0.6357
 SSPR16,"HNSCC spheroids transcriptome",transcriptome;cancer,77,56,0.0229,-0.0564,0.1164,-0.0786,-79,4.1548,1.8442
 YLW+16,"HT29 colon carcinoma",cancer,116,225,-0.036,-0.0281,-0.0384,0.0165,-108.5,0.4165,-0.2281
 PPM+17,"HEY epithelial ovarian cancer transcriptome",transcriptome;cancer,842,1004,0.0166,0.0078,0.0534,-0.0359,-192,0.7376,0.408

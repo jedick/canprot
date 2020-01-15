@@ -12,7 +12,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
              "HKX+14=cancer",
              "RKP+14=cancer", "WRK+14=cancer",
              "MTK+15=cancer",
-             "SSPR16=transcriptome=cancer", "YLW+16=cancer",
+             "MDN+16=transcriptome", "SSPR16=transcriptome=cancer", "YLW+16=cancer",
              "PPM+17=transcriptome=cancer",
              "KJK+18=cancer", "TGD18_NHF", "TGD18_CAF=cancer",
              "GADS19",
@@ -183,6 +183,14 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "Protein.IDs")
     pcomp <- protcomp(dat$Protein.IDs, basis)
     up2 <- dat[, iup] == "yes"
+  } else if(study=="MDN+16") {
+    # 20200115 placental syncytiotrophoblast JEG-3 cells transcriptome, McConkey et al., 2016
+    dat <- read.csv(paste0(datadir, "MDN+16.csv.xz"), as.is = TRUE)
+    description <- "placental syncytiotrophoblast JEG-3 cells transcriptome"
+    dat <- check_IDs(dat, "Entry")
+    up2 <- dat$log2FoldChange > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("3D dataset", dataset, "not available"))
   print(paste0("pdat_3D: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
