@@ -11,6 +11,7 @@
 pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
+             "SBB+06=cancer",
              "BKS+09=transcriptome",
              "FWH+13", "RHD+13_Hx48=cancer", "RHD+13_Hx72=cancer", "VTMF13",
              "DCH+14=cancer", "DYL+14_Hx48-S=cancer", "DYL+14_Hx72-S=cancer", "DYL+14_Hx48-P=cancer", "DYL+14_Hx72-P=cancer", "OHS+14=transcriptome=cancer",
@@ -289,6 +290,15 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     # 20191226 human umbilical vein ECs, Kugeratski et al., 2019
     # KAN+19_proteome
     return(pdat_multi(dataset, basis))
+  } else if(study=="SBB+06") {
+    # 20161109 mouse hypoxia-adapated malignant melanoma, Stockwin et al., 2006
+    # 20200115 added to canprot
+    dat <- read.csv(paste0(datadir, "SBB+06.csv.xz"), as.is = TRUE)
+    description <- "mouse malignant melanoma plasma membrane"
+    dat <- check_IDs(dat, "PAN", aa_file = paste0(extdatadir, "/aa/mouse/SBB+06_aa.csv.xz"))
+    up2 <- dat$AR > 1
+    dat <- cleanup(dat, "PAN", up2)
+    pcomp <- protcomp(dat$PAN, basis = basis, aa_file = paste0(extdatadir, "/aa/mouse/SBB+06_aa.csv.xz"))
   } else stop(paste("hypoxia dataset", dataset, "not available"))
   print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

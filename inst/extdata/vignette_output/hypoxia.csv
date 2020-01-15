@@ -1,4 +1,5 @@
 "dataset","description","tags","n1","n2","ZC.diff","nH2O_rQEC.diff","nO2_biosynth.diff","nH2O_biosynth.diff","nAA.diff","PS_TPPG17.diff","PS_LMM16.diff"
+SBB+06,"mouse malignant melanoma plasma membrane",cancer,574,289,-0.0015,0.0189,-0.0014,0.0226,112,NA,NA
 BKS+09,"multiple cell datasets transcriptome",transcriptome,131,157,0.0195,-0.0144,0.0507,-0.0249,-21,0.9396,0.473
 FWH+13,"THP-1 macrophages",,56,40,0.008,0.0167,0.0046,-0.0025,18.5,-0.2221,-0.05
 RHD+13_Hx48,"A431 epithelial carcinoma Hx48",cancer,211,92,0.0089,-0.0015,0.0336,-0.0743,78.5,0.6492,1.1111

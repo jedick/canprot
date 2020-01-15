@@ -91,24 +91,25 @@ write.csv(out, "hypoxia.csv", row.names = FALSE, quote = 2)
 ## Data Sources
 Where given, gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
 
-__a__. Gene IDs from Supplementary Table S4 of @BKS+09.
-__b__. Supplemental Table 2A of @FWH+13 (control virus cells).
-__c__. __d__. Supplemental Table S1 of @RHD+13, filtered to include proteins with iTRAQ ratios < 0.83 or > 1.2 and _p_-value < 0.05.
-__e__. Supporting Information table of @VTMF13, filtered to include proteins with a normalized expression ratio of > 1.2 or < 0.83.
-__f__. Supporting Information Table S1 @DCH+14.
-__g__. __h__. __i__. __j__. Supplemental Table S1 of @DYL+14, filtered to include proteins with _p_-value < 0.05 (-S: supernatant fraction; -P: pellet fraction).
-__k__. Gene names from Supporting Information Table S10 of @OHS+14.
-__l__. Supplementary Table S1 of @BSA+15.
-__m__. Supplemental Information Table S1 of @HWA+16, filtered to include proteins with a fold change of < 0.5 or > 1 and that were detected in only hypoxic or only normoxic conditions.
-__n__. __o__. Gene names from @LCS16 (data files provided by Ming-Chih Lai).
-__p__. Extracted from Table S2E (whole cell lysate) of @CGH+17, keeping proteins with FDR < 0.05.
-__q__. Supplemental Table S4 of @ZXS+17.
-__r__. Supplementary Tables S6-S7 (proteome) of @CLY+18.
-__s__. List of up- and down-regulated proteins from @GBH+18 (provided by Alex Greenhough), filtered to include proteins with average fold change ≥ 1.5 or ≤ 2/3.
-__t__. Gene names from Figure 1F of @LKK+18.
-__u__. Supplemental file 1 of @WTG+18 (provided by Gordana Vunjak-Novakovic), filtered to include proteins with Normalized Ratio [Hypoxia MSC/Control MSC] ≥ 1.5 or ≤ 2/3 and _p_-value < 0.05.
-__v__. Gene names from Supplementary file S1 of @CSK+19 for the two replicates labelled as "input_Log2ratioHL_firstIP" and "input_Log2ratioLH_secondIP" (soluble extracts before immunoprecipitation), filtered to include proteins where Log2ratio is > 0.2 or < -0.2 for both replicates.
-__w__. Proteins identified as up- or down-regulated > 1 SD in Data File S1 of @KAN+19 (sheet "Proteome").
+__a__. Supplemental Table 1 of @SBB+06, filtered to include proteins with expression ratio ≥ 1.7 or ≤ 0.58.
+__b__. Gene IDs from Supplementary Table S4 of @BKS+09.
+__c__. Supplemental Table 2A of @FWH+13 (control virus cells).
+__d__. __e__. Supplemental Table S1 of @RHD+13, filtered to include proteins with iTRAQ ratios < 0.83 or > 1.2 and _p_-value < 0.05.
+__f__. Supporting Information table of @VTMF13, filtered to include proteins with a normalized expression ratio of > 1.2 or < 0.83.
+__g__. Supporting Information Table S1 @DCH+14.
+__h__. __i__. __j__. __k__. Supplemental Table S1 of @DYL+14, filtered to include proteins with _p_-value < 0.05 (-S: supernatant fraction; -P: pellet fraction).
+__l__. Gene names from Supporting Information Table S10 of @OHS+14.
+__m__. Supplementary Table S1 of @BSA+15.
+__n__. Supplemental Information Table S1 of @HWA+16, filtered to include proteins with a fold change of < 0.5 or > 1 and that were detected in only hypoxic or only normoxic conditions.
+__o__. __p__. Gene names from @LCS16 (data files provided by Ming-Chih Lai).
+__q__. Extracted from Table S2E (whole cell lysate) of @CGH+17, keeping proteins with FDR < 0.05.
+__r__. Supplemental Table S4 of @ZXS+17.
+__s__. Supplementary Tables S6-S7 (proteome) of @CLY+18.
+__t__. List of up- and down-regulated proteins from @GBH+18 (provided by Alex Greenhough), filtered to include proteins with average fold change ≥ 1.5 or ≤ 2/3.
+__u__. Gene names from Figure 1F of @LKK+18.
+__v__. Supplemental file 1 of @WTG+18 (provided by Gordana Vunjak-Novakovic), filtered to include proteins with Normalized Ratio [Hypoxia MSC/Control MSC] ≥ 1.5 or ≤ 2/3 and _p_-value < 0.05.
+__w__. Gene names from Supplementary file S1 of @CSK+19 for the two replicates labelled as "input_Log2ratioHL_firstIP" and "input_Log2ratioLH_secondIP" (soluble extracts before immunoprecipitation), filtered to include proteins where Log2ratio is > 0.2 or < -0.2 for both replicates.
+__x__. Proteins identified as up- or down-regulated > 1 SD in Data File S1 of @KAN+19 (sheet "Proteome").
 
 ## Acknowledgements
 Thanks to Alex Greenhough, Ming-Chih Lai, and Gordana Vunjak-Novakovic for providing data files.
