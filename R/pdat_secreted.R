@@ -9,6 +9,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
              "KCW+13=transcriptome=cancer", "SKA+13", "SRS+13a_3", "SRS+13a_8",
              "LRS+14_Hy",
              "YKK+14_soluble=cancer", "YKK+14_exosome=cancer",
+             "CRS+15_wt=cancer", "CRS+15_BT=cancer",
              "RSE+16",
              "CGH+17_exosomes", "CGH+17_secretome",
              "CLY+18_secretome=cancer", "DWW+18=cancer", "FPR+18",
@@ -153,6 +154,19 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
     # 20191226 human umbilical vein ECs, Kugeratski et al., 2019
     # KAN+19_secretome
     return(pdat_multi(dataset, basis))
+  } else if(study=="CRS+15") {
+    # 20200116 breast cancer MDA-MB-231 breast cancer parental and bone tropic cells, Cox et al., 2015
+    # CRS+15_wt, CRS+15_BT
+    dat <- read.csv(paste0(datadir, "CRS+15.csv.xz"), as.is=TRUE)
+    if(stage=="wt") description <- "MDA-MB-231 breast cancer parental cells"
+    if(stage=="BT") description <- "MDA-BT breast cancer bone tropic cells"
+    icol <- grep(stage, colnames(dat))
+    # calculate fold-change and keep highly differential proteins
+    log2FC <- dat[, icol[2]] - dat[, icol[1]]
+    dat <- cbind(dat, log2FC = log2FC)
+    dat <- dat[abs(dat$log2FC) > 0.2, ]
+    up2 <- dat$log2FC > 0.2
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("secreted dataset", dataset, "not available"))
   print(paste0("pdat_secreted: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
