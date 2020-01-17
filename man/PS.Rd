@@ -40,7 +40,7 @@ Liebeskind, B. J. and McWhite, Claire J. and Marcotte, E. M. (2016) Towards cons
 
 \examples{
 # plot nH2O vs phylostrata
-pd <- pdat_CRC("JKMF10")
+pd <- pdat_colorectal("JKMF10")
 # (Trigos et al. data)
 get_comptab(pd, "PS", plot.it = TRUE)
 # (Liebeskind et al. data)

@@ -42,7 +42,7 @@ dat <- cleanup(dat, "Entry", up2)
 pcomp <- protcomp(dat$Entry)
 
 # using cleanup() to remove "manually" selected proteins
-datadir <- paste0(system.file("extdata", package="canprot"), "/expression/CRC/")
+datadir <- paste0(system.file("extdata", package="canprot"), "/expression/colorectal/")
 dataset <- "STK+15"
 dat <- read.csv(paste0(datadir, "STK+15.csv.xz"), as.is=TRUE)
 dat <- cleanup(dat, is.na(dat$uniprot))

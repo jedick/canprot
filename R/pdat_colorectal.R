@@ -1,11 +1,11 @@
-# canprot/R/pdat_CRC.R
+# canprot/R/pdat_colorectal.R
 # get protein data for colorectal cancer
 # 20160703 jmd
 # 20161011 updated with new data [LXM+16]; add =AD tag (adenoma as n2)
 # 20170904 add =NT tag (normal tissue as n1)
 # 20190318-20200117 updates for 2020 compilation
 
-pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
+pdat_colorectal <- function(dataset = 2020, basis = "rQEC") {
   # list available datasets in 2020 compilation
   if(identical(dataset, 2020)) { 
     return(c("KPF+07=transcriptome",
@@ -41,7 +41,7 @@ pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
   study <- strsplit(dataset, "_")[[1]][1]
   stage <- paste(strsplit(dataset, "_")[[1]][-1], collapse="_")
   extdatadir <- system.file("extdata", package="canprot")
-  datadir <- paste0(extdatadir, "/expression/CRC/")
+  datadir <- paste0(extdatadir, "/expression/colorectal/")
   if(study=="JKMF10") {
     # 20150520 up- and down-regulated CRC-associated proteins reported in 4 or more studies, from Jimenez et al., 2010
     description <- "serum biomarkers up / down"
@@ -337,8 +337,8 @@ pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 0
     pcomp <- protcomp(dat$Accession, basis)
-  } else stop(paste("CRC dataset", dataset, "not available"))
-  print(paste0("pdat_CRC: ", description, " [", dataset, "]"))
+  } else stop(paste("colorectal dataset", dataset, "not available"))
+  print(paste0("pdat_colorectal: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429
   if("up2" %in% colnames(dat)) up2 <- dat$up2
   return(list(dataset=dataset, basis=basis, description=description, pcomp=pcomp, up2=up2))

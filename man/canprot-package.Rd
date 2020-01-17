@@ -7,7 +7,7 @@
 }
 
 \section{Overview}{
-  This package includes datasets for differential expression of proteins in colorectal cancer (CRC), pancreatic cancer, hypoxia, and hyperosmotic stress.
+  This package includes datasets for differential expression of proteins in colorectal cancer, pancreatic cancer, hypoxia, and hyperosmotic stress.
   All datasets use UniProt IDs, which have been added if not present in the original publications. 
   The sources of data are listed in the vignettes and are further described in Dick (2016) and (2017).
   The functions in this package were derived from the code included as supplemental information for those studies.

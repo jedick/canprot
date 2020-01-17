@@ -22,7 +22,7 @@
 
 \details{
 \code{groupplots} makes weighted rank-difference of affinity (potential) diagrams (see \code{\link{rankplot}}) for each dataset found in the specified \code{group}.
-\code{group} consists of three parts joined by an underscore: the type of experiment (\samp{CRC}, \samp{pancreatic}, \samp{hypoxia}, or \samp{osmotic}; see \code{\link{pdat_}}), the distinguishing compositional variable (\samp{ZC} or \samp{H2O}), and the direction of change of that variable (\samp{up} or \samp{down}).
+\code{group} consists of three parts joined by an underscore: the type of experiment (\samp{colorectal}, \samp{pancreatic}, \samp{hypoxia}, or \samp{osmotic}; see \code{\link{pdat_}}), the distinguishing compositional variable (\samp{ZC} or \samp{H2O}), and the direction of change of that variable (\samp{up} or \samp{down}).
 
 To identify the datasets in any group, compositional summaries for each dataset are read from pre-calculated tables in \code{extdata/summary}.
 Datasets are included for which the absolute mean difference of either \samp{ZC} or \samp{H2O} between up- and down-expressed proteins is greater than 0.01 and the other of \samp{ZC} or \samp{H2O} has \emph{p}-value >= 0.05 and abs(\code{\link{CLES}} - 50) < 10.
@@ -36,9 +36,9 @@ This way, the positions of the median and interquartiles of the equipotential li
 gpresult <- groupplots("osmotic_H2O_down", res=25)
 mergedplot(gpresult, res=25)
 
-# reproduce Figure 4 of Dick, 2017
-ZCgroups <- c("CRC_ZC_up","pancreatic_ZC_up", "hypoxia_ZC_down")
-H2Ogroups <- c("CRC_H2O_up", "pancreatic_H2O_up", "osmotic_H2O_down")
+# reproduce Figure 3 of Dick, 2017
+ZCgroups <- c("colorectal_ZC_up","pancreatic_ZC_up", "hypoxia_ZC_down")
+H2Ogroups <- c("colorectal_H2O_up", "pancreatic_H2O_up", "osmotic_H2O_down")
 allgroups <- c(ZCgroups, H2Ogroups)
 par(mfrow=c(2, 3))
 for(group in allgroups) {

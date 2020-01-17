@@ -1,7 +1,7 @@
 \encoding{UTF-8}
 \name{pdat_}
 \alias{pdat_}
-\alias{pdat_CRC}
+\alias{pdat_colorectal}
 \alias{pdat_pancreatic}
 \alias{pdat_hypoxia}
 \alias{pdat_osmotic}
@@ -18,7 +18,7 @@
 }
 
 \usage{
-  pdat_CRC(dataset = 2020, basis = "rQEC")
+  pdat_colorectal(dataset = 2020, basis = "rQEC")
   pdat_pancreatic(dataset = 2020, basis = "rQEC")
   pdat_breast(dataset = 2020, basis = "rQEC")
   pdat_lung(dataset = 2020, basis = "rQEC")
@@ -39,7 +39,7 @@
 \details{
 The \code{pdat_} functions calculate chemical compositional metrics (using \code{\link{protcomp}}) for relatively up- and down-expressed proteins reported in proteomic experiments.
 
-Use \code{pdat_CRC}, \code{pdat_pancreatic}, \code{pdat_breast}, \code{pdat_lung}, and \code{pdat_prostate} to retrieve data for protein expression in different cancer types, \code{pdat_hypoxia} for data on hypoxia or 3D culture, and \code{pdat_osmotic} for data on hyperosmotic stress.
+Use \code{pdat_colorectal}, \code{pdat_pancreatic}, \code{pdat_breast}, \code{pdat_lung}, and \code{pdat_prostate} to retrieve data for protein expression in different cancer types, \code{pdat_hypoxia} for data on hypoxia or 3D culture, and \code{pdat_osmotic} for data on hyperosmotic stress.
 \code{pdat_3D} retrieves data for 3D vs 2D cell culture (including tumor spheroids) and \code{pdat_secreted} retrieves data for secreted proteins (including exosomes) in hypoxia.
 \code{pdat_multi} has data from studies that include multiple conditions (e.g. cellular and secreted proteins in hypoxia), and is called by the corresponding functions (\code{pdat_hypoxia}, \code{pdat_secreted}).
 The functions get relative expression data from the CSV files stored in \code{extdata/expression/}, with subdirectories corresponding to the names of the functions.
@@ -68,9 +68,9 @@ Dick, J. M., Tan, J. and Yu, M. (2019) Geochemistry of metagenomes: Redox and sa
 \examples{
 library(CHNOSZ)
 # list datasets in 2017 complilation for colorectal cancer
-pdat_CRC(2017)
+pdat_colorectal(2017)
 # process one dataset
-pdat_CRC("JKMF10")
+pdat_colorectal("JKMF10")
 }
 
 \concept{Protein expression}

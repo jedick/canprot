@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.4-44 (2020-01-03)
+CHANGES IN canprot 0.1.4-54 (2020-01-17)
 ----------------------------------------
 
 - Change license from GPL-3 to MIT.
@@ -11,11 +11,13 @@ CHANGES IN canprot 0.1.4-44 (2020-01-03)
 - Remove remove_entries(). Its functionality has been replaced by
   cleanup(), which should be used after check_IDs().
 
+- Naming consistency: rename pdat_CRC() to pdat_colorectal().
+
 - Because of the more standardized workflow using check_IDs() and
   cleanup() (especially, detection of duplicates in cleanup() after ID
   updates in check_ID()), there are minor differences in results for
   some datasets compared to Dick (2017). The known changes are: ZYS+10
-  in pdat_CRC(), and HXS+06, BMJ+11, CBW+11, RKP+14 in pdat_hypoxia().
+  in pdat_colorectal(), and HXS+06, BMJ+11, CBW+11, RKP+14 in pdat_hypoxia().
 
 - Change default to basis = "rQEC" in protcomp() and get_pdat().
 
@@ -35,7 +37,8 @@ CHANGES IN canprot 0.1.4-44 (2020-01-03)
   stoichiometric coefficient of O2 and H2O in amino acid biosynthetic
   reactions.
 
-- Remove get_pdat(). It is better to use e.g. get(pdat_CRC)().
+- Remove get_pdat(). It is just as easy to use e.g.
+  get("pdat_colorectal")().
 
 - Add 'oldstyle' argument to get_comptab() to compute CLES and p-values.
 

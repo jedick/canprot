@@ -37,7 +37,7 @@ Set \code{plot.it} to FALSE to skip the plotting and instead return a list conta
 
 \examples{
 library(CHNOSZ)
-pdat <- pdat_CRC("JKMF10")
+pdat <- pdat_colorectal("JKMF10")
 rankplot(pdat, res=25)
 rankplot(pdat, res=25, what="affinity")
 }

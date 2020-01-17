@@ -67,7 +67,7 @@ Otherwise, no line is drawn.
 \examples{
 library(CHNOSZ)
 comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
-  pdat <- pdat_CRC(dataset)
+  pdat <- pdat_colorectal(dataset)
   get_comptab(pdat, oldstyle = TRUE)
 })
 diffplot(comptab, oldstyle = TRUE)

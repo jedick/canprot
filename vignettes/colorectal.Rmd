@@ -45,11 +45,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_CRC(2020)
+datasets <- pdat_colorectal(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_CRC)
+pdat1 <- lapply_canprot(datasets, pdat_colorectal)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")

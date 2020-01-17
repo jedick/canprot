@@ -37,13 +37,13 @@ library(CHNOSZ)
 Identify the datasets for protein expression.
 
 ```{r datasets}
-datasets <- pdat_CRC(2017)
+datasets <- pdat_colorectal(2017)
 ```
 
-Get the amino acid compositions of the up- and down-expressed proteins (`pdat_CRC`) and make comparisons of indicators of oxidation and hydration state (`get_comptab`).
+Get the amino acid compositions of the up- and down-expressed proteins (`pdat_colorectal`) and make comparisons of indicators of oxidation and hydration state (`get_comptab`).
 
 ```{r comptab, message=FALSE}
-pdat <- lapply_canprot(datasets, pdat_CRC, basis = "QEC")
+pdat <- lapply_canprot(datasets, pdat_colorectal, basis = "QEC")
 comptab <- lapply(pdat, get_comptab, plot.it = FALSE, mfun = "mean", oldstyle = TRUE)
 ```
 
@@ -137,7 +137,7 @@ Set up the diagram and make the plots.
 par(mfrow=c(3, 3))
 par(xaxs="i", yaxs="i", las=1, mar=c(4, 4, 2, 2), mgp=c(2.6, 1, 0), cex=1)
 for(i in seq_along(datasets)) {
-  pdat <- pdat_CRC(datasets[i], basis="QEC4")
+  pdat <- pdat_colorectal(datasets[i], basis="QEC4")
   rankplot(pdat, res=50)
   CHNOSZ::label.figure(LETTERS[i], paren=FALSE, font=2, yfrac=0.94)
 }
