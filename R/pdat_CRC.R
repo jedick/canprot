@@ -3,7 +3,7 @@
 # 20160703 jmd
 # 20161011 updated with new data [LXM+16]; add =AD tag (adenoma as n2)
 # 20170904 add =NT tag (normal tissue as n1)
-# 20190318-20191228 updates for 2020 compilation
+# 20190318-20200117 updates for 2020 compilation
 
 pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
   # list available datasets in 2020 compilation
@@ -19,7 +19,7 @@ pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
              "LXM+16", "PHL+16_CIS", "PHL+16_ICC",
              "CTW+17", "HZW+17", "LLL+17", "NKG+17", "QMB+17", "TMS+17", "ZLY+17",
              "AKG+18",
-             "WYL+19"
+             "STA+19_CC.NM", "STA+19_CC.M", "WYL+19"
              ))
   }
   # list available datasets in 2017 compilation
@@ -325,6 +325,17 @@ pdat_CRC <- function(dataset = 2020, basis = "rQEC") {
     description <- "tumor-associated / normal vascular endothelial cells"
     dat <- check_IDs(dat, "Accession")
     up2 <- dat$Ratio.T.N. > 1
+    pcomp <- protcomp(dat$Accession, basis)
+  } else if(study=="STA+19") {
+    # 20200117 colorectal cancer, Saleem et al., 2019
+    # STA+19_NAP, STA+19_CC.NM, STA+19_CC.M
+    dat <- read.csv(paste0(datadir, "STA+19.csv.xz"), as.is=TRUE)
+    if(stage == "NAP") description <- "non-cancer non-adenomatous polyp"
+    if(stage == "CC.NM") description <- "non-metastatic colon cancer, T/N"
+    if(stage == "CC.M") description <- "metastatic colon cancer, T/N"
+    icol <- match(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    up2 <- dat[, icol] > 0
     pcomp <- protcomp(dat$Accession, basis)
   } else stop(paste("CRC dataset", dataset, "not available"))
   print(paste0("pdat_CRC: ", description, " [", dataset, "]"))

@@ -111,6 +111,7 @@ __y__. Table S2 of @QMB+17, filtered to include comparisons between adenocarcino
 __z__. Table S1 of @TMS+17, filtered to include proteins that are consistently up- or down-expressed in at least 11 of 12 patients.
 __A__. IPI accession numbers from Table S2 of @ZLY+17.
 __B__. Supplementary Table 1B of @AKG+18, filtered to include proteins with expression ratio > 3/2 or < 2/3.
-__C__. Supplementary Information Table S2 of @WYL+19
+__C__. __D__. Supplementary Table S2 of @STA+19, filtered to include proteins with log~2~ ratio > ± the standard deviation of values for all quantified proteins.
+__E__. Supplementary Information Table S2 of @WYL+19.
 
 ## References
