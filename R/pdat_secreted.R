@@ -9,10 +9,10 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
              "KCW+13=transcriptome=cancer", "SKA+13", "SRS+13a_3", "SRS+13a_8",
              "LRS+14_Hy",
              "YKK+14_soluble=cancer", "YKK+14_exosome=cancer",
-             "CRS+15_wt=cancer", "CRS+15_BT=cancer",
+             "CRS+15_wt=cancer", "CRS+15_BT=cancer", "RTA+15=cancer",
              "RSE+16",
              "CGH+17_exosomes", "CGH+17_secretome",
-             "CLY+18_secretome=cancer", "DWW+18=cancer", "FPR+18",
+             "CLY+18_secretome=cancer", "DWW+18=cancer", "FPR+18", "ODS+18",
              "KAN+19_secretome=cancer", "NJVS19_CAM=cancer", "NJVS19_NTM", "PDT+19=cancer"))
   }
   # remove tags
@@ -167,6 +167,28 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[abs(dat$log2FC) > 0.2, ]
     up2 <- dat$log2FC > 0.2
     pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="RTA+15") {
+    # 20200117 LNCaP and PC3 cells, Ramteke et al., 2015
+    dat <- read.csv(paste0(datadir, "RTA+15.csv.xz"), as.is=TRUE)
+    description <- "LNCaP and PC3 prostate cancer cell exosomes"
+    # remove proteins identified in both normoxic and hypoxic conditions
+    dat <- dat[!(dat$Normoxic & dat$Hypoxic), ]
+    up2 <- dat$Hypoxic & !dat$Normoxic
+    pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="ODS+18") {
+    # 20200117 AC10 ventricular cardiomyocyte extracellular vesicles, Ontoria-Oviedo et al., 2018
+    dat <- read.csv(paste0(datadir, "ODS+18.csv.xz"), as.is=TRUE)
+    description <- "AC10 ventricular cardiomyocyte extracellular vesicles"
+    dat$Accession <- sapply(strsplit(dat$Accession, "\\|"), "[", 2)
+    # remove proteins identified in both hypoxia and normoxia
+    hyp <- dat$Accession[dat$Identified.in == "hypoxia"]
+    nor <- dat$Accession[dat$Identified.in == "normoxia"]
+    both <- intersect(hyp, nor)
+    dat <- dat[!dat$Accession %in% both, ]
+    dat <- check_IDs(dat, "Accession")
+    up2 <- dat$Identified.in == "hypoxia"
+    dat <- cleanup(dat, "Accession", up2)
+    pcomp <- protcomp(dat$Accession, basis=basis)
   } else stop(paste("secreted dataset", dataset, "not available"))
   print(paste0("pdat_secreted: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
