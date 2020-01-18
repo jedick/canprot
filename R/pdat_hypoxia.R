@@ -20,7 +20,8 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
              "HWA+16=cancer", "LCS16_transcription=transcriptome=cancer", "LCS16_translation=cancer",
              "CGH+17_whole", "ZXS+17=cancer",
              "CLY+18_proteome", "GBH+18=cancer", "LKK+18", "WTG+18",
-             "CSK+19=cancer", "KAN+19_proteome=cancer"
+             "CSK+19=cancer", "KAN+19_proteome=cancer",
+             "BCMS20=cancer"
              ))
   }
   if(identical(dataset, 2017)) {
@@ -305,6 +306,13 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     dat <- read.csv(paste0(datadir, "MRL+05.csv.xz"), as.is = TRUE)
     description <- "pulmonary artery endothelial cells transcriptome"
     up2 <- dat$Hypoxia > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="BCMS20") {
+    # 20200118 MCF-7 breast cancer cells, Bush et al., 2020
+    dat <- read.csv(paste0(datadir, "BCMS20.csv.xz"), as.is = TRUE)
+    description <- "MCF-7 breast cancer cells"
+    up2 <- dat$log.ratio.M.L.. > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("hypoxia dataset", dataset, "not available"))

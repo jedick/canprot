@@ -24,3 +24,4 @@ LKK+18,"hUCB mesehnchymal stem cells",,44,62,0.0083,0.0345,-0.0574,-0.0107,65,0.
 WTG+18,"adipose-derived mesehnchymal stem cells",,163,57,0.009,-0.0266,0.002,-0.0099,49,1.9262,0.7565
 CSK+19,"HeLa cervical cancer cells",cancer,36,45,0.0037,9e-04,0.0179,0.016,6,1.2381,0.5222
 KAN+19_proteome,"cancer-associated fibroblasts proteome",cancer,221,124,0.0198,-0.0045,0.0269,-0.0139,113.5,1.3514,0.5447
+BCMS20,"MCF-7 breast cancer cells",cancer,153,161,0.019,-0.0287,0.0985,-0.0386,-192,0.5253,0.2036

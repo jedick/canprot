@@ -111,6 +111,7 @@ __v__. Gene names from Figure 1F of @LKK+18.
 __w__. Supplemental file 1 of @WTG+18 (provided by Gordana Vunjak-Novakovic), filtered to include proteins with Normalized Ratio [Hypoxia MSC/Control MSC] ≥ 1.5 or ≤ 2/3 and _p_-value < 0.05.
 __x__. Gene names from Supplementary file S1 of @CSK+19 for the two replicates labelled as "input_Log2ratioHL_firstIP" and "input_Log2ratioLH_secondIP" (soluble extracts before immunoprecipitation), filtered to include proteins where Log2ratio is > 0.2 or < -0.2 for both replicates.
 __y__. Proteins identified as up- or down-regulated > 1 SD in Data File S1 of @KAN+19 (sheet "Proteome").
+__z__. Gene names from Supplementary Information Tables S6 and S7 of @BCMS20.
 
 ## Acknowledgements
 Thanks to Alex Greenhough, Ming-Chih Lai, and Gordana Vunjak-Novakovic for providing data files.
