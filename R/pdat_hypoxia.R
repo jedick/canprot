@@ -1,7 +1,7 @@
 # canprot/R/pdat_hypoxia.R
 # retrieve protein IDs for hypoxia data sets
 # 20160414 jmd first version
-# 20190322-20191226 assemble data for 2020 compilation
+# 20190322-20200118 assemble data for 2020 compilation
 # - exclude datasets with < 30 either up- or down-regulated proteins
 # - exclude ReOx datasets
 # - move secretome data to pdat_secreted.R
@@ -11,6 +11,7 @@
 pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
+             "MRL+05=transcriptome",
              "SBB+06=cancer",
              "BKS+09=transcriptome",
              "FWH+13", "RHD+13_Hx48=cancer", "RHD+13_Hx72=cancer", "VTMF13",
@@ -299,6 +300,13 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$AR > 1
     dat <- cleanup(dat, "PAN", up2)
     pcomp <- protcomp(dat$PAN, basis = basis, aa_file = paste0(extdatadir, "/aa/mouse/SBB+06_aa.csv.xz"))
+  } else if(study=="MRL+05") {
+    # 20200118 pulmonary artery endothelial cells, Manalo et al., 2005
+    dat <- read.csv(paste0(datadir, "MRL+05.csv.xz"), as.is = TRUE)
+    description <- "pulmonary artery endothelial cells transcriptome"
+    up2 <- dat$Hypoxia > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("hypoxia dataset", dataset, "not available"))
   print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
