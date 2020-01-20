@@ -1,6 +1,6 @@
-Date: 2020-01-18
+Date: 2020-01-20
 Package: canprot
-Version: 0.1.4-56
+Version: 0.1.4-57
 Title: Compositional Analysis of Differentially Expressed Proteins in Cancer and Cell Culture
 Author: Jeffrey Dick
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
@@ -19,7 +19,7 @@ Description: Compositional analysis of differentially expressed proteins in
   using data from Liebeskind et al. (2016) <doi:10.1093/gbe/evw113> or Trigos et
   al. (2017) <doi:10.1073/pnas.1617743114>. The vignettes show references and
   plots of differences of chemical composition and phylostrata for all datasets.
-License: MIT + file LICENCE
+License: GPL (>= 2)
 BuildResaveData: no
 VignetteBuilder: knitr
 URL: http://github.com/jedick/canprot

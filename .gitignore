@@ -2,4 +2,3 @@ vignettes/*.html
 vignettes/*.csv
 R/*.tmp
 inst/oldvignettes/*.html
-LICENCE
