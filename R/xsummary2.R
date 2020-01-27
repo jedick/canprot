@@ -7,23 +7,48 @@ xsummary2 <- function(comptab1, comptab2, comptab3, comptab4) {
   ct2 <- do.call(rbind, comptab2)
   ct3 <- do.call(rbind, comptab3)
   ct4 <- do.call(rbind, comptab4)
+  # get all data
+  # include medians or means for up and down groups for making summary .csv files 20200125
   out <- data.frame(
     dataset = ct1$dataset,
     description = ct2$description,
     n1 = ct1$n1,
     n2 = ct1$n2,
+
+    ZC.down = ct1$ZC.median1,
+    ZC.up = ct1$ZC.median2,
     ZC.diff = ct1$ZC.diff,
+
+    nH2O_rQEC.down = ct1$nH2O.median1,
+    nH2O_rQEC.up = ct1$nH2O.median2,
     nH2O_rQEC.diff = ct1$nH2O.diff,
+
+    nO2_biosynth.down = ct2$nO2.median1,
+    nO2_biosynth.up = ct2$nO2.median2,
     nO2_biosynth.diff = ct2$nO2.diff,
+
+    nH2O_biosynth.down = ct2$nH2O.median1,
+    nH2O_biosynth.up = ct2$nH2O.median2,
     nH2O_biosynth.diff = ct2$nH2O.diff,
+
+    nAA.down = ct3$nAA.median1,
+    nAA.up = ct3$nAA.median2,
     nAA.diff = ct3$nAA.diff,
+
+    PS_TPPG17.down = ct3$PS.mean1,
+    PS_TPPG17.up = ct3$PS.mean2,
     PS_TPPG17.diff = ct3$PS.diff,
+
+    PS_LMM16.down = ct4$PS.mean1,
+    PS_LMM16.up = ct4$PS.mean2,
     PS_LMM16.diff = ct4$PS.diff,
+
     stringsAsFactors = FALSE
   )
 
   # prepare table
-  x <- out
+  x <- out[, c("dataset", "description", "n1", "n2", "ZC.diff", "nH2O_rQEC.diff",
+               "nO2_biosynth.diff", "nH2O_biosynth.diff", "nAA.diff", "PS_TPPG17.diff", "PS_LMM16.diff")]
   # get the publication key from the dataset name
   publication <- sapply(strsplit(x$dataset, "_"), "[", 1)
   # format the publication key (monospaced font)

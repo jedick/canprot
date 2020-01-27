@@ -80,8 +80,8 @@ library(xtable)
 out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 # round values and include dataset tags
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
-out <- cbind(out[, 1:2], tags = tags, out[, 3:11])
-out[, 6:12] <- round(out[, 6:12], 4)
+out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
+out[, 6:26] <- round(out[, 6:26], 4)
 write.csv(out, "hyperosmotic.csv", row.names = FALSE, quote = 2)
 ```
 
