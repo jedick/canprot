@@ -1,6 +1,7 @@
 \encoding{UTF-8}
 \name{diffplot}
 \alias{diffplot}
+\alias{cplab}
 \title{Plot Compositional Differences}
 \description{
   Make a plot showing differences of selected compositional metrics.
@@ -45,6 +46,9 @@ The default value produces labels that are taken sequentially from 26 lowercase 
 
 For \code{labtext} = NULL, descriptive text (\dQuote{median difference} or \dQuote{mean difference}) is added to the axis labels in parentheses.
 This text can be changed by giving a value in \code{labtext}, or NA to suppress the text.
+
+\code{cplab} is a list of formatted labels used in \code{diffplot}.
+It is an exported object that can be used in other packages.
 
 }
 

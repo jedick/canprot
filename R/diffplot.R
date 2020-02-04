@@ -111,3 +111,32 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     text(X_d, Y_d, pt.text[seq_along(X_d)], col=col, cex=cex.text)
   }
 }
+
+# cplab moved from internal.R and exported 20200204
+# text for figure labels
+cplab <- list(
+  nH2O = expression(italic(n)[H[2]*O]),
+  DnH2O = expression(Delta*italic(n)[H[2]*O]),
+  nO2 = expression(italic(n)[O[2]]),
+  DnO2 = expression(Delta*italic(n)[O[2]]),
+  ZC = expression(italic(Z)[C]),
+  DZC = expression(Delta*italic(Z)[C]),
+  logfO2 = expression(log*italic("f")[O[2]*group("(", italic("g"), ")")]),
+  logaH2O = expression(log*italic("a")[H[2]*O*group("(", italic("liq"), ")")]),
+  nC = expression(italic(n)[C]),
+  nN = expression(italic(n)[N]),
+  nS = expression(italic(n)[S]),
+  DnC = expression(Delta*italic(n)[C]),
+  DnN = expression(Delta*italic(n)[N]),
+  DnS = expression(Delta*italic(n)[S]),
+  V0 = expression(list(italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1)),
+  DV0 = expression(list(Delta * italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1)),
+  nAA = expression(italic(n)[AA]),
+  DnAA = expression(Delta*italic(n)[AA]),
+  GRAVY = "GRAVY",
+  DGRAVY = expression(Delta*"GRAVY"),
+  pI = "pI",
+  DpI = expression(Delta*"pI"),
+  PS = "PS",
+  DPS = expression(Delta*"PS")
+)

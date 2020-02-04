@@ -10,7 +10,9 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20191226-20191230
 "pdat_multi", "pdat_secreted", "pdat_breast", "pdat_lung", "pdat_prostate", "pdat_3D",
 # 20200101
-"pdat_recomp", "xsummary2"
+"pdat_recomp", "xsummary2",
+# 20200204 used in JMDplots package
+"cplab"
 )
 
 # Imports from default packages
