@@ -3,7 +3,7 @@
 \alias{get_comptab}
 \title{Calculate Compositional Differences}
 \description{
-  Compare elemental abundances per residue and compositional oxidation and hydration state between groups of proteins.
+  Compute differences of carbon oxidation state, stoichiometric hydration state and other metrics between groups of up- and down-regulated proteins.
 }
 
 \usage{
@@ -22,8 +22,8 @@
 }
 
 \details{
-\code{get_comptab} can be used to summarize differences of compositional variables between down- and up-expressed proteins.
-The available compositional variables are:
+\code{get_comptab} can be used to summarize differences of compositional metrics between down- and up-regulated proteins.
+The available metrics are:
 \tabular{ll}{
   \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link{ZCAA}}) \cr
   \samp{nH2O} \tab stoichiometric hydration state (\nH2O; see \code{\link{H2OAA}}) \cr
