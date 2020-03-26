@@ -12,8 +12,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
              "HKX+14=cancer",
              "RKP+14=cancer", "WRK+14=cancer",
              "MTK+15=cancer",
-             "MDN+16=transcriptome", "SSPR16=transcriptome=cancer", "YLW+16=cancer",
-             "PPM+17=transcriptome=cancer",
+             "YLW+16=cancer",
              "KJK+18=cancer", "TGD18_NHF", "TGD18_CAF=cancer",
              "GADS19",
              "HLC19=cancer", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages"
@@ -138,27 +137,12 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "Accession.no.")
     up2 <- dat$Difference == "Up"
     pcomp <- protcomp(dat$Accession.no., basis)
-  } else if(study=="PPM+17") {
-    # 20191207 HEY cell transcriptome, Paullin et al., 2017
-    dat <- read.csv(paste0(datadir, "PPM+17.csv.xz"), as.is = TRUE)
-    description <- "HEY epithelial ovarian cancer transcriptome"
-    dat <- check_IDs(dat, "Entry")
-    up2 <- dat$Fold.change > 0
-    dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis)
   } else if(study=="YYW+13") {
     # 20191207 HNSCC tumor spheres, Yan et al., 2013
     dat <- read.csv(paste0(datadir, "YYW+13.csv.xz"), as.is = TRUE)
     description <- "HNSCC tumor spheres"
     up2 <- dat$fold.change > 1
     pcomp <- protcomp(dat$Protein.ID, basis)
-  } else if(study=="SSPR16") {
-    # 20191226 HNSCC spheroids gene expression, Schmidt et al., 2016
-    dat <- read.csv(paste0(datadir, "SSPR16.csv.xz"), as.is = TRUE)
-    description <- "HNSCC spheroids transcriptome"
-    up2 <- dat$logFC > 0
-    dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis)
   } else if(study=="GADS19") {
     # 20191230 skin fibroblasts 3D/2D with various treatments, Gęgotek et al., 2019
     dat <- read.csv(paste0(datadir, "GADS19.csv.xz"), as.is = TRUE)
@@ -183,14 +167,6 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "Protein.IDs")
     pcomp <- protcomp(dat$Protein.IDs, basis)
     up2 <- dat[, iup] == "yes"
-  } else if(study=="MDN+16") {
-    # 20200115 placental syncytiotrophoblast JEG-3 cells transcriptome, McConkey et al., 2016
-    dat <- read.csv(paste0(datadir, "MDN+16.csv.xz"), as.is = TRUE)
-    description <- "placental syncytiotrophoblast JEG-3 cells transcriptome"
-    dat <- check_IDs(dat, "Entry")
-    up2 <- dat$log2FoldChange > 0
-    dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("3D dataset", dataset, "not available"))
   print(paste0("pdat_3D: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407

@@ -58,7 +58,6 @@ comptab4 <- lapply(pdat1, get_comptab, "nAA", "PS", PS_source = "LMM16")
 ```
 
 Dashed contour lines in the plots outline the 50% credible region for highest probability density.
-Triangle symbols indicate transcriptomic datasets; all others are protein expression.
 
 ```{r diffplot, fig.width=8, fig.height=8, fig.align = "center", echo = FALSE, pngquant = pngquant}
 par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
@@ -97,14 +96,11 @@ __i__. Table S1 of @HKX+14.
 __j__. Table S2 of @RKP+14, filtered to include proteins that have differences in spectral counts recorded in at least two of three experiments, absolute overall fold change is ≥ 1.5 or ≤ 2/3, and _p_-value is < 0.05.
 __k__. P1&lowbar;Data sheet in the Supporting Information file of @WRK+14.
 __l__. Supplemental Table S1 of @MTK+15, filtered to exclude marked contaminants and reverse sequences and to include proteins with "Ratio H/L normalized" > 1.5 or < 2/3.
-__m__. Supplemental Dataset 2 of @MDN+16, filtered to include genes with log~2~ fold change > 1 or < -1 and _p_-value < 0.05.
-__n__. Gene names from Table II of @SSPR16.
-__o__. Tables S1a and S1b of @YLW+16.
-__p__. Supporting Information S2 Table of @PPM+17, filtered to include transcripts with "fold change (3D treatment, 2D control)" > 2 or < -2 and "Adjusted p-Value for Diff of Treatment = (2D) - (3D)" < 0.05.
-__q__. Tables S2 and S3 of @KJK+18.
-__r__. __s__. Supplementary Table 3 of @TGD18. 
-__t__. Extracted from Supplementary Table 1 of @GADS19. Values were quantile normalized, then ratios were calculated between 3D and 2D cultures for each treatment (control, CBD, UVA, UVA+CBD, UVB, UVB+CBD). Ratios > 1.2 or < 1/1.2 in at least 4 treatments were used to identify differentially expressed proteins.
-__u__. Supplementary Data I, sheet "Volcano plot 2Dv3D" of @HLC19.
-__v__. __w__. __x__. Supporting Table 1 of @LPK+19, sheets "3P2P" (mono-cultured preadipocytes), "3A2A" (mono-cultured adipocytes), "3C2C" (co-cultured adipocytes with macrophages), filtered to include proteins marked as "T-test Significant" and with absolute value of "N: T-test Difference" > log~2~(0.5).
+__m__. Tables S1a and S1b of @YLW+16.
+__n__. Tables S2 and S3 of @KJK+18.
+__o__. __p__. Supplementary Table 3 of @TGD18. 
+__q__. Extracted from Supplementary Table 1 of @GADS19. Values were quantile normalized, then ratios were calculated between 3D and 2D cultures for each treatment (control, CBD, UVA, UVA+CBD, UVB, UVB+CBD). Ratios > 1.2 or < 1/1.2 in at least 4 treatments were used to identify differentially expressed proteins.
+__r__. Supplementary Data I, sheet "Volcano plot 2Dv3D" of @HLC19.
+__s__. __t__. __u__. Supporting Table 1 of @LPK+19, sheets "3P2P" (mono-cultured preadipocytes), "3A2A" (mono-cultured adipocytes), "3C2C" (co-cultured adipocytes with macrophages), filtered to include proteins marked as "T-test Significant" and with absolute value of "N: T-test Difference" > log~2~(0.5).
 
 ## References

@@ -8,7 +8,6 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c("LHE+04",
              "CYD+05", "CGB+05",
-             "CLC+06=transcriptome",
              "CTZ+09",
              "MLC+11", "PCS+11_PDAC", "TMW+11",
              "KBK+12",
@@ -266,14 +265,6 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
     dat <- read.csv(paste0(datadir, "ZAH+19.csv.xz"), as.is=TRUE)
     description <- "cancer / normal"
     up2 <- dat$Regulation == "Up"
-    pcomp <- protcomp(dat$Entry, basis=basis)
-  } else if(study=="CLC+06") {
-    # 20191206 tumors / islets gene expression, Capurso et al., 2006
-    dat <- read.csv(paste0(datadir, "CLC+06.csv.xz"), as.is=TRUE)
-    description <- "tumors / islets gene expression"
-    dat <- check_IDs(dat, "Entry")
-    up2 <- dat$Tstat > 0
-    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="CHO+18") {
     # 20191206 tumor / adjacent normal, Coleman et al., 2018

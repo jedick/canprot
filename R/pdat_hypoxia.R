@@ -11,13 +11,12 @@
 pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
-             "MRL+05=transcriptome",
              "SBB+06=cancer",
-             "BKS+09=transcriptome",
              "FWH+13", "RHD+13_Hx48=cancer", "RHD+13_Hx72=cancer", "VTMF13",
-             "DCH+14=cancer", "DYL+14_Hx48-S=cancer", "DYL+14_Hx72-S=cancer", "DYL+14_Hx48-P=cancer", "DYL+14_Hx72-P=cancer", "OHS+14=transcriptome=cancer",
+             "DCH+14=cancer", "DYL+14_Hx48-S=cancer", "DYL+14_Hx72-S=cancer", "DYL+14_Hx48-P=cancer", "DYL+14_Hx72-P=cancer",
              "BSA+15=cancer",
-             "HWA+16=cancer", "LCS16_transcription=transcriptome=cancer", "LCS16_translation=cancer",
+             "HWA+16=cancer", #"LCS16_transcription=transcriptome=cancer", 
+             "LCS16_translation=cancer",
              "CGH+17_whole", "ZXS+17=cancer",
              "CLY+18_proteome", "GBH+18=cancer", "LKK+18", "WTG+18",
              "CSK+19=cancer", "KAN+19_proteome=cancer",
@@ -263,25 +262,6 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Regulation == "up"
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
-  } else if(study=="OHS+14") {
-    # 20191203 cancer cell lines (gene expression), Olbryt et al., 2014
-    dat <- read.csv(paste0(datadir, "OHS+14.csv.xz"), as.is=TRUE)
-    description <- "cancer cell lines transcriptome"
-    # keep genes with same expression change in all three cell lines
-    isame <- abs(colSums(apply(dat[, 4:6] - 1, 1, sign)))==3
-    dat <- dat[isame, ]
-    up2 <- dat[, 4] > 1
-    dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis)
-  } else if(study=="BKS+09") {
-    # 20191203 multiple cell datasets (gene expression), Benita et al., 2009
-    dat <- read.csv(paste0(datadir, "BKS+09.csv.xz"), as.is=TRUE)
-    description <- "multiple cell datasets transcriptome"
-    # keep genes with consistent expression ratio in at least 2 cell types
-    dat <- dat[dat$num.of.cells.in.which.gene.responds.to.hypoxia > 1 & dat$consistent.response.in.hypoxia == "Yes", ]
-    up2 <- dat$Average.fold.change.in.hypoxia > 0
-    dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="CSK+19") {
     # 20191204 HeLa cells, Chachami et al., 2019
     dat <- read.csv(paste0(datadir, "CSK+19.csv.xz"), as.is=TRUE)
@@ -301,13 +281,6 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$AR > 1
     dat <- cleanup(dat, "PAN", up2)
     pcomp <- protcomp(dat$PAN, basis = basis, aa_file = paste0(extdatadir, "/aa/mouse/SBB+06_aa.csv.xz"))
-  } else if(study=="MRL+05") {
-    # 20200118 pulmonary artery endothelial cells, Manalo et al., 2005
-    dat <- read.csv(paste0(datadir, "MRL+05.csv.xz"), as.is = TRUE)
-    description <- "pulmonary artery endothelial cells transcriptome"
-    up2 <- dat$Hypoxia > 0
-    dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis)
   } else if(study=="BCMS20") {
     # 20200118 MCF-7 breast cancer cells, Bush et al., 2020
     dat <- read.csv(paste0(datadir, "BCMS20.csv.xz"), as.is = TRUE)

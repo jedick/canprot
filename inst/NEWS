@@ -1,5 +1,13 @@
+CHANGES IN canprot 0.1.5-2 (2020-03-26)
+---------------------------------------
+
+- Remove transcriptomic datasets from 2020 compilation.
+
 CHANGES IN canprot 0.1.5 (2020-02-20)
 -------------------------------------
+
+- This version was not released on CRAN. The package is archived on
+  Zenodo (https://doi.org/10.5281/zenodo.3676560).
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
   function now uses a data frame for input and output.
@@ -60,6 +68,9 @@ CHANGES IN canprot 0.1.5 (2020-02-20)
 
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------
+
+- This version was not released on CRAN. The package is archived on
+  Zenodo (https://doi.org/10.5281/zenodo.3544986).
 
 - Updated plot style in diffplot() shows contours from kernel density
   estimate and eliminates drop lines for 'significant' differences. Use

@@ -29,7 +29,7 @@ library(canprot)
 ```
 
 ```{r pdat, message=FALSE}
-datasets <- pdat_osmotic()
+datasets <- pdat_osmotic(2017)
 pdat <- lapply_canprot(datasets, pdat_osmotic, basis = "QEC")
 ```
 

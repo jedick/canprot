@@ -24,7 +24,7 @@
   pdat_lung(dataset = 2020, basis = "rQEC")
   pdat_prostate(dataset = 2020, basis = "rQEC")
   pdat_hypoxia(dataset = 2020, basis = "rQEC")
-  pdat_osmotic(dataset = 2017, basis = "rQEC")
+  pdat_osmotic(dataset = 2020, basis = "rQEC")
   pdat_osmotic2(dataset = 2020, basis = "rQEC")
   pdat_secreted(dataset = 2020, basis = "rQEC")
   pdat_3D(dataset = 2020, basis = "rQEC")

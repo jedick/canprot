@@ -12,11 +12,11 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
              "GTM+12_IDC.benign", "GTM+12_IDC",
              "LLL+13=basal", "SRS+13_DCIS", "SRS+13_IC",
              "GSB+14", "PPH+14",
-             "CVJ+15=basal", "FKZ+15_A=luminalA=transcriptome", "FKZ+15_B=luminalB=transcriptome", "FKZ+15_TN=basal=transcriptome",
+             "CVJ+15=basal",
              "PGT+16_ES", "PGT+16_LS", "PBR+16_tumor",
              "BST+17_epithelium",
              "TZD+18_all", "TZD+18_basal",
-             "GCS+19_PTxNCT", "GCS+19_PTxANT", "LLC+19", "MBP+19=transcriptome"
+             "GCS+19_PTxNCT", "GCS+19_PTxANT", "LLC+19"
              ))
   }
   # remove tags
@@ -192,22 +192,6 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Cancer_Peptides > 0
     dat <- cleanup(dat, "ID", up2)
     pcomp <- protcomp(dat$ID, basis=basis)
-  } else if(study=="FKZ+15") {
-    # 20170829 gene expression luminal A, luminal B, triple negative / normal, Fu et al., 2015
-    # FKZ+15_A, FKZ+15_B, FKZ+15_TN
-    dat <- read.csv(paste0(datadir, "FKZ+15.csv.xz"), as.is=TRUE)
-    if(stage=="A") { description <- "luminal A / normal transcriptome"; icol <- grep("luminalA", colnames(dat)) }
-    if(stage=="B") { description <- "luminal B / normal transcriptome"; icol <- grep("luminalB", colnames(dat)) }
-    if(stage=="TN") { description <- "triple negative / normal transcriptome"; icol <- grep("TN", colnames(dat)) }
-    # use indicated subtype
-    dat <- dat[!is.na(dat[, icol]), ]
-    # remove "-1" isoform suffixes
-    dat$Entry <- gsub("-1$", "", dat$Entry)
-    dat <- check_IDs(dat, "Entry")
-    up2 <- dat[, icol] > 0
-    dat <- cleanup(dat, "Entry", up2)
-    # isoform suffixes (other than -1) listed here in uniprot_updates correspond to canonical sequence (so use plain IDs)
-    pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="LLC+19") {
     # 20190318 tumor / adjacent normal, Liu et al., 2019
     dat <- read.csv(paste0(datadir, "LLC+19.csv.xz"), as.is=TRUE)
@@ -237,14 +221,6 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
-  } else if(study=="MBP+19") {
-    # 20191228 breast cancer transcriptome, Malvia et al., 2019
-    dat <- read.csv(paste0(datadir, "MBP+19.csv.xz"), as.is=TRUE)
-    description <- "tumor / normal transcriptome"
-    dat <- check_IDs(dat, "Entry")
-    up2 <- dat$X.FC._Total.breast.tumours > 0
-    dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("breast dataset", dataset, "not available"))
   print(paste0("pdat_breast: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429

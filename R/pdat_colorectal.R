@@ -8,7 +8,7 @@
 pdat_colorectal <- function(dataset = 2020, basis = "rQEC") {
   # list available datasets in 2020 compilation
   if(identical(dataset, 2020)) { 
-    return(c("KPF+07=transcriptome",
+    return(c(
              "WTK+08",
              "XZC+10_I", "XZC+10_II", "ZYS+10",
              "BPV+11_stage.I", "BPV+11_stage.II", "BPV+11_stage.III", "BPV+11_stage.IV",
@@ -282,13 +282,6 @@ pdat_colorectal <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Ratio..cancer.normal. > 1
     dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis=basis)
-  } else if(study=="KPF+07") {
-    # 20150617 up- and down-regulated genes human colorectal cancer (Kaiser et al., 2007)
-    dat <- read.csv(paste0(datadir, "KPF+07.csv.xz"), as.is=TRUE)
-    description <- "T/N gene expression"
-    up2 <- dat$crc=="up"
-    dat <- cleanup(dat, "uniprot", up2)
-    pcomp <- protcomp(dat$uniprot, basis=basis)
   } else if(study=="TMS+17") {
     # 20191203 cancer / normal, Tu et al., 2017
     dat <- read.csv(paste0(datadir, "TMS+17.csv.xz"), as.is=TRUE)

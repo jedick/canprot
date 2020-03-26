@@ -58,7 +58,6 @@ comptab4 <- lapply(pdat1, get_comptab, "nAA", "PS", PS_source = "LMM16")
 ```
 
 Dashed contour lines in the plots outline the 50% credible region for highest probability density.
-Triangle symbols indicate transcriptomic datasets; all others are protein expression.
 
 ```{r diffplot, fig.width=8, fig.height=8, fig.align = "center", echo = FALSE, pngquant = pngquant}
 par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
@@ -91,25 +90,24 @@ Gene names or other identifiers were converted to UniProt accession numbers usin
 __a__. Tables 2 and 3 of @LHE+04.
 __b__. Tables 1 and 2 of @CYD+05.
 __c__. Table 2 of @CGB+05.
-__d__. Supplementary Table 1 of @CLC+06.
-__e__. Table 1 of @CTZ+09.
-__f__. IPI numbers from Supplementary Table S2 of @MLC+11.
-__g__. Supplementary Table 3 of @PCS+11.
-__h__. Extracted from the SI Table of @TMW+11.
-__i__. Supplementary Tables 2 and 3 of @KBK+12.
-__j__. SI Table S3 of @KHO+13, filtered to include proteins with an expression ratio >2 [or <0.5] in at least 5 of the 7 experiments and ratio >1 [or <1] in all experiments.
-__k__. Supplementary Table 2 of @KPC+13.
-__l__. __m__. Supplementary Tables S3 and S4 of @WLL+13a, including proteins with >3/2 or <2/3 fold change in at least 3 of 4 iTRAQ experiments for different pooled samples.
-__n__. Supplementary Tables 2 and 3 of @YKK+13 (data file provided by Youngsoo Kim).
-__o__. SI Table S5 of @ZNWL13.
-__p__. SI Table S5 of @ISI+14, filtered to exclude proteins marked as "not passed", i.e. having inconsistent regulation.
-__q__. Table S6, Sheet 2 of @BZQ+14.
-__r__. Table 1 of @MZH+14.
-__s__. Table S6 of @BHB+15.
-__t__. Supplementary Table of @KKC+16.
-__u__. Supplementary Table S3 of @CHO+18.
-__v__. Table S1 of @SWW+18, filtered to exclude proteins with opposite expression changes in different patients.
-__w__. Gene names extracted from Figure 1b of @ZAH+19.
+__d__. Table 1 of @CTZ+09.
+__e__. IPI numbers from Supplementary Table S2 of @MLC+11.
+__f__. Supplementary Table 3 of @PCS+11.
+__g__. Extracted from the SI Table of @TMW+11.
+__h__. Supplementary Tables 2 and 3 of @KBK+12.
+__i__. SI Table S3 of @KHO+13, filtered to include proteins with an expression ratio >2 [or <0.5] in at least 5 of the 7 experiments and ratio >1 [or <1] in all experiments.
+__j__. Supplementary Table 2 of @KPC+13.
+__k__. __l__. Supplementary Tables S3 and S4 of @WLL+13a, including proteins with >3/2 or <2/3 fold change in at least 3 of 4 iTRAQ experiments for different pooled samples.
+__m__. Supplementary Tables 2 and 3 of @YKK+13 (data file provided by Youngsoo Kim).
+__n__. SI Table S5 of @ZNWL13.
+__o__. SI Table S5 of @ISI+14, filtered to exclude proteins marked as "not passed", i.e. having inconsistent regulation.
+__p__. Table S6, Sheet 2 of @BZQ+14.
+__q__. Table 1 of @MZH+14.
+__r__. Table S6 of @BHB+15.
+__s__. Supplementary Table of @KKC+16.
+__t__. Supplementary Table S3 of @CHO+18.
+__u__. Table S1 of @SWW+18, filtered to exclude proteins with opposite expression changes in different patients.
+__v__. Gene names extracted from Figure 1b of @ZAH+19.
 
 ## Acknowledgement
 Thanks to Youngsoo Kim for providing a data file.

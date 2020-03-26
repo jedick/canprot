@@ -7,7 +7,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     return(c(
              "GTR+08",
              "KPB+10_localized",
-             "HZH+12_Gene=transcriptome", "HZH+12_Protein",
+             "HZH+12_Protein",
              "JHZ+13",
              "LCS+14",
              "CZL+16", "IWT+16",

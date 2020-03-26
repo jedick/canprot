@@ -1,4 +1,4 @@
-"dataset","description","tags","n1","n2","ZC.down","ZC.up","ZC.diff","nH2O_rQEC.down","nH2O_rQEC.up","nH2O_rQEC.diff","nO2_biosynth.down","nO2_biosynth.up","nO2_biosynth.diff","nH2O_biosynth.down","nH2O_biosynth.up","nH2O_biosynth.diff","nAA.down","nAA.up","nAA.diff","PS_TPPG17.down","PS_TPPG17.up","PS_TPPG17.diff","PS_LMM1617.down","PS_LMM1617.up","PS_LMM16.diff"
+"dataset","description","tags","n1","n2","ZC.down","ZC.up","ZC.diff","nH2O_rQEC.down","nH2O_rQEC.up","nH2O_rQEC.diff","nO2_biosynth.down","nO2_biosynth.up","nO2_biosynth.diff","nH2O_biosynth.down","nH2O_biosynth.up","nH2O_biosynth.diff","nAA.down","nAA.up","nAA.diff","PS_TPPG17.down","PS_TPPG17.up","PS_TPPG17.diff","PS_LMM16.down","PS_LMM16.up","PS_LMM16.diff"
 PW08_2h,"S. cerevisiae VHG 2h",,38,44,-0.1561,-0.1603,-0.0041,0.081,0.0242,-0.0568,-1.7173,-1.7425,-0.0252,0.4283,0.3925,-0.0358,443,435,-8,NA,NA,NA,NA,NA,NA
 PW08_10h,"S. cerevisiae VHG 10h",,33,62,-0.1571,-0.1595,-0.0025,0.0506,0.0235,-0.0271,-1.7341,-1.7341,0,0.4407,0.4048,-0.0358,395,499.5,104.5,NA,NA,NA,NA,NA,NA
 PW08_12h,"S. cerevisiae VHG 12h",,18,65,-0.1679,-0.1604,0.0075,0.0587,0.0291,-0.0296,-1.7647,-1.7229,0.0418,0.4564,0.4053,-0.0511,405.5,481,75.5,NA,NA,NA,NA,NA,NA
@@ -17,8 +17,6 @@ GSC14_t30a,"S. cerevisiae t30a",,78,77,-0.1559,-0.1541,0.0018,0.0274,0.0032,-0.0
 GSC14_t30b,"S. cerevisiae t30b",,67,67,-0.1562,-0.1589,-0.0027,0.0284,0.011,-0.0174,-1.7191,-1.7161,0.003,0.394,0.4174,0.0234,444,395,-49,NA,NA,NA,NA,NA,NA
 GSC14_t30c,"S. cerevisiae t30c",,87,87,-0.1546,-0.16,-0.0054,0.0084,-0.0037,-0.0121,-1.7182,-1.7198,-0.0016,0.3857,0.419,0.0332,416,306,-110,NA,NA,NA,NA,NA,NA
 CLG+15,"IOBA-NHC",,25,38,-0.1494,-0.1534,-0.004,0.0256,0.0427,0.0171,-1.7071,-1.7552,-0.0481,0.3781,0.3739,-0.0042,548,438,-110,2.6667,2.6389,-0.0278,3.24,3.5526,0.3126
-KLB+15_trans-suc,"CAUCR succinate tr.",transcriptome,105,96,-0.1492,-0.1217,0.0275,0.0912,0.0301,-0.0611,-1.6717,-1.5393,0.1325,0.3333,0.2581,-0.0752,238,280.5,42.5,NA,NA,NA,NA,NA,NA
-KLB+15_trans-NaCl,"CAUCR NaCl tr.",transcriptome,209,142,-0.136,-0.1265,0.0095,0.0699,0.0294,-0.0405,-1.6585,-1.5616,0.0969,0.3245,0.2536,-0.0709,249,240.5,-8.5,NA,NA,NA,NA,NA,NA
 KLB+15_prot-suc,"CAUCR succinate pr.",,33,33,-0.1529,-0.1325,0.0204,0.0996,0.0443,-0.0553,-1.6717,-1.5499,0.1218,0.3929,0.2868,-0.1061,463,473,10,NA,NA,NA,NA,NA,NA
 KLB+15_prot-NaCl,"CAUCR NaCl pr.",,33,27,-0.1439,-0.1246,0.0193,0.0914,0.06,-0.0314,-1.6659,-1.5499,0.1161,0.3785,0.2896,-0.0889,481,479,-2,NA,NA,NA,NA,NA,NA
 LDB+15_all,"CHO all",,294,205,-0.1208,-0.1438,-0.0231,0.0305,0.0145,-0.0161,-1.6439,-1.7023,-0.0584,0.2962,0.3287,0.0326,434,390,-44,NA,NA,NA,NA,NA,NA

@@ -2,8 +2,9 @@
 # retrieve protein IDs for hyperosmotic experiments
 # 20160926 jmd
 
-pdat_osmotic <- function(dataset = 2017, basis = "rQEC") {
-  if(identical(dataset, 2017)) {
+pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
+  # the only difference between 2017 and 2020 is the removal of transcriptomic datasets from KLB+15 20200326
+  if(identical(dataset, 2020)) {
     return(c(
              "PW08_2h", "PW08_10h", "PW08_12h",
              "WCM+09",
@@ -13,7 +14,22 @@ pdat_osmotic <- function(dataset = 2017, basis = "rQEC") {
              "CCCC13_25mM", "CCCC13_100mM", "TSZ+13",
              "GSC14_t30a", "GSC14_t30b", "GSC14_t30c",
              "CLG+15",
-             "KLB+15_trans-suc=transcriptome", "KLB+15_trans-NaCl=transcriptome", "KLB+15_prot-suc", "KLB+15_prot-NaCl",
+             "KLB+15_prot-suc", "KLB+15_prot-NaCl",
+             "LDB+15_all", "LDB+15_high", "YDZ+15",
+             "RBP+16"
+             ))
+  }
+  if(identical(dataset, 2017)) {
+    return(c(
+             "PW08_2h", "PW08_10h", "PW08_12h",
+             "WCM+09",
+             "OBBH11=ASC",
+             "CCC+12_25mM", "CCC+12_100mM",
+             "KKG+12_25C_aw0.985", "KKG+12_14C_aw0.985", "KKG+12_25C_aw0.967", "KKG+12_14C_aw0.967",
+             "CCCC13_25mM", "CCCC13_100mM", "TSZ+13",
+             "GSC14_t30a", "GSC14_t30b", "GSC14_t30c",
+             "CLG+15", "KLB+15_trans-suc=transcriptome", "KLB+15_trans-NaCl=transcriptome", 
+             "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "LDB+15_all", "LDB+15_high", "YDZ+15",
              "RBP+16"
              ))

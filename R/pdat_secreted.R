@@ -6,7 +6,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c("BRA+10", "PTD+10_Hx48=cancer", "PTD+10_Hx72=cancer",
              "JVC+12",
-             "KCW+13=transcriptome=cancer", "SKA+13", "SRS+13a_3", "SRS+13a_8",
+             "SKA+13", "SRS+13a_3", "SRS+13a_8",
              "LRS+14_Hy",
              "YKK+14_soluble=cancer", "YKK+14_exosome=cancer",
              "CRS+15_wt=cancer", "CRS+15_BT=cancer", "RTA+15=cancer",
@@ -105,13 +105,6 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
     # keep highly differential proteins
     dat <- dat[abs(dat$Hypoxia.median) > 0.2, ]
     up2 <- dat$Hypoxia.median > 0
-    pcomp <- protcomp(dat$Entry, basis=basis)
-  } else if(study=="KCW+13") {
-    # 20191206 glioma cells, gene expression, Kucharzewska et al., 2013
-    dat <- read.csv(paste0(datadir, "KCW+13.csv.xz"), as.is=TRUE)
-    description <- "glioma cells transcriptome"
-    up2 <- dat$Fold.change > 1
-    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="SKA+13") {
     # 20191207 cytotrophoblast-derived exosomes, Salomon et al., 2013

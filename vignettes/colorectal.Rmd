@@ -58,7 +58,6 @@ comptab4 <- lapply(pdat1, get_comptab, "nAA", "PS", PS_source = "LMM16")
 ```
 
 Dashed contour lines in the plots outline the 50% credible region for highest probability density.
-Triangle symbols indicate transcriptomic datasets; all others are protein expression.
 
 ```{r diffplot, fig.width=8, fig.height=8, fig.align = "center", echo = FALSE, pngquant = pngquant}
 par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
@@ -88,30 +87,29 @@ write.csv(out, "colorectal.csv", row.names = FALSE, quote = 2)
 ## Data Sources
 Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>, except for IPI accession numbers, which were converted using the <a href="https://david-d.ncifcrf.gov/conversion.jsp">DAVID 6.7 conversion tool</a>.
 
-__a__. Genes identified as up- or down-expressed in human CRC in Table 4 of @KPF+07.
-__b__. Table 1 and Supplementary Data 1 of @WTK+08 (Swiss-Prot and UniProt accession numbers from Supplementary Data 2).
-__c__. __d__. IPI accession numbers from Supplemental Table 4 of @XZC+10.
-__e__. IPI accession numbers from Supplemental Table 4 of @ZYS+10.
-__f__. __g__. __h__. __i__. Gene names from supplemental Table 9 of @BPV+11.
-__j__. Supplementary Table 2 of @JCF+11.
-__k__. Table S8 of @MRK+11.
-__l__. Supplementary Table 1 of @SHHS11.
-__m__. Gene names from Supplementary Table 4 of @KYK+12, filtered to include proteins with expression ratio > 2 or < 0.5 in both mTRAQ and cICAT analyses.
-__n__. Supplementary Table 4 of @WOD+12.
-__o__. Table 2 of @CZD+14.
-__p__. Ensembl protein IDs from Supporting Table 2 of @STK+15.
-__q__. Proteins marked as having a significant change between normal tissue (N) and adenocarcinoma (C) in SI Table 3 of @WDO+15.
-__r__. SI Table S3 of @LXM+16, filtered to include proteins with _p_-value < 0.05.
-__s__. __t__. Gene names from Supplementary Table 4 of @PHL+16, for differential expression between normal colonic mucosa (NC) and carcinoma in situ (CIS) or invasive colorectal cancer (ICC).
-__u__. Table S3 of @CTW+17.
-__v__. Dataset 6A of @HZW+17.
-__w__. Supplementary Material Table S1 of @LLL+17.
-__x__. Table 2 of @NKG+17.
-__y__. Table S2 of @QMB+17, filtered to include comparisons between adenocarcinoma and diverticular disease.
-__z__. Table S1 of @TMS+17, filtered to include proteins that are consistently up- or down-expressed in at least 11 of 12 patients.
-__A__. IPI accession numbers from Table S2 of @ZLY+17.
-__B__. Supplementary Table 1B of @AKG+18, filtered to include proteins with expression ratio > 3/2 or < 2/3.
-__C__. __D__. Supplementary Table S2 of @STA+19, filtered to include proteins with log~2~ ratio > ± the standard deviation of values for all quantified proteins.
-__E__. Supplementary Information Table S2 of @WYL+19.
+__a__. Table 1 and Supplementary Data 1 of @WTK+08 (Swiss-Prot and UniProt accession numbers from Supplementary Data 2).
+__b__. __c__. IPI accession numbers from Supplemental Table 4 of @XZC+10.
+__d__. IPI accession numbers from Supplemental Table 4 of @ZYS+10.
+__e__. __f__. __g__. __h__. Gene names from supplemental Table 9 of @BPV+11.
+__i__. Supplementary Table 2 of @JCF+11.
+__j__. Table S8 of @MRK+11.
+__k__. Supplementary Table 1 of @SHHS11.
+__l__. Gene names from Supplementary Table 4 of @KYK+12, filtered to include proteins with expression ratio > 2 or < 0.5 in both mTRAQ and cICAT analyses.
+__m__. Supplementary Table 4 of @WOD+12.
+__n__. Table 2 of @CZD+14.
+__o__. Ensembl protein IDs from Supporting Table 2 of @STK+15.
+__p__. Proteins marked as having a significant change between normal tissue (N) and adenocarcinoma (C) in SI Table 3 of @WDO+15.
+__q__. SI Table S3 of @LXM+16, filtered to include proteins with _p_-value < 0.05.
+__r__. __s__. Gene names from Supplementary Table 4 of @PHL+16, for differential expression between normal colonic mucosa (NC) and carcinoma in situ (CIS) or invasive colorectal cancer (ICC).
+__t__. Table S3 of @CTW+17.
+__u__. Dataset 6A of @HZW+17.
+__v__. Supplementary Material Table S1 of @LLL+17.
+__w__. Table 2 of @NKG+17.
+__x__. Table S2 of @QMB+17, filtered to include comparisons between adenocarcinoma and diverticular disease.
+__y__. Table S1 of @TMS+17, filtered to include proteins that are consistently up- or down-expressed in at least 11 of 12 patients.
+__z__. IPI accession numbers from Table S2 of @ZLY+17.
+__A__. Supplementary Table 1B of @AKG+18, filtered to include proteins with expression ratio > 3/2 or < 2/3.
+__B__. __C__. Supplementary Table S2 of @STA+19, filtered to include proteins with log~2~ ratio > ± the standard deviation of values for all quantified proteins.
+__D__. Supplementary Information Table S2 of @WYL+19.
 
 ## References

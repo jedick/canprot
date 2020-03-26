@@ -10,12 +10,11 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
              "ZZY+13",
              "LLY+14", "LWT+14", "ZLH+14", "ZLS+14",
              "KNT+15",
-             "BLL+16_gene=transcriptome", "BLL+16_protein", "FGP+16", "JCP+16",
+             "BLL+16_protein", "FGP+16", "JCP+16",
              "HHH+16_pN0", "HHH+16_pN1", "HHH+16_pN2.M1", "TLB+16",
              "FGW+17", "LZW+17", "SFS+17_LF", "WLC+17",
              "YCC+17_SqCC.Oncogene", "YCC+17_SqCC.TSG", "YCC+17_SqCC.Glycoprotein",
-             "YCC+17_ADC.Oncogene", "YCC+17_ADC.TSG", "YCC+17_ADC.Glycoprotein",
-             "NLW+18=transcriptome"
+             "YCC+17_ADC.Oncogene", "YCC+17_ADC.TSG", "YCC+17_ADC.Glycoprotein"
              ))
   }
   # remove tags
@@ -170,12 +169,6 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "Entry")
     up2 <- dat$log.2..fold.change > 0
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis)
-  } else if(study=="NLW+18") {
-    # 20191228 bioinformatics transcriptome, Ni et al., 2018
-    dat <- read.csv(paste0(datadir, "NLW+18.csv.xz"), as.is=TRUE)
-    description <- "NSCLC bioinformatics transcriptome"
-    up2 <- dat$logFC > 0
     pcomp <- protcomp(dat$Entry, basis)
   } else if(study=="KNT+15") {
     # 20191228 FFPE lepidic predominant invasive adenocarcinoma / pseudo-Normal, Kato et al., 2015
