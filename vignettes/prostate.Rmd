@@ -44,7 +44,7 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_prostate()
+datasets <- pdat_prostate(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}

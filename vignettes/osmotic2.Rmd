@@ -44,7 +44,7 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_osmotic2()
+datasets <- pdat_osmotic2(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}

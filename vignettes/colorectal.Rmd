@@ -110,7 +110,7 @@ __y__. Table S1 of @TMS+17, filtered to include proteins that are consistently u
 __z__. IPI accession numbers from Table S2 of @ZLY+17.
 __A__. Supplementary Table 1B of @AKG+18, filtered to include proteins with expression ratio > 3/2 or < 2/3.
 __B__. __C__. Supplementary Table S2 of @STA+19, filtered to include proteins with log~2~ ratio > ± the standard deviation of values for all quantified proteins.
-__D__. Online data from @VHW+19 ([Human__CPTAC_COAD__PNNL__Proteome__TMT__03_01_2017__BCM__Gene__Tumor_Normal_log2FC.cct](http://linkedomics.org/cptac-colon)), filtered to include proteins with median log~2~ ratio > 1 or < -1.
+__D__. [Online data](http://linkedomics.org/cptac-colon) from @VHW+19 (file: Human__CPTAC_COAD__PNNL__Proteome__TMT__03_01_2017__BCM__Gene__Tumor_Normal_log2FC.cct), filtered to include proteins with median log~2~ ratio > 1 or < -1.
 __E__. Supplementary Information Table S2 of @WYL+19.
 
 ## References

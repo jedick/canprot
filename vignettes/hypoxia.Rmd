@@ -45,7 +45,7 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_hypoxia()
+datasets <- pdat_hypoxia(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
