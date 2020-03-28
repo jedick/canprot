@@ -19,7 +19,7 @@ pdat_colorectal <- function(dataset = 2020, basis = "rQEC") {
              "LXM+16", "PHL+16_CIS", "PHL+16_ICC",
              "CTW+17", "HZW+17", "LLL+17", "NKG+17", "QMB+17", "TMS+17", "ZLY+17",
              "AKG+18",
-             "STA+19_CC.NM", "STA+19_CC.M", "WYL+19"
+             "STA+19_CC.NM", "STA+19_CC.M", "VHW+19", "WYL+19"
              ))
   }
   # list available datasets in 2017 compilation
@@ -330,6 +330,13 @@ pdat_colorectal <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 0
     pcomp <- protcomp(dat$Accession, basis)
+  } else if(study=="VHW+19") {
+    # 20200328 colorectal cancer, Vasaikar et al., 2019
+    dat <- read.csv(paste0(datadir, "VHW+19.csv.xz"), as.is=TRUE)
+    description <- "tumor / normal adjacent tissue"
+    dat <- dat[abs(dat$median_log2FC) > 1, ]
+    up2 <- dat$median_log2FC > 1
+    pcomp <- protcomp(dat$Entry, basis = basis)
   } else stop(paste("colorectal dataset", dataset, "not available"))
   print(paste0("pdat_colorectal: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429
