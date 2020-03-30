@@ -105,5 +105,6 @@ __m__. __n__. __o__. __p__. __q__. Supporting Information Table S3 of @KRN+19 (G
 __r__. __s__. Tables S4d (GS = 6) and S4f (GS ≥ 8 or GS = 6) of @MMF+19 (GS: Gleason Score).
 __t__. Supplementary Table S3a of @TOT+19.
 __u__. __v__. Table S5 of @ZYW+19 (LG: low-grade PCa; HG: high-grade PCa).
+__w__. Table S2, Sheet D:S3-SWATH_protein_matrix of @SHC+20, filtered to include proteins quantified in at least 50% of both tumor and normal samples and with median fold change > 2 or < 0.5.
 
 ## References

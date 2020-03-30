@@ -13,7 +13,8 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
              "CZL+16", "IWT+16",
              "GLZ+18_acinar", "GLZ+18_ductal", "LAJ+18_PC", "LAJ+18_CRPC", "MAN+18",
              "KRN+19_G1", "KRN+19_G2", "KRN+19_G3", "KRN+19_G4", "KRN+19_G5",
-             "MMF+19_GS6", "MMF+19", "TOT+19", "ZYW+19_LG", "ZYW+19_HG"
+             "MMF+19_GS6", "MMF+19", "TOT+19", "ZYW+19_LG", "ZYW+19_HG",
+             "SHC+20"
              ))
   }
   # remove tags
@@ -147,6 +148,15 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[dat[, icol] > 1.5 | dat[, icol] < 2/3, ]
     up2 <- dat[, icol] > 1.5
     pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="SHC+20") {
+    # 20200329 prostate cancer, Sun et al., 2020
+    dat <- read.csv(paste0(datadir, "SHC+20.csv.xz"), as.is=TRUE)
+    description <- "FFPE PCa / BPH"
+    # keep proteins that have more than 2-fold change
+    dat <- dat[abs(dat$logFC) > log10(2), ]
+    up2 <- dat$logFC > 0
+    dat <- check_IDs(dat, "UniprotID")
+    pcomp <- protcomp(dat$UniprotID, basis = basis)
   } else stop(paste("prostate dataset", dataset, "not available"))
   print(paste0("pdat_prostate: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429
