@@ -27,7 +27,7 @@ Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
   * <i>n</i><sub>AA</sub> &ndash; protein length
-  * <i>n</i><sub>down</sub> &ndash; number of down-expressed proteins; <i>n</i><sub>up</sub> &ndash; number of up-expressed proteins.
+  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
 
 Stoichiometric values are calculated using basis species (rQEC method; Dick et al., 2020) or amino acid biosynthetic reactions.
 
@@ -57,6 +57,7 @@ comptab4 <- lapply(pdat1, get_comptab, "nAA", "PS", PS_source = "LMM16")
 ```
 
 Dashed contour lines in the plots outline the 50% credible region for highest probability density.
+Triangle symbols indicate transcriptomic datasets; all others are protein expression.
 
 ```{r diffplot, fig.width=8, fig.height=4, fig.align = "center", echo = FALSE, pngquant = pngquant}
 par(mfrow = c(1, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))

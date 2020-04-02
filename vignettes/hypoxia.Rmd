@@ -27,7 +27,7 @@ Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
   * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
-  * <i>n</i><sub>down</sub> &ndash; number of down-expressed proteins; <i>n</i><sub>up</sub> &ndash; number of up-expressed proteins.
+  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
 
 Stoichiometric values are derived from basis species using the rQEC method (Dick et al., 2020) or from amino acid biosynthetic reactions.
 References for gene ages: [Trigos et al. (2017)](https://doi.org/10.1073/pnas.1617743114) (TPPG17); [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) (LMM16).
@@ -64,14 +64,13 @@ Abbreviations:
 
 ```{r diffplot, fig.width=8, fig.height=8, fig.align = "center", echo = FALSE, pngquant = pngquant}
 par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
-pch <- ifelse(grepl("transcript", datasets), 2, 1)
-diffplot(comptab1, pch = pch)
+diffplot(comptab1)
 title(quote("rQEC"~italic(n)[H[2]*O]), font.main = 1)
-diffplot(comptab2, c("nO2", "nH2O"), pch = pch)
+diffplot(comptab2, c("nO2", "nH2O"))
 title(quote("Biosynthetic"~italic(n)[H[2]*O]~"and"~italic(n)[O[2]]), font.main = 1)
-diffplot(comptab3, c("nAA", "PS"), pch = pch)
+diffplot(comptab3, c("nAA", "PS"))
 title("Trigos et al. (2017) ages", font.main = 1)
-diffplot(comptab4, c("nAA", "PS"), pch = pch)
+diffplot(comptab4, c("nAA", "PS"))
 title("Liebeskind et al. (2016) ages", font.main = 1)
 ```
 
