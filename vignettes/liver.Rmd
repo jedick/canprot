@@ -1,0 +1,112 @@
+---
+title: "Liver Cancer"
+output:
+  html_vignette:
+    mathjax: null
+vignette: >
+  %\VignetteIndexEntry{Liver Cancer}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: cpdat.bib
+csl: peerj.csl
+---
+
+```{r setup, include=FALSE}
+library(canprot)
+library(CHNOSZ)
+library(knitr)
+## use pngquant to reduce size of PNG images
+knit_hooks$set(pngquant = hook_pngquant)
+pngquant <- "--speed=1 --quality=0-25"
+# in case pngquant isn't available (R-Forge?)
+if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
+```
+
+This vignette shows compositional metrics and phylostrata for proteins that are differentially expressed in liver cancer compared to normal tissue.
+Abbreviations:
+
+  * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
+  * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
+  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
+
+Stoichiometric values are calculated using basis species (rQEC method; Dick et al., 2020) or amino acid biosynthetic reactions.
+References for gene ages: [Trigos et al. (2017)](https://doi.org/10.1073/pnas.1617743114) (TPPG17); [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) (LMM16).
+
+```{r options, echo=FALSE}
+options(width = 90)
+```
+
+<style type="text/css">
+body {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+```{r datasets}
+datasets <- pdat_liver(2020)
+```
+
+```{r comptab, results="hide", message=FALSE, echo = FALSE}
+pdat1 <- lapply_canprot(datasets, pdat_liver)
+comptab1 <- lapply(pdat1, get_comptab)
+pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
+comptab2 <- lapply(pdat2, get_comptab, "nO2")
+comptab3 <- lapply(pdat1, get_comptab, "nAA", "PS")
+comptab4 <- lapply(pdat1, get_comptab, "nAA", "PS", PS_source = "LMM16")
+```
+
+Dashed contour lines in the plots outline the 50% credible region for highest probability density.
+
+```{r diffplot, fig.width=8, fig.height=8, fig.align = "center", echo = FALSE, pngquant = pngquant}
+par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
+diffplot(comptab1)
+title(quote("rQEC"~italic(n)[H[2]*O]), font.main = 1)
+diffplot(comptab2, c("nO2", "nH2O"))
+title(quote("Biosynthetic"~italic(n)[H[2]*O]~"and"~italic(n)[O[2]]), font.main = 1)
+diffplot(comptab3, c("nAA", "PS"))
+title("Trigos et al. (2017) ages", font.main = 1)
+diffplot(comptab4, c("nAA", "PS"))
+title("Liebeskind et al. (2016) ages", font.main = 1)
+```
+
+In the table, values of &Delta;<i>Z</i><sub>C</sub>, &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> and &Delta;<i>n</i><sub>O<sub>2</sub></sub> are multiplied by 1000, values of &Delta;PS are multiplied by 100, and negative values are shown in bold.
+
+```{r xsummary, results="asis", echo = FALSE}
+library(xtable)
+out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
+# round values and include dataset tags
+tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
+out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
+out[, 6:26] <- round(out[, 6:26], 4)
+write.csv(out, "liver.csv", row.names = FALSE, quote = 2)
+```
+
+## Data Sources
+Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>, except for IPI accession numbers, which were converted using the <a href="https://david-d.ncifcrf.gov/conversion.jsp">DAVID 6.7 conversion tool</a>.
+
+__a__. Table III of @LHT+04.
+__b__. Tables 2 and 3 of @BLP+05.
+__c__. Table 2 of @LTZ+05.
+__d__. Supplemental Table S1 of @SXS+07.
+__e__. Tables 1--3 of @CHN+08.
+__f__. __g__. IPI numbers from Supplemental Tables S3 (nuclear proteins) and S4 (cytoskeletal proteins) of @LMG+11, filtered to include proteins with median fold-change > 2 or < 0.5.
+__h__. Supplemental Table 5 of @LRL+12.
+__i__. Supplementary Table 3 of @KOK+13.
+__j__. Table III (Supplemental Data S5) of @MBK+13.
+__k__. Supporting Information SI-S2 of @XWS+14.
+__l__. Supplementary Table S1 of @RPM+15, filtered to include proteins with > 1 peptide used for quantification and fold change > 2 in either direction.
+__m__. __n__. __o__. Supplementary Data Table S2 of @NBM+16 (sheets "G1 vs C", "G2 vs C", and "G3 vs C"), filtered to include proteins with _p_-value < 0.05, quantified in at least half of both tumor and control samples, and median log~2~ fold change > 1 or < -1.
+__p__. Supporting Information Table S-4 (sheet "Filtered protein list") of @NMB+16.
+__q__. __r__. __s__. Supplementary Tables S3--S5 of @QXC+16.
+__t__. Table 4 of @GJZ+17.
+__u__. Supplementary Table S5 of @GWS+17.
+__v__. Supplementary Table 5 of @QPP+17, filtered to include proteins with median fold change > 2 or < 0.5 (UniProt IDs from Supplementary Table 1).
+__w__. __x__. __y__. __z__. Supplementary Table S3 of @WLL+17, filtered to include proteins with _p_-value < 0.05 and fold change > 2 or < 0.5.
+__A__. Supplemental Table S2 of @BOK+18 (data for tumor vs. peritumor), filtered to include proteins with _q_-value < 0.05, quantified in at least 3 tumors, same direction of change in all tumors, and median log~2~ fold change > 1 or < -1.
+__B__. __C__. Supplemental Table S3 of @GZD+19 (sheets "1. 1,274 DF proteins" and "2. 859 DF phosphoproteins"), filtered to include proteins with log~2~ fold change > 1 or < -1.
+__D__. Supplementary Table 6 of @JSZ+19.
+__E__. Supporting Information Table S5 of @ZZL+19 (sheet "c_proteins"), filtered to include proteins quantified in at least half of tumor and normal samples and with fold change > 2 or < 0.5. 
+
+## References
