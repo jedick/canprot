@@ -31,8 +31,9 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
     # 20160417 Megger et al., 2013
     dat <- read.csv(paste0(datadir, "MBK+13.csv.xz"), as.is=TRUE)
     description <- "T/N"
-    up2 <- dat$Regulated == "up"
-    pcomp <- protcomp(dat$Entry, basis=basis)
+    up2 <- dat$Highest.mean.condition == "HCC"
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
   } else if(study=="CHN+08") {
     # 20160419 Chaerkady et al., 2008
     dat <- read.csv(paste0(datadir, "CHN+08.csv.xz"), as.is=TRUE)
