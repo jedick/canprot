@@ -20,7 +20,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
              "CGH+17_whole", "ZXS+17=cancer",
              "CLY+18_proteome", "GBH+18=cancer", "LKK+18", "WTG+18",
              "CSK+19=cancer", "KAN+19_proteome=cancer",
-             "BCMS20=cancer"
+             "BCMS20=cancer", "RVN+20_DMSO=cancer"
              ))
   }
   if(identical(dataset, 2017)) {
@@ -288,6 +288,23 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$log.ratio.M.L.. > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="RVN+20") {
+    # 20200403 prostate cancer cell hypoxia with different drug treatments and radiation, Ross et al., 2020
+    # RVN+20_DMSO, RVN+20_NO.sul, RVN+20_sul, RVN+20_DMSO.4Gy, RVN+20_NO.sul.4Gy, RVN+20_sul.4Gy
+    dat <- read.csv(paste0(datadir, "RVN+20.csv.xz"), as.is = TRUE)
+    description <- paste("PC-3 prostate cancer cells in", stage)
+    # use data for this treatment
+    icol <- grep(paste0("^", stage, "_"), colnames(dat))
+    dat <- dat[, c(1, 2, icol)]
+    # calculate fold change and keep differential proteins
+    ihypoxic <- grep("hypoxic", colnames(dat))
+    inormoxic <- grep("normoxic", colnames(dat))
+    FC <- dat[, ihypoxic] / dat[, inormoxic]
+    dat <- cbind(dat, FC = FC)
+    dat <- dat[!is.na(dat$FC), ]
+    dat <- dat[dat$FC > 3/2 | dat$FC < 2/3, ]
+    up2 <- dat$FC > 3/2
+    pcomp <- protcomp(dat$UniProt, basis)
   } else stop(paste("hypoxia dataset", dataset, "not available"))
   print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
