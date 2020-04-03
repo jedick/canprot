@@ -29,7 +29,7 @@ Abbreviations:
   * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
   * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
 
-Stoichiometric values are calculated using basis species (rQEC method; Dick et al., 2020) or amino acid biosynthetic reactions.
+Stoichiometric values are calculated using basis species (rQEC derivation; [Dick et al., 2020](https://doi.org/10.1101/2020.04.01.020008)) or amino acid biosynthetic reactions.
 References for gene ages: [Trigos et al. (2017)](https://doi.org/10.1073/pnas.1617743114) (TPPG17); [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) (LMM16).
 
 ```{r options, echo=FALSE}

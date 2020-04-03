@@ -47,7 +47,7 @@ Use \code{pdat_colorectal}, \code{pdat_pancreatic}, \code{pdat_breast}, \code{pd
 The functions get relative expression data from the CSV files stored in \code{extdata/expression/}, with subdirectories corresponding to the names of the functions.
 Some of the functions also retrieve amino acid compositions from the files in \code{extdata/aa/} (for non-human proteins).
 
-\code{pdat_osmotic2} adds more data for osmotic stress experiments on bacteria and archaea, as described in Dick et al. (2019).
+\code{pdat_osmotic2} adds more data for osmotic stress experiments on bacteria and archaea, as described in Dick et al. (2020).
 
 If \code{dataset} is \code{NULL}, the function returns the names of all datasets in the compilation.
 If \code{dataset} is \samp{2017} or \samp{2017}, it indicates the year of the compilation.
@@ -64,7 +64,7 @@ A list consisting of \code{dataset} (the name of the dataset), \code{basis} (bas
 }
 
 \references{
-Dick, J. M., Tan, J. and Yu, M. (2019) Geochemistry of metagenomes: Redox and salinity gradients and the chemical compositions of proteins. \emph{(preprint)}
+Dick, J. M., Yu, M. and Tan, J. (2020) Distinct trends in chemical composition of proteins from metagenomes in redox and salinity gradients. \emph{bioRxiv}. \doi{10.1101/2020.04.01.020008}
 }
 
 \examples{

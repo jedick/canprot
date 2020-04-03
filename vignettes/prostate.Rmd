@@ -28,7 +28,7 @@ Abbreviations:
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
   * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
 
-Stoichiometric values are derived from basis species using the rQEC method (Dick et al., 2020) or from amino acid biosynthetic reactions.
+Stoichiometric values are calculated using basis species (rQEC derivation; [Dick et al., 2020](https://doi.org/10.1101/2020.04.01.020008)) or amino acid biosynthetic reactions.
 References for gene ages: [Trigos et al. (2017)](https://doi.org/10.1073/pnas.1617743114) (TPPG17); [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) (LMM16).
 
 ```{r options, echo=FALSE}
