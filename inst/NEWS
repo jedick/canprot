@@ -1,9 +1,10 @@
-CHANGES IN canprot 0.1.5-8 (2020-04-03)
----------------------------------------
+CHANGES IN canprot 0.1.5-10 (2020-04-04)
+----------------------------------------
 
 - Remove transcriptomic datasets from 2020 compilation.
 
-- More updates: colorectal/VHW+19, prostate/SHC+20, hypoxia/RVN+20.
+- More updates: colorectal/VHW+19, prostate/SHC+20, hypoxia/RVN+20,
+  prostate/KHN+20.
 
 - Add datasets for liver cancer.
 
