@@ -17,7 +17,7 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
              "NBM+16_G1", "NBM+16_G2", "NBM+16_G3", "NMB+16", "QXC+16_T1", "QXC+16_T2", "QXC+16_T3",
              "GJZ+17", "GWS+17", "QPP+17", "WLL+17_small", "WLL+17_medium", "WLL+17_large", "WLL+17_huge",
              "BOK+18",
-             "GZD+19_protein", "GZD+19_phosphoprotein", "JSZ+19", "ZZL+19"
+             "BEM+20", "GZD+19_protein", "GZD+19_phosphoprotein", "JSZ+19", "ZZL+19"
              ))
   }
   # remove tags
@@ -207,6 +207,13 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
     pcomp <- protcomp(dat$Protein.IDs, basis=basis)
+  } else if(study=="BEM+20") {
+    # 20200405 mouse liver cancer, Berndt et al., 2020
+    dat <- read.csv(paste0(datadir, "BEM+20.csv.xz"), as.is=TRUE)
+    description <- paste("T / N mouse")
+    dat <- check_IDs(dat, "majority.protein.ids", aa_file = paste0(extdatadir, "/aa/mouse/BEM+20_aa.csv.xz"))
+    up2 <- dat$fold.change > 2
+    pcomp <- protcomp(dat$majority.protein.ids, basis=basis, aa_file = paste0(extdatadir, "/aa/mouse/BEM+20_aa.csv.xz"))
   } else stop(paste("liver dataset", dataset, "not available"))
   print(paste0("pdat_liver: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
