@@ -107,7 +107,8 @@ __s__. Supplemental file 1 of @WTG+18 (provided by Gordana Vunjak-Novakovic), fi
 __t__. Gene names from Supplementary file S1 of @CSK+19 for the two replicates labelled as "input_Log2ratioHL_firstIP" and "input_Log2ratioLH_secondIP" (soluble extracts before immunoprecipitation), filtered to include proteins where Log2ratio is > 0.2 or < -0.2 for both replicates.
 __u__. Proteins identified as up- or down-regulated > 1 SD in Data File S1 of @KAN+19 (sheet "Proteome").
 __v__. Gene names from Supplementary Information Tables S6 and S7 of @BCMS20.
-__w__. Supplementary Table 1A of @RVN+20, filtered to include proteins with median fold change between normoxic and hypoxic conditions in any individual treatment > 1.5 or < 2/3.
+__w__. __x__. __y__. __z__. __A__. __B.__ Supplementary Table 1A of @RVN+20, filtered to include proteins with median fold change between normoxic and hypoxic conditions in any individual treatment > 1.5 or < 2/3. DMSO: dimethyl sulfoxide, NO.sul: NO-Sulindac, sul: Sulindac, 4Gy: radiation.
+__C__. __D__. Supplementary Tables S3b (sheet "HPNP") and S3c (sheet "HHNH") of @SPJ+20 for POS (primay origin) and HMPOS (metastatic origin) canine osteosarcoma (OS) cells.
 
 ## Acknowledgements
 Thanks to Alex Greenhough, Ming-Chih Lai, and Gordana Vunjak-Novakovic for providing data files.

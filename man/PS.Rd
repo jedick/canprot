@@ -1,7 +1,7 @@
 \encoding{UTF-8}
 \name{PS}
 \alias{PS}
-\title{Retrieve phylostrata for given UniProt IDs}
+\title{Retrieve Phylostrata for Given UniProt IDs}
 \description{
 This retrieves the phylostrata for protein-coding genes according to Liebeskind et al. (2016) or Trigos et al. (2017).
 }

@@ -20,7 +20,8 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
              "CGH+17_whole", "ZXS+17=cancer",
              "CLY+18_proteome", "GBH+18=cancer", "LKK+18", "WTG+18",
              "CSK+19=cancer", "KAN+19_proteome=cancer",
-             "BCMS20=cancer", "RVN+20_DMSO=cancer"
+             "BCMS20=cancer", "RVN+20_DMSO=cancer", "RVN+20_NO.sul", "RVN+20_sul", "RVN+20_DMSO.4Gy", "RVN+20_NO.sul.4Gy", "RVN+20_sul.4Gy",
+             "SPJ+20_POS=cancer", "SPJ+20_HMPOS=cancer"
              ))
   }
   if(identical(dataset, 2017)) {
@@ -305,6 +306,16 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[dat$FC > 3/2 | dat$FC < 2/3, ]
     up2 <- dat$FC > 3/2
     pcomp <- protcomp(dat$UniProt, basis)
+  } else if(study=="SPJ+20") {
+    # 20200405 canine OS cells, Song et al., 2020
+    # SPJ+20_POS, SPJ+20_HMPOS
+    dat <- read.csv(paste0(datadir, "SPJ+20.csv.xz"), as.is = TRUE)
+    description <- paste("canine", stage, "cells")
+    icol <- match(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- check_IDs(dat, "Accession", aa_file = paste0(extdatadir, "/aa/dog/SPJ+20_aa.csv.xz"))
+    up2 <- dat[, icol] > 0
+    pcomp <- protcomp(dat$Accession, basis=basis, aa_file = paste0(extdatadir, "/aa/dog/SPJ+20_aa.csv.xz"))
   } else stop(paste("hypoxia dataset", dataset, "not available"))
   print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
