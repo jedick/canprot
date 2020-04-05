@@ -210,7 +210,7 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="BEM+20") {
     # 20200405 mouse liver cancer, Berndt et al., 2020
     dat <- read.csv(paste0(datadir, "BEM+20.csv.xz"), as.is=TRUE)
-    description <- paste("T / N mouse")
+    description <- paste("T/N mouse")
     dat <- check_IDs(dat, "majority.protein.ids", aa_file = paste0(extdatadir, "/aa/mouse/BEM+20_aa.csv.xz"))
     up2 <- dat$fold.change > 2
     pcomp <- protcomp(dat$majority.protein.ids, basis=basis, aa_file = paste0(extdatadir, "/aa/mouse/BEM+20_aa.csv.xz"))

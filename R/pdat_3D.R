@@ -14,7 +14,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
              "MTK+15=cancer",
              "YLW+16=cancer",
              "KJK+18=cancer", "TGD18_NHF", "TGD18_CAF=cancer",
-             "GADS19",
+             "EWK+19=cancer", "GADS19",
              "HLC19=cancer", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages"
              ))
   }
@@ -167,6 +167,13 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "Protein.IDs")
     pcomp <- protcomp(dat$Protein.IDs, basis)
     up2 <- dat[, iup] == "yes"
+  } else if(study=="EWK+19") {
+    # 20200405 glioblastoma spheroids, Erhart et al., 2019
+    dat <- read.csv(paste0(datadir, "EWK+19.csv.xz"), as.is = TRUE)
+    description <- "glioblastoma spheroids"
+    dat <- check_IDs(dat, "Majority.protein.IDs")
+    up2 <- dat$fold.change > 2
+    pcomp <- protcomp(dat$Majority.protein.IDs, basis)
   } else stop(paste("3D dataset", dataset, "not available"))
   print(paste0("pdat_3D: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
