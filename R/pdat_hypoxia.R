@@ -15,11 +15,11 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
              "FWH+13", "RHD+13_Hx48=cancer", "RHD+13_Hx72=cancer", "VTMF13",
              "DCH+14=cancer", "DYL+14_Hx48-S=cancer", "DYL+14_Hx72-S=cancer", "DYL+14_Hx48-P=cancer", "DYL+14_Hx72-P=cancer",
              "BSA+15=cancer",
-             "HWA+16=cancer", #"LCS16_transcription=transcriptome=cancer", 
+             "HWA+16=cancer",
              "LCS16_translation=cancer",
              "CGH+17_whole", "ZXS+17=cancer",
              "CLY+18_proteome", "GBH+18=cancer", "LKK+18", "WTG+18",
-             "CSK+19=cancer", "KAN+19_proteome=cancer", "LLL+19",
+             "CSK+19=cancer", "GPT+19_Light.S=cancer", "GPT+19_Heavy.S=cancer", "KAN+19_proteome=cancer", "LLL+19",
              "BCMS20=cancer", "RVN+20_DMSO=cancer", "RVN+20_NO.sul", "RVN+20_sul", "RVN+20_DMSO.4Gy", "RVN+20_NO.sul.4Gy", "RVN+20_sul.4Gy",
              "SPJ+20_POS=cancer", "SPJ+20_HMPOS=cancer"
              ))
@@ -322,6 +322,21 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     description <- "human periodontal ligament cells"
     dat <- check_IDs(dat, "Accession")
     up2 <- up2 <- dat$FC > 1
+    pcomp <- protcomp(dat$Accession, basis)
+  } else if(study=="GPT+19") {
+    # 20200406 MIAPaCa-2 pancreatic cancer cells pulse/trace, Gupta et al., 2019
+    # GPT+19_Light.S, GPT+19_Heavy.S, GPT+19_Light.SF, GPT+19_Heavy.SF
+    dat <- read.csv(paste0(datadir, "GPT+19.csv.xz"), as.is = TRUE)
+    dtxt <- gsub(".SF", " serum-free", stage)
+    dtxt <- gsub(".S", " serum replete", dtxt)
+    description <- paste("MIAPaCa-2 pancreatic cancer cells pulse/trace", dtxt)
+    dat <- check_IDs(dat, "Accession")
+    # use indicated experiment
+    icol <- grep(paste0(stage, "$"), colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- dat[dat[, icol] > 2 | dat[, icol] < 0.5, ]
+    up2 <- dat[, icol] > 2
+    dat <- cleanup(dat, "Accession", up2)
     pcomp <- protcomp(dat$Accession, basis)
   } else stop(paste("hypoxia dataset", dataset, "not available"))
   print(paste0("pdat_hypoxia: ", description, " [", dataset, "]"))
