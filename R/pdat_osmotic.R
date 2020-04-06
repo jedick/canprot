@@ -8,7 +8,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     return(c(
              "PW08_2h", "PW08_10h", "PW08_12h",
              "WCM+09",
-             "OBBH11=ASC",
+             "LTH+11", "OBBH11=ASC",
              "CCC+12_25mM", "CCC+12_100mM",
              "KKG+12_25C_aw0.985", "KKG+12_14C_aw0.985", "KKG+12_25C_aw0.967", "KKG+12_14C_aw0.967",
              "CCCC13_25mM", "CCCC13_100mM", "TSZ+13",
@@ -194,6 +194,12 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$log2.ratio > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis = basis, aa_file = paste0(extdatadir, "/aa/fungus/JBG+18_aa.csv.xz"))
+  } else if(study=="LTH+11") {
+    # 20200406 Saccharomyces cerevisae 0.7 M NaCl, Lee et al., 2011
+    dat <- read.csv(paste0(datadir, "LTH+11.csv.xz"), as.is=TRUE)
+    description <- "S. cerevisae 0.7 M NaCl"
+    up2 <- dat$Regulation == "up"
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/fungus/LTH+11_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

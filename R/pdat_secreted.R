@@ -185,7 +185,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CWG+19") {
     # 20200405 U87-MG glioma cell secretome
     dat <- read.csv(paste0(datadir, "CWG+19.csv.xz"), as.is=TRUE)
-    description <- "U87-MG glioma cell secretome"
+    description <- "U87-MG glioma cell extracellular vesicles"
     # drop proteins that are identified in both hypoxia and normoxia
     dat <- dat[!(dat$hypoxia & dat$normoxia), ]
     dat <- check_IDs(dat, "Accession", aa_file=paste0(extdatadir, "/aa/human/CWG+19_aa.csv.xz"))
