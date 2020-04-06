@@ -18,7 +18,8 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "LDB+15_all", "LDB+15_high", "YDZ+15",
              "RBP+16",
              "KAK+17",
-             "JBG+18"
+             "JBG+18",
+             "MGF+19_10", "MGF+19_20"
              ))
   }
   if(identical(dataset, 2017)) {
@@ -187,6 +188,18 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Fold.Change > 1
     dat <- cleanup(dat, "Protein.IDs", up2)
     pcomp <- protcomp(dat$Protein.IDs, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KAK+17_aa.csv.xz"))
+  } else if(study=="MGF+19") {
+    # 20200216 Staphylococcus aureus 10 and 20% NaCl, Ming et al., 2019
+    # MGF+19_10, MGF+19_20
+    dat <- read.csv(paste0(datadir, "MGF+19.csv.xz"), as.is=TRUE)
+    description <- paste0("Staphylococcus aureus ", stage, "% NaCl")
+    icol <- grep(stage, colnames(dat))
+    # keep proteins with differential expression in the selected experiment
+    idiff <- dat[, icol] > 2 | dat[, icol] < 0.5
+    idiff[is.na(idiff)] <- FALSE
+    dat <- dat[idiff, ]
+    up2 <- dat[, icol] > 2
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file = paste0(extdatadir, "/aa/bacteria/MGF+19_aa.csv.xz"))
   } else if(study=="JBG+18") {
     # 20200406 Candida albicans 1 M NaCl, Jacobsen et al., 2018
     dat <- read.csv(paste0(datadir, "JBG+18.csv.xz"), as.is=TRUE)

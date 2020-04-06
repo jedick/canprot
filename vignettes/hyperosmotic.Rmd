@@ -101,5 +101,6 @@ __x__. 4.21 osmol/kg vs 3.17 osmol/kg osmotic pressure (NaCl treatment). Source:
 __y__. 0.1 M KCl (treatment) vs medium with no added KCl (control). Source: Suppl. Tables 2 and 3 of @RBP+16.
 __z__. Cells treated with or without 1.2% w/v bile salts. Source: Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
 __A__. Treatment with 1 M NaCl vs medium with no added NaCl. Source: Supplementary Tables 1 and 2 of @JBG+18.
+__B__. __C__. Treatment with 10% or 20% NaCl vs 0% NaCl. Source: Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
 
 ## References
