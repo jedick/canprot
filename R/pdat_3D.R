@@ -9,8 +9,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
              "MHG+12_P5=cancer", "MHG+12_P2=cancer",
              "MVC+12_perinecrotic=cancer", "MVC+12_necrotic=cancer",
              "YYW+13=cancer", "ZMH+13_Matr.12h", "ZMH+13_Matr.24h",
-             "HKX+14=cancer",
-             "RKP+14=cancer", "WRK+14=cancer",
+             "HKX+14=cancer", "KDS+14_hESC", "KDS+14_hiPSC", "KDS+14_hPSC", "RKP+14=cancer", "WRK+14=cancer",
              "MTK+15=cancer",
              "YLW+16=cancer",
              "KJK+18=cancer", "TGD18_NHF", "TGD18_CAF=cancer",
@@ -174,6 +173,19 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "Majority.protein.IDs")
     up2 <- dat$fold.change > 2
     pcomp <- protcomp(dat$Majority.protein.IDs, basis)
+  } else if(study=="KDS+14") {
+    # 20200406 embryonic, pluripotent, and induced pluropotent stem cells, Konze et al., 2014
+    # KDS+14_hESC, KDS+14_hiPSC, KDS+14_hPSC
+    dat <- read.csv(paste0(datadir, "KDS+14.csv.xz"), as.is = TRUE)
+    description <- paste(stage, "spheroids")
+    # use data for indicated cell type
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[rowSums(dat[, icol]) > 0, ]
+    dat <- check_IDs(dat, "Uniprot")
+    iup <- icol[grep("up", colnames(dat)[icol])]
+    up2 <- dat[, iup]
+    dat <- cleanup(dat, "Uniprot", up2)
+    pcomp <- protcomp(dat$Uniprot, basis = basis)
   } else stop(paste("3D dataset", dataset, "not available"))
   print(paste0("pdat_3D: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
