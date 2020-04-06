@@ -13,7 +13,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
              "RSE+16",
              "CGH+17_exosomes", "CGH+17_secretome",
              "CLY+18_secretome=cancer", "DWW+18=cancer", "FPR+18", "ODS+18",
-             "KAN+19_secretome=cancer", "NJVS19_CAM=cancer", "NJVS19_NTM", "PDT+19=cancer"))
+             "CWG+19=cancer", "KAN+19_secretome=cancer", "NJVS19_CAM=cancer", "NJVS19_NTM", "PDT+19=cancer"))
   }
   # remove tags
   dataset <- strsplit(dataset, "=")[[1]][1]
@@ -182,6 +182,15 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Identified.in == "hypoxia"
     dat <- cleanup(dat, "Accession", up2)
     pcomp <- protcomp(dat$Accession, basis=basis)
+  } else if(study=="CWG+19") {
+    # 20200405 U87‐MG glioma cell secretome
+    dat <- read.csv(paste0(datadir, "CWG+19.csv.xz"), as.is=TRUE)
+    description <- "U87‐MG glioma cell secretome"
+    # drop proteins that are identified in both hypoxia and normoxia
+    dat <- dat[!(dat$hypoxia & dat$normoxia), ]
+    dat <- check_IDs(dat, "Accession", aa_file=paste0(extdatadir, "/aa/human/CWG+19_aa.csv.xz"))
+    up2 <- dat$hypoxia
+    pcomp <- protcomp(dat$Accession, basis, aa_file = paste0(extdatadir, "/aa/human/CWG+19_aa.csv.xz"))
   } else stop(paste("secreted dataset", dataset, "not available"))
   print(paste0("pdat_secreted: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
