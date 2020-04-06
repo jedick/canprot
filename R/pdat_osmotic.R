@@ -16,7 +16,9 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "CLG+15",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "LDB+15_all", "LDB+15_high", "YDZ+15",
-             "RBP+16"
+             "RBP+16",
+             "KAK+17",
+             "JBG+18"
              ))
   }
   if(identical(dataset, 2017)) {
@@ -178,6 +180,20 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Fold.Change..FW.SW. > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="KAK+17") {
+    # 20191102 Lactobacillus fermentum NCDC 400 bile salt exposure, Kaur et al., 2017
+    dat <- read.csv(paste0(datadir, "KAK+17.csv.xz"), as.is=TRUE)
+    description <- "Lactobacillus fermentum bile salts"
+    up2 <- dat$Fold.Change > 1
+    dat <- cleanup(dat, "Protein.IDs", up2)
+    pcomp <- protcomp(dat$Protein.IDs, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KAK+17_aa.csv.xz"))
+  } else if(study=="JBG+18") {
+    # 20200406 Candida albicans 1 M NaCl, Jacobsen et al., 2018
+    dat <- read.csv(paste0(datadir, "JBG+18.csv.xz"), as.is=TRUE)
+    description <- "Candida albicans 1 M NaCl"
+    up2 <- dat$log2.ratio > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis = basis, aa_file = paste0(extdatadir, "/aa/fungus/JBG+18_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

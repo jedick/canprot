@@ -98,5 +98,7 @@ __s__. __t__. Overnight treatment with a final concentration of 40/50 mM NaCl or
 __u__. __v__. 15 g/L vs 5 g/L (control) glucose at days 0, 3, 6, and 9. The comparisons here use all proteins reported to have expression patterns in Cluster 1 (up) or Cluster 5 (down), or only the proteins with high expression differences (ratio ≤-0.2 or ≥0.2) at all time points. Source: SI Table S4 of @LDB+15.
 __w__. 4.21 osmol/kg vs 3.17 osmol/kg osmotic pressure (NaCl treatment). Source: Table 1 of @YDZ+15.
 __x__. 0.1 M KCl (treatment) vs medium with no added KCl (control). Source: Suppl. Tables 2 and 3 of @RBP+16.
+__y__. Cells treated with or without 1.2% w/v bile salts. Source: Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
+__z__. Treatment with 1 M NaCl vs medium with no added NaCl. Source: Supplementary Tables 1 and 2 of @JBG+18.
 
 ## References
