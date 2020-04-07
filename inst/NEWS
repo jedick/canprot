@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.1.5-23 (2020-04-07)
+CHANGES IN canprot 0.1.5-24 (2020-04-07)
 ----------------------------------------
 
 - Remove transcriptomic datasets from 2020 compilation.
@@ -6,7 +6,8 @@ CHANGES IN canprot 0.1.5-23 (2020-04-07)
 - New datasets: colorectal/VHW+19, prostate/SHC+20, hypoxia/RVN+20,
   prostate/KHN+20, hypoxia/SPJ+20, 3D/EWK+19, secreted/CWG+19,
   osmotic/JBG+18, osmotic/KAK+17, 3D/KDS+14, hypoxia/LLL+19,
-  osmotic/LTH+11, osmotic/MGF+19, hypoxia/GPT+19, osmotic/AST+20.
+  osmotic/LTH+11, osmotic/MGF+19, hypoxia/GPT+19, osmotic/AST+20,
+  osmotic/SMS+18.
 
 - Add datasets for liver cancer.
 

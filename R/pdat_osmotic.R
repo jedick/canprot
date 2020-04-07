@@ -18,7 +18,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "LDB+15_all=glucose", "YDZ+15=microbial",
              "RBP+16=microbial",
              "KAK+17=microbial",
-             "JBG+18=microbial",
+             "JBG+18=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
              "MGF+19_10=microbial", "MGF+19_20=microbial",
              "AST+20=microbial"
              ))
@@ -221,6 +221,18 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     description <- "Lactobacillus fermentum in bile salts"
     up2 <- dat$Folds.change > 1
     pcomp <- protcomp(dat$Protein.IDs, basis, aa_file = paste0(extdatadir, "/aa/bacteria/AST+20_aa.csv.xz"))
+  } else if(study=="SMS+18") {
+    # 20200407 mouse skin in low/high humidity, Seltmann et al., 2018
+    # SMS+18_wt, SMS+18_FGFR12.deficient
+    dat <- read.csv(paste0(datadir, "SMS+18.csv.xz"), as.is=TRUE)
+    description <- paste("epidermis of mice kept in low vs high humidity,", stage)
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[abs(dat[, icol]) > 0.5, ]
+    dat <- check_IDs(dat, "Accession", aa_file = paste0(extdatadir, "/aa/mouse/SMS+18_aa.csv.xz"))
+    # abundance ratios are given as high humidity / low humidity, make up-expressed be low
+    up2 <- dat[, icol] < 0
+    dat <- cleanup(dat, "Accession", up2)
+    pcomp <- protcomp(dat$Accession, basis, aa_file = paste0(extdatadir, "/aa/mouse/SMS+18_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
