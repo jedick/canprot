@@ -20,7 +20,8 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "KAK+17=microbial",
              "JBG+18=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
              "MGF+19_10=microbial", "MGF+19_20=microbial",
-             "AST+20=microbial"
+             "AST+20=microbial",
+             "MPR+20_3h.high.glucose=glucose", "MPR+20_12h.high.glucose=glucose", "MPR+20_3h.high.mannitol", "MPR+20_24h.high.mannitol"
              ))
   }
   if(identical(dataset, 2017)) {
@@ -233,6 +234,19 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, icol] < 0
     dat <- cleanup(dat, "Accession", up2)
     pcomp <- protcomp(dat$Accession, basis, aa_file = paste0(extdatadir, "/aa/mouse/SMS+18_aa.csv.xz"))
+  } else if(study=="MPR+20") {
+    # 20200407 human aortic endothelial cells, Madonna et al., 2020
+    # MPR+20_normal.glucose.insulin, MPR+20_3h.high.glucose, MPR+20_12h.high.glucose, MPR+20_3h.high.mannitol, MPR+20_24h.high.mannitol
+    dat <- read.csv(paste0(datadir, "MPR+20.csv.xz"), as.is=TRUE)
+    description <- paste("human aortic endothelial cells in", stage)
+    icol <- grep(stage, colnames(dat))
+    # control is normal.glucose.insulin or normal.glucose
+    icontrol <- match("normal.glucose.insulin", colnames(dat))
+    if(stage=="normal.glucose.insulin") icontrol <- match("normal.glucose", colnames(dat))
+    # keep proteins that are present in only one of control or treatment
+    dat <- dat[rowSums(dat[, c(icontrol, icol)])==1, ]
+    up2 <- dat[, icol]
+    pcomp <- protcomp(dat$UniProt, basis)
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

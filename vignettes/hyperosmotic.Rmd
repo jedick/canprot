@@ -103,5 +103,6 @@ __y__. Treatment with 1 M NaCl vs medium with no added NaCl. Source: Supplementa
 __z__. __A__. Epidermal lysate of mice kept at low vs high humidity. Source: Supplementary Table S1 of @SMS+18.
 __B__. __C__. Treatment with 10% or 20% NaCl vs 0% NaCl. Source: Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
 __D__. Treatment with or without bile salts (0.3%, 0.6%, 0.9%, 1.2%, 1.5% w/v). Source: Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
+__E__. __F__. __G__. __H__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
 
 ## References
