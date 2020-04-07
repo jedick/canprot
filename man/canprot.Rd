@@ -26,7 +26,7 @@ As an aid for processing datasets that include old (obsoleted) UniProt IDs, the 
 The \code{source} column in \code{uniprot_updates} gives the reference(s) for the datasets that use these IDs.
 Conversion of old to new IDs is performed with \code{\link{check_IDs}}.
 
-Amino acid compositions of non-human proteins are stored under \code{extdata/aa} (directories \code{archaea}, \code{bacteria}, \code{fungus}, \code{mouse}, \code{rat}).
+Amino acid compositions of non-human proteins are stored under \code{extdata/aa} (directories \code{archaea}, \code{bacteria}, \code{yeast}, \code{mouse}, \code{rat}).
 Datasets that use these proteins can be identified by the \code{aa_file} argument to \code{\link{protcomp}} in the various \code{\link{pdat_}} functions.
 }
 
