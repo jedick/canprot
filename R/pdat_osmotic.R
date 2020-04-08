@@ -11,7 +11,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "LTH+11=microbial", "OBBH11",
              "CCC+12_25mM=glucose", "CCC+12_100mM=glucose",
              "KKG+12_25C_aw0.985=microbial", "KKG+12_14C_aw0.985=microbial", "KKG+12_25C_aw0.967=microbial", "KKG+12_14C_aw0.967=microbial",
-             "CCCC13_25mM=glucose", "CCCC13_100mM=glucose",
+             "CCCC13_25mM=glucose", "CCCC13_100mM=glucose", "CCW+13=glucose",
              "CLG+15",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "LDB+15_all=glucose", "YDZ+15=microbial",
@@ -246,6 +246,14 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[rowSums(dat[, c(icontrol, icol)])==1, ]
     up2 <- dat[, icol]
     pcomp <- protcomp(dat$UniProt, basis)
+  } else if(study=="CCW+13") {
+    # 20200407 rat INS-1β cells, Chen et al., 2013
+    dat <- read.csv(paste0(datadir, "CCW+13.csv.xz"), as.is=TRUE)
+    description <- "rat INS-1β cells in 27 mM glucose"
+    dat <- check_IDs(dat, "Uniprot", aa_file = paste0(extdatadir, "/aa/rat/CCW+13_aa.csv.xz"))
+    up2 <- dat$Average.Ratio > 1
+    dat <- cleanup(dat, "Uniprot", up2)
+    pcomp <- protcomp(dat$Uniprot, basis, aa_file = paste0(extdatadir, "/aa/rat/CCW+13_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
