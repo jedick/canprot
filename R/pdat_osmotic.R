@@ -15,7 +15,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "CLG+15",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "LDB+15_all=glucose", "YDZ+15=microbial",
-             "RBP+16=microbial",
+             "DSNM16_131C=microbial", "DSNM16_310F=microbial", "RBP+16=microbial",
              "KAK+17=microbial",
              "JBG+18=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
              "IXA+19=glucose", "MGF+19_10=microbial", "MGF+19_20=microbial",
@@ -278,6 +278,15 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Ratio. > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/cow/WFSL09_aa.csv.xz"))
+  } else if(study=="DSNM16") {
+    # 20200408 Anabaena circinalis, D'Agostino et al., 2016
+    # DSNM16_131C, DSNM16_310F
+    dat <- read.csv(paste0(datadir, "DSNM16.csv.xz"), as.is=TRUE)
+    description <- paste("Anabaena circinalis", stage, "in 0.45 mol/l NaCl vs medium without added NaCl")
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    up2 <- dat[, icol] > 0
+    pcomp <- protcomp(dat$trembl, basis, aa_file = paste0(extdatadir, "/aa/bacteria/DSNM16_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
