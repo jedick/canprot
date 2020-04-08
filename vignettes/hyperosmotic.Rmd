@@ -101,8 +101,9 @@ __u__. 0.1 M KCl (treatment) vs medium with no added KCl (control). Source: Supp
 __v__. Cells treated with or without 1.2% w/v bile salts. Source: Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
 __w__. Treatment with 1 M NaCl vs medium with no added NaCl. Source: Supplementary Tables 1 and 2 of @JBG+18.
 __x__. __y__. Epidermal lysate of mice kept at low vs high humidity. Source: Supplementary Table S1 of @SMS+18.
-__z__. __A__. Treatment with 10% or 20% NaCl vs 0% NaCl. Source: Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
-__B__. Treatment with or without bile salts (0.3%, 0.6%, 0.9%, 1.2%, 1.5% w/v). Source: Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
-__C__. __D__. __E__. __F__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
+__z__. 20 mM vs 5 mM glucose. Source: Supplementary Tables 1 and 2 of @IXA+19.
+__A__. __B__. Treatment with 10% or 20% NaCl vs 0% NaCl. Source: Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
+__C__. Treatment with or without bile salts (0.3%, 0.6%, 0.9%, 1.2%, 1.5% w/v). Source: Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
+__D__. __E__. __F__. __G__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
 
 ## References

@@ -18,7 +18,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "RBP+16=microbial",
              "KAK+17=microbial",
              "JBG+18=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
-             "MGF+19_10=microbial", "MGF+19_20=microbial",
+             "IXA+19=glucose", "MGF+19_10=microbial", "MGF+19_20=microbial",
              "AST+20=microbial",
              "MPR+20_3h.high.glucose=glucose", "MPR+20_12h.high.glucose=glucose", "MPR+20_3h.high.mannitol", "MPR+20_24h.high.mannitol"
              ))
@@ -99,7 +99,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CLG+15") {
     # 20160925 conjunctival epithelial cells, Chen et al., 2015
     dat <- read.csv(paste0(datadir, "CLG+15.csv.xz"), as.is=TRUE)
-    description <- paste("Human conjunctival epithelial cells in NaCl")
+    description <- paste("human conjunctival epithelial cells in NaCl")
     # use proteins that have same direction of change in both conditions
     dat <- dat[(dat$T1 > 1 & dat$T2 > 1) | (dat$T1 < 1 & dat$T2 < 1), ]
     pcomp <- protcomp(dat$accession..UniProtKB.Swiss.Prot., basis=basis)
@@ -254,6 +254,12 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Average.Ratio > 1
     dat <- cleanup(dat, "Uniprot", up2)
     pcomp <- protcomp(dat$Uniprot, basis, aa_file = paste0(extdatadir, "/aa/rat/CCW+13_aa.csv.xz"))
+  } else if(study=="IXA+19") {
+    # 20200408 human aortal endothelial cells, Irshad et al., 2019
+    dat <- read.csv(paste0(datadir, "IXA+19.csv.xz"), as.is=TRUE)
+    description <- "human aortal endothelial cells in 20 mM glucose"
+    up2 <- dat$Fold.change > 1
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
