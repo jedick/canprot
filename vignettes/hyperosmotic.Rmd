@@ -87,24 +87,25 @@ write.csv(out, "hyperosmotic.csv", row.names = FALSE, quote = 2)
 
 __a__. __b__. __c__. Supporting Information Table of @PW08, filtered to include proteins with expression ratios < 0.9 or > 1.1 and with _p_-values < 0.05.
 __d__. Supplemetary Table ST4 of @WCM+09, filtered to include the proteins with ANOVA _p_-value < 0.01 (red- and blue-highlighted rows in the source table), and applying the authors' criterion that proteins be identified by 2 or more unique peptides in at least 4 of the 8 most intense LC-MS/MS runs.
-__e__. Dataset S3 of @LTH+11, filtered to include proteins that are quantified in at least 14 of 15 experiments (5 time points with 3 replicates each) and have the same direction of change in all experiments.
-__f__. Supplementary Table 1 of @OBBH11.
-__g__. __h__. Table 1 of @CCC+12.
-__i__. __j__. __k__. __l__. Temperature and NaCl treatment (control: 35 °C, _a_~w~ = 0.993). Source: Suppl. Tables S13–S16 of @KKG+12.
-__m__. __n__. Table 1 of @CCCC13.
-__o__. Supplementary Table 1 of @CCW+13, filtered to include proteins with average fold change > 2.5 or < 0.4.
-__p__. Table 2 of @CLG+15.
-__q__. __r__. Additional file Table S2 of @KLB+15.
-__s__. Supporting Information Table S4 of @LDB+15 for up- (Cluster 1) and down- (Cluster 5) regulated proteins.
-__t__. Table 1 of @YDZ+15.
-__u__. Supplementary Tables 2 and 3 of @RBP+16.
-__v__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
-__w__. Supplementary Tables 1 and 2 of @JBG+18.
-__x__. __y__. Supplementary Table S1 of @SMS+18.
-__z__. Supplementary Tables 1 and 2 of @IXA+19.
-__A__. __B__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
-__C__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
-__D__. __E__. Supplementary Table 2 of @MHP+20 (sheets "H9c2" and "HEK").
-__F__. __G__. __H__. __I__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
+__e__. Supplementary Material Table of @WFSL09, filtered to include proteins with fold change > 1.2 or < 0.8.
+__f__. Dataset S3 of @LTH+11, filtered to include proteins that are quantified in at least 14 of 15 experiments (5 time points with 3 replicates each) and have the same direction of change in all experiments.
+__g__. Supplementary Table 1 of @OBBH11.
+__h__. __i__. Table 1 of @CCC+12.
+__j__. __k__. __l__. __m__. Temperature and NaCl treatment (control: 35 °C, _a_~w~ = 0.993). Source: Suppl. Tables S13–S16 of @KKG+12.
+__n__. __o__. Table 1 of @CCCC13.
+__p__. Supplementary Table 1 of @CCW+13, filtered to include proteins with average fold change > 2.5 or < 0.4.
+__q__. Table 2 of @CLG+15.
+__r__. __s__. Additional file Table S2 of @KLB+15.
+__t__. Supporting Information Table S4 of @LDB+15 for up- (Cluster 1) and down- (Cluster 5) regulated proteins.
+__u__. Table 1 of @YDZ+15.
+__v__. Supplementary Tables 2 and 3 of @RBP+16.
+__w__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
+__x__. Supplementary Tables 1 and 2 of @JBG+18.
+__y__. __z__. Supplementary Table S1 of @SMS+18.
+__A__. Supplementary Tables 1 and 2 of @IXA+19.
+__B__. __C__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
+__E__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
+__E__. __F__. Supplementary Table 2 of @MHP+20 (sheets "H9c2" and "HEK").
+__G__. __H__. __I__. __J__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
 
 ## References

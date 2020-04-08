@@ -7,7 +7,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
              "PW08_2h=microbial=glucose", "PW08_10h=microbial=glucose", "PW08_12h=microbial=glucose",
-             "WCM+09=glucose",
+             "WCM+09=glucose", "WFSL09=glucose",
              "LTH+11=microbial", "OBBH11",
              "CCC+12_25mM=glucose", "CCC+12_100mM=glucose",
              "KKG+12_25C_aw0.985=microbial", "KKG+12_14C_aw0.985=microbial", "KKG+12_25C_aw0.967=microbial", "KKG+12_14C_aw0.967=microbial",
@@ -271,6 +271,13 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 0
     pcomp <- protcomp(dat$Accession, basis, aa_file = paste0(extdatadir, "/aa/rat/MHP+20_aa.csv.xz"))
+  } else if(study=="WFSL09") {
+    # 20200408 bovine aortic endothelial cells, Wang et al., 2009
+    dat <- read.csv(paste0(datadir, "WFSL09.csv.xz"), as.is=TRUE)
+    description <- "bovine aortal endothelial cells in 22 mM vs 5 mM glucose"
+    up2 <- dat$Ratio. > 1
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/cow/WFSL09_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
