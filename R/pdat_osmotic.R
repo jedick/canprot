@@ -11,7 +11,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "LTH+11=microbial", "OBBH11",
              "CCC+12_25mM=glucose", "CCC+12_100mM=glucose",
              "KKG+12_25C_aw0.985=microbial", "KKG+12_14C_aw0.985=microbial", "KKG+12_25C_aw0.967=microbial", "KKG+12_14C_aw0.967=microbial",
-             "CCCC13_25mM=glucose", "CCCC13_100mM=glucose", "CCW+13=glucose",
+             "CCCC13_25mM=glucose", "CCCC13_100mM=glucose", "CCW+13=glucose", "QHT+13_24.h=microbial", "QHT+13_48.h=microbial",
              "CLG+15",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "LDB+15_all=glucose", "YDZ+15=microbial",
@@ -250,7 +250,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CCW+13") {
     # 20200407 rat INS-1β cells, Chen et al., 2013
     dat <- read.csv(paste0(datadir, "CCW+13.csv.xz"), as.is=TRUE)
-    description <- "rat INS-1β cells in 27 mM vs 11 mM glucose"
+    description <- "rat INS-1beta cells in 27 mM vs 11 mM glucose"
     dat <- check_IDs(dat, "Uniprot", aa_file = paste0(extdatadir, "/aa/rat/CCW+13_aa.csv.xz"))
     up2 <- dat$Average.Ratio > 1
     dat <- cleanup(dat, "Uniprot", up2)
@@ -287,6 +287,15 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 0
     pcomp <- protcomp(dat$trembl, basis, aa_file = paste0(extdatadir, "/aa/bacteria/DSNM16_aa.csv.xz"))
+  } else if(study=="QHT+13") {
+    # 20200408 Synechocystis sp. PCC 6803, Qiao et al., 2013
+    # QHT+13_24.h, QHT+13_48.h
+    dat <- read.csv(paste0(datadir, "QHT+13.csv.xz"), as.is=TRUE)
+    description <- paste("Synechocystis sp. PCC 6803 in 4% w/v vs 0% added NaCl for", gsub(".h", " h", stage))
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    up2 <- dat[, icol] > 1
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/bacteria/QHT+13_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
