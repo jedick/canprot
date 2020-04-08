@@ -12,7 +12,6 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "CCC+12_25mM=glucose", "CCC+12_100mM=glucose",
              "KKG+12_25C_aw0.985=microbial", "KKG+12_14C_aw0.985=microbial", "KKG+12_25C_aw0.967=microbial", "KKG+12_14C_aw0.967=microbial",
              "CCCC13_25mM=glucose", "CCCC13_100mM=glucose",
-             "GSC14_t30a=microbial=glucose", "GSC14_t30b=microbial=glucose", "GSC14_t30c=microbial=glucose",
              "CLG+15",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "LDB+15_all=glucose", "YDZ+15=microbial",
