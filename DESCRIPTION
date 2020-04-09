@@ -1,6 +1,6 @@
-Date: 2020-04-09
+Date: 2020-04-10
 Package: canprot
-Version: 0.1.5-33
+Version: 0.1.5-34
 Title: Compositional Analysis of Differentially Expressed Proteins in Cancer and Cell Culture
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),
@@ -24,6 +24,7 @@ Description: Compositional analysis of differentially expressed proteins in
   using data from Liebeskind et al. (2016) <doi:10.1093/gbe/evw113> or Trigos et
   al. (2017) <doi:10.1073/pnas.1617743114>. The vignettes show references and
   plots of differences of chemical composition and phylostrata for all datasets.
+Encoding: UTF-8
 License: GPL (>= 2)
 BuildResaveData: no
 VignetteBuilder: knitr
