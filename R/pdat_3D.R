@@ -9,7 +9,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
              "MHG+12_P5=cancer", "MHG+12_P2=cancer",
              "MVC+12_perinecrotic=cancer", "MVC+12_necrotic=cancer",
              "YYW+13=cancer", "ZMH+13_Matr.12h", "ZMH+13_Matr.24h",
-             "HKX+14=cancer", "KDS+14_hESC", "KDS+14_hiPSC", "KDS+14_hPSC", "RKP+14=cancer", "WRK+14=cancer",
+             "HKX+14=cancer", "KDS+14_hESC", "KDS+14_hiPSC", "KDS+14_hPSC", "RKP+14=cancer", "SAS+14=cancer", "WRK+14=cancer",
              "MTK+15=cancer",
              "YLW+16=cancer",
              "KJK+18=cancer", "TGD18_NHF", "TGD18_CAF=cancer",
@@ -186,6 +186,14 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, iup]
     dat <- cleanup(dat, "Uniprot", up2)
     pcomp <- protcomp(dat$Uniprot, basis = basis)
+  } else if(study=="SAS+14") {
+    # 20200409 SK-N-BE2 neuroblastoma spheroids, Saini et al., 2014
+    dat <- read.csv(paste0(datadir, "SAS+14.csv.xz"), as.is = TRUE)
+    description <- "SK-N-BE2 neuroblastoma spheroids"
+    dat <- check_IDs(dat, "Entry")
+    up2 <- dat$Regulation == "up"
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("3D dataset", dataset, "not available"))
   print(paste0("pdat_3D: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407

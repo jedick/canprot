@@ -87,7 +87,7 @@ write.csv(out, "hyperosmotic.csv", row.names = FALSE, quote = 2)
 
 __a__. __b__. __c__. Supporting Information Table of @PW08, filtered to include proteins with expression ratios < 0.9 or > 1.1 and with _p_-values < 0.05.
 __d__. Supplemetary Table ST4 of @WCM+09, filtered to include the proteins with ANOVA _p_-value < 0.01 (red- and blue-highlighted rows in the source table), and applying the authors' criterion that proteins be identified by 2 or more unique peptides in at least 4 of the 8 most intense LC-MS/MS runs.
-__e__. Supplementary Material Table of @WFSL09, filtered to include proteins with fold change > 1.2 or < 0.8.
+__e__. [Supplementary Table](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2818370/) of @WFSL09, filtered to include proteins with fold change > 1.2 or < 0.8.
 __f__. Dataset S3 of @LTH+11, filtered to include proteins that are quantified in at least 14 of 15 experiments (5 time points with 3 replicates each) and have the same direction of change in all experiments.
 __g__. Supplementary Table 1 of @OBBH11.
 __h__. __i__. Table 1 of @CCC+12.
