@@ -77,7 +77,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     # 20160925 ARPE-19 retinal pigmented epithelium, Chen et al., 2012
     # CCC+12_25mM, CCC+12_100mM
     dat <- read.csv(paste0(datadir, "CCC+12.csv.xz"), as.is=TRUE)
-    description <- paste("retinal pigmented epithelium in", gsub("mM", " mM", stage), "glucose vs 5.5 mM glucose (mannitol-balanced)")
+    description <- paste("retinal pigmented epithelium in", gsub("mM", " mM", stage), "glucose vs 5.5 mM glucose")
     # use proteins with difference in specified condition
     icol <- grep(stage, colnames(dat))
     dat <- dat[dat[, icol[2]] < 0.05, ]
@@ -160,8 +160,8 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     # 20160926 Caulobacter crescentus, Kohler et al., 2015
     # KLB+15_trans-suc, KLB+15_trans-NaCl, KLB+15_prot-suc, KLB+15_prot-NaCl
     dat <- read.csv(paste0(datadir, "KLB+15.csv.xz"), as.is=TRUE)
-    if(grepl("suc", stage)) osmoticum <- "200 mM sucrose vs M2 minimal salts medium plus glucose"
-    if(grepl("NaCl", stage)) osmoticum <- "40/50 mM NaCl vs M2 minimal salts medium plus glucose"
+    if(grepl("suc", stage)) osmoticum <- "200 mM sucrose vs M2 minimal salts medium"
+    if(grepl("NaCl", stage)) osmoticum <- "40/50 mM NaCl vs M2 minimal salts medium"
     if(grepl("trans", stage)) ome <- "transcriptome"
     if(grepl("prot", stage)) ome <- ""
     description <- paste("Caulobacter crescentus in", osmoticum, ome)
@@ -219,14 +219,14 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="AST+20") {
     # 20200407 Lactobacillus fermentum, Ali et al., 2020
     dat <- read.csv(paste0(datadir, "AST+20.csv.xz"), as.is=TRUE)
-    description <- "Lactobacillus fermentum with vs without 0.3%, 0.6%, 0.9%, 1.2%, 1.5% w/v bile salts"
+    description <- "Lactobacillus fermentum with vs without 0.3% to 1.5% w/v bile salts"
     up2 <- dat$Folds.change > 1
     pcomp <- protcomp(dat$Protein.IDs, basis, aa_file = paste0(extdatadir, "/aa/bacteria/AST+20_aa.csv.xz"))
   } else if(study=="SMS+18") {
     # 20200407 mouse skin in low/high humidity, Seltmann et al., 2018
     # SMS+18_wt, SMS+18_FGFR12.deficient
     dat <- read.csv(paste0(datadir, "SMS+18.csv.xz"), as.is=TRUE)
-    description <- paste("epidermal lysate of mice kept in low (40%) vs high (70%) humidity,", stage)
+    description <- paste("epidermal lysate of mice kept in 40% vs 70% humidity,", stage)
     icol <- grep(stage, colnames(dat))
     dat <- dat[abs(dat[, icol]) > 0.5, ]
     dat <- check_IDs(dat, "Accession", aa_file = paste0(extdatadir, "/aa/mouse/SMS+18_aa.csv.xz"))

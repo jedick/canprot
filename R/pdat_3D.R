@@ -116,7 +116,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     # 20191206 3T3-L1 cells, Lee et al., 2019
     # LPK+19_preadipocytes, LPK+19_adipocytes, LPK+19_macrophages
     dat <- read.csv(paste0(datadir, "LPK+19.csv.xz"), as.is = TRUE)
-    description <- paste("3T3-L1", stage)
+    description <- paste("mouse 3T3-L1", stage)
     icol <- match(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     dat <- check_IDs(dat, "Accession", aa_file = paste0(extdatadir, "/aa/mouse/LPK+19_aa.csv.xz"))
