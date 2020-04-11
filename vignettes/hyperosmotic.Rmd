@@ -89,17 +89,18 @@ __a__. Supplementary Table 8 of @FTR+10. Only proteins with consistent expressio
 __b__. Dataset S3 of @LTH+11, filtered to include proteins that are quantified in at least 14 of 15 experiments (5 time points with 3 replicates each) and have the same direction of change in all experiments.
 __c__. Supplementary Table 1 of @OBBH11.
 __d__. __e__. __f__. __g__. Temperature and NaCl treatment (control: 35 °C, _a_~w~ = 0.993). Source: Suppl. Tables S13–S16 of @KKG+12.
-__h__. __i__. Supplementary Tables S3A and S3B of @QHT+13.
-__j__. Table 2 of @CLG+15.
-__k__. __l__. Additional file Table S2 of @KLB+15.
-__m__. Table 1 of @YDZ+15.
-__n__. __o__. Appendix S3 (sheets "iTRAQ-N Quant 131C" and "iTRAQ-N Quant 310F") of @DSNM16.
-__p__. Supplementary Tables 2 and 3 of @RBP+16.
-__q__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
-__r__. Supplementary Tables 1 and 2 of @JBG+18.
-__s__. __t__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
-__u__. __v__. Supplementary Table S1 of @SMS+18.
-__w__. __x__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
-__y__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
+__h__. Supporting Information Table 1 of @LPK+13 (sheets "Up-Down Proteins" and "Unknown function").
+__i__. __j__. Supplementary Tables S3A and S3B of @QHT+13.
+__k__. Table 2 of @CLG+15.
+__l__. __m__. Additional file Table S2 of @KLB+15.
+__n__. Table 1 of @YDZ+15.
+__o__. __p__. Appendix S3 (sheets "iTRAQ-N Quant 131C" and "iTRAQ-N Quant 310F") of @DSNM16.
+__q__. Supplementary Tables 2 and 3 of @RBP+16.
+__r__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
+__s__. Supplementary Tables 1 and 2 of @JBG+18.
+__t__. __u__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
+__v__. __w__. Supplementary Table S1 of @SMS+18.
+__x__. __y__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
+__z__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
 
 ## References

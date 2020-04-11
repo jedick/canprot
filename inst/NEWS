@@ -1,9 +1,11 @@
-CHANGES IN canprot 0.1.6-2 (2020-04-11)
+CHANGES IN canprot 0.1.6-3 (2020-04-11)
 ---------------------------------------
 
 - Move high-glucose datasets from pdat_osmotic() to pdat_glucose().
 
 - Rename pdat_osmotic2() to pdat_halophilic().
+
+- New datasets: osmotic/LPK+13.
 
 CHANGES IN canprot 0.1.6 (2020-04-10)
 -------------------------------------

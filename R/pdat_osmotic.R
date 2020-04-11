@@ -8,8 +8,8 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "FTR+10=microbial",
              "LTH+11=microbial", "OBBH11",
              "KKG+12_25C_aw0.985=microbial", "KKG+12_14C_aw0.985=microbial", "KKG+12_25C_aw0.967=microbial", "KKG+12_14C_aw0.967=microbial",
-             "QHT+13_24.h=microbial", "QHT+13_48.h=microbial",
-             "CLG+15", "KLB+15_prot-suc", "KLB+15_prot-NaCl", "YDZ+15=microbial",
+             "LPK+13=microbial", "QHT+13_24.h=microbial", "QHT+13_48.h=microbial",
+             "CLG+15", "KLB+15_prot-suc=microbial", "KLB+15_prot-NaCl=microbial", "YDZ+15=microbial",
              "DSNM16_131C=microbial", "DSNM16_310F=microbial", "RBP+16=microbial",
              "KAK+17=microbial",
              "JBG+18=microbial", "LJC+18_wt=microbial", "LJC+18_mutant=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
@@ -189,8 +189,15 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, icol] > 1
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/bacteria/QHT+13_aa.csv.xz"))
   } else if(study %in% c("PW08", "WCM+09", "CCC+12", "CCCC13", "GSC14", "LDB+15")) {
-    # datasets from the 2017 compilation that have been moved to pdat_glucose 20200411
+    # 20200411 datasets from the 2017 compilation that have been moved to pdat_glucose.R
     return(pdat_glucose(dataset, basis))
+  } else if(study=="LPK+13") {
+    # 20200411 Lactobacillus johnsonii, Lee et al., 2013
+    dat <- read.csv(paste0(datadir, "LPK+13.csv.xz"), as.is=TRUE)
+    description <- "Lactobacillus johnsonii with vs without 0.1-0.3% bile salt"
+    up2 <- dat$Regulation == "up"
+    dat <- cleanup(dat, "UniProt", up2)
+    pcomp <- protcomp(dat$UniProt, basis, aa_file = paste0(extdatadir, "/aa/bacteria/LPK+13_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
