@@ -13,8 +13,8 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 "pdat_recomp", "xsummary2",
 # 20200204 used in JMDplots package
 "cplab",
-# 20200402
-"pdat_liver"
+# 20200402, 20200411
+"pdat_liver", "pdat_glucose"
 )
 
 # Imports from default packages
