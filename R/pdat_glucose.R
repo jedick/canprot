@@ -13,7 +13,6 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
              "IXA+19",
              "MHP+20_H9c2", "MHP+20_HEK",
              "MPR+20_3h.high.glucose", "MPR+20_24h.high.glucose", "MPR+20_3h.high.mannitol", "MPR+20_24h.high.mannitol"
-## GSC14
              ))
   }
   # remove tags
@@ -86,6 +85,7 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$X.24h.GLUCOSE.Control > 1
   } else if(study=="GSC14") {
     # 20160926 Saccharomyces cerevisiae, Giardina et al., 2014
+    # 20200411 not included in 2020 compilation: secretome, almost all proteins decrease
     # GSC14_t30a, GSC14_t30b, GSC14_t30c
     dat <- read.csv(paste0(datadir, "GSC14.csv.xz"), as.is=TRUE)
     description <- paste("S. cerevisiae in glucose", stage)

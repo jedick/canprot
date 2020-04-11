@@ -5,15 +5,14 @@
 pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
+             "FTR+10=microbial",
              "LTH+11=microbial", "OBBH11",
              "KKG+12_25C_aw0.985=microbial", "KKG+12_14C_aw0.985=microbial", "KKG+12_25C_aw0.967=microbial", "KKG+12_14C_aw0.967=microbial",
              "QHT+13_24.h=microbial", "QHT+13_48.h=microbial",
-             "CLG+15",
-             "KLB+15_prot-suc", "KLB+15_prot-NaCl",
-             "YDZ+15=microbial",
+             "CLG+15", "KLB+15_prot-suc", "KLB+15_prot-NaCl", "YDZ+15=microbial",
              "DSNM16_131C=microbial", "DSNM16_310F=microbial", "RBP+16=microbial",
              "KAK+17=microbial",
-             "JBG+18=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
+             "JBG+18=microbial", "LJC+18_wt=microbial", "LJC+18_mutant=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
              "MGF+19_10=microbial", "MGF+19_20=microbial",
              "AST+20=microbial"
              ))
@@ -101,6 +100,16 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Fold.Change..FW.SW. > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="LJC+18") {
+    # 20191102 Listeria monocytogenes membrane vesicles, Lee et al., 2018
+    # LJC+18_wt, LJC+18_mutant
+    dat <- read.csv(file.path(datadir, "LJC+18.csv.xz"), as.is=TRUE)
+    description <- paste("Listeria monocytogenes", stage, "in 0.5 M NaCl vs control medium")
+    # use selected dataset
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[dat[, icol], ]
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=file.path(extdatadir, "aa/bacteria/LJC+18_aa.csv.xz"))
+    up2 <- dat$condition=="salt"
   } else if(study=="KAK+17") {
     # 20191102 Lactobacillus fermentum NCDC 400 bile salt exposure, Kaur et al., 2017
     dat <- read.csv(paste0(datadir, "KAK+17.csv.xz"), as.is=TRUE)
@@ -108,6 +117,16 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Fold.Change > 1
     dat <- cleanup(dat, "Protein.IDs", up2)
     pcomp <- protcomp(dat$Protein.IDs, basis=basis, aa_file=paste0(extdatadir, "/aa/bacteria/KAK+17_aa.csv.xz"))
+  } else if(study=="FTR+10") {
+    # 20161112 Corynebacterium glutamicum, Fränzel et al., 2010
+    dat <- read.csv(file.path(datadir, "FTR+10.csv.xz"), as.is = TRUE)
+    description <- "Corynebacterium glutamicum in 750 mM NaCl vs control medium"
+    # exclude entries with any NA protein expression data
+    dat <- dat[!rowSums(is.na(dat[, 4:6])) > 0, ]
+    # use only proteins with consistent expression at 3 time points
+    dat <- dat[abs(rowSums(sign(dat[, 4:6]))) == 3, ]
+    pcomp <- protcomp(dat$Entry, basis = basis, aa_file = file.path(extdatadir, "aa/bacteria/FTR+10_aa.csv.xz"))
+    up2 <- rowSums(sign(dat[, 4:6])) == 3
   } else if(study=="MGF+19") {
     # 20200216 Staphylococcus aureus 10 and 20% NaCl, Ming et al., 2019
     # MGF+19_10, MGF+19_20

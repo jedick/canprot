@@ -1,10 +1,10 @@
 ---
-title: "Osmotic 2"
+title: "Halophilic"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Osmotic 2 (with halophiles)}
+  %\VignetteIndexEntry{Halophilic}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib
@@ -22,7 +22,7 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-This vignette shows compositional metrics for proteins that are differentially expressed in hyperosmotic or hypoosmotic compared to control conditions.
+This vignette shows compositional metrics for proteins that are differentially expressed in halophiles under hyperosmotic or hypoosmotic conditions.
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
@@ -44,11 +44,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_osmotic2(2020)
+datasets <- pdat_halophilic(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_osmotic2)
+pdat1 <- lapply_canprot(datasets, pdat_halophilic)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -77,17 +77,14 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
 out[, 6:26] <- round(out[, 6:26], 4)
-write.csv(out, "osmotic2.csv", row.names = FALSE, quote = 2)
+write.csv(out, "halophilic.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
 
 __a__. __b__. Tables 1 and 2 of @LRB+09.
-__c__. Supplementary Table 8 of @FTR+10. Only proteins with consistent expression ratios (all > 1 or all < 1) at each time point (15, 60, and 180 min.) were included.
-__d__. __e__. Supplementary Tables 2 (membrane proteomics) and 3 (transcriptomics) of @HMO+10. The cytosol proteomics experiment was not included because of the low number of proteins identified with a significant expression difference. Only proteins with consistent expression ratios in at least 3 of 4 time points (10, 30, 60, and 120 min.) were included.
-__f__. __g__. Table S-1 of @ZLZ+16. Values of reporter intensities at each condition (6%, 10%, and 17.5% NaCl) were quantile normalized (R function preprocessCore::normalize.quantiles); normalized values were used to compute intensity ratios (10% / 6% NaCl and 17.5% / 10% NaCl). Only proteins with expression ratios > 1.3 in either direction [@ZLZ+16], p-values < 0.05, and at least 2 peptides were included.
-__h__. __i__. Tables S2 and S3 of @LLYL17.
-__j__. __k__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
-__l__. __m__. Supporting Table 1C of @JSP+19. Only proteins with at least 2-fold expression difference and marked as significant were included.
+__c__. __d__. Table S-1 of @ZLZ+16. Values of reporter intensities at each condition (6%, 10%, and 17.5% NaCl) were quantile normalized (R function preprocessCore::normalize.quantiles); normalized values were used to compute intensity ratios (10% / 6% NaCl and 17.5% / 10% NaCl). Only proteins with expression ratios > 1.3 in either direction [@ZLZ+16], p-values < 0.05, and at least 2 peptides were included.
+__e__. __f__. Tables S2 and S3 of @LLYL17.
+__g__. __h__. Supporting Table 1C of @JSP+19. Only proteins with at least 2-fold expression difference and marked as significant were included.
 
 ## References

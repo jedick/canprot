@@ -5,7 +5,7 @@
 \alias{pdat_pancreatic}
 \alias{pdat_hypoxia}
 \alias{pdat_osmotic}
-\alias{pdat_osmotic2}
+\alias{pdat_halophilic}
 \alias{pdat_multi}
 \alias{pdat_secreted}
 \alias{pdat_breast}
@@ -30,7 +30,7 @@
   pdat_secreted(dataset = 2020, basis = "rQEC")
   pdat_osmotic(dataset = 2020, basis = "rQEC")
   pdat_glucose(dataset = 2020, basis = "rQEC")
-  pdat_osmotic2(dataset = 2020, basis = "rQEC")
+  pdat_halophilic(dataset = 2020, basis = "rQEC")
   pdat_3D(dataset = 2020, basis = "rQEC")
   pdat_multi(dataset = 2020, basis = "rQEC")
 }
@@ -45,7 +45,7 @@ The \code{pdat_} functions calculate chemical compositional metrics (using \code
 
 Use \code{pdat_colorectal}, \code{pdat_pancreatic}, \code{pdat_breast}, \code{pdat_lung}, \code{pdat_prostate}, and \code{pdat_liver} to retrieve data for protein expression in different cancer types
 Use \code{pdat_hypoxia} for data on hypoxia in cell culture and \code{pdat_osmotic} for data on hyperosmotic stress.
-\code{pdat_glucose} retrieves data for high-glucose experiments, and \code{pdat_osmotic2} adds more data for osmotic stress experiments on bacteria and archaea, as described in Dick et al. (2020).
+\code{pdat_glucose} retrieves data for high-glucose experiments, and \code{pdat_halophilic} retrieves data for halophilic bacteria and archaea, as described in Dick et al. (2020).
 \code{pdat_3D} retrieves data for 3D vs 2D cell culture (including tumor spheroids) and \code{pdat_secreted} retrieves data for secreted proteins (including exosomes) in hypoxia.
 \code{pdat_multi} has data from studies that include multiple conditions (e.g. cellular and secreted proteins in hypoxia), and is used internally by the specific functions (\code{pdat_hypoxia}, \code{pdat_secreted}).
 The functions get relative expression data from the CSV files stored in \code{extdata/expression/}, with subdirectories corresponding to the names of the functions.
