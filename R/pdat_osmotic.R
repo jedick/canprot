@@ -13,7 +13,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "DSNM16_131C=microbial", "DSNM16_310F=microbial", "RBP+16=microbial",
              "KAK+17=microbial", "LYS+17=microbial",
              "JBG+18=microbial", "LJC+18_wt=microbial", "LJC+18_mutant=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
-             "MGF+19_10=microbial", "MGF+19_20=microbial",
+             "LWS+19=microbial", "MGF+19_10=microbial", "MGF+19_20=microbial",
              "AST+20=microbial"
              ))
   }
@@ -205,6 +205,13 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$log2fold_change > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/bacteria/LYS+17_aa.csv.xz"))
+  } else if(study=="LWS+19") {
+    # 20200412 Lactobacillus plantarum FS5-5, Li et al., 2019
+    dat <- read.csv(paste0(datadir, "LWS+19.csv.xz"), as.is=TRUE)
+    description <- "Lactobacillus plantarum FS5-5 in 6-8% w/v vs 0% NaCl"
+    up2 <- dat$X118.113 > 1
+    dat <- cleanup(dat, "No.", up2)
+    pcomp <- protcomp(dat$No., basis, aa_file = paste0(extdatadir, "/aa/bacteria/LWS+19_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

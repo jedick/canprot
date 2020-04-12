@@ -101,7 +101,8 @@ __s__. Supplemental Table S-2 of @LYS+17, filtered to include proteins with log~
 __t__. Supplementary Tables 1 and 2 of @JBG+18.
 __u__. __v__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
 __w__. __x__. Supplementary Table S1 of @SMS+18.
-__y__. __z__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
-__A__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
+__y__. Table 2 of @LWS+19.
+__z__. __A__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
+__B__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
 
 ## References
