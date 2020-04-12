@@ -1,8 +1,8 @@
-# canprot/R/halophilic.R
+# canprot/R/halophiles.R
 # new datasets added 20191104
-# renamed to pdat_halophilic 20200411
+# renamed to pdat_halophiles 20200411
 
-pdat_halophilic <- function(dataset = 2020, basis = "rQEC") {
+pdat_halophiles <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c("LRB+09_2.6", "LRB+09_5.1",
              "ZLZ+16_10", "ZLZ+16_17.5",
@@ -16,7 +16,7 @@ pdat_halophilic <- function(dataset = 2020, basis = "rQEC") {
   study <- strsplit(dataset, "_")[[1]][1]
   stage <- paste(strsplit(dataset, "_")[[1]][-1], collapse="_")
   extdatadir <- system.file("extdata", package="canprot")
-  datadir <- paste0(extdatadir, "/expression/halophilic/")
+  datadir <- paste0(extdatadir, "/expression/halophiles/")
   if(study=="ZLZ+16") {
     # 20191103 Nocardiopsis xinjiangensis, Zhang et al., 2016
     # ZLZ+16_10, ZLZ+16_17.5
@@ -78,8 +78,8 @@ pdat_halophilic <- function(dataset = 2020, basis = "rQEC") {
     # remove NA accessions
     dat <- cleanup(dat, "UniProt.Accession", up2)
     pcomp <- protcomp(dat$UniProt.Accession, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/JSP+19_aa.csv.xz"))
-  } else stop(paste("halophilic dataset", dataset, "not available"))
-  print(paste0("pdat_halophilic: ", description, " [", dataset, "]"))
+  } else stop(paste("halophiles dataset", dataset, "not available"))
+  print(paste0("pdat_halophiles: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
   if("up2" %in% colnames(dat)) up2 <- dat$up2
   return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, names=names, description=description))

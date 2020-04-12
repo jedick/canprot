@@ -44,11 +44,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_halophilic(2020)
+datasets <- pdat_halophiles(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_halophilic)
+pdat1 <- lapply_canprot(datasets, pdat_halophiles)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -77,7 +77,7 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
 out[, 6:26] <- round(out[, 6:26], 4)
-write.csv(out, "halophilic.csv", row.names = FALSE, quote = 2)
+write.csv(out, "halophiles.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
