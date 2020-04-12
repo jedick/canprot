@@ -17,6 +17,7 @@ DSNM16_131C,"Anabaena circinalis 131C in 0.45 mol/l NaCl vs medium without added
 DSNM16_310F,"Anabaena circinalis 310F in 0.45 mol/l NaCl vs medium without added NaCl",microbial,18,21,-0.15,-0.1439,0.0061,0.1024,0.0574,-0.045,-1.7104,-1.6833,0.0271,0.4573,0.3164,-0.1409,247.5,506,258.5,NA,NA,NA,NA,NA,NA
 RBP+16,"Paracoccidioides lutzii in 0.1 M KCl vs medium with no added KCl",microbial,160,141,-0.1371,-0.134,0.0031,0.0695,0.0113,-0.0582,-1.6704,-1.6333,0.0371,0.3646,0.3132,-0.0515,341,341,0,NA,NA,NA,NA,NA,NA
 KAK+17,"Lactobacillus fermentum with vs without 1.2% w/v bile salts",microbial,106,81,-0.172,-0.1381,0.0339,0.0482,0.0385,-0.0097,-1.8333,-1.6822,0.1512,0.4699,0.3844,-0.0855,271.5,320,48.5,NA,NA,NA,NA,NA,NA
+LYS+17,"Lactobacillus salivarius LI01 with vs without 0.15% ox bile",microbial,177,205,-0.1694,-0.1673,0.0021,0.0359,0,-0.0359,-1.8186,-1.8193,-6e-04,0.4841,0.4747,-0.0093,275,289,14,NA,NA,NA,NA,NA,NA
 JBG+18,"Candida albicans in 1 M NaCl vs medium with no added NaCl",microbial,84,63,-0.1506,-0.153,-0.0023,0.0493,0.0213,-0.028,-1.8066,-1.732,0.0746,0.4167,0.4054,-0.0114,365,350,-15,NA,NA,NA,NA,NA,NA
 LJC+18_wt,"Listeria monocytogenes wt in 0.5 M NaCl vs control medium",microbial,65,66,-0.1862,-0.2062,-0.0201,0.0958,0.0787,-0.0171,-1.8709,-1.9154,-0.0445,0.5269,0.547,0.0201,273,304,31,NA,NA,NA,NA,NA,NA
 LJC+18_mutant,"Listeria monocytogenes mutant in 0.5 M NaCl vs control medium",microbial,37,30,-0.1806,-0.194,-0.0134,0.114,0.1168,0.0028,-1.8293,-1.9227,-0.0934,0.4774,0.5632,0.0858,277,184,-93,NA,NA,NA,NA,NA,NA

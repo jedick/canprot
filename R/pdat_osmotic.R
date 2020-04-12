@@ -11,7 +11,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "LPK+13=microbial", "QHT+13_24.h=microbial", "QHT+13_48.h=microbial",
              "CLG+15", "KLB+15_prot-suc=microbial", "KLB+15_prot-NaCl=microbial", "YDZ+15=microbial",
              "DSNM16_131C=microbial", "DSNM16_310F=microbial", "RBP+16=microbial",
-             "KAK+17=microbial",
+             "KAK+17=microbial", "LYS+17=microbial",
              "JBG+18=microbial", "LJC+18_wt=microbial", "LJC+18_mutant=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
              "MGF+19_10=microbial", "MGF+19_20=microbial",
              "AST+20=microbial"
@@ -198,6 +198,13 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Regulation == "up"
     dat <- cleanup(dat, "UniProt", up2)
     pcomp <- protcomp(dat$UniProt, basis, aa_file = paste0(extdatadir, "/aa/bacteria/LPK+13_aa.csv.xz"))
+  } else if(study=="LYS+17") {
+    # 20200412 Lactobacillus salivarius LI01, Lv et al., 2017
+    dat <- read.csv(paste0(datadir, "LYS+17.csv.xz"), as.is=TRUE)
+    description <- "Lactobacillus salivarius LI01 with vs without 0.15% ox bile"
+    up2 <- dat$log2fold_change > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/bacteria/LYS+17_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
