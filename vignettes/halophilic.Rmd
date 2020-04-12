@@ -1,10 +1,10 @@
 ---
-title: "Halophilic"
+title: "Osmotic Stress in Halophiles"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Halophilic}
+  %\VignetteIndexEntry{Osmotic Stress in Halophiles}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib
@@ -22,14 +22,14 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-This vignette shows compositional metrics for proteins that are differentially expressed in halophiles under hyperosmotic or hypoosmotic conditions.
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics for proteins that are differentially expressed in halophiles under hyperosmotic or hypoosmotic conditions.
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
   * <i>n</i><sub>AA</sub> &ndash; protein length
   * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
 
-Stoichiometric values are calculated using basis species (rQEC derivation; [Dick et al., 2020](https://doi.org/10.1101/2020.04.01.020008)) or amino acid biosynthetic reactions.
+Stoichiometric values are calculated using basis species (rQEC derivation) or amino acid biosynthetic reactions ([<span title="Distinct trends in chemical composition of proteins from metagenomes in redox and salinity gradients">Dick et al., 2020</span>](https://doi.org/10.1101/2020.04.01.020008); [<span title="Water as a reactant in the differential expression of proteins in cancer">Dick, 2020</a>](https://doi.org/10.1101/2020.04.09.035022)).
 
 ```{r options, echo=FALSE}
 options(width = 90)

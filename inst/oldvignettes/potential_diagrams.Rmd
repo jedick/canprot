@@ -18,7 +18,7 @@ zc <- "<i>Z</i><sub>C</sub>"
 h2o <- "H<sub>2</sub>O"
 ```
 
-This [<span style="color:red;text-decoration:underline">vignette</span>](http://chnosz.net/canprot/doc/index.html) from the R package [canprot](http://github.com/jedick/canprot) demonstrates the calculation of potential diagrams for a group of datasets and generation of a merged diagram.
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` demonstrates the calculation of potential diagrams for a group of datasets and generation of a merged diagram.
 Specifically, the potential diagrams show the weighted rank difference of chemical affinities between up- and down-expressed proteins in each dataset.
 Groups of datasets are considered that have similar compositional features, i.e. changes in `r zc` and _n_&#773;<sub>`r h2o`</sub>.
 

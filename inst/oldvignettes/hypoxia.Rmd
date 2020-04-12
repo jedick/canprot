@@ -11,7 +11,8 @@ bibliography: cpdat.bib
 csl: peerj.csl
 ---
 
-This [<span style="color:red;text-decoration:underline">vignette</span>](http://chnosz.net/canprot/doc/index.html) from the R package [canprot](http://github.com/jedick/canprot) reproduces calculations of compositional oxidation state and hydration state that are described in a paper published in _PeerJ_ ([Dick, 2017](https://doi.org/10.7717/peerj.3421)).
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` approximately reproduces calculations of compositional oxidation state and hydration state that are described in a paper published in _PeerJ_ ([Dick, 2017](https://doi.org/10.7717/peerj.3421)).
+The reproduction is not exact because of data updates made in the package after the paper was published.
 
 ## Abbreviations
 U937 (acute promonocytic leukemic cells), B104 (rat neuroblastoma cells), DU145 (prostate carcinoma cells), SK-N-BE(2)c; IMR-32; SH-SY5Y (neuroblastoma cells), H9C2 (rat heart myoblast), MCF-7 (breast cancer cells), THP-1 (macrophages), A431 (epithelial carcinoma cells), Hx48 (hypoxia 48 h), Hx72 (hypoxia 72 h), ReOx (hypoxia 48 h followed by reoxygenation for 24 h), -S (supernatant fraction), -P (pellet fraction), SPH (spheroids), HepG2/C3A (hepatocellular carcinoma cells), U87MG (glioblastoma), 786-O (renal clear cell carcinoma cells), HCT116; HT29 (colon cancer cells), SC (stem cells), SAL (salidroside).

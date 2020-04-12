@@ -19,7 +19,7 @@ o2 <- "O<sub>2</sub>"
 h2o <- "H<sub>2</sub>O"
 ```
 
-This [<span style="color:red;text-decoration:underline">vignette</span>](http://chnosz.net/canprot/doc/index.html) from the R package [canprot](http://github.com/jedick/canprot) shows projections of protein composition made using two sets of basis species.
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows projections of protein composition made using two sets of basis species.
 Using the `CHNOS` basis species (CO<sub>2</sub>, NH<sub>3</sub>, H<sub>2</sub>S, `r h2o`, `r o2`), the plots show that _n_&#773;<sub>`r h2o`</sub> and _n_&#773;<sub>`r o2`</sub>, i.e. the number of `r h2o` and `r o2` in the formation per residue of the proteins from basis species, are both moderately correlated with `r zc` (average oxidation state of carbon).
 Using the `QEC` basis species (glutamine, glutamic acid, cysteine, `r h2o`, `r o2`), we find that _n_&#773;<sub>`r o2`</sub> is strongly correlated with `r zc`, but _n_&#773;<sub>`r h2o`</sub> shows very little correlation.
 Accordingly, the `QEC` basis more clearly exposes two compositional variables -- oxidation state and hydration state -- in proteomic data.
