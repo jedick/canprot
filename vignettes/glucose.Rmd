@@ -88,12 +88,13 @@ __a__. __b__. __c__. Supporting Information Table of @PW08, filtered to include 
 __d__. Supplemetary Table ST4 of @WCM+09, filtered to include the proteins with ANOVA _p_-value < 0.01 (red- and blue-highlighted rows in the source table), and applying the authors' criterion that proteins be identified by 2 or more unique peptides in at least 4 of the 8 most intense LC-MS/MS runs.
 __e__. [Supplementary Table](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2818370/) of @WFSL09, filtered to include proteins with fold change > 1.2 or < 0.8.
 __f__. __g__. Table 1 of @CCC+12.
-__h__. __i__. Table 1 of @CCCC13.
-__j__. Supplementary Table 1 of @CCW+13, filtered to include proteins with average fold change > 2.5 or < 0.4.
-__k__. Supporting Information Table S4 of @LDB+15 for up- (Cluster 1) and down- (Cluster 5) regulated proteins.
-__l__. __m__. Supplementary Table S1 of @SFKD17, filtered to include proteins with fold change > 2 or < 0.5 (ratios were computed from medians of iBAQ values for three replicates after quantile normalization).
-__n__. Supplementary Tables 1 and 2 of @IXA+19.
-__o__. __p__. Supplementary Table 2 of @MHP+20 (sheets "H9c2" and "HEK").
-__q__. __r__. __s__. __t__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
+__h__. Proteins identified as differentially abundant in Supporting Information Table S5 of @SFG+12, filtered to include proteins with fold change > 2 or < 0.5.
+__i__. __j__. Table 1 of @CCCC13.
+__k__. Supplementary Table 1 of @CCW+13, filtered to include proteins with average fold change > 2.5 or < 0.4.
+__l__. Supporting Information Table S4 of @LDB+15 for up- (Cluster 1) and down- (Cluster 5) regulated proteins.
+__m__. __n__. Supplementary Table S1 of @SFKD17, filtered to include proteins with fold change > 2 or < 0.5 (ratios were computed from medians of iBAQ values for three replicates after quantile normalization).
+__o__. Supplementary Tables 1 and 2 of @IXA+19.
+__p__. __q__. Supplementary Table 2 of @MHP+20 (sheets "H9c2" and "HEK").
+__r__. __s__. __t__. __u__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
 
 ## References

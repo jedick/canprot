@@ -7,7 +7,7 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     return(c(
              "PW08_2h=microbial", "PW08_10h=microbial", "PW08_12h=microbial",
              "WCM+09", "WFSL09",
-             "CCC+12_25mM", "CCC+12_100mM",
+             "CCC+12_25mM", "CCC+12_100mM", "SFG+12",
              "CCCC13_25mM", "CCCC13_100mM", "CCW+13",
              "LDB+15_all",
              "SFKD17_1EG", "SFKD17_2EG",
@@ -158,6 +158,14 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "Majority.protein.IDs", aa_file = paste0(extdatadir, "/aa/mouse/SFKD17_aa.csv.xz"))
     up2 <- dat[, icol] > 2
     pcomp <- protcomp(dat$Majority.protein.IDs, basis, aa_file = paste0(extdatadir, "/aa/mouse/SFKD17_aa.csv.xz"))
+  } else if(study=="SFG+12") {
+    # 20200413 human pancreatic islets, Schrimpe-Rutledge et al., 2012
+    dat <- read.csv(paste0(datadir, "SFG+12.csv.xz"), as.is=TRUE)
+    description <- "human pancreatic islets in 15 mM vs 5 mM glucose"
+    dat <- dat[dat$Fold.Change..from.normalized.values. > 2 | dat$Fold.Change..from.normalized.values. < 0.5, ]
+    up2 <- dat$Fold.Change..from.normalized.values. > 2
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("glucose dataset", dataset, "not available"))
   print(paste0("pdat_glucose: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
