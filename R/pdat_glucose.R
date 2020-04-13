@@ -7,6 +7,7 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     return(c(
              "PW08_2h=microbial", "PW08_10h=microbial", "PW08_12h=microbial",
              "WCM+09", "WFSL09",
+             "MFD+10",
              "CCC+12_25mM", "CCC+12_100mM", "SFG+12",
              "CCCC13_25mM", "CCCC13_100mM", "CCW+13",
              "LDB+15_all",
@@ -166,6 +167,14 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Fold.Change..from.normalized.values. > 2
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="MFD+10") {
+    # 20200413 rat INS-1E cells, Maris et al., 2010
+    dat <- read.csv(paste0(datadir, "MFD+10.csv.xz"), as.is=TRUE)
+    description <- "rat INS-1E cells in 25 mM vs 11 mM glucose"
+    dat <- check_IDs(dat, "Swiss.Prot.accession.number", aa_file = paste0(extdatadir, "/aa/rat/MFD+10_aa.csv.xz"))
+    up2 <- dat$fold.regulation > 0
+    dat <- cleanup(dat, "Swiss.Prot.accession.number", up2)
+    pcomp <- protcomp(dat$Swiss.Prot.accession.number, basis, aa_file = paste0(extdatadir, "/aa/rat/MFD+10_aa.csv.xz"))
   } else stop(paste("glucose dataset", dataset, "not available"))
   print(paste0("pdat_glucose: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
