@@ -10,6 +10,7 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
              "CCC+12_25mM", "CCC+12_100mM",
              "CCCC13_25mM", "CCCC13_100mM", "CCW+13",
              "LDB+15_all",
+             "SFKD17_1EG", "SFKD17_2EG",
              "IXA+19",
              "MHP+20_H9c2", "MHP+20_HEK",
              "MPR+20_3h.high.glucose", "MPR+20_24h.high.glucose", "MPR+20_3h.high.mannitol", "MPR+20_24h.high.mannitol"
@@ -144,6 +145,19 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Ratio. > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/cow/WFSL09_aa.csv.xz"))
+  } else if(study=="SFKD17") {
+    # 20200413 murine islets of Langerhans, Schmudlach et al., 2017
+    # SFKD17_1EG, SFKD17_2EG
+    dat <- read.csv(paste0(datadir, "SFKD17.csv.xz"), as.is=TRUE)
+    if(stage=="1EG") description <- "murine islets of Langerhans in 25 mM vs 11 mM glucose for 1 day"
+    if(stage=="2EG") description <- "murine islets of Langerhans in 25 mM vs 11 mM glucose for 2 days"
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    # use proteins with high expression difference
+    dat <- dat[dat[, icol] > 2 | dat[, icol] < 0.5, ]
+    dat <- check_IDs(dat, "Majority.protein.IDs", aa_file = paste0(extdatadir, "/aa/mouse/SFKD17_aa.csv.xz"))
+    up2 <- dat[, icol] > 2
+    pcomp <- protcomp(dat$Majority.protein.IDs, basis, aa_file = paste0(extdatadir, "/aa/mouse/SFKD17_aa.csv.xz"))
   } else stop(paste("glucose dataset", dataset, "not available"))
   print(paste0("pdat_glucose: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
