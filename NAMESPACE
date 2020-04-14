@@ -14,13 +14,16 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200204 used in JMDplots package
 "cplab",
 # 20200402, 20200411
-"pdat_liver", "pdat_glucose"
+"pdat_liver", "pdat_glucose",
+# 20200414
+"mkvig"
 )
 
 # Imports from default packages
 importFrom("stats", "na.omit", "median", "loess", "predict", "quantile", "approx")
 
-importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data", "combn", "read.table")
+importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data",
+"combn", "read.table", "browseURL")
 
 importFrom("graphics", "mtext", "plot", "title", "box", "contour", "image",
 "lines", "text", "abline", "points", "rect",  "grconvertX", "grconvertY", "par", "plot.new")

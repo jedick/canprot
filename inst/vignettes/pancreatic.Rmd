@@ -1,10 +1,10 @@
 ---
-title: "Prostate Cancer"
+title: "Pancreatic Cancer"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Prostate Cancer}
+  %\VignetteIndexEntry{Pancreatic Cancer}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib
@@ -22,11 +22,12 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in prostate cancer compared to normal tissue.
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in pancreatic cancer compared to normal tissue.
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
   * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
+  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
 
 Stoichiometric values are calculated using basis species (rQEC derivation) or amino acid biosynthetic reactions ([<span title="Distinct trends in chemical composition of proteins from metagenomes in redox and salinity gradients">Dick et al., 2020</span>](https://doi.org/10.1101/2020.04.01.020008); [<span title="Water as a reactant in the differential expression of proteins in cancer">Dick, 2020</a>](https://doi.org/10.1101/2020.04.09.035022)).
 Gene ages, expressed as phylostrata numbers, are taken from [<span title="Altered interactions between unicellular and multicellular genes drive hallmarks of transformation in a diverse range of solid tumors">Trigos et al., 2017</span>](https://doi.org/10.1073/pnas.1617743114) (TPPG17) or [<span title="Towards consensus gene ages ">Liebeskind et al, 2016</span>](https://doi.org/10.1093/gbe/evw113) (LMM16).
@@ -44,11 +45,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_prostate(2020)
+datasets <- pdat_pancreatic(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_prostate)
+pdat1 <- lapply(datasets, pdat_pancreatic)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -71,11 +72,6 @@ title("Liebeskind et al. (2016) ages", font.main = 1)
 ```
 
 In the table, values of &Delta;<i>Z</i><sub>C</sub>, &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> and &Delta;<i>n</i><sub>O<sub>2</sub></sub> are multiplied by 1000, values of &Delta;PS are multiplied by 100, and negative values are shown in bold.
-Abbreviations:
-
-  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
-  * PCa &ndash; prostate cancer; BPH &ndash; benign prostatic hyperplasia.
-  * FFPE &ndash; formalin-fixed paraffin-embedded; OCT &ndash; optimal cutting temperature compound-embedded; TMA &ndash; tissue microarray.
 
 ```{r xsummary, results="asis", echo = FALSE}
 library(xtable)
@@ -84,27 +80,35 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
 out[, 6:26] <- round(out[, 6:26], 4)
-write.csv(out, "prostate.csv", row.names = FALSE, quote = 2)
+write.csv(out, "pancreatic.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
-Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
+Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>, except for IPI accession numbers, which were converted using the <a href="https://david-d.ncifcrf.gov/conversion.jsp">DAVID 6.7 conversion tool</a>.
 
-__a__. Table 2 of @GTR+08.
-__b__. Supplementary Tables 3 and 4 of @KPB+10.
-__c__. Table S2 of @HZH+12.
-__d__. Table S1 of @JHZ+13.
-__e__. Supplemental Table S7 of @LCS+14.
-__f__. Supplementary Table 1 @CZL+16 (proteins recorded with only Down-regulation or Up-regulation).
-__g__. Supplementary Table S3 of @IWT+16, filtered to include proteins listed with FDR < 0.1.
-__h__. __i__. Extracted from Table S4 @GLZ+18. Values were quantile normalized, then ratios were calculated between the median values for each cancer type (acinar and ductal) and corresponding normal tissue; ratios > 1.5 or < 2/3 were used to identify differentially expressed proteins.
-__j__. __k__. Extracted from Supplementary Data 1 of @LAJ+18 (sheet "Area-proteins") by applying quantile normalization to peak areas then calculating median values across all runs and samples for each of BPH , PC (primary prostate cancer), and CRPC (castration resistant prostate cancer). A cutoff of 2-fold in ratios of medians (PC / BPH or CRPC / BPH) was used to identify differentially expressed proteins.
-__l__. Table 2 of @MAN+18.
-__m__. __n__. __o__. __p__. __q__. Supporting Information Table S3 of @KRN+19 (G1--G5: PCa grades).
-__r__. __s__. Tables S4d (GS = 6) and S4f (GS ≥ 8 or GS = 6) of @MMF+19 (GS: Gleason Score).
-__t__. Supplementary Table S3a of @TOT+19.
-__u__. __v__. Table S5 of @ZYW+19 (LG: low-grade PCa; HG: high-grade PCa).
-__w__. Supplemental Table S2 of @KHN+20, filtered to include proteins with log~2~ fold change > 1 or < -1 in at least one experiment.
-__x__. Table S2, Sheet D:S3-SWATH_protein_matrix of @SHC+20, filtered to include proteins quantified in at least 50% of both tumor and normal samples and with median fold change > 2 or < 0.5.
+__a__. Tables 2 and 3 of @LHE+04.
+__b__. Tables 1 and 2 of @CYD+05.
+__c__. Table 2 of @CGB+05.
+__d__. Table 1 of @CTZ+09.
+__e__. IPI numbers from Supplementary Table S2 of @MLC+11.
+__f__. Supplementary Table 3 of @PCS+11.
+__g__. Extracted from the SI Table of @TMW+11.
+__h__. Supplementary Tables 2 and 3 of @KBK+12.
+__i__. SI Table S3 of @KHO+13, filtered to include proteins with an expression ratio >2 [or <0.5] in at least 5 of the 7 experiments and ratio >1 [or <1] in all experiments.
+__j__. Supplementary Table 2 of @KPC+13.
+__k__. __l__. Supplementary Tables S3 and S4 of @WLL+13a, including proteins with >3/2 or <2/3 fold change in at least 3 of 4 iTRAQ experiments for different pooled samples.
+__m__. Supplementary Tables 2 and 3 of @YKK+13 (data file provided by Youngsoo Kim).
+__n__. SI Table S5 of @ZNWL13.
+__o__. SI Table S5 of @ISI+14, filtered to exclude proteins marked as "not passed", i.e. having inconsistent regulation.
+__p__. Table S6, Sheet 2 of @BZQ+14.
+__q__. Table 1 of @MZH+14.
+__r__. Table S6 of @BHB+15.
+__s__. Supplementary Table of @KKC+16.
+__t__. Supplementary Table S3 of @CHO+18.
+__u__. Table S1 of @SWW+18, filtered to exclude proteins with opposite expression changes in different patients.
+__v__. Gene names extracted from Figure 1b of @ZAH+19.
+
+## Acknowledgement
+Thanks to Youngsoo Kim for providing a data file.
 
 ## References

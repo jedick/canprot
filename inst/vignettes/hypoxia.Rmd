@@ -1,10 +1,10 @@
 ---
-title: "Breast Cancer"
+title: "Hypoxia"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Breast Cancer}
+  %\VignetteIndexEntry{Hypoxia}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib
@@ -22,7 +22,7 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in breast cancer compared to normal tissue.
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in hypoxia compared to control conditions.
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
@@ -45,11 +45,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_breast(2020)
+datasets <- pdat_hypoxia(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_breast)
+pdat1 <- lapply(datasets, pdat_hypoxia)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -58,6 +58,9 @@ comptab4 <- lapply(pdat1, get_comptab, "nAA", "PS", PS_source = "LMM16")
 ```
 
 Dashed contour lines in the plots outline the 50% credible region for highest probability density.
+Abbreviations:
+
+  * Hx48 &ndash; hypoxia 48 h; Hx72 &ndash; hypoxia 72 h.
 
 ```{r diffplot, fig.width=8, fig.height=8, fig.align = "center", echo = FALSE, pngquant = pngquant}
 par(mfrow = c(2, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
@@ -80,27 +83,36 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
 out[, 6:26] <- round(out[, 6:26], 4)
-write.csv(out, "breast.csv", row.names = FALSE, quote = 2)
+write.csv(out, "hypoxia.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
-Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
+Where given, gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>.
 
-__a__. Extracted from Supporting Information RTF files of @AMG+08. Proteins identified by any number of peptides in both cancer and matched periphery were excluded; of the remaining proteins those identified by at least two peptides were used.
-__b__. Table S2(a) of @CIR+10 (proteins differentially abundant at or above 99% confidence level).
-__c__. Table 4 of @SRG+10.
-__d__. Tables 1 and 2 of @HTP+11.
-__e__. __f__. Supporting Table 6 of @GTM+12.
-__g__. Table S1 of @LLL+13.
-__h__. __i__. Table 2 of @SRS+13. For DCIS (3 patients), proteins were classified as up/down regulated if 2 or more ratios were greater/less than 1, and no ratios were less/greater than 1. For IC (4 patients), proteins were classified as up/down regulated if 3 or more ratios were greater/less than 1, and no ratios were less/greater than 1.
-__j__. Extracted from Table S2 of @GSB+14. Values in all LFQ columns (distant, near, tumor) were quantile normalized, then the ratio between tumor and distant was calculated. Proteins with normalized LFQ ratios > 1.2 or < 1/1.2 and _p_-value < 0.05 were identified as differentially expressed.
-__k__. Supplementary Tables 12, 13, 14 and 15 of @PPH+14, filtered to include proteins that are up- or down-regulated in all subtypes (LUM, LUMHER, HER, TN).
-__l__. Supplemental Data S3 of @CVJ+15, filtered to include proteins with min and max credible intervals for expression ratios that are both <1 or >1.
-__m__. __n__. Supplementary Table S3 of @PGT+16.
-__o__. Table S4A of @PBR+16.
-__p__. Supplemental Table 4 of @BST+17, filtered to include proteins with _p_-value < 2.
-__q__. __r__. Tables S5-1 (differentially expressed proteins for 52 tumor / non-cancerous tissue pairs) and S5-2 (13 basal-like tumor / non-cancerous tissue pairs) of @TZD+18, filtered to include proteins with log~2~ fold change > 1 or < -1.
-__s__. __t__. Supplementary File S1 of @GCS+19 (PT: primary breast tissue; NCT: non tumor contralateral breast tissue; ANT: non tumor adjacent breast tissue).
-__u__. Supplementary Table 2 of @LLC+19.
+__a__. Supplemental Table 1 of @SBB+06, filtered to include proteins with expression ratio ≥ 1.7 or ≤ 0.58.
+__b__. Supplemental Table 2A of @FWH+13 (control virus cells).
+__c__. __d__. Supplemental Table S1 of @RHD+13, filtered to include proteins with iTRAQ ratios < 0.83 or > 1.2 and _p_-value < 0.05.
+__e__. Supporting Information table of @VTMF13, filtered to include proteins with a normalized expression ratio of > 1.2 or < 0.83.
+__f__. Supporting Information Table S1 @DCH+14.
+__g__. __h__. __i__. __j__. Supplemental Table S1 of @DYL+14, filtered to include proteins with _p_-value < 0.05 (-S: supernatant fraction; -P: pellet fraction).
+__k__. Supplementary Table S1 of @BSA+15.
+__l__. Supplemental Information Table S1 of @HWA+16, filtered to include proteins with a fold change of < 0.5 or > 1 and that were detected in only hypoxic or only normoxic conditions.
+__m__. Gene names from @LCS16 (data files provided by Ming-Chih Lai).
+__n__. Extracted from Table S2E (whole cell lysate) of @CGH+17, keeping proteins with FDR < 0.05.
+__o__. Supplemental Table S4 of @ZXS+17.
+__p__. Supplementary Tables S6-S7 (proteome) of @CLY+18.
+__q__. List of up- and down-regulated proteins from @GBH+18 (provided by Alex Greenhough), filtered to include proteins with average fold change ≥ 1.5 or ≤ 2/3.
+__r__. Gene names from Figure 1F of @LKK+18.
+__s__. Supplemental file 1 of @WTG+18 (provided by Gordana Vunjak-Novakovic), filtered to include proteins with Normalized Ratio [Hypoxia MSC/Control MSC] ≥ 1.5 or ≤ 2/3 and _p_-value < 0.05.
+__t__. Gene names from Supplementary file S1 of @CSK+19 for the two replicates labelled as "input_Log2ratioHL_firstIP" and "input_Log2ratioLH_secondIP" (soluble extracts before immunoprecipitation), filtered to include proteins where Log2ratio is > 0.2 or < -0.2 for both replicates.
+__u__. __v__. Supplementary Data 1 of @GPT+19, filtered to include proteins with _p_-value < 0.05 and fold-change > 2 or < 0.5
+__w__. Proteins identified as up- or down-regulated > 1 SD in Data File S1 of @KAN+19 (sheet "Proteome").
+__x__. Additional file 1: Table S1 of @LLL+19.
+__y__. Gene names from Supplementary Information Tables S6 and S7 of @BCMS20.
+__z__. __A__. __B__. __C__. __D__. __E__. Supplementary Table 1A of @RVN+20, filtered to include proteins with median fold change between normoxic and hypoxic conditions in any individual treatment > 1.5 or < 2/3. DMSO: dimethyl sulfoxide, NO.sul: NO-Sulindac, sul: Sulindac, 4Gy: radiation.
+__F__. __G__. Supplementary Tables S3b (sheet "HPNP") and S3c (sheet "HHNH") of @SPJ+20 for POS (primay origin) and HMPOS (metastatic origin) canine osteosarcoma (OS) cells.
+
+## Acknowledgements
+Thanks to Alex Greenhough, Ming-Chih Lai, and Gordana Vunjak-Novakovic for providing data files.
 
 ## References

@@ -1,10 +1,10 @@
 ---
-title: "High Glucose"
+title: "Lung Cancer"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{High Glucose}
+  %\VignetteIndexEntry{Lung Cancer}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib
@@ -22,12 +22,11 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in high-glucose compared to control conditions.
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in lung cancer compared to normal tissue.
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
   * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
-  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
 
 Stoichiometric values are calculated using basis species (rQEC derivation) or amino acid biosynthetic reactions ([<span title="Distinct trends in chemical composition of proteins from metagenomes in redox and salinity gradients">Dick et al., 2020</span>](https://doi.org/10.1101/2020.04.01.020008); [<span title="Water as a reactant in the differential expression of proteins in cancer">Dick, 2020</a>](https://doi.org/10.1101/2020.04.09.035022)).
 Gene ages, expressed as phylostrata numbers, are taken from [<span title="Altered interactions between unicellular and multicellular genes drive hallmarks of transformation in a diverse range of solid tumors">Trigos et al., 2017</span>](https://doi.org/10.1073/pnas.1617743114) (TPPG17) or [<span title="Towards consensus gene ages ">Liebeskind et al, 2016</span>](https://doi.org/10.1093/gbe/evw113) (LMM16).
@@ -45,11 +44,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_glucose(2020)
+datasets <- pdat_lung(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_glucose)
+pdat1 <- lapply(datasets, pdat_lung)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -72,6 +71,12 @@ title("Liebeskind et al. (2016) ages", font.main = 1)
 ```
 
 In the table, values of &Delta;<i>Z</i><sub>C</sub>, &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> and &Delta;<i>n</i><sub>O<sub>2</sub></sub> are multiplied by 1000, values of &Delta;PS are multiplied by 100, and negative values are shown in bold.
+Abbreviations:
+
+  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
+  * NSCLC &ndash; non-small cell lung cancer; SCC &ndash; squamous cell carcinoma; ADC &ndash; adenocarcinoma.
+  * ANT &ndash; adjacent or patient-matched normal (non-malignant, benign) tissue; NBE &ndash; normal bronchial epithelium.
+  * LCM &ndash; laser capture microdissection; FFPE &ndash; formalin-fixed paraffin-embedded.
 
 ```{r xsummary, results="asis", echo = FALSE}
 library(xtable)
@@ -80,22 +85,31 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
 out[, 6:26] <- round(out[, 6:26], 4)
-write.csv(out, "glucose.csv", row.names = FALSE, quote = 2)
+write.csv(out, "lung.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
-__a__. __b__. __c__. Supporting Information Table of @PW08, filtered to include proteins with expression ratios < 0.9 or > 1.1 and with _p_-values < 0.05.
-__d__. Supplemetary Table ST4 of @WCM+09, filtered to include the proteins with ANOVA _p_-value < 0.01 (red- and blue-highlighted rows in the source table), and applying the authors' criterion that proteins be identified by 2 or more unique peptides in at least 4 of the 8 most intense LC-MS/MS runs.
-__e__. [Supplementary Table](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2818370/) of @WFSL09, filtered to include proteins with fold change > 1.2 or < 0.8.
-__f__. Table 1 of @MFD+10.
-__g__. __h__. Table 1 of @CCC+12.
-__i__. Proteins identified as differentially abundant in Supporting Information Table S5 of @SFG+12, filtered to include proteins with fold change > 2 or < 0.5.
-__j__. __k__. Table 1 of @CCCC13.
-__l__. Supplementary Table 1 of @CCW+13, filtered to include proteins with average fold change > 2.5 or < 0.4.
-__m__. Supporting Information Table S4 of @LDB+15 for up- (Cluster 1) and down- (Cluster 5) regulated proteins.
-__n__. __o__. Supplementary Table S1 of @SFKD17, filtered to include proteins with fold change > 2 or < 0.5 (ratios were computed from medians of iBAQ values for three replicates after quantile normalization).
-__p__. Supplementary Tables 1 and 2 of @IXA+19.
-__q__. __r__. Supplementary Table 2 of @MHP+20 (sheets "H9c2" and "HEK").
-__s__. __t__. __u__. __v__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
+Where given, gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>, except for IPI accession numbers, which were converted using the <a href="https://david-d.ncifcrf.gov/conversion.jsp">DAVID 6.7 conversion tool</a>.
+
+__a__. Table 1 of @LXC+06.
+__b__. __c__. Gene names from Tables II and III of @KHA+12.
+__d__. Gene names from Table 2 of @YLL+12.
+__e__. IPI numbers from Table 1 of @ZZD+12.
+__f__. Table 2 of @ZZY+13.
+__g__. Table 1 of @LLY+14.
+__h__. Supplementary data 1b of @LWT+14.
+__i__. Supplementary Data of @ZLH+14.
+__j__. Gene names from Supporting Information Table S5 of @ZLS+14 (differential expression between normal endothelial cells and both paratumor and tumor endothelial cells).
+__k__. Table S3 of @KNT+15 (LPIA: lepidic predominant invasive adenocarcinoma vs pN: pseudo-normal), filtered to include proteins with log~2~ fold change > 1 or < -1 and _p_-value < 0.05.
+__l__. UniProt names from Table S2 of @BLL+16, filtered to include proteins with log~2~ fold change > 1.5 or < -1/1.5 and _p_-value < 0.05.
+__m__. Gene names from Table S2 of @FGP+16.
+__n__. Gene names from Table 1 of @JCP+16.
+__o__. __p__. __q__. Supplemental Table S3B of @HHH+16 (primary tumor / normal comparison; pN0: no nodes involved; pN1: ipsilateral peribronchial/interlobar/hilar LN metastasis; pN2: ipsilateral mediastinal LN metastasis; M1: distant metastasis or malignant effusion).
+__r__. Supplemental Table 2 of @TLB+16, filtered with adjusted _p_-value < 0.05 and fold change ≥ 1.5 or ≤ 2/3.
+__s__. Gene names from Supplementary Table S1 of @FGW+17, filtered with _p_-value < 0.05.
+__t__. Table 1 of @LZW+17.
+__u__. Supplementary Table S2 of @SFS+17 (sheet LF: label-free quantification).
+__v__. Supplementary Table 1 of @WLC+17.
+__w__. __x__. __y__. __z__. __A__. __B__. Gene names from Tables S2--S6 of @YCC+17 filtered to keep proteins with fold change ≥1.5 or ≤2/3 (Oncogene: oncogene-coded proteins; TSG: tumor suppressor gene-coded proteins; Glycoprotein: glycoproteomics data).
 
 ## References

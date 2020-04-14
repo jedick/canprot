@@ -1,7 +1,14 @@
-CHANGES IN canprot 0.1.6-12 (2020-04-13)
-----------------------------------------
+CHANGES IN canprot 0.2.0 (2020-04-14)
+-------------------------------------
 
-- Move high-glucose datasets from pdat_osmotic() to pdat_glucose().
+- To save space and check time, don't package pre-built vignettes.
+
+- Add mkvig() to compile and open vignettes from command line.
+
+- Add demos, one for each vignette, so vignettes can be accessed via
+  help.start().
+
+- Extract high-glucose datasets from pdat_osmotic() into pdat_glucose().
 
 - Rename pdat_osmotic2() to pdat_halophiles().
 

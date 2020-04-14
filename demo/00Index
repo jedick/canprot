@@ -1,0 +1,12 @@
+breast       Breast cancer
+colorectal   Colorectal cancer
+liver        Liver cancer
+lung         Lung cancer
+pancreatic   Pancreatic cancer
+prostate     Prostate cancer
+a3D          3D cell culture
+hypoxia      Hypoxia
+secreted     Secreted in hypoxia
+hyperosmotic Hyperosmotic stress
+glucose      High glucose
+halophiles   Osmotic stress in halophiles

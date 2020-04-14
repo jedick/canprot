@@ -1,10 +1,10 @@
 ---
-title: "Colorectal Cancer"
+title: "High Glucose"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Colorectal Cancer}
+  %\VignetteIndexEntry{High Glucose}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib
@@ -22,7 +22,7 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in colorectal cancer compared to normal tissue.
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in high-glucose compared to control conditions.
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
@@ -45,11 +45,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_colorectal(2020)
+datasets <- pdat_glucose(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_colorectal)
+pdat1 <- lapply(datasets, pdat_glucose)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -80,36 +80,22 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
 out[, 6:26] <- round(out[, 6:26], 4)
-write.csv(out, "colorectal.csv", row.names = FALSE, quote = 2)
+write.csv(out, "glucose.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
-Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>, except for IPI accession numbers, which were converted using the <a href="https://david-d.ncifcrf.gov/conversion.jsp">DAVID 6.7 conversion tool</a>.
-
-__a__. Table 1 and Supplementary Data 1 of @WTK+08 (Swiss-Prot and UniProt accession numbers from Supplementary Data 2).
-__b__. __c__. IPI accession numbers from Supplemental Table 4 of @XZC+10.
-__d__. IPI accession numbers from Supplemental Table 4 of @ZYS+10.
-__e__. __f__. __g__. __h__. Gene names from supplemental Table 9 of @BPV+11.
-__i__. Supplementary Table 2 of @JCF+11.
-__j__. Table S8 of @MRK+11.
-__k__. Supplementary Table 1 of @SHHS11.
-__l__. Gene names from Supplementary Table 4 of @KYK+12, filtered to include proteins with expression ratio > 2 or < 0.5 in both mTRAQ and cICAT analyses.
-__m__. Supplementary Table 4 of @WOD+12.
-__n__. Table 2 of @CZD+14.
-__o__. Ensembl protein IDs from Supporting Table 2 of @STK+15.
-__p__. Proteins marked as having a significant change between normal tissue (N) and adenocarcinoma (C) in SI Table 3 of @WDO+15.
-__q__. SI Table S3 of @LXM+16, filtered to include proteins with _p_-value < 0.05.
-__r__. __s__. Gene names from Supplementary Table 4 of @PHL+16, for differential expression between normal colonic mucosa (NC) and carcinoma in situ (CIS) or invasive colorectal cancer (ICC).
-__t__. Table S3 of @CTW+17.
-__u__. Dataset 6A of @HZW+17.
-__v__. Supplementary Material Table S1 of @LLL+17.
-__w__. Table 2 of @NKG+17.
-__x__. Table S2 of @QMB+17, filtered to include comparisons between adenocarcinoma and diverticular disease.
-__y__. Table S1 of @TMS+17, filtered to include proteins that are consistently up- or down-regulated in at least 11 of 12 patients.
-__z__. IPI accession numbers from Table S2 of @ZLY+17.
-__A__. Supplementary Table 1B of @AKG+18, filtered to include proteins with expression ratio > 3/2 or < 2/3.
-__B__. __C__. Supplementary Table S2 of @STA+19, filtered to include proteins with log~2~ ratio > ± the standard deviation of values for all quantified proteins.
-__D__. [Online data](http://linkedomics.org/cptac-colon) from @VHW+19 (file: Human__CPTAC_COAD__PNNL__Proteome__TMT__03_01_2017__BCM__Gene__Tumor_Normal_log2FC.cct), filtered to include proteins with median log~2~ ratio > 1 or < -1.
-__E__. Supplementary Information Table S2 of @WYL+19.
+__a__. __b__. __c__. Supporting Information Table of @PW08, filtered to include proteins with expression ratios < 0.9 or > 1.1 and with _p_-values < 0.05.
+__d__. Supplemetary Table ST4 of @WCM+09, filtered to include the proteins with ANOVA _p_-value < 0.01 (red- and blue-highlighted rows in the source table), and applying the authors' criterion that proteins be identified by 2 or more unique peptides in at least 4 of the 8 most intense LC-MS/MS runs.
+__e__. [Supplementary Table](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2818370/) of @WFSL09, filtered to include proteins with fold change > 1.2 or < 0.8.
+__f__. Table 1 of @MFD+10.
+__g__. __h__. Table 1 of @CCC+12.
+__i__. Proteins identified as differentially abundant in Supporting Information Table S5 of @SFG+12, filtered to include proteins with fold change > 2 or < 0.5.
+__j__. __k__. Table 1 of @CCCC13.
+__l__. Supplementary Table 1 of @CCW+13, filtered to include proteins with average fold change > 2.5 or < 0.4.
+__m__. Supporting Information Table S4 of @LDB+15 for up- (Cluster 1) and down- (Cluster 5) regulated proteins.
+__n__. __o__. Supplementary Table S1 of @SFKD17, filtered to include proteins with fold change > 2 or < 0.5 (ratios were computed from medians of iBAQ values for three replicates after quantile normalization).
+__p__. Supplementary Tables 1 and 2 of @IXA+19.
+__q__. __r__. Supplementary Table 2 of @MHP+20 (sheets "H9c2" and "HEK").
+__s__. __t__. __u__. __v__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
 
 ## References

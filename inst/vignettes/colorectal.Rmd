@@ -1,10 +1,10 @@
 ---
-title: "Lung Cancer"
+title: "Colorectal Cancer"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Lung Cancer}
+  %\VignetteIndexEntry{Colorectal Cancer}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib
@@ -22,11 +22,12 @@ pngquant <- "--speed=1 --quality=0-25"
 if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL 
 ```
 
-This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in lung cancer compared to normal tissue.
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics and phylostrata for proteins that are differentially expressed in colorectal cancer compared to normal tissue.
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; carbon oxidation state; <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state; <i>n</i><sub>O<sub>2</sub></sub> &ndash; stoichiometric oxidation state.
   * <i>n</i><sub>AA</sub> &ndash; protein length; PS &ndash; phylostrata.
+  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
 
 Stoichiometric values are calculated using basis species (rQEC derivation) or amino acid biosynthetic reactions ([<span title="Distinct trends in chemical composition of proteins from metagenomes in redox and salinity gradients">Dick et al., 2020</span>](https://doi.org/10.1101/2020.04.01.020008); [<span title="Water as a reactant in the differential expression of proteins in cancer">Dick, 2020</a>](https://doi.org/10.1101/2020.04.09.035022)).
 Gene ages, expressed as phylostrata numbers, are taken from [<span title="Altered interactions between unicellular and multicellular genes drive hallmarks of transformation in a diverse range of solid tumors">Trigos et al., 2017</span>](https://doi.org/10.1073/pnas.1617743114) (TPPG17) or [<span title="Towards consensus gene ages ">Liebeskind et al, 2016</span>](https://doi.org/10.1093/gbe/evw113) (LMM16).
@@ -44,11 +45,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_lung(2020)
+datasets <- pdat_colorectal(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply_canprot(datasets, pdat_lung)
+pdat1 <- lapply(datasets, pdat_colorectal)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, pdat_recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -71,12 +72,6 @@ title("Liebeskind et al. (2016) ages", font.main = 1)
 ```
 
 In the table, values of &Delta;<i>Z</i><sub>C</sub>, &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> and &Delta;<i>n</i><sub>O<sub>2</sub></sub> are multiplied by 1000, values of &Delta;PS are multiplied by 100, and negative values are shown in bold.
-Abbreviations:
-
-  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
-  * NSCLC &ndash; non-small cell lung cancer; SCC &ndash; squamous cell carcinoma; ADC &ndash; adenocarcinoma.
-  * ANT &ndash; adjacent or patient-matched normal (non-malignant, benign) tissue; NBE &ndash; normal bronchial epithelium.
-  * LCM &ndash; laser capture microdissection; FFPE &ndash; formalin-fixed paraffin-embedded.
 
 ```{r xsummary, results="asis", echo = FALSE}
 library(xtable)
@@ -85,31 +80,36 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
 out[, 6:26] <- round(out[, 6:26], 4)
-write.csv(out, "lung.csv", row.names = FALSE, quote = 2)
+write.csv(out, "colorectal.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
-Where given, gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>, except for IPI accession numbers, which were converted using the <a href="https://david-d.ncifcrf.gov/conversion.jsp">DAVID 6.7 conversion tool</a>.
+Gene names or other identifiers were converted to UniProt accession numbers using the <a href="https://www.uniprot.org/mapping/">UniProt mapping tool</a>, except for IPI accession numbers, which were converted using the <a href="https://david-d.ncifcrf.gov/conversion.jsp">DAVID 6.7 conversion tool</a>.
 
-__a__. Table 1 of @LXC+06.
-__b__. __c__. Gene names from Tables II and III of @KHA+12.
-__d__. Gene names from Table 2 of @YLL+12.
-__e__. IPI numbers from Table 1 of @ZZD+12.
-__f__. Table 2 of @ZZY+13.
-__g__. Table 1 of @LLY+14.
-__h__. Supplementary data 1b of @LWT+14.
-__i__. Supplementary Data of @ZLH+14.
-__j__. Gene names from Supporting Information Table S5 of @ZLS+14 (differential expression between normal endothelial cells and both paratumor and tumor endothelial cells).
-__k__. Table S3 of @KNT+15 (LPIA: lepidic predominant invasive adenocarcinoma vs pN: pseudo-normal), filtered to include proteins with log~2~ fold change > 1 or < -1 and _p_-value < 0.05.
-__l__. UniProt names from Table S2 of @BLL+16, filtered to include proteins with log~2~ fold change > 1.5 or < -1/1.5 and _p_-value < 0.05.
-__m__. Gene names from Table S2 of @FGP+16.
-__n__. Gene names from Table 1 of @JCP+16.
-__o__. __p__. __q__. Supplemental Table S3B of @HHH+16 (primary tumor / normal comparison; pN0: no nodes involved; pN1: ipsilateral peribronchial/interlobar/hilar LN metastasis; pN2: ipsilateral mediastinal LN metastasis; M1: distant metastasis or malignant effusion).
-__r__. Supplemental Table 2 of @TLB+16, filtered with adjusted _p_-value < 0.05 and fold change ≥ 1.5 or ≤ 2/3.
-__s__. Gene names from Supplementary Table S1 of @FGW+17, filtered with _p_-value < 0.05.
-__t__. Table 1 of @LZW+17.
-__u__. Supplementary Table S2 of @SFS+17 (sheet LF: label-free quantification).
-__v__. Supplementary Table 1 of @WLC+17.
-__w__. __x__. __y__. __z__. __A__. __B__. Gene names from Tables S2--S6 of @YCC+17 filtered to keep proteins with fold change ≥1.5 or ≤2/3 (Oncogene: oncogene-coded proteins; TSG: tumor suppressor gene-coded proteins; Glycoprotein: glycoproteomics data).
+__a__. Table 1 and Supplementary Data 1 of @WTK+08 (Swiss-Prot and UniProt accession numbers from Supplementary Data 2).
+__b__. __c__. IPI accession numbers from Supplemental Table 4 of @XZC+10.
+__d__. IPI accession numbers from Supplemental Table 4 of @ZYS+10.
+__e__. __f__. __g__. __h__. Gene names from supplemental Table 9 of @BPV+11.
+__i__. Supplementary Table 2 of @JCF+11.
+__j__. Table S8 of @MRK+11.
+__k__. Supplementary Table 1 of @SHHS11.
+__l__. Gene names from Supplementary Table 4 of @KYK+12, filtered to include proteins with expression ratio > 2 or < 0.5 in both mTRAQ and cICAT analyses.
+__m__. Supplementary Table 4 of @WOD+12.
+__n__. Table 2 of @CZD+14.
+__o__. Ensembl protein IDs from Supporting Table 2 of @STK+15.
+__p__. Proteins marked as having a significant change between normal tissue (N) and adenocarcinoma (C) in SI Table 3 of @WDO+15.
+__q__. SI Table S3 of @LXM+16, filtered to include proteins with _p_-value < 0.05.
+__r__. __s__. Gene names from Supplementary Table 4 of @PHL+16, for differential expression between normal colonic mucosa (NC) and carcinoma in situ (CIS) or invasive colorectal cancer (ICC).
+__t__. Table S3 of @CTW+17.
+__u__. Dataset 6A of @HZW+17.
+__v__. Supplementary Material Table S1 of @LLL+17.
+__w__. Table 2 of @NKG+17.
+__x__. Table S2 of @QMB+17, filtered to include comparisons between adenocarcinoma and diverticular disease.
+__y__. Table S1 of @TMS+17, filtered to include proteins that are consistently up- or down-regulated in at least 11 of 12 patients.
+__z__. IPI accession numbers from Table S2 of @ZLY+17.
+__A__. Supplementary Table 1B of @AKG+18, filtered to include proteins with expression ratio > 3/2 or < 2/3.
+__B__. __C__. Supplementary Table S2 of @STA+19, filtered to include proteins with log~2~ ratio > ± the standard deviation of values for all quantified proteins.
+__D__. [Online data](http://linkedomics.org/cptac-colon) from @VHW+19 (file: Human__CPTAC_COAD__PNNL__Proteome__TMT__03_01_2017__BCM__Gene__Tumor_Normal_log2FC.cct), filtered to include proteins with median log~2~ ratio > 1 or < -1.
+__E__. Supplementary Information Table S2 of @WYL+19.
 
 ## References
