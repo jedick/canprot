@@ -2,7 +2,12 @@
 # compile and view vignettes from command line
 # 20200414 jmd
 
-mkvig <- function(vig = "colorectal") {
+mkvig <- function(vig = NULL) {
+  vig.allowed <- gsub("pdat_", "", grep("pdat_", ls("package:canprot"), value = TRUE))
+  isnull <- is.null(vig)
+  toomany <- length(vig) > 1
+  notallowed <- !any(vig %in% vig.allowed)
+  if(isnull | toomany | notallowed) stop("'vig' should be one of: ", paste(vig.allowed, collapse = ", "))
   # location of the vignette directory
   vigdir <- system.file("vignettes", package = "canprot")
   # names of the vignette source and html output files

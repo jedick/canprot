@@ -1,12 +1,12 @@
-breast       Breast cancer
-colorectal   Colorectal cancer
-liver        Liver cancer
-lung         Lung cancer
-pancreatic   Pancreatic cancer
-prostate     Prostate cancer
-X3D          3D cell culture
+X3D          3D Cell Culture (each demo compiles a vignette then opens it in the browser)
+breast       Breast Cancer
+colorectal   Colorectal Cancer
+glucose      High Glucose
+halophiles   Osmotic Stress in Halophiles
 hypoxia      Hypoxia
-secreted     Secreted in hypoxia
-osmotic      Hyperosmotic stress
-glucose      High glucose
-halophiles   Osmotic stress in halophiles
+liver        Liver Cancer
+lung         Lung Cancer
+osmotic      Hyperosmotic Stress
+pancreatic   Pancreatic Cancer
+prostate     Prostate Cancer
+secreted     Secreted in Hypoxia

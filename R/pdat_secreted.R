@@ -74,11 +74,11 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CGH+17") {
     # 20190324 mouse cardiac fibroblast exosomes, secretome, Cosme et al., 2017
     # CGH+17_exosomes, CGH+17_secretome
-    return(pdat_multi(dataset, basis))
+    return(.pdat_multi(dataset, basis))
   } else if(study=="CLY+18") {
     # 20190324 HCT116 cells, Chen et al., 2018
     # CLY+18_secretome
-    return(pdat_multi(dataset, basis))
+    return(.pdat_multi(dataset, basis))
   } else if(study=="PDT+19") {
     # 20190326 tumor exosomes, Park et al., 2019
     dat <- read.csv(paste0(datadir, "PDT+19.csv.xz"), as.is=TRUE)
@@ -146,7 +146,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="KAN+19") {
     # 20191226 human umbilical vein ECs, Kugeratski et al., 2019
     # KAN+19_secretome
-    return(pdat_multi(dataset, basis))
+    return(.pdat_multi(dataset, basis))
   } else if(study=="CRS+15") {
     # 20200116 breast cancer MDA-MB-231 breast cancer parental and bone tropic cells, Cox et al., 2015
     # CRS+15_wt, CRS+15_BT

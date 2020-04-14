@@ -7,11 +7,11 @@ This function compiles the indicated vignette and opens it in the browser.
 }
 
 \usage{
-  mkvig(vig = "colorectal")
+  mkvig(vig = NULL)
 }
 
 \arguments{
-  \item{vig}{character, name of vignette without \samp{.Rmd} extension}
+  \item{vig}{character, name of a vignette without \samp{.Rmd} extension}
 }
 
 \details{

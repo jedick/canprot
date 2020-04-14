@@ -220,11 +220,11 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CGH+17") {
     # 20190324 mouse cardiac whole-cell lysate, Cosme et al., 2017
     # CGH+17_whole
-    return(pdat_multi(dataset, basis))
+    return(.pdat_multi(dataset, basis))
   } else if(study=="CLY+18") {
     # 20190324 HCT116 cells, Chen et al., 2018
     # CLY+18_proteome
-    return(pdat_multi(dataset, basis))
+    return(.pdat_multi(dataset, basis))
   } else if(study=="DCH+14") {
     # 20160109 hypoxia-regulated proteins in mouse breast cancer, Djidja et al., 2014
     # 20191204 use all proteins in Table S1
@@ -272,7 +272,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="KAN+19") {
     # 20191226 human umbilical vein ECs, Kugeratski et al., 2019
     # KAN+19_proteome
-    return(pdat_multi(dataset, basis))
+    return(.pdat_multi(dataset, basis))
   } else if(study=="SBB+06") {
     # 20161109 mouse hypoxia-adapated malignant melanoma, Stockwin et al., 2006
     # 20200115 added to canprot

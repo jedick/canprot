@@ -6,7 +6,7 @@
 \alias{pdat_hypoxia}
 \alias{pdat_osmotic}
 \alias{pdat_halophiles}
-\alias{pdat_multi}
+\alias{.pdat_multi}
 \alias{pdat_secreted}
 \alias{pdat_breast}
 \alias{pdat_lung}
@@ -32,7 +32,7 @@
   pdat_glucose(dataset = 2020, basis = "rQEC")
   pdat_halophiles(dataset = 2020, basis = "rQEC")
   pdat_3D(dataset = 2020, basis = "rQEC")
-  pdat_multi(dataset = 2020, basis = "rQEC")
+  .pdat_multi(dataset = 2020, basis = "rQEC")
 }
 
 \arguments{
@@ -47,12 +47,13 @@ Use \code{pdat_colorectal}, \code{pdat_pancreatic}, \code{pdat_breast}, \code{pd
 Use \code{pdat_hypoxia} for data on hypoxia in cell culture and \code{pdat_osmotic} for data on hyperosmotic stress.
 \code{pdat_glucose} retrieves data for high-glucose experiments, and \code{pdat_halophiles} retrieves data for halophilic bacteria and archaea, as described in Dick et al. (2020).
 \code{pdat_3D} retrieves data for 3D vs 2D cell culture (including tumor spheroids) and \code{pdat_secreted} retrieves data for secreted proteins (including exosomes) in hypoxia.
-\code{pdat_multi} has data from studies that include multiple conditions (e.g. cellular and secreted proteins in hypoxia), and is used internally by the specific functions (\code{pdat_hypoxia}, \code{pdat_secreted}).
+\code{.pdat_multi} retrieves data from studies that include multiple conditions (e.g. cellular and secreted proteins in hypoxia), and is used internally by the specific functions (\code{pdat_hypoxia}, \code{pdat_secreted}).
+
 The functions get relative expression data from the CSV files stored in \code{extdata/expression/}, with subdirectories corresponding to the names of the functions.
 Some of the functions also retrieve amino acid compositions from the files in \code{extdata/aa/} (for non-human proteins).
 
 If \code{dataset} is \code{NULL}, the function returns the names of all datasets in the compilation.
-If \code{dataset} is \samp{2017} or \samp{2017}, it indicates the year of the compilation.
+If \code{dataset} is \samp{2020} (the default) or \samp{2017}, it indicates the year of the compilation.
 
 Provide one of the dataset names as the \code{dataset} argument to retrieve the data.
 Each dataset name indicates the study (publication) where the data were reported, constructed by combining the first characters of the (first three or four) authors' family names with the 2-digit year of publication.

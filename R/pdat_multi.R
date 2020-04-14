@@ -3,7 +3,7 @@
 # (i.e. both proteome and secretome in hypoxia)
 # 20191204 extracted from pdat_secreted.R
 
-pdat_multi <- function(dataset = 2020, basis = "rQEC") {
+.pdat_multi <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c("CGH+17_exosomes", "CGH+17_secretome", "CGH+17_whole",
              "CLY+18_proteome", "CLY+18_secretome",
@@ -61,7 +61,7 @@ pdat_multi <- function(dataset = 2020, basis = "rQEC") {
     dat <- cleanup(dat, "Protein.IDs..UniProt.", up2)
     pcomp <- protcomp(dat$Protein.IDs..UniProt., basis=basis)
   } else stop(paste("multi dataset", dataset, "not available"))
-  print(paste0("pdat_multi: ", description, " [", dataset, "]"))
+  print(paste0(".pdat_multi: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
   if("up2" %in% colnames(dat)) up2 <- dat$up2
   return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, description=description))
