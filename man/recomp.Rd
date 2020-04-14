@@ -1,13 +1,13 @@
 \encoding{UTF-8}
-\name{pdat_recomp}
-\alias{pdat_recomp}
+\name{recomp}
+\alias{recomp}
 \title{Recompute Protein Compositions}
 \description{
   Recompute compositional metrics given the existing output of one of the \code{\link{pdat_}} functions.
 }
 
 \usage{
-  pdat_recomp(pdat, basis = "rQEC")
+  recomp(pdat, basis = "rQEC")
 }
 
 \arguments{
@@ -25,7 +25,7 @@ This avoids the need to regenerate the list of UniProt IDs and search for amino 
 datasets <- pdat_prostate()
 pdat <- pdat_prostate(datasets[1], basis = "QEC")
 # recompute the compositions using amino acid biosynthetic reactions
-pdat2 <- pdat_recomp(pdat, "biosynth")
+pdat2 <- recomp(pdat, "biosynth")
 # compare the results
 nO2_QEC <- pdat$pcomp$residue.basis[, "O2"]
 nO2_biosynth <- pdat2$pcomp$residue.basis[, "O2"]
