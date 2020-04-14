@@ -4,9 +4,9 @@ liver        Liver cancer
 lung         Lung cancer
 pancreatic   Pancreatic cancer
 prostate     Prostate cancer
-a3D          3D cell culture
+X3D          3D cell culture
 hypoxia      Hypoxia
 secreted     Secreted in hypoxia
-hyperosmotic Hyperosmotic stress
+osmotic      Hyperosmotic stress
 glucose      High glucose
 halophiles   Osmotic stress in halophiles
