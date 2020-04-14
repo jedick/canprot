@@ -1,0 +1,33 @@
+---
+title: "canprot Vignette"
+output:
+  html_vignette:
+    mathjax: null
+vignette: >
+  %\VignetteIndexEntry{canprot Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+library(canprot)
+```
+
+This is a generic vignette for the canprot package.
+To save package space and checking time, prebuilt vignettes are not included in the package.
+
+To compile the vignettes on demand and view them in the browser, use the `mkvig()` function.
+For example, `mkvig("osmotic")` compiles the vignette for hyperosmotic stress and then opens it in the browser.
+This function can also be run from the "Run demo in console" links in R's help system (`help.start()` > Packages > canprot > Code demos).
+
+Here is a list of available vignettes:
+```{r vignettes, echo = FALSE}
+functions <- grep("pdat_", ls("package:canprot"), value = TRUE)
+vignettes <- gsub("pdat_", "", functions)
+vignettes
+```
+
+Note that building the vignettes requires pandoc to be installed in the system.
+See the [rmarkdown pandoc vignette](../../rmarkdown/doc/pandoc.html) for more information.
+
+The numerical output of the vignettes is available in the package, as CSV files under `extdata/vignette_output`.
