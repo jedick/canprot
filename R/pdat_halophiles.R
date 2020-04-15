@@ -7,7 +7,6 @@ pdat_halophiles <- function(dataset = 2020, basis = "rQEC") {
     return(c("LRB+09_2.6", "LRB+09_5.1",
              "ZLZ+16_10", "ZLZ+16_17.5",
              "LLYL17_0", "LLYL17_3.5",
-             "KSK+18",
              "JSP+19_LoS", "JSP+19_HiS" #, "JSP+19_LoT", "JSP+19_HiT"
              ))
   }
@@ -68,7 +67,8 @@ pdat_halophiles <- function(dataset = 2020, basis = "rQEC") {
     # 20191102 Haloferax volcanii salt and temperature, Jevtić et al., 2019
     # JSP+19_LoS, JSP+19_HiS, JSP+19_LoT, JSP+19_HiT
     dat <- read.csv(file.path(datadir, "JSP+19.csv.xz"), as.is=TRUE)
-    description <- paste("Haloferax volcanii", stage)
+    if(stage=="LoS") description <- "Haloferax volcanii 15% / 10.8% NaCl"
+    if(stage=="HiS") description <- "Haloferax volcanii 19.2% / 15% NaCl"
     # use selected condition
     icol <- grep(stage, colnames(dat))
     # at least two-fold, significant difference
@@ -79,13 +79,6 @@ pdat_halophiles <- function(dataset = 2020, basis = "rQEC") {
     # remove NA accessions
     dat <- cleanup(dat, "UniProt.Accession", up2)
     pcomp <- protcomp(dat$UniProt.Accession, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/JSP+19_aa.csv.xz"))
-  } else if(study=="KSK+18") {
-    # 20200413 Acidihalobacter prosperus DSM 14174, Khaleque et al., 2018
-    dat <- read.csv(file.path(datadir, "KSK+18.csv.xz"), as.is=TRUE)
-    description <- "Acidihalobacter prosperus DSM 14174 30 g/L / 5 g/L NaCl"
-    dat <- check_IDs(dat, "Protein", aa_file = file.path(extdatadir, "aa/bacteria/KSK+18_aa.csv.xz"))
-    up2 <- dat$FCProteins > 1
-    pcomp <- protcomp(dat$Protein, basis, aa_file = file.path(extdatadir, "aa/bacteria/KSK+18_aa.csv.xz"))
   } else stop(paste("halophiles dataset", dataset, "not available"))
   print(paste0("pdat_halophiles: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407

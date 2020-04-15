@@ -12,7 +12,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "CLG+15", "KLB+15_prot-suc=microbial", "KLB+15_prot-NaCl=microbial", "YDZ+15=microbial",
              "DSNM16_131C=microbial", "DSNM16_310F=microbial", "RBP+16=microbial",
              "KAK+17=microbial", "LYS+17=microbial",
-             "JBG+18=microbial", "LJC+18_wt=microbial", "LJC+18_mutant=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
+             "JBG+18=microbial", "KSK+18", "LJC+18_wt=microbial", "LJC+18_mutant=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
              "LWS+19=microbial", "MGF+19_10=microbial", "MGF+19_20=microbial",
              "AST+20=microbial"
              ))
@@ -212,6 +212,13 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$X118.113 > 1
     dat <- cleanup(dat, "No.", up2)
     pcomp <- protcomp(dat$No., basis, aa_file = paste0(extdatadir, "/aa/bacteria/LWS+19_aa.csv.xz"))
+  } else if(study=="KSK+18") {
+    # 20200413 Acidihalobacter prosperus DSM 14174, Khaleque et al., 2018
+    dat <- read.csv(file.path(datadir, "KSK+18.csv.xz"), as.is=TRUE)
+    description <- "Acidihalobacter prosperus DSM 14174 30 g/L / 5 g/L NaCl"
+    dat <- check_IDs(dat, "Protein", aa_file = file.path(extdatadir, "aa/bacteria/KSK+18_aa.csv.xz"))
+    up2 <- dat$FCProteins > 1
+    pcomp <- protcomp(dat$Protein, basis, aa_file = file.path(extdatadir, "aa/bacteria/KSK+18_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

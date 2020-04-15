@@ -85,7 +85,6 @@ write.csv(out, "halophiles.csv", row.names = FALSE, quote = 2)
 __a__. __b__. Tables 1 and 2 of @LRB+09.
 __c__. __d__. Table S-1 of @ZLZ+16. Values of reporter intensities at each condition (6%, 10%, and 17.5% NaCl) were quantile normalized (R function preprocessCore::normalize.quantiles); normalized values were used to compute intensity ratios (10% / 6% NaCl and 17.5% / 10% NaCl). Only proteins with expression ratios > 1.3 in either direction [@ZLZ+16], p-values < 0.05, and at least 2 peptides were included.
 __e__. __f__. Tables S2 and S3 of @LLYL17.
-__g__. Supplementary Table 1 of @KSK+18 (amino acid compositions computed from protein sequences in the list of gene annotations).
-__h__. __i__. Supporting Table 1C of @JSP+19. Only proteins with at least 2-fold expression difference and marked as significant were included.
+__g__. __h__. Supporting Table 1C of @JSP+19. Only proteins with at least 2-fold expression difference and marked as significant were included.
 
 ## References
