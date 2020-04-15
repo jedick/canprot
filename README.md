@@ -19,16 +19,13 @@ all datasets.
 For more information, see two papers in *PeerJ* ([2016](http://doi.org/10.7717/peerj.2238)
 and [2017](http://doi.org/10.7717/peerj.3421)).
 
-The manual (help pages) and vignettes can be viewed at
-<http://chnosz.net/canprot/html/00Index.html>.
-
 ## Installation from CRAN
 
 ```R
 install.packages("canprot")
 ```
 
-## Installation from Github
+## Installation from GitHub
 
 First install the **remotes** package from CRAN:
 
@@ -36,13 +33,13 @@ First install the **remotes** package from CRAN:
 install.packages("remotes")
 ```
 
-Then install **canprot** from Github:
+Then install **canprot** from GitHub:
 
 ```R
-remotes::install_github("jedick/canprot", dependencies = TRUE, build_vignettes = TRUE)
+remotes::install_github("jedick/canprot")
 ```
 
-This also installs the **CHNOSZ** and **xtable** packages, as well as other R packages as dependencies (particularly **knitr** and **rmarkdown**).
+This also installs other R packages as dependencies (particularly **CHNOSZ**, **xtable**, **knitr** and **rmarkdown**, and their dependencies).
 
 ### Building vignettes
 
@@ -53,3 +50,8 @@ With all the dependencies available, the vignettes can be compiled and viewed us
 library(canprot)
 mkvig("osmotic")
 ```
+
+## Online vignettes
+
+The vignettes can be viewed at <http://chnosz.net/canprot/doc/index.html>.
+
