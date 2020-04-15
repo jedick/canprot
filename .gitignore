@@ -1,4 +1,4 @@
-vignettes/*.html
-vignettes/*.csv
 R/*.tmp
+inst/vignettes/*.html
+inst/vignettes/*.csv
 inst/oldvignettes/*.html

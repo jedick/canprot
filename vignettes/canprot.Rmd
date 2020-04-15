@@ -1,10 +1,10 @@
 ---
-title: "canprot Vignette"
+title: "canprot vignette"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{canprot Vignette}
+  %\VignetteIndexEntry{canprot vignette}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

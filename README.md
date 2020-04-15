@@ -39,18 +39,17 @@ install.packages("remotes")
 Then install **canprot** from Github:
 
 ```R
-remotes::install_github("jedick/canprot")
-```
-
-This also installs the **CHNOSZ** and **xtable** packages.
-
-### Building vignettes
-
-Building the vignettes requires [pandoc](http://pandoc.org/installing.html) on the system.
-To install the package with the vignettes:
-
-```R
 remotes::install_github("jedick/canprot", dependencies = TRUE, build_vignettes = TRUE)
 ```
 
-This installs more R packages as dependencies (particularly **knitr** and **rmarkdown**).
+This also installs the **CHNOSZ** and **xtable** packages, as well as other R packages as dependencies (particularly **knitr** and **rmarkdown**).
+
+### Building vignettes
+
+Building the vignettes requires [pandoc](http://pandoc.org/installing.html) to be available on the system.
+See rmarkdown's [Install Pandoc](https://cran.r-project.org/web/packages/rmarkdown/vignettes/pandoc.html) vignette for tips on installing pandoc.
+With all the dependencies available, the vignettes can be compiled and viewed using the `mkvig()` function in **canprot**, like this:
+```R
+library(canprot)
+mkvig("osmotic")
+```
