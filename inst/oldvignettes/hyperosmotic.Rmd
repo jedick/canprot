@@ -31,11 +31,11 @@ library(canprot)
 
 ```{r pdat, message=FALSE}
 datasets <- pdat_osmotic(2017)
-pdat <- lapply_canprot(datasets, pdat_osmotic, basis = "QEC")
+pdat <- lapply(datasets, pdat_osmotic, basis = "QEC")
 ```
 
 ```{r comptab, message=FALSE}
-comptab <- lapply_canprot(pdat, get_comptab, plot.it = FALSE, mfun = "mean", oldstyle = TRUE)
+comptab <- lapply(pdat, get_comptab, plot.it = FALSE, mfun = "mean", oldstyle = TRUE)
 ```
 
 ```{r xsummary, results="asis"}

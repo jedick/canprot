@@ -4,15 +4,15 @@
 
 Compositional analysis of differentially expressed proteins in cancer and cell
 culture proteomics experiments. The data include lists of up- and
-down-regulated proteins in different types of cancer (colorectal, pancreatic,
-breast, lung, prostate) and laboratory conditions (hypoxia, hyperosmotic
-stress, 3D cell culture, and proteins secreted in hypoxia), together with amino
-acid compositions calculated for protein sequences from UniProt. Functions are
-provided to compute compositional metrics including protein length, carbon
-oxidation state, and stoichiometric hydration state. In addition, phylostrata
-(evolutionary ages) of protein-coding genes are available using data from
-[Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) or [Trigos et
-al. (2017)](https://doi.org/10.1073/pnas.1617743114). The vignettes show
+down-regulated proteins in different types of cancer (breast, colorectal,
+liver, lung, pancreatic, prostate) and laboratory conditions (hypoxia,
+hyperosmotic stress, high glucose, 3D cell culture, and proteins secreted in
+hypoxia), together with amino acid compositions calculated for protein
+sequences from UniProt. Functions are provided to compute compositional metrics
+including protein length, carbon oxidation state, and stoichiometric hydration
+state. In addition, phylostrata (evolutionary ages) of protein-coding genes are
+available using data from Liebeskind et al. (2016) <doi:10.1093/gbe/evw113> or
+Trigos et al. (2017) <doi:10.1073/pnas.1617743114>. The vignettes show
 references and plots of differences of chemical composition and phylostrata for
 all datasets.
 

@@ -1,12 +1,12 @@
 # create csv files in extdata/summary
 # (used by groupplots())
-for(what in c("CRC", "pancreatic", "hypoxia", "osmotic")) {
+for(what in c("colorectal", "pancreatic", "hypoxia", "osmotic")) {
   pdat_fun <- paste0("pdat_", what)
   datasets <- get(pdat_fun)(2017)
-  comptab <- lapply_canprot(datasets, function(dataset) {
+  comptab <- lapply(datasets, function(dataset) {
     pdat <- get(pdat_fun)(dataset, basis = "QEC")
     get_comptab(pdat, mfun = "mean", oldstyle = TRUE)
-  }, varlist = "pdat_fun")
+  })
   # write summary table
   comptab <- do.call(rbind, comptab)
   comptab <- cbind(set = c(letters, LETTERS)[1:nrow(comptab)], comptab)

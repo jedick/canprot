@@ -160,10 +160,10 @@ calcpot <- function(what="pancreatic", datasets=c("LHE+04", "PCS+11_PDAC"),
                             each100=FALSE, xlim=c(-70.2, -61.8), ylim=c(-6.2, 2.2), m=0) {
   # get the data
   pdat_fun <- paste0("pdat_", what)
-  rankdat <- lapply_canprot(datasets, function(dataset) {
+  rankdat <- lapply(datasets, function(dataset) {
     pdat <- get(pdat_fun)(dataset, basis)
     rankplot(pdat, res=res, plot.it=FALSE, xlim=xlim, ylim=ylim)
-  }, varlist=pdat_fun, min.length=5)
+  })
   rankdiff <- lapply(rankdat, "[[", "rankdiff")
   extdatadir <- system.file("extdata", package="canprot")
   file <- paste0(extdatadir, "/summary/summary_", what, ".csv")
