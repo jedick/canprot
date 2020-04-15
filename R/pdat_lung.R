@@ -10,7 +10,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
              "ZZY+13",
              "LLY+14", "LWT+14", "ZLH+14", "ZLS+14",
              "KNT+15",
-             "BLL+16_protein", "FGP+16", "JCP+16",
+             "BLL+16_protein", "FGP+16", "JCP+16=mouse",
              "HHH+16_pN0", "HHH+16_pN1", "HHH+16_pN2.M1", "TLB+16",
              "FGW+17", "LZW+17", "SFS+17_LF", "WLC+17",
              "YCC+17_SqCC.Oncogene", "YCC+17_SqCC.TSG", "YCC+17_SqCC.Glycoprotein",

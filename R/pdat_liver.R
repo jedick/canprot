@@ -17,7 +17,7 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
              "NBM+16_G1", "NBM+16_G2", "NBM+16_G3", "NMB+16", "QXC+16_T1", "QXC+16_T2", "QXC+16_T3",
              "GJZ+17", "GWS+17", "QPP+17", "WLL+17_small", "WLL+17_medium", "WLL+17_large", "WLL+17_huge",
              "BOK+18",
-             "BEM+20", "GZD+19_protein", "GZD+19_phosphoprotein", "JSZ+19", "ZZL+19"
+             "BEM+20=mouse", "GZD+19_protein", "GZD+19_phosphoprotein", "JSZ+19", "ZZL+19"
              ))
   }
   # remove tags
