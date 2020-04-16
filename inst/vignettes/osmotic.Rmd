@@ -85,25 +85,26 @@ write.csv(out, "osmotic.csv", row.names = FALSE, quote = 2)
 
 ## Data Sources
 
-__a__. Supplementary Table 8 of @FTR+10. Only proteins with consistent expression ratios (all > 1 or all < 1) at each time point (15, 60, and 180 min.) were included.
-__b__. Dataset S3 of @LTH+11, filtered to include proteins that are quantified in at least 14 of 15 experiments (5 time points with 3 replicates each) and have the same direction of change in all experiments.
-__c__. Supplementary Table 1 of @OBBH11.
-__d__. __e__. __f__. __g__. Temperature and NaCl treatment (control: 35 °C, _a_~w~ = 0.993). Source: Suppl. Tables S13–S16 of @KKG+12.
-__h__. Supporting Information Table 1 of @LPK+13 (sheets "Up-Down Proteins" and "Unknown function").
-__i__. __j__. Supplementary Tables S3A and S3B of @QHT+13.
-__k__. Table 2 of @CLG+15.
-__l__. __m__. Additional file Table S2 of @KLB+15.
-__n__. Table 1 of @YDZ+15.
-__o__. __p__. Appendix S3 (sheets "iTRAQ-N Quant 131C" and "iTRAQ-N Quant 310F") of @DSNM16.
-__q__. Supplementary Tables 2 and 3 of @RBP+16.
-__r__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
-__s__. Supplemental Table S-2 of @LYS+17, filtered to include proteins with log~2~ fold change > 1 or < -1 and _p_-value < 0.05.
-__t__. Supplementary Tables 1 and 2 of @JBG+18.
-__u__. Supplementary Table 1 of @KSK+18 (amino acid compositions computed from protein sequences in the list of gene annotations).
-__v__. __w__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
-__x__. __y__. Supplementary Table S1 of @SMS+18.
-__z__. Table 2 of @LWS+19.
-__A__. __B__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
-__C__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
+__a__. Additional file 3: Table S2 of @PNWB09.
+__b__. Supplementary Table 8 of @FTR+10. Only proteins with consistent expression ratios (all > 1 or all < 1) at each time point (15, 60, and 180 min.) were included.
+__c__. Dataset S3 of @LTH+11, filtered to include proteins that are quantified in at least 14 of 15 experiments (5 time points with 3 replicates each) and have the same direction of change in all experiments.
+__d__. Supplementary Table 1 of @OBBH11.
+__e__. __f__. __g__. __h__. Temperature and NaCl treatment (control: 35 °C, _a_~w~ = 0.993). Source: Suppl. Tables S13–S16 of @KKG+12.
+__i__. Supporting Information Table 1 of @LPK+13 (sheets "Up-Down Proteins" and "Unknown function").
+__j__. __k__. Supplementary Tables S3A and S3B of @QHT+13.
+__l__. Table 2 of @CLG+15.
+__m__. __n__. Additional file Table S2 of @KLB+15.
+__o__. Table 1 of @YDZ+15.
+__p__. __q__. Appendix S3 (sheets "iTRAQ-N Quant 131C" and "iTRAQ-N Quant 310F") of @DSNM16.
+__r__. Supplementary Tables 2 and 3 of @RBP+16.
+__s__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
+__t__. Supplemental Table S-2 of @LYS+17, filtered to include proteins with log~2~ fold change > 1 or < -1 and _p_-value < 0.05.
+__u__. Supplementary Tables 1 and 2 of @JBG+18.
+__v__. Supplementary Table 1 of @KSK+18 (amino acid compositions computed from protein sequences in the list of gene annotations).
+__w__. __x__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
+__y__. __z__. Supplementary Table S1 of @SMS+18.
+__A__. Table 2 of @LWS+19.
+__B__. __C__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
+__D__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
 
 ## References

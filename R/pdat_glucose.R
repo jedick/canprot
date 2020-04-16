@@ -28,7 +28,7 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     # 20160918 yeast VHG
     # PW08_2h, PW08_10h, PW08_12h
     dat <- read.csv(paste0(datadir, "PW08.csv.xz"), as.is=TRUE)
-    description <- paste("S. cerevisiae in very high glucose (300 g/L) vs control (20 g/L) for", gsub("h", " ", stage))
+    description <- paste("S. cerevisiae in very high glucose (300 g/L) vs control (20 g/L) for", gsub("h", " h", stage))
     # use specified population
     if(stage=="2h") icol <- grep("Ratio.115.114", colnames(dat))
     if(stage=="10h") icol <- grep("Ratio.116.114", colnames(dat))
@@ -150,8 +150,8 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     # 20200413 murine islets of Langerhans, Schmudlach et al., 2017
     # SFKD17_1EG, SFKD17_2EG
     dat <- read.csv(paste0(datadir, "SFKD17.csv.xz"), as.is=TRUE)
-    if(stage=="1EG") description <- "murine islets of Langerhans in 25 mM vs 11 mM glucose for 1 day"
-    if(stage=="2EG") description <- "murine islets of Langerhans in 25 mM vs 11 mM glucose for 2 days"
+    if(stage=="1EG") description <- "secretome of murine islets of Langerhans in 25 mM vs 11 mM glucose for 1 day"
+    if(stage=="2EG") description <- "secretome of murine islets of Langerhans in 25 mM vs 11 mM glucose for 2 days"
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     # use proteins with high expression difference

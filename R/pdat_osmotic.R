@@ -5,6 +5,7 @@
 pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
+             "PNWB09=microbial",
              "FTR+10=microbial",
              "LTH+11=microbial", "OBBH11",
              "KKG+12_25C_aw0.985=microbial", "KKG+12_14C_aw0.985=microbial", "KKG+12_25C_aw0.967=microbial", "KKG+12_14C_aw0.967=microbial",
@@ -219,6 +220,12 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "Protein", aa_file = file.path(extdatadir, "aa/bacteria/KSK+18_aa.csv.xz"))
     up2 <- dat$FCProteins > 1
     pcomp <- protcomp(dat$Protein, basis, aa_file = file.path(extdatadir, "aa/bacteria/KSK+18_aa.csv.xz"))
+  } else if(study=="PNWB09") {
+    # 20200416 Synechocystis sp. PCC6803, Pandhal et al., 2009
+    dat <- read.csv(file.path(datadir, "PNWB09.csv.xz"), as.is=TRUE)
+    description <- "Synechocystis sp. PCC6803 in 6% w/v NaCl vs no added salt"
+    up2 <- dat$Expression == "increased"
+    pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/PNWB09_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
