@@ -15,7 +15,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "KAK+17=microbial", "LYS+17=microbial",
              "JBG+18=microbial", "KSK+18", "LJC+18_wt=microbial", "LJC+18_mutant=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient",
              "LWS+19=microbial", "MGF+19_10=microbial", "MGF+19_20=microbial",
-             "AST+20=microbial"
+             "AST+20=microbial", "GBR+20_CIRM129=microbial", "GBR+20_CIRM1025=microbial"
              ))
   }
   if(identical(dataset, 2017)) {
@@ -226,6 +226,15 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     description <- "Synechocystis sp. PCC6803 in 6% w/v NaCl vs no added salt"
     up2 <- dat$Expression == "increased"
     pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/PNWB09_aa.csv.xz"))
+  } else if(study=="GBR+20") {
+    # 20200416 Propionibacterium freudenreichii, Gaucher et al., 2020
+    # GBR+20_CIRM129, GBR+20_CIRM1025
+    dat <- read.csv(file.path(datadir, "GBR+20.csv.xz"), as.is=TRUE)
+    description <- paste("Propionibacterium freudenreichii", stage, "in NaCl vs MMO")
+    icol <- match(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    up2 <- dat[, icol] > 1
+    pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/GBR+20_aa.csv.xz"))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

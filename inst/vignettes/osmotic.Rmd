@@ -106,5 +106,6 @@ __y__. __z__. Supplementary Table S1 of @SMS+18.
 __A__. Table 2 of @LWS+19.
 __B__. __C__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
 __D__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
+__E__. __F__. Supplementary Table 1 of @GBR+20 (column "MMO+NaCl/MMO" for CIRM129 and CIRM1025).
 
 ## References
