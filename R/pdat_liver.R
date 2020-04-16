@@ -7,7 +7,7 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
     return(c(
              "LHT+04",
              "BLP+05", "LTZ+05",
-             "SXS+07",
+             "DTS+07", "SXS+07",
              "CHN+08",
              "LMG+11_nuclear", "LMG+11_cytoskeletal",
              "LRL+12",
@@ -221,6 +221,14 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Ratio.T.C > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/mouse/BSG15_aa.csv.xz"))
+  } else if(study=="DTS+07") {
+    # 20200416 Dos Santos et al., 2007
+    dat <- read.csv(paste0(datadir, "DTS+07.csv.xz"), as.is=TRUE)
+    description <- "T/N"
+    dat <- check_IDs(dat, "SwissProt.accession.no.")
+    up2 <- sapply(apply(sign(dat[, 2:3]), 1, unique), na.omit) == 1
+    dat <- cleanup(dat, "SwissProt.accession.no.", up2)
+    pcomp <- protcomp(dat$SwissProt.accession.no., basis)
   } else stop(paste("liver dataset", dataset, "not available"))
   print(paste0("pdat_liver: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407

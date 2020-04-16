@@ -89,26 +89,27 @@ Gene names or other identifiers were converted to UniProt accession numbers usin
 __a__. Table III of @LHT+04.
 __b__. Tables 2 and 3 of @BLP+05.
 __c__. Table 2 of @LTZ+05.
-__d__. Supplemental Table S1 of @SXS+07.
-__e__. Tables 1--3 of @CHN+08.
-__f__. __g__. IPI numbers from Supplemental Tables S3 (nuclear proteins) and S4 (cytoskeletal proteins) of @LMG+11, filtered to include proteins with median fold-change > 2 or < 0.5.
-__h__. Supplemental Table 5 of @LRL+12.
-__i__. Supplementary Table 3 of @KOK+13.
-__j__. Supplemental Data S5 (sheet "LF_proteins") of @MBK+13.
-__k__. Supporting Information SI-S2 of @XWS+14.
-__l__. Table 1 of @BSG15.
-__m__. Supplementary Table S1 of @RPM+15, filtered to include proteins with > 1 peptide used for quantification and fold change > 2 in either direction.
-__n__. __o__. __p__. Supplementary Data Table S2 of @NBM+16 (sheets "G1 vs C", "G2 vs C", and "G3 vs C"), filtered to include proteins with _p_-value < 0.05, quantified in at least half of both tumor and control samples, and median log~2~ fold change > 1 or < -1.
-__q__. Supporting Information Table S-4 (sheet "Filtered protein list") of @NMB+16.
-__r__. __s__. __t__. Supplementary Tables S3--S5 of @QXC+16.
-__u__. Table 4 of @GJZ+17.
-__v__. Supplementary Table S5 of @GWS+17.
-__w__. Supplementary Table 5 of @QPP+17, filtered to include proteins with median fold change > 2 or < 0.5 (UniProt IDs from Supplementary Table 1).
-__x__. __y__. __z__. __A__. Supplementary Table S3 of @WLL+17, filtered to include proteins with _p_-value < 0.05 and fold change > 2 or < 0.5.
-__B__. Supplemental Table S2 of @BOK+18 (data for tumor vs. peritumor), filtered to include proteins with _q_-value < 0.05, quantified in at least 3 tumors, same direction of change in all tumors, and median log~2~ fold change > 1 or < -1.
-__C__. [Dataset](https://github.com/saezlab/Berndt_Egners_Mastrobuoni/blob/master/data/Proteom-Daten%20Bl6%20vs%2016w%20AG%20Kempa.xlsx) of @BEM+20, filtered to include proteins quantified in more than half of each of control and cancer samples and median fold change > 2 or < 0.5.
-__D__. __E__. Supplemental Table S3 of @GZD+19 (sheets "1. 1,274 DF proteins" and "2. 859 DF phosphoproteins"), filtered to include proteins with log~2~ fold change > 1 or < -1.
-__F__. Supplementary Table 6 of @JSZ+19.
-__G__. Supporting Information Table S5 of @ZZL+19 (sheet "c_proteins"), filtered to include proteins quantified in at least half of tumor and normal samples and with fold change > 2 or < 0.5. 
+__d__. Table 1 of @DTS+07.
+__e__. Supplemental Table S1 of @SXS+07.
+__f__. Tables 1--3 of @CHN+08.
+__g__. __h__. IPI numbers from Supplemental Tables S3 (nuclear proteins) and S4 (cytoskeletal proteins) of @LMG+11, filtered to include proteins with median fold-change > 2 or < 0.5.
+__i__. Supplemental Table 5 of @LRL+12.
+__j__. Supplementary Table 3 of @KOK+13.
+__k__. Supplemental Data S5 (sheet "LF_proteins") of @MBK+13.
+__l__. Supporting Information SI-S2 of @XWS+14.
+__m__. Table 1 of @BSG15.
+__n__. Supplementary Table S1 of @RPM+15, filtered to include proteins with > 1 peptide used for quantification and fold change > 2 in either direction.
+__o__. __p__. __q__. Supplementary Data Table S2 of @NBM+16 (sheets "G1 vs C", "G2 vs C", and "G3 vs C"), filtered to include proteins with _p_-value < 0.05, quantified in at least half of both tumor and control samples, and median log~2~ fold change > 1 or < -1.
+__r__. Supporting Information Table S-4 (sheet "Filtered protein list") of @NMB+16.
+__s__. __t__. __u__. Supplementary Tables S3--S5 of @QXC+16.
+__v__. Table 4 of @GJZ+17.
+__w__. Supplementary Table S5 of @GWS+17.
+__x__. Supplementary Table 5 of @QPP+17, filtered to include proteins with median fold change > 2 or < 0.5 (UniProt IDs from Supplementary Table 1).
+__y__. __z__. __A__. __B__. Supplementary Table S3 of @WLL+17, filtered to include proteins with _p_-value < 0.05 and fold change > 2 or < 0.5.
+__C__. Supplemental Table S2 of @BOK+18 (data for tumor vs. peritumor), filtered to include proteins with _q_-value < 0.05, quantified in at least 3 tumors, same direction of change in all tumors, and median log~2~ fold change > 1 or < -1.
+__D__. [Dataset](https://github.com/saezlab/Berndt_Egners_Mastrobuoni/blob/master/data/Proteom-Daten%20Bl6%20vs%2016w%20AG%20Kempa.xlsx) of @BEM+20, filtered to include proteins quantified in more than half of each of control and cancer samples and median fold change > 2 or < 0.5.
+__E__. __F__. Supplemental Table S3 of @GZD+19 (sheets "1. 1,274 DF proteins" and "2. 859 DF phosphoproteins"), filtered to include proteins with log~2~ fold change > 1 or < -1.
+__G__. Supplementary Table 6 of @JSZ+19.
+__H__. Supporting Information Table S5 of @ZZL+19 (sheet "c_proteins"), filtered to include proteins quantified in at least half of tumor and normal samples and with fold change > 2 or < 0.5. 
 
 ## References
