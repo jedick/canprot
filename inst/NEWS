@@ -19,7 +19,7 @@ CHANGES IN canprot 0.2.0 (2020-04-16)
 
 - New datasets: osmotic/LPK+13, osmotic/LYS+17, osmotic/LWS+19,
   3D/LYT+20, glucose/SFKD17, glucose/SFG+12, glucose/MFD+10,
-  osmotic/KSK+18, osmotic/PNWB09.
+  osmotic/KSK+18, osmotic/PNWB09, liver/BSG15.
 
 CHANGES IN canprot 0.1.6 (2020-04-10)
 -------------------------------------

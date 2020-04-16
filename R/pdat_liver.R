@@ -13,7 +13,7 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
              "LRL+12",
              "KOK+13", "MBK+13",
              "XWS+14",
-             "RPM+15",
+             "BSG15=mouse", "RPM+15",
              "NBM+16_G1", "NBM+16_G2", "NBM+16_G3", "NMB+16", "QXC+16_T1", "QXC+16_T2", "QXC+16_T3",
              "GJZ+17", "GWS+17", "QPP+17", "WLL+17_small", "WLL+17_medium", "WLL+17_large", "WLL+17_huge",
              "BOK+18",
@@ -214,6 +214,13 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "majority.protein.ids", aa_file = paste0(extdatadir, "/aa/mouse/BEM+20_aa.csv.xz"))
     up2 <- dat$fold.change > 2
     pcomp <- protcomp(dat$majority.protein.ids, basis=basis, aa_file = paste0(extdatadir, "/aa/mouse/BEM+20_aa.csv.xz"))
+  } else if(study=="BSG15") {
+    # 20200416 EGF transgenic mice, Borlak et al., 2015
+    dat <- read.csv(paste0(datadir, "BSG15.csv.xz"), as.is=TRUE)
+    description <- "T/N EGF transgenic mice"
+    up2 <- dat$Ratio.T.C > 1
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/mouse/BSG15_aa.csv.xz"))
   } else stop(paste("liver dataset", dataset, "not available"))
   print(paste0("pdat_liver: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
