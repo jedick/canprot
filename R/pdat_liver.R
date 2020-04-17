@@ -9,6 +9,7 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
              "BLP+05", "LTZ+05",
              "DTS+07", "SXS+07",
              "CHN+08",
+             "RLA+10=rat",
              "LMG+11_nuclear", "LMG+11_cytoskeletal",
              "LRL+12",
              "KOK+13", "MBK+13",
@@ -229,6 +230,12 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
     up2 <- sapply(apply(sign(dat[, 2:3]), 1, unique), na.omit) == 1
     dat <- cleanup(dat, "SwissProt.accession.no.", up2)
     pcomp <- protcomp(dat$SwissProt.accession.no., basis)
+  } else if(study=="RLA+10") {
+    # 20200417 transitional endoplasmic reticulum, Roy et al., 2010
+    dat <- read.csv(paste0(datadir, "RLA+10.csv.xz"), as.is=TRUE)
+    description <- "T/N rat transitional endoplasmic reticulum"
+    up2 <- dat$Ratio > 1
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/rat/RLA+10_aa.csv.xz"))
   } else stop(paste("liver dataset", dataset, "not available"))
   print(paste0("pdat_liver: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
