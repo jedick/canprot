@@ -227,6 +227,7 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
     dat <- read.csv(paste0(datadir, "DTS+07.csv.xz"), as.is=TRUE)
     description <- "T/N"
     dat <- check_IDs(dat, "SwissProt.accession.no.")
+    # include values for both tumor homogenates and LM samples
     up2 <- sapply(apply(sign(dat[, 2:3]), 1, unique), na.omit) == 1
     dat <- cleanup(dat, "SwissProt.accession.no.", up2)
     pcomp <- protcomp(dat$SwissProt.accession.no., basis)

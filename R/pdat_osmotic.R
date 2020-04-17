@@ -9,6 +9,7 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
              "FTR+10=microbial",
              "LTH+11=microbial", "OBBH11",
              "KKG+12_25C_aw0.985=microbial", "KKG+12_14C_aw0.985=microbial", "KKG+12_25C_aw0.967=microbial", "KKG+12_14C_aw0.967=microbial",
+             "LFY+12_C1h", "LFY+12_C8h", "LFY+12_C2p", "LFY+12_N1h", "LFY+12_N8h", "LFY+12_N2p",
              "LPK+13=microbial", "QHT+13_24.h=microbial", "QHT+13_48.h=microbial",
              "CLG+15", "KLB+15_prot-suc=microbial", "KLB+15_prot-NaCl=microbial", "YDZ+15=microbial",
              "DSNM16_131C=microbial", "DSNM16_310F=microbial", "RBP+16=microbial",
@@ -235,6 +236,19 @@ pdat_osmotic <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
     pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/GBR+20_aa.csv.xz"))
+  } else if(study=="LFY+12") {
+    # 20200417 HEK293 cells, Li et al., 2012
+    # LFY+12_C1h, LFY+12_C8h, LFY+12_C2p, LFY+12_N1h, LFY+12_N8h, LFY+12_N2p
+    dat <- read.csv(file.path(datadir, "LFY+12.csv.xz"), as.is=TRUE)
+    compartment <- ifelse(grepl("C", stage), "cytoplasm", "nucleus")
+    time <- substr(stage, 2, 2)
+    units <- ifelse(grepl("h", stage), "h", "passages")
+    description <- paste(compartment, "of HEK293 cells in 500 (NaCl added) vs 300 mosmol/kg medium for", time, units)
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- check_IDs(dat, "UniProt.ID")
+    up2 <- dat[, icol] > 0
+    pcomp <- protcomp(dat$UniProt.ID, basis)
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0("pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
