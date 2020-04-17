@@ -112,5 +112,6 @@ __E__. [Dataset](https://github.com/saezlab/Berndt_Egners_Mastrobuoni/blob/maste
 __F__. __G__. Supplemental Table S3 of @GZD+19 (sheets "1. 1,274 DF proteins" and "2. 859 DF phosphoproteins"), filtered to include proteins with log~2~ fold change > 1 or < -1.
 __H__. Supplementary Table 6 of @JSZ+19.
 __I__. Supporting Information Table S5 of @ZZL+19 (sheet "c_proteins"), filtered to include proteins quantified in at least half of tumor and normal samples and with fold change > 2 or < 0.5. 
+__J__. __K__. Supplementary Tables S1--S2 (proteins with differential expression between non-tumor and tumor regions) and S3--S4 (all proteins identified in each region) of @SCL+20. Common accession numbers in Tables S3 and S4 were eliminated to yield proteins uniquely identified in either tumor or non-tumor regions.
 
 ## References

@@ -18,7 +18,8 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
              "NBM+16_G1", "NBM+16_G2", "NBM+16_G3", "NMB+16", "QXC+16_T1", "QXC+16_T2", "QXC+16_T3",
              "GJZ+17", "GWS+17", "QPP+17", "WLL+17_small", "WLL+17_medium", "WLL+17_large", "WLL+17_huge",
              "BOK+18",
-             "BEM+20=mouse", "GZD+19_protein", "GZD+19_phosphoprotein", "JSZ+19", "ZZL+19"
+             "BEM+20=mouse", "GZD+19_protein", "GZD+19_phosphoprotein", "JSZ+19", "ZZL+19",
+             "SCL+20_differential", "SCL+20_unique"
              ))
   }
   # remove tags
@@ -237,6 +238,17 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
     description <- "T/N rat transitional endoplasmic reticulum"
     up2 <- dat$Ratio > 1
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/rat/RLA+10_aa.csv.xz"))
+  } else if(study=="SCL+20") {
+    # 20200417 Shin et al., 2020
+    # SCL+20_differential, SCL+20_unique
+    dat <- read.csv(paste0(datadir, "SCL+20.csv.xz"), as.is=TRUE)
+    description <- paste("T/N mitochondrial", stage)
+    if(stage == "differential") dat <- dat[!is.infinite(dat$Ratio) & !dat$Ratio==0, ]
+    if(stage == "unique") dat <- dat[is.infinite(dat$Ratio) | dat$Ratio==0, ]
+    dat <- check_IDs(dat, "ID", aa_file = paste0(extdatadir, "/aa/human/SCL+20_aa.csv.xz"))
+    up2 <- dat$Ratio > 1
+    dat <- cleanup(dat, "ID", up2)
+    pcomp <- protcomp(dat$ID, basis, aa_file = paste0(extdatadir, "/aa/human/SCL+20_aa.csv.xz"))
   } else stop(paste("liver dataset", dataset, "not available"))
   print(paste0("pdat_liver: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
