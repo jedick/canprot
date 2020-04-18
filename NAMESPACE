@@ -16,7 +16,9 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200402, 20200411
 "pdat_liver", "pdat_glucose",
 # 20200414
-"mkvig"
+"mkvig",
+# 20200418
+"pdat_osmotic_euk"
 )
 
 # Imports from default packages

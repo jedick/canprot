@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.2.0 (2020-04-17)
+CHANGES IN canprot 0.2.0 (2020-04-18)
 -------------------------------------
 
 - To save space and check time, don't package pre-built vignettes.
@@ -11,6 +11,9 @@ CHANGES IN canprot 0.2.0 (2020-04-17)
 - Remove lapply_canprot().
 
 - Extract high-glucose datasets from pdat_osmotic() into pdat_glucose().
+
+- Split pdat_osmotic() into pdat_osmotic (2017 compilation),
+  pdat_osmotic_euk (eukaryotes).
 
 - Renamed functions: pdat_osmotic2() --> pdat_halophiles(),
   pdat_recomp() --> recomp(), pdat_multi() --> .pdat_multi().
