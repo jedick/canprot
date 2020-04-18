@@ -1,0 +1,1 @@
+mkvig("osmotic_euk")

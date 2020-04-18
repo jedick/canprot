@@ -2,11 +2,12 @@ X3D          3D Cell Culture (each demo compiles a vignette then opens it in the
 breast       Breast Cancer
 colorectal   Colorectal Cancer
 glucose      High Glucose
-halophiles   Osmotic Stress in Halophiles
 hypoxia      Hypoxia
 liver        Liver Cancer
 lung         Lung Cancer
-osmotic      Hyperosmotic Stress
+osmotic_bact Hyperosmotic Stress in Bacteria
+osmotic_euk  Hyperosmotic Stress in Eukaryotic Cells
+osmotic_halo Osmotic Stress in Halophiles
 pancreatic   Pancreatic Cancer
 prostate     Prostate Cancer
 secreted     Secreted in Hypoxia

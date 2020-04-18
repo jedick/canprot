@@ -13,7 +13,7 @@
 \alias{pdat_glucose}
 \alias{pdat_osmotic_bact}
 \alias{pdat_osmotic_euk}
-\alias{pdat_halophiles}
+\alias{pdat_osmotic_halo}
 \alias{.pdat_multi}
 \alias{.pdat_osmotic}
 \title{Get Protein Expression Data}
@@ -34,7 +34,7 @@
   pdat_glucose(dataset = 2020, basis = "rQEC")
   pdat_osmotic_bact(dataset = 2020, basis = "rQEC")
   pdat_osmotic_euk(dataset = 2020, basis = "rQEC")
-  pdat_halophiles(dataset = 2020, basis = "rQEC")
+  pdat_osmotic_halo(dataset = 2020, basis = "rQEC")
   .pdat_multi(dataset = 2020, basis = "rQEC")
   .pdat_osmotic(dataset = 2017, basis = "rQEC")
 }
@@ -52,7 +52,7 @@ Use \code{pdat_hypoxia} for data on hypoxia in cell culture and \code{pdat_gluco
 \code{pdat_3D} retrieves data for 3D vs 2D cell culture (including tumor spheroids) and \code{pdat_secreted} retrieves data for secreted proteins (including exosomes) in hypoxia.
 
 \code{.pdat_osmotic} retrieves data for hyperosmotic stress, for the 2017 compilation only.
-In 2020, these datasets were split among \code{pdat_osmotic_bact} (bacteria) \code{pdat_osmotic_euk} (eukaryotes) and \code{pdat_halophiles} (halophilic bacteria and archaea), as described in Dick et al. (2020).
+In 2020, these datasets were split among \code{pdat_osmotic_bact} (bacteria) \code{pdat_osmotic_euk} (eukaryotes) and \code{pdat_osmotic_halo} (halophilic bacteria and archaea), as described in Dick et al. (2020).
 
 \code{.pdat_multi} retrieves data from studies that include multiple conditions (e.g. cellular and secreted proteins in hypoxia), and is used internally by the specific functions (\code{pdat_hypoxia}, \code{pdat_secreted}).
 

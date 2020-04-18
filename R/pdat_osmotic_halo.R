@@ -1,8 +1,8 @@
-# canprot/R/halophiles.R
+# canprot/R/pdat_osmotic_halo.R
 # new datasets added 20191104
-# renamed to pdat_halophiles 20200411
+# renamed to pdat_osmotic_halo 20200418
 
-pdat_halophiles <- function(dataset = 2020, basis = "rQEC") {
+pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c("LRB+09_2.6", "LRB+09_5.1",
              "ZLZ+16_10", "ZLZ+16_17.5",
@@ -79,8 +79,8 @@ pdat_halophiles <- function(dataset = 2020, basis = "rQEC") {
     # remove NA accessions
     dat <- cleanup(dat, "UniProt.Accession", up2)
     pcomp <- protcomp(dat$UniProt.Accession, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/JSP+19_aa.csv.xz"))
-  } else stop(paste("halophiles dataset", dataset, "not available"))
-  print(paste0("pdat_halophiles: ", description, " [", dataset, "]"))
+  } else stop(paste("osmotic_halo dataset", dataset, "not available"))
+  print(paste0("pdat_osmotic_halo: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
   if("up2" %in% colnames(dat)) up2 <- dat$up2
   return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, names=names, description=description))
