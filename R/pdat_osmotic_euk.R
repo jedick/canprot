@@ -6,11 +6,11 @@
 pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
-             "LTH+11=microbial", "OBBH11",
+             "LTH+11=yeast", "OBBH11",
              "LFY+12_C1h", "LFY+12_C8h", "LFY+12_C2p", "LFY+12_N1h", "LFY+12_N8h", "LFY+12_N2p",
-             "CLG+15", "YDZ+15=microbial",
-             "RBP+16=microbial",
-             "JBG+18=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient"
+             "CLG+15", "YDZ+15=yeast",
+             "GAM+16_HTS", "GAM+16_HTS.Cmx", "RBP+16=yeast",
+             "JBG+18=yeast", "SMS+18_wt", "SMS+18_FGFR12.deficient"
              ))
   }
   # remove tags
@@ -87,6 +87,17 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
     dat <- check_IDs(dat, "UniProt.ID")
     up2 <- dat[, icol] > 0
     pcomp <- protcomp(dat$UniProt.ID, basis)
+  } else if(study=="GAM+16") {
+    # 20200418 human small airway epithelial cells, Gamboni et al., 2016
+    # GAM+16_HTS, GAM+16_HTS.Cmx
+    dat <- read.csv(file.path(datadir, "GAM+16.csv.xz"), as.is=TRUE)
+    control <- paste0("isotonic", substr(stage, 4, 7))
+    description <- paste("human small airway epithelial cells in", stage, "vs", control)
+    icol <- grep(paste0(stage, ".Iso"), colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- dat[dat[, icol] > 2 | dat[, icol] < 0.5, ]
+    up2 <- dat[, icol] > 2
+    pcomp <- protcomp(dat$Uniprot.ID, basis)
   } else stop(paste("osmotic_euk dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_euk: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

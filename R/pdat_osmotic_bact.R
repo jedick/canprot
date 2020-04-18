@@ -6,16 +6,16 @@
 pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
-             "PNWB09=microbial",
-             "FTR+10=microbial",
-             "KKG+12_25C_aw0.985=microbial", "KKG+12_14C_aw0.985=microbial", "KKG+12_25C_aw0.967=microbial", "KKG+12_14C_aw0.967=microbial",
-             "LPK+13=microbial", "QHT+13_24.h=microbial", "QHT+13_48.h=microbial",
-             "KLB+15_prot-suc=microbial", "KLB+15_prot-NaCl=microbial",
-             "DSNM16_131C=microbial", "DSNM16_310F=microbial",
-             "KAK+17=microbial", "LYS+17=microbial",
-             "KSK+18", "LJC+18_wt=microbial", "LJC+18_mutant=microbial",
-             "LWS+19=microbial", "MGF+19_10=microbial", "MGF+19_20=microbial",
-             "AST+20=microbial", "GBR+20_CIRM129=microbial", "GBR+20_CIRM1025=microbial"
+             "PNWB09",
+             "FTR+10",
+             "KKG+12_25C_aw0.985", "KKG+12_14C_aw0.985", "KKG+12_25C_aw0.967", "KKG+12_14C_aw0.967",
+             "LPK+13", "QHT+13_24.h", "QHT+13_48.h",
+             "KLB+15_prot-suc", "KLB+15_prot-NaCl",
+             "DSNM16_131C", "DSNM16_310F",
+             "KAK+17", "LYS+17",
+             "KSK+18", "LJC+18_wt", "LJC+18_mutant",
+             "LWS+19", "MGF+19_10", "MGF+19_20",
+             "AST+20", "GBR+20_CIRM129", "GBR+20_CIRM1025"
              ))
   }
   # remove tags
