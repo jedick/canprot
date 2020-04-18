@@ -6,6 +6,7 @@
 pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
+             "DAA+05",
              "LTH+11=yeast", "OBBH11",
              "LFY+12_C1h", "LFY+12_C8h", "LFY+12_C2p", "LFY+12_N1h", "LFY+12_N8h", "LFY+12_N2p",
              "CLG+15", "YDZ+15=yeast",
@@ -98,6 +99,13 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[dat[, icol] > 2 | dat[, icol] < 0.5, ]
     up2 <- dat[, icol] > 2
     pcomp <- protcomp(dat$Uniprot.ID, basis)
+  } else if(study=="DAA+05") {
+    # 20200418 thick ascending limb of Henle's loop cells, Dihazi et a., 2005
+    dat <- read.csv(file.path(datadir, "DAA+05.csv.xz"), as.is=TRUE)
+    description <- "thick ascending limb of Henle's loop cells in 600 (NaCl added) vs 300 mosmol/kg medium"
+    up2 <- dat$Regulation == "up"
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/mouse/DAA+05_aa.csv.xz"))
   } else stop(paste("osmotic_euk dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_euk: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
