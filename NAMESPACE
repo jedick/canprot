@@ -18,7 +18,7 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200414
 "mkvig",
 # 20200418
-".pdat_osmotic", "pdat_osmotic_bact", "pdat_osmotic_euk", "pdat_osmotic_halo"
+".pdat_osmotic", "pdat_osmotic_bact", "pdat_osmotic_euk", "pdat_osmotic_halo", "xsummary3"
 )
 
 # Imports from default packages
