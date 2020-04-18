@@ -30,8 +30,8 @@ library(canprot)
 ```
 
 ```{r pdat, message=FALSE}
-datasets <- pdat_osmotic(2017)
-pdat <- lapply(datasets, pdat_osmotic, basis = "QEC")
+datasets <- .pdat_osmotic(2017)
+pdat <- lapply(datasets, .pdat_osmotic, basis = "QEC")
 ```
 
 ```{r comptab, message=FALSE}

@@ -9,6 +9,7 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
              "LTH+11=microbial", "OBBH11",
              "LFY+12_C1h", "LFY+12_C8h", "LFY+12_C2p", "LFY+12_N1h", "LFY+12_N8h", "LFY+12_N2p",
              "CLG+15", "YDZ+15=microbial",
+             "RBP+16=microbial",
              "JBG+18=microbial", "SMS+18_wt", "SMS+18_FGFR12.deficient"
              ))
   }
@@ -41,6 +42,13 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Av..ratio..high.low. > 0
     dat <- cleanup(dat, "Accession.No.", up2)
     pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/yeast/YDZ+15_aa.csv.xz"))
+  } else if(study=="RBP+16") {
+    # 20161112 Paracoccidioides lutzii, da Silva Rodrigues et al., 2016
+    dat <- read.csv(paste0(datadir, "RBP+16.csv.xz"), as.is=TRUE)
+    description <- "Paracoccidioides lutzii in 0.1 M KCl vs medium with no added KCl"
+    up2 <- dat$Fold.change > 1
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/yeast/RBP+16_aa.csv.xz"))
   } else if(study=="JBG+18") {
     # 20200406 Candida albicans 1 M NaCl, Jacobsen et al., 2018
     dat <- read.csv(paste0(datadir, "JBG+18.csv.xz"), as.is=TRUE)

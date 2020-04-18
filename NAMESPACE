@@ -1,7 +1,7 @@
 # Exported variables
 export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 "rankdiff", "rankplot", "Ehplot", "pdat_colorectal", "diffplot",
-"get_colors", "pdat_pancreatic", "pdat_hypoxia", "pdat_osmotic",
+"get_colors", "pdat_pancreatic", "pdat_hypoxia",
 "groupplots", "mergedplot", "canprot", "cleanup",
 # metrics added 20191005 - 20191027
 "ZCAA", "H2OAA", "GRAVY", "pI",
@@ -18,7 +18,7 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200414
 "mkvig",
 # 20200418
-"pdat_osmotic_euk"
+".pdat_osmotic", "pdat_osmotic_bact", "pdat_osmotic_euk"
 )
 
 # Imports from default packages

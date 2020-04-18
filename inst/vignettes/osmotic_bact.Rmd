@@ -45,11 +45,11 @@ body {
 </style>
 
 ```{r datasets}
-datasets <- pdat_osmotic(2020)
+datasets <- pdat_osmotic_bact(2020)
 ```
 
 ```{r comptab, results="hide", message=FALSE, echo = FALSE}
-pdat1 <- lapply(datasets, pdat_osmotic)
+pdat1 <- lapply(datasets, pdat_osmotic_bact)
 comptab1 <- lapply(pdat1, get_comptab)
 pdat2 <- lapply(pdat1, recomp, "biosynth")
 comptab2 <- lapply(pdat2, get_comptab, "nO2")
@@ -80,7 +80,7 @@ out <- xsummary2(comptab1, comptab2, comptab3, comptab4)
 tags <- sapply(sapply(strsplit(datasets, "="), "[", -1), paste, collapse = ";")
 out <- cbind(out[, 1:2], tags = tags, out[, 3:25])
 out[, 6:26] <- round(out[, 6:26], 4)
-write.csv(out, "osmotic.csv", row.names = FALSE, quote = 2)
+write.csv(out, "osmotic_bact.csv", row.names = FALSE, quote = 2)
 ```
 
 ## Data Sources
@@ -92,14 +92,13 @@ __g__. Supporting Information Table 1 of @LPK+13 (sheets "Up-Down Proteins" and 
 __h__. __i__. Supplementary Tables S3A and S3B of @QHT+13.
 __j__. __k__. Additional file Table S2 of @KLB+15.
 __l__. __m__. Appendix S3 (sheets "iTRAQ-N Quant 131C" and "iTRAQ-N Quant 310F") of @DSNM16.
-__n__. Supplementary Tables 2 and 3 of @RBP+16.
-__o__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
-__p__. Supplemental Table S-2 of @LYS+17, filtered to include proteins with log~2~ fold change > 1 or < -1 and _p_-value < 0.05.
-__q__. Supplementary Table 1 of @KSK+18 (amino acid compositions computed from protein sequences in the list of gene annotations).
-__r__. __s__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
-__t__. Table 2 of @LWS+19.
-__u__. __v__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
-__w__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
-__x__. __y__. Supplementary Table 1 of @GBR+20 (column "MMO+NaCl/MMO" for CIRM129 and CIRM1025).
+__n__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
+__o__. Supplemental Table S-2 of @LYS+17, filtered to include proteins with log~2~ fold change > 1 or < -1 and _p_-value < 0.05.
+__p__. Supplementary Table 1 of @KSK+18 (amino acid compositions computed from protein sequences in the list of gene annotations).
+__q__. __r__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
+__s__. Table 2 of @LWS+19.
+__t__. __u__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
+__v__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
+__w__. __x__. Supplementary Table 1 of @GBR+20 (column "MMO+NaCl/MMO" for CIRM129 and CIRM1025).
 
 ## References
