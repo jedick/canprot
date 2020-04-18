@@ -18,7 +18,8 @@ CHANGES IN canprot 0.2.0 (2020-04-18)
   3D/LYT+20, glucose/SFKD17, glucose/SFG+12, glucose/MFD+10,
   osmotic/KSK+18, osmotic/PNWB09, liver/BSG15, liver/DTS+07,
   osmotic/GBR+20, liver/RLA+10, osmotic/LFY+12, liver/SCL+20,
-  osmotic/GAM+16, osmotic/DAA+05, osmotic/HHB+12, liver/GZL+20.
+  osmotic/GAM+16, osmotic/DAA+05, osmotic/HHB+12, liver/GZL+20,
+  glucose/HGC+18.
 
 - Renamed functions: pdat_recomp() --> recomp(),
   pdat_multi() --> .pdat_multi().

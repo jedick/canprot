@@ -12,6 +12,7 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
              "CCCC13_25mM", "CCCC13_100mM", "CCW+13",
              "LDB+15_all",
              "SFKD17_1EG", "SFKD17_2EG",
+             "HGC+18=microbial",
              "IXA+19",
              "MHP+20_H9c2", "MHP+20_HEK",
              "MPR+20_3h.high.glucose", "MPR+20_24h.high.glucose", "MPR+20_3h.high.mannitol", "MPR+20_24h.high.mannitol"
@@ -175,6 +176,12 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$fold.regulation > 0
     dat <- cleanup(dat, "Swiss.Prot.accession.number", up2)
     pcomp <- protcomp(dat$Swiss.Prot.accession.number, basis, aa_file = paste0(extdatadir, "/aa/rat/MFD+10_aa.csv.xz"))
+  } else if(study=="HGC+18") {
+    # 20200418 Lactobacillus casei, Huang et al., 2018
+    dat <- read.csv(paste0(datadir, "HGC+18.csv.xz"), as.is=TRUE)
+    description <- "Lactobacillus casei BL23 in hyper-concentrated vs isotonic sweet whey"
+    up2 <- dat$Regulation == "up"
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/bacteria/HGC+18_aa.csv.xz"))
   } else stop(paste("glucose dataset", dataset, "not available"))
   print(paste0("pdat_glucose: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
