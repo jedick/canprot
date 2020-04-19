@@ -11,6 +11,7 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
              "KKG+12_25C_aw0.985", "KKG+12_14C_aw0.985", "KKG+12_25C_aw0.967", "KKG+12_14C_aw0.967",
              "LPK+13", "QHT+13_24.h", "QHT+13_48.h",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
+             "SKV+16_Glucose_LB", "SKV+16_Osmotic.stress.glucose_LB",
              "KAK+17", "LYS+17",
              "KSK+18", "LJC+18_wt", "LJC+18_mutant",
              "LWS+19", "MGF+19_10", "MGF+19_20",
@@ -144,12 +145,18 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
     pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/GBR+20_aa.csv.xz"))
-  } else if(study=="DHL+17") {
-    # 20200416 Acidihalobacter prosperus, Dopson et al., 2017
-    dat <- read.csv("data/expression/osmotic/DHL+17.csv", as.is=TRUE)
-    description <- "Acidihalobacter prosperus in 30 g/L vs 3.5 g/L NaCl"
-    up2 <- dat$Up.In=="high salt"
-    pcomp <- protcomp(dat$Entry, basis, aa_file = "data/aa/bacteria/DHL+17_aa.csv")
+  } else if(study=="SKV+16") {
+    # 20200420 E. coli, Schmidt et al., 2016
+    # SKV+16_Glucose_LB, SKV+16_Osmotic.stress.glucose_LB
+    dat <- read.csv(file.path(datadir, "SKV+16.csv.xz"), as.is=TRUE)
+    description <- paste("E. coli in", gsub("_", " vs ", stage))
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- dat[dat[, icol] > 2 | dat[, icol] < 0.5, ]
+    up2 <- dat[, icol] > 2
+    dat <- check_IDs(dat, "Uniprot.Accession", aa_file = file.path(extdatadir, "aa/bacteria/SKV+16_aa.csv.xz"))
+    dat <- cleanup(dat, "Uniprot.Accession", up2)
+    pcomp <- protcomp(dat$Uniprot.Accession, basis, aa_file = file.path(extdatadir, "aa/bacteria/SKV+16_aa.csv.xz"))
   } else stop(paste("osmotic_bact dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_bact: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

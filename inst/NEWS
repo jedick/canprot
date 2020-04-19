@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.2.0 (2020-04-19)
+CHANGES IN canprot 0.2.0 (2020-04-20)
 -------------------------------------
 
 - To save space and check time, don't package pre-built vignettes.
@@ -14,12 +14,14 @@ CHANGES IN canprot 0.2.0 (2020-04-19)
   pdat_osmotic_euk (eukaryotes), and pdat_osmotic_halo (halophiles).
   Data from the 2017 compilation are available through .pdat_osmotic().
 
-- New datasets: osmotic/LPK+13, osmotic/LYS+17, osmotic/LWS+19,
-  3D/LYT+20, glucose/SFKD17, glucose/SFG+12, glucose/MFD+10,
-  osmotic/KSK+18, osmotic/PNWB09, liver/BSG15, liver/DTS+07,
-  osmotic/GBR+20, liver/RLA+10, osmotic/LFY+12, liver/SCL+20,
-  osmotic/GAM+16, osmotic/DAA+05, osmotic/HHB+12, liver/GZL+20,
-  glucose/HGC+18, osmotic/SCG+15.
+- New 3D dataset: LYT+20.
+
+- New liver datasets: BSG15, DTS+07, RLA+10, SCL+20, GZL+20.
+
+- New glucose datasets: SFKD17, SFG+12, MFD+10, HGC+18
+
+- New osmotic datasets: LPK+13, LYS+17, LWS+19, KSK+18, PNWB09, 
+  GBR+20, LFY+12, SCL+20, GAM+16, DAA+05, HHB+12, SCG+15, SKV+16.
 
 - Renamed functions: pdat_recomp() --> recomp(),
   pdat_multi() --> .pdat_multi().
