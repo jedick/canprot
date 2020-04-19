@@ -10,7 +10,7 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
              "LTH+11_Protein_30=yeast", "LTH+11_Protein_60=yeast", "LTH+11_Protein_90=yeast", "LTH+11_Protein_120=yeast", "LTH+11_Protein_240=yeast",
              "OBBH11",
              "LFY+12_C1h", "LFY+12_C8h", "LFY+12_C2p", "LFY+12_N1h", "LFY+12_N8h", "LFY+12_N2p",
-             "CLG+15", "YDZ+15=yeast",
+             "CLG+15", "SCG+15_nodelay", "SCG+15_delayed", "YDZ+15=yeast",
              "GAM+16_HTS", "GAM+16_HTS.Cmx", "RBP+16=yeast",
              "JBG+18=yeast", "SMS+18_wt", "SMS+18_FGFR12.deficient"
              ))
@@ -120,6 +120,20 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis = basis, aa_file = paste0(extdatadir, "/aa/yeast/LTH+11_aa.csv.xz"))
+  } else if(study=="SCG+15") {
+    # 20200419 S. cerevisiae, Selevsek et al., 2015
+    # SCG+15_nodelay, SCG+15_delayed
+    dat <- read.csv(file.path(datadir, "SCG+15.csv.xz"), as.is=TRUE)
+    description <- paste("S. cervisiae in 0.4 M NaCl vs control -", stage)
+    if(stage=="nodelay") {
+      dat <- dat[dat$Cluster %in% c(1, 4), ]
+      up2 <- dat$Cluster == 1
+    }
+    if(stage=="delayed") {
+      dat <- dat[dat$Cluster %in% c(2, 3), ]
+      up2 <- dat$Cluster == 2
+    }
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/yeast/SCG+15_aa.csv.xz"))
   } else stop(paste("osmotic_euk dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_euk: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
