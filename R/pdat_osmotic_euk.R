@@ -7,7 +7,8 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
              "DAA+05",
-             "LTH+11=yeast", "OBBH11",
+             "LTH+11_Protein_30=yeast", "LTH+11_Protein_60=yeast", "LTH+11_Protein_90=yeast", "LTH+11_Protein_120=yeast", "LTH+11_Protein_240=yeast",
+             "OBBH11",
              "LFY+12_C1h", "LFY+12_C8h", "LFY+12_C2p", "LFY+12_N1h", "LFY+12_N8h", "LFY+12_N2p",
              "CLG+15", "YDZ+15=yeast",
              "GAM+16_HTS", "GAM+16_HTS.Cmx", "RBP+16=yeast",
@@ -57,12 +58,6 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$log2.ratio > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis = basis, aa_file = paste0(extdatadir, "/aa/yeast/JBG+18_aa.csv.xz"))
-  } else if(study=="LTH+11") {
-    # 20200406 Saccharomyces cerevisae 0.7 M NaCl, Lee et al., 2011
-    dat <- read.csv(paste0(datadir, "LTH+11.csv.xz"), as.is=TRUE)
-    description <- "S. cerevisae in 0.7 M NaCl vs control medium (YPD)"
-    up2 <- dat$Regulation == "up"
-    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/yeast/LTH+11_aa.csv.xz"))
   } else if(study=="SMS+18") {
     # 20200407 mouse skin in low/high humidity, Seltmann et al., 2018
     # SMS+18_wt, SMS+18_FGFR12.deficient
@@ -106,6 +101,25 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Regulation == "up"
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/mouse/DAA+05_aa.csv.xz"))
+  } else if(study=="LTH+11") {
+    # 20200419 S. cerevisiae, Lee et al., 2011
+    # LTH+11_RNA_30, 60, 90, 120, 240
+    # LTH+11_Protein_30, 60, 90, 120, 240
+    dat <- read.csv(file.path(datadir, "LTH+11.csv.xz"), as.is=TRUE)
+    molecule <- strsplit(stage, "_")[[1]][1]
+    time <- strsplit(stage, "_")[[1]][2]
+    description <- paste("S. cerevisiae", molecule, "in 0.7 M NaCl vs control medium for", time, "min")
+    # remove rows that have high q-value
+    iq <- grep(paste0(molecule, ".Change"), colnames(dat))
+    dat[is.na(dat[, iq]), iq] <- 1
+    dat <- dat[dat[, iq] < 0.05, ]
+    # keep rows that have high fold change
+    icol <- grep(stage, colnames(dat))
+    if(molecule=="protein") dat <- dat[abs(dat[, icol]) > 0.2, ]
+    if(molecule=="RNA") dat <- dat[abs(dat[, icol]) > 0.5, ]
+    up2 <- dat[, icol] > 0
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis = basis, aa_file = paste0(extdatadir, "/aa/yeast/LTH+11_aa.csv.xz"))
   } else stop(paste("osmotic_euk dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_euk: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

@@ -43,9 +43,7 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     dat <- read.csv(paste0(datadir, "KLB+15.csv.xz"), as.is=TRUE)
     if(grepl("suc", stage)) osmoticum <- "200 mM sucrose vs M2 minimal salts medium"
     if(grepl("NaCl", stage)) osmoticum <- "40/50 mM NaCl vs M2 minimal salts medium"
-    if(grepl("trans", stage)) ome <- "transcriptome"
-    if(grepl("prot", stage)) ome <- ""
-    description <- paste("Caulobacter crescentus in", osmoticum, ome)
+    description <- paste("Caulobacter crescentus in", osmoticum)
     # use protein identified in given experiment
     icol <- grep(gsub("-", ".*", stage), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
