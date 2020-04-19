@@ -8,11 +8,9 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     return(c(
              "PNWB09",
              "FTR+10",
-             "HHB+12_ATCC.334", "HHB+12_DN.114.001", "HHB+12_Shirota", "HHB+12_F.19", "HHB+12_CRL.431", "HHB+12_Rosell.215",
              "KKG+12_25C_aw0.985", "KKG+12_14C_aw0.985", "KKG+12_25C_aw0.967", "KKG+12_14C_aw0.967",
              "LPK+13", "QHT+13_24.h", "QHT+13_48.h",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
-             "DSNM16_131C", "DSNM16_310F",
              "KAK+17", "LYS+17",
              "KSK+18", "LJC+18_wt", "LJC+18_mutant",
              "LWS+19", "MGF+19_10", "MGF+19_20",
@@ -94,15 +92,6 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     description <- "Lactobacillus fermentum with vs without 0.3% to 1.5% w/v bile salts"
     up2 <- dat$Folds.change > 1
     pcomp <- protcomp(dat$Protein.IDs, basis, aa_file = paste0(extdatadir, "/aa/bacteria/AST+20_aa.csv.xz"))
-  } else if(study=="DSNM16") {
-    # 20200408 Anabaena circinalis, D'Agostino et al., 2016
-    # DSNM16_131C, DSNM16_310F
-    dat <- read.csv(paste0(datadir, "DSNM16.csv.xz"), as.is=TRUE)
-    description <- paste("Anabaena circinalis", stage, "in 0.45 mol/l NaCl vs medium without added NaCl")
-    icol <- grep(stage, colnames(dat))
-    dat <- dat[!is.na(dat[, icol]), ]
-    up2 <- dat[, icol] > 0
-    pcomp <- protcomp(dat$trembl, basis, aa_file = paste0(extdatadir, "/aa/bacteria/DSNM16_aa.csv.xz"))
   } else if(study=="QHT+13") {
     # 20200408 Synechocystis sp. PCC 6803, Qiao et al., 2013
     # QHT+13_24.h, QHT+13_48.h
@@ -155,16 +144,12 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
     pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/GBR+20_aa.csv.xz"))
-  } else if(study=="HHB+12") {
-    # 20200417 Lactobacillus casei in bile salt, Hamon et al., 2012
-    # HHB+12_ATCC.334, HHB+12_DN.114.001, HHB+12_Shirota, HHB+12_F.19, HHB+12_CRL.431, HHB+12_Rosell.215
-    dat <- read.csv(file.path(datadir, "HHB+12.csv.xz"), as.is=TRUE)
-    description <- paste("Lactobacillus casei", stage, "with/without bile salt")
-    icol <- grep(stage, colnames(dat))
-    dat <- dat[!is.na(dat[, icol]), ]
-    up2 <- dat[, icol] > 0
-    dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/HHB+12_aa.csv.xz"))
+  } else if(study=="DHL+17") {
+    # 20200416 Acidihalobacter prosperus, Dopson et al., 2017
+    dat <- read.csv("data/expression/osmotic/DHL+17.csv", as.is=TRUE)
+    description <- "Acidihalobacter prosperus in 30 g/L vs 3.5 g/L NaCl"
+    up2 <- dat$Up.In=="high salt"
+    pcomp <- protcomp(dat$Entry, basis, aa_file = "data/aa/bacteria/DHL+17_aa.csv")
   } else stop(paste("osmotic_bact dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_bact: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
