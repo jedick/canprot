@@ -14,7 +14,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
              "GLZ+18_acinar", "GLZ+18_ductal", "LAJ+18_PC", "LAJ+18_CRPC", "MAN+18",
              "KRN+19_G1", "KRN+19_G2", "KRN+19_G3", "KRN+19_G4", "KRN+19_G5",
              "MMF+19_GS6", "MMF+19", "TOT+19", "ZYW+19_LG", "ZYW+19_HG",
-             "KHN+20", "SHC+20"
+             "KHN+20", "SHC+20", "ZZX+20_CiRT"
              ))
   }
   # remove tags
@@ -164,6 +164,16 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     up2 <- up2 <- dat$log2FC > 1
     dat <- check_IDs(dat, "Uniprot.ID")
     pcomp <- protcomp(dat$Uniprot.ID, basis)
+  } else if(study=="ZZX+20") {
+    # 20200420 Zhu et al., 2020
+    # ZZX+20_CiRT, ZZX+20_SiRT
+    dat <- read.csv(paste0(datadir, "ZZX+20.csv.xz"), as.is=TRUE)
+    description <- paste("T/N", stage)
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- check_IDs(dat, "Protein")
+    up2 <- dat[, icol] > 0
+    pcomp <- protcomp(dat$Protein, basis)
   } else stop(paste("prostate dataset", dataset, "not available"))
   print(paste0("pdat_prostate: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429
