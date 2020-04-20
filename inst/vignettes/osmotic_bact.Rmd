@@ -81,9 +81,9 @@ write.csv(out, "osmotic_bact.csv", row.names = FALSE, quote = 2)
 
 __a__. Additional file 3: Table S2 of @PNWB09.
 __b__. Supplementary Table 8 of @FTR+10. Only proteins with consistent expression ratios (all > 1 or all < 1) at each time point (15, 60, and 180 min.) were included.
-__c__. __d__. __e__. __f__. Temperature and NaCl treatment (control: 35 °C, _a_~w~ = 0.993). Source: Suppl. Tables S13–S16 of @KKG+12.
-__g__. Supporting Information Table 1 of @LPK+13 (sheets "Up-Down Proteins" and "Unknown function").
-__h__. __i__. Supplementary Tables S3A and S3B of @QHT+13.
+__c__. Supporting Information Table 1 of @LPK+13 (sheets "Up-Down Proteins" and "Unknown function").
+__d__. __e__. Supplementary Tables S3A and S3B of @QHT+13.
+__f__. __g__. __h__. __i__. Supporting Information Table S2 of @KKG+14.
 __j__. __k__. Additional file Table S2 of @KLB+15.
 __l__. __m__. Supplementary Table S6 of @SKV+16, filtered to include proteins with fold change > 2 or < 0.5 for the ratios Glucose / LB (lysogeny broth) or Osmotic-stress glucose / LB.
 __n__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
