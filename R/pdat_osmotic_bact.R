@@ -9,6 +9,7 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
              "PNWB09",
              "FTR+10",
              "LPK+13", "QHT+13_24.h", "QHT+13_48.h",
+             "ADW+14_Protein",
              "KKG+14_Protein_immediate", "KKG+14_Protein_30min", "KKG+14_Protein_80min", "KKG+14_Protein_310min",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "SKV+16_Glucose_LB", "SKV+16_Osmotic.stress.glucose_LB",
@@ -170,6 +171,15 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/KKG+14_aa.csv.xz"))
+  } else if(study=="ADW+14") {
+    # 20200420 Bifidobacterium longum, An et al., 2014
+    # ADW+14_Gene, ADW+14_Protein
+    dat <- read.csv(file.path(datadir, "ADW+14.csv.xz"), as.is=TRUE)
+    description <- paste("Bifidobacterium longum BBMN68", stage, "with vs without 0.75 g/l ox bile")
+    icol <- grep(paste0(stage, "_"), colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    up2 <- dat[, icol] > 0
+    pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/ADW+14_aa.csv.xz"))
   } else stop(paste("osmotic_bact dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_bact: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
