@@ -17,7 +17,7 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
              "BSG15=mouse", "RPM+15",
              "NBM+16_G1", "NBM+16_G2", "NBM+16_G3", "NMB+16", "QXC+16_T1", "QXC+16_T2", "QXC+16_T3",
              "GJZ+17", "GWS+17", "QPP+17", "WLL+17_small", "WLL+17_medium", "WLL+17_large", "WLL+17_huge",
-             "BOK+18",
+             "BOK+18", "YXZ+18",
              "BEM+20=mouse", "GZD+19_protein", "GZD+19_phosphoprotein", "JSZ+19", "ZZL+19",
              "GZL+20", "SCL+20_differential", "SCL+20_unique"
              ))
@@ -255,6 +255,13 @@ pdat_liver <- function(dataset = 2020, basis = "rQEC") {
     description <- "T/N"
     up2 <- dat$Expr.Fold.Change > 0
     pcomp <- protcomp(dat$Accession, basis)
+  } else if(study=="YXZ+18") {
+    # 20200420 liver cancer, Yang et al., 2018
+    dat <- read.csv(paste0(datadir, "YXZ+18.csv.xz"), as.is=TRUE)
+    description <- "T/N"
+    up2 <- dat$Ratio..tumor.adjacent. > 1
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("liver dataset", dataset, "not available"))
   print(paste0("pdat_liver: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407

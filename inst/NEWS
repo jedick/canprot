@@ -14,7 +14,7 @@ CHANGES IN canprot 0.2.0 (2020-04-20)
   pdat_osmotic_euk (eukaryotes), and pdat_osmotic_halo (halophiles).
   Data from the 2017 compilation are available through .pdat_osmotic().
 
-- New liver datasets: BSG15, DTS+07, RLA+10, SCL+20, GZL+20.
+- New liver datasets: BSG15, DTS+07, RLA+10, SCL+20, GZL+20, YXZ+18.
 
 - New glucose datasets: SFKD17, SFG+12, MFD+10, HGC+18
 
