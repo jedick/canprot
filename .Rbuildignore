@@ -1,6 +1,6 @@
 vignettes/.*.html
-inst/oldvignettes/.*.html
-inst/oldvignettes/cpdat.bib
-inst/oldvignettes/peerj.csl
-inst/oldvignettes/mkall.R
+oldvignettes/.*.html
+oldvignettes/cpdat.bib
+oldvignettes/peerj.csl
+oldvignettes/mkall.R
 LICENSE

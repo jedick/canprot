@@ -93,23 +93,24 @@ __e__. __f__. __g__. __h__. Gene names from supplemental Table 9 of @BPV+11.
 __i__. Supplementary Table 2 of @JCF+11.
 __j__. Table S8 of @MRK+11.
 __k__. Supplementary Table 1 of @SHHS11.
-__l__. Gene names from Supplementary Table 4 of @KYK+12, filtered to include proteins with expression ratio > 2 or < 0.5 in both mTRAQ and cICAT analyses.
-__m__. Supplementary Table 4 of @WOD+12.
-__n__. Table 2 of @CZD+14.
-__o__. Ensembl protein IDs from Supporting Table 2 of @STK+15.
-__p__. Proteins marked as having a significant change between normal tissue (N) and adenocarcinoma (C) in SI Table 3 of @WDO+15.
-__q__. SI Table S3 of @LXM+16, filtered to include proteins with _p_-value < 0.05.
-__r__. __s__. Gene names from Supplementary Table 4 of @PHL+16, for differential expression between normal colonic mucosa (NC) and carcinoma in situ (CIS) or invasive colorectal cancer (ICC).
-__t__. Table S3 of @CTW+17.
-__u__. Dataset 6A of @HZW+17.
-__v__. Supplementary Material Table S1 of @LLL+17.
-__w__. Table 2 of @NKG+17.
-__x__. Table S2 of @QMB+17, filtered to include comparisons between adenocarcinoma and diverticular disease.
-__y__. Table S1 of @TMS+17, filtered to include proteins that are consistently up- or down-regulated in at least 11 of 12 patients.
-__z__. IPI accession numbers from Table S2 of @ZLY+17.
-__A__. Supplementary Table 1B of @AKG+18, filtered to include proteins with expression ratio > 3/2 or < 2/3.
-__B__. __C__. Supplementary Table S2 of @STA+19, filtered to include proteins with log~2~ ratio > ± the standard deviation of values for all quantified proteins.
-__D__. [Online data](http://linkedomics.org/cptac-colon) from @VHW+19 (file: Human__CPTAC_COAD__PNNL__Proteome__TMT__03_01_2017__BCM__Gene__Tumor_Normal_log2FC.cct), filtered to include proteins with median log~2~ ratio > 1 or < -1.
-__E__. Supplementary Information Table S2 of @WYL+19.
+__l__. Appendix of @FGW+12.
+__m__. Gene names from Supplementary Table 4 of @KYK+12, filtered to include proteins with expression ratio > 2 or < 0.5 in both mTRAQ and cICAT analyses.
+__n__. Supplementary Table 4 of @WOD+12.
+__o__. Table 2 of @CZD+14.
+__p__. Ensembl protein IDs from Supporting Table 2 of @STK+15.
+__q__. Proteins marked as having a significant change between normal tissue (N) and adenocarcinoma (C) in SI Table 3 of @WDO+15.
+__r__. SI Table S3 of @LXM+16, filtered to include proteins with _p_-value < 0.05.
+__s__. __t__. Gene names from Supplementary Table 4 of @PHL+16, for differential expression between normal colonic mucosa (NC) and carcinoma in situ (CIS) or invasive colorectal cancer (ICC).
+__u__. Table S3 of @CTW+17.
+__v__. Dataset 6A of @HZW+17.
+__w__. Supplementary Material Table S1 of @LLL+17.
+__x__. Table 2 of @NKG+17.
+__y__. Table S2 of @QMB+17, filtered to include comparisons between adenocarcinoma and diverticular disease.
+__z__. Table S1 of @TMS+17, filtered to include proteins that are consistently up- or down-regulated in at least 11 of 12 patients.
+__A__. IPI accession numbers from Table S2 of @ZLY+17.
+__B__. Supplementary Table 1B of @AKG+18, filtered to include proteins with expression ratio > 3/2 or < 2/3.
+__C__. __D__. Supplementary Table S2 of @STA+19, filtered to include proteins with log~2~ ratio > ± the standard deviation of values for all quantified proteins.
+__E__. [Online data](http://linkedomics.org/cptac-colon) from @VHW+19 (file: Human__CPTAC_COAD__PNNL__Proteome__TMT__03_01_2017__BCM__Gene__Tumor_Normal_log2FC.cct), filtered to include proteins with median log~2~ ratio > 1 or < -1.
+__F__. Supplementary Information Table S2 of @WYL+19.
 
 ## References

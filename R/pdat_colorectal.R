@@ -13,7 +13,7 @@ pdat_colorectal <- function(dataset = 2020, basis = "rQEC") {
              "XZC+10_I", "XZC+10_II", "ZYS+10",
              "BPV+11_stage.I", "BPV+11_stage.II", "BPV+11_stage.III", "BPV+11_stage.IV",
              "JCF+11", "MRK+11_AC.NC", "SHHS11",
-             "KYK+12", "WOD+12",
+             "FGW+12", "KYK+12", "WOD+12",
              "CZD+14",
              "STK+15", "WDO+15_C.N",
              "LXM+16", "PHL+16_CIS", "PHL+16_ICC",
@@ -337,6 +337,14 @@ pdat_colorectal <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[abs(dat$median_log2FC) > 1, ]
     up2 <- dat$median_log2FC > 1
     pcomp <- protcomp(dat$Entry, basis = basis)
+  } else if(study=="FGW+12") {
+    # 20200422 colorectal cancer, Fan et al., 2012
+    dat <- read.csv(paste0(datadir, "FGW+12.csv.xz"), as.is=TRUE)
+    description <- "tumor / paired normal mucosa"
+    up2 <- dat$expression.level.in.cancer == "Increased"
+    dat <- check_IDs(dat, "UniProt")
+    dat <- cleanup(dat, "UniProt", up2)
+    pcomp <- protcomp(dat$UniProt, basis)
   } else stop(paste("colorectal dataset", dataset, "not available"))
   print(paste0("pdat_colorectal: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429
