@@ -14,7 +14,7 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "SKV+16_Glucose_LB", "SKV+16_Osmotic.stress.glucose_LB",
              "KAK+17", "LYS+17",
-             "KSK+18", "LJC+18_wt", "LJC+18_mutant",
+             "KSK+18", "LJC+18_wt", "LJC+18_mutant", "TSC18_WT", "TSC18_GsrN",
              "LWS+19", "MGF+19_10", "MGF+19_20",
              "AST+20", "GBR+20_CIRM129", "GBR+20_CIRM1025"
              ))
@@ -180,6 +180,18 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 0
     pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/ADW+14_aa.csv.xz"))
+  } else if(study=="TSC18") {
+    # 20200423 Caulobacter crescentus, Tien et al., 2018
+    # TSC18_GsrN, TSC18_WT
+    dat <- read.csv(file.path(datadir, "TSC18.csv.xz"), as.is=TRUE)
+    description <- paste("Caulobacter crescentus", stage, "in 300 mM sucrose vs control")
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- dat[dat[, icol] > 1.5 | dat[, icol] < 2/3, ]
+    # exclude 0 or infinite ratios (i.e. ones that involve unquantified proteins)
+    dat <- dat[dat[, icol]!=0 & !is.infinite(dat[, icol]), ]
+    up2 <- dat[, icol] > 1.5
+    pcomp <- protcomp(dat$Majority.protein.IDs, basis, aa_file = file.path(extdatadir, "aa/bacteria/TSC18_aa.csv.xz"))
   } else stop(paste("osmotic_bact dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_bact: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
