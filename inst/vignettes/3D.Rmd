@@ -104,6 +104,5 @@ __u__. Extracted from proteinGroups.txt in ProteomeXchange Dataset [PXD008244](f
 __v__. Extracted from Supplementary Table 1 of @GADS19. Values were quantile normalized, then ratios were calculated between 3D and 2D cultures for each treatment (control, CBD, UVA, UVA+CBD, UVB, UVB+CBD). Ratios > 1.2 or < 1/1.2 in at least 4 treatments were used to identify differentially expressed proteins.
 __w__. Supplementary Data I, sheet "Volcano plot 2Dv3D" of @HLC19.
 __x__. __y__. __z__. Supporting Table 1 of @LPK+19, sheets "3P2P" (mono-cultured preadipocytes), "3A2A" (mono-cultured adipocytes), "3C2C" (co-cultured adipocytes with macrophages), filtered to include proteins marked as "T-test Significant" and with absolute value of "N: T-test Difference" > log~2~(0.5).
-__A__. Supplementary Table S1 of @LYT+20.
 
 ## References
