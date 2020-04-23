@@ -8,7 +8,7 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     return(c(
              "PNWB09",
              "FTR+10",
-             "LPK+13", "QHT+13_24.h", "QHT+13_48.h",
+             "LPK+13", "QHT+13_Protein.24.h", "QHT+13_Protein.48.h",
              "ADW+14_Protein",
              "KKG+14_Protein_immediate", "KKG+14_Protein_30min", "KKG+14_Protein_80min", "KKG+14_Protein_310min",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
@@ -96,12 +96,15 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     pcomp <- protcomp(dat$Protein.IDs, basis, aa_file = paste0(extdatadir, "/aa/bacteria/AST+20_aa.csv.xz"))
   } else if(study=="QHT+13") {
     # 20200408 Synechocystis sp. PCC 6803, Qiao et al., 2013
-    # QHT+13_24.h, QHT+13_48.h
+    # QHT+13_Protein.24.h, QHT+13_Protein.48.h
+    # QHT+13_Gene.24.h, QHT+13_Gene.48.h, QHT+13_Gene.72.h
     dat <- read.csv(paste0(datadir, "QHT+13.csv.xz"), as.is=TRUE)
-    description <- paste("Synechocystis sp. PCC 6803 in 4% w/v vs 0% added NaCl for", gsub(".h", " h", stage))
+    hours <- strsplit(stage, "\\.")[[1]][2]
+    description <- paste("Synechocystis sp. PCC 6803 in 4% w/v vs 0% added NaCl for", hours, "h")
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
+    dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/bacteria/QHT+13_aa.csv.xz"))
   } else if(study=="LPK+13") {
     # 20200411 Lactobacillus johnsonii, Lee et al., 2013
