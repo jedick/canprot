@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.2.0 (2020-04-22)
+CHANGES IN canprot 0.2.0 (2020-04-23)
 -------------------------------------
 
 - To save space and check time, don't package pre-built vignettes.
@@ -19,7 +19,8 @@ CHANGES IN canprot 0.2.0 (2020-04-22)
 - New glucose datasets: SFKD17, SFG+12, MFD+10, HGC+18
 
 - New osmotic datasets: LPK+13, LYS+17, LWS+19, KSK+18, PNWB09, GBR+20,
-  LFY+12, SCL+20, GAM+16, DAA+05, HHB+12, SCG+15, SKV+16, KKG+14, ADW+14.
+  LFY+12, SCL+20, GAM+16, DAA+05, HHB+12, SCG+15, SKV+16, KKG+14, ADW+14,
+  MHN+08.
 
 - Other new datasets: 3D/LYT+20, prostate/ZZX+20, colorectal/FGW+12.
 

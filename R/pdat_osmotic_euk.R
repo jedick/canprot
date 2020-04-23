@@ -7,6 +7,7 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
              "DAA+05",
+             "MHN+08_Hyper",
              "LTH+11_Protein_30=yeast", "LTH+11_Protein_60=yeast", "LTH+11_Protein_90=yeast", "LTH+11_Protein_120=yeast", "LTH+11_Protein_240=yeast",
              "OBBH11",
              "LFY+12_C1h", "LFY+12_C8h", "LFY+12_C2p", "LFY+12_N1h", "LFY+12_N8h", "LFY+12_N2p",
@@ -134,6 +135,18 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
       up2 <- dat$Cluster == 2
     }
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/yeast/SCG+15_aa.csv.xz"))
+  } else if(study=="MHN+08") {
+    # 20200422 mouse, Mao et al., 2008
+    # MHN+08_Hyper, MHN+08_Hypo
+    dat <- read.csv(file.path(datadir, "MHN+08.csv.xz"), as.is=TRUE)
+    if(stage=="Hyper") description <- "mouse CGR8 embryonic stem cells in 500 (NaCl added) vs 340 mOsM medium"
+    if(stage=="Hypo") description <- "mouse CGR8 embryonic stem cells in 200 (lower NaCl) vs 340 mOsM medium"
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- check_IDs(dat, "Entry", aa_file = paste0(extdatadir, "/aa/mouse/MHN+08_aa.csv.xz"))
+    up2 <- dat[, icol] > 1
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/mouse/MHN+08_aa.csv.xz"))
   } else stop(paste("osmotic_euk dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_euk: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
