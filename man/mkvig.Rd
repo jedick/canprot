@@ -20,7 +20,7 @@ This function was added to compile the vignettes on demand and view them in a br
 
 The available vignettes are listed here:
 \itemize{
-    \item \emph{Cell culture} -- \samp{hypoxia}, \samp{secreted}, \samp{hyperosmotic}, \samp{glucose}, \samp{3D}
+    \item \emph{Cell culture} -- \samp{hypoxia}, \samp{secreted}, \samp{osmotic_bact}, \samp{osmotic_euk}, \samp{osmotic_halo}, \samp{glucose}, \samp{3D}
     \item \emph{Cancer} -- \samp{breast}, \samp{colorectal}, \samp{liver}, \samp{lung}, \samp{pancreatic}, \samp{prostate}
 }
 

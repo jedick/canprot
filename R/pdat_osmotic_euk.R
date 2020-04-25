@@ -41,21 +41,21 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="YDZ+15") {
     # 20160926 Yarrowia lipolytica, Yang et al., 2015
     dat <- read.csv(paste0(datadir, "YDZ+15.csv.xz"), as.is=TRUE)
-    description <- paste("Yarrowia lipolytica in 4.21 osmol/kg vs 3.17 osmol/kg NaCl")
+    description <- paste("_Yarrowia lipolytica_ in 4.21 osmol/kg vs 3.17 osmol/kg NaCl")
     up2 <- dat$Av..ratio..high.low. > 0
     dat <- cleanup(dat, "Accession.No.", up2)
     pcomp <- protcomp(substr(dat$Accession.No., 4, 12), basis=basis, aa_file=paste0(extdatadir, "/aa/yeast/YDZ+15_aa.csv.xz"))
   } else if(study=="RBP+16") {
     # 20161112 Paracoccidioides lutzii, da Silva Rodrigues et al., 2016
     dat <- read.csv(paste0(datadir, "RBP+16.csv.xz"), as.is=TRUE)
-    description <- "Paracoccidioides lutzii in 0.1 M KCl vs medium with no added KCl"
+    description <- "_Paracoccidioides lutzii_ in 0.1 M KCl vs medium with no added KCl"
     up2 <- dat$Fold.change > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/yeast/RBP+16_aa.csv.xz"))
   } else if(study=="JBG+18") {
     # 20200406 Candida albicans 1 M NaCl, Jacobsen et al., 2018
     dat <- read.csv(paste0(datadir, "JBG+18.csv.xz"), as.is=TRUE)
-    description <- "Candida albicans in 1 M NaCl vs medium with no added NaCl"
+    description <- "_Candida albicans_ in 1 M NaCl vs medium with no added NaCl"
     up2 <- dat$log2.ratio > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis = basis, aa_file = paste0(extdatadir, "/aa/yeast/JBG+18_aa.csv.xz"))
@@ -109,7 +109,7 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
     dat <- read.csv(file.path(datadir, "LTH+11.csv.xz"), as.is=TRUE)
     molecule <- strsplit(stage, "_")[[1]][1]
     time <- strsplit(stage, "_")[[1]][2]
-    description <- paste("S. cerevisiae", molecule, "in 0.7 M NaCl vs control medium for", time, "min")
+    description <- paste("_Saccharomyces cerevisiae_", molecule, "in 0.7 M NaCl vs control medium for", time, "min")
     # remove rows that have high q-value
     iq <- grep(paste0(molecule, ".Change"), colnames(dat))
     dat[is.na(dat[, iq]), iq] <- 1
@@ -125,7 +125,7 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
     # 20200419 S. cerevisiae, Selevsek et al., 2015
     # SCG+15_nodelay, SCG+15_delayed
     dat <- read.csv(file.path(datadir, "SCG+15.csv.xz"), as.is=TRUE)
-    description <- paste("S. cervisiae in 0.4 M NaCl vs control -", stage)
+    description <- paste("_Saccharomyces cervisiae_ in 0.4 M NaCl vs control -", stage)
     if(stage=="nodelay") {
       dat <- dat[dat$Cluster %in% c(1, 4), ]
       up2 <- dat$Cluster == 1

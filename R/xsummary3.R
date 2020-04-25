@@ -53,6 +53,9 @@ xsummary3 <- function(comptab1, comptab2, comptab3, comptab4) {
   publication <- sapply(strsplit(x$dataset, "_"), "[", 1)
   # format the publication key (monospaced font)
   publication <- paste0("<code>", publication, "</code>")
+  # italicize species names (first words in description, surrounded by underscore)
+  x$description <- gsub("^_", "<i>", x$description)
+  x$description <- gsub("_", "</i>", x$description)
   # combine the publication and description
   x$description <- paste0(publication, " (", x$description, ")")
   # datasets have letter labels

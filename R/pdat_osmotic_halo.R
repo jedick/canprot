@@ -22,12 +22,12 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
     # ZLZ+16_10, ZLZ+16_17.5
     dat <- read.csv(file.path(datadir, "ZLZ+16.csv.xz"), as.is = TRUE)
     if(stage=="10") {
-      description <- "Nocardiopsis xinjiangensis 6% / 10% NaCl"
+      description <- "_Nocardiopsis xinjiangensis_ 6% / 10% NaCl"
       pval <- dat$p.Value..6..vs..10..
       icolratio <- grep("ratio_6_over_10", colnames(dat))
     }
     if(stage=="17.5") {
-      description <- "Nocardiopsis xinjiangensis 17.5% / 10% NaCl"
+      description <- "_Nocardiopsis xinjiangensis_ 17.5% / 10% NaCl"
       pval <- dat$p.Value..10..vs..17.5..
       icolratio <- grep("ratio_17.5_over_10", colnames(dat))
     }
@@ -40,8 +40,8 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
     # 20191101 Halobacterium salinarum NaCl adjustment, Leuko et al., 2009
     # LRB+09_2.6, LRB+09_5.1
     dat <- read.csv(file.path(datadir, "LRB+09.csv.xz"), as.is=TRUE)
-    if(stage=="2.6") description <- "Halobacterium salinarium 2.6 M / 4.3 M NaCl"
-    if(stage=="5.1") description <- "Halobacterium salinarium 5.1 M / 4.3 M NaCl"
+    if(stage=="2.6") description <- "_Halobacterium salinarium_ 2.6 M / 4.3 M NaCl"
+    if(stage=="5.1") description <- "_Halobacterium salinarium_ 5.1 M / 4.3 M NaCl"
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -54,8 +54,8 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
     # 20191102 Tetragenococcus halophilus NaCl adjustment, Lin et al., 2017
     # LLYL17_0, LLYL17_3.5
     dat <- read.csv(file.path(datadir, "LLYL17.csv.xz"), as.is=TRUE)
-    if(stage=="0") description <- "Tetragenococcus halophilus 0 M / 1 M NaCl"
-    if(stage=="3.5") description <- "Tetragenococcus halophilus 3.5 M / 1 M NaCl"
+    if(stage=="0") description <- "_Tetragenococcus halophilus_ 0 M / 1 M NaCl"
+    if(stage=="3.5") description <- "_Tetragenococcus halophilus_ 3.5 M / 1 M NaCl"
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -67,8 +67,8 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
     # 20191102 Haloferax volcanii salt and temperature, Jevtić et al., 2019
     # JSP+19_LoS, JSP+19_HiS, JSP+19_LoT, JSP+19_HiT
     dat <- read.csv(file.path(datadir, "JSP+19.csv.xz"), as.is=TRUE)
-    if(stage=="LoS") description <- "Haloferax volcanii 10.8% / 15% NaCl"
-    if(stage=="HiS") description <- "Haloferax volcanii 19.2% / 15% NaCl"
+    if(stage=="LoS") description <- "_Haloferax volcanii_ 10.8% / 15% NaCl"
+    if(stage=="HiS") description <- "_Haloferax volcanii_ 19.2% / 15% NaCl"
     # use selected condition
     icol <- grep(stage, colnames(dat))
     # at least two-fold, significant difference
