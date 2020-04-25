@@ -4,10 +4,10 @@
 
 pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
-    return(c("LRB+09_2.6", "LRB+09_5.1",
-             "ZLZ+16_10", "ZLZ+16_17.5",
-             "LLYL17_0", "LLYL17_3.5",
-             "JSP+19_LoS", "JSP+19_HiS" #, "JSP+19_LoT", "JSP+19_HiT"
+    return(c("LRB+09_2.6=hypoosmotic", "LRB+09_5.1",
+             "ZLZ+16_10=hypoosmotic", "ZLZ+16_17.5",
+             "LLYL17_0=hypoosmotic", "LLYL17_3.5",
+             "JSP+19_LoS=hypoosmotic", "JSP+19_HiS" #, "JSP+19_LoT", "JSP+19_HiT"
              ))
   }
   # remove tags
@@ -22,9 +22,9 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
     # ZLZ+16_10, ZLZ+16_17.5
     dat <- read.csv(file.path(datadir, "ZLZ+16.csv.xz"), as.is = TRUE)
     if(stage=="10") {
-      description <- "Nocardiopsis xinjiangensis 10% / 6% NaCl"
+      description <- "Nocardiopsis xinjiangensis 6% / 10% NaCl"
       pval <- dat$p.Value..6..vs..10..
-      icolratio <- grep("ratio_10_over_6", colnames(dat))
+      icolratio <- grep("ratio_6_over_10", colnames(dat))
     }
     if(stage=="17.5") {
       description <- "Nocardiopsis xinjiangensis 17.5% / 10% NaCl"
@@ -40,14 +40,13 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
     # 20191101 Halobacterium salinarum NaCl adjustment, Leuko et al., 2009
     # LRB+09_2.6, LRB+09_5.1
     dat <- read.csv(file.path(datadir, "LRB+09.csv.xz"), as.is=TRUE)
-    if(stage=="2.6") description <- "Halobacterium salinarium 4.3 M / 2.6 M NaCl"
+    if(stage=="2.6") description <- "Halobacterium salinarium 2.6 M / 4.3 M NaCl"
     if(stage=="5.1") description <- "Halobacterium salinarium 5.1 M / 4.3 M NaCl"
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    # up-expressed proteins in high salinity (2.6 -> 4.3 M or 4.3 M -> 5.1 M)
-    if(stage=="5.1") up2 <- dat[, icol] > 0
-    if(stage=="2.6") up2 <- dat[, icol] < 0
+    # up-expressed proteins in low or high
+    up2 <- dat[, icol] > 0
     # drop missing proteins
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/LRB+09_aa.csv.xz"))
@@ -55,27 +54,27 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
     # 20191102 Tetragenococcus halophilus NaCl adjustment, Lin et al., 2017
     # LLYL17_0, LLYL17_3.5
     dat <- read.csv(file.path(datadir, "LLYL17.csv.xz"), as.is=TRUE)
-    if(stage=="0") description <- "Tetragenococcus halophilus 1 M / 0 M NaCl"
+    if(stage=="0") description <- "Tetragenococcus halophilus 0 M / 1 M NaCl"
     if(stage=="3.5") description <- "Tetragenococcus halophilus 3.5 M / 1 M NaCl"
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    # up-expressed proteins in high salinity (1 M / 0 M or 3.5 M / 1 M)
-    up2 <- dat[, icol] < 0
+    # up-expressed proteins in low or high salinity (0 M / 1 M or 3.5 M / 1 M)
+    if(stage=="0") up2 <- dat[, icol] > 0
+    if(stage=="3.5") up2 <- dat[, icol] < 0
     pcomp <- protcomp(dat$UniProtKB.Entry, basis=basis, aa_file=file.path(extdatadir, "aa/bacteria/LLYL17_aa.csv.xz"))
   } else if(study=="JSP+19") {
     # 20191102 Haloferax volcanii salt and temperature, Jevtić et al., 2019
     # JSP+19_LoS, JSP+19_HiS, JSP+19_LoT, JSP+19_HiT
     dat <- read.csv(file.path(datadir, "JSP+19.csv.xz"), as.is=TRUE)
-    if(stage=="LoS") description <- "Haloferax volcanii 15% / 10.8% NaCl"
+    if(stage=="LoS") description <- "Haloferax volcanii 10.8% / 15% NaCl"
     if(stage=="HiS") description <- "Haloferax volcanii 19.2% / 15% NaCl"
     # use selected condition
     icol <- grep(stage, colnames(dat))
     # at least two-fold, significant difference
     idiff <- abs(dat[, icol[1]]) >= 1 & dat[, icol[2]]==1
     dat <- dat[idiff, ]
-    if(stage=="LoS") up2 <- dat[, icol[1]] < 0
-    else up2 <- dat[, icol[1]] > 0
+    up2 <- dat[, icol[1]] > 0
     # remove NA accessions
     dat <- cleanup(dat, "UniProt.Accession", up2)
     pcomp <- protcomp(dat$UniProt.Accession, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/JSP+19_aa.csv.xz"))

@@ -56,13 +56,14 @@ comptab3 <- lapply(pdat1, get_comptab, "nAA", "GRAVY")
 comptab4 <- lapply(pdat1, get_comptab, "pI", "GRAVY")
 ```
 
-Dashed contour lines in the plots outline the 50% credible region for highest probability density.
+Circles and squares represent hyperosmotic and hypoosmotic experiments, respectively.
 
 ```{r diffplot, fig.width=8, fig.height=4, fig.align = "center", echo = FALSE, pngquant = pngquant}
 par(mfrow = c(1, 2), mar = c(4, 4, 2, 2), mgp = c(2.5, 1, 0))
-diffplot(comptab1)
+pch <- ifelse(grepl("hypoosmotic", datasets), 0, 1)
+diffplot(comptab1, pch = pch, contour = FALSE)
 title(quote("rQEC"~italic(n)[H[2]*O]), font.main = 1)
-diffplot(comptab4, c("pI", "GRAVY"))
+diffplot(comptab4, c("pI", "GRAVY"), pch = pch, contour = FALSE)
 ```
 
 In the table, values of &Delta;<i>Z</i><sub>C</sub>, &Delta;<i>n</i><sub>H<sub>2</sub>O</sub>, &Delta;<i>n</i><sub>O<sub>2</sub></sub> and &Delta;GRAVY are multiplied by 1000, values of &Delta;pI are multiplied by 100, and negative values are shown in bold.
@@ -80,7 +81,7 @@ write.csv(out, "osmotic_halo.csv", row.names = FALSE, quote = 2)
 ## Data Sources
 
 __a__. __b__. Tables 1 and 2 of @LRB+09.
-__c__. __d__. Table S-1 of @ZLZ+16. Values of reporter intensities at each condition (6%, 10%, and 17.5% NaCl) were quantile normalized (R function preprocessCore::normalize.quantiles); normalized values were used to compute intensity ratios (10% / 6% NaCl and 17.5% / 10% NaCl). Only proteins with expression ratios > 1.3 in either direction [@ZLZ+16], p-values < 0.05, and at least 2 peptides were included.
+__c__. __d__. Table S-1 of @ZLZ+16. Values of reporter intensities at each condition (6%, 10%, and 17.5% NaCl) were quantile normalized (R function preprocessCore::normalize.quantiles); normalized values were used to compute intensity ratios (6% / 10% NaCl and 17.5% / 10% NaCl). Only proteins with expression ratios > 1.3 in either direction [@ZLZ+16], p-values < 0.05, and at least 2 peptides were included.
 __e__. __f__. Tables S2 and S3 of @LLYL17.
 __g__. __h__. Supporting Table 1C of @JSP+19. Only proteins with at least 2-fold expression difference and marked as significant were included.
 
