@@ -1,4 +1,4 @@
-CHANGES IN canprot 0.2.0 (2020-04-23)
+CHANGES IN canprot 0.2.0 (2020-04-26)
 -------------------------------------
 
 - To save space and check time, don't package pre-built vignettes.
@@ -20,7 +20,7 @@ CHANGES IN canprot 0.2.0 (2020-04-23)
 
 - New osmotic datasets: LPK+13, LYS+17, LWS+19, KSK+18, PNWB09, GBR+20,
   LFY+12, SCL+20, GAM+16, DAA+05, HHB+12, SCG+15, SKV+16, KKG+14, ADW+14,
-  MHN+08, TSC18.
+  MHN+08, TSC18, PBP+14.
 
 - Other new datasets: prostate/ZZX+20, colorectal/FGW+12.
 

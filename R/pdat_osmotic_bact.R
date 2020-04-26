@@ -44,7 +44,9 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     dat <- read.csv(paste0(datadir, "KLB+15.csv.xz"), as.is=TRUE)
     if(grepl("suc", stage)) osmoticum <- "200 mM sucrose vs M2 minimal salts medium"
     if(grepl("NaCl", stage)) osmoticum <- "40/50 mM NaCl vs M2 minimal salts medium"
-    description <- paste("_Caulobacter crescentus_ in", osmoticum)
+    if(grepl("trans", stage)) molecule <- "Gene"
+    if(grepl("prot", stage)) molecule <- "Protein"
+    description <- paste("_Caulobacter crescentus_", molecule, "in", osmoticum)
     # use protein identified in given experiment
     icol <- grep(gsub("-", ".*", stage), colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -101,7 +103,8 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     # QHT+13_Gene.24.h, QHT+13_Gene.48.h, QHT+13_Gene.72.h
     dat <- read.csv(paste0(datadir, "QHT+13.csv.xz"), as.is=TRUE)
     hours <- strsplit(stage, "\\.")[[1]][2]
-    description <- paste("_Synechocystis_ sp. PCC 6803 in 4% w/v vs 0% added NaCl for", hours, "h")
+    molecule <- strsplit(stage, "\\.")[[1]][1]
+    description <- paste("_Synechocystis_ sp. PCC 6803", molecule, "in 4% w/v vs 0% added NaCl for", hours, "h")
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
