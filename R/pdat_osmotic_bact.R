@@ -11,6 +11,7 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
              "LPK+13", "QHT+13_Protein.24.h", "QHT+13_Protein.48.h",
              "ADW+14_Protein",
              "KKG+14_Protein_immediate", "KKG+14_Protein_30min", "KKG+14_Protein_80min", "KKG+14_Protein_310min",
+             "PBP+14_4.C", "PBP+14_37.C",
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "SKV+16_Glucose_LB", "SKV+16_Osmotic.stress.glucose_LB",
              "KAK+17", "LYS+17",
@@ -195,6 +196,15 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     dat <- dat[dat[, icol]!=0 & !is.infinite(dat[, icol]), ]
     up2 <- dat[, icol] > 1.5
     pcomp <- protcomp(dat$Majority.protein.IDs, basis, aa_file = file.path(extdatadir, "aa/bacteria/TSC18_aa.csv.xz"))
+  } else if(study=="PBP+14") {
+    # 20200426 Listeria monocytogenes, Pittman et al., 2014
+    # PBP+14_4.C, PBP+14_37.C
+    dat <- read.csv(file.path(datadir, "PBP+14.csv.xz"), as.is=TRUE)
+    description <- paste("_Listeria monocytogenes_ in 3% NaCl vs control at", stage)
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    up2 <- dat[, icol] > 1
+    pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/PBP+14_aa.csv.xz"))
   } else stop(paste("osmotic_bact dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_bact: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

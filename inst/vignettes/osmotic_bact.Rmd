@@ -85,16 +85,17 @@ __c__. Supporting Information Table 1 of @LPK+13 (sheets "Up-Down Proteins" and 
 __d__. __e__. Supplementary Tables S3A and S3B of @QHT+13.
 __f__. Table 1 (proteins) and supplemental Table S2 (genes) of @ADW+14.
 __g__. __h__. __i__. __j__. Supporting Information Table S2 of @KKG+14.
-__k__. __l__. Additional file Table S2 of @KLB+15.
-__m__. __n__. Supplementary Table S6 of @SKV+16, filtered to include proteins with fold change > 2 or < 0.5 for the ratios Glucose / LB (lysogeny broth) or Osmotic-stress glucose / LB.
-__o__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
-__p__. Supplemental Table S-2 of @LYS+17, filtered to include proteins with log~2~ fold change > 1 or < -1 and _p_-value < 0.05.
-__q__. Supplementary Table 1 of @KSK+18 (amino acid compositions computed from protein sequences in the list of gene annotations).
-__r__. __s__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
-__t__. __u__. Extracted from proteinGroups.txt in PRIDE project [PXD010072](https://www.ebi.ac.uk/pride/archive/projects/PXD010072)/MaxQuantOutput.tar.gz [@TSC18], filtered to include proteins with non-zero LFQ intensity values for all replicates in each experiment; the medians of these values were used to compute fold changes; proteins with fold change > 1.5 or < 2/3 were kept.
-__v__. Table 2 of @LWS+19.
-__w__. __x__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
-__y__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
-__z__. __A__. Supplementary Table 1 of @GBR+20 (column "MMO+NaCl/MMO" for CIRM129 and CIRM1025).
+__k__. __l__. Supporting Information Table of @PBP+14, filtered to include proteins with _p_-value < 0.05.
+__m__. __n__. Additional file Table S2 of @KLB+15.
+__o__. __p__. Supplementary Table S6 of @SKV+16, filtered to include proteins with fold change > 2 or < 0.5 for the ratios Glucose / LB (lysogeny broth) or Osmotic-stress glucose / LB.
+__q__. Supplementary Table 1 (sheets "0.76 fold down regulated" and "1.3 fold up regulated") of @KAK+17.
+__r__. Supplemental Table S-2 of @LYS+17, filtered to include proteins with log~2~ fold change > 1 or < -1 and _p_-value < 0.05.
+__s__. Supplementary Table 1 of @KSK+18 (amino acid compositions computed from protein sequences in the list of gene annotations).
+__t__. __u__. Tables S1–S6 of @LJC+18. For each of the wild-type and ∆_sigB_ mutant, only proteins that were identified in multicellular vesicles in a single condition (0.5 M salt stress or without salt stress) were included.
+__v__. __w__. Extracted from proteinGroups.txt in PRIDE project [PXD010072](https://www.ebi.ac.uk/pride/archive/projects/PXD010072)/MaxQuantOutput.tar.gz [@TSC18], filtered to include proteins with non-zero LFQ intensity values for all replicates in each experiment; the medians of these values were used to compute fold changes; proteins with fold change > 1.5 or < 2/3 were kept.
+__x__. Table 2 of @LWS+19.
+__y__. __z__. Supplementary Tables S4 and S5 of @MGF+19, filtered to include proteins with fold change >= 2 or <= 0.5.
+__A__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
+__B__. __C__. Supplementary Table 1 of @GBR+20 (column "MMO+NaCl/MMO" for CIRM129 and CIRM1025).
 
 ## References
