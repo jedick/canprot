@@ -30,4 +30,4 @@ vignettes
 Note that building the vignettes requires pandoc to be installed in the system.
 See the [rmarkdown pandoc vignette](../../rmarkdown/doc/pandoc.html) for more information.
 
-The numerical output of the vignettes is available in the package, as CSV files under `extdata/vignette_output`.
+The numerical output of the vignettes is available in the package, as CSV files in the `inst/vignettes` directory.
