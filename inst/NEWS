@@ -1,7 +1,8 @@
-CHANGES IN canprot 0.2.0 (2020-04-26)
+CHANGES IN canprot 0.2.0 (2020-04-27)
 -------------------------------------
 
-- To save space and check time, don't package pre-built vignettes.
+- To reduce package size and check time, don't include pre-built
+  vignettes. The vignettes are now in inst/vignettes.
 
 - Add mkvig() to compile and open vignettes from command line.
 

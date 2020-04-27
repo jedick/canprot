@@ -48,7 +48,7 @@ See rmarkdown's [Install Pandoc](https://cran.r-project.org/web/packages/rmarkdo
 With all the dependencies available, the vignettes can be compiled and viewed using the `mkvig()` function in **canprot**, like this:
 ```R
 library(canprot)
-mkvig("osmotic")
+mkvig("3D")
 ```
 
 ## Online vignettes
