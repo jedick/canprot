@@ -14,7 +14,8 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
              "YLW+16=cancer",
              "KJK+18=cancer", "TGD18_NHF", "TGD18_CAF=cancer",
              "EWK+19=cancer", "GADS19",
-             "HLC19=cancer", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages"
+             "HLC19=cancer", "LPK+19_preadipocytes", "LPK+19_adipocytes", "LPK+19_macrophages",
+             "DKM+20"
              ))
   }
   # remove tags
@@ -194,6 +195,13 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$Regulation == "up"
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis)
+  } else if(study=="DKM+20") {
+    # 20200428 bone marrow-derived MSCs, Doron et al., 2020
+    dat <- read.csv(paste0(datadir, "DKM+20.csv.xz"), as.is = TRUE)
+    description <- "bone marrow-derived MSCs aggregates"
+    dat <- check_IDs(dat, "Master.Protein.Accessions")
+    up2 <- dat$ratio_4_donors > 2
+    pcomp <- protcomp(dat$Master.Protein.Accessions, basis)
   } else stop(paste("3D dataset", dataset, "not available"))
   print(paste0("pdat_3D: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
