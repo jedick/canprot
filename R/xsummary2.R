@@ -31,17 +31,21 @@ xsummary2 <- function(comptab1, comptab2, comptab3, comptab4) {
     nH2O_biosynth.up = ct2$nH2O.median2,
     nH2O_biosynth.diff = ct2$nH2O.diff,
 
-    nAA.down = ct3$nAA.median1,
-    nAA.up = ct3$nAA.median2,
-    nAA.diff = ct3$nAA.diff,
+    PS_TPPG17.down = ct3$PS_TPPG17.mean1,
+    PS_TPPG17.up = ct3$PS_TPPG17.mean2,
+    PS_TPPG17.diff = ct3$PS_TPPG17.diff,
 
-    PS_TPPG17.down = ct3$PS.mean1,
-    PS_TPPG17.up = ct3$PS.mean2,
-    PS_TPPG17.diff = ct3$PS.diff,
+    PS_LMM16.down = ct3$PS_LMM16.mean1,
+    PS_LMM16.up = ct3$PS_LMM16.mean2,
+    PS_LMM16.diff = ct3$PS_LMM16.diff,
 
-    PS_LMM16.down = ct4$PS.mean1,
-    PS_LMM16.up = ct4$PS.mean2,
-    PS_LMM16.diff = ct4$PS.diff,
+    nAA.down = ct4$nAA.median1,
+    nAA.up = ct4$nAA.median2,
+    nAA.diff = ct4$nAA.diff,
+
+    MW.down = ct4$MW.median1,
+    MW.up = ct4$MW.median2,
+    MW.diff = ct4$MW.diff,
 
     stringsAsFactors = FALSE
   )

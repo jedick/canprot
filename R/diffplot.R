@@ -33,14 +33,20 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   }
   # use colnames to figure out whether the difference is of the mean or median
   if(is.null(labtext)) {
-    # treat the x- and y-variables separately in case one is median and one is mean (possible with PS) 20191127
-    xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
-    yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
-    # if that didn't work, fall back to "median", or "mean" for PS 20191129
-    if(!xfun %in% c("median", "mean")) xfun <- ifelse(grepl("PS", vars[1]), "mean", "median")
-    if(!yfun %in% c("median", "mean")) yfun <- ifelse(grepl("PS", vars[2]), "mean", "median")
-    xparen <- paste0("(", xfun, " difference)")
-    yparen <- paste0("(", yfun, " difference)")
+    # special labels for TPPG17-LMM16 phylostrata plots 20200501
+    if(identical(vars, c("PS_TPPG17", "PS_LMM16"))) {
+      xparen <- "(TPPG17)"
+      yparen <- "(LMM16)"
+    } else {
+      # treat the x- and y-variables separately in case one is median and one is mean (possible with PS) 20191127
+      xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
+      yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
+      # if that didn't work, fall back to "median", or "mean" for PS 20191129
+      if(!xfun %in% c("median", "mean")) xfun <- ifelse(grepl("PS", vars[1]), "mean", "median")
+      if(!yfun %in% c("median", "mean")) yfun <- ifelse(grepl("PS", vars[2]), "mean", "median")
+      xparen <- paste0("(", xfun, " difference)")
+      yparen <- paste0("(", yfun, " difference)")
+    }
   } else {
     xparen <- yparen <- paste0("(", labtext, ")")
   }
@@ -115,20 +121,20 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
 # cplab moved from internal.R and exported 20200204
 # text for figure labels
 cplab <- list(
-  nH2O = expression(italic(n)[H[2]*O]),
-  DnH2O = expression(Delta*italic(n)[H[2]*O]),
-  nO2 = expression(italic(n)[O[2]]),
-  DnO2 = expression(Delta*italic(n)[O[2]]),
+  nH2O = expression(italic(n)[H[2]*O] * "/AA"),
+  DnH2O = expression(Delta*italic(n)[H[2]*O] * "/AA"),
+  nO2 = expression(italic(n)[O[2]] * "/AA"),
+  DnO2 = expression(Delta*italic(n)[O[2]] * "/AA"),
   ZC = expression(italic(Z)[C]),
   DZC = expression(Delta*italic(Z)[C]),
   logfO2 = expression(log*italic("f")[O[2]*group("(", italic("g"), ")")]),
   logaH2O = expression(log*italic("a")[H[2]*O*group("(", italic("liq"), ")")]),
-  nC = expression(italic(n)[C]),
-  nN = expression(italic(n)[N]),
-  nS = expression(italic(n)[S]),
-  DnC = expression(Delta*italic(n)[C]),
-  DnN = expression(Delta*italic(n)[N]),
-  DnS = expression(Delta*italic(n)[S]),
+  nC = expression(italic(n)[C] * "/AA"),
+  nN = expression(italic(n)[N] * "/AA"),
+  nS = expression(italic(n)[S] * "/AA"),
+  DnC = expression(Delta*italic(n)[C] * "/AA"),
+  DnN = expression(Delta*italic(n)[N] * "/AA"),
+  DnS = expression(Delta*italic(n)[S] * "/AA"),
   V0 = expression(list(italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1)),
   DV0 = expression(list(Delta * italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1)),
   nAA = expression(italic(n)[AA]),
@@ -138,5 +144,7 @@ cplab <- list(
   pI = "pI",
   DpI = expression(Delta*"pI"),
   PS = "PS",
-  DPS = expression(Delta*"PS")
+  DPS = expression(Delta*"PS"),
+  MW = expression("MW" * "/AA"),
+  DMW = expression(Delta * "MW" * "/AA")
 )

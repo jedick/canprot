@@ -11,6 +11,8 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   nC <- function() pdat$pcomp$residue.formula[, "C"]
   nN <- function() pdat$pcomp$residue.formula[, "N"]
   nS <- function() pdat$pcomp$residue.formula[, "S"]
+  NC <- function() pdat$pcomp$residue.formula[, "N"] / pdat$pcomp$residue.formula[, "C"]
+  SC <- function() pdat$pcomp$residue.formula[, "S"] / pdat$pcomp$residue.formula[, "C"]
   #V0 <- function() suppressMessages(protein.obigt(pdat$pcomp$aa)$V) / pdat$pcomp$protein.length
   # longer code, but faster ...
   V0 <- function() {
@@ -41,6 +43,11 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   pI <- function() canprot::pI(pdat$pcomp$aa)
   # PS (phylostrata) added 20191127
   PS <- function() canprot::PS(pdat$pcomp$uniprot, source = PS_source)
+  PS_TPPG17 <- function() canprot::PS(pdat$pcomp$uniprot, source = "TPPG17")
+  PS_LMM16 <- function() canprot::PS(pdat$pcomp$uniprot, source = "LMM16")
+  # MW (molecular weight) added 20200501
+  MW <- function() canprot::MWAA(pdat$pcomp$aa)
+
   # get the values of the variables using the functions
   val1 <- get(var1)()
   val2 <- get(var2)()
@@ -64,14 +71,14 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   message(paste0(pdat$dataset, " (", pdat$description ,"): n1 ", length(val1_dn), ", n2 ", length(val1_up)))
   # calculate difference of means/medians, CLES, p-value
   # always use mean for PS 20191127
-  if(var1 == "PS") {
+  if(var1 %in% c("PS", "PS_TPPG17", "PS_LMM16")) {
     mfun1_dn <- mean(val1_dn, na.rm = TRUE)
     mfun1_up <- mean(val1_up, na.rm = TRUE)
   } else {
     mfun1_dn <- get(mfun)(val1_dn)
     mfun1_up <- get(mfun)(val1_up)
   }
-  if(var2 == "PS") {
+  if(var2 %in% c("PS", "PS_TPPG17", "PS_LMM16")) {
     mfun2_dn <- mean(val2_dn, na.rm = TRUE)
     mfun2_up <- mean(val2_up, na.rm = TRUE)
   } else {

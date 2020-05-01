@@ -78,7 +78,7 @@ H2OAA <- function(AAcomp, basis = "rQEC") {
   #  stopifnot(H2O.ref == H2O.fun)
 }
 
-# get stoichiometric O2 coefficients amino acid biosynthetic reactions from metabolic precursors 20191205
+# get stoichiometric O2 coefficients in amino acid biosynthetic reactions from metabolic precursors 20191205
 O2AA <- function(AAcomp, basis = "biosynth") {
   if(basis == "biosynth") {
     nO2_AA <- c(Ala = -0.5, Cys = 0, Asp = -0.5, Glu = -0.5, Phe = -0.5, Gly = 1, 
@@ -139,6 +139,28 @@ pI <- function(AAcomp) {
   myAA <- AAcomp[, isnum]
   # run the calculation for each composition
   apply(myAA, 1, onepI)
+}
+
+# calculate average molecular weight per amino acid 20200501
+MWAA <- function(AAcomp) {
+  # mass per residue:
+  # MW_AA <- sapply(CHNOSZ::makeup(info(aminoacids(""))), mass) - mass("H2O")
+  # names(MW_AA) <- aminoacids(3)
+  MW_AA <- c(Ala = 71.0788, Cys = 103.1388, Asp = 115.0886, Glu = 129.11548, 
+    Phe = 147.17656, Gly = 57.05192, His = 137.14108, Ile = 113.15944, 
+    Lys = 128.17408, Leu = 113.15944, Met = 131.19256, Asn = 114.10384, 
+    Pro = 97.11668, Gln = 128.13072, Arg = 156.18748, Ser = 87.0782, 
+    Thr = 101.10508, Val = 99.13256, Trp = 186.2132, Tyr = 163.17596
+  )
+  # find columns with names for the amino acids
+  isAA <- colnames(AAcomp) %in% names(MW_AA)
+  iAA <- match(colnames(AAcomp)[isAA], names(MW_AA))
+  # calculate total MW of residues in each protein
+  MW <- rowSums(t(t(AAcomp[, isAA]) * MW_AA[iAA]))
+  # add terminal H2O
+  MW <- MW + 18.01528
+  # divide by number of residues (length of protein)
+  MW / rowSums(AAcomp[, isAA])
 }
 
 #########################

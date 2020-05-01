@@ -6,6 +6,7 @@
 \alias{ZCAA}
 \alias{GRAVY}
 \alias{pI}
+\alias{MWAA}
 \title{Calculate Compositional Metrics for Proteins}
 \description{
 These functions calculate compositional metrics of proteins given a data frame of amino acid compositions.
@@ -17,6 +18,7 @@ These functions calculate compositional metrics of proteins given a data frame o
   O2AA(AAcomp, basis = "biosynth")
   GRAVY(AAcomp)
   pI(AAcomp)
+  MWAA(AAcomp)
 }
 
 \arguments{
@@ -31,6 +33,7 @@ These functions calculate compositional metrics of proteins given a data frame o
 \code{O2AA} calculates stoichiometric hydration state (\nO2) per residue.
 \code{GRAVY} calculates the grand average of hydropathicity.
 \code{pI} calculates the isoelectric point.
+\code{MWAA} calculates the molecular weight.
 
 These functions calculate the metrics from a data frame of amino acid compositions.
 Columns in \code{AAcomp} should be named with the three-letter abbreviations for the amino acids (e.g. \samp{Ala}).
@@ -113,6 +116,12 @@ Gcalc <- as.numeric(GRAVY(AAcomp))
 # these are equal to values obtained with ProtParam on uniprot.org
 Gref <- c(-0.472, -0.663)
 stopifnot(all.equal(round(Gcalc, 3), Gref))
+# also calculate molecular weight of the proteins
+MWcalc <- as.numeric(MWAA(AAcomp)) * protein.length(iprotein)
+# https://web.expasy.org/cgi-bin/protparam/protparam1?P00698@19-147@
+# https://web.expasy.org/cgi-bin/protparam/protparam1?P61823@27-150@
+MWref <- c(14313.14, 13690.29)
+stopifnot(all.equal(round(MWcalc, 2), MWref))
 
 # calculate pI for a few proteins
 iprotein <- pinfo(c("CSG_HALJP", "AMYA_PYRFU", "RNAS1_BOVIN", "LYSC_CHICK"))
