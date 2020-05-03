@@ -11,7 +11,7 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
              "CCC+12_25mM", "CCC+12_100mM", "SFG+12",
              "CCCC13_25mM", "CCCC13_100mM", "CCW+13",
              "LDB+15_all",
-             "SFKD17_1EG", "SFKD17_2EG",
+             "BTX+17_HG", "BTX+17_LG", "SFKD17_1EG", "SFKD17_2EG",
              "HGC+18=microbial",
              "IXA+19",
              "MHP+20_H9c2", "MHP+20_HEK",
@@ -182,6 +182,21 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     description <- "Lactobacillus casei BL23 in hyper-concentrated vs isotonic sweet whey"
     up2 <- dat$Regulation == "up"
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/bacteria/HGC+18_aa.csv.xz"))
+  } else if(study=="BTX+17") {
+    # 20200503 endothelial microparticles, Burger et al., 2017
+    # BTX+17_HG, BTX+17_LG
+    dat <- read.csv(paste0(datadir, "BTX+17.csv.xz"), as.is=TRUE)
+    if(stage=="HG") description <- "HUVEC endothelial microparticles in 5.6 mmol/l glucose + 19.4 mmol/l D-glucose vs 5.6 mmol/l glucose"
+    if(stage=="LG") description <- "HUVEC endothelial microparticles in 5.6 mmol/l glucose + 19.4 mmol/l L-glucose vs 5.6 mmol/l glucose"
+    # get columns with high-glucose and normal
+    iHG <- grep(stage, colnames(dat))
+    inormal <- grep("NG", colnames(dat))
+    # get proteins that are identified in HG or control, but not both
+    dat <- dat[dat[, iHG] == "X" | dat[, inormal] == "X", ]
+    dat <- dat[!(dat[, iHG] == "X" & dat[, inormal] == "X"), ]
+    up2 <- dat[, iHG] == "X"
+    dat <- cleanup(dat, "Entry", up2)
+    pcomp <- protcomp(dat$Entry, basis)
   } else stop(paste("glucose dataset", dataset, "not available"))
   print(paste0("pdat_glucose: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120

@@ -1,12 +1,15 @@
-CHANGES IN canprot 0.2.1 (2020-05-01)
+CHANGES IN canprot 0.2.1 (2020-05-03)
 -------------------------------------
 
-- New datasets: 3D/DKM+20.
+- New datasets: 3D/DKM+20, glucose/BTX+17.
 
 - Add MWAA() (molecular weight per amino acid); used in vignette plots.
 
 CHANGES IN canprot 0.2.0 (2020-04-27)
 -------------------------------------
+
+- This version was not released on CRAN. The package is archived on
+  Zenodo (https://doi.org/10.5281/zenodo.3768024).
 
 - To reduce package size and check time, don't include pre-built
   vignettes. The vignettes are now in inst/vignettes.

@@ -49,8 +49,9 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
     dat <- read.csv(paste0(datadir, "ZLH+14.csv.xz"), as.is=TRUE)
     description <- "membrane microdissected ADC / ANT"
     dat <- check_IDs(dat, "Accession")
-    pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat$X117.118 > 1
+    dat <- cleanup(dat, "Accession", up2)
+    pcomp <- protcomp(dat$Accession, basis=basis)
   } else if(study=="LXC+06") {
     # 20190317 lung squamous carcinoma, Li et al., 2006
     dat <- read.csv(paste0(datadir, "LXC+06.csv.xz"), as.is=TRUE)
