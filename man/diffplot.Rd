@@ -68,6 +68,10 @@ Otherwise, a dashed line is drawn from the point to the corresponding axis if th
 Otherwise, no line is drawn.
 }
 
+\seealso{
+\code{\link{qdiff}} to plot quantiles for a single dataset.
+}
+
 \examples{
 library(CHNOSZ)
 comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
