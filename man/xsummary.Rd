@@ -10,8 +10,8 @@
 
 \usage{
   xsummary(comptab, vars=c("ZC", "nH2O"))
-  xsummary2(comptab1, comptab2, comptab3, comptab4)
-  xsummary3(comptab1, comptab2, comptab3, comptab4)
+  xsummary2(comptab1, comptab2, comptab3)
+  xsummary3(comptab1, comptab2, comptab3)
 }
 
 \arguments{
@@ -20,7 +20,6 @@
   \item{comptab1}{list, output of \code{get_comptab}}
   \item{comptab2}{list, output of \code{get_comptab}}
   \item{comptab3}{list, output of \code{get_comptab}}
-  \item{comptab4}{list, output of \code{get_comptab}}
 }
 
 \details{

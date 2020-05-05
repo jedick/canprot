@@ -121,10 +121,10 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
 # cplab moved from internal.R and exported 20200204
 # text for figure labels
 cplab <- list(
-  nH2O = expression(italic(n)[H[2]*O] * "/AA"),
-  DnH2O = expression(Delta*italic(n)[H[2]*O] * "/AA"),
-  nO2 = expression(italic(n)[O[2]] * "/AA"),
-  DnO2 = expression(Delta*italic(n)[O[2]] * "/AA"),
+  nH2O = expression(italic(n)[H[2]*O]),
+  DnH2O = expression(Delta*italic(n)[H[2]*O]),
+  nO2 = expression(italic(n)[O[2]]),
+  DnO2 = expression(Delta*italic(n)[O[2]]),
   ZC = expression(italic(Z)[C]),
   DZC = expression(Delta*italic(Z)[C]),
   logfO2 = expression(log*italic("f")[O[2]*group("(", italic("g"), ")")]),
@@ -145,6 +145,6 @@ cplab <- list(
   DpI = expression(Delta*"pI"),
   PS = "PS",
   DPS = expression(Delta*"PS"),
-  MW = expression("MW" * "/AA"),
-  DMW = expression(Delta * "MW" * "/AA")
+  MW = expression("MW"),
+  DMW = expression(Delta * "MW")
 )

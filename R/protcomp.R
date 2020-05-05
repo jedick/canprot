@@ -34,14 +34,12 @@ protcomp <- function(uniprot = NULL, basis = "rQEC", aa = NULL, aa_file = NULL) 
   ZC <- CHNOSZ::ZC(protein.formula)
   # basis species for proteins, protein length, basis species in residue
   if(basis=="rQEC") basis("QEC") 
-  else if(basis=="biosynth") basis("CHNOS")
   else basis(basis)
   protein.basis <- protein.basis(aa)
   protein.length <- protein.length(aa)
   residue.basis <- protein.basis / protein.length
   # FIXME: these values really aren't "basis" values 20191205
-  if(basis %in% c("rQEC", "biosynth")) residue.basis[, "H2O"] <- H2OAA(aa, basis)
-  if(basis %in% c("biosynth")) residue.basis[, "O2"] <- O2AA(aa, basis)
+  if(basis == "rQEC") residue.basis[, "H2O"] <- H2OAA(aa, basis)
   # residue formula
   residue.formula <- protein.formula / protein.length
   # return data

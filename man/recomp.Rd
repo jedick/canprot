@@ -21,17 +21,17 @@ This avoids the need to regenerate the list of UniProt IDs and search for amino 
 }
 
 \examples{
-# process the first dataset for prostate cancer
+# process the first dataset for prostate cancer using the QEC basis species
 datasets <- pdat_prostate()
 pdat <- pdat_prostate(datasets[1], basis = "QEC")
-# recompute the compositions using amino acid biosynthetic reactions
-pdat2 <- recomp(pdat, "biosynth")
+# recompute the compositions using the rQEC values
+pdat2 <- recomp(pdat, "rQEC")
 # compare the results
-nO2_QEC <- pdat$pcomp$residue.basis[, "O2"]
-nO2_biosynth <- pdat2$pcomp$residue.basis[, "O2"]
-plot(nO2_QEC, nO2_biosynth)
+nH2O_QEC <- pdat$pcomp$residue.basis[, "H2O"]
+nH2O_rQEC <- pdat2$pcomp$residue.basis[, "H2O"]
+plot(nH2O_QEC, nH2O_rQEC)
 # the slower way (not that it makes much difference for this example)
-pdat2.slow <- pdat_prostate(datasets[1], basis = "biosynth")
+pdat2.slow <- pdat_prostate(datasets[1], basis = "rQEC")
 stopifnot(identical(pdat2, pdat2.slow))
 }
 

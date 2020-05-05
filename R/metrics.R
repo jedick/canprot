@@ -55,12 +55,6 @@ H2OAA <- function(AAcomp, basis = "rQEC") {
     # subtract a constant to make the mean for human proteins = 0 20191114
     nH2O_AA <- nH2O_AA - 0.355
   }
-  # water stoichiometry of amino acid biosynthetic reactions from metabolic precursors 20191205
-  if(basis == "biosynth") {
-    nH2O_AA <- c(Ala = 0, Cys = -1, Asp = 0, Glu = 0, Phe = -1, Gly = -1, His = -4,
-      Ile = 3, Lys = 2, Leu = 3, Met = 1, Asn = -1, Pro = 0, Gln = -1,
-      Arg = -2, Ser = 0, Thr = 1, Val = 2, Trp = -2, Tyr = -1)
-  }
   # find columns with names for the amino acids
   isAA <- colnames(AAcomp) %in% names(nH2O_AA)
   iAA <- match(colnames(AAcomp)[isAA], names(nH2O_AA))
@@ -76,23 +70,6 @@ H2OAA <- function(AAcomp, basis = "rQEC") {
   #  AAcomp <- thermo()$protein[1:6, ]
   #  H2O.fun <- H2OAA(AAcomp, "QEC")
   #  stopifnot(H2O.ref == H2O.fun)
-}
-
-# get stoichiometric O2 coefficients in amino acid biosynthetic reactions from metabolic precursors 20191205
-O2AA <- function(AAcomp, basis = "biosynth") {
-  if(basis == "biosynth") {
-    nO2_AA <- c(Ala = -0.5, Cys = 0, Asp = -0.5, Glu = -0.5, Phe = -0.5, Gly = 1, 
-      His = 0, Ile = -5, Lys = -4.5, Leu = -5, Met = -3, Asn = -0.5, 
-      Pro = -1.5, Gln = -0.5, Arg = -1.5, Ser = 0, Thr = -1.5, Val = -3.5, 
-      Trp = -2, Tyr = 0)
-  }
-  # find columns with names for the amino acids
-  isAA <- colnames(AAcomp) %in% names(nO2_AA)
-  iAA <- match(colnames(AAcomp)[isAA], names(nO2_AA))
-  # calculate total number of O2 in reactions to form proteins
-  nO2 <- rowSums(t(t(AAcomp[, isAA]) * nO2_AA[iAA]))
-  # divide by number of residues (length of protein)
-  nO2 / rowSums(AAcomp[, isAA])
 }
 
 # calculate GRAVY for amino acid compositions 20191024
