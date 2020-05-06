@@ -69,7 +69,7 @@ Otherwise, no line is drawn.
 }
 
 \seealso{
-\code{\link{qdiff}} to plot quantiles for a single dataset.
+\code{\link{qdist}} to plot quantiles for a single dataset.
 }
 
 \examples{

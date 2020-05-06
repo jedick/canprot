@@ -1,37 +1,38 @@
 \encoding{UTF-8}
-\name{qdiff}
-\alias{qdiff}
-\title{Plot Compositional Differences for One Dataset}
+\name{qdist}
+\alias{qdist}
+\title{Quantile Distributions for One Dataset}
 \description{
-  Make a plot showing quantiles of compositional metrics for up- and down-regulated proteins.
+  Make a plot showing quantile distributions for up- and down-regulated proteins.
 }
 
 \usage{
-  qdiff(pd = pdat_colorectal("JKMF10"), vars = c("ZC", "nH2O"))
+  qdist(pd = pdat_colorectal("JKMF10"), vars = c("ZC", "nH2O"), show.steps = FALSE)
 }
 
 \arguments{
   \item{pd}{list, output of a \code{\link{pdat_}} function for a single dataset}
   \item{vars}{character, which variables to plot}
+  \item{show.steps}{logical, show the steps using \code{\link{plot.ecdf}}?}
 }
 
 \details{
 
-This function makes a quantile plot with lines for both up- and down-regulated proteins.
+This function makes a quantile distribution plot with lines for both up- and down-regulated proteins.
 The variable (\code{var}) can be \samp{ZC}, \samp{H2O}, or both (two panels are made).
-The horizontal axis is the variable and the vertical axis is the quantile.
+The horizontal axis is the variable and the vertical axis is the quantile point.
 The solid black line is for the down-regulated proteins, and the dashed red line is for the up-regulated proteins.
-A horizontal line is added to show the median difference (0.5 quantile).
+The median difference is shown by a gray horizontal line drawn between the distributions at the 0.5 quantile point.
 
 }
 
 \seealso{
-\code{\link{qdiff}} to plot median differences for many datasets.
+\code{\link{diffplot}} to plot median differences for many datasets.
 }
 
 \examples{
 # uses the data of Jimenez et al., 2020 for colorectal cancer
-qdiff()
+qdist()
 }
 
 \references{

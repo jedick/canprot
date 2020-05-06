@@ -20,11 +20,12 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200418
 ".pdat_osmotic", "pdat_osmotic_bact", "pdat_osmotic_euk", "pdat_osmotic_halo", "xsummary3",
 # 20200501, 20200505
-"MWAA", "qdiff"
+"MWAA", "qdist"
 )
 
 # Imports from default packages
-importFrom("stats", "na.omit", "median", "loess", "predict", "quantile", "approx")
+importFrom("stats", "na.omit", "median", "loess", "predict", "quantile", "approx",
+"ecdf", "knots")
 
 importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data",
 "combn", "read.table", "browseURL")
