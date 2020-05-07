@@ -1,7 +1,7 @@
-CHANGES IN canprot 0.2.1 (2020-05-05)
+CHANGES IN canprot 0.2.1 (2020-05-07)
 -------------------------------------
 
-- New datasets: 3D/DKM+20, glucose/BTX+17.
+- New datasets: 3D/DKM+20, glucose/BTX+17, breast/LLF+20.
 
 - Add MWAA() (molecular weight per amino acid); used in vignette plots.
 

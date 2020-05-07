@@ -16,7 +16,8 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
              "PGT+16_ES", "PGT+16_LS", "PBR+16_tumor",
              "BST+17_epithelium",
              "TZD+18_all", "TZD+18_basal",
-             "GCS+19_PTxNCT", "GCS+19_PTxANT", "LLC+19"
+             "GCS+19_PTxNCT", "GCS+19_PTxANT", "LLC+19",
+             "LLF+20_I.II", "LLF+20_III"
              ))
   }
   # remove tags
@@ -223,6 +224,16 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis)
+  } else if(study=="LLF+20") {
+    # 20200507 TNBC, Lin et al., 2020
+    # LLF+20_I.II, LLF+20_III
+    dat <- read.csv(paste0(datadir, "LLF+20.csv.xz"), as.is=TRUE)
+    description <- paste("TNBC grade", stage, "T / adjacent N")
+    icol <- grep(stage, colnames(dat), fixed = TRUE)
+    dat <- dat[!is.na(dat[, icol]), ]
+    dat <- check_IDs(dat, "Accession")
+    up2 <- dat[, icol] > 1
+    pcomp <- protcomp(dat$Accession, basis)
   } else stop(paste("breast dataset", dataset, "not available"))
   print(paste0("pdat_breast: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429

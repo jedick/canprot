@@ -99,5 +99,6 @@ __p__. Supplemental Table 4 of @BST+17, filtered to include proteins with _p_-va
 __q__. __r__. Tables S5-1 (differentially expressed proteins for 52 tumor / non-cancerous tissue pairs) and S5-2 (13 basal-like tumor / non-cancerous tissue pairs) of @TZD+18, filtered to include proteins with log~2~ fold change > 1 or < -1.
 __s__. __t__. Supplementary File S1 of @GCS+19 (PT: primary breast tissue; NCT: non tumor contralateral breast tissue; ANT: non tumor adjacent breast tissue).
 __u__. Supplementary Table 2 of @LLC+19.
+__v__. __w__. Supplementary Tables S2 and S3 of @LLF+20.
 
 ## References
