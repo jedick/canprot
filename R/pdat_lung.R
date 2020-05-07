@@ -70,7 +70,7 @@ pdat_lung <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="JCP+16") {
     # 20190318 mouse tumor / normal endothelial cells, Jin et al., 2016
     dat <- read.csv(paste0(datadir, "JCP+16.csv.xz"), as.is=TRUE)
-    description <- "mouse endothelial T / N"
+    description <- "mouse endothelial tumor / normal"
     up2 <- dat$Ratio.TEC.NEC > 1
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/JCP+16_aa.csv.xz"))

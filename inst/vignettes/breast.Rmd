@@ -68,7 +68,7 @@ diffplot(comptab3, c("nAA", "MW"), labtext = NA)
 In the table, values of &Delta;<i>Z</i><sub>C</sub> and &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> are multiplied by 1000, values of &Delta;PS and &Delta;MW are multiplied by 100, and negative values are shown in bold.
 Abbreviations:
 
-  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
+  * _n_~down~ &ndash; number of down-regulated proteins; _n_~up~ &ndash; number of up-regulated proteins; T &ndash; tumor; N &ndash; normal; LCM &ndash; laser capture microdisecction; FFPE &ndash; formalin-fixed paraffin-embedded; IDC &ndash; infiltrating ductal carcinoma; DCIS &ndash; ductal carcinoma in situ; TNBC &ndash; triple-negative breast cancer.
 
 ```{r xsummary, results="asis", echo = FALSE}
 library(xtable)

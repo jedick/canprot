@@ -116,7 +116,8 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     # 20191202 PCa / benign (GS=6 or GS=6 and GS>=8), Mantsiou et al., 2019
     # MMF+19_GS6, MMF+19
     dat <- read.csv(paste0(datadir, "MMF+19.csv.xz"), as.is=TRUE)
-    description <- paste("FFPE PCa / adjacent benign", stage)
+    if(stage=="GS6") description <- "FFPE PCa / adjacent benign GS=6"
+    else description <- "FFPE PCa / adjacent benign GS=6 and GS>=8"
     if(stage == "GS6") icol <- grep("ratio.GS6.cancer.Vs.GS6.benign", colnames(dat)) else icol <- grep("ratio.cancer.Vs.benign", colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
@@ -142,7 +143,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     # 20191230 prostate acinar and ductal adenocarcinoma, Guo et al., 2018
     # GLZ+18_acinar, GLZ+18_ductal
     dat <- read.csv(paste0(datadir, "GLZ+18.csv.xz"), as.is=TRUE)
-    description <- paste(stage, "prostate cancer")
+    description <- paste(stage, "PCa / matched BPH")
     icol <- grep(stage, colnames(dat))
     # kep highly differential proteins
     dat <- dat[dat[, icol] > 1.5 | dat[, icol] < 2/3, ]
@@ -168,7 +169,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     # 20200420 Zhu et al., 2020
     # ZZX+20_CiRT, ZZX+20_SiRT
     dat <- read.csv(paste0(datadir, "ZZX+20.csv.xz"), as.is=TRUE)
-    description <- paste("T/N", stage)
+    description <- paste("tumor / normal", stage)
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
     dat <- check_IDs(dat, "Protein")

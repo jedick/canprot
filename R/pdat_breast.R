@@ -31,12 +31,12 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     # GTM+12_benign, GTM+12_IDC, GTM+12_IDC.benign
     dat <- read.csv(paste0(datadir, "GTM+12.csv.xz"), as.is=TRUE)
     if(stage=="benign") {
-      description <- "benign / normal adj."
+      description <- "benign / adjacent N"
       dat <- dat[which(dat$Benign.vs..NormalAdjacent), ]
       up2 <- dat$Benign.Mean > dat$NormalAdjacent.Mean
     }
     if(stage=="IDC") {
-      description <- "IDC / normal adj."
+      description <- "IDC / adjacent N"
       dat <- dat[which(dat$NormalAdjacent.vs..Infiltrating.Ductal.Carcinoma), ]
       up2 <- dat$IDC.Mean > dat$NormalAdjacent.Mean
     }
@@ -49,21 +49,21 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CIR+10") {
     # 20160414 breast cancer Cha et al., 2010
     dat <- read.csv(paste0(datadir, "CIR+10.csv.xz"), as.is=TRUE)
-    description <- "ER+ T/N"
+    description <- "LCM T / N"
     pcomp <- protcomp(dat$Uniprot, basis=basis)
     up2 <- dat[, "SpI"] > 0
   } else if(study=="PBR+16") {
     # 20160415 breast cancer Pozniak et al., 2016
     # PBR+16_tumor, PBR+16_LNP
     dat <- read.csv(paste0(datadir, "PBR+16.csv.xz"), as.is=TRUE)
-    description <- "T/N"
+    description <- "FFPE T / adjacent N"
     dat <- check_IDs(dat, "Protein.IDs")
     pcomp <- protcomp(dat$Protein.IDs, basis=basis)
     up2 <- dat$Cluster == "Upregulated in Tumor"
   } else if(study=="SRG+10") {
     # 20160415 breast cancer Sutton et al., 2010
     dat <- read.csv(paste0(datadir, "SRG+10.csv.xz"), as.is=TRUE)
-    description <- "invasive carcinoma / normal"
+    description <- "invasive carcinoma / N"
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$change == "increased"
   } else if(study=="HTP+11") {
@@ -85,7 +85,7 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="PPH+14") {
     # 20160421 tumor subtypes vs normal, Panis et al., 2014
     dat <- read.csv(paste0(datadir, "PPH+14.csv.xz"), as.is=TRUE)
-    description <- "multiple subtypes T/N"
+    description <- "multiple subtypes T / N"
     # keep proteins that are up or down in all subtypes
     dat <- dat[sapply(apply(dat[, 4:7], 1, unique), length)==1, ]
     up2 <- dat$TN == "up"
@@ -96,7 +96,7 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     # SRS+13_DCIS, SRS+13_IC
     # extract differential proteins from datafile 20170831
     dat <- read.csv(paste0(datadir, "SRS+13.csv.xz"), as.is=TRUE)
-    description <- paste(stage, "/ normal")
+    description <- paste(gsub("IC", "IDC", stage), "/ matched N")
     # remove proteins located to blood
     dat <- dat[!dat$Location=="blood", ]
     # remove ratio data with less than 2 peptides
@@ -154,7 +154,7 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="GSB+14") {
     # 20170116 breast adenocarcinoma tumor / distant, Groessl et al., 2014
     dat <- read.csv(paste0(datadir, "GSB+14.csv.xz"), as.is=TRUE, check.names = FALSE)
-    description <- paste("adenocarcinoma tumor / distant")
+    description <- paste("T / distant N")
     up2 <- dat$LFQ.tumor.distant > 1.2
     dat <- check_IDs(dat, "Accession")
     pcomp <- protcomp(dat$Accession, basis=basis)
@@ -162,7 +162,7 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     # 20170811 breast epithelium and stroma, Braakman et al., 2017
     # BST+17_epithelium, BST+17_stroma
     dat <- read.csv(paste0(datadir, "BST+17.csv.xz"), as.is=TRUE)
-    description <- paste("tumor", stage, "/ normal")
+    description <- paste("tumor", stage, "/ N")
     # use selected tissue
     icol <- grep(stage, colnames(dat))
     # use significantly differentially abundant proteins
@@ -173,7 +173,7 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CVJ+15") {
     # 20170814 TNBC tumor / normal, Campone et al., 2015
     dat <- read.csv(paste0(datadir, "CVJ+15.csv.xz"), as.is=TRUE)
-    description <- "TNBC tumor / normal"
+    description <- "TNBC T / N"
     dat <- check_IDs(dat, "Accession.Number")
     up2 <- dat$Mean > 1
     dat <- cleanup(dat, "Accession.Number", up2)
@@ -181,7 +181,7 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="AMG+08") {
     # 20170828 cancer / periphery, Alldridge et al., 2008
     dat <- read.csv(paste0(datadir, "AMG+08.csv.xz"), as.is=TRUE)
-    description <- "cancer / periphery"
+    description <- "T / periphery"
     # remove "-1" isoform suffixes
     dat$ID <- gsub("-1", "", dat$ID)
     # replace non-UniProt IDs
@@ -195,14 +195,14 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="LLC+19") {
     # 20190318 tumor / adjacent normal, Liu et al., 2019
     dat <- read.csv(paste0(datadir, "LLC+19.csv.xz"), as.is=TRUE)
-    description <- "tumor / adjacent normal tissue"
+    description <- "T / adjacent N"
     pcomp <- protcomp(dat$Protein.accession, basis=basis)
     up2 <- dat$Regulated.Type == "Up"
   } else if(study=="TZD+18") {
     # 20190321 tumor / adjacent normal (all subtypes or basal), Tang et al., 2018
     # TZD+18_all, TZD+18_basal
     dat <- read.csv(paste0(datadir, "TZD+18.csv.xz"), as.is=TRUE)
-    description <- paste("tumor / adjacent non-cancerous", stage)
+    description <- paste("T / adjacent N", stage)
     # keep proteins differentially expressed in all or basal tumors
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
@@ -217,6 +217,8 @@ pdat_breast <- function(dataset = 2020, basis = "rQEC") {
     # GCS+19_PTxNCT, GCS+19_LNxNCT, GCS+19_PTxLN, GCS+19_PTxANT, GCS+19_LNxANT
     dat <- read.csv(paste0(datadir, "GCS+19.csv.xz"), as.is=TRUE)
     description <- stage
+    if(stage=="PTxNCT") description <- "T / contralateral N"
+    if(stage=="PTxANT") description <- "T / adjacent N"
     icol <- grep(stage, colnames(dat))
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Entry", up2)

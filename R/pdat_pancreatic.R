@@ -56,14 +56,14 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="ISI+14") {
     # 20160827 PDAC, Iuga et al., 2014
     dat <- read.csv(paste0(datadir, "ISI+14.csv.xz"), as.is=TRUE)
-    description <- "T / N"
+    description <- "T / adjacent N"
     dat <- check_IDs(dat, "Protein.accesion.number")
     pcomp <- protcomp(dat$Protein.accesion.number, basis=basis)
     up2 <- dat$Simple.ratio > 1
   } else if(study=="MLC+11") {
     # 20160827 PDAC, McKinney et al., 2011
     dat <- read.csv(paste0(datadir, "MLC+11.csv.xz"), as.is=TRUE)
-    description <- "T / N"
+    description <- "T / adjacent N"
     dat <- check_IDs(dat, "UniProt")
     up2 <- dat$Regulated == "up"
     dat <- cleanup(dat, "UniProt", up2)
@@ -109,7 +109,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="CTZ+09") {
     # 20160829 PDAC, Cui et al., 2009
     dat <- read.csv(paste0(datadir, "CTZ+09.csv.xz"), as.is=TRUE)
-    description <- "T / N"
+    description <- "T / adjacent N"
     up2 <- dat$C.N > 1
     dat <- cleanup(dat, "Swissprot.ID", up2)
     pcomp <- protcomp(dat$Swissprot.ID, basis=basis)
@@ -123,7 +123,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="ZNWL13") {
     # 20160830 PDAC, Zhu et al., 2013
     dat <- read.csv(paste0(datadir, "ZNWL13.csv.xz"), as.is=TRUE)
-    description <- "LCM PDAC / ANT"
+    description <- "LCM T / adjacent N"
     pcomp <- protcomp(dat$Accession, basis=basis)
     up2 <- dat$Up.Down == "Up"
   } else if(study=="KPC+13") {
@@ -131,7 +131,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
     # KPC+13_all, KPC+13_2-fold, KPC+13_2-fold-signif
     dat <- read.csv(paste0(datadir, "KPC+13.csv.xz"), as.is=TRUE)
     if(stage=="all") stext <- "" else stext <- paste0(stage, " ")
-    description <- paste0(stext, "T / N")
+    description <- paste0(stext, "T / adjacent N")
     # use all listed proteins or at least 2-fold differentially expressed ones
     if(grepl("2-fold", stage)) dat <- dat[dat$PDAC.Benign.fold.change. >= 2 | dat$PDAC.Benign.fold.change. <= 0.5, ]
     if(grepl("signif", stage)) dat <- dat[dat$t.test.pvalue < 0.1, ]
@@ -161,7 +161,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="LHE+04") {
     # 20160910 Lu et al., 2004
     dat <- read.csv(paste0(datadir, "LHE+04.csv.xz"), as.is=TRUE)
-    description <- "T / N"
+    description <- "T / adjacent N"
     dat <- check_IDs(dat, "Acc.no.")
     up2 <- dat$Higher.in == "cancer"
     dat <- cleanup(dat, "Acc.no.", up2)
@@ -189,8 +189,8 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
     # WLL+13a_PC_NT, WLL+13a_PC.DM_NT.DM
     dat <- read.csv(paste0(datadir, "WLL+13a.csv.xz"), as.is=TRUE)
     description <- stage
-    if(stage=="PC_NT") description <- "T / N (no DM)"
-    if(stage=="PC.DM_NT.DM") description <- "T / N (DM)"
+    if(stage=="PC_NT") description <- "T / adjacent N with DM"
+    if(stage=="PC.DM_NT.DM") description <- "T / adjacent N without DM"
     # which columns hold the expression data
     icol <- grep(stage, colnames(dat))
     # 3 of 4 experiments must have ratios >=1.5 or <=0.667
@@ -219,7 +219,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="BZQ+14") {
     # 20190329 PDAC / normal, Britton et al., 2014
     dat <- read.csv(paste0(datadir, "BZQ+14.csv.xz"), as.is=TRUE)
-    description <- "PDAC / N"
+    description <- "T / matched N"
     dat <- check_IDs(dat, "Uniprot.ID")
     pcomp <- protcomp(dat$Uniprot.ID, basis=basis)
     up2 <- dat$log2.T.NT.ratios > 0 
@@ -233,7 +233,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="YKK+13") {
     # 20190408 PDAC / normal, Yu et al., 2013
     dat <- read.csv(paste0(datadir, "YKK+13.csv.xz"), as.is=TRUE)
-    description <- "PDAC / N"
+    description <- "T / adjacent N"
     # keep proteins identified in at least 2 patients
     dat <- dat[dat$No..patients > 1, ]
     dat <- check_IDs(dat, "Accession")
@@ -243,7 +243,7 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="SWW+18") {
     # 20191204 PDAC tumor / adjacent, Song et al., 2018
     dat <- read.csv(paste0(datadir, "SWW+18.csv.xz"), as.is=TRUE)
-    description <- "PDAC tumor / adjacent"
+    description <- "T / adjacent N"
     # calculate fold change in each sample
     FC1 <- log2(dat$t1 / dat$n1)
     FC2 <- log2(dat$t2 / dat$n2)
@@ -263,13 +263,13 @@ pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="ZAH+19") {
     # 20191204 cancer / normal, Zhou et al., 2019
     dat <- read.csv(paste0(datadir, "ZAH+19.csv.xz"), as.is=TRUE)
-    description <- "cancer / normal"
+    description <- "T / N"
     up2 <- dat$Regulation == "Up"
     pcomp <- protcomp(dat$Entry, basis=basis)
   } else if(study=="CHO+18") {
     # 20191206 tumor / adjacent normal, Coleman et al., 2018
     dat <- read.csv(paste0(datadir, "CHO+18.csv.xz"), as.is=TRUE)
-    description <- "tumor / adjacent normal"
+    description <- "T / adjacent N"
     up2 <- dat$Highest.mean.condition == "Tumour"
     pcomp <- protcomp(dat$Accession, basis=basis)
   } else stop(paste("pancreatic dataset", dataset, "not available"))
