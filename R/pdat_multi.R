@@ -21,7 +21,7 @@
     # 20190324 mouse cardiac fibroblast exosomes, secretome, whole-cell lysate, Cosme et al., 2017
     # CGH+17_exosomes, CGH+17_secretome, CGH+17_whole
     dat <- read.csv(paste0(datadir, "CGH+17.csv.xz"), as.is=TRUE)
-    description <- paste("mouse CF", stage)
+    description <- paste("mouse cardiac fibroblasts", stage)
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol[1]]), ]
@@ -31,7 +31,7 @@
     # 20190324 HCT116 cells, Chen et al., 2018
     # CLY+18_proteome, CLY+18_secretome
     dat <- read.csv(paste0(datadir, "CLY+18.csv.xz"), as.is=TRUE)
-    description <- paste("HCT116", stage)
+    description <- paste("HCT116 colon cancer cells", stage)
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]

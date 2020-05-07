@@ -68,8 +68,7 @@ diffplot(comptab3, c("nAA", "MW"), labtext = NA)
 In the table, values of &Delta;<i>Z</i><sub>C</sub> and &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> are multiplied by 1000, values of &Delta;PS and &Delta;MW are multiplied by 100, and negative values are shown in bold.
 Abbreviations:
 
-  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
-  * Hx48 &ndash; hypoxia 48 h; Hx72 &ndash; hypoxia 72 h.
+  * _n_~down~ &ndash; number of down-regulated proteins; _n_~up~ &ndash; number of up-regulated proteins; Hx48 &ndash; hypoxia 48 h; Hx72 &ndash; hypoxia 72 h; -S &ndash; supernatant fraction; -P &ndash; pellet fraction; DMSO &ndash; dimethyl sulfoxide; NO.sul &ndash; nitric oxide-donating sulindac; sul &ndash; sulindac; 4Gy &ndash; radiation; POS &ndash; primay origin canine osteosarcoma (OS) cells; HMPOS &ndsah; metastatic origin canine OS cells.
 
 ```{r xsummary, results="asis", echo = FALSE}
 library(xtable)
@@ -104,8 +103,8 @@ __u__. __v__. Supplementary Data 1 of @GPT+19, filtered to include proteins with
 __w__. Proteins identified as up- or down-regulated > 1 SD in Data File S1 of @KAN+19 (sheet "Proteome").
 __x__. Additional file 1: Table S1 of @LLL+19.
 __y__. Gene names from Supplementary Information Tables S6 and S7 of @BCMS20.
-__z__. __A__. __B__. __C__. __D__. __E__. Supplementary Table 1A of @RVN+20, filtered to include proteins with median fold change between normoxic and hypoxic conditions in any individual treatment > 1.5 or < 2/3. DMSO: dimethyl sulfoxide, NO.sul: NO-Sulindac, sul: Sulindac, 4Gy: radiation.
-__F__. __G__. Supplementary Tables S3b (sheet "HPNP") and S3c (sheet "HHNH") of @SPJ+20 for POS (primay origin) and HMPOS (metastatic origin) canine osteosarcoma (OS) cells.
+__z__. __A__. __B__. __C__. __D__. __E__. Supplementary Table 1A of @RVN+20, filtered to include proteins with median fold change between normoxic and hypoxic conditions in any individual treatment > 1.5 or < 2/3.
+__F__. __G__. Supplementary Tables S3b (sheet "HPNP") and S3c (sheet "HHNH") of @SPJ+20.
 
 ## Acknowledgements
 Thanks to Alex Greenhough, Ming-Chih Lai, and Gordana Vunjak-Novakovic for providing data files.

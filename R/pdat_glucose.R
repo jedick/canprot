@@ -5,7 +5,7 @@
 pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
   if(identical(dataset, 2020)) {
     return(c(
-             "PW08_2h=microbial", "PW08_10h=microbial", "PW08_12h=microbial",
+             "PW08_2h=yeast", "PW08_10h=yeast", "PW08_12h=yeast",
              "WCM+09", "WFSL09",
              "MFD+10",
              "CCC+12_25mM", "CCC+12_100mM", "SFG+12",
@@ -29,7 +29,7 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     # 20160918 yeast VHG
     # PW08_2h, PW08_10h, PW08_12h
     dat <- read.csv(paste0(datadir, "PW08.csv.xz"), as.is=TRUE)
-    description <- paste("S. cerevisiae in very high glucose (300 g/L) vs control (20 g/L) for", gsub("h", " h", stage))
+    description <- paste("_Saccharomyces cerevisiae_ in very high glucose (300 g/L) vs control (20 g/L) for", gsub("h", " h", stage))
     # use specified population
     if(stage=="2h") icol <- grep("Ratio.115.114", colnames(dat))
     if(stage=="10h") icol <- grep("Ratio.116.114", colnames(dat))
@@ -179,7 +179,7 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="HGC+18") {
     # 20200418 Lactobacillus casei, Huang et al., 2018
     dat <- read.csv(paste0(datadir, "HGC+18.csv.xz"), as.is=TRUE)
-    description <- "Lactobacillus casei BL23 in hyper-concentrated vs isotonic sweet whey"
+    description <- "_Lactobacillus casei_ BL23 in hyper-concentrated vs isotonic sweet whey"
     up2 <- dat$Regulation == "up"
     pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/bacteria/HGC+18_aa.csv.xz"))
   } else if(study=="BTX+17") {

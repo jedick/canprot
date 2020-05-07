@@ -36,14 +36,14 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="RSE+16") {
     # 20160729 adipose-derived stem cells, Riis et al., 2016
     dat <- read.csv(paste0(datadir, "RSE+16.csv.xz"), as.is=TRUE)
-    description <- "adipose-derived SC"
+    description <- "adipose-derived stem cells"
     pcomp <- protcomp(dat$Entry, basis=basis)
     up2 <- dat$Regulated == "up"
   } else if(study=="PTD+10") {
     # 20160801 A431 hypoxic / reoxygenated, Park et al., 2010
     # PTD+10_Hx48, PTD+10_Hx72, PTD+10_ReOx
     dat <- read.csv(paste0(datadir, "PTD+10.csv.xz"), as.is=TRUE)
-    description <- paste("A431 cells", stage)
+    description <- paste("A431 squamous carcinoma cells", stage)
     if(stage=="Hx48") icol <- grep("115", colnames(dat))
     if(stage=="Hx72") icol <- grep("117", colnames(dat))
     if(stage=="ReOx") icol <- grep("116", colnames(dat))
@@ -119,7 +119,7 @@ pdat_secreted <- function(dataset = 2020, basis = "rQEC") {
     # 20191207 U373MG glioma cells, Yoon et al., 2014
     # YKK+14_soluble, YKK+14_exosome
     dat <- read.csv(paste0(datadir, "YKK+14.csv.xz"), as.is=TRUE)
-    description <- paste("U373MG cells", stage)
+    description <- paste("U373MG glioma cells", stage)
     # get differential proteins for specified condition
     icol <- grep(stage, colnames(dat))
     dat <- dat[abs(dat[, icol]) > 0.5, ]

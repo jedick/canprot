@@ -49,7 +49,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   if(study=="BSA+15") {
     # 20160412 HeLa hypoxia, Bousquet et al., 2005
     dat <- read.csv(paste0(datadir, "BSA+15.csv.xz"), as.is=TRUE)
-    description <- "HeLa cervical cancer"
+    description <- "HeLa cervical cancer cells"
     # use updated UniProt IDs
     inew <- which(dat$Uniprot.new != "")
     dat$Uniprot.accession[inew] <- dat$Uniprot.new[inew]
@@ -79,7 +79,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     # 20160419 A431 cells, Ren et al., 2013
     # RHD+13_Hx48, RHD+13_Hx72, RHD+13_ReOx
     dat <- read.csv(paste0(datadir, "RHD+13.csv.xz"), as.is=TRUE)
-    description <- paste("A431 epithelial carcinoma", stage)
+    description <- paste("A431 epithelial carcinoma cells", stage)
     # columns with the ratios
     if(stage=="Hx48") icol <- grep("115", colnames(dat))
     if(stage=="Hx72") icol <- grep("116", colnames(dat))
@@ -163,7 +163,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
     # DYL+14_Hx48-S, DYL+14_Hx72-S, DYL+14_ReOx-S,
     # DYL+14_Hx48-P, DYL+14_Hx72-P, DYL+14_ReOx-P
     dat <- read.csv(paste0(datadir, "DYL+14.csv.xz"), as.is=TRUE)
-    description <- paste("A431", stage)
+    description <- paste("A431 epithelial carcinoma cells", stage)
     # -S (supernatant) and -P (pellet) datasets
     if(stage=="Hx48-S") icol <- grep("114", colnames(dat))
     if(stage=="Hx72-S") icol <- grep("115", colnames(dat))
@@ -186,7 +186,7 @@ pdat_hypoxia <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="VTMF13") {
     # 20160804 neuroblastoma cell line, Villeneuve et al., 2013
     dat <- read.csv(paste0(datadir, "VTMF13.csv.xz"), as.is=TRUE)
-    description <- "SH-SY5Y neuroblastoma"
+    description <- "SH-SY5Y neuroblastoma cells"
     # keep proteins with large expression ratio
     dat <- dat[dat$Ratio.H.L.Normalized > 1.2 | dat$Ratio.H.L.Normalized < 0.83, ]
     # find known UniProt IDs

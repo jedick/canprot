@@ -109,7 +109,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="HLC19") {
     # 20191206 HepG2 cells, Hurrell et al., 2019
     dat <- read.csv(paste0(datadir, "HLC19.csv.xz"), as.is = TRUE)
-    description <- "HepG2 hepatocellular carcinoma"
+    description <- "HepG2 hepatocellular carcinoma cells"
     # 20191230 this should be less than to make the differences consistent with text (590 up, 573 down)
     up2 <- dat$Difference < 0
     pcomp <- protcomp(dat$Main.Accession, basis)
@@ -146,7 +146,7 @@ pdat_3D <- function(dataset = 2020, basis = "rQEC") {
   } else if(study=="GADS19") {
     # 20191230 skin fibroblasts 3D/2D with various treatments, Gęgotek et al., 2019
     dat <- read.csv(paste0(datadir, "GADS19.csv.xz"), as.is = TRUE)
-    description <- "skin fibroblasts 3D / 2D"
+    description <- "skin fibroblasts"
     dat <- check_IDs(dat, "ID")
     up2 <- rep(NA, nrow(dat))
     # proteins with differential expression in at least 4 of 6 treatments

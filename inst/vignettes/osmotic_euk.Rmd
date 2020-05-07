@@ -68,7 +68,7 @@ diffplot(comptab3, c("nAA", "MW"), labtext = NA)
 In the table, values of &Delta;<i>Z</i><sub>C</sub> and &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> are multiplied by 1000, values of &Delta;PS and &Delta;MW are multiplied by 100, and negative values are shown in bold.
 Abbreviations:
 
-  * <i>n</i><sub>down</sub> &ndash; number of down-regulated proteins; <i>n</i><sub>up</sub> &ndash; number of up-regulated proteins.
+  * _n_~down~ &ndash; number of down-regulated proteins; _n_~up~ &ndash; number of up-regulated proteins; HTS &ndash; hypertonic saline; Cmx &ndash; cytomix treatment; FGFR12 &ndash; fibroblast growth factor receptor 1 and 2.
 
 ```{r xsummary, results="asis", echo = FALSE}
 library(xtable)
@@ -90,7 +90,7 @@ __i__. __j__. __k__. __l__. __m__. __n__. Supplementary Table S1 of @LFY+12 (she
 __o__. Table 2 of @CLG+15.
 __p__. __q__. Supplemental Data S1 of @SCG+15 (file "ClusterGroup.AllProteins.051814.csv"), filtered to include proteins in clusters 1--4 (differential expression at all time points (1/4) or after > 20 min delay (2/3)).
 __r__. Table 1 of @YDZ+15.
-__s__. __t__. Supplementary Table 2 of @GAM+16, filtered to include proteins with fold change > 2 or < 0.5 in hypertonic saline (HTS) / isotonic solution, with or without cytomix treatment (Cmx).
+__s__. __t__. Supplementary Table 2 of @GAM+16, filtered to include proteins with fold change > 2 or < 0.5.
 __u__. Supplementary Tables 2 and 3 of @RBP+16.
 __v__. Supplementary Tables 1 and 2 of @JBG+18.
 __w__. __x__. Supplementary Table S1 of @SMS+18.
