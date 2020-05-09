@@ -43,7 +43,7 @@ Now let's make a merged diagram.
 The red-white-blue shading is computed from the mean of the previous diagrams.
 The black lines show the median and quartiles for the <i>y</i>-positions of the equipotential lines in the previous diagrams.
 
-```{r mergedplot, fig.width=5, fig.height=5, fig.align="center", message=FALSE}
+```{r mergedplot, fig.width=5, fig.height=5, fig.align="center", message=FALSE, results = "hide"}
 mergedplot(gpresult, res = 25)
 ```
 

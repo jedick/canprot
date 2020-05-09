@@ -56,7 +56,7 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = "rQEC") {
     # 20191102 Listeria monocytogenes membrane vesicles, Lee et al., 2018
     # LJC+18_wt, LJC+18_mutant
     dat <- read.csv(file.path(datadir, "LJC+18.csv.xz"), as.is=TRUE)
-    description <- paste("_Listeria monocytogenes_", stage, "in 0.5 M NaCl vs control medium")
+    description <- paste("_Listeria monocytogenes_", gsub("wt", "WT", stage), "in 0.5 M NaCl vs control medium")
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[dat[, icol], ]

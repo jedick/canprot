@@ -33,7 +33,7 @@ library(canprot)
 datasets <- pdat_hypoxia(2017)
 ```
 
-```{r comptab, message=FALSE}
+```{r comptab, message=FALSE, results = "hide"}
 pdat <- lapply(datasets, pdat_hypoxia, basis = "QEC")
 comptab <- lapply(pdat, get_comptab, plot.it = FALSE, mfun = "mean", oldstyle = TRUE)
 ```

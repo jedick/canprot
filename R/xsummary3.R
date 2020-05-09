@@ -101,7 +101,7 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
   x <- gsub("pI.diff", "&Delta;pI", x, fixed=TRUE)
   x <- gsub("GRAVY.diff", "&Delta;GRAVY", x, fixed=TRUE)
   x <- gsub("nAA.diff", "&Delta;<i>n</i><sub>AA</sub>", x, fixed=TRUE)
-  x <- gsub("nAA.diff", "&Delta;MW", x, fixed=TRUE)
+  x <- gsub("MW.diff", "&Delta;MW", x, fixed=TRUE)
 
   # done!
   write.table(x, "", row.names=FALSE, col.names=FALSE, quote=FALSE)

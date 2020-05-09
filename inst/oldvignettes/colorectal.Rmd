@@ -43,7 +43,7 @@ datasets <- pdat_colorectal(2017)
 
 Get the amino acid compositions of the up- and down-expressed proteins (`pdat_colorectal`) and make comparisons of indicators of oxidation and hydration state (`get_comptab`).
 
-```{r comptab, message=FALSE}
+```{r comptab, message=FALSE, results = "hide"}
 pdat <- lapply(datasets, pdat_colorectal, basis = "QEC")
 comptab <- lapply(pdat, get_comptab, plot.it = FALSE, mfun = "mean", oldstyle = TRUE)
 ```
