@@ -39,4 +39,4 @@ qdist()
 Jimenez, C. R. and Knol, J. C. and Meijer, G. A. and Fijneman, R. J. A. (2010) Proteomics of colorectal cancer: Overview of discovery studies and identification of commonly identified cancer-associated proteins and candidate CRC serum markers. \emph{J. Proteomics} \bold{73}, 1873--1895. \doi{10.1016/j.jprot.2010.06.004}
 }
 
-\concept{Chemical composition}
+\concept{Compositional plots}

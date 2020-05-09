@@ -27,7 +27,7 @@ vignettes <- gsub("pdat_", "", functions)
 vignettes
 ```
 
-Note that building the vignettes requires pandoc to be installed in the system.
+Note that building the vignettes requires pandoc as a system dependency.
 See the [rmarkdown pandoc vignette](../../rmarkdown/doc/pandoc.html) for more information.
 
 The numerical output of the vignettes is available in the package, as CSV files in the `inst/vignettes` directory.

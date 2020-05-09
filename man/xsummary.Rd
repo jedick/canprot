@@ -44,4 +44,4 @@ comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
 xsummary(comptab)
 }
 
-\concept{Chemical composition}
+\concept{Vignette utilities}

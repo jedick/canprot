@@ -46,4 +46,4 @@ rankplot(pdat, res=25, what="affinity")
   \code{\link{get_colors}}
 }
 
-\concept{Thermodynamic calculations}
+\concept{Thermodynamics plots}

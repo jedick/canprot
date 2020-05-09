@@ -3,7 +3,7 @@
 \alias{check_IDs}
 \title{Check UniProt IDs}
 \description{
-Find the first ID for each protein that corresponds to a known UniProt ID.
+Find the first ID for each protein that matches a known UniProt ID.
 }
 
 \usage{
@@ -13,39 +13,40 @@ Find the first ID for each protein that corresponds to a known UniProt ID.
 \arguments{
   \item{dat}{data frame, protein expression data}
   \item{IDcol}{character, name of column that has the UniProt IDs}
-  \item{aa_file}{character, file name}
-  \item{updates_file}{character, file name}
+  \item{aa_file}{character, name of file with additional amino acid compositions}
+  \item{updates_file}{character, name of file with old to new ID mappings}
 }
 
 \details{
-\code{check_IDs} is used to check for known UniProt IDs and to update known obsolete IDs.
-The IDs are in the \code{IDcol} column of \code{dat}.
-Multiple IDs for one protein can be separated by a semicolon; the function keeps the first \dQuote{known} one.
+\code{check_IDs} is used to check for known UniProt IDs and to update obsolete IDs.
+The source IDs should be provided in the \code{IDcol} column of \code{dat}; multiple IDs for one protein can be separated by a semicolon.
 
-\dQuote{Known} IDs are those that are present in the \code{\link{human_aa}} dataset of amino acid compositions.
-Known IDs also include old UniProt IDs that are mapped to new UniProt IDs in \code{\link{uniprot_updates}} and in \code{updates_file} if specified.
-
-If \code{aa_file} is specified, additional amino acid compositions to be considered are read from this file, which should be in the same format as e.g. \code{\link{human_extra}.csv} (see also \code{\link[CHNOSZ]{thermo}$protein}).
+The function keeps the first \dQuote{known} ID for each protein, which must be present in one of these groups:
+\itemize{
+  \item The \code{\link{human_aa}} dataset of amino acid compositions.
+  \item Old UniProt IDs that are mapped to new UniProt IDs in \code{\link{uniprot_updates}} or in \code{updates_file} if specified.
+  \item IDs of proteins in \code{aa_file}, which lists amino acid compositions in the format described for \code{\link{human_aa}} (see \code{extdata/protein/human_extra.csv} for an example and \code{\link[CHNOSZ]{thermo}$protein} for more details).
+}
 }
 
 \value{
-The function returns \code{dat} with possibly updated values in \code{IDcol}.
-All unknown IDs are replaced with \code{NA}, and old IDs (if known) are replaced with new ones.
+\code{dat} is returned with possibly changed values in the column designated by \code{IDcol}; old IDs are replaced with new ones, the first known ID for each protein is kept, then proteins with no known IDs are assigned \code{NA}.
 }
 
 \seealso{
-\code{\link{cleanup}}
+This function is used extensively by the \code{\link{pdat_}} functions, where it is called before \code{\link{cleanup}}.
 }
 
 \examples{
-# gets the first known IDs (one for each protein)
+# Make up some data for this example
 ID <- c("P61247;PXXXXX", "PYYYYY;P46777;P60174", "PZZZZZ")
 dat <- data.frame(ID = ID, stringsAsFactors = FALSE)
+# Get the first known ID for each protein; the third one is NA
 check_IDs(dat, "ID")
 
-# updates the ID
+# Update an old ID
 dat <- data.frame(Entry = "P50224", stringsAsFactors = FALSE)
 check_IDs(dat, "Entry")
 }
 
-\concept{Protein expression}
+\concept{Protein data}

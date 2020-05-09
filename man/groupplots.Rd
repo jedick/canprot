@@ -52,4 +52,4 @@ for(group in allgroups) {
   \code{\link{rankplot}}
 }
 
-\concept{Thermodynamic calculations}
+\concept{Thermodynamics plots}

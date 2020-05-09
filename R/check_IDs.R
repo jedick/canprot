@@ -44,14 +44,16 @@ check_IDs <- function(dat, IDcol, aa_file = NULL, updates_file = NULL) {
   if(sum(output.NA) > sum(input.NA)) {
     new.NA <- output.NA & !input.NA
     NA.IDs <- dat[new.NA, IDcol]
-    print(paste("check_IDs:", sum(new.NA), "unavailable UniProt IDs:", paste(NA.IDs, collapse = " ")))
+    if(sum(new.NA)==1) IDtxt <- "ID:" else IDtxt <- "IDs:"
+    print(paste("check_IDs:", sum(new.NA), "unavailable UniProt", IDtxt, paste(NA.IDs, collapse = " ")))
   }
   # now apply the updates 20191119
   iold <- match(ID, updates$old)
   if(any(!is.na(iold))) {
     oldIDs <- updates$old[na.omit(iold)]
     newIDs <- updates$new[na.omit(iold)]
-    print(paste("check_IDs: updating", sum(!is.na(iold)), "old UniProt IDs:", paste(oldIDs, collapse = " ")))
+    if(sum(!is.na(iold))==1) IDtxt <- "ID:" else IDtxt <- "IDs:"
+    print(paste("check_IDs: updating", sum(!is.na(iold)), "old UniProt", IDtxt, paste(oldIDs, collapse = " ")))
     ID[!is.na(iold)] <- newIDs
   }
   dat[, IDcol] <- ID

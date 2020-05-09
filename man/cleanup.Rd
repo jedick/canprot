@@ -48,4 +48,4 @@ dat <- read.csv(paste0(datadir, "STK+15.csv.xz"), as.is=TRUE)
 dat <- cleanup(dat, is.na(dat$uniprot))
 }
 
-\concept{Protein expression}
+\concept{Protein data}

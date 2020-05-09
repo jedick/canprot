@@ -28,4 +28,4 @@ Set \code{max50} to TRUE to compress the scale so that greatest intesity is obta
   \code{\link{rankplot}}
 }
 
-\concept{Protein expression}
+\concept{Thermodynamics plots}

@@ -37,4 +37,4 @@ CLES(height_female, height_male)
 
 }
 
-\concept{Statistical functions}
+\concept{Statistics}

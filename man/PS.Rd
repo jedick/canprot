@@ -54,3 +54,5 @@ PS_TPPG17 <- TPPG17$Phylostrata[match(IDs, TPPG17$Entry)]
 PS_LMM16 <- LMM16$PS[match(IDs, LMM16$UniProt)]
 plot(jitter(PS_TPPG17), jitter(PS_LMM16), pch = ".")
 }
+
+\concept{Protein data}

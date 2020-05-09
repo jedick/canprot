@@ -81,4 +81,4 @@ comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
 diffplot(comptab, oldstyle = TRUE)
 }
 
-\concept{Chemical composition}
+\concept{Compositional plots}

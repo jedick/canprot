@@ -40,4 +40,4 @@ rankdiff(4:7, 1:3)  # -1
 rankdiff(c(1, 3, 5, 7), c(2, 4, 6))  # 0
 }
 
-\concept{Statistical functions}
+\concept{Statistics}

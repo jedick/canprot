@@ -37,3 +37,5 @@ The vignettes can also be run using e.g. \code{\link{demo}("glucose")}, and thro
 mkvig("colorectal")
 }
 }
+
+\concept{Vignette utilities}

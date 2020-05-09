@@ -96,4 +96,4 @@ pdat_colorectal(2017)
 pdat_colorectal("JKMF10")
 }
 
-\concept{Protein expression}
+\concept{Protein data}

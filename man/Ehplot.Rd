@@ -31,4 +31,4 @@ library(CHNOSZ)
 Ehplot()
 }
 
-\concept{Thermodynamic calculations}
+\concept{Thermodynamics plots}

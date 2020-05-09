@@ -128,3 +128,5 @@ pI_calc <- pI(AAcomp)
 pI_ref <- c(3.37, 5.46, 8.64, 9.32)
 stopifnot(all.equal(as.numeric(pI_calc), pI_ref))
 }
+
+\concept{Chemical composition}
