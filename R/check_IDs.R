@@ -13,7 +13,7 @@ check_IDs <- function(dat, IDcol, aa_file = NULL, updates_file = NULL) {
   # for NJVS19 dataset 20191226
   if(any(grepl("\\|", ID))) ID <- sapply(strsplit(ID, "\\|"), "[", 2)
   # human proteins
-  aa <- get("human_aa", canprot)
+  aa <- get("human_aa", human)
   # add amino acid compositions from external file if specified
   if(!is.null(aa_file)) {
     aa_dat <- read.csv(aa_file, as.is=TRUE)
@@ -25,7 +25,7 @@ check_IDs <- function(dat, IDcol, aa_file = NULL, updates_file = NULL) {
   ina <- is.na(knownIDs)
   knownIDs[ina] <- aa$protein[ina]
   # also include obsolete UniProt ID
-  updates <- get("uniprot_updates", canprot)
+  updates <- get("uniprot_updates", human)
   if(!is.null(updates_file)) {
     updates_dat <- read.csv(updates_file, as.is = TRUE)
     updates <- rbind(updates_dat, updates)

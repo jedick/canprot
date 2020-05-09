@@ -1,6 +1,6 @@
 \encoding{UTF-8}
-\name{canprot}
-\alias{canprot}
+\name{human}
+\alias{human}
 \alias{human_aa}
 \alias{human_base}
 \alias{human_additional}
@@ -16,11 +16,11 @@ The amino acid compositions of human proteins were computed from amino acid sequ
 The amino acid compositions of human proteins are stored in three files under \code{extdata/protein}.
 \itemize{
   \item \code{human_base.rds} contains amino acid compositions of proteins in the UniProt reference proteome (\code{UP000005640_9606.fasta.gz} containing canonical, manually reviewed sequences).
-  \item \code{human_additional.rds} contains amino acid compositions of additional proteins (\ifelse{latex}{\cr}{}\code{UP000005640_9606_additional.fasta.gz}) including isoforms and unreviewed sequences. This file has been trimmed to include only those proteins that are used in the package as of version 0.1.4-40 (2020-01-01).
-  \item \code{human_extra.csv} contains amino acid compositions of other (\dQuote{extra}) proteins identified in specific proteomic experiments but not listed in one of the files above; these have been manually added along with the datasets, and may be obsolete, unreviewed, or are newer additions to the UniProt reference proteome. Not all sequences here are strictly HUMAN (see the \code{organism} column), but use the IDs or accession numbers reported in the sources (see the \code{ref} column for the references).
+  \item \code{human_additional.rds} contains amino acid compositions of additional proteins (\ifelse{latex}{\cr}{}\code{UP000005640_9606_additional.fasta.gz}) including isoforms and unreviewed sequences. In version 0.1.5, this file was trimmed to include only those proteins that are referenced in any of the datasets in the package.
+  \item \code{human_extra.csv} contains amino acid compositions of other (\dQuote{extra}) proteins identified in specific proteomic experiments but not listed in one of the files above. These proteins include obsolete, unreviewed, or newer additions to the UniProt database. Not all sequences here are strictly HUMAN (see the \code{organism} column and the \code{ref} column for the reference keys).
 }
 
-On loading the package, the individual data files are read and combined, and the result is assigned to the \code{human_aa} object in the \code{canprot} environment.
+On loading the package, the individual data files are read and combined, and the result is assigned to the \code{human_aa} object in the \code{human} environment.
 
 As an aid for processing datasets that include old (obsoleted) UniProt IDs, the corresponding new (current) IDs are are stored in \code{uniprot_updates}.
 The \code{source} column in \code{uniprot_updates} gives the reference(s) for the datasets that use these IDs.
@@ -46,7 +46,7 @@ Here, the \code{protein} column contains the UniProt ID (accession), possibly wi
 }
 
 \examples{
-nrow(get("human_aa", canprot))
+nrow(get("human_aa", human))
 }
 
 \concept{Amino acid composition}

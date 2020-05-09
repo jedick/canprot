@@ -2,14 +2,15 @@
 # create the data objects for amino acid compositions of human proteins
 # 20160705 jmd (data/canprot.R)
 # 20190225 moved to R/zzz.R
+# 20200509 change environment name from canprot to human
 
-# the canprot environment is made here in open code 20190214
+# the human environment is made here in open code 20190214
 # https://stackoverflow.com/questions/41954302/where-to-create-package-environment-variables
-canprot <- new.env()
+human <- new.env()
 
-# initialize the canprot environment
+# initialize the human environment
 .onAttach <- function(libname, pkgname) {
-  with(canprot, {
+  with(human, {
     # read amino acid compositions of human proteins and show some information
     human_base <- readRDS(system.file("/extdata/protein/human_base.rds", package = "canprot"))
     packageStartupMessage(paste("human_base:", nrow(human_base), "proteins"))

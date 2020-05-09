@@ -5,7 +5,7 @@
 protcomp <- function(uniprot = NULL, basis = "rQEC", aa = NULL, aa_file = NULL) {
   if(is.null(aa)) {
     # get amino acid compositions of human proteins
-    aa <- get("human_aa", canprot)
+    aa <- get("human_aa", human)
     # add amino acid compositions from external file if specified
     if(!is.null(aa_file)) {
       aa_dat <- read.csv(aa_file, as.is=TRUE)

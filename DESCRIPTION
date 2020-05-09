@@ -1,6 +1,6 @@
-Date: 2020-05-01
+Date: 2020-05-09
 Package: canprot
-Version: 0.2.1
+Version: 1.0.0
 Title: Compositional Analysis of Differentially Expressed Proteins in Cancer and Cell Culture
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),

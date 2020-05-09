@@ -2,7 +2,7 @@
 export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 "rankdiff", "rankplot", "Ehplot", "pdat_colorectal", "diffplot",
 "get_colors", "pdat_pancreatic", "pdat_hypoxia",
-"groupplots", "mergedplot", "canprot", "cleanup",
+"groupplots", "mergedplot", "human", "cleanup",
 # metrics added 20191005 - 20191027
 "ZCAA", "H2OAA", "GRAVY", "pI",
 # 20191127, #20191205

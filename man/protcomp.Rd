@@ -24,7 +24,7 @@ The \code{basis} argument is used to select the basis species using a keyword (s
 The default is \samp{rQEC} where the number of \H2O is residual-corrected stoichiometric water content of amino acids (see \code{\link{metrics}}).
 Other options are \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2, or \samp{QEC} for glutamine, glutamic acid, cysteine, \H2O, and \O2.
 
-This function depends on the amino acid compositions of human proteins, which are stored in the \code{\link{canprot}} environment when the package is attached.
+This function depends on the amino acid compositions of human proteins, which are stored in the \code{\link{human}} environment when the package is attached.
 If \code{aa_file} is specified, additional amino acid compositions to be considered are read from this file, which should be in the same format as e.g. \code{\link{human_extra}.csv} (see also \code{\link[CHNOSZ]{thermo}$protein}).
 Alternatively, the amino acid compositions can be given in \code{aa}, bypassing the search step.
 }
