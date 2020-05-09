@@ -18,7 +18,7 @@
 \alias{.pdat_osmotic}
 \title{Get Protein Expression Data}
 \description{
-  Get data on protein expression and chemical composition.
+  Get data for protein expression and chemical composition.
 }
 
 \usage{
@@ -45,41 +45,52 @@
 }
 
 \details{
-The \code{pdat_} functions calculate chemical compositional metrics (using \code{\link{protcomp}}) for relatively up- and down-expressed proteins reported in proteomic experiments.
+The \code{pdat_} functions assemble lists of up- and down-regulated proteins and calculate chemical compositions using \code{\link{protcomp}}.
+After this, use \code{\link{get_comptab}} to make a table of compositional metrics that can be plotted with \code{\link{diffplot}}.
 
-Use \code{pdat_colorectal}, \code{pdat_pancreatic}, \code{pdat_breast}, \code{pdat_lung}, \code{pdat_prostate}, and \code{pdat_liver} to retrieve data for protein expression in different cancer types
-Use \code{pdat_hypoxia} for data on hypoxia in cell culture and \code{pdat_glucose} for high-glucose experiments.
-\code{pdat_3D} retrieves data for 3D vs 2D cell culture (including tumor spheroids) and \code{pdat_secreted} retrieves data for secreted proteins (including exosomes) in hypoxia.
+If \code{dataset} is \samp{2020} (the default) or \samp{2017}, the function returns the names of all datasets in the compilation for the respective year.
 
-\code{.pdat_osmotic} retrieves data for hyperosmotic stress, for the 2017 compilation only.
-In 2020, these datasets were split among \code{pdat_osmotic_bact} (bacteria) \code{pdat_osmotic_euk} (eukaryotes) and \code{pdat_osmotic_halo} (halophilic bacteria and archaea), as described in Dick et al. (2020).
-
-\code{.pdat_multi} retrieves data from studies that include multiple conditions (e.g. cellular and secreted proteins in hypoxia), and is used internally by the specific functions (\code{pdat_hypoxia}, \code{pdat_secreted}).
-
-The functions get relative expression data from the CSV files stored in \code{extdata/expression/}, with subdirectories corresponding to the names of the functions.
-Some of the functions also retrieve amino acid compositions from the files in \code{extdata/aa/} (for non-human proteins).
-
-If \code{dataset} is \code{NULL}, the function returns the names of all datasets in the compilation.
-If \code{dataset} is \samp{2020} (the default) or \samp{2017}, it indicates the year of the compilation.
+Each dataset name starts with a reference key indicating the study (publication) where the data were reported.
+The reference keys are made by combining the first characters of the authors' family names with the 2-digit year of publication.
+For mutiple datasets from one study, the reference key is followed by an underscore and descriptive text for the particular dataset.
 
 Provide one of the dataset names as the \code{dataset} argument to retrieve the data.
-Each dataset name indicates the study (publication) where the data were reported, constructed by combining the first characters of the (first three or four) authors' family names with the 2-digit year of publication.
-This coincides with the key-generation scheme used in some bibliography manager software.
-This abbreviation is also used to name the CSV file containing the data.
-If more than one dataset is available from a single study (for example, for relative protein expression in different stages of cancer), \code{dataset} an underscore followed by a short suffix indicating the particular dataset.
+The functions get protein expression data from the CSV files stored in \code{extdata/expression/}, under the subdirectory corresponding to the name of the \code{pdat_} function.
+Some of the functions also read amino acid compositions (for non-human proteins) from the files in \code{extdata/aa/}.
+
+Descriptions for each function:
+
+\itemize{
+\item \code{pdat_colorectal}, \code{pdat_pancreatic}, \code{pdat_breast}, \code{pdat_lung}, \code{pdat_prostate}, and \code{pdat_liver} retrieve data for protein expression in different cancer types.
+
+\item \code{pdat_hypoxia} gets data for cellular extracts in hypoxia and \code{pdat_secreted} gets data for secreted proteins (e.g. exosomes) in hypoxia.
+
+\item \code{pdat_3D} retrieves data for 3D (e.g. tumor spheroids and aggregates) compared to 2D (monolayer) cell culture.
+
+\item \code{.pdat_osmotic} retrieves data for hyperosmotic stress, for the 2017 compilation only.
+In 2020, this compilation was expanded and split into \code{pdat_osmotic_bact} (bacteria), \code{pdat_osmotic_euk} (eukaryotic cells) and \code{pdat_osmotic_halo} (halophilic bacteria and archaea).
+
+\item \code{pdat_glucose} gets data for high-glucose experiments in eukaryotic cells.
+
+\item \code{.pdat_multi} retrieves data for studies that have multiple types of datasets (e.g. both cellular and secreted proteins in hypoxia), and is used internally by the specific functions (e.g. \code{pdat_hypoxia} and \code{pdat_secreted}).
+}
+
 }
 
 \value{
-A list consisting of \code{dataset} (the name of the dataset), \code{basis} (basis species used for the calculations), \code{description} (descriptive text), \code{pcomp} (compositional data generated by \code{\link{protcomp}}), \code{up2} (logical vector with length equal to the number of proteins; TRUE if the protein is up-expressed in group 2 compared to group 1 (i.e. cancer compared to normal), FALSE otherwise).
+A list consisting of:
+\describe{
+  \item{\code{dataset}}{the name of the dataset}
+  \item{\code{basis}}{basis species used for the calculations}
+  \item{\code{description}}{descriptive text for the dataset}
+  \item{\code{pcomp}}{compositional data generated by \code{\link{protcomp}}}
+  \item{\code{up2}}{logical vector with length equal to the number of proteins; TRUE for up-regulated protein and FALSE for down-regulated proteins}
 }
-
-\references{
-Dick, J. M., Yu, M. and Tan, J. (2020) Distinct trends in chemical composition of proteins from metagenomes in redox and salinity gradients. \emph{bioRxiv}. \doi{10.1101/2020.04.01.020008}
 }
 
 \examples{
 library(CHNOSZ)
-# list datasets in 2017 complilation for colorectal cancer
+# list datasets in the 2017 complilation for colorectal cancer
 pdat_colorectal(2017)
 # process one dataset
 pdat_colorectal("JKMF10")

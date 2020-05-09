@@ -16,11 +16,15 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   #V0 <- function() suppressMessages(protein.obigt(pdat$pcomp$aa)$V) / pdat$pcomp$protein.length
   # longer code, but faster ...
   V0 <- function() {
-    # the thermodynamic database entries for the amino acid residues
-    # and the backbone and terminal groups
+    # names of amino acids
     AA3 <- aminoacids(3)
-    indices <- info(c(paste0("[", AA3, "]"), "[UPBB]", "[AABB]"))
-    volumes <- get("thermo", CHNOSZ::CHNOSZ)$obigt$V[indices]
+    # memoize the volumes so we don't depend on the CHNOSZ database 20200509
+    #indices <- info(c(paste0("[", AA3, "]"), "[UPBB]", "[AABB]"))
+    #volumes <- get("thermo", CHNOSZ::CHNOSZ)$obigt$V[indices]
+    volumes <- c(26.864, 39.913, 41.116, 56.621, 88.545, 9.606, 65.753, 72.204, 
+                 75.048, 74.2, 71.832, 43.826, 49.049, 60.078, 105.825, 27.042, 
+                 44.03, 57.279, 110.045, 90.904, 26.296, 33.585)
+    # standard molal volumes of amino acid sidechains and protein backbone and terminal groups
     vAA <- volumes[1:20]
     vUPBB <- volumes[21]
     vAABB <- volumes[22]

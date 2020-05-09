@@ -24,7 +24,7 @@ The available vignettes are listed here:
     \item \emph{Cancer} -- \samp{breast}, \samp{colorectal}, \samp{liver}, \samp{lung}, \samp{pancreatic}, \samp{prostate}
 }
 
-Note that pandoc (including pandoc-citeproc), as a system dependency of \pkg{rmarkdown}, must be installed.
+Note that pandoc (including pandoc-citeproc), as a system dependency of \pkg{rmarkdown}, must be available.
 See \pkg{rmarkdown}'s \samp{pandoc} vignette for installation tips.
 }
 
