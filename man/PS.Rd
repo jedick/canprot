@@ -3,7 +3,7 @@
 \alias{PS}
 \title{Retrieve Phylostrata for Given UniProt IDs}
 \description{
-This retrieves the phylostrata for protein-coding genes according to Liebeskind et al. (2016) or Trigos et al. (2017).
+Retrieves the phylostrata for protein-coding genes according to Liebeskind et al. (2016) or Trigos et al. (2017).
 }
 
 \usage{
@@ -16,16 +16,21 @@ This retrieves the phylostrata for protein-coding genes according to Liebeskind 
 }
 
 \details{
-The data file at \code{extdata/phylostrata/TPPG17.csv.xz} has these columns: \samp{GeneID} (gene name), \samp{Entrez}, \samp{Entry}, \samp{Phylostrata}.
-Except for \samp{Entry}, the values are from Dataset S1 of Trigos et al. (2017).
-UniProt acession numbers in \samp{Entry} were generated using the UniProt mapping tool first for \samp{Entrez}, followed by \samp{GeneID} for the unmatched genes.
-\samp{Entry} is NA for genes that remain unmatched to any proteins after both mapping steps.
+The phylostratum for each protein is found by matching the UniProt ID in one of these data files:
 
-The data file at \code{extdata/phylostrata/LMM16.csv.xz} has these columns: \samp{UniProt}, \samp{modeAge}, \samp{PS}.
-The data are from file \code{main_HUMAN.csv} in Gene-Ages v1.0 (\url{https://zenodo.org/record/51708}; Liebeskind et al. (2016)).
-The modeAges were converted to phylostrata values 1-8 (\samp{PS} column) in this order: Cellular_organisms, Euk_Archaea, Euk+Bac, Eukaryota, Opisthokonta, Eumetazoa, Vertebrata, Mammalia.
-
-Specifying \samp{PS} as a variable name in \code{\link{get_comptab}} retrieve the phylostrata using this function.
+\describe{
+  \item{\code{extdata/phylostrata/TPPG17.csv.xz}}{
+    This file has columns \samp{GeneID} (gene name), \samp{Entrez}, \samp{Entry}, and \samp{Phylostrata}.
+    Except for \samp{Entry}, the values are from Dataset S1 of Trigos et al. (2017).
+    UniProt acession numbers in \samp{Entry} were generated using the UniProt mapping tool first for \samp{Entrez}, followed by \samp{GeneID} for the unmatched genes.
+    \samp{Entry} is NA for genes that remain unmatched to any proteins after both mapping steps.
+  }
+  \item{\code{extdata/phylostrata/LMM16.csv.xz}}{
+    This file has columns \samp{UniProt}, \samp{modeAge}, and \samp{PS}.
+    The data are from file \code{main_HUMAN.csv} in Gene-Ages v1.0 (\url{https://zenodo.org/record/51708}; Liebeskind et al. (2016)).
+    The modeAges were converted to phylostrata values 1-8 (\samp{PS} column) in this order: Cellular_organisms, Euk_Archaea, Euk+Bac, Eukaryota, Opisthokonta, Eumetazoa, Vertebrata, Mammalia.
+  }
+}
 }
 
 \references{
@@ -35,20 +40,23 @@ Liebeskind, B. J. and McWhite, Claire J. and Marcotte, E. M. (2016) Towards cons
 }
 
 \seealso{
-\code{\link{metrics}}
+Call \code{\link{get_comptab}} with \samp{PS_TPPG17} or \samp{PS_LMM16} as a variable name to calculate mean differences of phylostrata for differentially expressed proteins.
 }
 
 \examples{
-# plot nH2O vs phylostrata
+# Get protein expression data for one dataset
 pd <- pdat_colorectal("JKMF10")
-# (Trigos et al. data)
-get_comptab(pd, "PS", plot.it = TRUE)
-# (Liebeskind et al. data)
-get_comptab(pd, "PS", plot.it = TRUE, PS_source = "LMM16")
+opar <- par(mfrow = c(2, 1))
+# Plot nH2O vs phylostrata with Trigos et al. data
+get_comptab(pd, "PS_TPPG17", plot.it = TRUE)
+# Plot nH2O vs phylostrata with Liebeskind et al. data
+get_comptab(pd, "PS_LMM16", plot.it = TRUE)
+par(opar)
 
 # compare the two sources
-TPPG17 <- read.csv(system.file("extdata/phylostrata/TPPG17.csv.xz", package = "canprot"))
-LMM16 <- read.csv(system.file("extdata/phylostrata/LMM16.csv.xz", package = "canprot"))
+PSdir <- system.file("extdata/phylostrata", package = "canprot")
+TPPG17 <- read.csv(file.path(PSdir, "TPPG17.csv.xz"))
+LMM16 <- read.csv(file.path(PSdir, "LMM16.csv.xz"))
 IDs <- intersect(TPPG17$Entry, LMM16$UniProt)
 PS_TPPG17 <- TPPG17$Phylostrata[match(IDs, TPPG17$Entry)]
 PS_LMM16 <- LMM16$PS[match(IDs, LMM16$UniProt)]

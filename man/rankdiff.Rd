@@ -27,6 +27,10 @@ If \code{n1} and \code{n2} are not given, \code{rank1} and \code{rank2} are inte
 If the sizes of the groups are supplied in \code{n1} and \code{n2}, then the single values or higher-dimensional objects in \code{rank1} and \code{rank2} are interpreted as the non-weighted sums of ranks of the two groups.
 }
 
+\seealso{
+This function is used in \code{\link{groupplots}}.
+}
+
 \examples{
 # rankings of H and C in H-H-H-H-C-C-C
 rankdiff(1:4, 5:7, as.fraction=FALSE)  # 12
@@ -38,6 +42,10 @@ rankdiff(4:7, 1:3)  # -1
 
 # rankings of H and C in H-C-H-C-H-C-H
 rankdiff(c(1, 3, 5, 7), c(2, 4, 6))  # 0
+}
+
+\references{
+  Dick, J. M. (2016) Proteomic indicators of oxidation and hydration state in colorectal cancer. \emph{PeerJ} \bold{4}, e2238. \doi{10.7717/peerj.2238}
 }
 
 \concept{Statistics}

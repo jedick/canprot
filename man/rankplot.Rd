@@ -27,7 +27,7 @@ This function creates a \logaH2O - \logfO2 diagram showing the relative stabilit
 These groups consist of the relatively down- and up-expressed proteins identified by \code{up2} in one of the \code{\link{pdat_}} functions.
 
 The function generates a colored \code{\link{image}} and \code{\link{contour}} plot showing the weighted difference of sums of ranks of chemical affinities of formation of proteins in the two groups (see \code{\link[CHNOSZ]{affinity}} and \code{\link{rankdiff}}).
-Increasing intensity of blue or red colors represent higher rankings of the down-expressed (\code{up2==FALSE}) or up-expressed (\code{up2==TRUE}) proteins, respectively.
+Increasing intensity of blue or red colors (see \code{\link{get_colors}}) represent higher rankings of the down-expressed (\code{up2==FALSE}) or up-expressed (\code{up2==TRUE}) proteins, respectively.
 Alternatively, if \code{what} is \dQuote{affinity}, a maximum affinity diagram is produced (see \code{\link[CHNOSZ]{diagram}} in CHNOSZ), with fields colored red or blue according to the relative expression of the protein.
 
 If \code{main} is NULL, the title for the plot is taken from the description supplied in \code{pdat}.
@@ -43,7 +43,7 @@ rankplot(pdat, res=25, what="affinity")
 }
 
 \seealso{
-  \code{\link{get_colors}}
+This function is used in \code{\link{groupplots}}.
 }
 
 \concept{Thermodynamics plots}

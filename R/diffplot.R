@@ -145,6 +145,10 @@ cplab <- list(
   DpI = expression(Delta*"pI"),
   PS = "PS",
   DPS = expression(Delta*"PS"),
+  PS_TPPG17 = "PS (TPPG17)",
+  DPS_TPPG17 = expression(Delta*"PS (TPPG17)"),
+  PS_LMM16 = "PS (LMM16)",
+  DPS_LMM16 = expression(Delta*"PS (LMM16)"),
   MW = expression("MW"),
   DMW = expression(Delta * "MW")
 )

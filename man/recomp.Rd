@@ -17,7 +17,8 @@
 
 \details{
 This function recomputes a pdat object for a different \samp{basis}.
-This avoids the need to regenerate the list of UniProt IDs and search for amino acid compositions, and is used to speed up the processing of the vignettes.
+This avoids the need to regenerate the list of UniProt IDs and search for amino acid compositions.
+It was previously used to speed up the processing of the vignettes.
 }
 
 \examples{

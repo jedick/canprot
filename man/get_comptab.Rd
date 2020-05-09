@@ -8,7 +8,7 @@
 
 \usage{
   get_comptab(pdat, var1 = "ZC", var2 = "nH2O", plot.it = FALSE,
-    mfun = "median", PS_source = "TPPG17", oldstyle = FALSE)
+    mfun = "median", oldstyle = FALSE)
 }
 
 \arguments{
@@ -17,13 +17,11 @@
   \item{var2}{character, the second variable}
   \item{plot.it}{logical, make a scatterplot?}
   \item{mfun}{character, either \samp{median} or \samp{mean}}
-  \item{PS_source}{character, data source for phylostrata calculations (see \code{\link{PS}})}
   \item{oldstyle}{logical, also calculate \code{\link{CLES}} and \emph{p}-values?}
 }
 
 \details{
-\code{get_comptab} is used to calculate differences of compositional metrics between down- and up-regulated proteins.
-The available metrics are:
+The available variables are:
 \tabular{ll}{
   \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link{ZCAA}}) \cr
   \samp{nH2O} \tab stoichiometric hydration state per residue (\nH2O; see \code{\link{H2OAA}}) \cr
@@ -41,20 +39,20 @@ The available metrics are:
 Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
 
 Differentially expressed proteins are identified by the value of \code{pdat$up2} (TRUE for up-regulated proteins and FALSE for down-regulated proteins).
-The difference between medians for up- and down-regulated groups is calculated, or means if \code{mfun} is \samp{mean}.
+The differences are calculated as (median for up-regulated proteins) - (median for down-regulated proteins); if \code{mfun} is \samp{mean}, means of the groups are used instead.
 If \code{oldstyle} is TRUE, the function also calculates the common language effect size (\code{\link{CLES}}, in percent) and \emph{p}-value for each variable.
 
-Phylostrata are not compositional metrics, but are retrieved for matching UniProt accession numbers in a data file (see \code{\link{PS}}).
-Because it takes discrete values, mean values are calculated for phylostrata regardless of the value of \code{mfun}.
+Phylostrata are not compositional metrics, but are retrieved by matching UniProt accession numbers in a data file (see \code{\link{PS}}).
+Because phylostratum numbers are discrete values, mean values are calculated regardless of the value of \code{mfun}.
 
-If \code{plot.it} is \code{TRUE}, a scatterplot is also produced.
-Open red squares and filled blue circles stand for up-expressed and down-expressed proteins, respectively.
+Set \code{plot.it} to \code{TRUE} to make a scatterplot.
+Open red squares and filled blue circles stand for up-regulated and down-regulated proteins, respectively.
 }
 
 \value{
-A data frame is returned invisibly containing the columns \samp{dataset}, \samp{description}, \samp{n1} (number of down-expressed proteins), \samp{n2} (number of up-expressed proteins), followed two sets of columns for the variables.
+A data frame is returned invisibly containing the columns \samp{dataset}, \samp{description}, \samp{n1} (number of down-regulated proteins), \samp{n2} (number of up-regulated proteins), followed two sets of columns for the variables.
 These are denoted generically as (\samp{var.mfun1}, \samp{var.mfun2}, \samp{var.diff}, \samp{var.CLES}, \samp{var.p.value}), where \samp{var} is replaced by the name of \code{var1} or \code{var2}, and \samp{mfun} is replaced by the value of \code{mfun}.
-For example, \samp{ZC.median1} and \samp{ZC.median2} are the median \ZC of the down- and up-expressed proteins, respectively.
+For example, \samp{ZC.median1} and \samp{ZC.median2} are the median \ZC of the down- and up-regulated proteins, respectively.
 }
 
 \examples{

@@ -3,7 +3,7 @@
 # CNS: elemental abundance (C, N, S) per residue 20170124
 # ZC_nH2O: plot and summarize ZC and nH2O/residue of proteins 20160706
 
-get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median", PS_source = "TPPG17", oldstyle = FALSE) {
+get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median", oldstyle = FALSE) {
   # define functions for the possible variables of interest
   nH2O <- function() pdat$pcomp$residue.basis[, "H2O"]
   nO2 <- function() pdat$pcomp$residue.basis[, "O2"]
@@ -46,7 +46,6 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   GRAVY <- function() canprot::GRAVY(pdat$pcomp$aa)
   pI <- function() canprot::pI(pdat$pcomp$aa)
   # PS (phylostrata) added 20191127
-  PS <- function() canprot::PS(pdat$pcomp$uniprot, source = PS_source)
   PS_TPPG17 <- function() canprot::PS(pdat$pcomp$uniprot, source = "TPPG17")
   PS_LMM16 <- function() canprot::PS(pdat$pcomp$uniprot, source = "LMM16")
   # MW (molecular weight) added 20200501

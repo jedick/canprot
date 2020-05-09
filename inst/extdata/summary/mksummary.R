@@ -2,6 +2,7 @@
 # (used by groupplots())
 for(what in c("colorectal", "pancreatic", "hypoxia", "osmotic")) {
   pdat_fun <- paste0("pdat_", what)
+  if(what == "osmotic") pdat_fun <- ".pdat_osmotic"
   datasets <- get(pdat_fun)(2017)
   comptab <- lapply(datasets, function(dataset) {
     pdat <- get(pdat_fun)(dataset, basis = "QEC")

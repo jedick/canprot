@@ -8,8 +8,8 @@
 }
 
 \usage{
-  groupplots(group="hypoxia_ZC_down", each100=FALSE, res=50, plot.it=TRUE)
-  mergedplot(gpresult, each100=FALSE, res=50)
+  groupplots(group = "hypoxia_ZC_down", each100 = FALSE, res = 50, plot.it = TRUE)
+  mergedplot(gpresult, each100 = FALSE, res = 50)
 }
 
 \arguments{
@@ -33,23 +33,24 @@ This way, the positions of the median and interquartiles of the equipotential li
 
 \examples{
 \dontrun{
-gpresult <- groupplots("osmotic_H2O_down", res=25)
-mergedplot(gpresult, res=25)
+gpresult <- groupplots("osmotic_H2O_down", res = 25)
+mergedplot(gpresult, res = 25)
 
 # reproduce Figure 3 of Dick, 2017
-ZCgroups <- c("colorectal_ZC_up","pancreatic_ZC_up", "hypoxia_ZC_down")
+ZCgroups <- c("colorectal_ZC_up", "pancreatic_ZC_up", "hypoxia_ZC_down")
 H2Ogroups <- c("colorectal_H2O_up", "pancreatic_H2O_up", "osmotic_H2O_down")
 allgroups <- c(ZCgroups, H2Ogroups)
 par(mfrow=c(2, 3))
 for(group in allgroups) {
-  gpresult <- groupplots(group, plot.it=FALSE)
+  gpresult <- groupplots(group, plot.it = FALSE)
   mergedplot(gpresult)
-  title(main=group)
+  title(main = group)
 }}
 }
 
 \seealso{
-  \code{\link{rankplot}}
+This function is used in the historical vignette \code{inst/oldvignettes/potential_diagrams.Rmd}.
+\code{\link{rankplot}} and \code{\link{rankdiff}} are supporting functions.
 }
 
 \concept{Thermodynamics plots}

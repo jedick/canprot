@@ -26,33 +26,34 @@ These functions calculate compositional metrics of proteins given a data frame o
 }
 
 \details{
-\code{ZCAA} calculates average oxidation state of carbon (\ZC).
-\code{H2OAA} calculates stoichiometric hydration state (\nH2O) per residue.
-\code{GRAVY} calculates the grand average of hydropathicity.
-\code{pI} calculates the isoelectric point.
-\code{MWAA} calculates the molecular weight.
-
-These functions calculate the metrics from a data frame of amino acid compositions.
 Columns in \code{AAcomp} should be named with the three-letter abbreviations for the amino acids (e.g. \samp{Ala}).
-For calculations of \ZC from chemical formulas of organic molecules (not only proteins), use the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
+The metrics are described below:
 
-The default for \code{basis} stands for relative water content, calculated as residuals of a linear model for \nH2O vs \ZC of the 20 common amino acids using the basis species glutamine - glutamic acid - cysteine - \H2O - \O2.
-Furthermore, a constant of 0.355 is subtracted from these residuals to make the mean for all human proteins = 0.
-This can be changed to \samp{QEC} to use the stoichiometric water content calculated directly from the basis species (as in Dick, 2017).
-See Dick et al. (2020) for more information.
+\describe{
+\item{\code{ZCAA}}{Average oxidation state of carbon (\ZC) (Dick, 2014).
+  \code{nothing} is an extra argument that does nothing.
+  It is provided so that scripts can be written with \code{\link{do.call}} to run \code{ZCAA} and \code{H2OAA} with the same number of arguments.
+}
+\item{\code{H2OAA}}{Stoichiometric hydration state (\nH2O) per residue.
+  The default for \code{basis} stands for stoichiometric hydration state as described in Dick et al. (2020).
+  Briefly, the values are obtained from the residuals of a linear model for \nH2O vs \ZC of the 20 common amino acids using the basis species glutamine - glutamic acid - cysteine - \H2O - \O2.
+  A constant of 0.355 is subtracted from these residuals to make the mean for all human proteins = 0.
+  \code{basis} can be changed to \samp{QEC} to use the stoichiometric water content calculated directly from the basis species (as in Dick, 2017).
+}
+\item{\code{GRAVY}}{Grand average of hydropathicity.
+  Values of the hydropathy index for individual amino acids are from Kyte and Doolittle (1982).
+}
+\item{\code{pI}}{Isoelectric point.
+  The net charge for each ionizable group was pre-calculated from pH 0 to 14 at intervals of 0.01.
+  The isoelectric point is found as the pH where the sum of charges of all groups in the protein is closest to zero.
+  The \pK values for the terminal groups and sidechains are taken from Bjellqvist et al. (1993) and Bjellqvist et al. (1994); note that the calculation does not implement position-specific adjustments described in the latter paper.
+  The number of N- and C-terminal groups is taken to be one, unless a value for \code{chains} (number of polypeptide chains) is given in \code{AAcomp}.
+}
+\item{\code{MWAA}}{Molecular weight per residue.}
+}
 
 Note that \ZC is a per-carbon average, but \nH2O is a per-residue average.
 The contribution of \H2O from the terminal groups of proteins is counted, so shorter proteins have slightly greater \nH2O.
-
-\code{nothing} is an extra argument that does nothing.
-It is provided so that these functions can be called with the same numbers of arguments.
-
-For \code{GRAVY}, values of the hydropathy index for individual amino acids are from Kyte and Doolittle (1982).
-
-For \code{pI}, the net charge for each ionizable group is pre-calculated from pH 0 to 14 at intervals of 0.01.
-The isoelectric point is found as the pH where the sum of charges of all groups in the protein is closest to zero.
-The \pK values for the terminal groups and sidechains are taken from Bjellqvist et al. (1993) and Bjellqvist et al. (1994); note that the calculation does not implement position-specific adjustments described in the latter paper.
-The number of N- and C-terminal groups is taken to be one, unless a value for \code{chains} (number of polypeptide chains) is given in \code{AAcomp}.
 
 Tests for a few proteins (see examples) indicate that \code{GRAVY} and \code{pI} are equal those calculated with the ProtParam tool (\url{https://web.expasy.org/protparam/}; Gasteiger et al., 2005).
 }
@@ -62,6 +63,10 @@ Bjellqvist, B., Hughes, G. J., Pasquali, C., Paquet, N., Ravier, F., Sanchez, J.
 
 Bjellqvist, B. and Basse, B. and Olsen, E. and Celis, J. E. (1994) Reference points for comparisons of two-dimensional maps of proteins from different human cell types defined in a {pH} scale where isoelectric points correlate with polypeptide compositions. \emph{Electrophoresis} \bold{15}, 529--539. \doi{10.1002/elps.1150150171}
 
+Dick, J. M. (2014) Average oxidation state of carbon in proteins. \emph{J. R. Soc. Interface} \bold{11}, 20131095. \doi{10.1098/rsif.2013.1095}
+
+Dick, J. M. (2017) Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress. \emph{PeerJ} \bold{5}, e3421. \doi{10.7717/peerj.3421}
+
 Dick, J. M., Yu, M. and Tan, J. (2020) Distinct trends in chemical composition of proteins from metagenomes in redox and salinity gradients. \emph{bioRxiv}. \doi{10.1101/2020.04.01.020008}
 
 Gasteiger, E., Hoogland, C., Gattiker, A., Duvaud, S., Wilkins, M. R., Appel, R. D. and Bairoch, A. (2005) Protein identification and analysis tools on the ExPASy server. In J. M. Walker (Ed.), \emph{The Proteomics Protocols Handbook} (pp. 571--607). Totowa, NJ: Humana Press Inc. \doi{10.1385/1-59259-890-0:571}
@@ -70,7 +75,8 @@ Kyte, J. and Doolittle, R. F. (1982) A simple method for displaying the hydropat
 }
 
 \seealso{
-\code{\link{PS}}
+Use \code{\link{PS}} to get phylostrata of proteins (based on matching IDs in a data file, not amino acid composition).
+For calculations of \ZC from chemical formulas of organic molecules (not only proteins), use the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
 }
 
 \examples{
