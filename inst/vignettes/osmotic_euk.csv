@@ -1,4 +1,4 @@
-"dataset","description","tags","n1","n2","ZC.down","ZC.up","ZC.diff","nH2O_rQEC.down","nH2O_rQEC.up","nH2O_rQEC.diff","PS_TPPG17.down","PS_TPPG17.up","PS_TPPG17.diff","PS_LMM16.down","PS_LMM16.up","PS_LMM16.diff","nAA.down","nAA.up","nAA.diff"
+"dataset","description","tags","n1","n2","ZC.down","ZC.up","ZC.diff","nH2O.down","nH2O.up","nH2O.diff","PS_TPPG17.down","PS_TPPG17.up","PS_TPPG17.diff","PS_LMM16.down","PS_LMM16.up","PS_LMM16.diff","nAA.down","nAA.up","nAA.diff"
 DAA+05,"thick ascending limb of Henle's loop cells in 600 (NaCl added) vs 300 mosmol/kg medium",,14,24,-0.1112,-0.1458,-0.0347,0.0794,0.0818,0.0024,NA,NA,NA,NA,NA,NA,448,342.5,-105.5
 MHN+08_Hyper,"mouse CGR8 embryonic stem cells in 500 (NaCl added) vs 340 mOsM medium",,23,23,-0.1213,-0.1361,-0.0148,0.0091,0.0421,0.033,NA,NA,NA,NA,NA,NA,240,301,61
 LTH+11_Protein_30,"_Saccharomyces cerevisiae_ Protein in 0.7 M NaCl vs control medium for 30 min",yeast,686,203,-0.1529,-0.1471,0.0058,0.0297,0.0344,0.0047,NA,NA,NA,NA,NA,NA,421,427,6

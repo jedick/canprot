@@ -25,7 +25,8 @@ Set \code{max50} to TRUE to compress the scale so that greatest intesity is obta
 }
 
 \seealso{
-  \code{\link{rankplot}}
+These colors are used in \code{\link{rankplot}}.
+The colors were precomputed using \pkg{colorspace}::\code{diverge_hcl}.
 }
 
 \concept{Thermodynamics plots}

@@ -3,12 +3,12 @@
 \alias{get_comptab}
 \title{Calculate Compositional Differences}
 \description{
-  Compute differences of carbon oxidation state, stoichiometric hydration state and other metrics between groups of up- and down-regulated proteins.
+  Compute differences of carbon oxidation state, stoichiometric hydration state and other compositional metrics between groups of up- and down-regulated proteins.
 }
 
 \usage{
-  get_comptab(pdat, var1="ZC", var2="nH2O", plot.it = FALSE, mfun = "median",
-    PS_source = "TPPG17", oldstyle = FALSE)
+  get_comptab(pdat, var1 = "ZC", var2 = "nH2O", plot.it = FALSE,
+    mfun = "median", PS_source = "TPPG17", oldstyle = FALSE)
 }
 
 \arguments{
@@ -16,17 +16,17 @@
   \item{var1}{character, the first variable}
   \item{var2}{character, the second variable}
   \item{plot.it}{logical, make a scatterplot?}
-  \item{mfun}{character, specifying use of the \samp{median} or \samp{mean} function}
+  \item{mfun}{character, either \samp{median} or \samp{mean}}
   \item{PS_source}{character, data source for phylostrata calculations (see \code{\link{PS}})}
   \item{oldstyle}{logical, also calculate \code{\link{CLES}} and \emph{p}-values?}
 }
 
 \details{
-\code{get_comptab} can be used to summarize differences of compositional metrics between down- and up-regulated proteins.
+\code{get_comptab} is used to calculate differences of compositional metrics between down- and up-regulated proteins.
 The available metrics are:
 \tabular{ll}{
   \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link{ZCAA}}) \cr
-  \samp{nH2O} \tab stoichiometric hydration state (\nH2O; see \code{\link{H2OAA}}) \cr
+  \samp{nH2O} \tab stoichiometric hydration state per residue (\nH2O; see \code{\link{H2OAA}}) \cr
   \samp{nC}   \tab number of carbon atoms per residue \cr
   \samp{nN}   \tab number of nitrogen atoms per residue \cr
   \samp{nS}   \tab number of sulfur atoms per residue \cr
@@ -34,16 +34,18 @@ The available metrics are:
   \samp{nAA}  \tab protein length (number of amino acids) \cr
   \samp{GRAVY}\tab grand average of hydropathicity (see \code{\link{GRAVY}}) \cr
   \samp{pI}   \tab isoelectric point (see \code{\link{pI}}) \cr
-  \samp{PS}   \tab phylostrata (see \code{\link{PS}}) \cr
+  \samp{PS_TPPG17}   \tab phylostratum (see \code{\link{PS}}) \cr
+  \samp{PS_LMM16}   \tab phylostratum (see \code{\link{PS}}) \cr
+  \samp{MW}   \tab molecular weight per residue \cr
 }
 Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
 
-The expression pattern is taken from \code{pdat$up2}: down (\code{up2==FALSE}) or up (\code{up2==TRUE}) for each protein (see \code{\link{pdat_}}).
-The difference between medians is calculated, or means if \code{mfun} is \samp{mean}.
+Differentially expressed proteins are identified by the value of \code{pdat$up2} (TRUE for up-regulated proteins and FALSE for down-regulated proteins).
+The difference between medians for up- and down-regulated groups is calculated, or means if \code{mfun} is \samp{mean}.
 If \code{oldstyle} is TRUE, the function also calculates the common language effect size (\code{\link{CLES}}, in percent) and \emph{p}-value for each variable.
 
-Phylostrata is not calculated from the chemical compositions of proteins, but is retrieved by matching UniProt accession numbers to a data file (see \code{\link{PS}}).
-It is not a continuous variable, so mean values are calculated for it regardless of the value of \code{mfun}.
+Phylostrata are not compositional metrics, but are retrieved for matching UniProt accession numbers in a data file (see \code{\link{PS}}).
+Because it takes discrete values, mean values are calculated for phylostrata regardless of the value of \code{mfun}.
 
 If \code{plot.it} is \code{TRUE}, a scatterplot is also produced.
 Open red squares and filled blue circles stand for up-expressed and down-expressed proteins, respectively.

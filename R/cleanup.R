@@ -9,7 +9,8 @@ cleanup <- function(dat, IDcol, up2 = NULL) {
   remove_entries <- function(dat, irm, description) {
     if(sum(irm) > 0) {
       dat <- dat[!irm, ]
-      print(paste("cleanup: removing", sum(irm), description, "proteins"))
+      if(sum(irm)==1) ptxt <- "protein" else ptxt <- "proteins"
+      print(paste("cleanup: removing", sum(irm), description, ptxt))
     }
     return(dat)
   }

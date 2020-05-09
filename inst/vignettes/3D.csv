@@ -1,4 +1,4 @@
-"dataset","description","tags","n1","n2","ZC.down","ZC.up","ZC.diff","nH2O_rQEC.down","nH2O_rQEC.up","nH2O_rQEC.diff","PS_TPPG17.down","PS_TPPG17.up","PS_TPPG17.diff","PS_LMM16.down","PS_LMM16.up","PS_LMM16.diff","nAA.down","nAA.up","nAA.diff"
+"dataset","description","tags","n1","n2","ZC.down","ZC.up","ZC.diff","nH2O.down","nH2O.up","nH2O.diff","PS_TPPG17.down","PS_TPPG17.up","PS_TPPG17.diff","PS_LMM16.down","PS_LMM16.up","PS_LMM16.diff","nAA.down","nAA.up","nAA.diff"
 PLC+10,"HepG2 hepatocellular carcinoma cells",cancer,35,47,-0.128,-0.1322,-0.0042,0.0031,0.0339,0.0309,2.5882,2.7556,0.1673,3.4118,3.3478,-0.0639,449,294,-155
 MHG+12_P5,"MCF-7 breast cancer cells P5",cancer,409,337,-0.1208,-0.1384,-0.0176,0.023,0.0151,-0.0079,2.8537,3.0875,0.2337,4.2083,3.9652,-0.2432,594,400,-194
 MHG+12_P2,"MCF-7 breast cancer cells P2",cancer,248,214,-0.1265,-0.1408,-0.0143,0.0264,0.0237,-0.0027,2.8152,3.3779,0.5627,4.1351,4.0585,-0.0766,576,408,-168

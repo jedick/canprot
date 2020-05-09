@@ -3,7 +3,7 @@
 \alias{CLES}
 \title{Common Language Effect Size}
 \description{
-  Calculate common language effect size.
+  Calculate the common language effect size.
 }
 
 \usage{
@@ -16,17 +16,19 @@
 }
 
 \details{
-\dQuote{For continuous data, it [the common language statistic] is the probability that a score sampled at random from one distribution will be greater than a score sampled from some other distribution.} (McGraw and Wong, 1992)
+The common language statistic is defined for continuous data as \dQuote{the probability that a score sampled at random from one distribution will be greater than a score sampled from some other distribution.} (McGraw and Wong, 1992)
 
-This function calculates the fraction of all possible pairings between \code{x} and \code{y} where the difference (\samp{y} - \samp{x}) is positive.
+This function calculates the fraction of all possible pairings between elements of \code{x} and \code{y} where the difference (\samp{y} value - \samp{x} value) is positive.
+
+The example uses synthetic data; the actual data used by McGraw and Wong is from NCHS (1987, Tables 13 and 14).
 }
 
 \examples{
-# generate synthetic data for heights in inches of 18-24
-# year-old males and females (NCHS, 1987, Tables 13 and 14)
+# Generate synthetic data for heights in inches of 18-24
+# year-old males and females
 height_male <- rnorm(988, 69.7, 2.8)
 height_female <- rnorm(1066, 64.3, 2.6)
-# the CLES is approximately 0.92 (McGraw and Wong, 1992)
+# The CLES is approximately 0.92 (McGraw and Wong, 1992)
 CLES(height_female, height_male)
 }
 

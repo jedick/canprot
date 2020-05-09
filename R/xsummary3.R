@@ -18,9 +18,9 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
     ZC.up = ct1$ZC.median2,
     ZC.diff = ct1$ZC.diff,
 
-    nH2O_rQEC.down = ct1$nH2O.median1,
-    nH2O_rQEC.up = ct1$nH2O.median2,
-    nH2O_rQEC.diff = ct1$nH2O.diff,
+    nH2O.down = ct1$nH2O.median1,
+    nH2O.up = ct1$nH2O.median2,
+    nH2O.diff = ct1$nH2O.diff,
 
     pI.down = ct2$pI.median1,
     pI.up = ct2$pI.median2,
@@ -42,7 +42,7 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
   )
 
   # prepare table
-  x <- out[, c("dataset", "description", "n1", "n2", "ZC.diff", "nH2O_rQEC.diff",
+  x <- out[, c("dataset", "description", "n1", "n2", "ZC.diff", "nH2O.diff",
                "pI.diff", "GRAVY.diff", "nAA.diff", "MW.diff")]
   # get the publication key from the dataset name
   publication <- sapply(strsplit(x$dataset, "_"), "[", 1)
@@ -84,20 +84,12 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
   # change "NaN" to "NA"
   x <- gsub("NaN", "NA", x, fixed=TRUE)
 
-#  # add headers that span multiple columns
-#  span_empty5 <- "<td align=\"center\" colspan=\"5\"></td>"
-#  span_rQEC <- "<td align=\"center\" colspan=\"1\"><B>rQEC</B></td>"
-#  span_biosynth <- "<td align=\"center\" colspan=\"2\"><B>biosynthetic</B></td>"
-#  span_empty3 <- "<td align=\"center\" colspan=\"3\"></td>"
-#  border <- paste("<table border=1> <tr>", span_empty5, span_rQEC, span_biosynth, span_empty3, "</tr>")
-#  x <- gsub("<table border=1>", border, x, fixed=TRUE)
-
   # more formatting of the headers
   x <- gsub("description", "reference (description)", x, fixed=TRUE)
   x <- gsub("n1", "<i>n</i><sub>down</sub>", x, fixed=TRUE)
   x <- gsub("n2", "<i>n</i><sub>up</sub>", x, fixed=TRUE)
   x <- gsub("ZC.diff", "&Delta;<i>Z</i><sub>C</sub>", x, fixed=TRUE)
-  x <- gsub("nH2O_rQEC.diff", "&Delta;<i>n</i><sub>H<sub>2</sub>O</sub>", x, fixed=TRUE)
+  x <- gsub("nH2O.diff", "&Delta;<i>n</i><sub>H<sub>2</sub>O</sub>", x, fixed=TRUE)
   x <- gsub("pI.diff", "&Delta;pI", x, fixed=TRUE)
   x <- gsub("GRAVY.diff", "&Delta;GRAVY", x, fixed=TRUE)
   x <- gsub("nAA.diff", "&Delta;<i>n</i><sub>AA</sub>", x, fixed=TRUE)

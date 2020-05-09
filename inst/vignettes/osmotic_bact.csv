@@ -1,4 +1,4 @@
-"dataset","description","tags","n1","n2","ZC.down","ZC.up","ZC.diff","nH2O_rQEC.down","nH2O_rQEC.up","nH2O_rQEC.diff","pI.down","pI.up","pI.diff","GRAVY.down","GRAVY.up","GRAVY.diff","nAA.down","nAA.up","nAA.diff"
+"dataset","description","tags","n1","n2","ZC.down","ZC.up","ZC.diff","nH2O.down","nH2O.up","nH2O.diff","pI.down","pI.up","pI.diff","GRAVY.down","GRAVY.up","GRAVY.diff","nAA.down","nAA.up","nAA.diff"
 PNWB09,"_Synechocystis_ sp. PCC6803 in 6% w/v NaCl vs no added salt",,77,55,-0.148,-0.1435,0.0045,0.0164,0.033,0.0165,5.37,5.29,-0.08,-0.2684,-0.2418,0.0267,295,367,72
 FTR+10,"_Corynebacterium glutamicum_ in 750 mM NaCl vs control medium",,27,65,-0.1214,-0.1193,0.0021,0.0518,0.0634,0.0116,5.41,4.97,-0.44,-0.0923,-0.2113,-0.1191,319,446,127
 LPK+13,"_Lactobacillus johnsonii_ with vs without 0.1-0.3% bile salt",,123,88,-0.1568,-0.1307,0.0262,0.0938,0.0297,-0.0641,5.85,5.175,-0.675,-0.4274,-0.3602,0.0673,261,339.5,78.5
