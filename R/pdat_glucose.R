@@ -186,8 +186,8 @@ pdat_glucose <- function(dataset = 2020, basis = "rQEC") {
     # 20200503 endothelial microparticles, Burger et al., 2017
     # BTX+17_HG, BTX+17_LG
     dat <- read.csv(paste0(datadir, "BTX+17.csv.xz"), as.is=TRUE)
-    if(stage=="HG") description <- "HUVEC endothelial microparticles in 5.6 mmol/l glucose + 19.4 mmol/l D-glucose vs 5.6 mmol/l glucose"
-    if(stage=="LG") description <- "HUVEC endothelial microparticles in 5.6 mmol/l glucose + 19.4 mmol/l L-glucose vs 5.6 mmol/l glucose"
+    if(stage=="HG") description <- "HUVEC eMPs in 5.6 mmol/l glucose + 19.4 mmol/l D-glucose vs 5.6 mmol/l glucose"
+    if(stage=="LG") description <- "HUVEC eMPs in 5.6 mmol/l glucose + 19.4 mmol/l L-glucose vs 5.6 mmol/l glucose"
     # get columns with high-glucose and normal
     iHG <- grep(stage, colnames(dat))
     inormal <- grep("NG", colnames(dat))
