@@ -18,7 +18,7 @@ To save package space and checking time, prebuilt vignettes are not included in 
 
 To compile the vignettes on demand and view them in the browser, use the `mkvig()` function.
 For example, `mkvig("3D")` compiles the vignette for three-dimensional cell culture and then opens it in the browser.
-This function can also be run from the "Run demo in console" links in R's help system (`help.start()` > Packages > canprot > Code demos).
+Each of the vignettes is also available as a demo, which can be run from the browser (`help.start()` > Packages > canprot > Code demos).
 
 Here is a list of available vignettes:
 ```{r vignettes, echo = FALSE}
@@ -28,6 +28,6 @@ vignettes
 ```
 
 Note that building the vignettes requires pandoc as a system dependency.
-See the [rmarkdown pandoc vignette](../../rmarkdown/doc/pandoc.html) for more information.
+See the [rmarkdown pandoc vignette](https://CRAN.R-project.org/package=rmarkdown/vignettes/pandoc.html) for more information.
 
-The numerical output of the vignettes is available in the package, as CSV files in the `inst/vignettes` directory.
+The vignettes can be viewed online at <http://chnosz.net/canprot/doc/index.html>.

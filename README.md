@@ -11,8 +11,8 @@ hypoxia), together with amino acid compositions computed for protein sequences
 obtained from UniProt. Functions are provided to calculate compositional metrics
 including protein length, carbon oxidation state, and stoichiometric hydration
 state. In addition, phylostrata (evolutionary ages) of protein-coding genes are
-compiled using data from Liebeskind et al. (2016) <doi:10.1093/gbe/evw113> or
-Trigos et al. (2017) <doi:10.1073/pnas.1617743114>. The vignettes contain
+compiled using data from [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) or
+[Trigos et al. (2017)](https://doi.org/10.1073/pnas.1617743114). The vignettes contain
 plots of compositional differences, phylostrata (for human proteins), and
 references for all datasets.
 
@@ -44,7 +44,7 @@ This also installs other R packages as dependencies (particularly **CHNOSZ**, **
 ### Building vignettes
 
 Building the vignettes requires [pandoc](http://pandoc.org/installing.html) to be available on the system.
-See rmarkdown's [Install Pandoc](https://cran.r-project.org/web/packages/rmarkdown/vignettes/pandoc.html) vignette for tips on installing pandoc.
+See rmarkdown's [Install Pandoc](https://CRAN.R-project.org/package=rmarkdown/vignettes/pandoc.html) vignette for tips on installing pandoc.
 With all the dependencies available, the vignettes can be compiled and viewed using the `mkvig()` function in **canprot**, like this:
 ```R
 library(canprot)
