@@ -1,1 +1,2 @@
+library(canprot)
 mkvig("glucose")
