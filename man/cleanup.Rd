@@ -1,7 +1,7 @@
 \encoding{UTF-8}
 \name{cleanup}
 \alias{cleanup}
-\title{Clean up Data}
+\title{Clean Up Data}
 \description{
   Remove proteins with unavailable IDs, ambiguous expression ratios, and duplicated IDs.
 }

@@ -25,7 +25,7 @@ The available vignettes are listed here:
 }
 
 Note that pandoc (including pandoc-citeproc), as a system dependency of \pkg{rmarkdown}, must be available.
-See \pkg{rmarkdown}'s \samp{pandoc} vignette for installation tips.
+See \pkg{rmarkdown}'s \samp{pandoc} vignette (\url{https://CRAN.R-project.org/package=rmarkdown/vignettes/pandoc.html}) for installation tips.
 }
 
 \seealso{
