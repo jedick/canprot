@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.0.0 (2020-05-20)
+CHANGES IN canprot 1.0.0 (2020-05-10)
 -------------------------------------
 
 - New datasets: 3D/DKM+20, glucose/BTX+17, breast/LLF+20.
@@ -13,7 +13,7 @@ CHANGES IN canprot 1.0.0 (2020-05-20)
 CHANGES IN canprot 0.2.0 (2020-04-27)
 -------------------------------------
 
-- This version was not released on CRAN. The package is archived on
+- This version was not submitted to CRAN. The package is archived on
   Zenodo (https://doi.org/10.5281/zenodo.3768024).
 
 - To reduce package size and check time, don't include pre-built
@@ -48,7 +48,7 @@ CHANGES IN canprot 0.2.0 (2020-04-27)
 CHANGES IN canprot 0.1.6 (2020-04-10)
 -------------------------------------
 
-- This version was not released on CRAN. The package is archived on
+- This version was not submitted to CRAN. The package is archived on
   Zenodo (https://doi.org/10.5281/zenodo.3746998).
 
 - Remove transcriptomic datasets from 2020 compilation.
@@ -65,7 +65,7 @@ CHANGES IN canprot 0.1.6 (2020-04-10)
 CHANGES IN canprot 0.1.5 (2020-02-20)
 -------------------------------------
 
-- This version was not released on CRAN. The package is archived on
+- This version was not submitted to CRAN. The package is archived on
   Zenodo (https://doi.org/10.5281/zenodo.3676560).
 
 - Rename check_ID() to check_IDs() and add 'IDcol' argument. The
@@ -128,7 +128,7 @@ CHANGES IN canprot 0.1.5 (2020-02-20)
 CHANGES IN canprot 0.1.4 (2019-11-18)
 -------------------------------------
 
-- This version was not released on CRAN. The package is archived on
+- This version was not submitted to CRAN. The package is archived on
   Zenodo (https://doi.org/10.5281/zenodo.3544986).
 
 - Updated plot style in diffplot() shows contours from kernel density

@@ -17,7 +17,7 @@ This is a generic vignette for the canprot package.
 To save package space and checking time, prebuilt vignettes are not included in the package.
 
 To compile the vignettes on demand and view them in the browser, use the `mkvig()` function.
-For example, `mkvig("osmotic_bact")` compiles the vignette for hyperosmotic stress in bacteria and then opens it in the browser.
+For example, `mkvig("3D")` compiles the vignette for three-dimensional cell culture and then opens it in the browser.
 This function can also be run from the "Run demo in console" links in R's help system (`help.start()` > Packages > canprot > Code demos).
 
 Here is a list of available vignettes:

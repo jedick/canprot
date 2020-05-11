@@ -1,7 +1,7 @@
-Date: 2020-05-09
+Date: 2020-05-10
 Package: canprot
 Version: 1.0.0
-Title: Compositional Analysis of Differentially Expressed Proteins in Cancer and Cell Culture
+Title: Compositional Analysis of Proteins in Cancer and Cell Culture
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),
       comment = c(ORCID = "0000-0002-0687-5890")),
@@ -17,13 +17,13 @@ Description: Compositional analysis of differentially expressed proteins in
   and down-regulated proteins in different cancer types (breast, colorectal,
   liver, lung, pancreatic, prostate) and laboratory conditions (hypoxia,
   hyperosmotic stress, high glucose, 3D cell culture, and proteins secreted in
-  hypoxia), together with amino acid compositions calculated for protein
-  sequences from UniProt. Functions are provided to compute compositional metrics
+  hypoxia), together with amino acid compositions computed for protein sequences
+  obtained from UniProt. Functions are provided to calculate compositional metrics
   including protein length, carbon oxidation state, and stoichiometric hydration
   state. In addition, phylostrata (evolutionary ages) of protein-coding genes are
-  available using data from Liebeskind et al. (2016) <doi:10.1093/gbe/evw113> or
+  compiled using data from Liebeskind et al. (2016) <doi:10.1093/gbe/evw113> or
   Trigos et al. (2017) <doi:10.1073/pnas.1617743114>. The vignettes contain
-  plots of compositional differences, phylostrata (for human proteins), and
+  plots of compositional differences, phylostrata for human proteins, and
   references for all datasets.
 Encoding: UTF-8
 License: GPL (>= 2)
