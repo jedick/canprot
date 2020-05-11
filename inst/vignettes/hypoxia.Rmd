@@ -1,10 +1,10 @@
 ---
-title: "Hypoxia"
+title: "Cell Extracts in Hypoxia"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Hypoxia}
+  %\VignetteIndexEntry{Cell Extracts in Hypoxia}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: cpdat.bib

@@ -13,7 +13,7 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
              "LFY+12_C1h", "LFY+12_C8h", "LFY+12_C2p", "LFY+12_N1h", "LFY+12_N8h", "LFY+12_N2p",
              "CLG+15", "SCG+15_nodelay", "SCG+15_delayed", "YDZ+15=yeast",
              "GAM+16_HTS", "GAM+16_HTS.Cmx", "RBP+16=yeast",
-             "JBG+18=yeast", "SMS+18_wt", "SMS+18_FGFR12.deficient"
+             "JBG+18=yeast"
              ))
   }
   # remove tags
@@ -59,18 +59,6 @@ pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat$log2.ratio > 0
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry, basis = basis, aa_file = paste0(extdatadir, "/aa/yeast/JBG+18_aa.csv.xz"))
-  } else if(study=="SMS+18") {
-    # 20200407 mouse skin in low/high humidity, Seltmann et al., 2018
-    # SMS+18_wt, SMS+18_FGFR12.deficient
-    dat <- read.csv(paste0(datadir, "SMS+18.csv.xz"), as.is=TRUE)
-    description <- paste("epidermal lysate of mice kept in 40% vs 70% humidity,", stage)
-    icol <- grep(stage, colnames(dat))
-    dat <- dat[abs(dat[, icol]) > 0.5, ]
-    dat <- check_IDs(dat, "Accession", aa_file = paste0(extdatadir, "/aa/mouse/SMS+18_aa.csv.xz"))
-    # abundance ratios are given as high humidity / low humidity, make up-expressed be low
-    up2 <- dat[, icol] < 0
-    dat <- cleanup(dat, "Accession", up2)
-    pcomp <- protcomp(dat$Accession, basis, aa_file = paste0(extdatadir, "/aa/mouse/SMS+18_aa.csv.xz"))
   } else if(study=="LFY+12") {
     # 20200417 HEK293 cells, Li et al., 2012
     # LFY+12_C1h, LFY+12_C8h, LFY+12_C2p, LFY+12_N1h, LFY+12_N8h, LFY+12_N2p

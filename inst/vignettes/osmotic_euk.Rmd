@@ -67,7 +67,7 @@ diffplot(comptab3, c("nAA", "MW"), labtext = NA)
 In the table, values of &Delta;<i>Z</i><sub>C</sub> and &Delta;<i>n</i><sub>H<sub>2</sub>O</sub> are multiplied by 1000, values of &Delta;PS and &Delta;MW are multiplied by 100, and negative values are shown in bold.
 Abbreviations:
 
-  * _n_~down~ &ndash; number of down-regulated proteins; _n_~up~ &ndash; number of up-regulated proteins; HTS &ndash; hypertonic saline; Cmx &ndash; cytomix treatment; wt &ndash; wild-type; FGFR12 &ndash; fibroblast growth factor receptor 1 and 2.
+  * _n_~down~ &ndash; number of down-regulated proteins; _n_~up~ &ndash; number of up-regulated proteins; HTS &ndash; hypertonic saline; Cmx &ndash; cytomix treatment.
 
 ```{r xsummary, results="asis", echo = FALSE}
 library(xtable)
@@ -92,6 +92,5 @@ __r__. Table 1 of @YDZ+15.
 __s__. __t__. Supplementary Table 2 of @GAM+16, filtered to include proteins with fold change > 2 or < 0.5.
 __u__. Supplementary Tables 2 and 3 of @RBP+16.
 __v__. Supplementary Tables 1 and 2 of @JBG+18.
-__w__. __x__. Supplementary Table S1 of @SMS+18.
 
 ## References
