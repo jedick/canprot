@@ -12,7 +12,7 @@ CLES <- function(x, y, distribution = "normal") {
     SD1 <- sd(x)
     SD2 <- sd(y)
     # Calculate mean and SD of differences
-    # (e.g. center plot of McGraw and Wang, 1992, Figure 1)
+    # (e.g. center plot of McGraw and Wong, 1992, Figure 1)
     M <- M2 - M1
     SD <- sqrt(SD1^2 + SD2^2)
     # Calculate Z score
