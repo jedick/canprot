@@ -1,3 +1,11 @@
+CHANGES IN canprot 1.0.1 (2020-05-28)
+-------------------------------------
+
+- Add 'distribution' argument to CLES(), with default value of 'normal'
+  to calculate the common language statistic using the normal curve
+  probability. Calculation of the empirical probability (the previous
+  default behavior) is done with distribution = NA.
+
 CHANGES IN canprot 1.0.0 (2020-05-11)
 -------------------------------------
 
