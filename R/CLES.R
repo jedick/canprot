@@ -27,5 +27,5 @@ CLES <- function(x, y, distribution = "normal") {
     differences <- combinations$y - combinations$x
     # find the proportion of positive differences
     sum(differences > 0) / length(differences)
-  } else stop("'distribution' should be 'normal' or NA")
+  } else stop("distribution should be 'normal' or NA")
 }

@@ -13,7 +13,7 @@
 \arguments{
   \item{x}{numeric, data}
   \item{y}{numeric, data}
-  \item{distribution}{\samp{normal} for probabilities calculated for a normal distribution, or NA for empirical probabilities}
+  \item{distribution}{\samp{normal} to use probabilities calculated for a normal distribution, or NA for empirical probabilities}
 }
 
 \details{
@@ -26,7 +26,7 @@ It may not be possible to calculate the empirical probability for very large sam
 
 The examples use \emph{simulated data for normal distributions}, given the sample size, mean, and standard deviation of datasets cited by McGraw and Wong, 1992.
 Therefore, the empirical probability in the examples approaches the normal curve probability.
-However, the empirical probability for nonnormal distributions is distinct from normal curve probabilities, as discussed on p. 364-365 of McGraw and Wong, 1992.
+However, the empirical probability for \emph{nonnormal} distributions is distinct from the normal curve probability, as discussed on p. 364-365 of McGraw and Wong, 1992.
 }
 
 \examples{
@@ -53,10 +53,22 @@ CLES_normal <- CLES(height_female, height_male)
 CLES_empirical <- CLES(height_female, height_male, distribution = NA)
 # d) Test numerical equivalence of the results
 # The CLES is approximately 0.92 (McGraw and Wong, 1992)
+# (note: becasue we used rnorm2, this doesn't depend on the seed)
 stopifnot(all.equal(CLES_normal, 0.92, tol = 0.01))
 # With this seed, the difference between the normal curve probability
 # and empirical probability is less than 1%
 stopifnot(all.equal(CLES_normal, CLES_empirical, tol = 0.01))
+
+# Example 1.5: Use multiple simulated datasets to show approach of
+# of empirical probability to normal curve probability
+CLES_empirical_n <- sapply(1:100, function(x) {
+  height_female <- rnorm2(n1, M1, SD1)
+  height_male <- rnorm2(n2, M2, SD2)
+  CLES(height_female, height_male, distribution = NA)
+})
+CLES_empirical <- mean(CLES_empirical_n)
+# now we're even closer to the normal curve probability
+stopifnot(all.equal(CLES_normal, CLES_empirical, tol = 0.0001))
 
 # Example 2: Multiple datasets in Table 2 of McGraw and Wong, 1992
 # Sample statistics for females
@@ -67,7 +79,7 @@ SD1 <- sqrt(c(908, 74, 219, 27, 110, 59, 15, 164, 6.8, 688, 310, 1971))
 n2 <- c(354, 359, 3028, 356704, 21768, 133882, 199, 469, 988, 988, 443, 443)
 M2 <- c(112, 23, 100, 17.9, 33, 18.6, 9.3, 21.8, 69.7, 163, 86, 212)
 SD2 <- sqrt(c(1096, 96, 202, 29, 110, 61, 15, 133, 7.8, 784, 818, 5852))
-# A function to calculate the effect size using synthetic data
+# A function to calculate the effect size using simulated data
 CLESfun <- function(n1, M1, SD1, n2, M2, SD2, distribution) {
   rnorm2 <- function(n, mean, sd) { mean + sd * scale(rnorm(n)) }
   set.seed(1234)
