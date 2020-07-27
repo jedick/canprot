@@ -1,10 +1,13 @@
-CHANGES IN canprot 1.0.1 (2020-05-28)
+CHANGES IN canprot 1.0.1 (2020-07-27)
 -------------------------------------
 
 - Add 'distribution' argument to CLES(), with default value of 'normal'
   to calculate the common language statistic using the normal curve
   probability. Calculation of the empirical probability (the previous
   default behavior) is done with distribution = NA.
+
+- Remove glucose/HGC+18 (microbial, but all datasets in this group should be
+  for eukaryotes).
 
 CHANGES IN canprot 1.0.0 (2020-05-11)
 -------------------------------------
