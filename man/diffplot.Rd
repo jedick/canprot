@@ -59,7 +59,7 @@ The overall style of the plot is controlled by \code{oldstyle}.
   \item{\code{oldstyle = FALSE}}{
     This is the current default style.
     Use \code{pch} and \code{cex} to control the point symbol and size.
-    Contours are added for credible regions of highest probability density, computed using a 2-D kernel density estimate (\code{\link[MASS]{kde2d}}).
+    Contours are added for confidence regions of highest probability density, computed using a 2-D kernel density estimate (\code{\link[MASS]{kde2d}}).
     The color of contour lines is set by \code{col.contour}.
     \code{contour} can be a logical vector, indicating which points to include; set it to FALSE to omit the contour lines.
     \code{probs} specifies the probability levels; add more values to \code{probs} to get more contours.
