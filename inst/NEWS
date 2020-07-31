@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.0.1 (2020-07-27)
+CHANGES IN canprot 1.0.1 (2020-07-31)
 -------------------------------------
 
 - Add 'distribution' argument to CLES(), with default value of 'normal'
@@ -8,6 +8,8 @@ CHANGES IN canprot 1.0.1 (2020-07-27)
 
 - Remove glucose/HGC+18 (microbial, but all datasets in this group should be
   for eukaryotes).
+
+- Add '...' argument to diffplot() (other arguments passed to plot()).
 
 CHANGES IN canprot 1.0.0 (2020-05-11)
 -------------------------------------

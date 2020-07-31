@@ -5,7 +5,7 @@
 
 diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS),
                      cex.text = 0.85, oldstyle = FALSE, pch = 1, cex = 2.1, contour = TRUE, col.contour = par("fg"),
-                     probs = 0.5, add = FALSE, labtext = NULL) {
+                     probs = 0.5, add = FALSE, labtext = NULL, ...) {
   # convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # which columns we're using
@@ -60,7 +60,7 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   # initialize plot: add a 0 to make sure we can see the axis
   # prevent NA values from influencing the scale of the plot 20200103
   ina <- is.na(X_d) | is.na(Y_d)
-  if(!add) plot(type="n", c(X_d[!ina], 0), c(Y_d[!ina], 0), xlab=xlab, ylab=ylab)
+  if(!add) plot(type="n", c(X_d[!ina], 0), c(Y_d[!ina], 0), xlab=xlab, ylab=ylab, ...)
   # contour 2-D kernel density estimate 20190329
   # https://stats.stackexchange.com/questions/31726/scatterplot-with-contour-heat-overlay
   if(!oldstyle & any(contour)) {

@@ -11,7 +11,7 @@
   diffplot(comptab, vars = c("ZC", "nH2O"), col = "black", plot.rect = FALSE,
            pt.text = c(letters, LETTERS), cex.text = 0.85, oldstyle = FALSE,
            pch = 1, cex = 2.1, contour = TRUE, col.contour = par("fg"),
-           probs = 0.5, add = FALSE, labtext = NULL)
+           probs = 0.5, add = FALSE, labtext = NULL, ...)
   cplab
 }
 
@@ -30,6 +30,7 @@
   \item{probs}{numeric, probability level(s) for contours}
   \item{add}{logical, add to an existing plot?}
   \item{labtext}{character, text to add to axis labels}
+  \item{...}{other argumenents passed to \code{\link{plot}}}
 }
 
 \details{
