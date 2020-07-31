@@ -13,7 +13,7 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
              "CZL+16", "IWT+16",
              "GLZ+18_acinar", "GLZ+18_ductal", "LAJ+18_PC", "LAJ+18_CRPC", "MAN+18",
              "KRN+19_G1", "KRN+19_G2", "KRN+19_G3", "KRN+19_G4", "KRN+19_G5",
-             "MMF+19_GS6", "MMF+19", "TOT+19", "ZYW+19_LG", "ZYW+19_HG",
+             "MMF+20_GS6", "MMF+20", "TOT+19", "ZYW+19_LG", "ZYW+19_HG",
              "KHN+20", "SHC+20", "ZZX+20_CiRT"
              ))
   }
@@ -112,10 +112,10 @@ pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
     up2 <- dat[, icol] == "Up"
     dat <- cleanup(dat, "Majority.protein.IDs", up2)
     pcomp <- protcomp(dat$Majority.protein.IDs, basis = basis)
-  } else if(study=="MMF+19") {
+  } else if(study=="MMF+20") {
     # 20191202 PCa / benign (GS=6 or GS=6 and GS>=8), Mantsiou et al., 2019
-    # MMF+19_GS6, MMF+19
-    dat <- read.csv(paste0(datadir, "MMF+19.csv.xz"), as.is=TRUE)
+    # MMF+20_GS6, MMF+20
+    dat <- read.csv(paste0(datadir, "MMF+20.csv.xz"), as.is=TRUE)
     if(stage=="GS6") description <- "FFPE PCa / adjacent benign GS=6"
     else description <- "FFPE PCa / adjacent benign GS=6 and GS>=8"
     if(stage == "GS6") icol <- grep("ratio.GS6.cancer.Vs.GS6.benign", colnames(dat)) else icol <- grep("ratio.cancer.Vs.benign", colnames(dat))

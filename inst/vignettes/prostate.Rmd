@@ -93,7 +93,7 @@ __h__. __i__. Extracted from Table S4 @GLZ+18. Values were quantile normalized, 
 __j__. __k__. Extracted from Supplementary Data 1 of @LAJ+18 (sheet "Area-proteins") by applying quantile normalization to peak areas then calculating median values across all runs and samples for each of BPH , PC (primary prostate cancer), and CRPC (castration resistant prostate cancer). A cutoff of 2-fold in ratios of medians (PC / BPH or CRPC / BPH) was used to identify differentially expressed proteins.
 __l__. Table 2 of @MAN+18.
 __m__. __n__. __o__. __p__. __q__. Supporting Information Table S3 of @KRN+19 (G1--G5: PCa grades).
-__r__. __s__. Tables S4d (GS = 6) and S4f (GS ≥ 8 or GS = 6) of @MMF+19 (GS: Gleason Score).
+__r__. __s__. Tables S4d (GS = 6) and S4f (GS ≥ 8 or GS = 6) of @MMF+20 (GS: Gleason Score).
 __t__. Supplementary Table S3a of @TOT+19.
 __u__. __v__. Table S5 of @ZYW+19 (LG: low-grade PCa; HG: high-grade PCa).
 __w__. Supplemental Table S2 of @KHN+20, filtered to include proteins with log~2~ fold change > 1 or < -1 in at least one experiment.
