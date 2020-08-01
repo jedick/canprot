@@ -1,3 +1,4 @@
+[![CRAN](https://www.r-pkg.org/badges/version/canprot)](https://cran.r-project.org/package=canprot)
 [![DOI](https://zenodo.org/badge/64122601.svg)](https://zenodo.org/badge/latestdoi/64122601)
 
 # canprot
