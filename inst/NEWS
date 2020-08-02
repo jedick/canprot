@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.0.1 (2020-07-31)
+CHANGES IN canprot 1.0.1 (2020-08-02)
 -------------------------------------
 
 - Add 'distribution' argument to CLES(), with default value of 'normal'
@@ -6,8 +6,8 @@ CHANGES IN canprot 1.0.1 (2020-07-31)
   probability. Calculation of the empirical probability (the previous
   default behavior) is done with distribution = NA.
 
-- Remove glucose/HGC+18 (microbial, but all datasets in this group should be
-  for eukaryotes).
+- Remove microbial dataset glucose/HGC+18; all remaining datasets for high
+  glucose are for eukaryotes.
 
 - Add '...' argument to diffplot() (other arguments passed to plot()).
 
