@@ -10,6 +10,6 @@ print(system.time(
     print(sep, quote = FALSE)
     print(paste("|", f, "|"), quote = FALSE)
     print(sep, quote = FALSE)
-    render(f)
+    rmarkdown::render(f)
   }
 ))
