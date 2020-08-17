@@ -13,7 +13,7 @@ These functions calculate compositional metrics of proteins given a data frame o
 
 \usage{
   ZCAA(AAcomp, nothing = NULL)
-  H2OAA(AAcomp, basis = "rQEC")
+  H2OAA(AAcomp, basis = "MTa")
   GRAVY(AAcomp)
   pI(AAcomp)
   MWAA(AAcomp)
@@ -35,10 +35,12 @@ The metrics are described below:
   It is provided so that scripts can be written with \code{\link{do.call}} to run \code{ZCAA} and \code{H2OAA} with the same number of arguments.
 }
 \item{\code{H2OAA}}{Stoichiometric hydration state (\nH2O) per residue.
-  The default for \code{basis} stands for stoichiometric hydration state as described in Dick et al. (2020).
-  Briefly, the values are obtained from the residuals of a linear model for \nH2O vs \ZC of the 20 common amino acids using the basis species glutamine - glutamic acid - cysteine - \H2O - \O2.
-  A constant of 0.355 is subtracted from these residuals to make the mean for all human proteins = 0.
-  \code{basis} can be changed to \samp{QEC} to use the stoichiometric water content calculated directly from the basis species (as in Dick, 2017).
+  The available \code{basis} species are:
+  \itemize{
+    \item{\samp{MTa} - methionine, threonine, acetic acid, \H2O, \O2}
+    \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2; Dick et al., 2017}
+    \item{\samp{rQEC} - QEC with a residual correction; Dick et al., 2020}
+  }
 }
 \item{\code{GRAVY}}{Grand average of hydropathicity.
   Values of the hydropathy index for individual amino acids are from Kyte and Doolittle (1982).

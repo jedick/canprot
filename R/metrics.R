@@ -30,7 +30,7 @@ ZCAA <- function(AAcomp, nothing=NULL) {
 }
 
 # calculate stoichiometric water content for amino acid compositions 20181228
-H2OAA <- function(AAcomp, basis = "rQEC") {
+H2OAA <- function(AAcomp, basis = "MTa") {
   # how to use CHNOSZ to get the number of H2O in reactions
   # to form amino acid residues from the "QEC" basis:
   ## basis("QEC")
@@ -54,6 +54,24 @@ H2OAA <- function(AAcomp, basis = "rQEC") {
       Ser = 0.93, Thr = 0.924, Val = 0.877, Trp = -3.732, Tyr = -2.144)
     # subtract a constant to make the mean for human proteins = 0 20191114
     nH2O_AA <- nH2O_AA - 0.355
+  }
+  # MTa and CRa basis species 20200814
+  ## basis(c("methionine", "threonine", "acetic acid", "H2O", "O2"))
+  ## nH2O_AA <- species(aminoacids(""))$H2O
+  ## names(nH2O_AA) <- aminoacids(3)
+  if(basis == "MTa") {
+    nH2O_AA <- c(Ala =  0, Cys =  0, Asp = -1, Glu = -1, Phe = -4, Gly =  0, His = -3,
+       Ile =  0, Lys =  0, Leu =  0, Met =  0, Asn = -1, Pro = -1, Gln = -1,
+       Arg = -1, Ser =  0, Thr =  0, Val =  0, Trp = -6, Tyr = -4)
+  }
+  ## basis(c("cysteine", "arginine", "acetic acid", "H2O", "O2"))
+  ## nH2O_AA <- species(aminoacids(""))$H2O
+  ## names(nH2O_AA) <- aminoacids(3)
+  if(basis == "CRa") {
+    nH2O_AA <- c(Ala = 0.25, Cys = 0, Asp = -0.75, Glu = -0.75, Phe = -3.75, 
+      Gly = 0.25, His = -2.25, Ile = 0.25, Lys = 0.5, Leu = 0.25, Met = 0, 
+      Asn = -0.5, Pro = -0.75, Gln = -0.5, Arg = 0, Ser = 0.25, Thr = 0.25, 
+      Val = 0.25, Trp = -5.5, Tyr = -3.75)
   }
   # find columns with names for the amino acids
   isAA <- colnames(AAcomp) %in% names(nH2O_AA)

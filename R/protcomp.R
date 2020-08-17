@@ -2,7 +2,7 @@
 # function to read protein data and calculate compositional parameters
 # 20160705 jmd
 
-protcomp <- function(uniprot = NULL, basis = "rQEC", aa = NULL, aa_file = NULL) {
+protcomp <- function(uniprot = NULL, basis = "MTa", aa = NULL, aa_file = NULL) {
   if(is.null(aa)) {
     # get amino acid compositions of human proteins
     aa <- get("human_aa", human)
@@ -34,6 +34,8 @@ protcomp <- function(uniprot = NULL, basis = "rQEC", aa = NULL, aa_file = NULL) 
   ZC <- CHNOSZ::ZC(protein.formula)
   # basis species for proteins, protein length, basis species in residue
   if(basis=="rQEC") basis("QEC") 
+  else if(basis=="MTa") basis(c("methionine", "threonine", "acetic acid", "H2O", "O2")) 
+  else if(basis=="CRa") basis(c("cysteine", "arginine", "acetic acid", "H2O", "O2")) 
   else basis(basis)
   protein.basis <- protein.basis(aa)
   protein.length <- protein.length(aa)

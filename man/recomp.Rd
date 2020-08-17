@@ -7,7 +7,7 @@
 }
 
 \usage{
-  recomp(pdat, basis = "rQEC")
+  recomp(pdat, basis = "MTa")
 }
 
 \arguments{

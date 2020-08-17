@@ -1,3 +1,10 @@
+CHANGES IN canprot 1.0.2 (2020-08-17)
+-------------------------------------
+
+- Add "MTa" (methionine-threonine-acetic acid-H2O-O2) basis setting to H2OAA().
+
+- Change default basis to "MTa" in pdat_* functions.
+
 CHANGES IN canprot 1.0.1 (2020-08-02)
 -------------------------------------
 

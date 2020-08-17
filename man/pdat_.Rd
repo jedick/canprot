@@ -22,21 +22,21 @@
 }
 
 \usage{
-  pdat_breast(dataset = 2020, basis = "rQEC")
-  pdat_colorectal(dataset = 2020, basis = "rQEC")
-  pdat_liver(dataset = 2020, basis = "rQEC")
-  pdat_lung(dataset = 2020, basis = "rQEC")
-  pdat_pancreatic(dataset = 2020, basis = "rQEC")
-  pdat_prostate(dataset = 2020, basis = "rQEC")
-  pdat_hypoxia(dataset = 2020, basis = "rQEC")
-  pdat_secreted(dataset = 2020, basis = "rQEC")
-  pdat_3D(dataset = 2020, basis = "rQEC")
-  pdat_glucose(dataset = 2020, basis = "rQEC")
-  pdat_osmotic_bact(dataset = 2020, basis = "rQEC")
-  pdat_osmotic_euk(dataset = 2020, basis = "rQEC")
-  pdat_osmotic_halo(dataset = 2020, basis = "rQEC")
-  .pdat_multi(dataset = 2020, basis = "rQEC")
-  .pdat_osmotic(dataset = 2017, basis = "rQEC")
+  pdat_breast(dataset = 2020, basis = "MTa")
+  pdat_colorectal(dataset = 2020, basis = "MTa")
+  pdat_liver(dataset = 2020, basis = "MTa")
+  pdat_lung(dataset = 2020, basis = "MTa")
+  pdat_pancreatic(dataset = 2020, basis = "MTa")
+  pdat_prostate(dataset = 2020, basis = "MTa")
+  pdat_hypoxia(dataset = 2020, basis = "MTa")
+  pdat_secreted(dataset = 2020, basis = "MTa")
+  pdat_3D(dataset = 2020, basis = "MTa")
+  pdat_glucose(dataset = 2020, basis = "MTa")
+  pdat_osmotic_bact(dataset = 2020, basis = "MTa")
+  pdat_osmotic_euk(dataset = 2020, basis = "MTa")
+  pdat_osmotic_halo(dataset = 2020, basis = "MTa")
+  .pdat_multi(dataset = 2020, basis = "MTa")
+  .pdat_osmotic(dataset = 2017, basis = "MTa")
 }
 
 \arguments{

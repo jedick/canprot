@@ -2,7 +2,7 @@
 # retrieve protein IDs for liver cancer
 # 20200330 first version jmd
 
-pdat_liver <- function(dataset = 2020, basis = "rQEC") {
+pdat_liver <- function(dataset = 2020, basis = "MTa") {
   if(identical(dataset, 2020)) { 
     return(c(
              "LHT+04",

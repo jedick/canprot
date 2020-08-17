@@ -4,7 +4,7 @@
 # 20170904 add =NT tag (comparison between cancer and normal tissue)
 # 20190239-20191206 updates for 2020 compilation
 
-pdat_pancreatic <- function(dataset = 2020, basis = "rQEC") {
+pdat_pancreatic <- function(dataset = 2020, basis = "MTa") {
   if(identical(dataset, 2020)) {
     return(c("LHE+04",
              "CYD+05", "CGB+05",

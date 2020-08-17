@@ -2,7 +2,7 @@
 # new datasets added 20191104
 # renamed to pdat_osmotic_halo 20200418
 
-pdat_osmotic_halo <- function(dataset = 2020, basis = "rQEC") {
+pdat_osmotic_halo <- function(dataset = 2020, basis = "MTa") {
   if(identical(dataset, 2020)) {
     return(c("LRB+09_2.6=hypoosmotic", "LRB+09_5.1",
              "ZLZ+16_10=hypoosmotic", "ZLZ+16_17.5",

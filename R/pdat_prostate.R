@@ -2,7 +2,7 @@
 # retrieve protein IDs for prostate cancer studies
 # 20160420-20191230 assemble data for 2020 compilation
 
-pdat_prostate <- function(dataset = 2020, basis = "rQEC") {
+pdat_prostate <- function(dataset = 2020, basis = "MTa") {
   if(identical(dataset, 2020)) {
     return(c(
              "GTR+08",

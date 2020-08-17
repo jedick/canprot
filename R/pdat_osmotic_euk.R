@@ -3,7 +3,7 @@
 # 20160926 jmd
 # 20200418 eukaryotes extracted from pdat_osmotic.R
 
-pdat_osmotic_euk <- function(dataset = 2020, basis = "rQEC") {
+pdat_osmotic_euk <- function(dataset = 2020, basis = "MTa") {
   if(identical(dataset, 2020)) {
     return(c(
              "DAA+05",
