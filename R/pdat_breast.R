@@ -2,7 +2,7 @@
 # retrieve protein IDs for breast cancer studies
 # 20160411-20191228 assemble data for 2020 compilation
 
-pdat_breast <- function(dataset = 2020, basis = "MTa") {
+pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
   if(identical(dataset, 2020)) {
     return(c(
              "AMG+08",

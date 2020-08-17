@@ -2,7 +2,7 @@
 # retrieve protein IDs for high-glucose experiments
 # 20200411 glucose datasets extracted from osmotic.R
 
-pdat_glucose <- function(dataset = 2020, basis = "MTa") {
+pdat_glucose <- function(dataset = 2020, basis = getOption("basis")) {
   if(identical(dataset, 2020)) {
     return(c(
              "PW08_2h=yeast", "PW08_10h=yeast", "PW08_12h=yeast",

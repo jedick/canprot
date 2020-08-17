@@ -7,7 +7,7 @@
 }
 
 \usage{
-  recomp(pdat, basis = "MTa")
+  recomp(pdat, basis = getOption("basis"))
 }
 
 \arguments{
@@ -25,14 +25,14 @@ It was previously used to speed up the processing of the vignettes.
 # process the first dataset for prostate cancer using the QEC basis species
 datasets <- pdat_prostate()
 pdat <- pdat_prostate(datasets[1], basis = "QEC")
-# recompute the compositions using the rQEC values
-pdat2 <- recomp(pdat, "rQEC")
+# recompute the compositions using the MTa values
+pdat2 <- recomp(pdat, "MTa")
 # compare the results
 nH2O_QEC <- pdat$pcomp$residue.basis[, "H2O"]
-nH2O_rQEC <- pdat2$pcomp$residue.basis[, "H2O"]
-plot(nH2O_QEC, nH2O_rQEC)
+nH2O_MTa <- pdat2$pcomp$residue.basis[, "H2O"]
+plot(nH2O_QEC, nH2O_MTa)
 # the slower way (not that it makes much difference for this example)
-pdat2.slow <- pdat_prostate(datasets[1], basis = "rQEC")
+pdat2.slow <- pdat_prostate(datasets[1], basis = "MTa")
 stopifnot(identical(pdat2, pdat2.slow))
 }
 

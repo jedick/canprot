@@ -20,7 +20,9 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200418
 ".pdat_osmotic", "pdat_osmotic_bact", "pdat_osmotic_euk", "pdat_osmotic_halo", "xsummary3",
 # 20200501, 20200505
-"MWAA", "qdist"
+"MWAA", "qdist",
+# 20200817
+"basis.text"
 )
 
 # Imports from default packages

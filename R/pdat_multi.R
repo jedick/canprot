@@ -3,7 +3,7 @@
 # (i.e. both proteome and secretome in hypoxia)
 # 20191204 extracted from pdat_secreted.R
 
-.pdat_multi <- function(dataset = 2020, basis = "MTa") {
+.pdat_multi <- function(dataset = 2020, basis = getOption("basis")) {
   if(identical(dataset, 2020)) {
     return(c("CGH+17_exosomes", "CGH+17_secretome", "CGH+17_whole",
              "CLY+18_proteome", "CLY+18_secretome",

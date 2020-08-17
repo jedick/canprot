@@ -3,7 +3,7 @@
 # 20160926 jmd
 # 20200418 renamed to .pdat_osmotic() (for 2017 compilation only)
 
-.pdat_osmotic <- function(dataset = 2017, basis = "MTa") {
+.pdat_osmotic <- function(dataset = 2017, basis = getOption("basis")) {
   if(identical(dataset, 2017)) {
     return(c(
              "PW08_2h", "PW08_10h", "PW08_12h",

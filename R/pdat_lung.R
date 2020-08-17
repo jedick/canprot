@@ -2,7 +2,7 @@
 # retrieve protein IDs for lung cancer studies
 # 20160720-20191230 assemble data for 2020 compilation
 
-pdat_lung <- function(dataset = 2020, basis = "MTa") {
+pdat_lung <- function(dataset = 2020, basis = getOption("basis")) {
   if(identical(dataset, 2020)) {
     return(c(
              "LXC+06",

@@ -6,6 +6,7 @@
 \alias{GRAVY}
 \alias{pI}
 \alias{MWAA}
+\alias{basis.text}
 \title{Calculate Compositional Metrics for Proteins}
 \description{
 These functions calculate compositional metrics of proteins given a data frame of amino acid compositions.
@@ -13,10 +14,11 @@ These functions calculate compositional metrics of proteins given a data frame o
 
 \usage{
   ZCAA(AAcomp, nothing = NULL)
-  H2OAA(AAcomp, basis = "MTa")
+  H2OAA(AAcomp, basis = getOption("basis"))
   GRAVY(AAcomp)
   pI(AAcomp)
   MWAA(AAcomp)
+  basis.text(basis)
 }
 
 \arguments{
@@ -37,9 +39,9 @@ The metrics are described below:
 \item{\code{H2OAA}}{Stoichiometric hydration state (\nH2O) per residue.
   The available \code{basis} species are:
   \itemize{
-    \item{\samp{MTa} - methionine, threonine, acetic acid, \H2O, \O2}
-    \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2; Dick et al., 2017}
-    \item{\samp{rQEC} - QEC with a residual correction; Dick et al., 2020}
+    \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2; Dick, 2017}
+    \item{\samp{MTa} - methionine, threonine, acetic acid, \H2O, \O2; Dick et al., 2020}
+    \item{Any other valid basis specification for \code{\link[CHNOSZ]{basis}}, such as \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2}
   }
 }
 \item{\code{GRAVY}}{Grand average of hydropathicity.
@@ -58,6 +60,8 @@ Note that \ZC is a per-carbon average, but \nH2O is a per-residue average.
 The contribution of \H2O from the terminal groups of proteins is counted, so shorter proteins have slightly greater \nH2O.
 
 Tests for a few proteins (see examples) indicate that \code{GRAVY} and \code{pI} are equal those calculated with the ProtParam tool (\url{https://web.expasy.org/protparam/}; Gasteiger et al., 2005).
+
+\code{basis.text} is used in the vignettes to generate a textual description of the names of the basis species (other than \H2O and \O2) for one of the keywords \code{QEC}, \code{MTa}, or \code{CRa}.
 }
 
 \references{

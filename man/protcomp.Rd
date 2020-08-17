@@ -7,7 +7,7 @@
 }
 
 \usage{
-  protcomp(uniprot = NULL, basis = "MTa",
+  protcomp(uniprot = NULL, basis = getOption("basis"),
            aa = NULL, aa_file = NULL)
 }
 
@@ -20,9 +20,7 @@
 
 \details{
 This function retrieves the amino acid compositions of one or more proteins specified by \code{uniprot}, then calculates some chemical compositional properties using functions provided by \pkg{CHNOSZ}.
-The \code{basis} argument is used to select the basis species using a keyword (see \code{\link[CHNOSZ]{basis}}).
-The default is \samp{rQEC} where the number of \H2O is residual-corrected stoichiometric water content of amino acids (see \code{\link{metrics}}).
-Other options are \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2, or \samp{QEC} for glutamine, glutamic acid, cysteine, \H2O, and \O2.
+The \code{basis} argument is used to select the basis species using a keyword (see \code{\link{H2OAA}}).
 
 This function depends on the amino acid compositions of human proteins, which are stored in the \code{\link{human}} environment when the package is attached.
 If \code{aa_file} is specified, additional amino acid compositions to be considered are read from this file, which should be in the same format as e.g. \code{\link{human_extra}.csv} (see also \code{\link[CHNOSZ]{thermo}$protein}).

@@ -1,9 +1,13 @@
 CHANGES IN canprot 1.0.2 (2020-08-17)
 -------------------------------------
 
+- options("basis") is now used to control the basis species used for
+  calculating stoichiometric hydration state.  The default is "MTa".
+
 - Add "MTa" (methionine-threonine-acetic acid-H2O-O2) basis setting to H2OAA().
 
-- Change default basis to "MTa" in pdat_* functions.
+- "rQEC" (residual-corrected stoichiometric hydration state using the QEC
+  basis) has been removed.
 
 CHANGES IN canprot 1.0.1 (2020-08-02)
 -------------------------------------

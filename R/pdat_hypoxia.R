@@ -8,7 +8,7 @@
 # - move 3D data to pdat_3D.R
 # - add new datasets
 
-pdat_hypoxia <- function(dataset = 2020, basis = "MTa") {
+pdat_hypoxia <- function(dataset = 2020, basis = getOption("basis")) {
   if(identical(dataset, 2020)) {
     return(c(
              "SBB+06=cancer",

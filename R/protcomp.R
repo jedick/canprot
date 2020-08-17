@@ -2,7 +2,7 @@
 # function to read protein data and calculate compositional parameters
 # 20160705 jmd
 
-protcomp <- function(uniprot = NULL, basis = "MTa", aa = NULL, aa_file = NULL) {
+protcomp <- function(uniprot = NULL, basis = getOption("basis"), aa = NULL, aa_file = NULL) {
   if(is.null(aa)) {
     # get amino acid compositions of human proteins
     aa <- get("human_aa", human)
@@ -33,15 +33,13 @@ protcomp <- function(uniprot = NULL, basis = "MTa", aa = NULL, aa_file = NULL) {
   protein.formula <- CHNOSZ::protein.formula(aa)
   ZC <- CHNOSZ::ZC(protein.formula)
   # basis species for proteins, protein length, basis species in residue
-  if(basis=="rQEC") basis("QEC") 
-  else if(basis=="MTa") basis(c("methionine", "threonine", "acetic acid", "H2O", "O2")) 
-  else if(basis=="CRa") basis(c("cysteine", "arginine", "acetic acid", "H2O", "O2")) 
+  if(basis=="QEC") basis(c("glutamine", "glutamic acid", "cysteine", "H2O", "oxygen")) 
+  else if(basis=="MTa") basis(c("methionine", "threonine", "acetic acid", "H2O", "oxygen")) 
+  else if(basis=="CRa") basis(c("cysteine", "arginine", "acetic acid", "H2O", "oxygen")) 
   else basis(basis)
   protein.basis <- protein.basis(aa)
   protein.length <- protein.length(aa)
   residue.basis <- protein.basis / protein.length
-  # FIXME: these values really aren't "basis" values 20191205
-  if(basis == "rQEC") residue.basis[, "H2O"] <- H2OAA(aa, basis)
   # residue formula
   residue.formula <- protein.formula / protein.length
   # return data

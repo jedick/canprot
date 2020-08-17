@@ -5,7 +5,7 @@
 # 20170904 add =NT tag (normal tissue as n1)
 # 20190318-20200117 updates for 2020 compilation
 
-pdat_colorectal <- function(dataset = 2020, basis = "MTa") {
+pdat_colorectal <- function(dataset = 2020, basis = getOption("basis")) {
   # list available datasets in 2020 compilation
   if(identical(dataset, 2020)) { 
     return(c(

@@ -3,7 +3,7 @@
 # 20160926 jmd
 # 20200418 extract data for bacteria from pdat_osmotic.R
 
-pdat_osmotic_bact <- function(dataset = 2020, basis = "MTa") {
+pdat_osmotic_bact <- function(dataset = 2020, basis = getOption("basis")) {
   if(identical(dataset, 2020)) {
     return(c(
              "PNWB09",

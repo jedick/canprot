@@ -2,7 +2,7 @@
 # retrieve IDs for proteins secreted in hypoxia
 # 20190325 extracted from pdat_hypoxia.R
 
-pdat_secreted <- function(dataset = 2020, basis = "MTa") {
+pdat_secreted <- function(dataset = 2020, basis = getOption("basis")) {
   if(identical(dataset, 2020)) {
     return(c("BRA+10", "PTD+10_Hx48=cancer", "PTD+10_Hx72=cancer",
              "JVC+12",

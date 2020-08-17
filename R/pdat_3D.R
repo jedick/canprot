@@ -3,7 +3,7 @@
 # 20191125 initial version: some datasets moved from pdat_hypoxia.R
 # 20191125-20191230 add data for 2020 compilation
 
-pdat_3D <- function(dataset = 2020, basis = "MTa") {
+pdat_3D <- function(dataset = 2020, basis = getOption("basis")) {
   if(identical(dataset, 2020)) {
     return(c("PLC+10=cancer",
              "MHG+12_P5=cancer", "MHG+12_P2=cancer",

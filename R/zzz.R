@@ -4,11 +4,11 @@
 # 20190225 moved to R/zzz.R
 # 20200509 change environment name from canprot to human
 
-# the human environment is made here in open code 20190214
+# the 'human' environment is made here in open code 20190214
 # https://stackoverflow.com/questions/41954302/where-to-create-package-environment-variables
 human <- new.env()
 
-# initialize the human environment
+# initialize the 'human' environment
 .onAttach <- function(libname, pkgname) {
   with(human, {
     # read amino acid compositions of human proteins and show some information
@@ -33,4 +33,12 @@ human <- new.env()
     # load updates for UniProt IDs
     uniprot_updates <- read.csv(system.file("/extdata/protein/uniprot_updates.csv", package = "canprot"), as.is = TRUE)
   })
+}
+
+# set 'basis' option 20200817
+# adapted from R/src/library/grDevices/zzz.R
+.onLoad <- function(libname, pkgname) {
+  op.canprot <- list(basis = "MTa")
+  toset <- !(names(op.canprot) %in% names(.Options))
+  if(any(toset)) options(op.canprot[toset])
 }
