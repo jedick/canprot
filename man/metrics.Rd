@@ -61,7 +61,7 @@ The contribution of \H2O from the terminal groups of proteins is counted, so sho
 
 Tests for a few proteins (see examples) indicate that \code{GRAVY} and \code{pI} are equal those calculated with the ProtParam tool (\url{https://web.expasy.org/protparam/}; Gasteiger et al., 2005).
 
-\code{basis.text} is used in the vignettes to generate a textual description of the names of the basis species (other than \H2O and \O2) for one of the keywords \code{QEC}, \code{MTa}, or \code{CRa}.
+\code{basis.text} is used in the vignettes to generate a textual description of the names of the basis species (other than \H2O and \O2) for one of the keywords \code{QEC}, \code{MTa}, \code{CRa}, or \code{CQa}.
 }
 
 \references{

@@ -1,5 +1,4 @@
 R/*.tmp
 vignettes/*.html
 inst/vignettes/*.html
-inst/vignettes/*.csv
 inst/oldvignettes/*.html

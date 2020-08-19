@@ -29,21 +29,17 @@ ZCAA <- function(AAcomp, nothing=NULL) {
   ZCtot / nCtot
 }
 
-# calculate stoichiometric water content for amino acid compositions 20181228
+# calculate stoichiometric hydration state for proteins with given amino acid compositions 20181228
 H2OAA <- function(AAcomp, basis = getOption("basis")) {
-  # how to use CHNOSZ to get the number of H2O in reactions
-  # to form amino acid residues from the "QEC" basis:
+  # how to use CHNOSZ to get the number of H2O in reactions to form amino acid residues from the "QEC" basis:
   ## basis("QEC")
   ## species(aminoacids(3))
   ## nH2O_AA <- species()[["H2O"]]
-  # subtract one H2O to make residues
-  ## nH2O_AA <- nH2O_AA - 1
   ## names(nH2O_AA) <- aminoacids(3)
-  ## dput(nH2O_AA)
   if(basis == "QEC") {
-    nH2O_AA <- c( Ala = -0.4, Cys =   -1, Asp = -1.2, Glu =   -1, Phe = -3.2, Gly = -0.6, His = -2.8,
-      Ile =  0.2, Lys =  0.2, Leu =  0.2, Met = -0.6, Asn = -1.2, Pro =   -1, Gln =   -1,
-      Arg = -0.8, Ser = -0.4, Thr = -0.2, Val =    0, Trp = -4.8, Tyr = -3.2)
+    nH2O_AA <- c( Ala =  0.6, Cys =    0, Asp = -0.2, Glu =    0, Phe = -2.2, Gly =  0.4, His = -1.8,
+      Ile =  1.2, Lys =  1.2, Leu =  1.2, Met =  0.4, Asn = -0.2, Pro =    0, Gln =    0,
+      Arg =  0.2, Ser =  0.6, Thr =  0.8, Val =    1, Trp = -3.8, Tyr = -2.2) - 1
   }
   # MTa and CRa basis species 20200814
   ## basis(c("methionine", "threonine", "acetic acid", "H2O", "O2"))
@@ -52,7 +48,7 @@ H2OAA <- function(AAcomp, basis = getOption("basis")) {
   if(basis == "MTa") {
     nH2O_AA <- c(Ala =  0, Cys =  0, Asp = -1, Glu = -1, Phe = -4, Gly =  0, His = -3,
        Ile =  0, Lys =  0, Leu =  0, Met =  0, Asn = -1, Pro = -1, Gln = -1,
-       Arg = -1, Ser =  0, Thr =  0, Val =  0, Trp = -6, Tyr = -4)
+       Arg = -1, Ser =  0, Thr =  0, Val =  0, Trp = -6, Tyr = -4) - 1
   }
   ## basis(c("cysteine", "arginine", "acetic acid", "H2O", "O2"))
   ## nH2O_AA <- species(aminoacids(""))$H2O
@@ -61,7 +57,17 @@ H2OAA <- function(AAcomp, basis = getOption("basis")) {
     nH2O_AA <- c(Ala = 0.25, Cys = 0, Asp = -0.75, Glu = -0.75, Phe = -3.75, 
       Gly = 0.25, His = -2.25, Ile = 0.25, Lys = 0.5, Leu = 0.25, Met = 0, 
       Asn = -0.5, Pro = -0.75, Gln = -0.5, Arg = 0, Ser = 0.25, Thr = 0.25, 
-      Val = 0.25, Trp = -5.5, Tyr = -3.75)
+      Val = 0.25, Trp = -5.5, Tyr = -3.75) - 1
+  }
+  # CQa basis species 20200818
+  ## basis(c("cysteine", "glutamine", "acetic acid", "H2O", "O2"))
+  ## nH2O_AA <- species(aminoacids(""))$H2O
+  ## names(nH2O_AA) <- aminoacids(3)
+  if(basis == "CQa") {
+    nH2O_AA <- c(Ala = 0.5, Cys = 0, Asp = -0.5, Glu = -0.5, Phe = -3.5, Gly = 0.5,
+      His = -1.5, Ile = 0.5, Lys = 1, Leu = 0.5, Met = 0, Asn = 0,
+      Pro = -0.5, Gln = 0, Arg = 1, Ser = 0.5, Thr = 0.5, Val = 0.5,
+      Trp = -5, Tyr = -3.5) - 1
   }
   # find columns with names for the amino acids
   isAA <- colnames(AAcomp) %in% names(nH2O_AA)
@@ -152,6 +158,7 @@ basis.text <- function(basis) {
   if(basis=="QEC") bt <- "glutamine, glutamic acid, cysteine"
   if(basis=="MTa") bt <- "methionine, threonine, acetic acid"
   if(basis=="CRa") bt <- "cysteine, arginine, acetic acid"
+  if(basis=="CQa") bt <- "cysteine, glutamine, acetic acid"
   bt
 }
 

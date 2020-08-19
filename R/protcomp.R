@@ -36,6 +36,7 @@ protcomp <- function(uniprot = NULL, basis = getOption("basis"), aa = NULL, aa_f
   if(basis=="QEC") basis(c("glutamine", "glutamic acid", "cysteine", "H2O", "oxygen")) 
   else if(basis=="MTa") basis(c("methionine", "threonine", "acetic acid", "H2O", "oxygen")) 
   else if(basis=="CRa") basis(c("cysteine", "arginine", "acetic acid", "H2O", "oxygen")) 
+  else if(basis=="CQa") basis(c("cysteine", "glutamine", "acetic acid", "H2O", "oxygen")) 
   else basis(basis)
   protein.basis <- protein.basis(aa)
   protein.length <- protein.length(aa)
