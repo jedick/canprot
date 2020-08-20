@@ -1,12 +1,9 @@
-CHANGES IN canprot 1.0.2 (2020-08-19)
+CHANGES IN canprot 1.0.2 (2020-08-20)
 -------------------------------------
 
 - options("basis") is now used to control the basis species used for
-  calculating stoichiometric hydration state. The default is "CQa" (cysteine,
-  glutamine, acetic acid, H2O, O2).
-
-- Add basis settings to H2OAA(): "MTa" (methionine, threonine, acetic acid,
-  H2O, O2), "CRa" (cysteine, arginine, acetic acid, H2O, O2), "CQa".
+  calculating stoichiometric hydration state with H2OAA(). The default is "QCa"
+  (glutamine, cysteine, acetic acid, H2O, O2).
 
 - "rQEC" (residual-corrected stoichiometric hydration state using the QEC
   basis) has been removed.

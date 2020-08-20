@@ -4,7 +4,7 @@
 
 files <- dir(pattern = "Rmd")
 print(system.time(
-  for(basis in c("CQa")) {
+  for(basis in c("QCa")) {
     options(basis = basis)
     for(f in files) {
       sep <- paste(rep("=", nchar(f) + 8), collapse = "")

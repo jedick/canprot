@@ -25,14 +25,14 @@ It was previously used to speed up the processing of the vignettes.
 # process the first dataset for prostate cancer using the QEC basis species
 datasets <- pdat_prostate()
 pdat <- pdat_prostate(datasets[1], basis = "QEC")
-# recompute the compositions using the CQa values
-pdat2 <- recomp(pdat, "CQa")
+# recompute the compositions using the QCa values
+pdat2 <- recomp(pdat, "QCa")
 # compare the results
 nH2O_QEC <- pdat$pcomp$residue.basis[, "H2O"]
-nH2O_CQa <- pdat2$pcomp$residue.basis[, "H2O"]
-plot(nH2O_QEC, nH2O_CQa)
+nH2O_QCa <- pdat2$pcomp$residue.basis[, "H2O"]
+plot(nH2O_QEC, nH2O_QCa)
 # the slower way (not that it makes much difference for this example)
-pdat2.slow <- pdat_prostate(datasets[1], basis = "CQa")
+pdat2.slow <- pdat_prostate(datasets[1], basis = "QCa")
 stopifnot(identical(pdat2, pdat2.slow))
 }
 
