@@ -36,7 +36,6 @@ The function returns a list with elements \code{uniprot} (UniProt IDs as given i
 }
 
 \examples{
-library(CHNOSZ)
 protcomp("P24298")
 }
 

@@ -28,7 +28,6 @@ Other conversions involving Eh are possible with \code{\link[CHNOSZ]{convert}} (
 }
 
 \examples{
-library(CHNOSZ)
 Ehplot()
 }
 

@@ -38,10 +38,9 @@ importFrom("graphics", "mtext", "plot", "title", "box", "contour", "image",
 importFrom("grDevices", "contourLines")
 
 # Imports from CHNOSZ
-importFrom("CHNOSZ", "basis", "protein.basis", "protein.formula",
-           "protein.length", "ZC", "add.protein", "affinity", "diagram",
-           "list2array", "palply", "subcrt", "convert", "label.figure",
-           "aminoacids", "info")
+importFrom("CHNOSZ", "subcrt", "convert", "aminoacids", "label.figure",
+  "protein.formula", "ZC", "basis", "protein.basis", "protein.length",
+  "add.protein", "affinity", "diagram", "list2array", "palply")
 
 # Imports from xtable
 importFrom("xtable", "xtable", "print.xtable")

@@ -31,21 +31,23 @@ ZCAA <- function(AAcomp, nothing=NULL) {
 
 # calculate stoichiometric hydration state for proteins with given amino acid compositions 20181228
 H2OAA <- function(AAcomp, basis = getOption("basis")) {
-  # how to use CHNOSZ to get the number of H2O in reactions to form amino acid residues from the "QEC" basis:
-  ## basis("QEC")
-  ## species(aminoacids(3))
-  ## nH2O_AA <- species()[["H2O"]]
-  ## names(nH2O_AA) <- aminoacids(3)
   if(basis == "QEC") {
+    # how to get the number of H2O in reactions to form amino acid residues from the "QEC" basis:
+    ## library(CHNOSZ)
+    ## basis("QEC")
+    ## species(aminoacids(3))
+    ## nH2O_AA <- species()[["H2O"]]
+    ## names(nH2O_AA) <- aminoacids(3)
     nH2O_AA <- c( Ala =  0.6, Cys =    0, Asp = -0.2, Glu =    0, Phe = -2.2, Gly =  0.4, His = -1.8,
       Ile =  1.2, Lys =  1.2, Leu =  1.2, Met =  0.4, Asn = -0.2, Pro =    0, Gln =    0,
       Arg =  0.2, Ser =  0.6, Thr =  0.8, Val =    1, Trp = -3.8, Tyr = -2.2) - 1
   }
   # QCa basis species 20200818
-  ## basis(c("cysteine", "glutamine", "acetic acid", "H2O", "O2"))
-  ## nH2O_AA <- species(aminoacids(""))$H2O
-  ## names(nH2O_AA) <- aminoacids(3)
   if(basis == "QCa") {
+    ## library(CHNOSZ)
+    ## basis(c("cysteine", "glutamine", "acetic acid", "H2O", "O2"))
+    ## nH2O_AA <- species(aminoacids(""))$H2O
+    ## names(nH2O_AA) <- aminoacids(3)
     nH2O_AA <- c(Ala = 0.5, Cys = 0, Asp = -0.5, Glu = -0.5, Phe = -3.5, Gly = 0.5,
       His = -1.5, Ile = 0.5, Lys = 1, Leu = 0.5, Met = 0, Asn = 0,
       Pro = -0.5, Gln = 0, Arg = 1, Ser = 0.5, Thr = 0.5, Val = 0.5,

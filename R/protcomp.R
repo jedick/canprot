@@ -30,8 +30,8 @@ protcomp <- function(uniprot = NULL, basis = getOption("basis"), aa = NULL, aa_f
     }
   }
   # protein formula, average oxidation state of carbon
-  protein.formula <- CHNOSZ::protein.formula(aa)
-  ZC <- CHNOSZ::ZC(protein.formula)
+  protein.formula <- protein.formula(aa)
+  ZC <- ZC(protein.formula)
   # basis species for proteins, protein length, basis species in residue
   if(basis=="QEC") basis(c("glutamine", "glutamic acid", "cysteine", "H2O", "oxygen")) 
   else if(basis=="QCa") basis(c("glutamine", "cysteine", "acetic acid", "H2O", "oxygen")) 

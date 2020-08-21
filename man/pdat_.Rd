@@ -89,7 +89,6 @@ A list consisting of:
 }
 
 \examples{
-library(CHNOSZ)
 # list datasets in the 2017 complilation for colorectal cancer
 pdat_colorectal(2017)
 # process one dataset
