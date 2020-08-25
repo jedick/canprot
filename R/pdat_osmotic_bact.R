@@ -15,7 +15,7 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = getOption("basis")) {
              "KLB+15_prot-suc", "KLB+15_prot-NaCl",
              "SKV+16_Glucose_LB", "SKV+16_Osmotic.stress.glucose_LB",
              "KAK+17", "LYS+17",
-             "KSK+18", "LJC+18_wt", "LJC+18_mutant", "TSC18_WT", "TSC18_GsrN",
+             "HGC+18", "KSK+18", "LJC+18_wt", "LJC+18_mutant", "TSC18_WT", "TSC18_GsrN",
              "LWS+19", "MGF+19_10", "MGF+19_20",
              "AST+20", "GBR+20_CIRM129", "GBR+20_CIRM1025"
              ))
@@ -153,6 +153,12 @@ pdat_osmotic_bact <- function(dataset = 2020, basis = getOption("basis")) {
     dat <- dat[!is.na(dat[, icol]), ]
     up2 <- dat[, icol] > 1
     pcomp <- protcomp(dat$Entry, basis, aa_file = file.path(extdatadir, "aa/bacteria/GBR+20_aa.csv.xz"))
+  } else if(study=="HGC+18") {
+    # 20200418 Lactobacillus casei, Huang et al., 2018
+    dat <- read.csv(paste0(datadir, "HGC+18.csv.xz"), as.is=TRUE)
+    description <- "_Lactobacillus casei_ BL23 in hyper-concentrated vs isotonic sweet whey"
+    up2 <- dat$Regulation == "up"
+    pcomp <- protcomp(dat$Entry, basis, aa_file = paste0(extdatadir, "/aa/bacteria/HGC+18_aa.csv.xz"))
   } else if(study=="SKV+16") {
     # 20200420 E. coli, Schmidt et al., 2016
     # SKV+16_Glucose_LB, SKV+16_Osmotic.stress.glucose_LB
