@@ -1,5 +1,5 @@
 # canprot/R/pdat_osmotic_euk.R
-# retrieve protein IDs for osmotic stress experiments in eukaryotes
+# retrieve protein IDs for osmotic stress (NaCl only) experiments in eukaryotes
 # 20160926 jmd
 # 20200418 eukaryotes extracted from pdat_osmotic.R
 

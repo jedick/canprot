@@ -1,4 +1,5 @@
 # canprot/R/pdat_osmotic_halo.R
+# retrieve protein IDs for hyper- and hypoosmotic stress in halophiles
 # new datasets added 20191104
 # renamed to pdat_osmotic_halo 20200418
 

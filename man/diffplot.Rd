@@ -47,7 +47,7 @@ If \code{pt.text} is not NA or FALSE, \code{\link{text}} labels are added with s
 The default value produces labels that are taken sequentially from the 26 lowercase Roman letters in alphabetical order (\code{\link{letters}}), followed by the set of uppercase letters (\code{\link{LETTERS}}).
 
 For \code{labtext} = NULL, descriptive text (\dQuote{median difference} or \dQuote{mean difference}) is added to the axis labels in parentheses.
-This text can be changed by giving a value in \code{labtext}, or NA to suppress the text.
+This text can be changed by giving a value in \code{labtext} (for both axes), two values (for each axis), or NA to suppress the text.
 
 \code{cplab} is a list of formatted labels used by \code{diffplot}.
 It is an exported object, available to the user and other packages.

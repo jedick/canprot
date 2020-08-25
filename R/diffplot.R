@@ -48,15 +48,14 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
       yparen <- paste0("(", yfun, " difference)")
     }
   } else {
-    xparen <- yparen <- paste0("(", labtext, ")")
+    labtext <- rep(labtext, length.out = 2)
+    if(is.list(labtext)) lt1 <- labtext[[1]] else lt1 <- labtext[1]
+    if(is.list(labtext)) lt2 <- labtext[[2]] else lt2 <- labtext[2]
+    xparen <- bquote("("*.(lt1)*")")
+    yparen <- bquote("("*.(lt2)*")")
   }
-  if(identical(labtext, NA)) {
-    xlab <- xvar
-    ylab <- yvar
-  } else {
-    xlab <- substitute(x ~ xparen, list(xparen=xparen, x=xvar))
-    ylab <- substitute(y ~ yparen, list(yparen=yparen, y=yvar))
-  }
+  if(identical(labtext[1], NA)) xlab <- xvar else xlab <- substitute(x ~ xparen, list(xparen=xparen, x=xvar))
+  if(identical(labtext[2], NA)) ylab <- yvar else ylab <- substitute(y ~ yparen, list(yparen=yparen, y=yvar))
   # initialize plot: add a 0 to make sure we can see the axis
   # prevent NA values from influencing the scale of the plot 20200103
   ina <- is.na(X_d) | is.na(Y_d)
