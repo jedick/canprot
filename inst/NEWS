@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.0.2 (2020-08-20)
+CHANGES IN canprot 1.0.2 (2020-08-27)
 -------------------------------------
 
 - options("basis") is now used to control the basis species used for
@@ -7,6 +7,9 @@ CHANGES IN canprot 1.0.2 (2020-08-20)
 
 - "rQEC" (residual-corrected stoichiometric hydration state using the QEC
   basis) has been removed.
+
+- Add test that compositional metrics calculated using H2OAA() and ZCAA() are
+  equal to values calculated with functions in CHNOSZ.
 
 CHANGES IN canprot 1.0.1 (2020-08-02)
 -------------------------------------
