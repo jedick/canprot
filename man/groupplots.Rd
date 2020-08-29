@@ -49,7 +49,6 @@ for(group in allgroups) {
 }
 
 \seealso{
-This function is used in the historical vignette \code{inst/oldvignettes/potential_diagrams.Rmd}.
 \code{\link{rankplot}} and \code{\link{rankdiff}} are supporting functions.
 }
 

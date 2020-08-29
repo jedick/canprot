@@ -16,7 +16,7 @@
   The vignettes have plots for each cancer type and cell culture condition and references for all data sources used.
   Because of their size, pre-built vignette HTML files are not included with the package; use \code{\link{mkvig}} to compile and view any of the vignettes.
 
-  The functions in this package were originally derived from code supporting the papers of Dick (2016 and 2017); the \code{oldvignettes} directory has vignettes to reproduce many of the plots in those papers.
+  The functions in this package were originally derived from code supporting the papers of Dick (2016 and 2017).
   Updated data compilations and revised metrics, plots, and vignettes were developed for the papers of Dick et al. (2020) and Dick (2020).
 }
 

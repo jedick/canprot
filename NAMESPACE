@@ -22,7 +22,9 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200501, 20200505
 "MWAA", "qdist",
 # 20200817
-"basis.text"
+"basis.text",
+# 20200829
+"mkoldvig"
 )
 
 # Imports from default packages

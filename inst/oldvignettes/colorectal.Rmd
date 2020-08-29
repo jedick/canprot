@@ -4,11 +4,11 @@ output:
   rmarkdown::html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Data: Colorectal Cancer}
+  %\VignetteIndexEntry{Colorectal Cancer}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-bibliography: cpdat.bib
-csl: peerj.csl
+bibliography: ../vignettes/cpdat.bib
+csl: ../vignettes/peerj.csl
 ---
 
 This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` approximately reproduces calculations of compositional oxidation state and hydration state and thermodynamic potential that are described in two papers published in _PeerJ_ ([Dick, 2016](https://doi.org/10.7717/peerj.2238) and [Dick, 2017](https://doi.org/10.7717/peerj.3421)).
@@ -18,7 +18,6 @@ The sections below give the [Abbreviations](#abbreviations) used here,
 a [Summary Table](#summary-table) comparing the chemical compositions of groups of human proteins that are relatively down- and up-expressed (`n1` and `n2`, respectively) in colorectal cancer (CRC),
 the [Data Sources](#data-sources) for protein expression in CRC,
 a plot of the [Mean Differences](#mean-differences) of average oxidation state of carbon (`ZC`) and water demand per residue (`nH2O`),
-[Potential Diagrams](#potential-diagrams) showing the weighted rank difference of chemical affinity between down- and up-expressed groups,
 and [References](#references).
 
 ## Abbreviations

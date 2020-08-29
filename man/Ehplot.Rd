@@ -26,7 +26,6 @@ The temperature and pH can be adjusted using the \code{T} and \code{pH} argument
 }
 
 \seealso{
-This is used in \code{inst/oldvignettes/colorectal.Rmd} to reproduce Figure 6 of Dick (2016).
 Other conversions involving Eh are possible with \code{\link[CHNOSZ]{convert}} (from \pkg{CHNOSZ}).
 }
 

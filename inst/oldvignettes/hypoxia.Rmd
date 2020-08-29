@@ -4,11 +4,11 @@ output:
   rmarkdown::html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Data: Hypoxia or 3D Culture}
+  %\VignetteIndexEntry{Hypoxia or 3D Culture}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-bibliography: cpdat.bib
-csl: peerj.csl
+bibliography: ../vignettes/cpdat.bib
+csl: ../vignettes/peerj.csl
 ---
 
 This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` approximately reproduces calculations of compositional oxidation state and hydration state that are described in a paper published in _PeerJ_ ([Dick, 2017](https://doi.org/10.7717/peerj.3421)).
