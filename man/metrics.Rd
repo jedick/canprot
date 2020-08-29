@@ -111,33 +111,34 @@ nH2O.residue <- nH2O.GAG / 3
 nH2O.H2OAA <- H2OAA(AAcomp, "QEC")
 stopifnot(all.equal(nH2O.residue, nH2O.H2OAA))
 
-# calculate GRAVY for lysozyme and ribonuclease
+# calculate GRAVY for a few proteins
 # first get the protein index in CHNOSZ's list of proteins
-iprotein <- pinfo(c("LYSC_CHICK", "RNAS1_BOVIN"))
+iprotein <- pinfo(c("LYSC_CHICK", "RNAS1_BOVIN", "AMYA_PYRFU"))
 # then get the amino acid compositions
 AAcomp <- pinfo(iprotein)
 # then calculate GRAVY
 Gcalc <- as.numeric(GRAVY(AAcomp))
 # these are equal to values obtained with ProtParam on uniprot.org
-Gref <- c(-0.472, -0.663)
+# https://web.expasy.org/cgi-bin/protparam/protparam1?P00698@19-147@
+# https://web.expasy.org/cgi-bin/protparam/protparam1?P61823@27-150@
+# https://web.expasy.org/cgi-bin/protparam/protparam1?P49067@2-649@
+Gref <- c(-0.472, -0.663, -0.325)
 stopifnot(all.equal(round(Gcalc, 3), Gref))
 # also calculate molecular weight of the proteins
 MWcalc <- as.numeric(MWAA(AAcomp)) * protein.length(iprotein)
-# https://web.expasy.org/cgi-bin/protparam/protparam1?P00698@19-147@
-# https://web.expasy.org/cgi-bin/protparam/protparam1?P61823@27-150@
-MWref <- c(14313.14, 13690.29)
+MWref <- c(14313.14, 13690.29, 76178.25)
 stopifnot(all.equal(round(MWcalc, 2), MWref))
 
 # calculate pI for a few proteins
-iprotein <- pinfo(c("CSG_HALJP", "AMYA_PYRFU", "RNAS1_BOVIN", "LYSC_CHICK"))
+iprotein <- pinfo(c("LYSC_CHICK", "RNAS1_BOVIN", "AMYA_PYRFU", "CSG_HALJP"))
 AAcomp <- pinfo(iprotein)
 pI_calc <- pI(AAcomp)
 # reference values calculated with ProtParam on uniprot.org
-# CSG_HALJP: residues 35-862 (sequence v1)
-# AMYA_PYRFU: residues 2-649 (sequence v2)
-# RNAS1_BOVIN: residues 27-150 (sequence v1)
 # LYSC_CHICK: residues 19-147 (sequence v1)
-pI_ref <- c(3.37, 5.46, 8.64, 9.32)
+# RNAS1_BOVIN: residues 27-150 (sequence v1)
+# AMYA_PYRFU: residues 2-649 (sequence v2)
+# CSG_HALJP: residues 35-862 (sequence v1)
+pI_ref <- c(9.32, 8.64, 5.46, 3.37)
 stopifnot(all.equal(as.numeric(pI_calc), pI_ref))
 }
 

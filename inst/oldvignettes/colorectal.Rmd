@@ -120,33 +120,4 @@ col[grepl("=AD", datasets)] <- "red"
 diffplot(comptab, col = col, oldstyle = TRUE)
 ```
 
-## Potential Diagrams
-
-[These plots](../html/rankplot.html) show the [weighted rank-sum differences](../html/rankdiff.html) of [chemical affinities of formation](../../CHNOSZ/html/affinity.html) from [basis species](../../CHNOSZ/html/basis.html) of proteins in different groups.
-A higher ranking of relatively down- or up-expressed proteins in colorectal cancer is represented by blue or red color, respectively.
-The last plot shows effective [values of Eh](../html/Ehplot.html) (redox potential) as a function of the same variables (oxygen fugacity and water activity).
-
-Identify the datasets for protein expression.
-
-```{r datasets2}
-datasets <- c("JKMF10", "UNS+14", "WKP+14", "MRK+11_AD.NC", "MRK+11_AC.AD", "MRK+11_AC.NC", "JCF+11", "KWA+14")
-```
-
-Set up the diagram and make the plots.
-
-```{r rankplot, fig.width=10, fig.height=10, message=FALSE, results="hide", out.width=685}
-par(mfrow=c(3, 3))
-par(xaxs="i", yaxs="i", las=1, mar=c(4, 4, 2, 2), mgp=c(2.6, 1, 0), cex=1)
-for(i in seq_along(datasets)) {
-  pdat <- pdat_colorectal(datasets[i], basis="QEC4")
-  rankplot(pdat, res=50)
-  CHNOSZ::label.figure(LETTERS[i], paren=FALSE, font=2, yfrac=0.94)
-}
-Ehplot()
-CHNOSZ::label.figure("I", paren=FALSE, font=2, yfrac=0.94)
-```
-
-This is similar to Figure 6 of [Dick (2016)](http://doi.org/10.7717/peerj.2238).
-To reduce the time needed to create the vignette, the plots here are made at lower resolution than those in the paper.
-
 ## References
