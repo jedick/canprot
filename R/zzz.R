@@ -38,7 +38,7 @@ human <- new.env()
 # set 'basis' option 20200817
 # adapted from R/src/library/grDevices/zzz.R
 .onLoad <- function(libname, pkgname) {
-  op.canprot <- list(basis = "QCa")
+  op.canprot <- list(basis = "QEC")
   toset <- !(names(op.canprot) %in% names(.Options))
   if(any(toset)) options(op.canprot[toset])
 }
