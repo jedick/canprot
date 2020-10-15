@@ -3,7 +3,7 @@
 # (i.e. both proteome and secretome in hypoxia)
 # 20191204 extracted from pdat_secreted.R
 
-.pdat_multi <- function(dataset = 2020, basis = getOption("basis")) {
+.pdat_multi <- function(dataset = 2020) {
   if(identical(dataset, 2020)) {
     return(c("CGH+17_exosomes", "CGH+17_secretome", "CGH+17_whole",
              "CLY+18_proteome", "CLY+18_secretome",
@@ -25,7 +25,7 @@
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol[1]]), ]
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=paste0(extdatadir, "/aa/mouse/CGH+17_aa.csv.xz"))
+    pcomp <- protcomp(dat$Entry, aa_file=paste0(extdatadir, "/aa/mouse/CGH+17_aa.csv.xz"))
     up2 <- dat[, icol[1]] > 0
   } else if(study=="CLY+18") {
     # 20190324 HCT116 cells, Chen et al., 2018
@@ -35,7 +35,7 @@
     # use selected dataset
     icol <- grep(stage, colnames(dat))
     dat <- dat[!is.na(dat[, icol]), ]
-    pcomp <- protcomp(dat$Accession, basis=basis)
+    pcomp <- protcomp(dat$Accession)
     up2 <- dat[, icol] > 0
   } else if(study=="KAN+19") {
     # 20191226 cancer-associated fibroblasts, Kugeratski et al., 2019
@@ -59,10 +59,10 @@
     dat <- check_IDs(dat, "Protein.IDs..UniProt.")
     up2 <- dat[, icol] == "Up"
     dat <- cleanup(dat, "Protein.IDs..UniProt.", up2)
-    pcomp <- protcomp(dat$Protein.IDs..UniProt., basis=basis)
+    pcomp <- protcomp(dat$Protein.IDs..UniProt.)
   } else stop(paste("multi dataset", dataset, "not available"))
   print(paste0(".pdat_multi: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
   if("up2" %in% colnames(dat)) up2 <- dat$up2
-  return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, description=description))
+  return(list(dataset=dataset, pcomp=pcomp, up2=up2, description=description))
 }

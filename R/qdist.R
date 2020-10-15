@@ -10,15 +10,15 @@ qdist <- function(pdat = pdat_colorectal("JKMF10"), vars = c("ZC", "nH2O"), show
   par(yaxs = "i")
   for(var in vars) {
     if(var=="ZC") {
-      up <- pdat$pcomp$ZC[pdat$up2]
-      dn <- pdat$pcomp$ZC[!pdat$up2]
+      X <- ZCAA(pdat$pcomp$aa)
       xlab <- cplab$ZC
     }
     if(var=="nH2O") {
-      up <- pdat$pcomp$residue.basis[, "H2O"][pdat$up2]
-      dn <- pdat$pcomp$residue.basis[, "H2O"][!pdat$up2]
+      X <- H2OAA(pdat$pcomp$aa)
       xlab <- cplab$nH2O
     }
+    up <- X[pdat$up2]
+    dn <- X[!pdat$up2]
     # start the plot
     plot(range(up, dn), c(0, 1), type = "n", xlab = xlab, ylab = "Quantile point")
     # a function to plot the points and lines

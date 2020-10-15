@@ -8,7 +8,7 @@
 
 \usage{
   get_comptab(pdat, var1 = "ZC", var2 = "nH2O", plot.it = FALSE,
-    mfun = "median", oldstyle = FALSE)
+    mfun = "median", oldstyle = FALSE, basis = getOption("basis"))
 }
 
 \arguments{
@@ -18,6 +18,7 @@
   \item{plot.it}{logical, make a scatterplot?}
   \item{mfun}{character, either \samp{median} or \samp{mean}}
   \item{oldstyle}{logical, also calculate \code{\link{CLES}} and \emph{p}-values?}
+  \item{basis}{character, keyword for basis species to use}
 }
 
 \details{
@@ -25,9 +26,6 @@ The available variables are:
 \tabular{ll}{
   \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link{ZCAA}}) \cr
   \samp{nH2O} \tab stoichiometric hydration state per residue (\nH2O; see \code{\link{H2OAA}}) \cr
-  \samp{nC}   \tab number of carbon atoms per residue \cr
-  \samp{nN}   \tab number of nitrogen atoms per residue \cr
-  \samp{nS}   \tab number of sulfur atoms per residue \cr
   \samp{V0}   \tab standard molal volume per residue \cr
   \samp{nAA}  \tab protein length (number of amino acids) \cr
   \samp{GRAVY}\tab grand average of hydropathicity (see \code{\link{GRAVY}}) \cr
@@ -37,6 +35,7 @@ The available variables are:
   \samp{MW}   \tab molecular weight per residue \cr
 }
 Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
+The \code{basis} argument is used to select the basis species (the default is \samp{QEC}; see \code{\link{H2OAA}}).
 
 Differentially expressed proteins are identified by the value of \code{pdat$up2} (TRUE for up-regulated proteins and FALSE for down-regulated proteins).
 The differences are calculated as (median for up-regulated proteins) - (median for down-regulated proteins); if \code{mfun} is \samp{mean}, means of the groups are used instead.

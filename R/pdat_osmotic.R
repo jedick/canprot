@@ -3,7 +3,7 @@
 # 20160926 jmd
 # 20200418 renamed to .pdat_osmotic() (for 2017 compilation only)
 
-.pdat_osmotic <- function(dataset = 2017, basis = getOption("basis")) {
+.pdat_osmotic <- function(dataset = 2017) {
   if(identical(dataset, 2017)) {
     return(c(
              "PW08_2h", "PW08_10h", "PW08_12h",
@@ -32,19 +32,19 @@
     description <- "eel gill"
     up2 <- dat$Fold.Change..FW.SW. > 1
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis)
+    pcomp <- protcomp(dat$Entry)
   } else if(study %in% c("PW08", "WCM+09", "CCC+12", "CCCC13", "GSC14", "LDB+15")) {
     # 20200411 datasets from the 2017 compilation that have been moved to pdat_glucose.R
-    return(pdat_glucose(dataset, basis))
+    return(pdat_glucose(dataset))
   } else if(study %in% c("OBBH11", "CLG+15", "YDZ+15", "RBP+16")) {
     # 20200418 datasets from the 2017 compilation that have been moved to pdat_osmotic_euk.R
-    return(pdat_osmotic_euk(dataset, basis))
+    return(pdat_osmotic_euk(dataset))
   } else if(study %in% c("KKG+12", "KLB+15")) {
     # 20200418 datasets from the 2017 compilation that have been moved to pdat_osmotic_bact.R
-    return(pdat_osmotic_bact(dataset, basis))
+    return(pdat_osmotic_bact(dataset))
   } else stop(paste("osmotic dataset", dataset, "not available"))
   print(paste0(".pdat_osmotic: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20191120
   if("up2" %in% colnames(dat)) up2 <- dat$up2
-  return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, description=description))
+  return(list(dataset=dataset, pcomp=pcomp, up2=up2, description=description))
 }

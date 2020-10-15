@@ -3,21 +3,19 @@
 # CNS: elemental abundance (C, N, S) per residue 20170124
 # ZC_nH2O: plot and summarize ZC and nH2O/residue of proteins 20160706
 
-get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median", oldstyle = FALSE) {
+get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median", oldstyle = FALSE, basis = getOption("basis")) {
   # define functions for the possible variables of interest
-  nH2O <- function() pdat$pcomp$residue.basis[, "H2O"]
-  nO2 <- function() pdat$pcomp$residue.basis[, "O2"]
-  ZC <- function() pdat$pcomp$ZC
-  nC <- function() pdat$pcomp$residue.formula[, "C"]
-  nN <- function() pdat$pcomp$residue.formula[, "N"]
-  nS <- function() pdat$pcomp$residue.formula[, "S"]
-  NC <- function() pdat$pcomp$residue.formula[, "N"] / pdat$pcomp$residue.formula[, "C"]
-  SC <- function() pdat$pcomp$residue.formula[, "S"] / pdat$pcomp$residue.formula[, "C"]
-  #V0 <- function() suppressMessages(protein.obigt(pdat$pcomp$aa)$V) / pdat$pcomp$protein.length
-  # longer code, but faster ...
+  # Calculate metrics with canprot functions, not CHNOSZ 202010015
+  ZC <- function() ZCAA(pdat$pcomp$aa)
+  nH2O <- function() H2OAA(pdat$pcomp$aa, basis = basis)
+  # Calculate protein length 20201015
+  #AA3 <- CHNOSZ::aminoacids(3)
+  AA3 <- c("Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",
+           "Met", "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr")
+  # The columns for the amino acids
+  icol <- match(AA3, colnames(pdat$pcomp$aa))
+  nAA <- function() rowSums(pdat$pcomp$aa[, icol])
   V0 <- function() {
-    # names of amino acids
-    AA3 <- aminoacids(3)
     # memoize the volumes so we don't depend on the CHNOSZ database 20200509
     #indices <- info(c(paste0("[", AA3, "]"), "[UPBB]", "[AABB]"))
     #volumes <- get("thermo", CHNOSZ::CHNOSZ)$obigt$V[indices]
@@ -28,28 +26,25 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
     vAA <- volumes[1:20]
     vUPBB <- volumes[21]
     vAABB <- volumes[22]
-    # the columns for the amino acids (== 6:25)
-    icol <- match(AA3, colnames(pdat$pcomp$aa))
     # the total volume of amino acid residues
     VAA <- rowSums(t(t(pdat$pcomp$aa[, icol]) * vAA))
-    # the protein length and total volume of the backbone and terminal groups
-    pl <- rowSums(pdat$pcomp$aa[, icol])
+    # the total volume of the backbone and terminal groups
     chains <- pdat$pcomp$aa$chains
-    VUPBB <- (pl - chains) * vUPBB
+    plength <- nAA()
+    VUPBB <- (plength - chains) * vUPBB
     VAABB <- chains * vAABB
     # the per-residue volume (total volume of the protein divided by the length)
-    (VAA + VUPBB + VAABB) / pl
+    (VAA + VUPBB + VAABB) / plength
   }
-  nAA <- function() pdat$pcomp$protein.length
   # GRAVY and pI added 20191028
   # canprot:: is used to access the functions in the package namespace, not the ones defined here
   GRAVY <- function() canprot::GRAVY(pdat$pcomp$aa)
   pI <- function() canprot::pI(pdat$pcomp$aa)
   # PS (phylostrata) added 20191127
-  PS_TPPG17 <- function() canprot::PS(pdat$pcomp$uniprot, source = "TPPG17")
-  PS_LMM16 <- function() canprot::PS(pdat$pcomp$uniprot, source = "LMM16")
+  PS_TPPG17 <- function() PS(pdat$pcomp$uniprot, source = "TPPG17")
+  PS_LMM16 <- function() PS(pdat$pcomp$uniprot, source = "LMM16")
   # MW (molecular weight) added 20200501
-  MW <- function() canprot::MWAA(pdat$pcomp$aa)
+  MW <- function() MWAA(pdat$pcomp$aa)
 
   # get the values of the variables using the functions
   val1 <- get(var1)()

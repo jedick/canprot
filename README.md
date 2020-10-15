@@ -40,7 +40,7 @@ Then install **canprot** from GitHub:
 remotes::install_github("jedick/canprot")
 ```
 
-This also installs other R packages as dependencies (particularly **CHNOSZ**, **xtable**, **knitr** and **rmarkdown**, and their dependencies).
+This also installs other R packages as dependencies (particularly **xtable**, **knitr** and **rmarkdown**, and their dependencies).
 
 ### Building vignettes
 

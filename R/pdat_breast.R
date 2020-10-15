@@ -2,7 +2,7 @@
 # retrieve protein IDs for breast cancer studies
 # 20160411-20191228 assemble data for 2020 compilation
 
-pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
+pdat_breast <- function(dataset = 2020) {
   if(identical(dataset, 2020)) {
     return(c(
              "AMG+08",
@@ -46,12 +46,12 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
       dat <- dat[which(dat$Benign.vs..Infiltrating.Ductal.Carcinoma), ]
       up2 <- dat$IDC.Mean > dat$Benign.Mean
     }
-    pcomp <- protcomp(dat$UniprotID, basis=basis)
+    pcomp <- protcomp(dat$UniprotID)
   } else if(study=="CIR+10") {
     # 20160414 breast cancer Cha et al., 2010
     dat <- read.csv(paste0(datadir, "CIR+10.csv.xz"), as.is=TRUE)
     description <- "LCM T / N"
-    pcomp <- protcomp(dat$Uniprot, basis=basis)
+    pcomp <- protcomp(dat$Uniprot)
     up2 <- dat[, "SpI"] > 0
   } else if(study=="PBR+16") {
     # 20160415 breast cancer Pozniak et al., 2016
@@ -59,13 +59,13 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     dat <- read.csv(paste0(datadir, "PBR+16.csv.xz"), as.is=TRUE)
     description <- "FFPE T / adjacent N"
     dat <- check_IDs(dat, "Protein.IDs")
-    pcomp <- protcomp(dat$Protein.IDs, basis=basis)
+    pcomp <- protcomp(dat$Protein.IDs)
     up2 <- dat$Cluster == "Upregulated in Tumor"
   } else if(study=="SRG+10") {
     # 20160415 breast cancer Sutton et al., 2010
     dat <- read.csv(paste0(datadir, "SRG+10.csv.xz"), as.is=TRUE)
     description <- "invasive carcinoma / N"
-    pcomp <- protcomp(dat$Entry, basis=basis)
+    pcomp <- protcomp(dat$Entry)
     up2 <- dat$change == "increased"
   } else if(study=="HTP+11") {
     # 20160420 microvesicles Hill et al., 2011
@@ -74,7 +74,7 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     # update IDs with new ones
     inew <- dat$UniProt.new != ""
     dat$Swiss.Prot[inew] <- dat$UniProt.new[inew]
-    pcomp <- protcomp(dat$Swiss.Prot, basis=basis)
+    pcomp <- protcomp(dat$Swiss.Prot)
     up2 <- dat$Expressed == "over"
   } else if(study=="LLL+13") {
     # 20160420 triple negative breast cancer Liang et al., 2013
@@ -82,7 +82,7 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     description <- "TNBC tumor / paraneoplastic"
     up2 <- dat$Style == "up"
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis)
+    pcomp <- protcomp(dat$Entry)
   } else if(study=="PPH+14") {
     # 20160421 tumor subtypes vs normal, Panis et al., 2014
     dat <- read.csv(paste0(datadir, "PPH+14.csv.xz"), as.is=TRUE)
@@ -91,7 +91,7 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     dat <- dat[sapply(apply(dat[, 4:7], 1, unique), length)==1, ]
     up2 <- dat$TN == "up"
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis)
+    pcomp <- protcomp(dat$Entry)
   } else if(study=="SRS+13") {
     # 20160421 tumor vs normal, Shaheed et al., 2013
     # SRS+13_DCIS, SRS+13_IC
@@ -136,7 +136,7 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     }
     # use proteins classified as up or down
     dat <- dat[!is.na(dat$expression), ]
-    pcomp <- protcomp(dat$Entry, basis=basis)
+    pcomp <- protcomp(dat$Entry)
     up2 <- dat$expression == "up"
   } else if(study=="PGT+16") {
     # 20160718 luminal B or HER enriched; early or late vs control, Pendharkar et al., 2016
@@ -151,14 +151,14 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     dat <- check_IDs(dat, "Accession.number")
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Accession.number", up2)
-    pcomp <- protcomp(dat$Accession.number, basis=basis)
+    pcomp <- protcomp(dat$Accession.number)
   } else if(study=="GSB+14") {
     # 20170116 breast adenocarcinoma tumor / distant, Groessl et al., 2014
     dat <- read.csv(paste0(datadir, "GSB+14.csv.xz"), as.is=TRUE, check.names = FALSE)
     description <- paste("T / distant N")
     up2 <- dat$LFQ.tumor.distant > 1.2
     dat <- check_IDs(dat, "Accession")
-    pcomp <- protcomp(dat$Accession, basis=basis)
+    pcomp <- protcomp(dat$Accession)
   } else if(study=="BST+17") {
     # 20170811 breast epithelium and stroma, Braakman et al., 2017
     # BST+17_epithelium, BST+17_stroma
@@ -169,7 +169,7 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     # use significantly differentially abundant proteins
     dat <- dat[dat[, icol[2]] < 0.05, ]
     dat <- check_IDs(dat, "Protein.IDs")
-    pcomp <- protcomp(dat$Protein.IDs, basis=basis)
+    pcomp <- protcomp(dat$Protein.IDs)
     up2 <- dat[, icol[1]] > 0
   } else if(study=="CVJ+15") {
     # 20170814 TNBC tumor / normal, Campone et al., 2015
@@ -178,7 +178,7 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     dat <- check_IDs(dat, "Accession.Number")
     up2 <- dat$Mean > 1
     dat <- cleanup(dat, "Accession.Number", up2)
-    pcomp <- protcomp(dat$Accession.Number, basis=basis)
+    pcomp <- protcomp(dat$Accession.Number)
   } else if(study=="AMG+08") {
     # 20170828 cancer / periphery, Alldridge et al., 2008
     dat <- read.csv(paste0(datadir, "AMG+08.csv.xz"), as.is=TRUE)
@@ -192,12 +192,12 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     dat <- check_IDs(dat, "ID")
     up2 <- dat$Cancer_Peptides > 0
     dat <- cleanup(dat, "ID", up2)
-    pcomp <- protcomp(dat$ID, basis=basis)
+    pcomp <- protcomp(dat$ID)
   } else if(study=="LLC+19") {
     # 20190318 tumor / adjacent normal, Liu et al., 2019
     dat <- read.csv(paste0(datadir, "LLC+19.csv.xz"), as.is=TRUE)
     description <- "T / adjacent N"
-    pcomp <- protcomp(dat$Protein.accession, basis=basis)
+    pcomp <- protcomp(dat$Protein.accession)
     up2 <- dat$Regulated.Type == "Up"
   } else if(study=="TZD+18") {
     # 20190321 tumor / adjacent normal (all subtypes or basal), Tang et al., 2018
@@ -212,7 +212,7 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     dat <- check_IDs(dat, "UNIPROT")
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "UNIPROT", up2)
-    pcomp <- protcomp(dat$UNIPROT, basis=basis)
+    pcomp <- protcomp(dat$UNIPROT)
   } else if(study=="GCS+19") {
     # 20191120 tumor and lymph node vs contralateral and adjacent, Gomig et al., 2019
     # GCS+19_PTxNCT, GCS+19_LNxNCT, GCS+19_PTxLN, GCS+19_PTxANT, GCS+19_LNxANT
@@ -223,7 +223,7 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     icol <- grep(stage, colnames(dat))
     up2 <- dat[, icol] > 0
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis)
+    pcomp <- protcomp(dat$Entry)
   } else if(study=="LLF+20") {
     # 20200507 TNBC, Lin et al., 2020
     # LLF+20_I.II, LLF+20_III
@@ -233,7 +233,7 @@ pdat_breast <- function(dataset = 2020, basis = getOption("basis")) {
     dat <- dat[!is.na(dat[, icol]), ]
     dat <- check_IDs(dat, "Accession")
     up2 <- dat[, icol] > 1
-    pcomp <- protcomp(dat$Accession, basis)
+    pcomp <- protcomp(dat$Accession)
   } else stop(paste("breast dataset", dataset, "not available"))
   print(paste0("pdat_breast: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429

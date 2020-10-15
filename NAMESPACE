@@ -10,7 +10,7 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20191226-20191230
 ".pdat_multi", "pdat_secreted", "pdat_breast", "pdat_lung", "pdat_prostate", "pdat_3D",
 # 20200101
-"recomp", "xsummary2",
+"xsummary2",
 # 20200204 used in JMDplots package
 "cplab",
 # 20200402, 20200411
@@ -25,24 +25,13 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 "basis.text"
 )
 
-# Imports from default packages
-importFrom("stats", "na.omit", "median", "predict", "quantile", "approx",
-"ecdf", "knots", "pnorm", "sd")
+## Imports from default packages
+importFrom("graphics", "abline", "lines", "mtext", "par", "points",
+           "rect", "text", "title")
+importFrom("stats", "approx", "ecdf", "knots", "median", "na.omit",
+           "pnorm", "sd")
+importFrom("utils", "browseURL", "capture.output", "read.csv",
+           "relist", "write.table")
 
-importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data",
-"combn", "browseURL")
-
-importFrom("graphics", "mtext", "plot", "title", "box", "contour",
-"lines", "text", "abline", "points", "rect", "par",
-"plot.new", "legend")
-
-# Imports from CHNOSZ
-importFrom("CHNOSZ", "subcrt", "convert", "aminoacids", "label.figure",
-  "protein.formula", "ZC", "basis", "protein.basis", "protein.length",
-  "add.protein", "affinity", "diagram", "list2array", "palply", "describe.property")
-
-# Imports from xtable
-importFrom("xtable", "xtable", "print.xtable")
-
-# Imports from MASS
+## Imports from MASS
 importFrom("MASS", "kde2d")

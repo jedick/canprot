@@ -3,7 +3,7 @@
 # new datasets added 20191104
 # renamed to pdat_osmotic_halo 20200418
 
-pdat_osmotic_halo <- function(dataset = 2020, basis = getOption("basis")) {
+pdat_osmotic_halo <- function(dataset = 2020) {
   if(identical(dataset, 2020)) {
     return(c("LRB+09_2.6=hypoosmotic", "LRB+09_5.1",
              "ZLZ+16_10=hypoosmotic", "ZLZ+16_17.5",
@@ -36,7 +36,7 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = getOption("basis")) {
     idiff <- (dat[, icolratio] > 1.3 | dat[, icolratio] < 1/1.3) & pval < 0.05
     dat <- dat[idiff, ]
     up2 <- dat[, icolratio] > 1.3
-    pcomp <- protcomp(dat$Entry, basis = basis, aa_file = file.path(extdatadir, "aa/bacteria/ZLZ+16_aa.csv.xz"))
+    pcomp <- protcomp(dat$Entry, aa_file = file.path(extdatadir, "aa/bacteria/ZLZ+16_aa.csv.xz"))
   } else if(study=="LRB+09") {
     # 20191101 Halobacterium salinarum NaCl adjustment, Leuko et al., 2009
     # LRB+09_2.6, LRB+09_5.1
@@ -50,7 +50,7 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = getOption("basis")) {
     up2 <- dat[, icol] > 0
     # drop missing proteins
     dat <- cleanup(dat, "Entry", up2)
-    pcomp <- protcomp(dat$Entry, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/LRB+09_aa.csv.xz"))
+    pcomp <- protcomp(dat$Entry, aa_file=file.path(extdatadir, "aa/archaea/LRB+09_aa.csv.xz"))
   } else if(study=="LLYL17") {
     # 20191102 Tetragenococcus halophilus NaCl adjustment, Lin et al., 2017
     # LLYL17_0, LLYL17_3.5
@@ -63,7 +63,7 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = getOption("basis")) {
     # up-expressed proteins in low or high salinity (0 M / 1 M or 3.5 M / 1 M)
     if(stage=="0") up2 <- dat[, icol] > 0
     if(stage=="3.5") up2 <- dat[, icol] < 0
-    pcomp <- protcomp(dat$UniProtKB.Entry, basis=basis, aa_file=file.path(extdatadir, "aa/bacteria/LLYL17_aa.csv.xz"))
+    pcomp <- protcomp(dat$UniProtKB.Entry, aa_file=file.path(extdatadir, "aa/bacteria/LLYL17_aa.csv.xz"))
   } else if(study=="JSP+19") {
     # 20191102 Haloferax volcanii salt and temperature, Jevtić et al., 2019
     # JSP+19_LoS, JSP+19_HiS, JSP+19_LoT, JSP+19_HiT
@@ -78,10 +78,10 @@ pdat_osmotic_halo <- function(dataset = 2020, basis = getOption("basis")) {
     up2 <- dat[, icol[1]] > 0
     # remove NA accessions
     dat <- cleanup(dat, "UniProt.Accession", up2)
-    pcomp <- protcomp(dat$UniProt.Accession, basis=basis, aa_file=file.path(extdatadir, "aa/archaea/JSP+19_aa.csv.xz"))
+    pcomp <- protcomp(dat$UniProt.Accession, aa_file=file.path(extdatadir, "aa/archaea/JSP+19_aa.csv.xz"))
   } else stop(paste("osmotic_halo dataset", dataset, "not available"))
   print(paste0("pdat_osmotic_halo: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407
   if("up2" %in% colnames(dat)) up2 <- dat$up2
-  return(list(dataset=dataset, basis=basis, pcomp=pcomp, up2=up2, names=names, description=description))
+  return(list(dataset=dataset, pcomp=pcomp, up2=up2, names=names, description=description))
 }
