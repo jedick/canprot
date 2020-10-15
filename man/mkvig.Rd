@@ -1,7 +1,6 @@
 \encoding{UTF-8}
 \name{mkvig}
 \alias{mkvig}
-\alias{mkoldvig}
 \title{Compile and View Vignettes from the Command Line}
 \description{
 Compile the indicated vignette and open it in the browser.
@@ -9,7 +8,6 @@ Compile the indicated vignette and open it in the browser.
 
 \usage{
   mkvig(vig = NULL)
-  mkoldvig(vig = NULL)
 }
 
 \arguments{
@@ -25,8 +23,6 @@ The available vignettes for \code{mkvig} are listed here:
     \item \emph{Cell culture} -- \samp{hypoxia}, \samp{secreted}, \samp{osmotic_bact}, \samp{osmotic_euk}, \samp{osmotic_halo}, \samp{glucose}, \samp{3D}
     \item \emph{Cancer} -- \samp{breast}, \samp{colorectal}, \samp{liver}, \samp{lung}, \samp{pancreatic}, \samp{prostate}
 }
-
-\code{mkoldvig} makes old (2017) versions of the vignettes, including \samp{colorectal}, \samp{pancreatic}, \samp{hypoxia}, and \samp{hyperosmotic}.
 
 Note that pandoc (including pandoc-citeproc), as a system dependency of \pkg{rmarkdown}, must be available.
 See \pkg{rmarkdown}'s \samp{pandoc} vignette (\url{https://CRAN.R-project.org/package=rmarkdown/vignettes/pandoc.html}) for installation tips.

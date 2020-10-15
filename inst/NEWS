@@ -11,7 +11,7 @@ CHANGES IN canprot 1.0.2 (2020-08-29)
 - Add test that compositional metrics calculated using H2OAA() and ZCAA() are
   equal to values calculated with functions in CHNOSZ.
 
-- Add mkoldvig() to compile old (2017) versions of vignettes.
+- Move extdata/oldvignettes to JMDplots package (extdata/cpcp).
 
 CHANGES IN canprot 1.0.1 (2020-08-02)
 -------------------------------------

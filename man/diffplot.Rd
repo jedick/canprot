@@ -66,7 +66,7 @@ The overall style of the plot is controlled by \code{oldstyle}.
     \code{probs} specifies the probability levels; add more values to \code{probs} to get more contours.
   }
   \item{\code{oldstyle = TRUE}}{
-    This style is used for the historical (2017) vignettes in the \code{oldvignettes} directory (see \code{\link{mkoldvig}}).
+    This style was used for the historical (2017) vignettes, which have been moved to \pkg{JMDplots} (see the \samp{extdata/cpcp} directory there).
     For each dataset, the point symbol is a filled square if the \emph{p}-values of both the x-variable and y-variable are less than 0.05, a filled circle if the \emph{p}-value of one of the x- or y-variables is less than 0.05, and an open circle otherwise.
     A solid line is drawn from the point to the corresponding axis if the rounded, absolute value of (\code{\link{CLES}} in percent - 50) of the x- or y-variable is greater than or equal 10.
     Otherwise, a dashed line is drawn from the point to the corresponding axis if the \emph{p}-value of the x- or y-variable is less than 0.05.
