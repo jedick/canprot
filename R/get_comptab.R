@@ -57,7 +57,7 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   if(plot.it) {
     # set symbol shape and color
     # hollow red square for up, filled blue circle for down in cancer
-    col <- ifelse(pdat$up2, cpcol$red, cpcol$blue)
+    col <- ifelse(pdat$up2, 2, 4)
     pch <- ifelse(pdat$up2, 0, 19)
     cex <- ifelse(pdat$up2, 1, 0.8)
     # shuffle the order of points to mitigate overplotting effects

@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.0.2 (2020-08-29)
+CHANGES IN canprot 1.0.2 (2020-10-15)
 -------------------------------------
 
 - options("basis") is now used to control the basis species used for
@@ -11,7 +11,9 @@ CHANGES IN canprot 1.0.2 (2020-08-29)
 - Add test that compositional metrics calculated using H2OAA() and ZCAA() are
   equal to values calculated with functions in CHNOSZ.
 
-- Move extdata/oldvignettes to JMDplots package (extdata/cpcp).
+- Move Ehplot(), rankdiff(), rankplot(), groupplots(), mergedplot(),
+  get_colors(), and old vignettes (extdata/oldvignettes) to JMDplots package
+  (extdata/cpcp).
 
 CHANGES IN canprot 1.0.1 (2020-08-02)
 -------------------------------------

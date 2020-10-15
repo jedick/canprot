@@ -20,6 +20,10 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   Dx <- paste0("D", strsplit(vars[1], "_")[[1]][1])
   Dy <- paste0("D", strsplit(vars[2], "_")[[1]][1])
   if(oldstyle) {
+    # "oldstyle" labels including overbar
+    cplabbar <- cplab
+    cplabbar$nH2O <- expression(bar(italic(n))[H[2]*O])
+    cplabbar$DnH2O <- expression(Delta*bar(italic(n))[H[2]*O])
     xvar <- cplabbar[[Dx]][[1]]
     yvar <- cplabbar[[Dy]][[1]]
     # for oldstyle plots, also get common language effect size and p-value

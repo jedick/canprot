@@ -1,8 +1,8 @@
 # Exported variables
 export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
-"rankdiff", "rankplot", "Ehplot", "pdat_colorectal", "diffplot",
-"get_colors", "pdat_pancreatic", "pdat_hypoxia",
-"groupplots", "mergedplot", "human", "cleanup",
+"pdat_colorectal", "diffplot",
+"pdat_pancreatic", "pdat_hypoxia",
+"human", "cleanup",
 # metrics added 20191005 - 20191027
 "ZCAA", "H2OAA", "GRAVY", "pI",
 # 20191127, #20191205
@@ -26,17 +26,15 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 )
 
 # Imports from default packages
-importFrom("stats", "na.omit", "median", "loess", "predict", "quantile", "approx",
+importFrom("stats", "na.omit", "median", "predict", "quantile", "approx",
 "ecdf", "knots", "pnorm", "sd")
 
 importFrom("utils", "read.csv", "relist", "capture.output", "write.table", "data",
-"combn", "read.table", "browseURL")
+"combn", "browseURL")
 
-importFrom("graphics", "mtext", "plot", "title", "box", "contour", "image",
-"lines", "text", "abline", "points", "rect",  "grconvertX", "grconvertY", "par",
+importFrom("graphics", "mtext", "plot", "title", "box", "contour",
+"lines", "text", "abline", "points", "rect", "par",
 "plot.new", "legend")
-
-importFrom("grDevices", "contourLines")
 
 # Imports from CHNOSZ
 importFrom("CHNOSZ", "subcrt", "convert", "aminoacids", "label.figure",
