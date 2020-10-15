@@ -2,6 +2,7 @@
 \name{metrics}
 \alias{metrics}
 \alias{H2OAA}
+\alias{O2AA}
 \alias{ZCAA}
 \alias{GRAVY}
 \alias{pI}
@@ -15,6 +16,7 @@ These functions calculate compositional metrics of proteins given a data frame o
 \usage{
   ZCAA(AAcomp, nothing = NULL)
   H2OAA(AAcomp, basis = getOption("basis"))
+  O2AA(AAcomp, basis = getOption("basis"))
   GRAVY(AAcomp)
   pI(AAcomp)
   MWAA(AAcomp)
@@ -43,6 +45,9 @@ The metrics are described below:
     \item{\samp{QCa} - glutamine, cysteine, acetic acid, \H2O, \O2; Dick et al., 2020}
     \item{Any other valid basis specification for \code{\link[CHNOSZ]{basis}}, such as \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2}
   }
+}
+\item{\code{O2AA}}{Stoichiometric oxidation state (\nO2) per residue.
+  The same basis species can be used as in the \nH2O calculation.
 }
 \item{\code{GRAVY}}{Grand average of hydropathicity.
   Values of the hydropathy index for individual amino acids are from Kyte and Doolittle (1982).

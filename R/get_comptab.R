@@ -8,6 +8,7 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   # Calculate metrics with canprot functions, not CHNOSZ 202010015
   ZC <- function() ZCAA(pdat$pcomp$aa)
   nH2O <- function() H2OAA(pdat$pcomp$aa, basis = basis)
+  nO2 <- function() O2AA(pdat$pcomp$aa, basis = basis)
   # Calculate protein length 20201015
   #AA3 <- CHNOSZ::aminoacids(3)
   AA3 <- c("Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",

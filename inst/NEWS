@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.0.2 (2020-10-15)
+CHANGES IN canprot 1.1.0 (2020-10-16)
 -------------------------------------
 
 - options("basis") is now used to control the basis species used for
@@ -20,6 +20,9 @@ CHANGES IN canprot 1.0.2 (2020-10-15)
   recomp().
 
 - CHNOSZ is now a suggested package, not a dependency.
+
+- Add O2AA() (stoichiometric oxidation state per residue; i.e. number of O2 in
+  formation reactions from basis species).
 
 CHANGES IN canprot 1.0.1 (2020-08-02)
 -------------------------------------

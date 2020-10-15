@@ -26,6 +26,7 @@ The available variables are:
 \tabular{ll}{
   \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link{ZCAA}}) \cr
   \samp{nH2O} \tab stoichiometric hydration state per residue (\nH2O; see \code{\link{H2OAA}}) \cr
+  \samp{nO2} \tab stoichiometric oxidation state per residue (\nO2; see \code{\link{O2AA}}) \cr
   \samp{V0}   \tab standard molal volume per residue \cr
   \samp{nAA}  \tab protein length (number of amino acids) \cr
   \samp{GRAVY}\tab grand average of hydropathicity (see \code{\link{GRAVY}}) \cr
