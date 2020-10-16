@@ -41,8 +41,8 @@ The metrics are described below:
 \item{\code{H2OAA}}{Stoichiometric hydration state (\nH2O) per residue.
   The available \code{basis} species are:
   \itemize{
-    \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2; Dick, 2017}
-    \item{\samp{QCa} - glutamine, cysteine, acetic acid, \H2O, \O2; Dick et al., 2020}
+    \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2; Dick, 2017; Dick et al., 2020}
+    \item{\samp{QCa} - glutamine, cysteine, acetic acid, \H2O, \O2}
     \item{Any other valid basis specification for \code{\link[CHNOSZ]{basis}}, such as \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2}
   }
 }
