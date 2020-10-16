@@ -14,7 +14,7 @@ pdat_prostate <- function(dataset = 2020) {
              "GLZ+18_acinar", "GLZ+18_ductal", "LAJ+18_PC", "LAJ+18_CRPC", "MAN+18",
              "KRN+19_G1", "KRN+19_G2", "KRN+19_G3", "KRN+19_G4", "KRN+19_G5",
              "MMF+20_GS6", "MMF+20", "TOT+19", "ZYW+19_LG", "ZYW+19_HG",
-             "KHN+20", "SHC+20", "ZZX+20_CiRT"
+             "KHN+20", "LDM+20", "SHC+20", "ZKL+20", "ZZX+20_CiRT"
              ))
   }
   # remove tags
@@ -175,6 +175,19 @@ pdat_prostate <- function(dataset = 2020) {
     dat <- check_IDs(dat, "Protein")
     up2 <- dat[, icol] > 0
     pcomp <- protcomp(dat$Protein)
+  } else if(study=="LDM+20") {
+    # 20201016 PCa / BPH, Latosinska et al., 2020
+    dat <- read.csv(paste0(datadir, "LDM+20.csv.xz"), as.is=TRUE)
+    description <- "PCa / BPH"
+    up2 <- dat$Fold.change..PCa.BPH. >= 1
+    pcomp <- protcomp(dat$UniprotID)
+  } else if(study=="ZKL+20") {
+    # 20201016 mouse Pten gene-knockout prostate cancer, Zhang et al., 2020
+    dat <- read.csv(paste0(datadir, "ZKL+20.csv.xz"), as.is=TRUE)
+    description <- "mouse Pten-KO / WT"
+    up2 <- dat$Average > 1
+    dat <- cleanup(dat, "Accession", up2)
+    pcomp <- protcomp(dat$Accession, aa_file = paste0(extdatadir, "/aa/mouse/ZKL+20_aa.csv.xz"))
   } else stop(paste("prostate dataset", dataset, "not available"))
   print(paste0("pdat_prostate: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190429

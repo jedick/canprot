@@ -20,7 +20,7 @@
 \code{cleanup} is used in the \code{\link{pdat_}} functions to clean up the dataset given in \code{dat}.
 \code{IDcol} is the name of the column that has the UniProt IDs, and \code{up2} indicates the expression change for each protein.
 The function removes proteins with unavailable (NA or "") or duplicated IDs.
-If \code{up2} is provided, the function also remove unquantified proteins (those that have NA values of \code{up2}) and those with ambiguous expression ratios (up and down for the same ID).
+If \code{up2} is provided, the function also removes unquantified proteins (those that have NA values of \code{up2}) and those with ambiguous expression ratios (up and down for the same ID).
 For each operation, a message is printed describing the number of proteins that are \samp{unavailable}, \samp{unquantified}, \samp{ambiguous}, or \samp{duplicated}.
 
 Alternatively, if \code{IDcol} is a logical value, it selects proteins to be unconditionally removed.

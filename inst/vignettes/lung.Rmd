@@ -106,5 +106,7 @@ __t__. Table 1 of @LZW+17.
 __u__. Supplementary Table S2 of @SFS+17 (sheet LF: label-free quantification).
 __v__. Supplementary Table 1 of @WLC+17.
 __w__. __x__. __y__. __z__. __A__. __B__. Gene names from Tables S2--S6 of @YCC+17 filtered to keep proteins with fold change ≥1.5 or ≤2/3 (Oncogene: oncogene-coded proteins; TSG: tumor suppressor gene-coded proteins; Glycoprotein: glycoproteomics data).
+__C__. __D__. Supplemental Table S2 of @KPS+20 for early (stage I-II) and advanced (stage III-IV) adenocarcinomas.
+__E__. Gene names from Table S4D and UniProt IDs from Table S4A of @XZW+20.
 
 ## References

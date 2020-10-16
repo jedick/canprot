@@ -14,7 +14,8 @@ pdat_lung <- function(dataset = 2020) {
              "HHH+16_pN0", "HHH+16_pN1", "HHH+16_pN2.M1", "TLB+16",
              "FGW+17", "LZW+17", "SFS+17_LF", "WLC+17",
              "YCC+17_SqCC.Oncogene", "YCC+17_SqCC.TSG", "YCC+17_SqCC.Glycoprotein",
-             "YCC+17_ADC.Oncogene", "YCC+17_ADC.TSG", "YCC+17_ADC.Glycoprotein"
+             "YCC+17_ADC.Oncogene", "YCC+17_ADC.TSG", "YCC+17_ADC.Glycoprotein",
+             "KPS+20_early", "KPS+20_advanced", "XZW+20"
              ))
   }
   # remove tags
@@ -197,6 +198,24 @@ pdat_lung <- function(dataset = 2020) {
     up2 <- dat$Ratio.114.113 > 1.5
     dat <- cleanup(dat, "Entry", up2)
     pcomp <- protcomp(dat$Entry)
+  } else if(study=="KPS+20") {
+    # 20201016 lung cancer, Kelemen et al., 2020
+    # KPS+20_early, KPS+20_advanced
+    dat <- read.csv(paste0(datadir, "KPS+20.csv.xz"), as.is=TRUE)
+    description <- paste("ADC / adjacent normal", stage)
+    icol <- grep(stage, colnames(dat))
+    dat <- dat[!is.na(dat[, icol]), ]
+    up2 <- dat[, icol] >= 2
+    dat <- cleanup(dat, "Accession", up2)
+    pcomp <- protcomp(dat$Accession)
+  } else if(study=="XZW+20") {
+    # 20201016 lung cancer, Xu et al., 2020
+    dat <- read.csv(paste0(datadir, "XZW+20.csv.xz"), as.is=TRUE)
+    description <- "ADC / non-cancerous adjacent"
+    dat <- check_IDs(dat, "Majority.protein.IDs")
+    up2 <- dat$NAT.vs.tumor == "up"
+    dat <- cleanup(dat, "Majority.protein.IDs", up2)
+    pcomp <- protcomp(dat$Majority.protein.IDs)
   } else stop(paste("lung dataset", dataset, "not available"))
   print(paste0("pdat_lung: ", description, " [", dataset, "]"))
   # use the up2 from the cleaned-up data, if it exists 20190407

@@ -24,6 +24,8 @@ CHANGES IN canprot 1.1.0 (2020-10-16)
 - Add O2AA() (stoichiometric oxidation state per residue; i.e. number of O2 in
   formation reactions from basis species).
 
+- Add datasets lung/KPS+20, lung/XZW+20, prostate/LDM+20, and prostate/ZKL+20.
+
 CHANGES IN canprot 1.0.1 (2020-08-02)
 -------------------------------------
 
