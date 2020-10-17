@@ -33,11 +33,6 @@ Abbreviations:
 
 Gene ages, expressed as phylostratum numbers, are taken from [<span title="Altered interactions between unicellular and multicellular genes drive hallmarks of transformation in a diverse range of solid tumors">Trigos et al., 2017</span>](https://doi.org/10.1073/pnas.1617743114) (TPPG17) or [<span title="Towards consensus gene ages ">Liebeskind et al, 2016</span>](https://doi.org/10.1093/gbe/evw113) (LMM16).
 
-```{r options, echo=FALSE}
-# https://stackoverflow.com/questions/62536479/the-command-exams2html-does-not-generate-html-page-when-it-is-run-from-rstudio
-oldopt <- options(browser = NULL)
-```
-
 <style type="text/css">
 body {
   max-width: 800px;
@@ -108,7 +103,3 @@ __x__. __y__. __z__. Supporting Table 1 of @LPK+19, sheets "3P2P" (mono-cultured
 __A__. Supplementary Table S2 of @DKM+20, filtered to include proteins with fold change > 2 or < 0.5 for all donors.
 
 ## References
-
-```{r reset, include=FALSE}
-options(oldopt)
-```

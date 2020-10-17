@@ -33,11 +33,6 @@ Abbreviations:
 
 Gene ages, expressed as phylostratum numbers, are taken from [<span title="Altered interactions between unicellular and multicellular genes drive hallmarks of transformation in a diverse range of solid tumors">Trigos et al., 2017</span>](https://doi.org/10.1073/pnas.1617743114) (TPPG17) or [<span title="Towards consensus gene ages ">Liebeskind et al, 2016</span>](https://doi.org/10.1093/gbe/evw113) (LMM16).
 
-```{r options, echo=FALSE}
-# https://stackoverflow.com/questions/62536479/the-command-exams2html-does-not-generate-html-page-when-it-is-run-from-rstudio
-oldopt <- options(browser = NULL)
-```
-
 <style type="text/css">
 body {
   max-width: 800px;
@@ -101,7 +96,3 @@ __s__. __t__. Supplementary Table 2 of @MHP+20 (sheets "H9c2" and "HEK").
 __u__. __v__. __w__. __x__. Treatment with high glucose (12.5 mmol/L) or high mannitol (7.0 mmol/L + 5.5 mmol/L glucose) followed by insulin, compared to normal glucose (5.5 mmol/L) followed by insulin. Source: Supplementary Tables S2--S6 of @MPR+20 (proteins uniquely identified in treatment and control conditions).
 
 ## References
-
-```{r reset, include=FALSE}
-options(oldopt)
-```

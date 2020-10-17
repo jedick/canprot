@@ -31,12 +31,6 @@ Abbreviations:
   * <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state per residue ([<span title="Uncovering chemical signatures of salinity gradients through compositional analysis of protein sequences">Dick et al., 2020</span>](https://doi.org/10.5194/bg-2020-146)) computed using the **`r basis`** basis species (`r basis.text(basis)`, H~2~O, O~2~).
   * <i>n</i><sub>AA</sub> &ndash; protein length; MW &ndash; molecular weight per residue.
 
-
-```{r options, echo=FALSE}
-# https://stackoverflow.com/questions/62536479/the-command-exams2html-does-not-generate-html-page-when-it-is-run-from-rstudio
-oldopt <- options(browser = NULL)
-```
-
 <style type="text/css">
 body {
   max-width: 800px;
@@ -106,7 +100,3 @@ __B__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
 __C__. __D__. Supplementary Table 1 of @GBR+20 (column "MMO+NaCl/MMO" for CIRM129 and CIRM1025).
 
 ## References
-
-```{r reset, include=FALSE}
-options(oldopt)
-```
