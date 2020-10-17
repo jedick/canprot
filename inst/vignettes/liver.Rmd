@@ -34,7 +34,8 @@ Abbreviations:
 Gene ages, expressed as phylostratum numbers, are taken from [<span title="Altered interactions between unicellular and multicellular genes drive hallmarks of transformation in a diverse range of solid tumors">Trigos et al., 2017</span>](https://doi.org/10.1073/pnas.1617743114) (TPPG17) or [<span title="Towards consensus gene ages ">Liebeskind et al, 2016</span>](https://doi.org/10.1093/gbe/evw113) (LMM16).
 
 ```{r options, echo=FALSE}
-options(width = 90)
+# https://stackoverflow.com/questions/62536479/the-command-exams2html-does-not-generate-html-page-when-it-is-run-from-rstudio
+oldopt <- options(browser = NULL)
 ```
 
 <style type="text/css">
@@ -117,3 +118,7 @@ __K__. Supporting Information Table S4 of @GZL+20 (sheet "B_Molecule").
 __L__. __M__. Supplementary Tables S1--S2 (proteins with differential expression between non-tumor and tumor regions) and S3--S4 (all proteins identified in each region) of @SCL+20. Common accession numbers in Tables S3 and S4 were eliminated to yield proteins uniquely identified in either tumor or non-tumor regions.
 
 ## References
+
+```{r reset, include=FALSE}
+options(oldopt)
+```

@@ -33,7 +33,8 @@ Abbreviations:
 
 
 ```{r options, echo=FALSE}
-options(width = 90)
+# https://stackoverflow.com/questions/62536479/the-command-exams2html-does-not-generate-html-page-when-it-is-run-from-rstudio
+oldopt <- options(browser = NULL)
 ```
 
 <style type="text/css">
@@ -105,3 +106,7 @@ __B__. Supplementary Table 1 (sheets ">2.0 Fold" and "< 0.5 Fold") of @AST+20.
 __C__. __D__. Supplementary Table 1 of @GBR+20 (column "MMO+NaCl/MMO" for CIRM129 and CIRM1025).
 
 ## References
+
+```{r reset, include=FALSE}
+options(oldopt)
+```

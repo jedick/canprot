@@ -33,7 +33,8 @@ Abbreviations:
 
 
 ```{r options, echo=FALSE}
-options(width = 90)
+# https://stackoverflow.com/questions/62536479/the-command-exams2html-does-not-generate-html-page-when-it-is-run-from-rstudio
+oldopt <- options(browser = NULL)
 ```
 
 <style type="text/css">
@@ -91,3 +92,7 @@ __e__. __f__. Tables S2 and S3 of @LLYL17.
 __g__. __h__. Supporting Table 1C of @JSP+19. Only proteins with at least 2-fold expression difference and marked as significant were included.
 
 ## References
+
+```{r reset, include=FALSE}
+options(oldopt)
+```
