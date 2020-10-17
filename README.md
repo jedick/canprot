@@ -17,8 +17,8 @@ compiled using data from [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/
 plots of compositional differences, phylostrata (for human proteins), and
 references for all datasets.
 
-For more information, see two papers in *PeerJ* ([2016](http://doi.org/10.7717/peerj.2238)
-and [2017](http://doi.org/10.7717/peerj.3421)).
+For more information, see two papers in *PeerJ* ([2016](https://doi.org/10.7717/peerj.2238)
+and [2017](https://doi.org/10.7717/peerj.3421)).
 
 ## Installation from CRAN
 
@@ -44,8 +44,7 @@ This also installs other R packages as dependencies (particularly **xtable**, **
 
 ### Building vignettes
 
-Building the vignettes requires [pandoc](http://pandoc.org/installing.html) to be available on the system.
-See rmarkdown's [Install Pandoc](https://CRAN.R-project.org/package=rmarkdown/vignettes/pandoc.html) vignette for tips on installing pandoc.
+Building the vignettes requires [pandoc](https://pandoc.org) to be available on the system.
 With all the dependencies available, the vignettes can be compiled and viewed using the `mkvig()` function in **canprot**, like this:
 ```R
 library(canprot)

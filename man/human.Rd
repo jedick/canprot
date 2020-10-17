@@ -14,7 +14,7 @@
 \details{
 The amino acid compositions of human proteins are stored in three files under \code{extdata/protein}.
 \itemize{
-  \item \code{human_base.rds} contains amino acid compositions of canonical isoforms of manually reviewed proteins in the \href{http://www.uniprot.org/}{UniProt} reference human proteome (computed from sequences in \code{UP000005640_9606.fasta.gz}, dated 2016-04-03).
+  \item \code{human_base.rds} contains amino acid compositions of canonical isoforms of manually reviewed proteins in the \href{https://www.uniprot.org/}{UniProt} reference human proteome (computed from sequences in \code{UP000005640_9606.fasta.gz}, dated 2016-04-03).
   \item \code{human_additional.rds} contains amino acid compositions of additional proteins (\ifelse{latex}{\cr}{}\code{UP000005640_9606_additional.fasta.gz}) including isoforms and unreviewed sequences. In version 0.1.5, this file was trimmed to include only those proteins that are used in any of the datasets in the package.
   \item \code{human_extra.csv} contains amino acid compositions of other (\dQuote{extra}) proteins used in a dataset but not listed in one of the files above. These proteins may include obsolete, unreviewed, or newer additions to the UniProt database. Not all sequences here are strictly HUMAN (see the \code{organism} column and the \code{ref} column for the reference keys).
 }

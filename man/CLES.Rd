@@ -114,7 +114,7 @@ range(CLnorm - CLref)
 \references{
   McGraw, Kenneth O. and Wong, S. P. (1992) A common language effect size statistic. \emph{Psychological Bulletin} \bold{11}, 361--365. \doi{10.1037/0033-2909.111.2.361}
 
-  National Center for Health Statistics (1987) \emph{Anthropometric Reference Data and Prevalence of Overweight: United States, 1976-1980.} Data from the National Health Survey, Series 11, No. 238. DHHS Publication (PHS) No. 87-1688. U.S. Government Printing Office, Washington, DC. \url{http://www.cdc.gov/nchs/data/series/sr_11/sr11_238.pdf}
+  National Center for Health Statistics (1987) \emph{Anthropometric Reference Data and Prevalence of Overweight: United States, 1976-1980.} Data from the National Health Survey, Series 11, No. 238. DHHS Publication (PHS) No. 87-1688. U.S. Government Printing Office, Washington, DC. \url{https://www.cdc.gov/nchs/data/series/sr_11/sr11_238.pdf}
 
 }
 
