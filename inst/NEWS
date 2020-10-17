@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.0 (2020-10-16)
+CHANGES IN canprot 1.1.0 (2020-10-17)
 -------------------------------------
 
 - options("basis") is now used to control the basis species used for
@@ -29,6 +29,9 @@ CHANGES IN canprot 1.1.0 (2020-10-16)
 CHANGES IN canprot 1.0.1 (2020-08-02)
 -------------------------------------
 
+- This version was not submitted to CRAN. The package is archived on
+  Zenodo (https://doi.org/10.5281/zenodo.3969800).
+
 - Add 'distribution' argument to CLES(), with default value of 'normal'
   to calculate the common language statistic using the normal curve
   probability. Calculation of the empirical probability (the previous
@@ -41,6 +44,9 @@ CHANGES IN canprot 1.0.1 (2020-08-02)
 
 CHANGES IN canprot 1.0.0 (2020-05-11)
 -------------------------------------
+
+- This version was not submitted to CRAN. The package is archived on
+  Zenodo (https://doi.org/10.5281/zenodo.3820154).
 
 - New datasets: 3D/DKM+20, glucose/BTX+17, breast/LLF+20.
 

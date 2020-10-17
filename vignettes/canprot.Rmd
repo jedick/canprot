@@ -11,6 +11,7 @@ vignette: >
 
 ```{r setup, include=FALSE}
 library(canprot)
+options(width = 72)
 ```
 
 This is a generic vignette for the canprot package.
