@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.0 (2020-10-17)
+CHANGES IN canprot 1.1.0 (2020-10-19)
 -------------------------------------
 
 - options("basis") is now used to control the basis species used for
@@ -12,8 +12,8 @@ CHANGES IN canprot 1.1.0 (2020-10-17)
   equal to values calculated with functions in CHNOSZ.
 
 - Move Ehplot(), rankdiff(), rankplot(), groupplots(), mergedplot(),
-  get_colors(), and old vignettes (extdata/oldvignettes) to JMDplots package
-  (extdata/cpcp).
+  get_colors(), and old vignettes (in extdata/oldvignettes) to JMDplots package
+  (in extdata/cpcp).
 
 - In protcomp(), only return the amino acid composition of proteins; move
   calculation of compositional metrics to get_comptab(); remove unused function

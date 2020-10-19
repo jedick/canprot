@@ -39,7 +39,7 @@ dat <- read.csv(paste0(datadir, dataset, ".csv.xz"), as.is = TRUE)
 up2 <- dat$Ratio..cancer.normal. > 1
 # Remove two unavailable and one duplicated proteins
 dat <- cleanup(dat, "Entry", up2)
-# Now we can calculate the chemical compositions
+# Now we can retrieve the amino acid compositions
 pcomp <- protcomp(dat$Entry)
 
 # Read another data file

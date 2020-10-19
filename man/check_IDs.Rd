@@ -34,7 +34,7 @@ The function keeps the first \dQuote{known} ID for each protein, which must be p
 }
 
 \seealso{
-This function is used extensively by the \code{\link{pdat_}} functions, where it is called before \code{\link{cleanup}}.
+This function is used by the \code{\link{pdat_}} functions, where it is called before \code{\link{cleanup}}.
 }
 
 \examples{

@@ -16,7 +16,7 @@ The amino acid compositions of human proteins are stored in three files under \c
 \itemize{
   \item \code{human_base.rds} contains amino acid compositions of canonical isoforms of manually reviewed proteins in the \href{https://www.uniprot.org/}{UniProt} reference human proteome (computed from sequences in \code{UP000005640_9606.fasta.gz}, dated 2016-04-03).
   \item \code{human_additional.rds} contains amino acid compositions of additional proteins (\ifelse{latex}{\cr}{}\code{UP000005640_9606_additional.fasta.gz}) including isoforms and unreviewed sequences. In version 0.1.5, this file was trimmed to include only those proteins that are used in any of the datasets in the package.
-  \item \code{human_extra.csv} contains amino acid compositions of other (\dQuote{extra}) proteins used in a dataset but not listed in one of the files above. These proteins may include obsolete, unreviewed, or newer additions to the UniProt database. Not all sequences here are strictly HUMAN (see the \code{organism} column and the \code{ref} column for the reference keys).
+  \item \code{human_extra.csv} contains amino acid compositions of other (\dQuote{extra}) proteins used in a dataset but not listed in one of the files above. These proteins may include obsolete, unreviewed, or newer additions to the UniProt database. Most, but not all, sequences here are HUMAN (see the \code{organism} column and the \code{ref} column for the reference keys).
 }
 
 On loading the package, the individual data files are read and combined, and the result is assigned to the \code{human_aa} object in the \code{human} environment.
@@ -42,7 +42,7 @@ The \code{protein} column contains UniProt IDs in the format \code{database|acce
 }
 
 \seealso{
-Amino acid compositions of non-human proteins are stored in directories \code{archaea}, \code{bacteria}, \code{cow}, \code{dog}, \code{mouse}, \code{rat}, and \code{yeast} under \code{extdata/aa}.
+Amino acid compositions of non-human proteins are stored under \code{extdata/aa} in directories \code{archaea}, \code{bacteria}, \code{cow}, \code{dog}, \code{mouse}, \code{rat}, and \code{yeast}.
 These files can be loaded in \code{\link{protcomp}} via the \code{aa_file} argument, which is used e.g. in \code{\link{pdat_osmotic_bact}}.
 }
 

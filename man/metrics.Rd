@@ -36,18 +36,20 @@ The metrics are described below:
 \describe{
 \item{\code{ZCAA}}{Average oxidation state of carbon (\ZC) (Dick, 2014).
   \code{nothing} is an extra argument that does nothing.
-  It is provided so that scripts can be written with \code{\link{do.call}} to run \code{ZCAA} and \code{H2OAA} with the same number of arguments.
+  It is provided so that \code{\link{do.call}} can be used to run \code{ZCAA} or \code{H2OAA} with the same number of arguments.
+
+  This metric is independent of the choice of basis species.
 }
 \item{\code{H2OAA}}{Stoichiometric hydration state (\nH2O) per residue.
   The available \code{basis} species are:
   \itemize{
-    \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2; Dick, 2017; Dick et al., 2020}
+    \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2 (Dick et al., 2020) (this is the default for \code{getOption("basis")})}
     \item{\samp{QCa} - glutamine, cysteine, acetic acid, \H2O, \O2}
     \item{Any other valid basis specification for \code{\link[CHNOSZ]{basis}}, such as \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2}
   }
 }
 \item{\code{O2AA}}{Stoichiometric oxidation state (\nO2) per residue.
-  The same basis species can be used as in the \nH2O calculation.
+  The basis species also affect this calculation.
 }
 \item{\code{GRAVY}}{Grand average of hydropathicity.
   Values of the hydropathy index for individual amino acids are from Kyte and Doolittle (1982).
@@ -66,7 +68,7 @@ The contribution of \H2O from the terminal groups of proteins is counted, so sho
 
 Tests for a few proteins (see examples) indicate that \code{GRAVY} and \code{pI} are equal those calculated with the ProtParam tool (\url{https://web.expasy.org/protparam/}; Gasteiger et al., 2005).
 
-\code{basis.text} is used in the vignettes to generate a textual description of the names of the basis species (other than \H2O and \O2) for one of the keywords \samp{QEC} or \samp{QCa}.
+\code{basis.text} is used in the vignettes to generate a textual description of the names of the basis species, except \H2O and \O2, for one of the keywords \samp{QEC} or \samp{QCa}.
 }
 
 \references{
@@ -75,8 +77,6 @@ Bjellqvist, B., Hughes, G. J., Pasquali, C., Paquet, N., Ravier, F., Sanchez, J.
 Bjellqvist, B. and Basse, B. and Olsen, E. and Celis, J. E. (1994) Reference points for comparisons of two-dimensional maps of proteins from different human cell types defined in a {pH} scale where isoelectric points correlate with polypeptide compositions. \emph{Electrophoresis} \bold{15}, 529--539. \doi{10.1002/elps.1150150171}
 
 Dick, J. M. (2014) Average oxidation state of carbon in proteins. \emph{J. R. Soc. Interface} \bold{11}, 20131095. \doi{10.1098/rsif.2013.1095}
-
-Dick, J. M. (2017) Chemical composition and the potential for proteomic transformation in cancer, hypoxia, and hyperosmotic stress. \emph{PeerJ} \bold{5}, e3421. \doi{10.7717/peerj.3421}
 
 Dick, J. M., Yu, M. and Tan, J. (2020) Uncovering chemical signatures of salinity gradients through compositional analysis of protein sequences. \emph{Biogeosciences Discussions}. \doi{10.5194/bg-2020-146}
 
@@ -87,7 +87,7 @@ Kyte, J. and Doolittle, R. F. (1982) A simple method for displaying the hydropat
 
 \seealso{
 Use \code{\link{PS}} to get phylostrata of proteins (based on matching IDs in a data file, not amino acid composition).
-For calculations of \ZC from chemical formulas of organic molecules (not only proteins), use the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
+For calculation of \ZC from a chemical formula instead of amino acid composition, see the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
 }
 
 \examples{

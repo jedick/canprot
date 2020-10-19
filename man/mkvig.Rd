@@ -15,8 +15,8 @@ Compile the indicated vignette and open it in the browser.
 }
 
 \details{
-Starting with version 0.2, in order to reduce package space and check time, pre-built vignettes are not included in the package.
-\code{mkvig} was added to compile the vignettes on demand and view them in a browser.
+In order to reduce package space and check time, pre-built vignettes are not included in the package.
+\code{mkvig} is a convenience function to compile the vignettes on demand and view them in a browser.
 
 The available vignettes for \code{mkvig} are listed here:
 \itemize{
@@ -24,7 +24,7 @@ The available vignettes for \code{mkvig} are listed here:
     \item \emph{Cancer} -- \samp{breast}, \samp{colorectal}, \samp{liver}, \samp{lung}, \samp{pancreatic}, \samp{prostate}
 }
 
-Note that pandoc (including pandoc-citeproc), as a system dependency of \pkg{rmarkdown}, must be available.
+Note that pandoc (including pandoc-citeproc), as a system dependency of \pkg{rmarkdown}, is required to build the vignettes.
 }
 
 \seealso{

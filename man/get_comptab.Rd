@@ -35,12 +35,14 @@ The available variables are:
   \samp{PS_LMM16}   \tab phylostratum (see \code{\link{PS}}) \cr
   \samp{MW}   \tab molecular weight per residue \cr
 }
-Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
-The \code{basis} argument is used to select the basis species (the default is \samp{QEC}; see \code{\link{H2OAA}}).
-
 Differentially expressed proteins are identified by the value of \code{pdat$up2} (TRUE for up-regulated proteins and FALSE for down-regulated proteins).
 The differences are calculated as (median for up-regulated proteins) - (median for down-regulated proteins); if \code{mfun} is \samp{mean}, means of the groups are used instead.
 If \code{oldstyle} is TRUE, the function also calculates the common language effect size (\code{\link{CLES}}, in percent) and \emph{p}-value for each variable.
+
+The \code{basis} argument is used to select the basis species, which are used for the calculation of \nH2O and \nO2.
+The default for \code{getOption("basis")} is to use the \samp{QEC} basis species (see \code{\link{metrics}}).
+
+Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
 
 Phylostrata are not compositional metrics, but are retrieved by matching UniProt accession numbers in a data file (see \code{\link{PS}}).
 Because phylostratum numbers are discrete values, mean values are calculated regardless of the value of \code{mfun}.

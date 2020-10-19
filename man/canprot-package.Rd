@@ -5,7 +5,6 @@
 \description{
   \pkg{canprot} is a package for analysis of the chemical compositions of proteins from their amino acid compositions.
   The package compiles datasets for differentially expressed proteins in cancer and cell culture conditions from over 250 studies.
-  It also has tools for the thermodynamic analysis of differentially expressed proteins using the \pkg{CHNOSZ} package.
 }
 
 \section{Overview}{
@@ -16,7 +15,7 @@
   The vignettes have plots for each cancer type and cell culture condition and references for all data sources used.
   Because of their size, pre-built vignette HTML files are not included with the package; use \code{\link{mkvig}} to compile and view any of the vignettes.
 
-  The functions in this package were originally derived from code supporting the papers of Dick (2016 and 2017).
+  The functions in this package were originally derived from code used for the papers of Dick (2016 and 2017).
   Updated data compilations and revised metrics, plots, and vignettes were developed for the papers of Dick et al. (2020) and Dick (2020).
 }
 
