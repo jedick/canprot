@@ -14,7 +14,7 @@ pdat_prostate <- function(dataset = 2020) {
              "GLZ+18_acinar", "GLZ+18_ductal", "LAJ+18_PC", "LAJ+18_CRPC", "MAN+18",
              "KRN+19_G1", "KRN+19_G2", "KRN+19_G3", "KRN+19_G4", "KRN+19_G5",
              "MMF+20_GS6", "MMF+20", "TOT+19", "ZYW+19_LG", "ZYW+19_HG",
-             "KHN+20", "LDM+20", "SHC+20", "ZKL+20", "ZZX+20_CiRT"
+             "KHN+20", "LDM+20", "SHC+20", "ZKL+20=mouse", "ZZX+20_CiRT"
              ))
   }
   # remove tags
