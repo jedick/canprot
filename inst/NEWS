@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.1 (2020-10-19)
+CHANGES IN canprot 1.1.1 (2020-10-21)
 -------------------------------------
 
 - Add "mouse" tag for dataset prostate/ZKL+20 in pdat_prostate().
