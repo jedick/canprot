@@ -1,3 +1,8 @@
+CHANGES IN canprot 1.1.2 (2021-01-28)
+-------------------------------------
+
+- Remove phylostrata and protein mass-length plots from vignettes.
+
 CHANGES IN canprot 1.1.1 (2020-10-21)
 -------------------------------------
 

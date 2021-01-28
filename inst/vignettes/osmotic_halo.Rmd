@@ -24,11 +24,12 @@ basis <- getOption("basis")
 ```
 
 This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics for proteins that are differentially expressed in halophiles under hyperosmotic or hypoosmotic conditions.
-The analysis is described in more detail in a manuscript ([<span title="Uncovering chemical signatures of salinity gradients through compositional analysis of protein sequences">Dick et al., 2020</span>](https://doi.org/10.5194/bg-2020-146)).
+The analysis is described in more detail in a paper ([<span title="Uncovering chemical signatures of salinity gradients through compositional analysis of protein sequences">Dick et al., 2020</span>](https://doi.org/10.5194/bg-17-6145-2020)).
 Abbreviations:
 
   * <i>Z</i><sub>C</sub> &ndash; average oxidation state of carbon.
-  * <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state per residue ([<span title="Uncovering chemical signatures of salinity gradients through compositional analysis of protein sequences">Dick et al., 2020</span>](https://doi.org/10.5194/bg-2020-146)) computed using the **`r basis`** basis species (`r basis.text(basis)`, H~2~O, O~2~).
+  * <i>n</i><sub>H<sub>2</sub>O</sub> &ndash; stoichiometric hydration state per residue ([<span title="Uncovering chemical signatures of salinity gradients through compositional analysis of protein sequences">Dick et al., 2020</span>](https://doi.org/10.5194/bg-17-6145-2020)) computed using the **`r basis`** basis species (`r basis.text(basis)`, H~2~O, O~2~).
+  * pI &ndash; isoelectric point; GRAVY &ndash; grand average of hydropathicity.
   * <i>n</i><sub>AA</sub> &ndash; protein length; MW &ndash; molecular weight per residue.
 
 <style type="text/css">
