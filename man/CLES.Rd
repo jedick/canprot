@@ -59,7 +59,7 @@ stopifnot(all.equal(CLES_normal, 0.92, tol = 0.01))
 # and empirical probability is less than 1%
 stopifnot(all.equal(CLES_normal, CLES_empirical, tol = 0.01))
 
-# Example 1.5: Use multiple simulated datasets to show approach of
+# Example 1.5: Use multiple simulated datasets to show approach
 # of empirical probability to normal curve probability
 CLES_empirical_n <- sapply(1:100, function(x) {
   height_female <- rnorm2(n1, M1, SD1)
