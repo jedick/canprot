@@ -41,6 +41,7 @@ Trigos, A. S. and Pearson, R. B. and Papenfuss, A. T. and Goode, D. L. (2017) Al
 
 \seealso{
 Call \code{\link{get_comptab}} with \samp{PS_TPPG17} or \samp{PS_LMM16} as a variable name to calculate mean differences of phylostrata for differentially expressed proteins.
+\code{\link{getphyloaa}} to compute the mean amino acid compositions of proteins in each phylotratum.
 }
 
 \examples{

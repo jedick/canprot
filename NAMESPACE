@@ -24,12 +24,15 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200817
 "basis.text",
 # 20201016
-"O2AA"
+"O2AA",
+# 20210706
+"MaximAct", "getphyloaa"
 )
 
 ## Imports from default packages
 importFrom("graphics", "abline", "lines", "mtext", "par", "points",
-           "rect", "text", "title")
+           "rect", "text", "title", "axis", "screen",
+           "close.screen", "split.screen")
 importFrom("stats", "approx", "ecdf", "knots", "median", "na.omit",
            "pnorm", "sd")
 importFrom("utils", "browseURL", "capture.output", "read.csv",
@@ -37,3 +40,7 @@ importFrom("utils", "browseURL", "capture.output", "read.csv",
 
 ## Imports from MASS
 importFrom("MASS", "kde2d")
+
+## Imports from CHNOSZ
+## needed for MaximAct() 20210706
+importFrom("CHNOSZ", "add.protein", "affinity", "basis", "equilibrate", "thermo")
