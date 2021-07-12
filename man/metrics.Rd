@@ -30,7 +30,9 @@ These functions calculate compositional metrics of proteins given a data frame o
 }
 
 \details{
-Columns in \code{AAcomp} should be named with the three-letter abbreviations for the amino acids (e.g. \samp{Ala}).
+Columns in \code{AAcomp} should be named with the three-letter abbreviations for the amino acids (\samp{Ala}, \samp{Arg}, \ldots).
+Abbreviations are matched without regard to case (e.g. \samp{ALA} is the same as \samp{ala}).
+
 The metrics are described below:
 
 \describe{

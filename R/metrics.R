@@ -16,9 +16,8 @@ ZCAA <- function(AAcomp, nothing=NULL) {
   # the ZC of the amino acids == CHNOSZ::ZC(info(info(aminoacids("")))$formula)
   ZC_AA <- Ztot_AA / nC_AA
   # find columns with names for the amino acids
-  isAA <- colnames(AAcomp) %in% c("Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", 
-    "Leu", "Met", "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr")
-  iAA <- match(colnames(AAcomp)[isAA], names(ZC_AA))
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(ZC_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(ZC_AA)))
   # calculate the nC for all occurrences of each amino acid
   multC <- t(t(AAcomp[, isAA]) * nC_AA[iAA])
   # multiply nC by ZC
@@ -54,8 +53,8 @@ H2OAA <- function(AAcomp, basis = getOption("basis")) {
       Trp = -5, Tyr = -3.5) - 1
   }
   # find columns with names for the amino acids
-  isAA <- colnames(AAcomp) %in% names(nH2O_AA)
-  iAA <- match(colnames(AAcomp)[isAA], names(nH2O_AA))
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nH2O_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nH2O_AA)))
   # calculate total number of H2O in reactions to form proteins
   nH2O <- rowSums(t(t(AAcomp[, isAA]) * nH2O_AA[iAA]))
   # add one to account for terminal groups
@@ -89,8 +88,8 @@ O2AA <- function(AAcomp, basis = getOption("basis")) {
       Thr = -0.25, Val = -1.25, Trp = -1, Tyr = -0.75)
   }
   # find columns with names for the amino acids
-  isAA <- colnames(AAcomp) %in% names(nO2_AA)
-  iAA <- match(colnames(AAcomp)[isAA], names(nO2_AA))
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nO2_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nO2_AA)))
   # calculate total number of O2 in reactions to form proteins
   nO2 <- rowSums(t(t(AAcomp[, isAA]) * nO2_AA[iAA]))
   # divide by number of residues (length of protein)
