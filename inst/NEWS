@@ -3,8 +3,6 @@ CHANGES IN canprot 1.1.1-6 (2021-07-06)
 
 - Remove phylostrata and protein mass-length plots from vignettes.
 
-- Add MaximAct() for maximum activity analysis of protein stability.
-
 CHANGES IN canprot 1.1.1 (2020-10-21)
 -------------------------------------
 

@@ -24,9 +24,7 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200817
 "basis.text",
 # 20201016
-"O2AA",
-# 20210706
-"MaximAct", "getphyloaa"
+"O2AA"
 )
 
 ## Imports from default packages

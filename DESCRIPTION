@@ -1,7 +1,7 @@
-Date: 2021-07-12
+Date: 2021-07-14
 Package: canprot
-Version: 1.1.1-7
-Title: Chemical and Thermodynamic Analysis of Protein Expression
+Version: 1.1.1-8
+Title: Chemical Analysis of Protein Expression Data
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),
       comment = c(ORCID = "0000-0002-0687-5890")),
@@ -13,20 +13,17 @@ Depends: R (>= 3.1.0), CHNOSZ (>= 1.3.2)
 Imports: xtable, MASS, rmarkdown
 Suggests: knitr, testthat
 Description: Chemical analysis of differentially expressed proteins in cancer
-  and cell culture proteomics experiments. The data include lists of up- and
-  down-regulated proteins in different cancer types (breast, colorectal, liver,
-  lung, pancreatic, prostate) and laboratory conditions (hypoxia, hyperosmotic
-  stress, high glucose, 3D cell culture, and proteins secreted in hypoxia),
-  together with amino acid compositions for proteins obtained from UniProt.
-  Functions are provided to calculate chemical parameters including protein
-  length, carbon oxidation state, and stoichiometric hydration state. In
-  addition, phylostrata (evolutionary ages) of protein-coding human genes are
-  compiled using data from Liebeskind et al. (2016) <doi:10.1093/gbe/evw113> and
-  Trigos et al. (2017) <doi:10.1073/pnas.1617743114>. The maximum activity
-  analysis described in Dick (2021) <doi:10.1101/2021.01.29.428804> is
-  implemented to compute optimal values of oxygen fugacity and water activity.
-  The vignettes contain plots of chemical and phylostrata differences and
-  references for all datasets.
+  and cell culture proteomics experiments. The data include >250 published lists
+  of up- and down-regulated proteins in different cancer types (breast,
+  colorectal, liver, lung, pancreatic, prostate) and laboratory conditions
+  (hypoxia, hyperosmotic stress, high glucose, 3D cell culture, and proteins
+  secreted in hypoxia), together with amino acid compositions for proteins
+  obtained from UniProt. Functions are provided to calculate chemical parameters
+  including protein length, carbon oxidation state, and stoichiometric hydration
+  state. In addition, phylostrata (evolutionary ages) of protein-coding human
+  genes are compiled from data of Liebeskind et al. (2016) <doi:10.1093/gbe/evw113>
+  and Trigos et al. (2017) <doi:10.1073/pnas.1617743114>. The vignettes contain
+  plots of chemical and phylostrata differences and references for all datasets.
 Encoding: UTF-8
 License: GPL (>= 2)
 BuildResaveData: no
