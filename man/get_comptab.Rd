@@ -31,8 +31,6 @@ The available variables are:
   \samp{nAA}  \tab protein length (number of amino acids) \cr
   \samp{GRAVY}\tab grand average of hydropathicity (see \code{\link{GRAVY}}) \cr
   \samp{pI}   \tab isoelectric point (see \code{\link{pI}}) \cr
-  \samp{PS_TPPG17}   \tab phylostratum (see \code{\link{PS}}) \cr
-  \samp{PS_LMM16}   \tab phylostratum (see \code{\link{PS}}) \cr
   \samp{MW}   \tab molecular weight per residue \cr
 }
 Differentially expressed proteins are identified by the value of \code{pdat$up2} (TRUE for up-regulated proteins and FALSE for down-regulated proteins).
@@ -43,9 +41,6 @@ The \code{basis} argument is used to select the basis species, which are used fo
 The default for \code{getOption("basis")} is to use the \samp{QEC} basis species (see \code{\link{metrics}}).
 
 Volume is calculated using amino acid group additivity as described by Dick et al. (2006).
-
-Phylostrata are not compositional metrics, but are retrieved by matching UniProt accession numbers in a data file (see \code{\link{PS}}).
-Because phylostratum numbers are discrete values, mean values are calculated regardless of the value of \code{mfun}.
 
 Set \code{plot.it} to \code{TRUE} to make a scatterplot.
 Open red squares and filled blue circles stand for up-regulated and down-regulated proteins, respectively.

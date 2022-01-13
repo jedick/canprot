@@ -9,8 +9,8 @@
 }
 
 \usage{
-  xsummary(comptab, vars=c("ZC", "nH2O"))
-  xsummary2(comptab1, comptab2, comptab3)
+  xsummary(comptab, vars = c("ZC", "nH2O"))
+  xsummary2(comptab1, comptab2)
   xsummary3(comptab1, comptab2, comptab3)
 }
 
@@ -32,7 +32,7 @@ The function also returns (invisibly) the data frame used to make the table; thi
 
 \code{xsummary2} is an updated version that is used in the current vignettes in the package.
 It shows negative numbers in bold (\emph{p}-value and CLES are not shown).
-\code{xsummary3} is a further revision that shows GRAVY and pI instead of phylostrata; it is used in the \samp{osmotic_bact} and \samp{osmotic_halo} vignettes.
+\code{xsummary3} is a further revision that shows GRAVY and pI; it is used in the \samp{osmotic_bact} and \samp{osmotic_halo} vignettes.
 }
 
 \examples{

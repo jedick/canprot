@@ -3,22 +3,20 @@
 
 # canprot
 
-Compositional analysis of differentially expressed proteins in cancer and cell
-culture proteomics experiments. The data include lists of up- and
-down-regulated proteins in different types of cancer (breast, colorectal,
-liver, lung, pancreatic, prostate) and laboratory conditions (hypoxia,
-hyperosmotic stress, high glucose, 3D cell culture, and proteins secreted in
-hypoxia), together with amino acid compositions computed for protein sequences
-obtained from UniProt. Functions are provided to calculate compositional metrics
-including protein length, carbon oxidation state, and stoichiometric hydration
-state. In addition, phylostrata (evolutionary ages) of protein-coding genes are
-compiled using data from [Liebeskind et al. (2016)](https://doi.org/10.1093/gbe/evw113) or
-[Trigos et al. (2017)](https://doi.org/10.1073/pnas.1617743114). The vignettes contain
-plots of compositional differences, phylostrata (for human proteins), and
-references for all datasets.
+Chemical analysis of differentially expressed proteins in cancer and cell
+culture proteomics experiments. The data files are derived from >250 published
+lists of up- and down-regulated proteins in different cancer types (breast,
+colorectal, liver, lung, pancreatic, prostate) and laboratory experiments
+(hypoxia, hyperosmotic stress, high glucose, 3D cell culture, and proteins
+secreted in hypoxia), together with amino acid compositions for proteins
+obtained from UniProt. Functions are provided to calculate chemical metrics
+such as protein length, carbon oxidation state, and stoichiometric hydration
+state following methods described by [Dick et al.
+(2020)](https://doi.org/10.5194/bg-17-6145-2020).  The vignettes have plots of
+differences of chemical metrics between up- and down-regulated proteins and
+literature references for all datasets.
 
-For more information, see two papers in *PeerJ* ([2016](https://doi.org/10.7717/peerj.2238)
-and [2017](https://doi.org/10.7717/peerj.3421)).
+If you use this package, please cite [Dick (2021)](https://doi.org/10.1002/cso2.1007).
 
 ## Installation from CRAN
 

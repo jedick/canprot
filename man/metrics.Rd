@@ -88,7 +88,6 @@ Kyte, J. and Doolittle, R. F. (1982) A simple method for displaying the hydropat
 }
 
 \seealso{
-Use \code{\link{PS}} to get phylostrata of proteins (based on matching IDs in a data file, not amino acid composition).
 For calculation of \ZC from a chemical formula instead of amino acid composition, see the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
 }
 

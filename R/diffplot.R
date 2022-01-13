@@ -39,20 +39,11 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   }
   # use colnames to figure out whether the difference is of the mean or median
   if(is.null(labtext)) {
-    # special labels for TPPG17-LMM16 phylostrata plots 20200501
-    if(identical(vars, c("PS_TPPG17", "PS_LMM16"))) {
-      xparen <- "(TPPG17)"
-      yparen <- "(LMM16)"
-    } else {
-      # treat the x- and y-variables separately in case one is median and one is mean (possible with PS) 20191127
-      xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
-      yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
-      # if that didn't work, fall back to "median", or "mean" for PS 20191129
-      if(!xfun %in% c("median", "mean")) xfun <- ifelse(grepl("PS", vars[1]), "mean", "median")
-      if(!yfun %in% c("median", "mean")) yfun <- ifelse(grepl("PS", vars[2]), "mean", "median")
-      xparen <- paste0("(", xfun, " difference)")
-      yparen <- paste0("(", yfun, " difference)")
-    }
+    # treat the x- and y-variables separately in case one is median and one is mean (possible with phylostrata) 20191127
+    xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
+    yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
+    xparen <- paste0("(", xfun, " difference)")
+    yparen <- paste0("(", yfun, " difference)")
   } else {
     labtext <- rep(labtext, length.out = 2)
     if(is.list(labtext)) lt1 <- labtext[[1]] else lt1 <- labtext[1]
@@ -152,12 +143,6 @@ cplab <- list(
   DGRAVY = expression(Delta*"GRAVY"),
   pI = "pI",
   DpI = expression(Delta*"pI"),
-  PS = "PS",
-  DPS = expression(Delta*"PS"),
-  PS_TPPG17 = "PS (TPPG17)",
-  DPS_TPPG17 = expression(Delta*"PS (TPPG17)"),
-  PS_LMM16 = "PS (LMM16)",
-  DPS_LMM16 = expression(Delta*"PS (LMM16)"),
   MW = expression("MW"),
   DMW = expression(Delta * "MW")
 )

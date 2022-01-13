@@ -41,9 +41,6 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   # canprot:: is used to access the functions in the package namespace, not the ones defined here
   GRAVY <- function() canprot::GRAVY(pdat$pcomp$aa)
   pI <- function() canprot::pI(pdat$pcomp$aa)
-  # PS (phylostrata) added 20191127
-  PS_TPPG17 <- function() PS(pdat$pcomp$uniprot, source = "TPPG17")
-  PS_LMM16 <- function() PS(pdat$pcomp$uniprot, source = "LMM16")
   # MW (molecular weight) added 20200501
   MW <- function() MWAA(pdat$pcomp$aa)
 
@@ -69,21 +66,10 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   val2_up <- val2[pdat$up2]
   message(paste0(pdat$dataset, " (", pdat$description ,"): n1 ", length(val1_dn), ", n2 ", length(val1_up)))
   # calculate difference of means/medians, CLES, p-value
-  # always use mean for PS 20191127
-  if(var1 %in% c("PS", "PS_TPPG17", "PS_LMM16")) {
-    mfun1_dn <- mean(val1_dn, na.rm = TRUE)
-    mfun1_up <- mean(val1_up, na.rm = TRUE)
-  } else {
-    mfun1_dn <- get(mfun)(val1_dn)
-    mfun1_up <- get(mfun)(val1_up)
-  }
-  if(var2 %in% c("PS", "PS_TPPG17", "PS_LMM16")) {
-    mfun2_dn <- mean(val2_dn, na.rm = TRUE)
-    mfun2_up <- mean(val2_up, na.rm = TRUE)
-  } else {
-    mfun2_dn <- get(mfun)(val2_dn)
-    mfun2_up <- get(mfun)(val2_up)
-  }
+  mfun1_dn <- get(mfun)(val1_dn)
+  mfun1_up <- get(mfun)(val1_up)
+  mfun2_dn <- get(mfun)(val2_dn)
+  mfun2_up <- get(mfun)(val2_up)
   val1.diff <- mfun1_up - mfun1_dn
   val2.diff <- mfun2_up - mfun2_dn
   out <- data.frame(dataset=pdat$dataset, description=pdat$description,
@@ -117,7 +103,5 @@ get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="media
   colnames(out) <- gsub("val2", var2, colnames(out))
   # convert colnames
   if(mfun == "mean") colnames(out) <- gsub("median", "mean", colnames(out))
-  iPS <- grepl("PS", colnames(out))
-  if(any(iPS)) colnames(out)[iPS] <- gsub("median", "mean", colnames(out)[iPS])
   return(invisible(out))
 }

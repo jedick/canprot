@@ -1,6 +1,6 @@
-Date: 2022-01-07
+Date: 2022-01-13
 Package: canprot
-Version: 1.1.1-9
+Version: 1.1.1-10
 Title: Chemical Analysis of Protein Expression Data
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),
@@ -13,18 +13,17 @@ Depends: R (>= 3.1.0), CHNOSZ (>= 1.3.2)
 Imports: xtable, MASS, rmarkdown
 Suggests: knitr, testthat
 Description: Chemical analysis of differentially expressed proteins in cancer
-  and cell culture proteomics experiments. The data include >250 published lists
-  of up- and down-regulated proteins in different cancer types (breast,
-  colorectal, liver, lung, pancreatic, prostate) and laboratory conditions
-  (hypoxia, hyperosmotic stress, high glucose, 3D cell culture, and proteins
-  secreted in hypoxia), together with amino acid compositions for proteins
-  obtained from UniProt. Functions are provided to calculate chemical metrics
-  including protein length, carbon oxidation state, and stoichiometric hydration
-  state. In addition, phylostrata (evolutionary ages) of protein-coding human
-  genes are compiled from data of Liebeskind et al. (2016) <doi:10.1093/gbe/evw113>
-  and Trigos et al. (2017) <doi:10.1073/pnas.1617743114>. The vignettes include
-  plots of differences of chemical metrics between up- and down-regulated proteins
-  and references for all datasets.
+  and cell culture proteomics experiments. The data files are derived from >250
+  published lists of up- and down-regulated proteins in different cancer types
+  (breast, colorectal, liver, lung, pancreatic, prostate) and laboratory
+  experiments (hypoxia, hyperosmotic stress, high glucose, 3D cell culture, and
+  proteins secreted in hypoxia), together with amino acid compositions for
+  proteins obtained from UniProt. Functions are provided to calculate chemical
+  metrics such as protein length, carbon oxidation state, and stoichiometric
+  hydration state following methods described by Dick et al. (2020)
+  <doi:10.5194/bg-17-6145-2020>. The vignettes have plots of differences of
+  chemical metrics between up- and down-regulated proteins and literature
+  references for all datasets.
 Encoding: UTF-8
 License: GPL (>= 2)
 BuildResaveData: no
