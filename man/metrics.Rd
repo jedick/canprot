@@ -8,9 +8,9 @@
 \alias{pI}
 \alias{MWAA}
 \alias{basis.text}
-\title{Calculate Compositional Metrics for Proteins}
+\title{Calculate Chemical Metrics for Proteins}
 \description{
-These functions calculate compositional metrics of proteins given a data frame of amino acid compositions.
+These functions calculate chemical metrics of proteins given a data frame of amino acid compositions.
 }
 
 \usage{

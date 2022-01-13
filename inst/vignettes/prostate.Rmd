@@ -23,7 +23,7 @@ if (!nzchar(Sys.which("pngquant"))) pngquant <- NULL
 basis <- getOption("basis")
 ```
 
-This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows compositional metrics for proteins that are differentially expressed in prostate cancer compared to normal tissue.
+This vignette from the R package [canprot](https://github.com/jedick/canprot) version `r packageDescription("canprot")$Version` shows chemical metrics for proteins that are differentially expressed in prostate cancer compared to normal tissue.
 The analysis is described in more detail in a paper ([<span title="Water as a reactant in the differential expression of proteins in cancer">Dick, 2021</a>](https://doi.org/10.1002/cso2.1007)).
 Abbreviations:
 

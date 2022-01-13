@@ -46,7 +46,7 @@ pdat_colorectal <- function(dataset = 2020) {
     # 20150520 up- and down-regulated CRC-associated proteins reported in 4 or more studies, from Jimenez et al., 2010
     description <- "serum biomarkers up / down"
     dat <- read.csv(paste0(datadir, "JKMF10.csv.xz"), as.is=TRUE)
-    # get compositional features
+    # get amino acid compositions
     pcomp <- protcomp(dat$Uniprot.ID)
     up2 <- dat$Change=="UP"
   } else if(study=="KWA+14") {

@@ -1,6 +1,6 @@
 Date: 2022-01-13
 Package: canprot
-Version: 1.1.1-10
+Version: 1.1.1-11
 Title: Chemical Analysis of Protein Expression Data
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),

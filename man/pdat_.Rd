@@ -45,7 +45,7 @@
 
 \details{
 The \code{pdat_} functions assemble lists of up- and down-regulated proteins and retrieve their amino acid compositions using \code{\link{protcomp}}.
-The result can be used with \code{\link{get_comptab}} to make a table of compositional metrics that can then be plotted with \code{\link{diffplot}}.
+The result can be used with \code{\link{get_comptab}} to make a table of chemical metrics that can then be plotted with \code{\link{diffplot}}.
 
 If \code{dataset} is \samp{2020} (the default) or \samp{2017}, the function returns the names of all datasets in the compilation for the respective year.
 

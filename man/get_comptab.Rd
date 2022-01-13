@@ -3,7 +3,7 @@
 \alias{get_comptab}
 \title{Calculate Compositional Differences}
 \description{
-  Compute differences of carbon oxidation state, stoichiometric hydration state and other compositional metrics between groups of up- and down-regulated proteins.
+  Compute differences of carbon oxidation state, stoichiometric hydration state and other chemical metrics between groups of up- and down-regulated proteins.
 }
 
 \usage{

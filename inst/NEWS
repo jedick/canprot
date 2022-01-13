@@ -1,5 +1,5 @@
-CHANGES IN canprot 1.1.1-9 (2022-01-07)
----------------------------------------
+CHANGES IN canprot 1.1.2 (2022-01-14)
+-------------------------------------
 
 - Make metrics (e.g. ZCAA() and H2OAA()) work on single-row _matrices_ (not
   only data frames) of amino acid composition.
@@ -9,8 +9,13 @@ CHANGES IN canprot 1.1.1-9 (2022-01-07)
 
 - Remove phylostrata and protein mass-length plots from vignettes.
 
+- Move phylostrata data to JMDplots package.
+
 CHANGES IN canprot 1.1.1 (2020-10-21)
 -------------------------------------
+
+- This version was not submitted to CRAN. The package is archived on
+  Zenodo (https://doi.org/10.5281/zenodo.4111015).
 
 - Add "mouse" tag for dataset prostate/ZKL+20 in pdat_prostate().
 
