@@ -1,6 +1,6 @@
-Date: 2021-07-14
+Date: 2022-01-07
 Package: canprot
-Version: 1.1.1-8
+Version: 1.1.1-9
 Title: Chemical Analysis of Protein Expression Data
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),
@@ -18,12 +18,13 @@ Description: Chemical analysis of differentially expressed proteins in cancer
   colorectal, liver, lung, pancreatic, prostate) and laboratory conditions
   (hypoxia, hyperosmotic stress, high glucose, 3D cell culture, and proteins
   secreted in hypoxia), together with amino acid compositions for proteins
-  obtained from UniProt. Functions are provided to calculate chemical parameters
+  obtained from UniProt. Functions are provided to calculate chemical metrics
   including protein length, carbon oxidation state, and stoichiometric hydration
   state. In addition, phylostrata (evolutionary ages) of protein-coding human
   genes are compiled from data of Liebeskind et al. (2016) <doi:10.1093/gbe/evw113>
-  and Trigos et al. (2017) <doi:10.1073/pnas.1617743114>. The vignettes contain
-  plots of chemical and phylostrata differences and references for all datasets.
+  and Trigos et al. (2017) <doi:10.1073/pnas.1617743114>. The vignettes include
+  plots of differences of chemical metrics between up- and down-regulated proteins
+  and references for all datasets.
 Encoding: UTF-8
 License: GPL (>= 2)
 BuildResaveData: no

@@ -1,5 +1,11 @@
-CHANGES IN canprot 1.1.1-6 (2021-07-06)
+CHANGES IN canprot 1.1.1-9 (2022-01-07)
 ---------------------------------------
+
+- Make metrics (e.g. ZCAA() and H2OAA()) work on single-row _matrices_ (not
+  only data frames) of amino acid composition.
+
+- Change the package title to use the more appropriate wording "chemical
+  analysis" (not compositional analysis).
 
 - Remove phylostrata and protein mass-length plots from vignettes.
 

@@ -19,7 +19,7 @@ ZCAA <- function(AAcomp, nothing=NULL) {
   isAA <- tolower(colnames(AAcomp)) %in% tolower(names(ZC_AA))
   iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(ZC_AA)))
   # calculate the nC for all occurrences of each amino acid
-  multC <- t(t(AAcomp[, isAA]) * nC_AA[iAA])
+  multC <- t(t(AAcomp[, isAA, drop = FALSE]) * nC_AA[iAA])
   # multiply nC by ZC
   multZC <- t(t(multC) * ZC_AA[iAA])
   # calculate the total ZC and nC, then the overall ZC
@@ -56,11 +56,11 @@ H2OAA <- function(AAcomp, basis = getOption("basis")) {
   isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nH2O_AA))
   iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nH2O_AA)))
   # calculate total number of H2O in reactions to form proteins
-  nH2O <- rowSums(t(t(AAcomp[, isAA]) * nH2O_AA[iAA]))
+  nH2O <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * nH2O_AA[iAA]))
   # add one to account for terminal groups
   nH2O <- nH2O + 1
   # divide by number of residues (length of protein)
-  nH2O / rowSums(AAcomp[, isAA])
+  nH2O / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
 # calculate stoichiometric oxidation state for proteins with given amino acid compositions 20201016
@@ -91,9 +91,9 @@ O2AA <- function(AAcomp, basis = getOption("basis")) {
   isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nO2_AA))
   iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nO2_AA)))
   # calculate total number of O2 in reactions to form proteins
-  nO2 <- rowSums(t(t(AAcomp[, isAA]) * nO2_AA[iAA]))
+  nO2 <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * nO2_AA[iAA]))
   # divide by number of residues (length of protein)
-  nO2 / rowSums(AAcomp[, isAA])
+  nO2 / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
 # calculate GRAVY for amino acid compositions 20191024
@@ -108,9 +108,9 @@ GRAVY <- function(AAcomp) {
   isAA <- colnames(AAcomp) %in% names(Hind)
   iAA <- match(colnames(AAcomp)[isAA], names(Hind))
   # calculate total of hydropathy values for each protein
-  sumHind <- rowSums(t(t(AAcomp[, isAA]) * Hind[iAA]))
+  sumHind <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * Hind[iAA]))
   # divide by length of proteins to get grand average of hydropathy (GRAVY)
-  sumHind / rowSums(AAcomp[, isAA])
+  sumHind / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
 # calculate isoelectric point for proteins 20191026
@@ -137,7 +137,7 @@ pI <- function(AAcomp) {
   # NOTE: apply() converts the input to matrix,
   # so we extract the numeric columns of AAcomp to avoid possible coercion of all values to character
   isnum <- unlist(lapply(AAcomp, "class")) %in% c("integer", "numeric")
-  myAA <- AAcomp[, isnum]
+  myAA <- AAcomp[, isnum, drop = FALSE]
   # run the calculation for each composition
   apply(myAA, 1, onepI)
 }
@@ -157,11 +157,11 @@ MWAA <- function(AAcomp) {
   isAA <- colnames(AAcomp) %in% names(MW_AA)
   iAA <- match(colnames(AAcomp)[isAA], names(MW_AA))
   # calculate total MW of residues in each protein
-  MW <- rowSums(t(t(AAcomp[, isAA]) * MW_AA[iAA]))
+  MW <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * MW_AA[iAA]))
   # add terminal H2O
   MW <- MW + 18.01528
   # divide by number of residues (length of protein)
-  MW / rowSums(AAcomp[, isAA])
+  MW / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
 basis.text <- function(basis) {

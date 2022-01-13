@@ -20,3 +20,19 @@ test_that("H2OAA() and ZCAA() give expected results", {
   expect_equivalent(ZC.ref, ZC.calc)
 })
 
+test_that("H2OAA() and ZCAA() also work on _matrices_ with one row", {
+  # Added on 20220107 for canprot 1.1.2 (functionality used in JMDplots::getmetrics)
+  library(CHNOSZ)
+  # Get data frames for proteins with identifiers and amino acid composition
+  AAcomp6 <- thermo()$protein[1:6, ]
+  # Extract a numeric _matrix_ with amino acid composition
+  AAmat6 <- as.matrix(AAcomp6[, 6:25])
+  # Now get just the first row
+  AAmat1 <- AAmat6[1, , drop = FALSE]
+
+  # Make the tests
+  expect_equivalent(ZCAA(AAcomp6), ZCAA(AAmat6))
+  expect_equivalent(H2OAA(AAcomp6), H2OAA(AAmat6))
+  expect_equivalent(ZCAA(AAmat6)[1], ZCAA(AAmat1))
+  expect_equivalent(H2OAA(AAmat6)[1], H2OAA(AAmat1))
+})
