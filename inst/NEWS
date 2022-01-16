@@ -1,15 +1,16 @@
-CHANGES IN canprot 1.1.2 (2022-01-14)
+CHANGES IN canprot 1.1.2 (2022-01-17)
 -------------------------------------
+
+- Expand main package vignette.
 
 - Make metrics (e.g. ZCAA() and H2OAA()) work on single-row _matrices_ (not
   only data frames) of amino acid composition.
 
 - Change the package title to use the more appropriate wording "chemical
-  analysis" (not compositional analysis).
+  metrics" (not compositional analysis).
 
-- Remove phylostrata and protein mass-length plots from vignettes.
-
-- Move phylostrata data to JMDplots package.
+- Remove phylostrata and protein mass-length plots from vignettes. Phylostrata
+  tables are now in the JMDplots package (https://github.com/jedick/JMDplots).
 
 CHANGES IN canprot 1.1.1 (2020-10-21)
 -------------------------------------

@@ -1,12 +1,14 @@
 ---
-title: "canprot vignette"
+title: "canprot: Chemical metrics of differentially expressed proteins"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{canprot vignette}
+  %\VignetteIndexEntry{canprot: Chemical metrics of differentially expressed proteins}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: canprot.bib
+csl: elementa.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -14,24 +16,163 @@ library(canprot)
 oldopt <- options(width = 72)
 ```
 
-This is a generic vignette for the canprot package.
+```{r HTML, include=FALSE}
+ZC <- "<i>Z</i><sub>C</sub>"
+nH2O <- "<i>n</i><sub>H<sub>2</sub>O</sub>"
+H2O <- "H<sub>2</sub>O"
+O2 <- "O<sub>2</sub>"
+```
+
+The **canprot** package has lists of differentially expressed proteins compiled from various literature sources and functions to calculate chemical metrics of proteins.
+
+## Calculating chemical metrics
+
+Specify the amino acid composition of a protein in a data frame with column names corresponding to the 3-letter abbreviations of the amino acids.
+This can be done as follows for the dipeptide alanylglycine:
+```{r AG}
+AG <- data.frame(Ala = 1, Gly = 1)
+```
+
+Use the functions `ZCAA` and `H2OAA` to calculate the carbon oxidation state (`r ZC`) and stoichiometric hydration state (`r nH2O`) of the molecule:
+```{r AG_metrics}
+ZCAA(AG)
+H2OAA(AG)
+```
+
+By default, `r nH2O` is calculated from a chemical reaction to form the protein from the basis species glutamine, glutamic acid, cysteine, `r H2O`, and `r O2`, abbreviated as **QEC**.
+To see how this works, consider the formation reaction of alanylglycine, which can be written using functions in the **CHNOSZ** package:
+```{r AG_reaction, message = FALSE}
+CHNOSZ::basis("QEC")
+CHNOSZ::subcrt("alanylglycine", 1)$reaction
+```
+
+Alanylglycine has the same formula as glutamine, so there is no water in the reaction, and `r nH2O` is zero.
+
+### Protein Data 1: CHNOSZ package
+
+For a more practical example, let's try an actual protein, chicken egg-white lysozome, which has the name LYSC\_CHICK in UniProt with accession number [P00698](https://www.uniprot.org/uniprot/P00698).
+The amino acid compositions of this and selected other proteins are available in the **CHNOSZ** package.
+Here we get the amino acid composition and also print the protein length:
+```{r LYSC_CHICK}
+AA <- CHNOSZ::pinfo(CHNOSZ::pinfo("LYSC_CHICK"))
+CHNOSZ::protein.length(AA)
+AA
+```
+
+This data frame has some other identifying information (protein and organism names, reference, accession number in the `abbrv` column) as well as `chains` to indicate the number of polypeptide chains.
+However, the important thing here are the 20 columns with amino acid frequencies; this means we can use the data frame with the functions in **canprot** to calculate chemical metrics:
+```{r LYSC_metrics}
+ZCAA(AA)
+H2OAA(AA)
+```
+
+Now we can look at the formation reaction of LYSC\_CHICK from the **QEC** basis species to see where the value of `r nH2O` comes from.
+```{r LYSC_reaction, message = FALSE}
+CHNOSZ::subcrt("LYSC_CHICK", 1)$reaction
+```
+
+This shows that `r with(CHNOSZ::subcrt("LYSC_CHICK", 1)$reaction, coeff[name == "water"])` water molecules are released in the reaction.
+`r nH2O` is the opposite of this value (because we are counting how many waters go **into** forming the protein), divided by the length of the protein (`r CHNOSZ::protein.length(AA)`), which gives us the value of `r nH2O`: `r H2OAA(AA)`.
+
+`H2OAA` works not by writing the formation reaction for each protein but rather by using precomputed values of `r nH2O` for each amino acid.
+The two methods give equivalent results, as described in @DYT20.
+
+It is important to note that calculating `r ZC` of proteins from those of amino acids requires weighting by number of carbon atoms in each amino acid.
+Using the unweighted mean of `r ZC` of amino acids is a common mistake that leads to artificially higher values for the protein.
+
+### Protein Data 2: canprot package
+
+**canprot** has an extensive list of amino acid compositions of human proteins assembled from UniProt together with proteins from other organisms that have been identified in differential expression studies used in the package (look in these directories in `extdata/aa`: `r paste(dir(system.file("extdata/aa", package = "canprot")), collapse = " ")`).
+If you have a UniProt ID for a human protein, such as `P24298`, use `protcomp` to get the amino acid composition:
+```{r protcomp}
+(pc <- protcomp("P24298"))
+ZCAA(pc$aa)
+```
+
+Next let's use a file with amino acid compositions for non-human proteins, in this case proteins identified in a study of the response of an archaeal organism to salt and temperature stress [@JSP+19].
+Note that high `r ZC` is a characteristic of many proteins in halophiles [@DYT20].
+```{r protcomp_archaea}
+aa_file <- system.file("extdata/aa/archaea/JSP+19_aa.csv.xz", package = "canprot")
+pc <- protcomp("D4GP79", aa_file = aa_file)
+ZCAA(pc$aa)
+```
+
+### Other chemical metrics
+
+There are also functions for calculating the grand average of hydropathicity (GRAVY, which is higher for proteins with more hydrophobic amino acids) and isoelectric point (pI) of proteins.
+There are some limitations of this implementation (see @DYT20 for details), but values for representative proteins are equal to those computed with the ProtParam tool [@GHG+05] in UniProt (see `?pI` for numerical tests).
+```{r GRAVY_pI}
+proteins <- c("LYSC_CHICK", "RNAS1_BOVIN", "AMYA_PYRFU")
+AA <- CHNOSZ::pinfo(CHNOSZ::pinfo(proteins))
+pI(AA)
+GRAVY(AA)
+```
+
+## Retrieving differentially expressed proteins
+
+See `?pdat_` for the functions to get the lists of differentially expressed proteins from different cancer types and experimental conditions.
+Run one of the functions with default arguments to see the list of datasets:
+```{r pdat_3D_datasets}
+pdat_3D()
+```
+
+The letters (from authors' surnames) and 2-digit year are the bibliographic keys; see `system.file("vignettes/cpdat.bib", package = "canprot")` for their BibTeX entries.
+Text after an underscore indicates different experimental groups, and one or more equals signs are used to tag datasets with different attributes; here, `=cancer` means that the experiments involve cancer cells.
+Let's look at one of these datasets, which lists differentially expressed proteins in mesenchymal stromal cells grown as aggregates (i.e. 3D cell culture) compared to those grown in monolayers [@DKM+20].
+```{r pdat_3D}
+pdat <- pdat_3D("DKM+20")
+str(pdat)
+```
+
+We now have the UniProt IDs of the proteins, their amino acid compositions, and whether each protein is up- or down-expressed in the experiments (in the `up2` list element).
+With this in hand, use `get_comptab` to calculate median differences of chemical metrics between the up- and down-regulated proteins.
+Column names with `median1` and `median2` indicate the median values for the down- and up-regulated proteins, respectively, and `diff` is the different between them (median2 minus median1).
+```{r get_comptab}
+(get_comptab(pdat))
+```
+
+`ZC.diff` and `nH2O.diff` are negative, meaning that 3D growth in this experiment results in higher expression of proteins with lower median `r ZC` and `r nH2O`.
+
+The `lapply` function in R makes it easy to compute the metrics for multiple datasets.
+```{r get_comptabs, message = FALSE, results = "hide"}
+datasets <- pdat_3D()
+pdats <- lapply(datasets, pdat_3D)
+comptabs <- lapply(pdats, get_comptab)
+```
+
+Now we can make a plot of the median differences of `r ZC` and `r nH2O` for all of these datasets.
+The points are lettered according to the order of datasets, and the dashed line shows the 50% probability contour; that is, approximately half the datasets are inside the contoured area, and half are outside.
+This plot shows that many 3D cell culture experiments are characterized by both lower carbon oxidation state and lower stoichiometric hydration state of up-expressed than down-expressed proteins compared to growth in monolayers.
+```{r diffplot, fig.width=5, fig.height=5, fig.align = "center"}
+diffplot(comptabs)
+title("3D cell culture vs monolayers")
+```
+
+This is the essence of the vignettes described below.
+These analyses have been used for interpreting the effects of salinity on protein expression [@DYT20] and for describing the chemical features of differentially regulated proteins in multiple cancer types and experimental cell culture conditions [@Dic21].
+
+## Making other vignettes in the package
+
+There is a vignette for each dataset of differentially expressed proteins.
 To save package space and checking time, prebuilt vignettes are not included in the package.
 
-To compile the vignettes on demand and view them in the browser, use the `mkvig()` function.
+Use the `mkvig()` funciton to compile the vignettes on demand and view them in the browser.
 For example, `mkvig("3D")` compiles the vignette for three-dimensional cell culture and then opens it in the browser.
-Each of the vignettes is also available as a demo, which can be run from the browser (`help.start()` > Packages > canprot > Code demos).
+Each of the vignettes is also available as a demo, which can be run from the browser (`help.start()` > Packages > **canprot** > Code demos).
+Building the vignettes requires [pandoc](https://pandoc.org) as a system dependency.
 
-Here is a list of available vignettes:
+Here is the list of available vignettes:
 ```{r vignettes, echo = FALSE}
 functions <- grep("pdat_", ls("package:canprot"), value = TRUE)
 vignettes <- gsub("pdat_", "", functions)
 vignettes
 ```
 
-Note that building the vignettes requires [pandoc](https://pandoc.org) as a system dependency.
-
-The vignettes can be viewed online at <http://chnosz.net/canprot/doc/index.html>.
+The vignettes can be viewed online at <https://chnosz.net/canprot/doc/index.html>.
+Additional vignettes based on data from the Human Protein Atlas (HPA) and The Cancer Genome Atlas (TCGA) are available in the [JMDplots package on GitHub](https://github.com/jedick/JMDplots) (see also <https://chnosz.net/JMDplots/doc/index.html>)
 
 ```{r reset, include=FALSE}
 options(oldopt)
 ```
+
+## References
