@@ -148,4 +148,4 @@ pI_ref <- c(9.32, 8.64, 5.46, 3.37)
 stopifnot(all.equal(as.numeric(pI_calc), pI_ref))
 }
 
-\concept{Chemical composition}
+\concept{Chemical metrics}

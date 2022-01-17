@@ -27,7 +27,7 @@ The **canprot** package has lists of differentially expressed proteins compiled 
 
 ## Calculating chemical metrics
 
-Specify the amino acid composition of a protein in a data frame with column names corresponding to the 3-letter abbreviations of the amino acids.
+Specify the amino acid composition of a protein in a data frame or matrix with column names corresponding to the 3-letter abbreviations of the amino acids.
 This can be done as follows for the dipeptide alanylglycine:
 ```{r AG}
 AG <- data.frame(Ala = 1, Gly = 1)
@@ -151,10 +151,10 @@ title("3D cell culture vs monolayers")
 This is the essence of the vignettes described below.
 These analyses have been used for interpreting the effects of salinity on protein expression [@DYT20] and for describing the chemical features of differentially regulated proteins in multiple cancer types and experimental cell culture conditions [@Dic21].
 
-## Making other vignettes in the package
+## Building the analysis vignettes
 
-There is a vignette for each dataset of differentially expressed proteins.
-To save package space and checking time, prebuilt vignettes are not included in the package.
+There is an analysis vignette for each dataset of differentially expressed proteins.
+To save package space and checking time, prebuilt analysis vignettes are not included in the package.
 
 Use the `mkvig()` funciton to compile the vignettes on demand and view them in the browser.
 For example, `mkvig("3D")` compiles the vignette for three-dimensional cell culture and then opens it in the browser.

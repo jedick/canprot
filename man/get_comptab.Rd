@@ -1,7 +1,7 @@
 \encoding{UTF-8}
 \name{get_comptab}
 \alias{get_comptab}
-\title{Calculate Compositional Differences}
+\title{Calculate Differences of Chemical Metrics}
 \description{
   Compute differences of carbon oxidation state, stoichiometric hydration state and other chemical metrics between groups of up- and down-regulated proteins.
 }
@@ -61,7 +61,7 @@ get_comptab(pd, "nAA", "V0", plot.it = TRUE)
 }
 
 \references{
-Dick, J. M., LaRowe, D. E. and Helgeson, H. C. (2006) Temperature, pressure, and electrochemical constraints on protein speciation: Group additivity calculation of the standard molal thermodynamic properties of ionized unfolded proteins. \emph{Biogeosciences} \bold{3}, 311--336. \url{https://doi.org/10.5194/bg-3-311-2006}
+Dick, J. M., LaRowe, D. E. and Helgeson, H. C. (2006) Temperature, pressure, and electrochemical constraints on protein speciation: Group additivity calculation of the standard molal thermodynamic properties of ionized unfolded proteins. \emph{Biogeosciences} \bold{3}, 311--336. \doi{10.5194/bg-3-311-2006}
 }
 
-\concept{Chemical composition}
+\concept{Chemical metrics}

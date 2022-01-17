@@ -1,10 +1,10 @@
 \name{canprot-package}
 \alias{canprot-package}
 \docType{package}
-\title{Compositional Analysis of Differentially Expressed Proteins}
+\title{Chemical Metrics of Differentially Expressed Proteins}
 \description{
-  \pkg{canprot} is a package for analysis of the chemical compositions of proteins from their amino acid compositions.
-  The package compiles datasets for differentially expressed proteins in cancer and cell culture conditions from over 250 studies.
+  \pkg{canprot} is a package for computing chemical metrics of proteins from their amino acid compositions.
+  The package has datasets for differentially expressed proteins in cancer and cell culture conditions from over 250 studies.
 }
 
 \section{Overview}{
@@ -12,11 +12,11 @@
   The hyperosmotic stress data are divided into bacteria, archaea (both high- and low-salt experiments) and eukaryotes; the latter are further divided into salt and glucose experiments.
   Nearly all datasets use UniProt IDs; if not given in the original publications they have been added using the UniProt mapping tool (\url{https://www.uniprot.org/mapping/}).
 
-  The vignettes have plots for each cancer type and cell culture condition and references for all data sources used.
+  The analysis vignettes have plots for each cancer type and cell culture condition and references for all data sources used.
   Because of their size, pre-built vignette HTML files are not included with the package; use \code{\link{mkvig}} to compile and view any of the vignettes.
 
-  The functions in this package were originally derived from code used for the papers of Dick (2016 and 2017).
-  Updated data compilations and revised metrics, plots, and vignettes were developed for the papers of Dick et al. (2020) and Dick (2020).
+  The functions in this package were originally based on code for the papers of Dick (2016 and 2017).
+  Updated data compilations and revised vignettes were developed by Dick et al. (2020) and Dick (2021).
 }
 
 \examples{
@@ -27,10 +27,6 @@ datafiles <- dir(exprdata, recursive=TRUE)
 print(datafiles)
 # Show the number of data files for each condition
 table(dirname(datafiles))
-}
-
-\seealso{
-  The \pkg{JMDplots} package on GitHub (\url{https://github.com/jedick/JMDplots}) has vignettes showing analysis of data from The Cancer Genome Atlas and The Human Protein Atlas, which are not included here because of the large size of the data files.
 }
 
 \references{

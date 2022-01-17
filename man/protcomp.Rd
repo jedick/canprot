@@ -1,7 +1,7 @@
 \encoding{UTF-8}
 \name{protcomp}
 \alias{protcomp}
-\title{Protein Compositions}
+\title{Amino Acid Compositions}
 \description{
   Get amino acid compositions of proteins.
 }
@@ -36,4 +36,4 @@ The function returns a list with elements \code{uniprot} (UniProt IDs as given i
 protcomp("P24298")
 }
 
-\concept{Chemical composition}
+\concept{Amino acid composition}

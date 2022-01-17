@@ -31,7 +31,7 @@ The median difference is shown by a gray horizontal line drawn between the distr
 }
 
 \examples{
-# Plot the data of Jimenez et al., 2020 for colorectal cancer
+# Plot the data of Jimenez et al., 2010 for colorectal cancer
 pdat <- pdat_colorectal("JKMF10")
 qdist()
 }
@@ -40,4 +40,4 @@ qdist()
 Jimenez, C. R. and Knol, J. C. and Meijer, G. A. and Fijneman, R. J. A. (2010) Proteomics of colorectal cancer: Overview of discovery studies and identification of commonly identified cancer-associated proteins and candidate CRC serum markers. \emph{J. Proteomics} \bold{73}, 1873--1895. \doi{10.1016/j.jprot.2010.06.004}
 }
 
-\concept{Compositional plots}
+\concept{Plotting functions}

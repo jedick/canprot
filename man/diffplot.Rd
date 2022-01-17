@@ -2,7 +2,7 @@
 \name{diffplot}
 \alias{diffplot}
 \alias{cplab}
-\title{Plot Compositional Differences}
+\title{Plot Differences of Chemical Metrics}
 \description{
   Make a plot showing differences of selected chemical metrics.
 }
@@ -90,4 +90,4 @@ comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
 diffplot(comptab, oldstyle = TRUE)
 }
 
-\concept{Compositional plots}
+\concept{Plotting functions}

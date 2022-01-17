@@ -118,4 +118,4 @@ range(CLnorm - CLref)
 
 }
 
-\concept{Statistics}
+\concept{Statistical functions}
