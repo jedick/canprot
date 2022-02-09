@@ -42,7 +42,7 @@ This also installs other R packages as dependencies (particularly **xtable**, **
 ### Building vignettes
 
 The main vignette provides a brief introduction to the package.
-There are separate analysis vignettes for each dataset; these are not built when the packagke is installed.
+There are separate analysis vignettes for each dataset; these are not built when the package is installed.
 
 Building the analysis vignettes requires [pandoc](https://pandoc.org) to be available on the system.
 To compile one of the analysis vignettes and open it in your browser, use the `mkvig()` function in **canprot**, like this:

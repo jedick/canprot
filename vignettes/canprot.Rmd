@@ -23,7 +23,8 @@ H2O <- "H<sub>2</sub>O"
 O2 <- "O<sub>2</sub>"
 ```
 
-The **canprot** package has lists of differentially expressed proteins compiled from various literature sources and functions to calculate chemical metrics of proteins.
+The **canprot** package has functions to calculate chemical metrics of proteins and more than 250 lists of differentially expressed proteins that have been assembled from the literature on hyperosmotic stress and hypoxia, 3D cell culture, and cancer.
+This vignette was compiled on `r Sys.Date()` with **canprot** version `r packageDescription("canprot")$Version`.
 
 ## Calculating chemical metrics
 
