@@ -18,6 +18,7 @@ oldopt <- options(width = 72)
 
 ```{r HTML, include=FALSE}
 ZC <- "<i>Z</i><sub>C</sub>"
+nC <- "<i>n</i><sub>C</sub>"
 nH2O <- "<i>n</i><sub>H<sub>2</sub>O</sub>"
 H2O <- "H<sub>2</sub>O"
 O2 <- "O<sub>2</sub>"
@@ -34,13 +35,14 @@ This can be done as follows for the dipeptide alanylglycine:
 AG <- data.frame(Ala = 1, Gly = 1)
 ```
 
-Use the functions `ZCAA` and `H2OAA` to calculate the carbon oxidation state (`r ZC`) and stoichiometric hydration state (`r nH2O`) of the molecule:
+Use the functions `ZCAA` and `H2OAA` to calculate the carbon oxidation state (`r ZC`) and stoichiometric hydration state (`r nH2O`) of the molecules.
+The value of `r nH2O` is normalized by protein length (i.e. it is divided by the number of amino acid residues), but carbon oxidation state is a per-carbon value, and it is not divided by the number of residues.
 ```{r AG_metrics}
 ZCAA(AG)
 H2OAA(AG)
 ```
 
-By default, `r nH2O` is calculated from a chemical reaction to form the protein from the basis species glutamine, glutamic acid, cysteine, `r H2O`, and `r O2`, abbreviated as **QEC**.
+With default settings, `r nH2O` is calculated from a theoretical overall reaction to form the protein from the basis species glutamine, glutamic acid, cysteine, `r H2O`, and `r O2`, abbreviated as **QEC** (the setting can be viewed with `getOption("basis")`).
 To see how this works, consider the formation reaction of alanylglycine, which can be written using functions in the **CHNOSZ** package:
 ```{r AG_reaction, message = FALSE}
 CHNOSZ::basis("QEC")
@@ -73,13 +75,14 @@ CHNOSZ::subcrt("LYSC_CHICK", 1)$reaction
 ```
 
 This shows that `r with(CHNOSZ::subcrt("LYSC_CHICK", 1)$reaction, coeff[name == "water"])` water molecules are released in the reaction.
-`r nH2O` is the opposite of this value (because we are counting how many waters go **into** forming the protein), divided by the length of the protein (`r CHNOSZ::protein.length(AA)`), which gives us the value of `r nH2O`: `r H2OAA(AA)`.
+`r nH2O` is the opposite of this value (because we are counting how many `r H2O` units go **into** forming the protein), divided by the length of the protein (`r CHNOSZ::protein.length(AA)`), which gives us the value of `r nH2O`: `r H2OAA(AA)`.
 
 `H2OAA` works not by writing the formation reaction for each protein but rather by using precomputed values of `r nH2O` for each amino acid.
 The two methods give equivalent results, as described in @DYT20.
 
-It is important to note that calculating `r ZC` of proteins from those of amino acids requires weighting by number of carbon atoms in each amino acid.
-Using the unweighted mean of `r ZC` of amino acids is a common mistake that leads to artificially higher values for the protein.
+Similarly, `ZCAA` uses precomputed values of `r ZC` and `r nC` (number of carbon atoms) for each amino acid.
+**NOTE**: Calculating `r ZC` of proteins from amino acid frequencies (i.e. abundances or counts in a protein sequence) requires weighting the amino-acid `r ZC` by the number of carbon atoms in each amino acid, in addition to weighting by amino acid frequency.
+Using the unweighted mean of `r ZC` of amino acids is a common mistake that leads to artificially higher values for proteins.
 
 ### Protein Data 2: canprot package
 
