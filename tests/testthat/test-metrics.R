@@ -10,7 +10,7 @@ test_that("H2OAA() and ZCAA() give expected results", {
 
   # Get nH2O and ZC using functions in canprot
   AAcomp <- thermo()$protein[1:6, ]
-  H2O.calc <- H2OAA(AAcomp, "QEC")
+  H2O.calc <- H2OAA(AAcomp, "QEC", terminal_H2O = 1)
   O2.calc <- O2AA(AAcomp, "QEC")
   ZC.calc <- ZCAA(AAcomp)
 

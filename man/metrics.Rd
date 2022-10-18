@@ -15,7 +15,7 @@ These functions calculate chemical metrics of proteins given a data frame of ami
 
 \usage{
   ZCAA(AAcomp, nothing = NULL)
-  H2OAA(AAcomp, basis = getOption("basis"))
+  H2OAA(AAcomp, basis = getOption("basis"), terminal_H2O = 0)
   O2AA(AAcomp, basis = getOption("basis"))
   GRAVY(AAcomp)
   pI(AAcomp)
@@ -27,6 +27,7 @@ These functions calculate chemical metrics of proteins given a data frame of ami
   \item{AAcomp}{data frame, amino acid compositions}
   \item{nothing}{dummy argument}
   \item{basis}{character, basis species}
+  \item{terminal_H2O}{numeric, number of pairs of terminal groups}
 }
 
 \details{
@@ -49,6 +50,8 @@ The metrics are described below:
     \item{\samp{QCa} - glutamine, cysteine, acetic acid, \H2O, \O2}
     \item{Any other valid basis specification for \code{\link[CHNOSZ]{basis}}, such as \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2}
   }
+  Before normalizing by the number of residues, one \nH2O is added for each \code{terminal_H2O} (i.e., number of polypeptide chains).
+  The default of 0 is used to ignore terminal \H2O in the calculation.
 }
 \item{\code{O2AA}}{Stoichiometric oxidation state (\nO2) per residue.
   The basis species also affect this calculation.
@@ -114,7 +117,7 @@ nH2O.GAG <- species("Gly-Ala-Gly")$H2O
 # divide by the length to get residue average (we keep the terminal H-OH)
 nH2O.residue <- nH2O.GAG / 3
 # compare with the value calculated by H2OAA() (-0.2)
-nH2O.H2OAA <- H2OAA(AAcomp, "QEC")
+nH2O.H2OAA <- H2OAA(AAcomp, "QEC", terminal_H2O = 1)
 stopifnot(all.equal(nH2O.residue, nH2O.H2OAA))
 
 # calculate GRAVY for a few proteins
