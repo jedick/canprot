@@ -1,13 +1,13 @@
 # canH2O/R/xsummary3.R
-# make table for new vignettes (with GRAVY and pI)
+# Make table for new vignettes (with GRAVY and pI)
 # 20200418
 
 xsummary3 <- function(comptab1, comptab2, comptab3) {
   ct1 <- do.call(rbind, comptab1)
   ct2 <- do.call(rbind, comptab2)
   ct3 <- do.call(rbind, comptab3)
-  # get all data
-  # include medians or means for up and down groups for making summary .csv files 20200125
+  # Get all data
+  # Include medians or means for up and down groups for making summary .csv files 20200125
   out <- data.frame(
     dataset = ct1$dataset,
     description = ct2$description,
@@ -41,50 +41,50 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
     stringsAsFactors = FALSE
   )
 
-  # prepare table
+  # Prepare table
   x <- out[, c("dataset", "description", "n1", "n2", "ZC.diff", "nH2O.diff",
                "pI.diff", "GRAVY.diff", "nAA.diff", "MW.diff")]
-  # get the publication key from the dataset name
+  # Get the publication key from the dataset name
   publication <- sapply(strsplit(x$dataset, "_"), "[", 1)
-  # format the publication key (monospaced font)
+  # Format the publication key (monospaced font)
   publication <- paste0("<code>", publication, "</code>")
-  # italicize species names (first words in description, surrounded by underscore)
+  # Italicize species names (first words in description, surrounded by underscore)
   x$description <- gsub("^_", "<i>", x$description)
   x$description <- gsub("_", "</i>", x$description)
-  # combine the publication and description
+  # Combine the publication and description
   x$description <- paste0(publication, " (", x$description, ")")
-  # datasets have letter labels
+  # Datasets have letter labels
   x$dataset <- c(letters, LETTERS)[1:nrow(x)]
-  # to save column width, change "dataset" to "set"
+  # To save column width, change "dataset" to "set"
   colnames(x)[1] <- "set"
-  # multiply values of ZC, nH2O and GRAVY by 1000
+  # Multiply values of ZC, nH2O and GRAVY by 1000
   x[, c(5:6, 8)] <- x[, c(5:6, 8)] * 1000
-  # multiply values of pI and MW by 100
+  # Multiply values of pI and MW by 100
   x[, c(7, 10)] <- x[, c(7, 10)] * 100
-  # round values
+  # Round values
   x[, 5:10] <- round(x[, 5:10])
 
-  # put markers around negative values
+  # Put markers around negative values
   for(icol in 5:10) {
     ineg <- x[, icol] < 0
     ineg[is.na(ineg)] <- FALSE
     x[ineg, icol] <- paste("**", x[ineg, icol], "**")
   }
 
-  # create xtable
+  # Create xtable
   x <- xtable::xtable(x, align=c("c", "l", "l", rep("r", ncol(x) - 2)))
   x <- capture.output(xtable::print.xtable(x, type="html",
                                    include.rownames=FALSE,
                                    math.style.exponents=TRUE,
                                    sanitize.text.function=function(x){x}))
 
-  # make the marked negative values bold
+  # Make the marked negative values bold
   x <- gsub("> ** ", "> <B>", x, fixed=TRUE)
   x <- gsub(" ** <", "</B> <", x, fixed=TRUE)
-  # change "NaN" to "NA"
+  # Change "NaN" to "NA"
   x <- gsub("NaN", "NA", x, fixed=TRUE)
 
-  # more formatting of the headers
+  # More formatting of the headers
   x <- gsub("description", "reference (description)", x, fixed=TRUE)
   x <- gsub("n1", "<i>n</i><sub>down</sub>", x, fixed=TRUE)
   x <- gsub("n2", "<i>n</i><sub>up</sub>", x, fixed=TRUE)
@@ -95,7 +95,7 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
   x <- gsub("nAA.diff", "&Delta;<i>n</i><sub>AA</sub>", x, fixed=TRUE)
   x <- gsub("MW.diff", "&Delta;MW", x, fixed=TRUE)
 
-  # done!
+  # Done!
   write.table(x, "", row.names=FALSE, col.names=FALSE, quote=FALSE)
   return(invisible(out))
 }

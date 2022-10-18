@@ -1,6 +1,6 @@
-Date: 2022-06-23
+Date: 2022-10-18
 Package: canprot
-Version: 1.1.2-2
+Version: 1.1.2-3
 Title: Chemical Metrics of Differentially Expressed Proteins
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),
@@ -23,7 +23,7 @@ Description: Chemical metrics of differentially expressed proteins in cancer
   vignettes visualize differences of chemical metrics between up- and
   down-regulated proteins and list literature references for all datasets.
 Encoding: UTF-8
-License: GPL (>= 2)
+License: GPL-3
 BuildResaveData: no
 VignetteBuilder: knitr
 URL: https://github.com/jedick/canprot

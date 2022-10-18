@@ -1,5 +1,5 @@
 # canprot/R/CLES.R
-# calculate common language effect size
+# Calculate common language effect size
 # 20160708 jmd first version, empirical probability only
 # 20200528 add 'distribution' argument and normal curve probability
 
