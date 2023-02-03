@@ -95,54 +95,54 @@ For calculation of \ZC from a chemical formula instead of amino acid composition
 }
 
 \examples{
-# we need CHNOSZ for these examples
+# We need CHNOSZ for these examples
 require(CHNOSZ)
 
-# for reference, compute ZC of alanine and glycine "by hand"
+# For reference, compute ZC of alanine and glycine "by hand"
 ZC.Gly <- ZC("C2H5NO2")
 ZC.Ala <- ZC("C3H7NO2")
-# define the composition of a Gly-Ala-Gly tripeptide
+# Define the composition of a Gly-Ala-Gly tripeptide
 AAcomp <- data.frame(Gly = 2, Ala = 1)
-# calculate the ZC of the tripeptide (value: 0.571)
+# Calculate the ZC of the tripeptide (value: 0.571)
 ZC.GAG <- ZCAA(AAcomp)
-# this is equal to the carbon-number-weighted average of the amino acids
+# This is equal to the carbon-number-weighted average of the amino acids
 nC.Gly <- 2 * 2
 nC.Ala <- 1 * 3
 ZC.average <- (nC.Gly * ZC.Gly + nC.Ala * ZC.Ala) / (nC.Ala + nC.Gly)
 stopifnot(all.equal(ZC.GAG, ZC.average))
 
-# compute the per-residue nH2O of Gly-Ala-Gly
+# Compute the per-residue nH2O of Gly-Ala-Gly
 basis("QEC")
 nH2O.GAG <- species("Gly-Ala-Gly")$H2O
-# divide by the length to get residue average (we keep the terminal H-OH)
+# Divide by the length to get residue average (we keep the terminal H-OH)
 nH2O.residue <- nH2O.GAG / 3
-# compare with the value calculated by H2OAA() (-0.2)
+# Compare with the value calculated by H2OAA() (-0.2)
 nH2O.H2OAA <- H2OAA(AAcomp, "QEC", terminal_H2O = 1)
 stopifnot(all.equal(nH2O.residue, nH2O.H2OAA))
 
-# calculate GRAVY for a few proteins
-# first get the protein index in CHNOSZ's list of proteins
+# Calculate GRAVY for a few proteins
+# First get the protein index in CHNOSZ's list of proteins
 iprotein <- pinfo(c("LYSC_CHICK", "RNAS1_BOVIN", "AMYA_PYRFU"))
-# then get the amino acid compositions
+# Then get the amino acid compositions
 AAcomp <- pinfo(iprotein)
-# then calculate GRAVY
+# Then calculate GRAVY
 Gcalc <- as.numeric(GRAVY(AAcomp))
-# these are equal to values obtained with ProtParam on uniprot.org
+# These are equal to values obtained with ProtParam on uniprot.org
 # https://web.expasy.org/cgi-bin/protparam/protparam1?P00698@19-147@
 # https://web.expasy.org/cgi-bin/protparam/protparam1?P61823@27-150@
 # https://web.expasy.org/cgi-bin/protparam/protparam1?P49067@2-649@
 Gref <- c(-0.472, -0.663, -0.325)
 stopifnot(all.equal(round(Gcalc, 3), Gref))
-# also calculate molecular weight of the proteins
+# Also calculate molecular weight of the proteins
 MWcalc <- as.numeric(MWAA(AAcomp)) * protein.length(iprotein)
 MWref <- c(14313.14, 13690.29, 76178.25)
 stopifnot(all.equal(round(MWcalc, 2), MWref))
 
-# calculate pI for a few proteins
+# Calculate pI for a few proteins
 iprotein <- pinfo(c("LYSC_CHICK", "RNAS1_BOVIN", "AMYA_PYRFU", "CSG_HALJP"))
 AAcomp <- pinfo(iprotein)
 pI_calc <- pI(AAcomp)
-# reference values calculated with ProtParam on uniprot.org
+# Reference values calculated with ProtParam on uniprot.org
 # LYSC_CHICK: residues 19-147 (sequence v1)
 # RNAS1_BOVIN: residues 27-150 (sequence v1)
 # AMYA_PYRFU: residues 2-649 (sequence v2)

@@ -39,7 +39,7 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   }
   # Use colnames to figure out whether the difference is of the mean or median
   if(is.null(labtext)) {
-    # Treat the x- and y-variables separately in case one is median and one is mean (possible with phylostrata) 20191127
+    # Treat the x- and y-variables separately in case one is median and one is mean 20191127
     xfun <- gsub("1", "", strsplit(grep(vars[1], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
     yfun <- gsub("1", "", strsplit(grep(vars[2], colnames(comptab), value = TRUE)[1], "\\.")[[1]][2])
     xparen <- paste0("(", xfun, " difference)")
@@ -92,7 +92,7 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     # Include points specified by 'contour' 20191102
     Xcont <- X_d[contour]
     Ycont <- Y_d[contour]
-    # Remove NA points (possible with PS (phylostrata)) 20191127
+    # Remove NA points 20191127
     iNA <- is.na(Xcont) | is.na(Ycont)
     Xcont <- Xcont[!iNA]
     Ycont <- Ycont[!iNA]
