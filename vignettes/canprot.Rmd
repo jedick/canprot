@@ -13,6 +13,7 @@ csl: elementa.csl
 
 ```{r setup, include=FALSE}
 library(canprot)
+library(CHNOSZ)
 oldopt <- options(width = 72)
 ```
 

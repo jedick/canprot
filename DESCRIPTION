@@ -1,6 +1,6 @@
-Date: 2023-02-03
+Date: 2023-06-07
 Package: canprot
-Version: 1.1.2-5
+Version: 1.1.2-6
 Title: Chemical Metrics of Differentially Expressed Proteins
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),
@@ -9,9 +9,9 @@ Authors@R: c(
       comment = c(ORCID = "0000-0002-2127-0443"))
     )
 Maintainer: Jeffrey Dick <j3ffdick@gmail.com>
-Depends: R (>= 3.1.0), CHNOSZ (>= 1.3.2)
+Depends: R (>= 3.1.0)
 Imports: xtable, MASS, rmarkdown
-Suggests: knitr, testthat
+Suggests: knitr, testthat, CHNOSZ (>= 1.3.2)
 Description: Chemical metrics of differentially expressed proteins in cancer
   and cell culture proteomics experiments. Data files in the package have amino
   acid compositions of proteins obtained from UniProt and >250 published lists of

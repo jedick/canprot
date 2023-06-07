@@ -36,7 +36,3 @@ importFrom("utils", "browseURL", "capture.output", "read.csv",
 
 ## Imports from MASS
 importFrom("MASS", "kde2d")
-
-## Imports from CHNOSZ
-## needed for MaximAct() 20210706
-importFrom("CHNOSZ", "add.protein", "affinity", "basis", "equilibrate", "thermo")
