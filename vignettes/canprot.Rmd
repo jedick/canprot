@@ -36,11 +36,11 @@ This can be done as follows for the dipeptide alanylglycine:
 AG <- data.frame(Ala = 1, Gly = 1)
 ```
 
-Use the functions `ZCAA` and `H2OAA` to calculate the carbon oxidation state (`r ZC`) and stoichiometric hydration state (`r nH2O`) of the molecules.
+Use the functions `Zc` and `nH2O` to calculate the carbon oxidation state (`r ZC`) and stoichiometric hydration state (`r nH2O`) of the molecules.
 The value of `r nH2O` is normalized by protein length (i.e. it is divided by the number of amino acid residues), but carbon oxidation state is a per-carbon value, and it is not divided by the number of residues.
 ```{r AG_metrics}
-ZCAA(AG)
-H2OAA(AG)
+Zc(AG)
+nH2O(AG)
 ```
 
 With default settings, `r nH2O` is calculated from a theoretical overall reaction to form the protein from the basis species glutamine, glutamic acid, cysteine, `r H2O`, and `r O2`, abbreviated as **QEC** (the setting can be viewed with `getOption("basis")`).
@@ -66,8 +66,8 @@ AA
 This data frame has some other identifying information (protein and organism names, reference, accession number in the `abbrv` column) as well as `chains` to indicate the number of polypeptide chains.
 However, the important thing here are the 20 columns with amino acid frequencies; this means we can use the data frame with the functions in **canprot** to calculate chemical metrics:
 ```{r LYSC_metrics}
-ZCAA(AA)
-H2OAA(AA)
+Zc(AA)
+nH2O(AA)
 ```
 
 Now we can look at the formation reaction of LYSC\_CHICK from the **QEC** basis species to see where the value of `r nH2O` comes from.
@@ -76,12 +76,12 @@ CHNOSZ::subcrt("LYSC_CHICK", 1)$reaction
 ```
 
 This shows that `r with(CHNOSZ::subcrt("LYSC_CHICK", 1)$reaction, coeff[name == "water"])` water molecules are released in the reaction.
-`r nH2O` is the opposite of this value (because we are counting how many `r H2O` units go **into** forming the protein), divided by the length of the protein (`r CHNOSZ::protein.length(AA)`), which gives us the value of `r nH2O`: `r H2OAA(AA)`.
+`r nH2O` is the opposite of this value (because we are counting how many `r H2O` units go **into** forming the protein), divided by the length of the protein (`r CHNOSZ::protein.length(AA)`), which gives us the value of `r nH2O`: `r nH2O(AA)`.
 
-`H2OAA` works not by writing the formation reaction for each protein but rather by using precomputed values of `r nH2O` for each amino acid.
+`nH2O` works not by writing the formation reaction for each protein but rather by using precomputed values of `r nH2O` for each amino acid.
 The two methods give equivalent results, as described in @DYT20.
 
-Similarly, `ZCAA` uses precomputed values of `r ZC` and `r nC` (number of carbon atoms) for each amino acid.
+Similarly, `Zc` uses precomputed values of `r ZC` and `r nC` (number of carbon atoms) for each amino acid.
 **NOTE**: Calculating `r ZC` of proteins from amino acid frequencies (i.e. abundances or counts in a protein sequence) requires weighting the amino-acid `r ZC` by the number of carbon atoms in each amino acid, in addition to weighting by amino acid frequency.
 Using the unweighted mean of `r ZC` of amino acids is a common mistake that leads to artificially higher values for proteins.
 
@@ -91,7 +91,7 @@ Using the unweighted mean of `r ZC` of amino acids is a common mistake that lead
 If you have a UniProt ID for a human protein, such as `P24298`, use `protcomp` to get the amino acid composition:
 ```{r protcomp}
 (pc <- protcomp("P24298"))
-ZCAA(pc$aa)
+Zc(pc$aa)
 ```
 
 Next let's use a file with amino acid compositions for non-human proteins, in this case proteins identified in a study of the response of an archaeal organism to salt and temperature stress [@JSP+19].
@@ -99,7 +99,7 @@ Note that high `r ZC` is a characteristic of many proteins in halophiles [@DYT20
 ```{r protcomp_archaea}
 aa_file <- system.file("extdata/aa/archaea/JSP+19_aa.csv.xz", package = "canprot")
 pc <- protcomp("D4GP79", aa_file = aa_file)
-ZCAA(pc$aa)
+Zc(pc$aa)
 ```
 
 ### Other chemical metrics

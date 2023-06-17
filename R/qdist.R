@@ -4,17 +4,17 @@
 # Quantile distribution for up- and down-regulated proteins
 # First version 20200428
 # Use ecdf() to calculate knots 20200506
-qdist <- function(pdat = pdat_colorectal("JKMF10"), vars = c("ZC", "nH2O"), show.steps = FALSE) {
+qdist <- function(pdat = pdat_colorectal("JKMF10"), vars = c("Zc", "nH2O"), show.steps = FALSE) {
   # Initialize plot
   if(length(vars)==2) par(mfrow = c(2, 1))
   par(yaxs = "i")
   for(var in vars) {
-    if(var=="ZC") {
-      X <- ZCAA(pdat$pcomp$aa)
-      xlab <- cplab$ZC
+    if(var=="Zc") {
+      X <- Zc(pdat$pcomp$aa)
+      xlab <- cplab$Zc
     }
     if(var=="nH2O") {
-      X <- H2OAA(pdat$pcomp$aa)
+      X <- nH2O(pdat$pcomp$aa)
       xlab <- cplab$nH2O
     }
     up <- X[pdat$up2]

@@ -14,9 +14,9 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
     n1 = ct1$n1,
     n2 = ct1$n2,
 
-    ZC.down = ct1$ZC.median1,
-    ZC.up = ct1$ZC.median2,
-    ZC.diff = ct1$ZC.diff,
+    Zc.down = ct1$Zc.median1,
+    Zc.up = ct1$Zc.median2,
+    Zc.diff = ct1$Zc.diff,
 
     nH2O.down = ct1$nH2O.median1,
     nH2O.up = ct1$nH2O.median2,
@@ -42,7 +42,7 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
   )
 
   # Prepare table
-  x <- out[, c("dataset", "description", "n1", "n2", "ZC.diff", "nH2O.diff",
+  x <- out[, c("dataset", "description", "n1", "n2", "Zc.diff", "nH2O.diff",
                "pI.diff", "GRAVY.diff", "nAA.diff", "MW.diff")]
   # Get the publication key from the dataset name
   publication <- sapply(strsplit(x$dataset, "_"), "[", 1)
@@ -57,7 +57,7 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
   x$dataset <- c(letters, LETTERS)[1:nrow(x)]
   # To save column width, change "dataset" to "set"
   colnames(x)[1] <- "set"
-  # Multiply values of ZC, nH2O and GRAVY by 1000
+  # Multiply values of Zc, nH2O and GRAVY by 1000
   x[, c(5:6, 8)] <- x[, c(5:6, 8)] * 1000
   # Multiply values of pI and MW by 100
   x[, c(7, 10)] <- x[, c(7, 10)] * 100
@@ -88,7 +88,7 @@ xsummary3 <- function(comptab1, comptab2, comptab3) {
   x <- gsub("description", "reference (description)", x, fixed=TRUE)
   x <- gsub("n1", "<i>n</i><sub>down</sub>", x, fixed=TRUE)
   x <- gsub("n2", "<i>n</i><sub>up</sub>", x, fixed=TRUE)
-  x <- gsub("ZC.diff", "&Delta;<i>Z</i><sub>C</sub>", x, fixed=TRUE)
+  x <- gsub("Zc.diff", "&Delta;<i>Z</i><sub>C</sub>", x, fixed=TRUE)
   x <- gsub("nH2O.diff", "&Delta;<i>n</i><sub>H<sub>2</sub>O</sub>", x, fixed=TRUE)
   x <- gsub("pI.diff", "&Delta;pI", x, fixed=TRUE)
   x <- gsub("GRAVY.diff", "&Delta;GRAVY", x, fixed=TRUE)

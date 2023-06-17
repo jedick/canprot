@@ -2,7 +2,7 @@
 # Format the summary table using xtable
 # 20160709 jmd
 
-xsummary <- function(comptab, vars=c("ZC", "nH2O")) {
+xsummary <- function(comptab, vars=c("Zc", "nH2O")) {
   # Convert to data frame if needed
   if(!is.data.frame(comptab)) comptab <- do.call(rbind, comptab)
   # Create letter labels
@@ -56,7 +56,7 @@ xsummary <- function(comptab, vars=c("ZC", "nH2O")) {
   x <- gsub(" ++ <", "</U> <", x, fixed=TRUE)
   # Add headers that span multiple columns
   span_empty <- "<th colspan=\"4\"></th>"
-  span_ZC <- "<th colspan=\"3\"><i>Z</i><sub>C</sub></th>"
+  span_Zc <- "<th colspan=\"3\"><i>Z</i><sub>C</sub></th>"
   span_nH2O <- "<th colspan=\"3\"><i>n</i><sub>H<sub>2</sub>O</sub></sub></th>"
   span_nO2 <- "<th colspan=\"3\"><i>n</i><sub>O<sub>2</sub></sub></sub></th>"
   span_nAA <- "<th colspan=\"3\"><i>n</i><sub>AA</sub></th>"

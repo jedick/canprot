@@ -1,14 +1,14 @@
 # canprot/R/get_comptab.R
-# Merge old ZC_nH2O() and CNS() functions, and add volume 20170718
+# Merge old Zc_nH2O() and CNS() functions, and add volume 20170718
 # CNS: elemental abundance (C, N, S) per residue 20170124
-# ZC_nH2O: plot and summarize ZC and nH2O/residue of proteins 20160706
+# Zc_nH2O: plot and summarize Zc and nH2O/residue of proteins 20160706
 
-get_comptab <- function(pdat, var1="ZC", var2="nH2O", plot.it=FALSE, mfun="median", oldstyle = FALSE, basis = getOption("basis")) {
+get_comptab <- function(pdat, var1="Zc", var2="nH2O", plot.it=FALSE, mfun="median", oldstyle = FALSE, basis = getOption("basis")) {
   # Define functions for the possible variables of interest
   # Calculate metrics with canprot functions, not CHNOSZ 202010015
-  ZC <- function() ZCAA(pdat$pcomp$aa)
-  nH2O <- function() H2OAA(pdat$pcomp$aa, basis = basis)
-  nO2 <- function() O2AA(pdat$pcomp$aa, basis = basis)
+  Zc <- function() canprot::Zc(pdat$pcomp$aa)
+  nH2O <- function() canprot::nH2O(pdat$pcomp$aa, basis = basis)
+  nO2 <- function() canprot::nO2(pdat$pcomp$aa, basis = basis)
   # Calculate protein length 20201015
   #AA3 <- CHNOSZ::aminoacids(3)
   AA3 <- c("Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",

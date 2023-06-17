@@ -1,9 +1,9 @@
 \encoding{UTF-8}
 \name{metrics}
 \alias{metrics}
-\alias{H2OAA}
-\alias{O2AA}
-\alias{ZCAA}
+\alias{nH2O}
+\alias{nO2}
+\alias{Zc}
 \alias{GRAVY}
 \alias{pI}
 \alias{MWAA}
@@ -14,9 +14,9 @@ These functions calculate chemical metrics of proteins given a data frame of ami
 }
 
 \usage{
-  ZCAA(AAcomp, nothing = NULL)
-  H2OAA(AAcomp, basis = getOption("basis"), terminal_H2O = 0)
-  O2AA(AAcomp, basis = getOption("basis"))
+  Zc(AAcomp, nothing = NULL)
+  nH2O(AAcomp, basis = getOption("basis"), terminal_H2O = 0)
+  nO2(AAcomp, basis = getOption("basis"))
   GRAVY(AAcomp)
   pI(AAcomp)
   MWAA(AAcomp)
@@ -37,13 +37,13 @@ Abbreviations are matched without regard to case (e.g. \samp{ALA} is the same as
 The metrics are described below:
 
 \describe{
-\item{\code{ZCAA}}{Average oxidation state of carbon (\ZC) (Dick, 2014).
+\item{\code{Zc}}{Average oxidation state of carbon (\Zc) (Dick, 2014).
   \code{nothing} is an extra argument that does nothing.
-  It is provided so that \code{\link{do.call}} can be used to run \code{ZCAA} or \code{H2OAA} with the same number of arguments.
+  It is provided so that \code{\link{do.call}} can be used to run \code{Zc} or \code{nH2O} with the same number of arguments.
 
   This metric is independent of the choice of basis species.
 }
-\item{\code{H2OAA}}{Stoichiometric hydration state (\nH2O) per residue.
+\item{\code{nH2O}}{Stoichiometric hydration state (\nH2O) per residue.
   The available \code{basis} species are:
   \itemize{
     \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2 (Dick et al., 2020) (this is the default for \code{getOption("basis")})}
@@ -53,7 +53,7 @@ The metrics are described below:
   Before normalizing by the number of residues, one \nH2O is added for each \code{terminal_H2O} (i.e., number of polypeptide chains).
   The default of 0 is used to ignore terminal \H2O in the calculation.
 }
-\item{\code{O2AA}}{Stoichiometric oxidation state (\nO2) per residue.
+\item{\code{nO2}}{Stoichiometric oxidation state (\nO2) per residue.
   The basis species also affect this calculation.
 }
 \item{\code{GRAVY}}{Grand average of hydropathicity.
@@ -68,7 +68,7 @@ The metrics are described below:
 \item{\code{MWAA}}{Molecular weight per residue.}
 }
 
-Note that \ZC is a per-carbon average, but \nH2O is a per-residue average.
+Note that \Zc is a per-carbon average, but \nH2O is a per-residue average.
 The contribution of \H2O from the terminal groups of proteins is counted, so shorter proteins have slightly greater \nH2O.
 
 Tests for a few proteins (see examples) indicate that \code{GRAVY} and \code{pI} are equal those calculated with the ProtParam tool (\url{https://web.expasy.org/protparam/}; Gasteiger et al., 2005).
@@ -91,34 +91,34 @@ Kyte, J. and Doolittle, R. F. (1982) A simple method for displaying the hydropat
 }
 
 \seealso{
-For calculation of \ZC from a chemical formula instead of amino acid composition, see the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
+For calculation of \Zc from a chemical formula instead of amino acid composition, see the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
 }
 
 \examples{
 # We need CHNOSZ for these examples
 require(CHNOSZ)
 
-# For reference, compute ZC of alanine and glycine "by hand"
-ZC.Gly <- ZC("C2H5NO2")
-ZC.Ala <- ZC("C3H7NO2")
+# For reference, compute Zc of alanine and glycine "by hand"
+Zc.Gly <- ZC("C2H5NO2")
+Zc.Ala <- ZC("C3H7NO2")
 # Define the composition of a Gly-Ala-Gly tripeptide
 AAcomp <- data.frame(Gly = 2, Ala = 1)
-# Calculate the ZC of the tripeptide (value: 0.571)
-ZC.GAG <- ZCAA(AAcomp)
+# Calculate the Zc of the tripeptide (value: 0.571)
+Zc.GAG <- Zc(AAcomp)
 # This is equal to the carbon-number-weighted average of the amino acids
 nC.Gly <- 2 * 2
 nC.Ala <- 1 * 3
-ZC.average <- (nC.Gly * ZC.Gly + nC.Ala * ZC.Ala) / (nC.Ala + nC.Gly)
-stopifnot(all.equal(ZC.GAG, ZC.average))
+Zc.average <- (nC.Gly * Zc.Gly + nC.Ala * Zc.Ala) / (nC.Ala + nC.Gly)
+stopifnot(all.equal(Zc.GAG, Zc.average))
 
 # Compute the per-residue nH2O of Gly-Ala-Gly
 basis("QEC")
 nH2O.GAG <- species("Gly-Ala-Gly")$H2O
 # Divide by the length to get residue average (we keep the terminal H-OH)
 nH2O.residue <- nH2O.GAG / 3
-# Compare with the value calculated by H2OAA() (-0.2)
-nH2O.H2OAA <- H2OAA(AAcomp, "QEC", terminal_H2O = 1)
-stopifnot(all.equal(nH2O.residue, nH2O.H2OAA))
+# Compare with the value calculated by nH2O() (-0.2)
+nH2O.canprot <- nH2O(AAcomp, "QEC", terminal_H2O = 1)
+stopifnot(all.equal(nH2O.residue, nH2O.canprot))
 
 # Calculate GRAVY for a few proteins
 # First get the protein index in CHNOSZ's list of proteins

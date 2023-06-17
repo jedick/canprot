@@ -9,7 +9,7 @@
 }
 
 \usage{
-  xsummary(comptab, vars = c("ZC", "nH2O"))
+  xsummary(comptab, vars = c("Zc", "nH2O"))
   xsummary2(comptab1, comptab2)
   xsummary3(comptab1, comptab2, comptab3)
 }

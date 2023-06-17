@@ -8,7 +8,7 @@
 }
 
 \usage{
-  diffplot(comptab, vars = c("ZC", "nH2O"), col = "black", plot.rect = FALSE,
+  diffplot(comptab, vars = c("Zc", "nH2O"), col = "black", plot.rect = FALSE,
            pt.text = c(letters, LETTERS), cex.text = 0.85, oldstyle = FALSE,
            pch = 1, cex = 2.1, contour = TRUE, col.contour = par("fg"),
            probs = 0.5, add = FALSE, labtext = NULL, ...)
@@ -36,7 +36,7 @@
 \details{
 
 A plot is created with points showing the differences between up- and down-regulated proteins for two chemical metrics, as calculated by \code{\link{get_comptab}}.
-The default setting of \code{vars} refers to average oxidation state of carbon (\ZC) as the x-variable and stoichiometric hydration state (\nH2O) as the y-variable.
+The default setting of \code{vars} refers to average oxidation state of carbon (\Zc) as the x-variable and stoichiometric hydration state (\nH2O) as the y-variable.
 
 The colors of the points are controlled by \code{col}, which is recycled to be equal to the number of comparisons in \code{comptab}.
 

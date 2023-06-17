@@ -1,9 +1,9 @@
 # canprot/R/diffplot.R
-# Plot mean or median differences of ZC and nH2O, or other variables
+# Plot mean or median differences of Zc and nH2O, or other variables
 # 20160715 jmd
 # 20190329 add oldstyle = FALSE (no drop lines; show kernel density)
 
-diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS),
+diffplot <- function(comptab, vars=c("Zc", "nH2O"), col="black", plot.rect=FALSE, pt.text=c(letters, LETTERS),
                      cex.text = 0.85, oldstyle = FALSE, pch = 1, cex = 2.1, contour = TRUE, col.contour = par("fg"),
                      probs = 0.5, add = FALSE, labtext = NULL, ...) {
 

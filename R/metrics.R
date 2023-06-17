@@ -3,7 +3,7 @@
 # 20191027
 
 # Calculate carbon oxidation state for amino acid compositions 20180228
-ZCAA <- function(AAcomp, nothing=NULL) {
+Zc <- function(AAcomp, nothing=NULL) {
   # A dummy second argument is needed because of how this function is used in JMDplots::plotMG
   # The number of carbons of the amino acids
   nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
@@ -13,24 +13,24 @@ ZCAA <- function(AAcomp, nothing=NULL) {
   Ztot_AA <- c(Ala = 0, Cys = 2, Asp = 4, Glu = 2, Phe = -4, Gly = 2, His = 4, 
     Ile = -6, Lys = -4, Leu = -6, Met = -2, Asn = 4, Pro = -2, Gln = 2, 
     Arg = 2, Ser = 2, Thr = 0, Val = -4, Trp = -2, Tyr = -2)
-  # The ZC of the amino acids == CHNOSZ::ZC(info(info(aminoacids("")))$formula)
-  ZC_AA <- Ztot_AA / nC_AA
+  # The Zc of the amino acids == CHNOSZ::ZC(info(info(aminoacids("")))$formula)
+  Zc_AA <- Ztot_AA / nC_AA
   # Find columns with names for the amino acids
-  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(ZC_AA))
-  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(ZC_AA)))
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(Zc_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(Zc_AA)))
   # Calculate the nC for all occurrences of each amino acid
   multC <- t(t(AAcomp[, isAA, drop = FALSE]) * nC_AA[iAA])
-  # Multiply nC by ZC
-  multZC <- t(t(multC) * ZC_AA[iAA])
-  # Calculate the total ZC and nC, then the overall ZC
-  ZCtot <- rowSums(multZC)
+  # Multiply nC by Zc
+  multZc <- t(t(multC) * Zc_AA[iAA])
+  # Calculate the total Zc and nC, then the overall Zc
+  Zctot <- rowSums(multZc)
   nCtot <- rowSums(multC)
-  ZCtot / nCtot
+  Zctot / nCtot
 }
 
 # Calculate stoichiometric hydration state for proteins with given amino acid compositions 20181228
 # Add terminal_H2O 20221018
-H2OAA <- function(AAcomp, basis = getOption("basis"), terminal_H2O = 0) {
+nH2O <- function(AAcomp, basis = getOption("basis"), terminal_H2O = 0) {
   if(basis == "QEC") {
     # How to get the number of H2O in reactions to form amino acid residues from the "QEC" basis:
     ## library(CHNOSZ)
@@ -65,7 +65,7 @@ H2OAA <- function(AAcomp, basis = getOption("basis"), terminal_H2O = 0) {
 }
 
 # Calculate stoichiometric oxidation state for proteins with given amino acid compositions 20201016
-O2AA <- function(AAcomp, basis = getOption("basis")) {
+nO2 <- function(AAcomp, basis = getOption("basis")) {
   if(basis == "QEC") {
     # How to get the number of O2 in reactions to form amino acid residues from the "QEC" basis:
     ## library(CHNOSZ)

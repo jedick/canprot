@@ -4,7 +4,7 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 "pdat_pancreatic", "pdat_hypoxia",
 "human", "cleanup",
 # metrics added 20191005 - 20191027
-"ZCAA", "H2OAA", "GRAVY", "pI",
+"Zc", "nH2O", "GRAVY", "pI",
 # 20191226-20191230
 ".pdat_multi", "pdat_secreted", "pdat_breast", "pdat_lung", "pdat_prostate", "pdat_3D",
 # 20200101
@@ -22,7 +22,7 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200817
 "basis.text",
 # 20201016
-"O2AA"
+"nO2"
 )
 
 ## Imports from default packages

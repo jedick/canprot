@@ -7,7 +7,7 @@
 }
 
 \usage{
-  get_comptab(pdat, var1 = "ZC", var2 = "nH2O", plot.it = FALSE,
+  get_comptab(pdat, var1 = "Zc", var2 = "nH2O", plot.it = FALSE,
     mfun = "median", oldstyle = FALSE, basis = getOption("basis"))
 }
 
@@ -24,9 +24,9 @@
 \details{
 The available variables are:
 \tabular{ll}{
-  \samp{ZC}   \tab average oxidation state of carbon (\ZC; see \code{\link{ZCAA}}) \cr
-  \samp{nH2O} \tab stoichiometric hydration state per residue (\nH2O; see \code{\link{H2OAA}}) \cr
-  \samp{nO2} \tab stoichiometric oxidation state per residue (\nO2; see \code{\link{O2AA}}) \cr
+  \samp{Zc}   \tab average oxidation state of carbon (\Zc; see \code{\link{Zc}}) \cr
+  \samp{nH2O} \tab stoichiometric hydration state per residue (\nH2O; see \code{\link{nH2O}}) \cr
+  \samp{nO2} \tab stoichiometric oxidation state per residue (\nO2; see \code{\link{nO2}}) \cr
   \samp{V0}   \tab standard molal volume per residue \cr
   \samp{nAA}  \tab protein length (number of amino acids) \cr
   \samp{GRAVY}\tab grand average of hydropathicity (see \code{\link{GRAVY}}) \cr
@@ -49,12 +49,12 @@ Open red squares and filled blue circles stand for up-regulated and down-regulat
 \value{
 A data frame is returned invisibly containing the columns \samp{dataset}, \samp{description}, \samp{n1} (number of down-regulated proteins), \samp{n2} (number of up-regulated proteins), followed two sets of columns for the variables.
 These are denoted generically as (\samp{var.mfun1}, \samp{var.mfun2}, \samp{var.diff}, \samp{var.CLES}, \samp{var.p.value}), where \samp{var} is replaced by the name of \code{var1} or \code{var2}, and \samp{mfun} is replaced by the value of \code{mfun}.
-For example, \samp{ZC.median1} and \samp{ZC.median2} are the median \ZC of the down- and up-regulated proteins, respectively.
+For example, \samp{Zc.median1} and \samp{Zc.median2} are the median \Zc of the down- and up-regulated proteins, respectively.
 }
 
 \examples{
 pd <- pdat_colorectal("JKMF10")
-# Default variables: ZC and nH2O
+# Default variables: Zc and nH2O
 get_comptab(pd, plot.it = TRUE)
 # Protein length and per-residue volume
 get_comptab(pd, "nAA", "V0", plot.it = TRUE)

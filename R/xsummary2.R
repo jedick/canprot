@@ -13,9 +13,9 @@ xsummary2 <- function(comptab1, comptab2) {
     n1 = ct1$n1,
     n2 = ct1$n2,
 
-    ZC.down = ct1$ZC.median1,
-    ZC.up = ct1$ZC.median2,
-    ZC.diff = ct1$ZC.diff,
+    Zc.down = ct1$Zc.median1,
+    Zc.up = ct1$Zc.median2,
+    Zc.diff = ct1$Zc.diff,
 
     nH2O.down = ct1$nH2O.median1,
     nH2O.up = ct1$nH2O.median2,
@@ -33,7 +33,7 @@ xsummary2 <- function(comptab1, comptab2) {
   )
 
   # Prepare table
-  x <- out[, c("dataset", "description", "n1", "n2", "ZC.diff", "nH2O.diff",
+  x <- out[, c("dataset", "description", "n1", "n2", "Zc.diff", "nH2O.diff",
                "nAA.diff", "MW.diff")]
   # Get the publication key from the dataset name
   publication <- sapply(strsplit(x$dataset, "_"), "[", 1)
@@ -48,7 +48,7 @@ xsummary2 <- function(comptab1, comptab2) {
   x$dataset <- c(letters, LETTERS)[1:nrow(x)]
   # To save column width, change "dataset" to "set"
   colnames(x)[1] <- "set"
-  # Multiply values of ZC and nH2O by 1000
+  # Multiply values of Zc and nH2O by 1000
   x[, 5:6] <- x[, 5:6] * 1000
   # Multiply values of MW by 100
   x[, 8] <- x[, 8] * 100
@@ -85,7 +85,7 @@ xsummary2 <- function(comptab1, comptab2) {
   x <- gsub("description", "reference (description)", x, fixed=TRUE)
   x <- gsub("n1", "<i>n</i><sub>down</sub>", x, fixed=TRUE)
   x <- gsub("n2", "<i>n</i><sub>up</sub>", x, fixed=TRUE)
-  x <- gsub("ZC.diff", "&Delta;<i>Z</i><sub>C</sub>", x, fixed=TRUE)
+  x <- gsub("Zc.diff", "&Delta;<i>Z</i><sub>C</sub>", x, fixed=TRUE)
   x <- gsub("nH2O.diff", "&Delta;<i>n</i><sub>H<sub>2</sub>O</sub>", x, fixed=TRUE)
   x <- gsub("nAA.diff", "&Delta;<i>n</i><sub>AA</sub>", x, fixed=TRUE)
   x <- gsub("MW.diff", "&Delta;MW", x, fixed=TRUE)
