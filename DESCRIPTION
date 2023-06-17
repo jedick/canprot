@@ -1,6 +1,6 @@
-Date: 2023-06-07
+Date: 2023-06-17
 Package: canprot
-Version: 1.1.2-6
+Version: 1.1.2-7
 Title: Chemical Metrics of Differentially Expressed Proteins
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),

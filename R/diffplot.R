@@ -24,18 +24,18 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   if(oldstyle) {
     # "oldstyle" labels including overbar
     cplabbar <- cplab
-    cplabbar$nH2O <- expression(bar(italic(n))[H[2]*O])
-    cplabbar$DnH2O <- expression(Delta*bar(italic(n))[H[2]*O])
-    xvar <- cplabbar[[Dx]][[1]]
-    yvar <- cplabbar[[Dy]][[1]]
+    cplabbar$nH2O <- quote(bar(italic(n))[H[2]*O])
+    cplabbar$DnH2O <- quote(Delta*bar(italic(n))[H[2]*O])
+    xvar <- cplabbar[[Dx]]
+    yvar <- cplabbar[[Dy]]
     # For oldstyle plots, also get common language effect size and p-value
     X_e <- signif(comptab[, iX[2]], 2)
     X_p <- comptab[, iX[3]]
     Y_e <- signif(comptab[, iY[2]], 2)
     Y_p <- comptab[, iY[3]]
   } else {
-    xvar <- cplab[[Dx]][[1]]
-    yvar <- cplab[[Dy]][[1]]
+    xvar <- cplab[[Dx]]
+    yvar <- cplab[[Dy]]
   }
   # Use colnames to figure out whether the difference is of the mean or median
   if(is.null(labtext)) {
@@ -51,8 +51,8 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
     xparen <- bquote("("*.(lt1)*")")
     yparen <- bquote("("*.(lt2)*")")
   }
-  if(identical(labtext[1], NA)) xlab <- xvar else xlab <- substitute(x ~ xparen, list(xparen=xparen, x=xvar))
-  if(identical(labtext[2], NA)) ylab <- yvar else ylab <- substitute(y ~ yparen, list(yparen=yparen, y=yvar))
+  if(identical(labtext[1], NA)) xlab <- xvar else xlab <- bquote(.(xvar) ~ .(xparen))
+  if(identical(labtext[2], NA)) ylab <- yvar else ylab <- bquote(.(yvar) ~ .(yparen))
 
   # Initialize plot: add a 0 to make sure we can see the axis
   # Prevent NA values from influencing the scale of the plot 20200103
@@ -117,32 +117,3 @@ diffplot <- function(comptab, vars=c("ZC", "nH2O"), col="black", plot.rect=FALSE
   }
 
 }
-
-# Text for figure labels
-# Moved from internal.R and exported 20200204
-cplab <- list(
-  nH2O = expression(italic(n)[H[2]*O]),
-  DnH2O = expression(Delta*italic(n)[H[2]*O]),
-  nO2 = expression(italic(n)[O[2]]),
-  DnO2 = expression(Delta*italic(n)[O[2]]),
-  ZC = expression(italic(Z)[C]),
-  DZC = expression(Delta*italic(Z)[C]),
-  logfO2 = expression(log~italic("f")[O[2]]),
-  logaH2O = expression(log~italic("a")[H[2]*O]),
-  nC = expression(italic(n)[C] * "/AA"),
-  nN = expression(italic(n)[N] * "/AA"),
-  nS = expression(italic(n)[S] * "/AA"),
-  DnC = expression(Delta*italic(n)[C] * "/AA"),
-  DnN = expression(Delta*italic(n)[N] * "/AA"),
-  DnS = expression(Delta*italic(n)[S] * "/AA"),
-  V0 = expression(list(italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1)),
-  DV0 = expression(list(Delta * italic("V") * degree, "cm" ^ 3 ~ "mol" ^ -1)),
-  nAA = expression(italic(n)[AA]),
-  DnAA = expression(Delta*italic(n)[AA]),
-  GRAVY = "GRAVY",
-  DGRAVY = expression(Delta*"GRAVY"),
-  pI = "pI",
-  DpI = expression(Delta*"pI"),
-  MW = expression("MW"),
-  DMW = expression(Delta * "MW")
-)

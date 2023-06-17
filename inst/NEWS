@@ -1,5 +1,8 @@
-CHANGES IN canprot 1.1.2-4 (2022-10-18)
+CHANGES IN canprot 1.1.2-7 (2023-06-17)
 ---------------------------------------
+
+- Objects in cplab are now `quote()`-ed instead of `expression()`s for easier
+  handling by other functions.
 
 - Add 'terminal_H2O' argument to H2OAA(), used to specify the number of pairs
   of terminal groups.
