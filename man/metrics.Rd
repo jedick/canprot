@@ -6,7 +6,7 @@
 \alias{Zc}
 \alias{GRAVY}
 \alias{pI}
-\alias{MWAA}
+\alias{MW}
 \alias{basis.text}
 \title{Calculate Chemical Metrics for Proteins}
 \description{
@@ -19,7 +19,7 @@ These functions calculate chemical metrics of proteins given a data frame of ami
   nO2(AAcomp, basis = getOption("basis"))
   GRAVY(AAcomp)
   pI(AAcomp)
-  MWAA(AAcomp)
+  MW(AAcomp)
   basis.text(basis)
 }
 
@@ -65,7 +65,7 @@ The metrics are described below:
   The \pK values for the terminal groups and sidechains are taken from Bjellqvist et al. (1993) and Bjellqvist et al. (1994); note that the calculation does not implement position-specific adjustments described in the latter paper.
   The number of N- and C-terminal groups is taken to be one, unless a value for \code{chains} (number of polypeptide chains) is given in \code{AAcomp}.
 }
-\item{\code{MWAA}}{Molecular weight per residue.}
+\item{\code{MW}}{Molecular weight per residue.}
 }
 
 Note that \Zc is a per-carbon average, but \nH2O is a per-residue average.
@@ -134,7 +134,7 @@ Gcalc <- as.numeric(GRAVY(AAcomp))
 Gref <- c(-0.472, -0.663, -0.325)
 stopifnot(all.equal(round(Gcalc, 3), Gref))
 # Also calculate molecular weight of the proteins
-MWcalc <- as.numeric(MWAA(AAcomp)) * protein.length(iprotein)
+MWcalc <- as.numeric(MW(AAcomp)) * protein.length(iprotein)
 MWref <- c(14313.14, 13690.29, 76178.25)
 stopifnot(all.equal(round(MWcalc, 2), MWref))
 

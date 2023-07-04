@@ -144,7 +144,7 @@ pI <- function(AAcomp) {
 }
 
 # Calculate average molecular weight per amino acid 20200501
-MWAA <- function(AAcomp) {
+MW <- function(AAcomp) {
   # Mass per residue:
   # MW_AA <- sapply(CHNOSZ::makeup(info(aminoacids(""))), mass) - mass("H2O")
   # names(MW_AA) <- aminoacids(3)

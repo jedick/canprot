@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.2-7 (2023-06-17)
+CHANGES IN canprot 1.1.2-9 (2023-07-04)
 ---------------------------------------
 
 - Objects in cplab are now `quote()`-ed instead of `expression()`s for easier
@@ -7,7 +7,8 @@ CHANGES IN canprot 1.1.2-7 (2023-06-17)
 - Add 'terminal_H2O' argument to H2OAA(), used to specify the number of pairs
   of terminal groups (the default is 0). 
 
-- ZCAA(), O2AA(), and H2OAA() have been renamed to Zc(), nO2(), and nH2O().
+- ZCAA(), O2AA(), H2OAA(), and MWAA() have been renamed to Zc(), nO2(), nH2O(),
+  and MW().
 
 CHANGES IN canprot 1.1.2 (2022-01-17)
 -------------------------------------

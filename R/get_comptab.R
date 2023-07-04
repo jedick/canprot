@@ -42,7 +42,7 @@ get_comptab <- function(pdat, var1="Zc", var2="nH2O", plot.it=FALSE, mfun="media
   GRAVY <- function() canprot::GRAVY(pdat$pcomp$aa)
   pI <- function() canprot::pI(pdat$pcomp$aa)
   # MW (molecular weight) added 20200501
-  MW <- function() MWAA(pdat$pcomp$aa)
+  MW <- function() canprot::MW(pdat$pcomp$aa)
 
   # Get the values of the variables using the functions
   val1 <- get(var1)()
