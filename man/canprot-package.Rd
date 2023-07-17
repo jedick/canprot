@@ -1,7 +1,7 @@
 \name{canprot-package}
 \alias{canprot-package}
 \docType{package}
-\title{Chemical Metrics of Differentially Expressed Proteins}
+\title{Chemical Metrics of Differentially Expressed Proteins in Cancer and Cell Culture}
 \description{
   \pkg{canprot} is a package for computing chemical metrics of proteins from their amino acid compositions.
   The package has datasets for differentially expressed proteins in cancer and cell culture conditions from over 250 studies.

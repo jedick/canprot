@@ -29,7 +29,7 @@ Zc <- function(AAcomp, nothing=NULL) {
 }
 
 # Calculate stoichiometric hydration state for proteins with given amino acid compositions 20181228
-# Add terminal_H2O 20221018
+# Add `terminal_H2O` argument 20221018
 nH2O <- function(AAcomp, basis = getOption("basis"), terminal_H2O = 0) {
   if(basis == "QEC") {
     # How to get the number of H2O in reactions to form amino acid residues from the "QEC" basis:
@@ -159,8 +159,6 @@ MW <- function(AAcomp) {
   iAA <- match(colnames(AAcomp)[isAA], names(MW_AA))
   # Calculate total MW of residues in each protein
   MW <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * MW_AA[iAA]))
-  # Add terminal H2O
-  MW <- MW + 18.01528
   # Divide by number of residues (length of protein)
   MW / rowSums(AAcomp[, isAA, drop = FALSE])
 }

@@ -40,8 +40,8 @@ The metrics are described below:
 \item{\code{Zc}}{Average oxidation state of carbon (\Zc) (Dick, 2014).
   \code{nothing} is an extra argument that does nothing.
   It is provided so that \code{\link{do.call}} can be used to run \code{Zc} or \code{nH2O} with the same number of arguments.
-
   This metric is independent of the choice of basis species.
+  Note that \Zc is normalized by number of carbon atoms, but \nH2O and \nO2 are normalized by number of residues.
 }
 \item{\code{nH2O}}{Stoichiometric hydration state (\nH2O) per residue.
   The available \code{basis} species are:
@@ -65,11 +65,9 @@ The metrics are described below:
   The \pK values for the terminal groups and sidechains are taken from Bjellqvist et al. (1993) and Bjellqvist et al. (1994); note that the calculation does not implement position-specific adjustments described in the latter paper.
   The number of N- and C-terminal groups is taken to be one, unless a value for \code{chains} (number of polypeptide chains) is given in \code{AAcomp}.
 }
-\item{\code{MW}}{Molecular weight per residue.}
+\item{\code{MW}}{Molecular weight per residue (not including terminal groups).}
 }
 
-Note that \Zc is a per-carbon average, but \nH2O is a per-residue average.
-The contribution of \H2O from the terminal groups of proteins is counted, so shorter proteins have slightly greater \nH2O.
 
 Tests for a few proteins (see examples) indicate that \code{GRAVY} and \code{pI} are equal those calculated with the ProtParam tool (\url{https://web.expasy.org/protparam/}; Gasteiger et al., 2005).
 
@@ -133,8 +131,12 @@ Gcalc <- as.numeric(GRAVY(AAcomp))
 # https://web.expasy.org/cgi-bin/protparam/protparam1?P49067@2-649@
 Gref <- c(-0.472, -0.663, -0.325)
 stopifnot(all.equal(round(Gcalc, 3), Gref))
-# Also calculate molecular weight of the proteins
+
+# Per-residue molecular weight multiplied by number of residues
 MWcalc <- as.numeric(MW(AAcomp)) * protein.length(iprotein)
+# Add terminal groups
+MWcalc <- MWcalc + 18.01528
+# Reference values for molecular weights of proteins
 MWref <- c(14313.14, 13690.29, 76178.25)
 stopifnot(all.equal(round(MWcalc, 2), MWref))
 
