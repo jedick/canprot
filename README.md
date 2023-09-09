@@ -53,4 +53,4 @@ mkvig("3D")
 
 ## Online vignettes
 
-All vignettes can be viewed at <http://chnosz.net/canprot/doc/index.html>.
+All vignettes can be viewed at <https://chnosz.net/canprot/vignettes>.

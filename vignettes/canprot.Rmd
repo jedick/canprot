@@ -173,8 +173,8 @@ vignettes <- gsub("pdat_", "", functions)
 vignettes
 ```
 
-The vignettes can be viewed online at <https://chnosz.net/canprot/doc/index.html>.
-Additional vignettes based on data from the Human Protein Atlas (HPA) and The Cancer Genome Atlas (TCGA) are available in the [JMDplots package on GitHub](https://github.com/jedick/JMDplots) (see also <https://chnosz.net/JMDplots/doc/index.html>)
+The vignettes can be viewed online at <https://chnosz.net/canprot/vignettes>.
+Additional vignettes based on data from the Human Protein Atlas (HPA) and The Cancer Genome Atlas (TCGA) are available in the [JMDplots package on GitHub](https://github.com/jedick/JMDplots) (see also <https://chnosz.net/JMDplots/vignettes>)
 
 ```{r reset, include=FALSE}
 options(oldopt)
