@@ -1,5 +1,7 @@
-[![CRAN](https://www.r-pkg.org/badges/version/canprot)](https://cran.r-project.org/package=canprot)
+<!-- badges: start -->
+[![CRAN](https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fcran.r-project.org%2Fweb%2Fpackages%2Fcanprot%2FDESCRIPTION&query=%24.Version&logo=r&label=CRAN&color=4bc51e)](https://cran.r-project.org/package=canprot)
 [![DOI](https://zenodo.org/badge/64122601.svg)](https://zenodo.org/badge/latestdoi/64122601)
+<!-- badges: end -->
 
 # canprot
 
