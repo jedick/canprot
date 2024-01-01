@@ -14,18 +14,18 @@ These functions calculate chemical metrics of proteins given a data frame of ami
 }
 
 \usage{
-  Zc(AAcomp, nothing = NULL)
+  Zc(AAcomp, ...)
   nH2O(AAcomp, basis = getOption("basis"), terminal_H2O = 0)
-  nO2(AAcomp, basis = getOption("basis"))
-  GRAVY(AAcomp)
-  pI(AAcomp)
-  MW(AAcomp)
+  nO2(AAcomp, basis = getOption("basis"), ...)
+  GRAVY(AAcomp, ...)
+  pI(AAcomp, ...)
+  MW(AAcomp, ...)
   basis.text(basis)
 }
 
 \arguments{
   \item{AAcomp}{data frame, amino acid compositions}
-  \item{nothing}{dummy argument}
+  \item{...}{ignored additional arguments}
   \item{basis}{character, basis species}
   \item{terminal_H2O}{numeric, number of pairs of terminal groups}
 }
@@ -33,13 +33,12 @@ These functions calculate chemical metrics of proteins given a data frame of ami
 \details{
 Columns in \code{AAcomp} should be named with the three-letter abbreviations for the amino acids (\samp{Ala}, \samp{Arg}, \ldots).
 Abbreviations are matched without regard to case (e.g. \samp{ALA} is the same as \samp{ala}).
+\code{...} is provided to permit \code{\link{get}} or \code{\link{do.call}} constructions with the same arguments for all metrics (e.g. \code{terminal_H2O} has an effect on \code{nH2O} but not on \code{Zc}).
 
 The metrics are described below:
 
 \describe{
 \item{\code{Zc}}{Average oxidation state of carbon (\Zc) (Dick, 2014).
-  \code{nothing} is an extra argument that does nothing.
-  It is provided so that \code{\link{do.call}} can be used to run \code{Zc} or \code{nH2O} with the same number of arguments.
   This metric is independent of the choice of basis species.
   Note that \Zc is normalized by number of carbon atoms, but \nH2O and \nO2 are normalized by number of residues.
 }
@@ -50,8 +49,8 @@ The metrics are described below:
     \item{\samp{QCa} - glutamine, cysteine, acetic acid, \H2O, \O2}
     \item{Any other valid basis specification for \code{\link[CHNOSZ]{basis}}, such as \samp{CHNOS} for \CO2, \NH3, \H2S, \H2O, and \O2}
   }
-  Before normalizing by the number of residues, one \nH2O is added for each \code{terminal_H2O} (i.e., number of polypeptide chains).
-  The default of 0 is used to ignore terminal \H2O in the calculation.
+  The default of 0 for \code{terminal_H2O} means to ignore the terminal -H and -OH groups of proteins.
+  This can be changed to 1 (or the number of polypeptide chains) to add one (or more) \nH2O before normalizing by the number of residues.
 }
 \item{\code{nO2}}{Stoichiometric oxidation state (\nO2) per residue.
   The basis species also affect this calculation.

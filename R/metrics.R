@@ -3,7 +3,7 @@
 # 20191027
 
 # Calculate carbon oxidation state for amino acid compositions 20180228
-Zc <- function(AAcomp, nothing=NULL) {
+Zc <- function(AAcomp, ...) {
   # A dummy second argument is needed because of how this function is used in JMDplots::plotMG
   # The number of carbons of the amino acids
   nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
@@ -65,7 +65,7 @@ nH2O <- function(AAcomp, basis = getOption("basis"), terminal_H2O = 0) {
 }
 
 # Calculate stoichiometric oxidation state for proteins with given amino acid compositions 20201016
-nO2 <- function(AAcomp, basis = getOption("basis")) {
+nO2 <- function(AAcomp, basis = getOption("basis"), ...) {
   if(basis == "QEC") {
     # How to get the number of O2 in reactions to form amino acid residues from the "QEC" basis:
     ## library(CHNOSZ)
@@ -98,7 +98,7 @@ nO2 <- function(AAcomp, basis = getOption("basis")) {
 }
 
 # Calculate GRAVY for amino acid compositions 20191024
-GRAVY <- function(AAcomp) {
+GRAVY <- function(AAcomp, ...) {
   # Values of the hydropathy index from Kyte and Doolittle, 1982
   # doi:10.1016/0022-2836(82)90515-0
   Hind <- c(Ala =  1.8, Cys =  2.5, Asp = -3.5, Glu = -3.5, Phe =  2.8,
@@ -115,7 +115,7 @@ GRAVY <- function(AAcomp) {
 }
 
 # Calculate isoelectric point for proteins 20191026
-pI <- function(AAcomp) {
+pI <- function(AAcomp, ...) {
   # A function to calculate isoelectric point for a single amino acid composition
   onepI <- function(AA) {
     # Find the column names of AAcomp that are in Ztab
@@ -144,7 +144,7 @@ pI <- function(AAcomp) {
 }
 
 # Calculate average molecular weight per amino acid 20200501
-MW <- function(AAcomp) {
+MW <- function(AAcomp, ...) {
   # Mass per residue:
   # MW_AA <- sapply(CHNOSZ::makeup(info(aminoacids(""))), mass) - mass("H2O")
   # names(MW_AA) <- aminoacids(3)
