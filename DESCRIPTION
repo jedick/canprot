@@ -1,6 +1,6 @@
 Date: 2024-02-26
 Package: canprot
-Version: 1.1.2-16
+Version: 1.1.2-17
 Title: Chemical Metrics of Differentially Expressed Proteins in Cancer and Cell Culture
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),

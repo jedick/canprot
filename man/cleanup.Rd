@@ -31,25 +31,25 @@ This function is used extensively by the \code{\link{pdat_}} functions, where it
 }
 
 \examples{
-# Set up a simple workflow
-extdatadir <- system.file("extdata", package="canprot")
-datadir <- paste0(extdatadir, "/expression/pancreatic/")
-dataset <- "CYD+05"
-dat <- read.csv(paste0(datadir, dataset, ".csv.xz"), as.is = TRUE)
-up2 <- dat$Ratio..cancer.normal. > 1
-# Remove two unavailable and one duplicated proteins
-dat <- cleanup(dat, "Entry", up2)
-# Now we can retrieve the amino acid compositions
-pcomp <- protcomp(dat$Entry)
-
-# Read another data file
-datadir <- paste0(system.file("extdata", package="canprot"), "/expression/colorectal/")
-dataset <- "STK+15"
-dat <- read.csv(paste0(datadir, "STK+15.csv.xz"), as.is = TRUE)
-# Remove unavailable proteins
-dat <- cleanup(dat, "uniprot")
-# Remove proteins that have less than 2-fold expression ratio
-dat <- cleanup(dat, abs(log2(dat$invratio)) < 1)
+## Set up a simple workflow
+#extdatadir <- system.file("extdata", package="canprot")
+#datadir <- paste0(extdatadir, "/expression/pancreatic/")
+#dataset <- "CYD+05"
+#dat <- read.csv(paste0(datadir, dataset, ".csv.xz"), as.is = TRUE)
+#up2 <- dat$Ratio..cancer.normal. > 1
+## Remove two unavailable and one duplicated proteins
+#dat <- cleanup(dat, "Entry", up2)
+## Now we can retrieve the amino acid compositions
+#pcomp <- protcomp(dat$Entry)
+#
+## Read another data file
+#datadir <- paste0(system.file("extdata", package="canprot"), "/expression/colorectal/")
+#dataset <- "STK+15"
+#dat <- read.csv(paste0(datadir, "STK+15.csv.xz"), as.is = TRUE)
+## Remove unavailable proteins
+#dat <- cleanup(dat, "uniprot")
+## Remove proteins that have less than 2-fold expression ratio
+#dat <- cleanup(dat, abs(log2(dat$invratio)) < 1)
 }
 
 \concept{Protein data}
