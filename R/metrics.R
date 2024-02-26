@@ -2,7 +2,7 @@
 # Calculate various metrics from amino acid composition of proteins
 # 20191027
 
-# Calculate carbon oxidation state for amino acid compositions 20180228
+# Calculate carbon oxidation state from amino acid compositions 20180228
 Zc <- function(AAcomp, ...) {
   # A dummy second argument is needed because of how this function is used in JMDplots::plotMG
   # The number of carbons of the amino acids
@@ -28,7 +28,7 @@ Zc <- function(AAcomp, ...) {
   Zctot / nCtot
 }
 
-# Calculate stoichiometric hydration state for proteins with given amino acid compositions 20181228
+# Calculate stoichiometric hydration state from amino acid compositions 20181228
 # Add `terminal_H2O` argument 20221018
 nH2O <- function(AAcomp, basis = getOption("basis"), terminal_H2O = 0) {
   if(basis == "QEC") {
@@ -64,7 +64,7 @@ nH2O <- function(AAcomp, basis = getOption("basis"), terminal_H2O = 0) {
   nH2O / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Calculate stoichiometric oxidation state for proteins with given amino acid compositions 20201016
+# Calculate stoichiometric oxidation state from amino acid compositions 20201016
 nO2 <- function(AAcomp, basis = getOption("basis"), ...) {
   if(basis == "QEC") {
     # How to get the number of O2 in reactions to form amino acid residues from the "QEC" basis:
@@ -97,7 +97,7 @@ nO2 <- function(AAcomp, basis = getOption("basis"), ...) {
   nO2 / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Calculate GRAVY for amino acid compositions 20191024
+# Calculate GRAVY from amino acid compositions 20191024
 GRAVY <- function(AAcomp, ...) {
   # Values of the hydropathy index from Kyte and Doolittle, 1982
   # doi:10.1016/0022-2836(82)90515-0
@@ -114,7 +114,7 @@ GRAVY <- function(AAcomp, ...) {
   sumHind / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Calculate isoelectric point for proteins 20191026
+# Calculate isoelectric point from amino acid compositions 20191026
 pI <- function(AAcomp, ...) {
   # A function to calculate isoelectric point for a single amino acid composition
   onepI <- function(AA) {
@@ -143,7 +143,7 @@ pI <- function(AAcomp, ...) {
   apply(myAA, 1, onepI)
 }
 
-# Calculate average molecular weight per amino acid 20200501
+# Calculate average molecular weight of residues from amino acid compositions 20200501
 MW <- function(AAcomp, ...) {
   # Mass per residue:
   # MW_AA <- sapply(CHNOSZ::makeup(info(aminoacids(""))), mass) - mass("H2O")
@@ -161,6 +161,18 @@ MW <- function(AAcomp, ...) {
   MW <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * MW_AA[iAA]))
   # Divide by number of residues (length of protein)
   MW / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Calculate protein length from amino acid compositions 20200501
+plength <- function(AAcomp, ...) {
+  AA_names <- c(
+    "Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu", "Met",
+    "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr"
+  )
+  # Find columns with names for the amino acids
+  isAA <- colnames(AAcomp) %in% AA_names
+  # Sum amino acid counts to get protein length
+  rowSums(AAcomp[, isAA])
 }
 
 basis.text <- function(basis) {

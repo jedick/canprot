@@ -1,14 +1,19 @@
-CHANGES IN canprot 1.1.2-9 (2023-07-04)
+CHANGES IN canprot 1.1.2-15 (2024-02-26)
 ---------------------------------------
 
 - Objects in cplab are now `quote()`-ed instead of `expression()`s for easier
   handling by other functions.
 
-- Add 'terminal_H2O' argument to H2OAA(), used to specify the number of pairs
-  of terminal groups (the default is 0). 
+- Functions for chemical metrics (ZCAA(), O2AA(), H2OAA(), and MWAA()) have
+  been renamed to Zc(), nO2(), nH2O(), and MW().
 
-- ZCAA(), O2AA(), H2OAA(), and MWAA() have been renamed to Zc(), nO2(), nH2O(),
-  and MW().
+- Add 'terminal_H2O' argument to nH2O(), used to specify how terminal -H and
+  -OH groups are counted (they are not by default). 
+
+- Add '...' argument to chemical metrics to permit using the same arguments for
+  all metrics in get() or do.call() constructions.
+
+- Add functions for metrics: plength() (protein length).
 
 CHANGES IN canprot 1.1.2 (2022-01-17)
 -------------------------------------

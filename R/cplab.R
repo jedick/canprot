@@ -25,6 +25,7 @@ cplab <- list(
   DGRAVY = quote(Delta*"GRAVY"),
   pI = "pI",
   DpI = quote(Delta*"pI"),
-  MW = quote("MW"),
-  DMW = quote(Delta * "MW")
+  MW = quote("MW per residue"),
+  DMW = quote(Delta * "MW"),
+  plength = "Protein length"
 )

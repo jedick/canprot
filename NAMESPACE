@@ -22,7 +22,9 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 # 20200817
 "basis.text",
 # 20201016
-"nO2"
+"nO2",
+# 20240225
+"plength"
 )
 
 ## Imports from default packages

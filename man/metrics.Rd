@@ -7,6 +7,7 @@
 \alias{GRAVY}
 \alias{pI}
 \alias{MW}
+\alias{plength}
 \alias{basis.text}
 \title{Calculate Chemical Metrics for Proteins}
 \description{
@@ -20,6 +21,7 @@ These functions calculate chemical metrics of proteins given a data frame of ami
   GRAVY(AAcomp, ...)
   pI(AAcomp, ...)
   MW(AAcomp, ...)
+  plength(AAcomp, ...)
   basis.text(basis)
 }
 
@@ -33,7 +35,9 @@ These functions calculate chemical metrics of proteins given a data frame of ami
 \details{
 Columns in \code{AAcomp} should be named with the three-letter abbreviations for the amino acids (\samp{Ala}, \samp{Arg}, \ldots).
 Abbreviations are matched without regard to case (e.g. \samp{ALA} is the same as \samp{ala}).
-\code{...} is provided to permit \code{\link{get}} or \code{\link{do.call}} constructions with the same arguments for all metrics (e.g. \code{terminal_H2O} has an effect on \code{nH2O} but not on \code{Zc}).
+
+\code{...} is provided to permit \code{\link{get}} or \code{\link{do.call}} constructions with the same arguments for all metrics.
+For instance, a \code{terminal_H2O} argument can be suppled to either \code{Zc} or \code{nH2O}, but it only has an effect on the latter.
 
 The metrics are described below:
 
@@ -65,8 +69,8 @@ The metrics are described below:
   The number of N- and C-terminal groups is taken to be one, unless a value for \code{chains} (number of polypeptide chains) is given in \code{AAcomp}.
 }
 \item{\code{MW}}{Molecular weight per residue (not including terminal groups).}
+\item{\code{plength}}{Protein length (number of amino acid residues).}
 }
-
 
 Tests for a few proteins (see examples) indicate that \code{GRAVY} and \code{pI} are equal those calculated with the ProtParam tool (\url{https://web.expasy.org/protparam/}; Gasteiger et al., 2005).
 
@@ -88,7 +92,7 @@ Kyte, J. and Doolittle, R. F. (1982) A simple method for displaying the hydropat
 }
 
 \seealso{
-For calculation of \Zc from a chemical formula instead of amino acid composition, see the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
+For calculation of \Zc from an elemental formula (instead of amino acid composition), see the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
 }
 
 \examples{
