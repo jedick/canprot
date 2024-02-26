@@ -31,9 +31,9 @@ The median difference is shown by a gray horizontal line drawn between the distr
 }
 
 \examples{
-# Plot the data of Jimenez et al., 2010 for colorectal cancer
-pdat <- pdat_colorectal("JKMF10")
-qdist()
+## Plot the data of Jimenez et al., 2010 for colorectal cancer
+#pdat <- pdat_colorectal("JKMF10")
+#qdist(pdat)
 }
 
 \references{

@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.2-15 (2024-02-26)
+CHANGES IN canprot 1.1.2-16 (2024-02-26)
 ---------------------------------------
 
 - Objects in cplab are now `quote()`-ed instead of `expression()`s for easier
@@ -14,6 +14,9 @@ CHANGES IN canprot 1.1.2-15 (2024-02-26)
   all metrics in get() or do.call() constructions.
 
 - Add functions for metrics: plength() (protein length).
+
+- Differential expression datasets and chemical analysis vignettes have been
+  moved to the JMDplots package.
 
 CHANGES IN canprot 1.1.2 (2022-01-17)
 -------------------------------------

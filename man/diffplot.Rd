@@ -81,13 +81,13 @@ The overall style of the plot is controlled by \code{oldstyle}.
 }
 
 \examples{
-library(CHNOSZ)
-# Make an old-style plot for two datasets
-comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
-  pdat <- pdat_colorectal(dataset)
-  get_comptab(pdat, oldstyle = TRUE)
-})
-diffplot(comptab, oldstyle = TRUE)
+#library(CHNOSZ)
+## Make an old-style plot for two datasets
+#comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
+#  pdat <- pdat_colorectal(dataset)
+#  get_comptab(pdat, oldstyle = TRUE)
+#})
+#diffplot(comptab, oldstyle = TRUE)
 }
 
 \concept{Plotting functions}

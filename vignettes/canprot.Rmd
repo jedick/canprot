@@ -113,69 +113,6 @@ pI(AA)
 GRAVY(AA)
 ```
 
-## Retrieving differentially expressed proteins
-
-See `?pdat_` for the functions to get the lists of differentially expressed proteins from different cancer types and experimental conditions.
-Run one of the functions with default arguments to see the list of datasets:
-```{r pdat_3D_datasets}
-pdat_3D()
-```
-
-The letters (from authors' surnames) and 2-digit year are the bibliographic keys; see `system.file("vignettes/cpdat.bib", package = "canprot")` for their BibTeX entries.
-Text after an underscore indicates different experimental groups, and one or more equals signs are used to tag datasets with different attributes; here, `=cancer` means that the experiments involve cancer cells.
-Let's look at one of these datasets, which lists differentially expressed proteins in mesenchymal stromal cells grown as aggregates (i.e. 3D cell culture) compared to those grown in monolayers [@DKM+20].
-```{r pdat_3D}
-pdat <- pdat_3D("DKM+20")
-str(pdat)
-```
-
-We now have the UniProt IDs of the proteins, their amino acid compositions, and whether each protein is up- or down-expressed in the experiments (in the `up2` list element).
-With this in hand, use `get_comptab` to calculate median differences of chemical metrics between the up- and down-regulated proteins.
-Column names with `median1` and `median2` indicate the median values for the down- and up-regulated proteins, respectively, and `diff` is the different between them (median2 minus median1).
-```{r get_comptab}
-(get_comptab(pdat))
-```
-
-`ZC.diff` and `nH2O.diff` are negative, meaning that 3D growth in this experiment results in higher expression of proteins with lower median `r ZC` and `r nH2O`.
-
-The `lapply` function in R makes it easy to compute the metrics for multiple datasets.
-```{r get_comptabs, message = FALSE, results = "hide"}
-datasets <- pdat_3D()
-pdats <- lapply(datasets, pdat_3D)
-comptabs <- lapply(pdats, get_comptab)
-```
-
-Now we can make a plot of the median differences of `r ZC` and `r nH2O` for all of these datasets.
-The points are lettered according to the order of datasets, and the dashed line shows the 50% probability contour; that is, approximately half the datasets are inside the contoured area, and half are outside.
-This plot shows that many 3D cell culture experiments are characterized by both lower carbon oxidation state and lower stoichiometric hydration state of up-expressed than down-expressed proteins compared to growth in monolayers.
-```{r diffplot, fig.width=5, fig.height=5, fig.align = "center"}
-diffplot(comptabs)
-title("3D cell culture vs monolayers")
-```
-
-This is the essence of the vignettes described below.
-These analyses have been used for interpreting the effects of salinity on protein expression [@DYT20] and for describing the chemical features of differentially regulated proteins in multiple cancer types and experimental cell culture conditions [@Dic21].
-
-## Building the analysis vignettes
-
-There is an analysis vignette for each dataset of differentially expressed proteins.
-To save package space and checking time, prebuilt analysis vignettes are not included in the package.
-
-Use the `mkvig()` funciton to compile the vignettes on demand and view them in the browser.
-For example, `mkvig("3D")` compiles the vignette for three-dimensional cell culture and then opens it in the browser.
-Each of the vignettes is also available as a demo, which can be run from the browser (`help.start()` > Packages > **canprot** > Code demos).
-Building the vignettes requires [pandoc](https://pandoc.org) as a system dependency.
-
-Here is the list of available vignettes:
-```{r vignettes, echo = FALSE}
-functions <- grep("pdat_", ls("package:canprot"), value = TRUE)
-vignettes <- gsub("pdat_", "", functions)
-vignettes
-```
-
-The vignettes can be viewed online at <https://chnosz.net/canprot/vignettes>.
-Additional vignettes based on data from the Human Protein Atlas (HPA) and The Cancer Genome Atlas (TCGA) are available in the [JMDplots package on GitHub](https://github.com/jedick/JMDplots) (see also <https://chnosz.net/JMDplots/vignettes>)
-
 ```{r reset, include=FALSE}
 options(oldopt)
 ```

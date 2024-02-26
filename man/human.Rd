@@ -43,7 +43,7 @@ The \code{protein} column contains UniProt IDs in the format \code{database|acce
 
 \seealso{
 Amino acid compositions of non-human proteins are stored under \code{extdata/aa} in directories \code{archaea}, \code{bacteria}, \code{cow}, \code{dog}, \code{mouse}, \code{rat}, and \code{yeast}.
-These files can be loaded in \code{\link{protcomp}} via the \code{aa_file} argument, which is used e.g. in \code{\link{pdat_osmotic_bact}}.
+These files can be loaded in \code{\link{protcomp}} via the \code{aa_file} argument.
 }
 
 \examples{

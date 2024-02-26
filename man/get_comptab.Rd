@@ -53,11 +53,11 @@ For example, \samp{Zc.median1} and \samp{Zc.median2} are the median \Zc of the d
 }
 
 \examples{
-pd <- pdat_colorectal("JKMF10")
-# Default variables: Zc and nH2O
-get_comptab(pd, plot.it = TRUE)
-# Protein length and per-residue volume
-get_comptab(pd, "nAA", "V0", plot.it = TRUE)
+#pd <- pdat_colorectal("JKMF10")
+## Default variables: Zc and nH2O
+#get_comptab(pd, plot.it = TRUE)
+## Protein length and per-residue volume
+#get_comptab(pd, "nAA", "V0", plot.it = TRUE)
 }
 
 \references{

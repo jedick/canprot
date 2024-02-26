@@ -4,7 +4,7 @@
 # Quantile distribution for up- and down-regulated proteins
 # First version 20200428
 # Use ecdf() to calculate knots 20200506
-qdist <- function(pdat = pdat_colorectal("JKMF10"), vars = c("Zc", "nH2O"), show.steps = FALSE) {
+qdist <- function(pdat, vars = c("Zc", "nH2O"), show.steps = FALSE) {
   # Initialize plot
   if(length(vars)==2) par(mfrow = c(2, 1))
   par(yaxs = "i")

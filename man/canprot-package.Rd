@@ -12,9 +12,6 @@
   The hyperosmotic stress data are divided into bacteria, archaea (both high- and low-salt experiments) and eukaryotes; the latter are further divided into salt and glucose experiments.
   Nearly all datasets use UniProt IDs; if not given in the original publications they have been added using the UniProt mapping tool (\url{https://www.uniprot.org/mapping/}).
 
-  The analysis vignettes have plots for each cancer type and cell culture condition and references for all data sources used.
-  Because of their size, pre-built vignette HTML files are not included with the package; use \code{\link{mkvig}} to compile and view any of the vignettes.
-
   The functions in this package were originally based on code for the papers of Dick (2016 and 2017).
   Updated data compilations and revised vignettes were developed by Dick et al. (2020) and Dick (2021).
 }

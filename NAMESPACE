@@ -1,22 +1,15 @@
 # Exported variables
 export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
-"pdat_colorectal", "diffplot",
-"pdat_pancreatic", "pdat_hypoxia",
+"diffplot",
 "human", "cleanup",
 # metrics added 20191005 - 20191027
 "Zc", "nH2O", "GRAVY", "pI",
-# 20191226-20191230
-".pdat_multi", "pdat_secreted", "pdat_breast", "pdat_lung", "pdat_prostate", "pdat_3D",
 # 20200101
 "xsummary2",
 # 20200204 used in JMDplots package
 "cplab",
-# 20200402, 20200411
-"pdat_liver", "pdat_glucose",
-# 20200414
-"mkvig",
 # 20200418
-".pdat_osmotic", "pdat_osmotic_bact", "pdat_osmotic_euk", "pdat_osmotic_halo", "xsummary3",
+"xsummary3",
 # 20200501, 20200505
 "MW", "qdist",
 # 20200817

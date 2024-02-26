@@ -1,2 +1,0 @@
-library(canprot)
-mkvig("breast")

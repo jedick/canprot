@@ -36,11 +36,11 @@ It shows negative numbers in bold (\emph{p}-value and CLES are not shown).
 }
 
 \examples{
-comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
-  pdat <- pdat_colorectal(dataset)
-  get_comptab(pdat, oldstyle = TRUE)
-})
-xsummary(comptab)
+#comptab <- lapply(c("JKMF10", "WDO+15_C.N"), function(dataset) {
+#  pdat <- pdat_colorectal(dataset)
+#  get_comptab(pdat, oldstyle = TRUE)
+#})
+#xsummary(comptab)
 }
 
 \concept{Vignette utilities}
