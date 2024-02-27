@@ -1,10 +1,10 @@
 ---
-title: "canprot: Chemical metrics of differentially expressed proteins"
+title: "canprot: Chemical metrics of proteins"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{canprot: Chemical metrics of differentially expressed proteins}
+  %\VignetteIndexEntry{canprot: Chemical metrics of proteins}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: canprot.bib
@@ -25,7 +25,7 @@ H2O <- "H<sub>2</sub>O"
 O2 <- "O<sub>2</sub>"
 ```
 
-The **canprot** package has functions to calculate chemical metrics of proteins and more than 250 lists of differentially expressed proteins that have been assembled from the literature on hyperosmotic stress and hypoxia, 3D cell culture, and cancer.
+The **canprot** package has functions to calculate chemical metrics of proteins from their amino acid composition.
 This vignette was compiled on `r Sys.Date()` with **canprot** version `r packageDescription("canprot")$Version`.
 
 ## Calculating chemical metrics
@@ -87,14 +87,15 @@ Using the unweighted mean of `r ZC` of amino acids is a common mistake that lead
 
 ### Protein Data 2: canprot package
 
-**canprot** has an extensive list of amino acid compositions of human proteins assembled from UniProt together with proteins from other organisms that have been identified in differential expression studies used in the package (look in these directories in `extdata/aa`: `r paste(dir(system.file("extdata/aa", package = "canprot")), collapse = " ")`).
+**canprot** has a database of amino acid compositions of human proteins assembled from UniProt.
 If you have a UniProt ID for a human protein, such as `P24298`, use `protcomp` to get the amino acid composition:
 ```{r protcomp}
 (pc <- protcomp("P24298"))
 Zc(pc$aa)
 ```
 
-Next let's use a file with amino acid compositions for non-human proteins, in this case proteins identified in a study of the response of an archaeal organism to salt and temperature stress [@JSP+19].
+You can also provide a file with amino acid compositions for non-human proteins.
+This file lists proteins identified in a study of the response of an archaeal organism to salt and temperature stress [@JSP+19].
 Note that high `r ZC` is a characteristic of many proteins in halophiles [@DYT20].
 ```{r protcomp_archaea}
 aa_file <- system.file("extdata/aa/archaea/JSP+19_aa.csv.xz", package = "canprot")

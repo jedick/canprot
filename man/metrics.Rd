@@ -9,6 +9,7 @@
 \alias{MW}
 \alias{plength}
 \alias{basis.text}
+\alias{cplab}
 \title{Calculate Chemical Metrics for Proteins}
 \description{
 These functions calculate chemical metrics of proteins given a data frame of amino acid compositions.
@@ -23,6 +24,7 @@ These functions calculate chemical metrics of proteins given a data frame of ami
   MW(AAcomp, ...)
   plength(AAcomp, ...)
   basis.text(basis)
+  cplab
 }
 
 \arguments{
@@ -75,6 +77,9 @@ The metrics are described below:
 Tests for a few proteins (see examples) indicate that \code{GRAVY} and \code{pI} are equal those calculated with the ProtParam tool (\url{https://web.expasy.org/protparam/}; Gasteiger et al., 2005).
 
 \code{basis.text} is used in the vignettes to generate a textual description of the names of the basis species, except \H2O and \O2, for one of the keywords \samp{QEC} or \samp{QCa}.
+
+\code{cplab} is a list of formatted labels for chemical metrics listed in \code{\link{metrics}}.
+It is an exported object, available to the user and other packages.
 }
 
 \references{

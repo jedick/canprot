@@ -1,17 +1,12 @@
 # Exported variables
-export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
-"diffplot",
-"human", "cleanup",
+export("protcomp", "CLES",
+"human",
 # metrics added 20191005 - 20191027
 "Zc", "nH2O", "GRAVY", "pI",
-# 20200101
-"xsummary2",
 # 20200204 used in JMDplots package
 "cplab",
-# 20200418
-"xsummary3",
 # 20200501, 20200505
-"MW", "qdist",
+"MW",
 # 20200817
 "basis.text",
 # 20201016
@@ -21,13 +16,5 @@ export("protcomp", "check_IDs", "get_comptab", "CLES", "xsummary",
 )
 
 ## Imports from default packages
-importFrom("graphics", "abline", "lines", "mtext", "par", "points",
-           "rect", "text", "title", "axis", "screen",
-           "close.screen", "split.screen")
-importFrom("stats", "approx", "ecdf", "knots", "median", "na.omit",
-           "pnorm", "sd")
-importFrom("utils", "browseURL", "capture.output", "read.csv",
-           "relist", "write.table")
-
-## Imports from MASS
-importFrom("MASS", "kde2d")
+importFrom("stats", "pnorm", "sd")
+importFrom("utils", "read.csv")

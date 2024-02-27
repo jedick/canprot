@@ -23,7 +23,6 @@ On loading the package, the individual data files are read and combined, and the
 
 As an aid for processing datasets that list old (obsolete) UniProt IDs, the corresponding new (current) IDs are are stored in \code{uniprot_updates}.
 These ID mappings have been manually added as needed for individual datasets, and include proteins from humans as well as other organisms.
-\code{\link{check_IDs}} performs the conversion of old to new IDs.
 }
 
 \format{

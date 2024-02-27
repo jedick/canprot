@@ -28,10 +28,6 @@ Alternatively, the amino acid compositions can be given in \code{aa}, bypassing 
 The function returns a list with elements \code{uniprot} (UniProt IDs as given in the arguments) and \code{aa} (amino acid compositions of the proteins).
 }
 
-\seealso{
-\code{\link{cleanup}}
-}
-
 \examples{
 protcomp("P24298")
 }
