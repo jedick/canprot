@@ -5,23 +5,20 @@
 
 # canprot
 
-Chemical analysis of proteins based on their amino acid compositions.Chemical
-metrics that can be calculated include carbon oxidation state and
-stoichiometric hydration state as described in [Dick et al.
-(2020)](https://doi.org/10.5194/bg-17-6145-2020).Other properties that can be
-calculated are protein length, grand average of hydropathicity (GRAVY),
-isoelectric point (pI), and molecular weight (MW). A database of amino acid
-compositions of human proteins derived from UniProt is provided.
+Chemical analysis of proteins based on their amino acid compositions. Amino
+acid compositions can be read from FASTA files and used to calculate chemical
+metrics including carbon oxidation state and stoichiometric hydration state as
+described in [Dick et al.  (2020)](https://doi.org/10.5194/bg-17-6145-2020).
+Other properties that can be calculated are protein length, grand average of
+hydropathicity (GRAVY), isoelectric point (pI), and molecular weight (MW). A
+database of amino acid compositions of human proteins derived from UniProt is
+provided.
 
 Please use this citation for the package: [Dick (2021)](https://doi.org/10.1002/cso2.1007).
 
-## Installation from CRAN
+## Installation of developemnt version from GitHub
 
-```R
-install.packages("canprot")
-```
-
-## Installation from GitHub
+This version has the `read.fasta()` function that was previously in [CHNOSZ](https://github.com/jedick/CHNOSZ).
 
 First install the **remotes** package from CRAN:
 
@@ -29,13 +26,20 @@ First install the **remotes** package from CRAN:
 install.packages("remotes")
 ```
 
-Then install **canprot** from GitHub:
+Then install **canprot** from GitHub.
+This also installs several other R packages as dependencies:
 
 ```R
 remotes::install_github("jedick/canprot")
 ```
 
-This also installs other R packages as dependencies (particularly **xtable**, **knitr** and **rmarkdown**, and their dependencies).
+## Installation of released version from CRAN
+
+This version does not have all the features in the development version.
+
+```R
+install.packages("canprot")
+```
 
 ### Guide to vignettes
 
