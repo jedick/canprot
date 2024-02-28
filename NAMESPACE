@@ -13,8 +13,8 @@ export("protcomp", "CLES",
 "nO2",
 # 20240225
 "plength",
-# 20240228
-"read.fasta", "count.aa"
+# 20240228 moved from CHNOSZ
+"read.fasta", "count.aa", "aasum"
 )
 
 ## Imports from default packages

@@ -2,6 +2,7 @@
 \name{read.fasta}
 \alias{read.fasta}
 \alias{count.aa}
+\alias{aasum}
 \title{Functions for Reading FASTA Files}
 
 \description{
@@ -12,6 +13,7 @@
   read.fasta(file, iseq = NULL, ret = "count", lines = NULL, 
     ihead = NULL, start = NULL, stop = NULL, type = "protein", id = NULL)
   count.aa(seq, start = NULL, stop = NULL, type = "protein")
+  aasum(aa, abundance = 1, average = FALSE, protein = NULL, organism = NULL)
 }
 
 \arguments{
@@ -25,6 +27,11 @@
   \item{type}{character, sequence type (protein or DNA)}
   \item{id}{character, value to be used for \code{protein} in output table}
   \item{seq}{character, amino acid sequence of a protein}
+  \item{aa}{data frame, amino acid composition(s) of proteins}
+  \item{abundance}{numeric, abundances of proteins}
+  \item{average}{logical, return the weighted average of amino acid counts?}
+  \item{protein}{character, protein name}
+  \item{organism}{character, organism name}
 }
 
 \details{
@@ -42,11 +49,18 @@ The matching of letters is case-insensitive.
 A warning is generated if any character in \code{seq}, excluding spaces, is not one of the single-letter amino acid or nucleobase abbreviations.
 \code{start} and/or \code{stop} can be provided to count a fragment of the sequence (extracted using \code{\link{substr}}).
 If only one of \code{start} or \code{stop} is present, the other defaults to 1 (\code{start}) or the length of the sequence (\code{stop}).
+
+\code{aasum} returns a data frame representing the sum of amino acid compositions in the rows of the input \code{aa} data frame.
+The amino acid compositions are multiplied by the indicated \code{abundance}; that argument is recycled to match the number of rows of \code{aa}.
+If \code{average} is TRUE the final sum is divided by the number of input compositions.
+The name used in the output is taken from the first row of \code{aa} or from \code{protein} and \code{organism} if they are specified.
 }
 
 \value{
 \code{read.fasta} returns a list of sequences or lines for \code{ret} equal to \samp{seq} or \samp{fas}, respectively.
 Otherwise, (for \code{ret} equal to \samp{count}) a data frame with identifying information and amino acid compositions of proteins; specifically these columns: \code{protein}, \code{organism}, \code{ref}, \code{abbrv}, \code{chains}, \code{Ala}, \code{Cys}, \code{Asp}, \code{Glu}, \code{Phe}, \code{Gly}, \code{His}, \code{Ile}, \code{Lys}, \code{Leu}, \code{Met}, \code{Asn}, \code{Pro}, \code{Gln}, \code{Arg}, \code{Ser}, \code{Thr}, \code{Val}, \code{Trp}, \code{Tyr}.
+
+For \code{aasum}, a one-row data frame of amino acid composition and identifying information.
 }
 
 \seealso{
@@ -63,6 +77,8 @@ read.fasta(file, ret = "seq")[[1]]
 aa <- read.fasta(file)
 # Calculate protein length (number of amino acids in each protein)
 plength(aa)
+# Sum the amino acid compositions and assign a new protein name
+aasum(aa, protein = "EF-Tu_sum")
 
 # Count amino acids in a sequence
 count.aa("GGSGG")

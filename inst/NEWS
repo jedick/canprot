@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.2-19 (2024-02-28)
+CHANGES IN canprot 1.1.2-20 (2024-02-28)
 ---------------------------------------
 
 - Objects in cplab are now `quote()`-ed instead of `expression()`s for easier
@@ -18,7 +18,8 @@ CHANGES IN canprot 1.1.2-19 (2024-02-28)
 - Differential expression datasets and chemical analysis vignettes have been
   moved to the JMDplots package.
 
-- read.fasta() and count.aa() have been moved here from the CHNOSZ package.
+- read.fasta(), count.aa(), and aasum() have been moved here from the CHNOSZ
+  package.
 
 CHANGES IN canprot 1.1.2 (2022-01-17)
 -------------------------------------

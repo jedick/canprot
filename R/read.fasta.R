@@ -9,7 +9,7 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
   # read.fasta in package seqinR
   # value of 'iseq' is what sequences to read (default is all)
   # value of 'ret' determines format of return value:
-  #   count: amino acid composition (same columns as thermo()$protein, can be used by add.protein)
+  #   count: amino acid composition (output can be used by CHNOSZ::add.protein())
   #        or nucleic acid base composition (A-C-G-T)
   #   seq: amino acid sequence
   #   fas: fasta entry
@@ -113,7 +113,7 @@ count.aa <- function(seq, start = NULL, stop = NULL, type = "protein") {
   else if(type == "DNA") letts <- c("A", "C", "G", "T")
   else if(type == "RNA") letts <- c("A", "C", "G", "U")
   else stop(paste("unknown sequence type", type))
-  # The numerical positions of the letters in alphabetical order (i.e. for amino acids, same order as in thermo()$protein)
+  # The numerical positions of the letters in alphabetical order
   ilett <- match(letts, LETTERS)
   # The letters A-Z represented by raw values
   rawAZ <- charToRaw("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -149,5 +149,36 @@ count.aa <- function(seq, start = NULL, stop = NULL, type = "protein") {
   colnames(counts) <- letts
   rownames(counts) <- 1:nrow(counts)
   return(counts)
+}
+
+# Combine amino acid counts (sum, average, or weighted sum by abundance)
+aasum <- function(aa, abundance = 1, average = FALSE, protein = NULL, organism = NULL) {
+  # Returns the sum of the amino acid counts in aa,
+  #   multiplied by the abundances of the proteins
+  abundance <- rep(abundance, length.out = nrow(aa))
+  # Drop any NA rows or abundances
+  ina.aa <- is.na(aa$chains)
+  ina.ab <- is.na(abundance)
+  ina <- ina.aa | ina.ab
+  if(any(ina)) {
+    aa <- aa[!ina, ]
+    abundance <- abundance[!ina]
+    message("aasum: dropped ", sum(ina), " proteins with NA composition and/or abundance")
+  }
+  # Multiply
+  aa[, 6:25] <- aa[, 6:25] * abundance
+  # Sum
+  out <- aa[1, ]
+  out[, 5:25] <- colSums(aa[, 5:25])
+  # Average if told to do so
+  if(average) {
+    # Polypeptide chains by number of proteins, residues by frequency
+    out[, 5] <- out[, 5]/nrow(aa)
+    out[, 6:25] <- out[, 6:25]/sum(abundance)
+  }
+  # Add protein and organism names if given
+  if(!is.null(protein)) out$protein <- protein
+  if(!is.null(organism)) out$organism <- organism
+  return(out)
 }
 
