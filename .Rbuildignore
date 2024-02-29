@@ -1,6 +1,3 @@
 vignettes/.*.html
-oldvignettes/.*.html
-oldvignettes/cpdat.bib
-oldvignettes/peerj.csl
-oldvignettes/mkall.R
 LICENSE
+^\.github$
