@@ -17,10 +17,9 @@ export("protcomp", "CLES",
 "read.fasta", "count.aa", "aasum"
 )
 
-## Imports from default packages
+# Imports from default packages
 importFrom("stats", "pnorm", "sd")
 importFrom("utils", "read.csv")
 
-# Load shared objects
-# Refer to all C/Fortran routines by their name prefixed by C_
-useDynLib(canprot, .registration = TRUE, .fixes = "C_")
+# Imports from other packages
+importFrom("stringi", "stri_count_fixed")

@@ -12,7 +12,7 @@
 \usage{
   read.fasta(file, iseq = NULL, ret = "count", lines = NULL, 
     ihead = NULL, start = NULL, stop = NULL, type = "protein", id = NULL)
-  count.aa(seq, start = NULL, stop = NULL, type = "protein")
+  count.aa(sequence, start = NULL, stop = NULL, type = "protein")
   aasum(aa, abundance = 1, average = FALSE, protein = NULL, organism = NULL)
 }
 
@@ -26,7 +26,7 @@
   \item{stop}{numeric, position in sequence to stop counting}
   \item{type}{character, sequence type (protein or DNA)}
   \item{id}{character, value to be used for \code{protein} in output table}
-  \item{seq}{character, amino acid sequence of a protein}
+  \item{sequence}{character, one or more sequences}
   \item{aa}{data frame, amino acid composition(s) of proteins}
   \item{abundance}{numeric, abundances of proteins}
   \item{average}{logical, return the weighted average of amino acid counts?}
@@ -44,11 +44,11 @@ Optionally, the lines of a previously read file may be supplied in \code{lines} 
 When \code{ret} is \samp{count}, the names of the proteins in the resulting data frame are parsed from the header lines of the file, unless \code{id} is provided.
 If \code{id} is not given, and a UniProt FASTA header is detected (regular expression \code{"\\|......\\|.*_"}), information there (accession, name, organism) is split into the \code{protein}, \code{abbrv}, and \code{organism} columns of the resulting data frame.
 
-\code{count.aa} counts the occurrences of each amino acid or nucleic-acid base in a sequence (\code{seq}).
+\code{count.aa} counts the occurrences of each amino acid or nucleic-acid base in one or more sequences provided as a character object or list.
 The matching of letters is case-insensitive.
-A warning is generated if any character in \code{seq}, excluding spaces, is not one of the single-letter amino acid or nucleobase abbreviations.
-\code{start} and/or \code{stop} can be provided to count a fragment of the sequence (extracted using \code{\link{substr}}).
-If only one of \code{start} or \code{stop} is present, the other defaults to 1 (\code{start}) or the length of the sequence (\code{stop}).
+A message is generated if any character in \code{seq}, excluding spaces, is not one of the single-letter amino acid or nucleobase abbreviations.
+\code{start} and/or \code{stop} can be provided to count a fragment of the sequence.
+If only one of \code{start} or \code{stop} is present, the other defaults to 1 (\code{start}) or the length of the respective sequence (\code{stop}).
 
 \code{aasum} returns a data frame representing the sum of amino acid compositions in the rows of the input \code{aa} data frame.
 The amino acid compositions are multiplied by the indicated \code{abundance}; that argument is recycled to match the number of rows of \code{aa}.

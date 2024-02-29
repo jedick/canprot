@@ -87,8 +87,8 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
       colnames(counts) <- c("Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",
                             "Met", "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr")
       # 20090507 Made stringsAsFactors FALSE
-      out <- cbind(data.frame(protein = id, organism = organism,
-        ref = ref, abbrv = abbrv, chains = chains, stringsAsFactors = FALSE), counts)
+      out <- cbind(protein = id, organism = organism,
+        ref = ref, abbrv = abbrv, chains = chains, stringsAsFactors = FALSE, counts)
       # 20170117 Extra processing for files from UniProt
       isUniProt <- grepl("\\|......\\|.*_", out$protein[1])
       if(isUniProt & missid) {
@@ -101,25 +101,26 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
       }
       out
     } else if(type %in% c("DNA", "RNA")) {
-      cbind(data.frame(gene = id, organism = organism,
-        ref = ref, abbrv = abbrv, chains = chains, stringsAsFactors = FALSE), counts)
+      cbind(gene = id, organism = organism,
+        ref = ref, abbrv = abbrv, chains = chains, stringsAsFactors = FALSE, counts)
     }
   } else return(sequences)
 }
 
-count.aa <- function(seq, start = NULL, stop = NULL, type = "protein") {
-  # Count amino acids or DNA bases in one or more sequences given as elements of the list seq
-  if(type == "protein") letts <- c("A", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "Y")
-  else if(type == "DNA") letts <- c("A", "C", "G", "T")
-  else if(type == "RNA") letts <- c("A", "C", "G", "U")
-  else stop(paste("unknown sequence type", type))
-  # The numerical positions of the letters in alphabetical order
-  ilett <- match(letts, LETTERS)
-  # The letters A-Z represented by raw values
-  rawAZ <- charToRaw("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-  # To count the letters in each sequence
-  countfun <- function(seq, start, stop) {
-    # Get a substring if one or both of start or stop are given
+# Count amino acids or DNA bases in one or more sequences
+# 20090423 Use table(strsplit(toupper(seq), "")[[1]]) for counting (CHNOSZ 0.8)
+# 20180517 Use C code for counting (CHNOSZ 1.2.0)
+# 20240229 Use stringi::stri_count_fixed for counting (canprot 1.1.2-22)
+count.aa <- function(sequence, start = NULL, stop = NULL, type = "protein") {
+  if(type == "protein") alphabet <- c("A", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "Y") else
+  if(type == "DNA") alphabet <- c("A", "C", "G", "T") else
+  if(type == "RNA") alphabet <- c("A", "C", "G", "U") else
+  stop(paste("unknown sequence type", type))
+  # Convert input to uppercase
+  sequence <- toupper(sequence)
+  # Loop over sequences
+  counts <- lapply(sequence, function(seq) {
+    # Get a substring between start and stop positions
     # If only one of start or stop is given, get a default value for the other
     if(!is.null(start)) {
       if(is.null(stop)) stop <- nchar(seq)
@@ -127,28 +128,20 @@ count.aa <- function(seq, start = NULL, stop = NULL, type = "protein") {
     } else if(!is.null(stop)) {
       seq <- substr(seq, 1, stop)
     }
-    ## The actual counting ...
-    #nnn <- table(strsplit(toupper(seq), "")[[1]])
-    # ... Replaced with C version 20180217
-    counts <- .C(C_count_letters, seq, integer(26))[[2]]
-    # which is equivalent to this R code:
-    #rawseq <- charToRaw(toupper(seq))
-    #counts <- sapply(rawAZ, function(x) sum(rawseq == x))
-    return(counts)
-  }
-  # Counts for each sequence
-  counts <- lapply(seq, countfun, start, stop)
-  counts <- do.call(rbind, counts)
-  # Check for letters that aren't in our alphabet
-  ina <- colSums(counts[, -ilett, drop = FALSE]) > 0
-  if(any(ina)) {
-    message(paste("count.aa: unrecognized letter(s) in", type, "sequence:", paste(LETTERS[-ilett][ina], collapse = " ")))
-  }
-  counts <- counts[, ilett, drop = FALSE]
-  # Clean up row/column names
-  colnames(counts) <- letts
-  rownames(counts) <- 1:nrow(counts)
-  return(counts)
+    # Count all letters
+    stri_count_fixed(seq, LETTERS)
+  })
+  # Convert to data frame
+  counts <- as.data.frame(do.call(rbind, counts))
+  # Keep only letters for protein, DNA, or RNA
+  iab <- match(alphabet, LETTERS)
+  ina <- colSums(counts[, -iab, drop = FALSE]) > 0
+  if(any(ina)) message(paste("count.aa: unrecognized letter(s) in", type, "sequence:", paste(LETTERS[-iab][ina], collapse = " ")))
+  counts <- counts[, iab, drop = FALSE]
+  # Add column and row names
+  colnames(counts) <- alphabet
+  if(is.null(names(sequence))) rownames(counts) <- 1:nrow(counts)
+  counts
 }
 
 # Combine amino acid counts (sum, average, or weighted sum by abundance)
