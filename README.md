@@ -15,8 +15,6 @@ hydropathicity (GRAVY), isoelectric point (pI), and molecular weight (MW). A
 database of amino acid compositions of human proteins derived from UniProt is
 provided.
 
-Please use this citation for the package: [Dick (2021)](https://doi.org/10.1002/cso2.1007).
-
 ## Installation of development version from GitHub
 
 This version has the `read.fasta()` function that was previously in [CHNOSZ](https://github.com/jedick/CHNOSZ).
