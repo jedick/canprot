@@ -70,7 +70,7 @@ Pass the output of \code{read.fasta} to \code{\link[CHNOSZ]{add.protein}} in the
 \examples{
 ## Reading a protein FASTA file
 # The path to the file
-file <- system.file("extdata/fasta/EF-Tu.aln", package = "canprot")
+file <- system.file("extdata/fasta/KHAB17.fasta", package = "canprot")
 # Read the sequences, and print the first one
 read.fasta(file, ret = "seq")[[1]]
 # Count the amino acids in the sequences
@@ -78,7 +78,7 @@ aa <- read.fasta(file)
 # Calculate protein length (number of amino acids in each protein)
 plength(aa)
 # Sum the amino acid compositions and assign a new protein name
-aasum(aa, protein = "EF-Tu_sum")
+aasum(aa, protein = "summed")
 
 # Count amino acids in a sequence
 count.aa("GGSGG")

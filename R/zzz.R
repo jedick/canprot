@@ -13,15 +13,15 @@ human <- new.env()
   with(human, {
     # Read amino acid compositions of human proteins and show some information
     human_base <- readRDS(system.file("/extdata/protein/human_base.rds", package = "canprot"))
-    packageStartupMessage(paste("human_base:", nrow(human_base), "proteins"))
+#    packageStartupMessage(paste("human_base:", nrow(human_base), "proteins"))
 
     human_additional <- readRDS(system.file("/extdata/protein/human_additional.rds", package = "canprot"))
-    packageStartupMessage(paste("human_additional:", nrow(human_additional), "proteins"))
+#    packageStartupMessage(paste("human_additional:", nrow(human_additional), "proteins"))
 
     human_extra <- read.csv(system.file("/extdata/protein/human_extra.csv", package = "canprot"), as.is = TRUE)
-    packageStartupMessage(paste("human_extra:", nrow(human_extra), "proteins"))
+#    packageStartupMessage(paste("human_extra:", nrow(human_extra), "proteins"))
 
-    # create the data frame with all proteins
+    # Create the data frame with all proteins
     human_aa <- rbind(human_base, human_additional, human_extra)
 
     # Warn if there are duplicated proteins

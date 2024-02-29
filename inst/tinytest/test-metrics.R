@@ -32,3 +32,28 @@ expect_equivalent(Zc(AAcomp6), Zc(AAmat6))
 expect_equivalent(nH2O(AAcomp6), nH2O(AAmat6))
 expect_equivalent(Zc(AAmat6)[1], Zc(AAmat1))
 expect_equivalent(nH2O(AAmat6)[1], nH2O(AAmat1))
+
+# Following tests moved here from metrics.Rd 20240229
+
+info <- "Check with Zc of alanine and glycince calculated in CHNOSZ"
+Zc.Gly <- CHNOSZ::ZC("C2H5NO2")
+Zc.Ala <- CHNOSZ::ZC("C3H7NO2")
+# Define the composition of a Gly-Ala-Gly tripeptide
+AAcomp <- data.frame(Gly = 2, Ala = 1)
+# Calculate the Zc of the tripeptide (value: 0.571)
+Zc.GAG <- Zc(AAcomp)
+# This is equal to the carbon-number-weighted average of the amino acids
+nC.Gly <- 2 * 2
+nC.Ala <- 1 * 3
+Zc.average <- (nC.Gly * Zc.Gly + nC.Ala * Zc.Ala) / (nC.Ala + nC.Gly)
+expect_equal(Zc.GAG, Zc.average)
+
+# Compute the per-residue nH2O of Gly-Ala-Gly
+basis("QEC")
+nH2O.GAG <- CHNOSZ::species("Gly-Ala-Gly")$H2O
+# Divide by the length to get residue average (we keep the terminal H-OH)
+nH2O.residue <- nH2O.GAG / 3
+# Compare with the value calculated by nH2O() (-0.2)
+nH2O.canprot <- nH2O(AAcomp, "QEC", terminal_H2O = 1)
+expect_equal(nH2O.residue, nH2O.canprot)
+

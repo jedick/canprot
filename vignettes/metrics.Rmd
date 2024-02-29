@@ -1,0 +1,153 @@
+---
+title: "More about metrics"
+output:
+  html_vignette:
+    mathjax: null
+vignette: >
+  %\VignetteIndexEntry{More about metrics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: canprot.bib
+link-citations: yes
+csl: elementa.csl
+---
+
+```{r setup, include=FALSE}
+library(canprot)
+library(CHNOSZ)
+oldopt <- options(width = 72)
+```
+
+```{r HTML, include=FALSE}
+Zc <- "<i>Z</i><sub>C</sub>"
+nC <- "<i>n</i><sub>C</sub>"
+nH2O <- "<i>n</i><sub>H<sub>2</sub>O</sub>"
+H2O <- "H<sub>2</sub>O"
+O2 <- "O<sub>2</sub>"
+```
+
+The **canprot** package has functions to calculate chemical metrics of proteins from their amino acid composition.
+This vignette was compiled on `r Sys.Date()` with **canprot** version `r packageDescription("canprot")$Version`.
+
+Previous vignette: [Introduction to canprot](introduction.html)
+
+## More details on chemical metrics
+
+Carbon oxidation state (`r Zc`) is calculated from elemental ratios, but stoichiometric hydration state (`r nH2O`) depends on a specific choice of thermodynamic components (or basis species).
+By default, `r nH2O` is calculated from a theoretical reaction to form proteins from this set of basis species, abbreviated as **QEC**:
+
+* glutamine (Q)
+* glutamic acid (E)
+* cysteine (C)
+* `r H2O`
+* `r O2`
+
+The rationale for this choice is described in @DYT20 and @Dic22.
+
+To see how it works, consider the formation reaction of alanylglycine, which can be written using functions in the **CHNOSZ** package:
+```{r AG_reaction, message = FALSE}
+CHNOSZ::basis("QEC")
+CHNOSZ::subcrt("alanylglycine", 1)$reaction
+```
+
+As it turns out, alanylglycine has the same elemental formula as glutamine, which is one of the basis species, so there are no other basis species in the reaction.
+That includes `r H2O`, so we can deduce that `r nH2O` is zero.
+
+Let's do the calculation with the `nH2O()` function to see this result.
+We have to specify `terminal_H2O = 1` in order to account for the terminal -H and -OH groups on alanlglycine.
+As described below, the default for this setting is 0 because, most of the time, we want to measure the per-amino-acid contributions for proteins.
+```{r AG_metrics}
+AG <- data.frame(Ala = 1, Gly = 1)
+nH2O(AG, terminal_H2O = 1)
+```
+
+Now let's try an actual protein, chicken egg-white lysozome, which has the name LYSC\_CHICK in UniProt with accession number [P00698](https://www.uniprot.org/uniprotkb/P00698).
+The amino acid compositions of this and selected other proteins are available in the **CHNOSZ** package.
+This gets the amino acid composition and prints the protein length and `r Zc` and `r nH2O`:
+```{r LYSC_CHICK_metrics}
+AA <- CHNOSZ::pinfo(CHNOSZ::pinfo("LYSC_CHICK"))
+plength(AA)
+Zc(AA)
+nH2O(AA)
+```
+
+*By the way, lysozyme (a secreted protein) is highly oxidized compared to cytoplasmic proteins, most of which have negative `r Zc`.*
+
+To see where the value of `r nH2O` comes from, we can write the formation reaction of LYSC\_CHICK from the **QEC** basis species.
+Recall that we set the basis species above with `CHNOSZ::basis("QEC")`; that setting is used here to balance the reaction.
+```{r LYSC_reaction, message = FALSE, echo = 1:2}
+(reaction <- CHNOSZ::subcrt("LYSC_CHICK", 1)$reaction) # print the reaction
+(H2Ocoeff <- with(reaction, coeff[name == "water"])) # print the coefficient on H2O
+stopifnot( -(H2Ocoeff + 1) / plength(AA) == nH2O(AA))
+```
+
+That says `r H2Ocoeff`, but the value for `r nH2O` above was `r nH2O(AA)`.
+What happened?
+Let's step through the logic:
+
+* The reaction shows that `r H2Ocoeff` water molecules are *released* (the coefficient is positive) in the theoretical formation of one molecule of the protein.
+* The protein has terminal -H and -OH groups. This means that shorter proteins are "wetter", and we don't want that complication. So, we take one `r H2O` away from the protein and add it to the number of water molecules released, giving `r H2Ocoeff` + 1 = `r H2Ocoeff + 1` `r H2O`. _This step was not performed by @DYT20 but is the default in **canprot** since version 2.0.0._
+* We use the opposite of this value because we are counting how many `r H2O` units go **into** forming the protein.
+* Finally, we divide by the length of the protein to get the stoichiometric hydration state normalized per residue: `r -(H2Ocoeff + 1)` / `r plength(AA)` = `r nH2O(AA)`
+
+A general observation: This is a theoretical reaction in terms of thermodynamic components, so we are not dealing with biochemical mechanisms here.
+That's one reason for calling this approach *geochemical biology*.
+
+## Implementation details
+
+To save time, `nH2O()` does not calculate the formation reaction for each protein but instead uses precomputed values of `r nH2O` for each amino acid.
+The two methods give equivalent results, as described in @DYT20.
+
+Similarly, `Zc()` uses precomputed values of `r Zc` and `r nC` (number of carbon atoms) for each amino acid.
+**NOTE**: Calculating `r Zc` of proteins from amino acid frequencies (i.e. abundances or counts in a protein sequence) requires weighting the amino-acid `r Zc` by the number of carbon atoms in each amino acid, in addition to weighting by amino acid frequency.
+Using the unweighted mean of `r Zc` of amino acids leads to artificially higher values for proteins.
+
+## GRAVY, pI, and molecular weight
+
+There are also functions for calculating the grand average of hydropathicity (GRAVY) and isoelectric point (pI) of proteins.
+Below, values for representative proteins are compared with results from the ProtParam tool [@GHG+05] in UniProt.
+
+We first look up a few proteins in CHNOSZ's list of proteins, then get the amino acid compositions.
+```{r CHNOSZ_proteins}
+iprotein <- CHNOSZ::pinfo(c("LYSC_CHICK", "RNAS1_BOVIN", "AMYA_PYRFU", "CSG_HALJP"))
+AAcomp <- CHNOSZ::pinfo(iprotein)
+```
+
+Calculate GRAVY and compare it to reference values from <https://web.expasy.org/protparam/>.
+```{r GRAVY}
+G_calc <- GRAVY(AAcomp)
+# https://web.expasy.org/cgi-bin/protparam/protparam1?P00698@19-147@
+# https://web.expasy.org/cgi-bin/protparam/protparam1?P61823@27-150@
+# https://web.expasy.org/cgi-bin/protparam/protparam1?P49067@2-649@
+G_ref <- c(-0.472, -0.663, -0.325)
+stopifnot(all.equal(round(G_calc[1:3], 3), G_ref, check.attributes = FALSE))
+```
+
+Calculate pI and compare it to reference values.
+```{r pI}
+pI_calc <- pI(AAcomp)
+# Reference values calculated with ProtParam
+# LYSC_CHICK: residues 19-147 (sequence v1)
+# RNAS1_BOVIN: residues 27-150 (sequence v1)
+# AMYA_PYRFU: residues 2-649 (sequence v2)
+# CSG_HALJP: residues 35-862 (sequence v1)
+pI_ref <- c(9.32, 8.64, 5.46, 3.37)
+stopifnot(all.equal(as.numeric(pI_calc), pI_ref))
+```
+
+Calculate molecular weight (`MW`) and compare it to reference values
+```{r MW}
+# Per-residue molecular weight multiplied by number of residues
+MWcalc <- MW(AAcomp) * plength(AAcomp)
+# Add terminal groups
+MWcalc <- MWcalc + 18.01528
+# Reference values for molecular weights of proteins
+MWref <- c(14313.14, 13690.29, 76178.25)
+stopifnot(all.equal(round(MWcalc[1:3], 2), MWref, check.attributes = FALSE))
+```
+
+```{r reset, include=FALSE}
+options(oldopt)
+```
+
+## References

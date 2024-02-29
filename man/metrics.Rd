@@ -101,64 +101,12 @@ For calculation of \Zc from an elemental formula (instead of amino acid composit
 }
 
 \examples{
-# We need CHNOSZ for these examples
-require(CHNOSZ)
-
-# For reference, compute Zc of alanine and glycine "by hand"
-Zc.Gly <- ZC("C2H5NO2")
-Zc.Ala <- ZC("C3H7NO2")
-# Define the composition of a Gly-Ala-Gly tripeptide
-AAcomp <- data.frame(Gly = 2, Ala = 1)
-# Calculate the Zc of the tripeptide (value: 0.571)
-Zc.GAG <- Zc(AAcomp)
-# This is equal to the carbon-number-weighted average of the amino acids
-nC.Gly <- 2 * 2
-nC.Ala <- 1 * 3
-Zc.average <- (nC.Gly * Zc.Gly + nC.Ala * Zc.Ala) / (nC.Ala + nC.Gly)
-stopifnot(all.equal(Zc.GAG, Zc.average))
-
-# Compute the per-residue nH2O of Gly-Ala-Gly
-basis("QEC")
-nH2O.GAG <- species("Gly-Ala-Gly")$H2O
-# Divide by the length to get residue average (we keep the terminal H-OH)
-nH2O.residue <- nH2O.GAG / 3
-# Compare with the value calculated by nH2O() (-0.2)
-nH2O.canprot <- nH2O(AAcomp, "QEC", terminal_H2O = 1)
-stopifnot(all.equal(nH2O.residue, nH2O.canprot))
-
-# Calculate GRAVY for a few proteins
-# First get the protein index in CHNOSZ's list of proteins
-iprotein <- pinfo(c("LYSC_CHICK", "RNAS1_BOVIN", "AMYA_PYRFU"))
-# Then get the amino acid compositions
-AAcomp <- pinfo(iprotein)
-# Then calculate GRAVY
-Gcalc <- as.numeric(GRAVY(AAcomp))
-# These are equal to values obtained with ProtParam on uniprot.org
-# https://web.expasy.org/cgi-bin/protparam/protparam1?P00698@19-147@
-# https://web.expasy.org/cgi-bin/protparam/protparam1?P61823@27-150@
-# https://web.expasy.org/cgi-bin/protparam/protparam1?P49067@2-649@
-Gref <- c(-0.472, -0.663, -0.325)
-stopifnot(all.equal(round(Gcalc, 3), Gref))
-
-# Per-residue molecular weight multiplied by number of residues
-MWcalc <- as.numeric(MW(AAcomp)) * protein.length(iprotein)
-# Add terminal groups
-MWcalc <- MWcalc + 18.01528
-# Reference values for molecular weights of proteins
-MWref <- c(14313.14, 13690.29, 76178.25)
-stopifnot(all.equal(round(MWcalc, 2), MWref))
-
-# Calculate pI for a few proteins
-iprotein <- pinfo(c("LYSC_CHICK", "RNAS1_BOVIN", "AMYA_PYRFU", "CSG_HALJP"))
-AAcomp <- pinfo(iprotein)
-pI_calc <- pI(AAcomp)
-# Reference values calculated with ProtParam on uniprot.org
-# LYSC_CHICK: residues 19-147 (sequence v1)
-# RNAS1_BOVIN: residues 27-150 (sequence v1)
-# AMYA_PYRFU: residues 2-649 (sequence v2)
-# CSG_HALJP: residues 35-862 (sequence v1)
-pI_ref <- c(9.32, 8.64, 5.46, 3.37)
-stopifnot(all.equal(as.numeric(pI_calc), pI_ref))
+# Amino acid composition of a tripeptide (Gly-Ala-Gly)
+aa <- data.frame(Ala = 1, Gly = 2)
+# Calculate Zc, nH2O, and length
+Zc(aa)
+nH2O(aa)
+plength(aa)
 }
 
 \concept{Chemical metrics}

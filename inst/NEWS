@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.2-20 (2024-02-28)
+CHANGES IN canprot 1.1.2-24 (2024-02-29)
 ---------------------------------------
 
 - Objects in cplab are now `quote()`-ed instead of `expression()`s for easier
@@ -20,6 +20,8 @@ CHANGES IN canprot 1.1.2-20 (2024-02-28)
 
 - read.fasta(), count.aa(), and aasum() have been moved here from the CHNOSZ
   package.
+
+- Expand vignettes: Introduction to canprot, More about metrics.
 
 CHANGES IN canprot 1.1.2 (2022-01-17)
 -------------------------------------
