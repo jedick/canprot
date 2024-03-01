@@ -34,11 +34,3 @@ human <- new.env()
     uniprot_updates <- read.csv(system.file("/extdata/protein/uniprot_updates.csv", package = "canprot"), as.is = TRUE)
   })
 }
-
-# Set 'basis' option 20200817
-# Adapted from R/src/library/grDevices/zzz.R
-.onLoad <- function(libname, pkgname) {
-  op.canprot <- list(basis = "QEC")
-  toset <- !(names(op.canprot) %in% names(.Options))
-  if(any(toset)) options(op.canprot[toset])
-}

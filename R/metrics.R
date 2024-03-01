@@ -30,9 +30,9 @@ Zc <- function(AAcomp, ...) {
 
 # Calculate stoichiometric hydration state from amino acid compositions 20181228
 # Add `terminal_H2O` argument 20221018
-nH2O <- function(AAcomp, basis = getOption("basis"), terminal_H2O = 0) {
+nH2O <- function(AAcomp, basis = "QEC", terminal_H2O = 0) {
   if(basis == "QEC") {
-    # How to get the number of H2O in reactions to form amino acid residues from the "QEC" basis:
+    # To get the number of H2O in reactions to form amino acid residues from the "QEC" basis:
     ## library(CHNOSZ)
     ## basis("QEC")
     ## nH2O_AA <- species(aminoacids(""))$H2O
@@ -65,7 +65,7 @@ nH2O <- function(AAcomp, basis = getOption("basis"), terminal_H2O = 0) {
 }
 
 # Calculate stoichiometric oxidation state from amino acid compositions 20201016
-nO2 <- function(AAcomp, basis = getOption("basis"), ...) {
+nO2 <- function(AAcomp, basis = "QEC", ...) {
   if(basis == "QEC") {
     # How to get the number of O2 in reactions to form amino acid residues from the "QEC" basis:
     ## library(CHNOSZ)
@@ -173,12 +173,6 @@ plength <- function(AAcomp, ...) {
   isAA <- colnames(AAcomp) %in% AA_names
   # Sum amino acid counts to get protein length
   rowSums(AAcomp[, isAA])
-}
-
-basis.text <- function(basis) {
-  if(basis=="QEC") bt <- "glutamine, glutamic acid, cysteine"
-  if(basis=="QCa") bt <- "glutamine, cysteine, acetic acid"
-  bt
 }
 
 #########################

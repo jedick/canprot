@@ -7,8 +7,6 @@ export("protcomp", "CLES",
 "cplab",
 # 20200501, 20200505
 "MW",
-# 20200817
-"basis.text",
 # 20201016
 "nO2",
 # 20240225

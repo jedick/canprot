@@ -116,7 +116,7 @@ par(mfrow = c(1, 2))
 
 Zclist <- list(Zc(aa_down), Zc(aa_up))
 names(Zclist) <- bp_names
-boxplot(Zclist, ylab = cplab$Zc, col = c(3, 2))
+boxplot(Zclist, ylab = cplab$Zc, col = c(4, 2))
 names(Zclist) <- c("x", "y")
 p <- do.call(wilcox.test, Zclist)$p.value
 legend("bottomleft", paste("p =", round(p, 3)), bty = "n")
@@ -124,14 +124,13 @@ title("Cabon oxidation state", font.main = 1)
 
 nH2Olist <- list(nH2O(aa_down), nH2O(aa_up))
 names(nH2Olist) <- bp_names
-boxplot(nH2Olist, ylab = cplab$nH2O, col = c(3, 2))
+boxplot(nH2Olist, ylab = cplab$nH2O, col = c(4, 2))
 names(nH2Olist) <- c("x", "y")
 p <- do.call(wilcox.test, nH2Olist)$p.value
 legend("bottomleft", paste("p =", round(p, 3)), bty = "n")
 title("Stoichiometric hydration state", font.main = 1)
 ```
 
-The colors are chosen because green and red traditionally are used for down- and up-regulated proteins.
 We find no significant difference of `r Zc` for the differentially regulated proteins.
 In contrast, `r nH2O` is significantly lower for up-regulated than for down-regulated proteins.
 

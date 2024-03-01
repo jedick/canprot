@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>More about metrics</title>
+
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">More about metrics</h1>
+
+
+
+<p>The <strong>canprot</strong> package has functions to calculate chemical metrics of proteins from their amino acid composition. This vignette was compiled on 2024-02-29 with <strong>canprot</strong> version 1.1.2-24.</p>
+<p>Previous vignette: <a href="introduction.html">Introduction to canprot</a></p>
+<div id="more-details-on-chemical-metrics" class="section level2">
+<h2>More details on chemical metrics</h2>
+<p>Carbon oxidation state (<i>Z</i><sub>C</sub>) is calculated from elemental ratios, but stoichiometric hydration state (<i>n</i><sub>H<sub>2</sub>O</sub>) depends on a specific choice of thermodynamic components (or basis species). By default, <i>n</i><sub>H<sub>2</sub>O</sub> is calculated from a theoretical reaction to form proteins from this set of basis species, abbreviated as <strong>QEC</strong>:</p>
+<ul>
+<li>glutamine (Q)</li>
+<li>glutamic acid (E)</li>
+<li>cysteine (C)</li>
+<li>H<sub>2</sub>O</li>
+<li>O<sub>2</sub></li>
+</ul>
+<p>The rationale for this choice is described in <span class="citation">Dick et al. (<a href="#ref-DYT20" role="doc-biblioref">2020</a>)</span> and <span class="citation">Dick (<a href="#ref-Dic22" role="doc-biblioref">2022</a>)</span>.</p>
+<p>To see how it works, consider the formation reaction of alanylglycine, which can be written using functions in the <strong>CHNOSZ</strong> package:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>CHNOSZ<span class="op">::</span><span class="kw">basis</span>(<span class="st">&quot;QEC&quot;</span>)</span></code></pre></div>
+<pre><code>##           C  H N O S ispecies logact state
+## C5H10N2O3 5 10 2 3 0     1723   -3.2    aq
+## C5H9NO4   5  9 1 4 0     1724   -4.5    aq
+## C3H7NO2S  3  7 1 2 1     1721   -3.6    aq
+## H2O       0  2 0 1 0        1    0.0   liq
+## O2        0  0 0 2 0     2679  -80.0   gas</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>CHNOSZ<span class="op">::</span><span class="kw">subcrt</span>(<span class="st">&quot;alanylglycine&quot;</span>, <span class="dv">1</span>)<span class="op">$</span>reaction</span></code></pre></div>
+<pre><code>##      coeff          name   formula state ispecies model
+## 2665     1 alanylglycine C5H10N2O3    cr     2665   CGL
+## 1723    -1     glutamine C5H10N2O3    aq     1723   HKF</code></pre>
+<p>As it turns out, alanylglycine has the same elemental formula as glutamine, which is one of the basis species, so there are no other basis species in the reaction. That includes H<sub>2</sub>O, so we can deduce that <i>n</i><sub>H<sub>2</sub>O</sub> is zero.</p>
+<p>Let’s do the calculation with the <code>nH2O()</code> function to see this result. We have to specify <code>terminal_H2O = 1</code> in order to account for the terminal -H and -OH groups on alanlglycine. As described below, the default for this setting is 0 because, most of the time, we want to measure the per-amino-acid contributions for proteins.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>AG &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Ala =</span> <span class="dv">1</span>, <span class="dt">Gly =</span> <span class="dv">1</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">nH2O</span>(AG, <span class="dt">terminal_H2O =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>Now let’s try an actual protein, chicken egg-white lysozome, which has the name LYSC_CHICK in UniProt with accession number <a href="https://www.uniprot.org/uniprotkb/P00698">P00698</a>. The amino acid compositions of this and selected other proteins are available in the <strong>CHNOSZ</strong> package. This gets the amino acid composition and prints the protein length and <i>Z</i><sub>C</sub> and <i>n</i><sub>H<sub>2</sub>O</sub>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>AA &lt;-<span class="st"> </span>CHNOSZ<span class="op">::</span><span class="kw">pinfo</span>(CHNOSZ<span class="op">::</span><span class="kw">pinfo</span>(<span class="st">&quot;LYSC_CHICK&quot;</span>))</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">plength</span>(AA)</span></code></pre></div>
+<pre><code>##   6 
+## 129</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">Zc</span>(AA)</span></code></pre></div>
+<pre><code>##          6 
+## 0.01631321</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">nH2O</span>(AA)</span></code></pre></div>
+<pre><code>##          6 
+## -0.8868217</code></pre>
+<p><em>By the way, lysozyme (a secreted protein) is highly oxidized compared to cytoplasmic proteins, most of which have negative <i>Z</i><sub>C</sub>.</em></p>
+<p>To see where the value of <i>n</i><sub>H<sub>2</sub>O</sub> comes from, we can write the formation reaction of LYSC_CHICK from the <strong>QEC</strong> basis species. Recall that we set the basis species above with <code>CHNOSZ::basis(&quot;QEC&quot;)</code>; that setting is used here to balance the reaction.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>(reaction &lt;-<span class="st"> </span>CHNOSZ<span class="op">::</span><span class="kw">subcrt</span>(<span class="st">&quot;LYSC_CHICK&quot;</span>, <span class="dv">1</span>)<span class="op">$</span>reaction) <span class="co"># print the reaction</span></span></code></pre></div>
+<pre><code>##      coeff          name             formula state ispecies
+## 3487   1.0    LYSC_CHICK C613H959N193O185S10    aq     3487
+## 1723 -66.4     glutamine           C5H10N2O3    aq     1723
+## 1724 -50.2 glutamic acid             C5H9NO4    aq     1724
+## 1721 -10.0      cysteine            C3H7NO2S    aq     1721
+## 1    113.4         water                 H2O   liq        1
+## 2679  60.8        oxygen                  O2   gas     2679
+##               model
+## 3487            HKF
+## 1723            HKF
+## 1724            HKF
+## 1721            HKF
+## 1    water.SUPCRT92
+## 2679            CGL</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>(H2Ocoeff &lt;-<span class="st"> </span><span class="kw">with</span>(reaction, coeff[name <span class="op">==</span><span class="st"> &quot;water&quot;</span>])) <span class="co"># print the coefficient on H2O</span></span></code></pre></div>
+<pre><code>## [1] 113.4</code></pre>
+<p>That says 113.4, but the value for <i>n</i><sub>H<sub>2</sub>O</sub> above was -0.8868217. What happened? Let’s step through the logic:</p>
+<ul>
+<li>The reaction shows that 113.4 water molecules are <em>released</em> (the coefficient is positive) in the theoretical formation of one molecule of the protein.</li>
+<li>The protein has terminal -H and -OH groups. This means that shorter proteins are “wetter”, and we don’t want that complication. So, we take one H<sub>2</sub>O away from the protein and add it to the number of water molecules released, giving 113.4 + 1 = 114.4 H<sub>2</sub>O. <em>This step was not performed by <span class="citation">Dick et al. (<a href="#ref-DYT20" role="doc-biblioref">2020</a>)</span> but is the default in <strong>canprot</strong> since version 2.0.0.</em></li>
+<li>We use the opposite of this value because we are counting how many H<sub>2</sub>O units go <strong>into</strong> forming the protein.</li>
+<li>Finally, we divide by the length of the protein to get the stoichiometric hydration state normalized per residue: -114.4 / 129 = -0.8868217</li>
+</ul>
+<p>A general observation: This is a theoretical reaction in terms of thermodynamic components, so we are not dealing with biochemical mechanisms here. That’s one reason for calling this approach <em>geochemical biology</em>.</p>
+</div>
+<div id="implementation-details" class="section level2">
+<h2>Implementation details</h2>
+<p>To save time, <code>nH2O()</code> does not calculate the formation reaction for each protein but instead uses precomputed values of <i>n</i><sub>H<sub>2</sub>O</sub> for each amino acid. The two methods give equivalent results, as described in <span class="citation">Dick et al. (<a href="#ref-DYT20" role="doc-biblioref">2020</a>)</span>.</p>
+<p>Similarly, <code>Zc()</code> uses precomputed values of <i>Z</i><sub>C</sub> and <i>n</i><sub>C</sub> (number of carbon atoms) for each amino acid. <strong>NOTE</strong>: Calculating <i>Z</i><sub>C</sub> of proteins from amino acid frequencies (i.e. abundances or counts in a protein sequence) requires weighting the amino-acid <i>Z</i><sub>C</sub> by the number of carbon atoms in each amino acid, in addition to weighting by amino acid frequency. Using the unweighted mean of <i>Z</i><sub>C</sub> of amino acids leads to artificially higher values for proteins.</p>
+</div>
+<div id="gravy-pi-and-molecular-weight" class="section level2">
+<h2>GRAVY, pI, and molecular weight</h2>
+<p>There are also functions for calculating the grand average of hydropathicity (GRAVY) and isoelectric point (pI) of proteins. Below, values for representative proteins are compared with results from the ProtParam tool <span class="citation">(Gasteiger et al., <a href="#ref-GHG+05" role="doc-biblioref">2005</a>)</span> in UniProt.</p>
+<p>We first look up a few proteins in CHNOSZ’s list of proteins, then get the amino acid compositions.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>iprotein &lt;-<span class="st"> </span>CHNOSZ<span class="op">::</span><span class="kw">pinfo</span>(<span class="kw">c</span>(<span class="st">&quot;LYSC_CHICK&quot;</span>, <span class="st">&quot;RNAS1_BOVIN&quot;</span>, <span class="st">&quot;AMYA_PYRFU&quot;</span>, <span class="st">&quot;CSG_HALJP&quot;</span>))</span>
+<span id="cb17-2"><a href="#cb17-2"></a>AAcomp &lt;-<span class="st"> </span>CHNOSZ<span class="op">::</span><span class="kw">pinfo</span>(iprotein)</span></code></pre></div>
+<p>Calculate GRAVY and compare it to reference values from <a href="https://web.expasy.org/protparam/" class="uri">https://web.expasy.org/protparam/</a>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>G_calc &lt;-<span class="st"> </span><span class="kw">GRAVY</span>(AAcomp)</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="co"># https://web.expasy.org/cgi-bin/protparam/protparam1?P00698@19-147@</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co"># https://web.expasy.org/cgi-bin/protparam/protparam1?P61823@27-150@</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># https://web.expasy.org/cgi-bin/protparam/protparam1?P49067@2-649@</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>G_ref &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="fl">0.472</span>, <span class="fl">-0.663</span>, <span class="fl">-0.325</span>)</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="kw">stopifnot</span>(<span class="kw">all.equal</span>(<span class="kw">round</span>(G_calc[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">3</span>), G_ref, <span class="dt">check.attributes =</span> <span class="ot">FALSE</span>))</span></code></pre></div>
+<p>Calculate pI and compare it to reference values.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>pI_calc &lt;-<span class="st"> </span><span class="kw">pI</span>(AAcomp)</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="co"># Reference values calculated with ProtParam</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="co"># LYSC_CHICK: residues 19-147 (sequence v1)</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># RNAS1_BOVIN: residues 27-150 (sequence v1)</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># AMYA_PYRFU: residues 2-649 (sequence v2)</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="co"># CSG_HALJP: residues 35-862 (sequence v1)</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>pI_ref &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">9.32</span>, <span class="fl">8.64</span>, <span class="fl">5.46</span>, <span class="fl">3.37</span>)</span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="kw">stopifnot</span>(<span class="kw">all.equal</span>(<span class="kw">as.numeric</span>(pI_calc), pI_ref))</span></code></pre></div>
+<p>Calculate molecular weight (<code>MW</code>) and compare it to reference values</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Per-residue molecular weight multiplied by number of residues</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>MWcalc &lt;-<span class="st"> </span><span class="kw">MW</span>(AAcomp) <span class="op">*</span><span class="st"> </span><span class="kw">plength</span>(AAcomp)</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="co"># Add terminal groups</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>MWcalc &lt;-<span class="st"> </span>MWcalc <span class="op">+</span><span class="st"> </span><span class="fl">18.01528</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="co"># Reference values for molecular weights of proteins</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>MWref &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">14313.14</span>, <span class="fl">13690.29</span>, <span class="fl">76178.25</span>)</span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="kw">stopifnot</span>(<span class="kw">all.equal</span>(<span class="kw">round</span>(MWcalc[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">2</span>), MWref, <span class="dt">check.attributes =</span> <span class="ot">FALSE</span>))</span></code></pre></div>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
+<div id="refs" class="references">
+<div id="ref-Dic22">
+<p>Dick JM. 2022. A thermodynamic model for water activity and redox potential in evolution and development. <em>Journal of Molecular Evolution</em> <strong>90</strong>(2): 182–199. doi: <a href="https://doi.org/10.1007/s00239-022-10051-7">10.1007/s00239-022-10051-7</a></p>
+</div>
+<div id="ref-DYT20">
+<p>Dick JM, Yu M, Tan J. 2020. Uncovering chemical signatures of salinity gradients through compositional analysis of protein sequences. <em>Biogeosciences</em> <strong>17</strong>(23): 6145–6162. doi: <a href="https://doi.org/10.5194/bg-17-6145-2020">10.5194/bg-17-6145-2020</a></p>
+</div>
+<div id="ref-GHG+05">
+<p>Gasteiger E, Hoogland C, Gattiker A, Duvaud S, Wilkins MR, Appel RD, Bairoch A. 2005. Protein identification and analysis tools on the ExPASy server. In: Walker JM, editor. <em>The Proteomics Protocols Handbook</em>. Humana Press. pp. 571–607. doi: <a href="https://doi.org/10.1385/1-59259-890-0:571">10.1385/1-59259-890-0:571</a></p>
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+
+</body>
+</html>

@@ -34,7 +34,7 @@ Previous vignette: [Introduction to canprot](introduction.html)
 ## More details on chemical metrics
 
 Carbon oxidation state (`r Zc`) is calculated from elemental ratios, but stoichiometric hydration state (`r nH2O`) depends on a specific choice of thermodynamic components (or basis species).
-By default, `r nH2O` is calculated from a theoretical reaction to form proteins from this set of basis species, abbreviated as **QEC**:
+In **canprot**, `r nH2O` is calculated from a theoretical reaction to form proteins from the following set of basis species, abbreviated as **QEC**:
 
 * glutamine (Q)
 * glutamic acid (E)
