@@ -9,8 +9,6 @@ cplab <- list(
   DnO2 = quote(Delta*italic(n)[O[2]]),
   Zc = quote(italic(Z)[C]),
   DZc = quote(Delta*italic(Z)[C]),
-  logfO2 = quote(log~italic("f")[O[2]]),
-  logaH2O = quote(log~italic("a")[H[2]*O]),
   nC = quote(italic(n)[C] * "/AA"),
   nN = quote(italic(n)[N] * "/AA"),
   nS = quote(italic(n)[S] * "/AA"),

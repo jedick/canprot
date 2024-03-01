@@ -87,3 +87,5 @@ count.aa("AAAXXX")
 # Count nucleobases in a sequence
 bases <- count.aa("ACCGGGTTT", type = "DNA")
 }
+
+\concept{Amino acid composition}

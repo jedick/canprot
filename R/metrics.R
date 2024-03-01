@@ -2,9 +2,9 @@
 # Calculate various metrics from amino acid composition of proteins
 # 20191027
 
-# Calculate carbon oxidation state from amino acid compositions 20180228
+# Carbon oxidation state 20180228
+# An unused second argument (...) is provided for flexible do.call() constructions
 Zc <- function(AAcomp, ...) {
-  # A dummy second argument is needed because of how this function is used in JMDplots::plotMG
   # The number of carbons of the amino acids
   nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
     Ile = 6, Lys = 6, Leu = 6, Met = 5, Asn = 4, Pro = 5, Gln = 5, 
@@ -28,8 +28,8 @@ Zc <- function(AAcomp, ...) {
   Zctot / nCtot
 }
 
-# Calculate stoichiometric hydration state from amino acid compositions 20181228
-# Add `terminal_H2O` argument 20221018
+# Stoichiometric hydration state 20181228
+# Add 'terminal_H2O' argument 20221018
 nH2O <- function(AAcomp, basis = "QEC", terminal_H2O = 0) {
   if(basis == "QEC") {
     # To get the number of H2O in reactions to form amino acid residues from the "QEC" basis:
@@ -40,7 +40,7 @@ nH2O <- function(AAcomp, basis = "QEC", terminal_H2O = 0) {
     nH2O_AA <- c( Ala =  0.6, Cys =    0, Asp = -0.2, Glu =    0, Phe = -2.2, Gly =  0.4, His = -1.8,
       Ile =  1.2, Lys =  1.2, Leu =  1.2, Met =  0.4, Asn = -0.2, Pro =    0, Gln =    0,
       Arg =  0.2, Ser =  0.6, Thr =  0.8, Val =    1, Trp = -3.8, Tyr = -2.2) - 1
-    # Note: subtract 1 to get amino acid residues in proteins
+    # Note: subtraction of 1 is to get amino acid residues
   }
   # QCa basis species 20200818
   if(basis == "QCa") {
@@ -64,10 +64,10 @@ nH2O <- function(AAcomp, basis = "QEC", terminal_H2O = 0) {
   nH2O / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Calculate stoichiometric oxidation state from amino acid compositions 20201016
+# Stoichiometric oxidation state 20201016
 nO2 <- function(AAcomp, basis = "QEC", ...) {
   if(basis == "QEC") {
-    # How to get the number of O2 in reactions to form amino acid residues from the "QEC" basis:
+    # To get the number of O2 in reactions to form amino acid residues from the "QEC" basis:
     ## library(CHNOSZ)
     ## basis("QEC")
     ## nO2_AA <- species(aminoacids(""))[["O2"]]
@@ -97,7 +97,7 @@ nO2 <- function(AAcomp, basis = "QEC", ...) {
   nO2 / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Calculate GRAVY from amino acid compositions 20191024
+# Grand average of hydropathy (GRAVY) 20191024
 GRAVY <- function(AAcomp, ...) {
   # Values of the hydropathy index from Kyte and Doolittle, 1982
   # doi:10.1016/0022-2836(82)90515-0
@@ -110,12 +110,12 @@ GRAVY <- function(AAcomp, ...) {
   iAA <- match(colnames(AAcomp)[isAA], names(Hind))
   # Calculate total of hydropathy values for each protein
   sumHind <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * Hind[iAA]))
-  # Divide by length of proteins to get grand average of hydropathy (GRAVY)
+  # Divide by length of proteins to get GRAVY
   sumHind / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Calculate isoelectric point from amino acid compositions 20191026
-pI <- function(AAcomp, ...) {
+# Isoelectric point 20191026
+pI <- function(AAcomp, terminal_H2O = 1, ...) {
   # A function to calculate isoelectric point for a single amino acid composition
   onepI <- function(AA) {
     # Find the column names of AAcomp that are in Ztab
@@ -130,9 +130,8 @@ pI <- function(AAcomp, ...) {
     ipH <- which.min(abs(Ztot))
     Ztab[ipH, 1]
   }
-  # Number of N- and C-terminal groups is 1, unless the input data frame has a value for number of chains
-  Nterm <- Cterm <- 1
-  if(!is.null(AAcomp$chains)) Nterm <- Cterm <- AAcomp$chains
+  # Number of N- and C-terminal groups
+  Nterm <- Cterm <- terminal_H2O
   if(!"Nterm" %in% names(AAcomp)) AAcomp <- cbind(AAcomp, Nterm = Nterm)
   if(!"Cterm" %in% names(AAcomp)) AAcomp <- cbind(AAcomp, Cterm = Cterm)
   # NOTE: apply() converts the input to matrix,
@@ -143,8 +142,8 @@ pI <- function(AAcomp, ...) {
   apply(myAA, 1, onepI)
 }
 
-# Calculate average molecular weight of residues from amino acid compositions 20200501
-MW <- function(AAcomp, ...) {
+# Molecular weight 20200501
+MW <- function(AAcomp, terminal_H2O = 0, ...) {
   # Mass per residue:
   # MW_AA <- sapply(CHNOSZ::makeup(info(aminoacids(""))), mass) - mass("H2O")
   # names(MW_AA) <- aminoacids(3)
@@ -159,11 +158,39 @@ MW <- function(AAcomp, ...) {
   iAA <- match(colnames(AAcomp)[isAA], names(MW_AA))
   # Calculate total MW of residues in each protein
   MW <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * MW_AA[iAA]))
+  # Add mass of H2O for each pair of terminal groups
+  # MW_H2O <- mass("H2O")
+  MW_H2O <- 18.01528
+  MW <- MW + terminal_H2O * MW_H2O
   # Divide by number of residues (length of protein)
   MW / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Calculate protein length from amino acid compositions 20200501
+# Volume 20240301
+V0 <- function(AAcomp, terminal_H2O = 0, ...) {
+  # Volume per residue using group contributions from Dick et al., 2006:
+  # i.e. residue = [sidechain group] + [backbone group]
+  # V0_AA <- info(info(paste0("[", aminoacids(3), "]")))$V + info(info("[UPBB]"))$V
+  # names(V0_AA) <- aminoacids(3)
+  V0_AA <- c(Ala = 53.16, Cys = 66.209, Asp = 67.412, Glu = 82.917, Phe = 114.841, 
+    Gly = 35.902, His = 92.049, Ile = 98.5, Lys = 101.344, Leu = 100.496, 
+    Met = 98.128, Asn = 70.122, Pro = 75.345, Gln = 86.374, Arg = 132.121, 
+    Ser = 53.338, Thr = 70.326, Val = 83.575, Trp = 136.341, Tyr = 117.2
+  )
+  # Find columns with names for the amino acids
+  isAA <- colnames(AAcomp) %in% names(V0_AA)
+  iAA <- match(colnames(AAcomp)[isAA], names(V0_AA))
+  # Calculate total V0 of residues in each protein
+  V0 <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * V0_AA[iAA]))
+  # Add volume of H2O for each pair of terminal groups
+  # V0_H2O <- info(info("[AABB]"))$V - info(info("[UPBB]"))$V
+  V0_H2O <- 7.289
+  V0 <- V0 + terminal_H2O * V0_H2O
+  # Divide by number of residues (length of protein)
+  V0 / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Protein length 20200501
 plength <- function(AAcomp, ...) {
   AA_names <- c(
     "Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu", "Met",

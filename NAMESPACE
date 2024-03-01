@@ -1,18 +1,23 @@
 # Exported variables
-export("protcomp", "CLES",
-"human",
+export(
+# 20170612 (canprot 0.1.0)
+"protcomp", "CLES",
 # metrics added 20191005 - 20191027
 "Zc", "nH2O", "GRAVY", "pI",
 # 20200204 used in JMDplots package
 "cplab",
-# 20200501, 20200505
+# 20200501
 "MW",
+# 20200509
+"human",
 # 20201016
 "nO2",
 # 20240225
 "plength",
 # 20240228 moved from CHNOSZ
-"read.fasta", "count.aa", "aasum"
+"read.fasta", "count.aa", "aasum",
+# 20240301
+"V0"
 )
 
 # Imports from default packages
