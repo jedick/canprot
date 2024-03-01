@@ -33,7 +33,7 @@ Next vignette: [More about metrics](metrics.html)
 
 ## Reading FASTA files
 
-`KHAB17.fast` was obtained from Supplemental Information of @KHAB17 and is provided in the `extdata` directory of **canprot**.
+`KHAB17.fasta` was obtained from Supplemental Information of @KHAB17 and is provided in the `extdata` directory of **canprot**.
 Use `read.fasta()` to read the file and return a data frame of amino acid composition.
 
 ```{r read.fasta_KHAB17}
@@ -56,7 +56,7 @@ These particular sequences are ancestral sequences of Rubisco.
 A geochemical biology hypothesis is that the proteins should get more oxidized around the GOE.
 Is this what happens?
 Plot the carbon oxidation state (`r Zc`) to find out.
-
+Note the use of pre-formatted plot labels for chemical metrics available in `cplab`.
 ```{r Zc_KHAB17, out.width = "75%", fig.align = "center", fig.width = 6, fig.height = 4}
 xlab <- "Ancestral sequences (older to younger)"
 plot(Zc(aa), type = "b", xaxt = "n", xlab = xlab, ylab = cplab$Zc)
@@ -66,7 +66,6 @@ abline(v = 3.5, lty = 2, col = 2)
 axis(3, at = 3.5, "GOE (proposed)")
 ```
 
-Note the use of pre-formatted plot labels for chemical metrics available in `cplab`.
 The vertical line denotes the proposed timing of the Great Oxidation Event (GOE) between Anc. I/III and Anc. I [@KHAB17].
 **This analysis shows that proteins do get more oxidized around the GOE.**
 
@@ -134,7 +133,7 @@ title("Stoichiometric hydration state", font.main = 1)
 We find no significant difference of `r Zc` for the differentially regulated proteins.
 In contrast, `r nH2O` is significantly lower for up-regulated than for down-regulated proteins.
 
-**This dehydration trend characterizes most datasets for 3D cell culture [@Dic21a].**
+**A similar dehydration trend characterizes most datasets for 3D cell culture [@Dic21a].**
 *The differential expression datasets analyzed in that paper, which were previously in **canprot**, have been moved to [JMDplots](https://github.com/jedick/JMDplots).*
 
 ```{r reset, include=FALSE}

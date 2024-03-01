@@ -14,7 +14,7 @@
   }
 
   Chemical metrics include carbon oxidation state (\Zc) stoichiometric oxidation and hydration state (\nO2 and \nH2O) as described in Dick et al. (2020).
-  Other variables that can be calculated are protein length, average molecular weight of amino acid residues, grand average of hydropathicity (GRAVY), and isoelectric point (pI).
+  Other variables that can be calculated are protein length, average molecular weight of amino acid residues, grand average of hydropathy (GRAVY), and isoelectric point (pI).
 
   Differential expression datasets that were in the package up to version 1.1.2, mainly for the paper by Dick (2021), have been moved to \href{https://github.com/jedick/JMDplots}{JMDplots}.
 }

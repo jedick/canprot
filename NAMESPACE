@@ -9,7 +9,7 @@ export(
 # 20200501
 "MW",
 # 20200509
-"human",
+"canprot",
 # 20201016
 "nO2",
 # 20240225
@@ -17,12 +17,14 @@ export(
 # 20240228 moved from CHNOSZ
 "read.fasta", "count.aa", "aasum",
 # 20240301
-"V0"
+"V0", "add.cld"
 )
 
 # Imports from default packages
-importFrom("stats", "pnorm", "sd")
+importFrom("stats", "pnorm", "sd", "TukeyHSD", "aov")
 importFrom("utils", "read.csv")
+importFrom("graphics", "text", "par")
 
 # Imports from other packages
 importFrom("stringi", "stri_count_fixed")
+importFrom("multcompView", "multcompLetters4")

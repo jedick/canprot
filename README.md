@@ -11,7 +11,7 @@ acid compositions can be read from FASTA files and used to calculate chemical
 metrics including carbon oxidation state and stoichiometric hydration state as
 described in [Dick et al.  (2020)](https://doi.org/10.5194/bg-17-6145-2020).
 Other properties that can be calculated are protein length, grand average of
-hydropathicity (GRAVY), isoelectric point (pI), and molecular weight (MW). A
+hydropathy (GRAVY), isoelectric point (pI), and molecular weight (MW). A
 database of amino acid compositions of human proteins derived from UniProt is
 provided.
 

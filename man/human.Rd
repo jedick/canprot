@@ -1,5 +1,6 @@
 \encoding{UTF-8}
 \name{human}
+\alias{canprot}
 \alias{human}
 \alias{human_aa}
 \alias{human_base}
@@ -47,9 +48,9 @@ These files can be loaded in \code{\link{protcomp}} via the \code{aa_file} argum
 
 \examples{
 # The number of proteins
-nrow(get("human_aa", human))
+nrow(get("human_aa", canprot))
 # The number of old to new ID mappings
-nrow(get("uniprot_updates", human))
+nrow(get("uniprot_updates", canprot))
 }
 
 \concept{Amino acid composition}

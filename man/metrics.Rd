@@ -59,7 +59,7 @@ The metrics are described below:
 \item{\code{nO2}}{Stoichiometric oxidation state (\nO2) per residue.
   The basis species also affect this calculation.
 }
-\item{\code{GRAVY}}{Grand average of hydropathicity.
+\item{\code{GRAVY}}{Grand average of hydropathy.
   Values of the hydropathy index for individual amino acids are from Kyte and Doolittle (1982).
 }
 \item{\code{pI}}{Isoelectric point.

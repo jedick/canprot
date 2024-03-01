@@ -104,7 +104,7 @@ Using the unweighted mean of `r Zc` of amino acids leads to artificially higher 
 
 ## GRAVY, pI, and molecular weight
 
-There are also functions for calculating the grand average of hydropathicity (GRAVY) and isoelectric point (pI) of proteins.
+There are also functions for calculating the grand average of hydropathy (GRAVY) and isoelectric point (pI) of proteins.
 Below, values for representative proteins are compared with results from the ProtParam tool [@GHG+05] in UniProt.
 
 We first look up a few proteins in CHNOSZ's list of proteins, then get the amino acid compositions.
