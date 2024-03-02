@@ -8,7 +8,12 @@
 \alias{pI}
 \alias{MW}
 \alias{V0}
+\alias{pV0}
 \alias{plength}
+\alias{HC}
+\alias{NC}
+\alias{OC}
+\alias{SC}
 \alias{cplab}
 \title{Calculate Chemical Metrics for Proteins}
 \description{
@@ -23,6 +28,11 @@ Calculate chemical metrics for proteins from their amino acid compositions.
   pI(AAcomp, terminal_H2O = 1, ...)
   MW(AAcomp, terminal_H2O = 0, ...)
   V0(AAcomp, terminal_H2O = 0, ...)
+  pV0(AAcomp, terminal_H2O = 0, ...)
+  HC(AAcomp, ...)
+  NC(AAcomp, ...)
+  OC(AAcomp, ...)
+  SC(AAcomp, ...)
   plength(AAcomp, ...)
   cplab
 }
@@ -73,6 +83,10 @@ The metrics are described below:
   The values are derived from group contributions of amino acid sidechains and protein backbones (Dick et al., 2006).
 }
 \item{\code{plength}}{Protein length (number of amino acid residues).}
+\item{\code{HC}}{H/C ratio (not counting terminal -H and -OH groups).}
+\item{\code{NC}}{N/C ratio.}
+\item{\code{OC}}{O/C ratio (not counting terminal -H and -OH groups).}
+\item{\code{SC}}{S/C ratio.}
 }
 
 \code{...} is provided to permit \code{\link{get}} or \code{\link{do.call}} constructions with the same arguments for all metrics.
@@ -97,6 +111,7 @@ Kyte, J. and Doolittle, R. F. (1982) A simple method for displaying the hydropat
 
 \seealso{
 For calculation of \Zc from an elemental formula (instead of amino acid composition), see the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
+\code{\link{calc.metrics}} is a wrapper to calculate one or more metrics specified in an argument.
 }
 
 \examples{

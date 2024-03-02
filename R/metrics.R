@@ -5,7 +5,7 @@
 # Carbon oxidation state 20180228
 # An unused second argument (...) is provided for flexible do.call() constructions
 Zc <- function(AAcomp, ...) {
-  # The number of carbons of the amino acids
+  # The number of carbon atoms in each amino acid
   nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
     Ile = 6, Lys = 6, Leu = 6, Met = 5, Asn = 4, Pro = 5, Gln = 5, 
     Arg = 6, Ser = 3, Thr = 4, Val = 5, Trp = 11, Tyr = 9)
@@ -28,7 +28,7 @@ Zc <- function(AAcomp, ...) {
   Zctot / nCtot
 }
 
-# Stoichiometric hydration state 20181228
+# Per-residue stoichiometric hydration state 20181228
 # Add 'terminal_H2O' argument 20221018
 nH2O <- function(AAcomp, basis = "QEC", terminal_H2O = 0) {
   if(basis == "QEC") {
@@ -64,7 +64,7 @@ nH2O <- function(AAcomp, basis = "QEC", terminal_H2O = 0) {
   nH2O / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Stoichiometric oxidation state 20201016
+# Per-residue stoichiometric oxidation state 20201016
 nO2 <- function(AAcomp, basis = "QEC", ...) {
   if(basis == "QEC") {
     # To get the number of O2 in reactions to form amino acid residues from the "QEC" basis:
@@ -142,7 +142,7 @@ pI <- function(AAcomp, terminal_H2O = 1, ...) {
   apply(myAA, 1, onepI)
 }
 
-# Molecular weight 20200501
+# Per-residue molecular weight 20200501
 MW <- function(AAcomp, terminal_H2O = 0, ...) {
   # Mass per residue:
   # MW_AA <- sapply(CHNOSZ::makeup(info(aminoacids(""))), mass) - mass("H2O")
@@ -154,7 +154,7 @@ MW <- function(AAcomp, terminal_H2O = 0, ...) {
     Thr = 101.10508, Val = 99.13256, Trp = 186.2132, Tyr = 163.17596
   )
   # Find columns with names for the amino acids
-  isAA <- colnames(AAcomp) %in% names(MW_AA)
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(MW_AA))
   iAA <- match(colnames(AAcomp)[isAA], names(MW_AA))
   # Calculate total MW of residues in each protein
   MW <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * MW_AA[iAA]))
@@ -166,7 +166,7 @@ MW <- function(AAcomp, terminal_H2O = 0, ...) {
   MW / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Volume 20240301
+# Per-residue volume 20240301
 V0 <- function(AAcomp, terminal_H2O = 0, ...) {
   # Volume per residue using group contributions from Dick et al., 2006:
   # i.e. residue = [sidechain group] + [backbone group]
@@ -178,7 +178,7 @@ V0 <- function(AAcomp, terminal_H2O = 0, ...) {
     Ser = 53.338, Thr = 70.326, Val = 83.575, Trp = 136.341, Tyr = 117.2
   )
   # Find columns with names for the amino acids
-  isAA <- colnames(AAcomp) %in% names(V0_AA)
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(V0_AA))
   iAA <- match(colnames(AAcomp)[isAA], names(V0_AA))
   # Calculate total V0 of residues in each protein
   V0 <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * V0_AA[iAA]))
@@ -190,6 +190,28 @@ V0 <- function(AAcomp, terminal_H2O = 0, ...) {
   V0 / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
+# Per-protein volume 20240301
+pV0 <- function(AAcomp, terminal_H2O = 0, ...) {
+  # Volume per residue using group contributions from Dick et al., 2006:
+  # i.e. residue = [sidechain group] + [backbone group]
+  # V0_AA <- info(info(paste0("[", aminoacids(3), "]")))$V + info(info("[UPBB]"))$V
+  # names(V0_AA) <- aminoacids(3)
+  V0_AA <- c(Ala = 53.16, Cys = 66.209, Asp = 67.412, Glu = 82.917, Phe = 114.841, 
+    Gly = 35.902, His = 92.049, Ile = 98.5, Lys = 101.344, Leu = 100.496, 
+    Met = 98.128, Asn = 70.122, Pro = 75.345, Gln = 86.374, Arg = 132.121, 
+    Ser = 53.338, Thr = 70.326, Val = 83.575, Trp = 136.341, Tyr = 117.2
+  )
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(V0_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(V0_AA))
+  # Calculate total V0 of residues in each protein
+  V0 <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * V0_AA[iAA]))
+  # Add volume of H2O for each pair of terminal groups
+  # V0_H2O <- info(info("[AABB]"))$V - info(info("[UPBB]"))$V
+  V0_H2O <- 7.289
+  V0 + terminal_H2O * V0_H2O
+}
+
 # Protein length 20200501
 plength <- function(AAcomp, ...) {
   AA_names <- c(
@@ -197,10 +219,114 @@ plength <- function(AAcomp, ...) {
     "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr"
   )
   # Find columns with names for the amino acids
-  isAA <- colnames(AAcomp) %in% AA_names
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(AA_names)
   # Sum amino acid counts to get protein length
   rowSums(AAcomp[, isAA])
 }
+
+# H/C (H:C ratio) 20230707
+HC <- function(AAcomp, ...) {
+  # The number of H in each amino acid residue; calculated in CHNOSZ:
+  # nH_AA <- sapply(makeup(info(info(aminoacids("")))$formula), "[", "H")
+  # nH_AA <- nH_AA - 2  # Take H-OH off of amino acids to make residues
+  # names(nH_AA) <- aminoacids(3)
+  nH_AA <- c(Ala = 5, Cys = 5, Asp = 5, Glu = 7, Phe = 9, Gly = 3, His = 7,
+    Ile = 11, Lys = 12, Leu = 11, Met = 9, Asn = 6, Pro = 7, Gln = 8,
+    Arg = 12, Ser = 5, Thr = 7, Val = 9, Trp = 10, Tyr = 9)
+  # The number of carbon atoms in each amino acid
+  nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
+    Ile = 6, Lys = 6, Leu = 6, Met = 5, Asn = 4, Pro = 5, Gln = 5, 
+    Arg = 6, Ser = 3, Thr = 4, Val = 5, Trp = 11, Tyr = 9)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nH_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nH_AA)))
+  # Count the number of C in all residues
+  numC <- t(t(AAcomp[, isAA, drop = FALSE]) * nC_AA[iAA])
+  # Count the number of H in all residues
+  numH <- t(t(AAcomp[, isAA, drop = FALSE]) * nH_AA[iAA])
+  # Calculate the total number of H and C, then the overall H/C
+  Htot <- rowSums(numH)
+  Ctot <- rowSums(numC)
+  Htot / Ctot
+}
+
+# N/C (N:C ratio) 20230707
+NC <- function(AAcomp, ...) {
+  # The number of N in each amino acid residue; calculated in CHNOSZ:
+  # nN_AA <- sapply(makeup(info(info(aminoacids("")))$formula), "[", "N")
+  # names(nN_AA) <- aminoacids(3)
+  nN_AA <- c(Ala = 1, Cys = 1, Asp = 1, Glu = 1, Phe = 1, Gly = 1, His = 3,
+  Ile = 1, Lys = 2, Leu = 1, Met = 1, Asn = 2, Pro = 1, Gln = 2,
+  Arg = 4, Ser = 1, Thr = 1, Val = 1, Trp = 2, Tyr = 1)
+  # The number of carbon atoms in each amino acid
+  nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
+    Ile = 6, Lys = 6, Leu = 6, Met = 5, Asn = 4, Pro = 5, Gln = 5, 
+    Arg = 6, Ser = 3, Thr = 4, Val = 5, Trp = 11, Tyr = 9)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nN_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nN_AA)))
+  # Count the number of C in all residues
+  numC <- t(t(AAcomp[, isAA, drop = FALSE]) * nC_AA[iAA])
+  # Count the number of N in all residues
+  numN <- t(t(AAcomp[, isAA, drop = FALSE]) * nN_AA[iAA])
+  # Calculate the total number of N and C, then the overall N/C
+  Ntot <- rowSums(numN)
+  Ctot <- rowSums(numC)
+  Ntot / Ctot
+}
+
+# O/C (O:C ratio) 20230707
+OC <- function(AAcomp, ...) {
+  # The number of O in each amino acid residue; calculated in CHNOSZ:
+  # nO_AA <- sapply(makeup(info(info(aminoacids("")))$formula), "[", "O")
+  # nO_AA <- nO_AA - 1  # Take H-OH off of amino acids to make residues
+  # names(nO_AA) <- aminoacids(3)
+  nO_AA <- c(Ala = 1, Cys = 1, Asp = 3, Glu = 3, Phe = 1, Gly = 1, His = 1,
+  Ile = 1, Lys = 1, Leu = 1, Met = 1, Asn = 2, Pro = 1, Gln = 2,
+  Arg = 1, Ser = 2, Thr = 2, Val = 1, Trp = 1, Tyr = 2)
+  # The number of carbon atoms in each amino acid
+  nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
+    Ile = 6, Lys = 6, Leu = 6, Met = 5, Asn = 4, Pro = 5, Gln = 5, 
+    Arg = 6, Ser = 3, Thr = 4, Val = 5, Trp = 11, Tyr = 9)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nO_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nO_AA)))
+  # Count the number of C in all residues
+  numC <- t(t(AAcomp[, isAA, drop = FALSE]) * nC_AA[iAA])
+  # Count the number of O in all residues
+  numO <- t(t(AAcomp[, isAA, drop = FALSE]) * nO_AA[iAA])
+  # Calculate the total number of O and C, then the overall O/C
+  Otot <- rowSums(numO)
+  Ctot <- rowSums(numC)
+  Otot / Ctot
+}
+
+# S/C (S:C ratio) 20230707
+SC <- function(AAcomp, ...) {
+  # The number of S in each amino acid residue; calculated in CHNOSZ:
+  # nS_AA <- sapply(makeup(info(info(aminoacids("")))$formula), "[", "S")
+  # nS_AA[is.na(nS_AA)] <- 0
+  # names(nS_AA) <- aminoacids(3)
+  nS_AA <- c(Ala = 0, Cys = 1, Asp = 0, Glu = 0, Phe = 0, Gly = 0, His = 0,
+  Ile = 0, Lys = 0, Leu = 0, Met = 1, Asn = 0, Pro = 0, Gln = 0,
+  Arg = 0, Ser = 0, Thr = 0, Val = 0, Trp = 0, Tyr = 0)
+  # The number of carbon atoms in each amino acid
+  nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
+    Ile = 6, Lys = 6, Leu = 6, Met = 5, Asn = 4, Pro = 5, Gln = 5, 
+    Arg = 6, Ser = 3, Thr = 4, Val = 5, Trp = 11, Tyr = 9)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nS_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nS_AA)))
+  # Count the number of C in all residues
+  numC <- t(t(AAcomp[, isAA, drop = FALSE]) * nC_AA[iAA])
+  # Count the number of S in all residues
+  numS <- t(t(AAcomp[, isAA, drop = FALSE]) * nS_AA[iAA])
+  # Calculate the total number of S and C, then the overall S/C
+  Stot <- rowSums(numS)
+  Ctot <- rowSums(numC)
+  Stot / Ctot
+}
+
 
 #########################
 ### UNEXPORTED OBJECT ###

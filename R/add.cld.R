@@ -23,5 +23,5 @@ add.cld <- function(datlist, bp, dx = NULL, dy = NULL) {
   # Add to plot
   text((1:ngroup) + dx, bp$stats[4, ] + dy, letters)
   # Return dx, dy, and letters
-  list(dx = dx, dy = dy, letters = letters)
+  invisible(list(dx = dx, dy = dy, letters = letters))
 }

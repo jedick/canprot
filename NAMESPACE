@@ -17,7 +17,9 @@ export(
 # 20240228 moved from CHNOSZ
 "read.fasta", "count.aa", "aasum",
 # 20240301
-"V0", "add.cld"
+"V0", "add.cld", "pV0",
+# 20240302 moved from chem16S
+"HC", "NC", "OC", "SC", "calc.metrics"
 )
 
 # Imports from default packages
