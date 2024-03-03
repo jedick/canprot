@@ -26,7 +26,7 @@ H2O <- "H<sub>2</sub>O"
 O2 <- "O<sub>2</sub>"
 ```
 
-The **canprot** package has functions to calculate chemical metrics of proteins from their amino acid composition.
+The **canprot** package calculates chemical metrics of proteins from amino acid compositions.
 This vignette was compiled on `r Sys.Date()` with **canprot** version `r packageDescription("canprot")$Version`.
 
 Previous vignette: [Introduction to canprot](introduction.html)

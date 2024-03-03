@@ -44,7 +44,6 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
   message(nlines, " lines ... ", appendLF = FALSE)
   if(is.null(ihead)) ihead <- which(substr(lines, 1, 1) == ">")
   message(length(ihead), " sequences")
-  linefun <- function(i1, i2) lines[i1:i2]
   # Identify the lines that begin and end each sequence
   begin <- ihead + 1
   end <- ihead - 1
@@ -58,7 +57,7 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
     return(lines[iline])
   }
   # Get each sequence from the begin to end lines
-  seqfun <- function(i) paste(linefun(begin[i], end[i]), collapse = "")
+  seqfun <- function(i) paste(lines[begin[i]:end[i]], collapse = "")
   sequences <- lapply(iseq, seqfun)
   # Organism name is from file name
   # (basename minus extension)
@@ -69,7 +68,7 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
   missid <- missing(id)
   if(is.null(id)) id <- as.character(lapply(iseq, function(j) {
     # Get the text of the line
-    f1 <- linefun(ihead[j], ihead[j])
+    f1 <- lines[ihead[j]]
     # Stop if the first character is not ">"
     # or the first two charaters are "> "
     if(substr(f1, 1, 1) != ">" | length(grep("^> ", f1)>0))
@@ -144,34 +143,23 @@ count.aa <- function(sequence, start = NULL, stop = NULL, type = "protein") {
   counts
 }
 
-# Combine amino acid counts (sum, average, or weighted sum by abundance)
-aasum <- function(aa, abundance = 1, average = FALSE, protein = NULL, organism = NULL) {
-  # Returns the sum of the amino acid counts in aa,
-  #   multiplied by the abundances of the proteins
-  abundance <- rep(abundance, length.out = nrow(aa))
-  # Drop any NA rows or abundances
-  ina.aa <- is.na(aa$chains)
-  ina.ab <- is.na(abundance)
-  ina <- ina.aa | ina.ab
-  if(any(ina)) {
-    aa <- aa[!ina, ]
-    abundance <- abundance[!ina]
-    message("aasum: dropped ", sum(ina), " proteins with NA composition and/or abundance")
-  }
-  # Multiply
-  aa[, 6:25] <- aa[, 6:25] * abundance
-  # Sum
-  out <- aa[1, ]
-  out[, 5:25] <- colSums(aa[, 5:25])
-  # Average if told to do so
-  if(average) {
-    # Polypeptide chains by number of proteins, residues by frequency
-    out[, 5] <- out[, 5]/nrow(aa)
-    out[, 6:25] <- out[, 6:25]/sum(abundance)
-  }
-  # Add protein and organism names if given
-  if(!is.null(protein)) out$protein <- protein
-  if(!is.null(organism)) out$organism <- organism
-  return(out)
+# Sum or average amino acid counts (weighted by abundance if given)
+aasum <- function(AAcomp, abundance = 1, average = FALSE) {
+  # Recycle abundance values into same length as number of proteins
+  abundance <- rep(abundance, length.out = nrow(AAcomp))
+  # Find columns with names for the amino acids and "chains"
+  AA_names <- c(
+    "Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",
+    "Met", "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr",
+    "chains"
+  )
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(AA_names)
+  # Multiply amino acid counts by protein abundance
+  AAcomp[, isAA] <- AAcomp[, isAA] * abundance
+  # Sum amino acid counts
+  out <- AAcomp[1, ]
+  out[, isAA] <- colSums(AAcomp[, isAA], na.rm = TRUE)
+  # Take the average
+  if(average) out[, isAA] <- out[, isAA] / sum(abundance)
+  out
 }
-

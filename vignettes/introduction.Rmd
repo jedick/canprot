@@ -15,7 +15,7 @@ csl: elementa.csl
 ```{r setup, include=FALSE}
 library(canprot)
 library(CHNOSZ)
-oldopt <- options(width = 72)
+oldopt <- options(width = 80)
 ```
 
 ```{r HTML, include=FALSE}
@@ -26,14 +26,14 @@ H2O <- "H<sub>2</sub>O"
 O2 <- "O<sub>2</sub>"
 ```
 
-The **canprot** package has functions to calculate chemical metrics of proteins from their amino acid composition.
+The **canprot** package calculates chemical metrics of proteins from amino acid compositions.
 This vignette was compiled on `r Sys.Date()` with **canprot** version `r packageDescription("canprot")$Version`.
 
-Next vignette: [More about metrics](metrics.html)
+Previous vignette: [Demo for canprot](demo.html) | Next vignette: [More about metrics](metrics.html)
 
 ## Reading FASTA files
 
-`KHAB17.fasta` was obtained from Supplemental Information of @KHAB17 and is provided in the `extdata` directory of **canprot**.
+`KHAB17.fasta` was obtained from Supplemental Information of @KHAB17 and is provided in the `extdata/fasta` directory of **canprot**.
 Use `read.fasta()` to read the file and return a data frame of amino acid composition.
 
 ```{r read.fasta_KHAB17}
@@ -53,7 +53,7 @@ They are provided for compatibility with CHNOSZ, and if you don't plan to use CH
 The columns that do matter for the calculation of chemical metrics are the last 20 columns, which are named with the 3-letter abbreviations of the amino acids.
 
 These particular sequences are ancestral sequences of Rubisco.
-A geochemical biology hypothesis is that the proteins should get more oxidized around the GOE.
+A geochemical biology hypothesis is that proteins are oxidized when the environment is oxidizing.
 Is this what happens?
 Plot the carbon oxidation state (`r Zc`) to find out.
 Note the use of pre-formatted plot labels for chemical metrics available in `cplab`.
@@ -67,7 +67,7 @@ axis(3, at = 3.5, "GOE (proposed)")
 ```
 
 The vertical line denotes the proposed timing of the Great Oxidation Event (GOE) between Anc. I/III and Anc. I [@KHAB17].
-**This analysis shows that proteins do get more oxidized around the GOE.**
+**This analysis shows that proteins become more oxidized around the GOE.**
 
 ## Human proteins in **canprot**
 

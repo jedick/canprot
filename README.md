@@ -6,18 +6,17 @@
 
 # canprot
 
-Chemical analysis of proteins based on their amino acid compositions. Amino
-acid compositions can be read from FASTA files and used to calculate chemical
-metrics including carbon oxidation state and stoichiometric hydration state as
-described in [Dick et al.  (2020)](https://doi.org/10.5194/bg-17-6145-2020).
-Other properties that can be calculated are protein length, grand average of
-hydropathy (GRAVY), isoelectric point (pI), and molecular weight (MW). A
-database of amino acid compositions of human proteins derived from UniProt is
-provided.
+Chemical analysis of proteins based on their amino acid compositions.
+Amino acid compositions can be read from FASTA files and used to calculate chemical metrics
+including carbon oxidation state and stoichiometric hydration state as described in [Dick et al.  (2020)](https://doi.org/10.5194/bg-17-6145-2020).
+Other properties that can be calculated are protein length, grand average of hydropathy (GRAVY), isoelectric point (pI), and molecular weight (MW).
+A database of amino acid compositions of human proteins derived from UniProt is provided.
 
-## Installation of development version from GitHub
+See the vignettes at <https://chnosz.net/canprot/vignettes>.
 
-This version has the `read.fasta()` function that was previously in [CHNOSZ](https://github.com/jedick/CHNOSZ).
+## Installation
+
+Install the development version from GitHub to use the `read.fasta()` function that was previously in [CHNOSZ](https://github.com/jedick/CHNOSZ).
 
 First install the **remotes** package from CRAN:
 
@@ -32,15 +31,19 @@ This also installs several other R packages as dependencies:
 remotes::install_github("jedick/canprot")
 ```
 
-## Installation of released version from CRAN
-
-This version does not have all the features in the development version.
+Use this instead to install the released version from CRAN (his version does not have all the features in the development version).
 
 ```R
 install.packages("canprot")
 ```
 
-### Guide to vignettes
+### Demo
 
-All vignettes can be viewed at <https://chnosz.net/canprot/vignettes>.
-The main vignette provides a brief introduction to the package.
+```R
+demo("canprot")
+```
+
+<img src="inst/images/canprot.png" alt="Zc and pI for human proteins in subcellular locations" title="canprot demo" width="600px" />
+
+These plots show carbon oxidation state (*Z*<sub>C</sub>) and isoelectric point (pI) for human proteins in different subcellular locations.
+The localization data is from Table S6 of [Thul et al. (2017)](10.1126/science.aal3321) (*A subcellular map of the human proteome*), filtered to include proteins that have both a validated location and only one predicted location.

@@ -1,0 +1,60 @@
+---
+title: "Demo for canprot"
+output:
+  html_vignette:
+    mathjax: null
+vignette: >
+  %\VignetteIndexEntry{Demo for canprot}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: canprot.bib
+link-citations: yes
+csl: elementa.csl
+---
+
+```{r setup, include=FALSE}
+library(canprot)
+library(CHNOSZ)
+oldopt <- options(width = 80)
+```
+
+```{r HTML, include=FALSE}
+Zc <- "<i>Z</i><sub>C</sub>"
+```
+
+The **canprot** package calculates chemical metrics of proteins from amino acid compositions.
+This vignette was compiled on `r Sys.Date()` with **canprot** version `r packageDescription("canprot")$Version`.
+
+Next vignette: [Introduction to canprot](introduction.html)
+
+## canprot demo
+
+Run the demo using `demo("canprot")`.
+The code and output of the demo are shown below.
+
+The **canprot** functions used are:
+
+- `human.aa()`: Gets amino acid compositions of human proteins from UniProt IDs
+- `plength()`: Calculates protein length (this line is commented out)
+- `Zc()`: Calculates carbon oxidation state
+- `pI()`: Calculates isoelectric point
+- `add.cld()`: Adds compact letter display to a boxplot
+
+```{r echo = FALSE}
+knitr::read_chunk("../demo/canprot.R")
+```
+
+```{r canprot_demo_setup, echo = FALSE}
+```
+
+```{r canprot_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 4.5}
+```
+
+The plots show carbon oxidation state (`r Zc`) and isoelectric point (pI) for human proteins in different subcellular locations.
+The localization data is from Table S6 of @TAW+17, filtered to include proteins that have both a validated location and only one predicted location.
+
+```{r reset, include=FALSE}
+options(oldopt)
+```
+
+## References
