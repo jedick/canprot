@@ -7,7 +7,7 @@
 \alias{human_additional}
 \alias{human_extra}
 \alias{uniprot_updates}
-\title{Amino Acid Compositions of Human Proteins}
+\title{Data for Amino Acid Compositions of Human Proteins}
 \description{
   Data for amino acid compositions of proteins and conversion from old to new UniProt IDs.
 }
@@ -43,7 +43,7 @@ The \code{protein} column contains UniProt IDs in the format \code{database|acce
 
 \seealso{
 Amino acid compositions of non-human proteins are stored under \code{extdata/aa} in directories \code{archaea}, \code{bacteria}, \code{cow}, \code{dog}, \code{mouse}, \code{rat}, and \code{yeast}.
-These files can be loaded in \code{\link{protcomp}} via the \code{aa_file} argument.
+These files can be loaded in \code{\link{human.aa}} via the \code{aa_file} argument.
 }
 
 \examples{

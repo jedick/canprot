@@ -1,7 +1,7 @@
 # Exported variables
 export(
 # 20170612 (canprot 0.1.0)
-"protcomp", "CLES",
+"human.aa", "CLES",
 # metrics added 20191005 - 20191027
 "Zc", "nH2O", "GRAVY", "pI",
 # 20200204 used in JMDplots package

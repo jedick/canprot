@@ -72,11 +72,11 @@ The vertical line denotes the proposed timing of the Great Oxidation Event (GOE)
 ## Human proteins in **canprot**
 
 **canprot** has a database of amino acid compositions of human proteins assembled from UniProt.
-Use `protcomp()` to get the amino acid composition.
+Use `human.aa()` to get the amino acid composition.
 This example is for alanine aminotransferase, which has a UniProt ID of [P24298](https://www.uniprot.org/uniprotkb/P24298):
-```{r protcomp_ALAT1}
-(pc <- protcomp("P24298"))
-Zc(pc$aa)
+```{r human.aa_ALAT1}
+(aa <- human.aa("P24298"))
+Zc(aa)
 ```
 
 Do you have a list of UniProt IDs for a differential expression dataset?
@@ -107,8 +107,8 @@ down <- c("J3KN67", "Q9Y490", "J3KNQ4", "E7EVA0", "Q01082", "J3KQ32",
 With those UniProt IDs for human proteins we can retrieve the amino acid compositions, then calculate a couple of chemical metrics and make some boxplots comparing the groups of differentially regulated proteins.
 
 ```{r DKM20_plot, out.width = "75%", fig.align = "center", fig.width = 7, fig.height = 5}
-aa_down <- protcomp(down)$aa
-aa_up <- protcomp(up)$aa
+aa_down <- human.aa(down)
+aa_up <- human.aa(up)
 bp_names <- paste0(c("Down (", "Up ("), c(nrow(aa_down), nrow(aa_up)), c(")", ")"))
 
 par(mfrow = c(1, 2))

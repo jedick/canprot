@@ -123,12 +123,14 @@ pI <- function(AAcomp, terminal_H2O = 1, ...) {
     iZ <- match(names(AA)[isZ], dimnames(Ztab)[[2]])
     # Calculate the total charge as a function of pH
     # ... the "else" is in case we have a data frame (used when first writing this function)
-    if(is.numeric(AA)) Ztot <- Ztab[, iZ] %*% AA[isZ]
-    else Ztot <- Ztab[, iZ] %*% as.matrix(t(AA[, isZ]))
+    if(is.numeric(AA)) Ztot <- Ztab[, iZ] %*% AA[isZ] else
+    Ztot <- Ztab[, iZ] %*% as.matrix(t(AA[, isZ]))
     # Find pH where charge is closest to zero
     # (absolute charge is minimized)
     ipH <- which.min(abs(Ztot))
-    Ztab[ipH, 1]
+    pI <- Ztab[ipH, 1]
+    if(length(pI) == 0) pI <- NA
+    pI
   }
   # Number of N- and C-terminal groups
   Nterm <- Cterm <- terminal_H2O
