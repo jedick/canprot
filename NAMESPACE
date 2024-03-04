@@ -19,7 +19,11 @@ export(
 # 20240301
 "V0", "add.cld", "pV0",
 # 20240302 moved from chem16S
-"HC", "NC", "OC", "SC", "calc.metrics"
+"HC", "NC", "OC", "SC", "calc.metrics",
+# 20240304
+"pMW", "Density", "Cost",
+"RespiratoryCost", "FermentativeCost",
+"B20Cost", "Y20Cost", "H11Cost"
 )
 
 # Imports from default packages

@@ -2,6 +2,9 @@
 # Calculate various metrics from amino acid composition of proteins
 # 20191027
 
+# Keep a list of the objects in the current environment before we add the functions 20240304
+cplist0 <- ls()
+
 # Carbon oxidation state 20180228
 # An unused second argument (...) is provided for flexible do.call() constructions
 Zc <- function(AAcomp, ...) {
@@ -116,6 +119,7 @@ GRAVY <- function(AAcomp, ...) {
 
 # Isoelectric point 20191026
 pI <- function(AAcomp, terminal_H2O = 1, ...) {
+  if(nrow(AAcomp) == 0) return(numeric(0))
   # A function to calculate isoelectric point for a single amino acid composition
   onepI <- function(AA) {
     # Find the column names of AAcomp that are in Ztab
@@ -166,6 +170,28 @@ MW <- function(AAcomp, terminal_H2O = 0, ...) {
   MW <- MW + terminal_H2O * MW_H2O
   # Divide by number of residues (length of protein)
   MW / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Per-protein molecular weight 20240304
+pMW <- function(AAcomp, terminal_H2O = 0, ...) {
+  # Mass per residue:
+  # MW_AA <- sapply(CHNOSZ::makeup(info(aminoacids(""))), mass) - mass("H2O")
+  # names(MW_AA) <- aminoacids(3)
+  MW_AA <- c(Ala = 71.0788, Cys = 103.1388, Asp = 115.0886, Glu = 129.11548, 
+    Phe = 147.17656, Gly = 57.05192, His = 137.14108, Ile = 113.15944, 
+    Lys = 128.17408, Leu = 113.15944, Met = 131.19256, Asn = 114.10384, 
+    Pro = 97.11668, Gln = 128.13072, Arg = 156.18748, Ser = 87.0782, 
+    Thr = 101.10508, Val = 99.13256, Trp = 186.2132, Tyr = 163.17596
+  )
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(MW_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(MW_AA))
+  # Calculate total MW of residues in each protein
+  MW <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * MW_AA[iAA]))
+  # Add mass of H2O for each pair of terminal groups
+  # MW_H2O <- mass("H2O")
+  MW_H2O <- 18.01528
+  MW + terminal_H2O * MW_H2O
 }
 
 # Per-residue volume 20240301
@@ -329,6 +355,121 @@ SC <- function(AAcomp, ...) {
   Stot / Ctot
 }
 
+# Density 20240304
+Density <- function(AAcomp, terminal_H2O = 0, ...) {
+  MW(AAcomp, terminal_H2O = 0, ...) / V0(AAcomp, terminal_H2O = 0, ...)
+}
+
+# Metabolic cost 20211220
+# Moved from JMDplots/evdevH2O.R to canprot 20240304
+Cost <- function(AAcomp, ...) {
+  # Amino acid cost from Akashi and Gojobori (2002)
+  # doi:10.1073/pnas.062526999
+  Cost_AA <- c(Ala = 11.7, Cys = 24.7, Asp = 12.7, Glu = 15.3, Phe = 52.0,
+               Gly = 11.7, His = 38.3, Ile = 32.3, Lys = 30.3, Leu = 27.3,
+               Met = 34.3, Asn = 14.7, Pro = 20.3, Gln = 16.3, Arg = 27.3,
+               Ser = 11.7, Thr = 18.7, Val = 23.3, Trp = 74.3, Tyr = 50.0)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(Cost_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(Cost_AA))
+  # Calculate total Cost of residues in each protein
+  Cost <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * Cost_AA[iAA]))
+  # Divide by number of residues (length of protein)
+  Cost / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Respiratory cost 20240304
+RespiratoryCost <- function(AAcomp, ...) {
+  # Respiratory cost from Wagner (2005)
+  # doi:10.1093/molbev/msi126
+  Cost_AA <- c(Ala = 14.5, Cys = 26.5, Asp = 15.5, Glu =  9.5, Phe = 61.0,
+               Gly = 14.5, His = 29.0, Ile = 38.0, Lys = 36.0, Leu = 37.0,
+               Met = 36.5, Asn = 18.5, Pro = 14.5, Gln = 10.5, Arg = 20.5,
+               Ser = 14.5, Thr = 21.5, Val = 29.0, Trp = 75.5, Tyr = 59.0)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(Cost_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(Cost_AA))
+  # Calculate total Cost of residues in each protein
+  Cost <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * Cost_AA[iAA]))
+  # Divide by number of residues (length of protein)
+  Cost / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Fermentative cost 20240304
+FermentativeCost <- function(AAcomp, ...) {
+  # Fermentative cost from Wagner (2005)
+  # doi:10.1093/molbev/msi126
+  Cost_AA <- c(Ala =  2, Cys = 13, Asp =  3, Glu =  2, Phe = 10,
+               Gly =  1, His =  5, Ile = 14, Lys = 12, Leu =  4,
+               Met = 24, Asn =  6, Pro =  7, Gln =  3, Arg = 13,
+               Ser =  1, Thr =  9, Val =  4, Trp = 14, Tyr =  8)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(Cost_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(Cost_AA))
+  # Calculate total Cost of residues in each protein
+  Cost <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * Cost_AA[iAA]))
+  # Divide by number of residues (length of protein)
+  Cost / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Biosynthetic cost in bacteria 20240304
+B20Cost <- function(AAcomp, ...) {
+  # Biosynthetic cost from Zhang et al. (2018)
+  # doi:10.1038/s41467-018-06461-1
+  Cost_AA <- c(Ala =  11.7, Cys = 741.0, Asp = 114.3, Glu =  76.5, Phe = 208.0,
+               Gly =  11.7, His = 536.2, Ile =  64.6, Lys = 242.4, Leu =  54.6,
+               Met = 445.9, Asn = 147.0, Pro =  60.9, Gln = 130.4, Arg = 109.2,
+               Ser =  70.2, Thr = 112.2, Val =  46.6, Trp = 891.6, Tyr = 350.0)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(Cost_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(Cost_AA))
+  # Calculate total Cost of residues in each protein
+  Cost <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * Cost_AA[iAA]))
+  # Divide by number of residues (length of protein)
+  Cost / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Biosynthetic cost in yeast 20240304
+Y20Cost <- function(AAcomp, ...) {
+  # Biosynthetic cost from Zhang et al. (2018)
+  # doi:10.1038/s41467-018-06461-1
+  Cost_AA <- c(Ala =  14.5, Cys = 795.0, Asp = 139.5, Glu =  47.5, Phe = 244.0,
+               Gly =  14.5, His = 406.0, Ile =  76.0, Lys = 288.0, Leu =  74.0,
+               Met = 474.5, Asn = 185.0, Pro =  43.5, Gln =  84.0, Arg =  82.0,
+               Ser =  87.0, Thr = 129.0, Val =  58.0, Trp = 906.0, Tyr = 413.0)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(Cost_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(Cost_AA))
+  # Calculate total Cost of residues in each protein
+  Cost <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * Cost_AA[iAA]))
+  # Divide by number of residues (length of protein)
+  Cost / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Biosynthetic cost in humans 20240304
+H11Cost <- function(AAcomp, ...) {
+  # Biosynthetic cost from Zhang et al. (2018)
+  # doi:10.1038/s41467-018-06461-1
+  Cost_AA <- c(Ala =  12.5, Cys = 330.0, Asp = 121.5, Glu =  42.5, Phe =   0.0,
+               Gly =  11.0, His =   0.0, Ile =   0.0, Lys =   0.0, Leu =   0.0,
+               Met =   0.0, Asn = 165.0, Pro =  43.5, Gln =  76.0, Arg =  58.0,
+               Ser =  66.0, Thr =   0.0, Val =   0.0, Trp =   0.0, Tyr =  17.5)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(Cost_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(Cost_AA))
+  # Calculate total Cost of residues in each protein
+  Cost <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * Cost_AA[iAA]))
+  # Divide by number of residues (length of protein)
+  Cost / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Now that we've added the functions, check that they are all listed in cplab
+cplist1 <- ls()
+metrics <- setdiff(cplist1, c(cplist0, "cplist0"))
+not_in_cplab <- metrics[!metrics %in% names(cplab)]
+if(length(not_in_cplab) > 0) stop(paste("These metrics are not in cplab:", paste(not_in_cplab, collapse = ", ")))
+not_in_metrics <- names(cplab)[!names(cplab) %in% metrics]
+if(length(not_in_metrics) > 0) stop(paste("These metrics in cplab don't have functions:", paste(not_in_metrics, collapse = ", ")))
 
 #########################
 ### UNEXPORTED OBJECT ###

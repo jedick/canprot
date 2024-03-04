@@ -8,8 +8,12 @@
 
 Chemical analysis of proteins based on their amino acid compositions.
 Amino acid compositions can be read from FASTA files and used to calculate chemical metrics
-including carbon oxidation state and stoichiometric hydration state as described in [Dick et al.  (2020)](https://doi.org/10.5194/bg-17-6145-2020).
-Other properties that can be calculated are protein length, grand average of hydropathy (GRAVY), isoelectric point (pI), and molecular weight (MW).
+including carbon oxidation state and stoichiometric hydration state as described in [Dick et al.(2020)](https://doi.org/10.5194/bg-17-6145-2020).
+Other properties that can be calculated are protein length, grand average of hydropathy (GRAVY), isoelectric point (pI), molecular weight (MW),
+standard molal volume (V0), and metabolic costs
+([Akashi and Gojobori, 2002](https://doi.org/10.1073/pnas.062526999);
+[Wagner, 2005](https://doi.org/10.1093/molbev/msi126);
+[Zhang et al., 2018](https://doi.org/10.1038/s41467-018-06461-1)).
 A database of amino acid compositions of human proteins derived from UniProt is provided.
 
 See the vignettes at <https://chnosz.net/canprot/vignettes>.
@@ -18,16 +22,11 @@ See the vignettes at <https://chnosz.net/canprot/vignettes>.
 
 Install the development version from GitHub to use the `read.fasta()` function that was previously in [CHNOSZ](https://github.com/jedick/CHNOSZ).
 
-First install the **remotes** package from CRAN:
-
-```R
-install.packages("remotes")
-```
-
-Then install **canprot** from GitHub.
+First install the **remotes** package from CRAN, then install **canprot** from GitHub.
 This also installs several other R packages as dependencies:
 
 ```R
+install.packages("remotes")
 remotes::install_github("jedick/canprot")
 ```
 

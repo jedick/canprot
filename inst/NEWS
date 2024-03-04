@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.2-30 (2024-03-03)
+CHANGES IN canprot 1.1.2-32 (2024-03-04)
 ----------------------------------------
 
 - Objects in cplab are now `quote()`-ed instead of `expression()`s for easier
@@ -14,7 +14,10 @@ CHANGES IN canprot 1.1.2-30 (2024-03-03)
   all metrics in get() or do.call() constructions.
 
 - Add functions for metrics: plength() (protein length), V0 (standard molal
-  volume from group additivity).
+  volume from group additivity), Cost() (metabolic cost of amino acids from
+  Akashi and Gojobori, 2002), RespiratoryCost() and FermentativeCost()
+  (respiratory and fermentative costs from Wagner, 2005), and B20Cost(),
+  Y20Cost(), and H11Cost() (biosynthetic costs from Zhang et al., 2018).
 
 - Differential expression datasets and chemical analysis vignettes have been
   moved to the JMDplots package.
