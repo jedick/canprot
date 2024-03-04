@@ -173,7 +173,7 @@ MW <- function(AAcomp, terminal_H2O = 0, ...) {
 }
 
 # Per-protein molecular weight 20240304
-pMW <- function(AAcomp, terminal_H2O = 0, ...) {
+pMW <- function(AAcomp, terminal_H2O = 1, ...) {
   # Mass per residue:
   # MW_AA <- sapply(CHNOSZ::makeup(info(aminoacids(""))), mass) - mass("H2O")
   # names(MW_AA) <- aminoacids(3)
@@ -219,7 +219,7 @@ V0 <- function(AAcomp, terminal_H2O = 0, ...) {
 }
 
 # Per-protein volume 20240301
-pV0 <- function(AAcomp, terminal_H2O = 0, ...) {
+pV0 <- function(AAcomp, terminal_H2O = 1, ...) {
   # Volume per residue using group contributions from Dick et al., 2006:
   # i.e. residue = [sidechain group] + [backbone group]
   # V0_AA <- info(info(paste0("[", aminoacids(3), "]")))$V + info(info("[UPBB]"))$V

@@ -1,6 +1,6 @@
 # canprot/zzz.R
 # Create the data objects for amino acid compositions of human proteins
-# 20160705 jmd (data/canprot.R)
+# 20160705 first version (data/canprot.R)
 # 20190225 moved to R/zzz.R
 # 20200509 change environment name from canprot to human
 # 20240301 revert environment name to canprot

@@ -1,0 +1,12 @@
+Protein,Organism,Name,ID,Start,Stop,E0,Ref,DOI
+Trx,ecoli,Thioredoxin-1,P0AA25,2,109,-270,ABH97,10.1074/jbc.272.49.30780
+Grx1,ecoli,Glutaredoxin-1,P68688,1,85,-232,ABH97,10.1074/jbc.272.49.30780
+Grx3,ecoli,Glutaredoxin-3,P0AC62,2,83,-198,ABH97,10.1074/jbc.272.49.30780
+PDI,human,"Protein disulfide-isomerase",P07237,18,508,-175,ABH97,10.1074/jbc.272.49.30780
+DsbC,ecoli,"Thiol:disulfide interchange protein DsbC",P0AEG6,21,236,-159,ABH97,10.1074/jbc.272.49.30780
+DsbA,ecoli,"Thiol:disulfide interchange protein DsbA",P0AEG4,20,208,-124,ABH97,10.1074/jbc.272.49.30780
+FER1,spinach,"Ferredoxin-1, chloroplastic",P00221,51,147,-420,HSJ+99,10.1021/bi982783v
+FTRV,spinach,"Ferredoxin-thioredoxin reductase, variable chain, chloroplastic",P38365,63,174,-320,HSJ+99,10.1021/bi982783v
+FTRC1,spinach,"Ferredoxin-thioredoxin reductase catalytic chain, chloroplastic",P41348,32,144,-320,HSJ+99,10.1021/bi982783v
+TRXM,spinach,"Thioredoxin M-type, chloroplastic",P07591,68,180,-300,HSJ+99,10.1021/bi982783v
+TRXF,spinach,"Thioredoxin F-type, chloroplastic",P09856,78,189,-290,HSJ+99,10.1021/bi982783v

@@ -35,9 +35,9 @@ Calculate chemical metrics for proteins from their amino acid compositions.
   GRAVY(AAcomp, ...)
   pI(AAcomp, terminal_H2O = 1, ...)
   MW(AAcomp, terminal_H2O = 0, ...)
-  pMW(AAcomp, terminal_H2O = 0, ...)
+  pMW(AAcomp, terminal_H2O = 1, ...)
   V0(AAcomp, terminal_H2O = 0, ...)
-  pV0(AAcomp, terminal_H2O = 0, ...)
+  pV0(AAcomp, terminal_H2O = 1, ...)
   Density(AAcomp, terminal_H2O = 0, ...)
   HC(AAcomp, ...)
   NC(AAcomp, ...)
@@ -64,8 +64,8 @@ Calculate chemical metrics for proteins from their amino acid compositions.
 Columns in \code{AAcomp} should be named with the three-letter abbreviations for the amino acids.
 Case-insensitive matching matching of the abbreviations is used; e.g., \samp{Ala}, \samp{ALA}, \samp{ala} all refer to alanine.
 
-Metrics are normalized per amino acid residue except for \code{Zc}, \code{pI}, \code{plength}, and other functions starting with \code{p} (for protein).
-The contribution of protein terminal groups (-H and -OH) to relevant metrics is turned off by default, except for isoelectric point \code{pI}.
+Metrics are normalized per amino acid residue except for \code{Zc}, \code{pI}, \code{Density}, \code{plength}, and other functions starting with \code{p} (for protein).
+The contribution of protein terminal groups (-H and -OH) to residue-normalized metrics is turned off by default.
 Set \code{terminal_H2O} to 1 (or to the number of polypeptide chains, if greater than one) to include their contribution.
 
 The metrics are described below:

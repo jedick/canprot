@@ -29,7 +29,7 @@ O2 <- "O<sub>2</sub>"
 The **canprot** package calculates chemical metrics of proteins from amino acid compositions.
 This vignette was compiled on `r Sys.Date()` with **canprot** version `r packageDescription("canprot")$Version`.
 
-Previous vignette: [Demo for canprot](demo.html) | Next vignette: [More about metrics](metrics.html)
+Previous vignette: [Demos for canprot](demos.html) | Next vignette: [More about metrics](metrics.html)
 
 ## Reading FASTA files
 
@@ -67,7 +67,7 @@ axis(3, at = 3.5, "GOE (proposed)")
 ```
 
 The vertical line denotes the proposed timing of the Great Oxidation Event (GOE) between Anc. I/III and Anc. I [@KHAB17].
-**This analysis shows that proteins become more oxidized around the GOE.**
+**This analysis shows that reconstructed ancestral Rubiscos become more oxidized around the GOE.**
 
 ## Human proteins in **canprot**
 

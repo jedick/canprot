@@ -1,10 +1,10 @@
 ---
-title: "Demo for canprot"
+title: "Demos for canprot"
 output:
   html_vignette:
     mathjax: null
 vignette: >
-  %\VignetteIndexEntry{Demo for canprot}
+  %\VignetteIndexEntry{Demos for canprot}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: canprot.bib
@@ -27,9 +27,9 @@ This vignette was compiled on `r Sys.Date()` with **canprot** version `r package
 
 Next vignette: [Introduction to canprot](introduction.html)
 
-## canprot demo
+## canprot demo #1: Subcellular locations
 
-Run the demo using `demo("canprot")`.
+Run the demo using `demo("location")`.
 The code and output of the demo are shown below.
 
 The **canprot** functions used are:
@@ -41,17 +41,38 @@ The **canprot** functions used are:
 - `add.cld()`: Adds compact letter display to a boxplot
 
 ```{r echo = FALSE}
-knitr::read_chunk("../demo/canprot.R")
+knitr::read_chunk("../demo/location.R")
 ```
 
-```{r canprot_demo_setup, echo = FALSE}
+```{r location_demo_setup, echo = FALSE}
 ```
 
-```{r canprot_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 4.5}
+```{r location_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 4.5}
 ```
 
 The plots show carbon oxidation state (`r Zc`) and isoelectric point (pI) for human proteins in different subcellular locations.
 The localization data is from Table S6 of @TAW+17, filtered to include proteins that have both a validated location and only one predicted location.
+
+## canprot demo #2: Redoxins
+
+Run the demo using `demo("redoxin")`.
+For this demo, just the plot is shown below.
+
+The **canprot** functions used are:
+
+- `read.fasta()`: Reads a FASTA sequence file and returns amino acid compositions of proteins
+- `Zc()`: Calculates carbon oxidation state
+
+```{r echo = FALSE}
+knitr::read_chunk("../demo/redoxin.R")
+```
+
+```{r redoxin_demo_body, out.width = "75%", fig.align = "center", fig.width = 6, fig.height = 5, echo = FALSE, message = FALSE}
+```
+
+This is an *exploratory analysis* for hypothesis generation about evolutionary links between midpoint reduction potential and `r Zc` of proteins.
+The reduction potential data was taken from @ABH97 and @HSJ+99 for *E. coli* and spinach proteins, respectively.
+This plot is modified from Fig. 5 of [this preprint](https://doi.org/10.1101/004127); the figure did not appear in the published version of the paper.
 
 ```{r reset, include=FALSE}
 options(oldopt)

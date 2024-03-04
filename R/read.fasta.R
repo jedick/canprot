@@ -2,17 +2,18 @@
 # Read FASTA sequence files to get amino acid compositions of proteins
 # 20240227 Moved from CHNOSZ
 
-read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = NULL,
-  start = NULL, stop = NULL, type = "protein", id = NULL) {
+read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = NULL,
+  start = NULL, stop = NULL, molecule = "protein", id = NULL) {
   # Read sequences from a fasta file
   # Some of the following code was adapted from 
   # read.fasta in package seqinR
   # value of 'iseq' is what sequences to read (default is all)
-  # value of 'ret' determines format of return value:
+  # value of 'type' determines format of return value:
   #   count: amino acid composition (output can be used by CHNOSZ::add.protein())
   #        or nucleic acid base composition (A-C-G-T)
-  #   seq: amino acid sequence
-  #   fas: fasta entry
+  #   sequence: amino acid sequences
+  #   lines: lines from the file (including headers)
+  #   headers: header lines only
   # value of 'id' is used for 'protein' in output table,
   #   otherwise ID is parsed from FASTA header (can take a while)
   
@@ -51,10 +52,14 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
   # Use all or selected sequences
   if(is.null(iseq)) iseq <- seq_along(begin)
   # Just return the lines from the file
-  if(ret == "fas") {
+  if(tolower(substr(type, 1, 3)) == "lin") {
     iline <- numeric()
     for(i in iseq) iline <- c(iline, (begin[i]-1):end[i])
     return(lines[iline])
+  }
+  # Just return the headers 20240304
+  if(tolower(substr(type, 1, 3)) == "hea") {
+    return(lines[ihead])
   }
   # Get each sequence from the begin to end lines
   seqfun <- function(i) paste(lines[begin[i]:end[i]], collapse = "")
@@ -78,11 +83,11 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
     # Keep everything before the first space
     return(strsplit(f2, " ")[[1]][1])
   } ))
-  if(ret == "count") {
-    counts <- count.aa(sequences, start, stop, type)
+  if(tolower(substr(type, 1, 3)) == "cou") {
+    counts <- count.aa(sequences, start, stop, molecule)
     ref <- abbrv <- NA
     chains <- 1
-    if(type == "protein") {
+    if(molecule == "protein") {
       colnames(counts) <- c("Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",
                             "Met", "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr")
       # 20090507 Made stringsAsFactors FALSE
@@ -99,7 +104,7 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
         out$protein <- paste0(p1, "|", p2)
       }
       out
-    } else if(type %in% c("DNA", "RNA")) {
+    } else if(molecule %in% c("DNA", "RNA")) {
       cbind(gene = id, organism = organism,
         ref = ref, abbrv = abbrv, chains = chains, stringsAsFactors = FALSE, counts)
     }
@@ -110,11 +115,11 @@ read.fasta <- function(file, iseq = NULL, ret = "count", lines = NULL, ihead = N
 # 20090423 Use table(strsplit(toupper(seq), "")[[1]]) for counting (CHNOSZ 0.8)
 # 20180517 Use C code for counting (CHNOSZ 1.2.0)
 # 20240229 Use stringi::stri_count_fixed for counting (canprot 1.1.2-22)
-count.aa <- function(sequence, start = NULL, stop = NULL, type = "protein") {
-  if(type == "protein") alphabet <- c("A", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "Y") else
-  if(type == "DNA") alphabet <- c("A", "C", "G", "T") else
-  if(type == "RNA") alphabet <- c("A", "C", "G", "U") else
-  stop(paste("unknown sequence type", type))
+count.aa <- function(sequence, start = NULL, stop = NULL, molecule = "protein") {
+  if(molecule == "protein") alphabet <- c("A", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "Y") else
+  if(molecule == "DNA") alphabet <- c("A", "C", "G", "T") else
+  if(molecule == "RNA") alphabet <- c("A", "C", "G", "U") else
+  stop(paste0("unknown molecule '", molecule, "'"))
   # Convert input to uppercase
   sequence <- toupper(sequence)
   # Loop over sequences
@@ -135,7 +140,7 @@ count.aa <- function(sequence, start = NULL, stop = NULL, type = "protein") {
   # Keep only letters for protein, DNA, or RNA
   iab <- match(alphabet, LETTERS)
   ina <- colSums(counts[, -iab, drop = FALSE]) > 0
-  if(any(ina)) message(paste("count.aa: unrecognized letter(s) in", type, "sequence:", paste(LETTERS[-iab][ina], collapse = " ")))
+  if(any(ina)) message(paste("count.aa: unrecognized letter(s) in", molecule, "sequence:", paste(LETTERS[-iab][ina], collapse = " ")))
   counts <- counts[, iab, drop = FALSE]
   # Add column and row names
   colnames(counts) <- alphabet

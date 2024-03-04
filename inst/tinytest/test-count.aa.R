@@ -8,13 +8,13 @@ info <- "Correct counts for amino acids"
 expect_equal(AAcount$M, c(2, 2, 0), info = info)
 
 info <- "Message about unrecognized DNA bases"
-expect_message(DNAcount <- count.aa(sequence, type = "DNA"), "unrecognized.*I L M V X", info = info)
+expect_message(DNAcount <- count.aa(sequence, molecule = "DNA"), "unrecognized.*I L M V X", info = info)
 
 info <- "Correct counts for DNA (incl. lowercase letters)"
 expect_equal(DNAcount$C, c(1, 0, 1), info = info)
 
 info <- "Message about unrecognized RNA bases"
-expect_message(RNAcount <- count.aa(sequence, type = "RNA"), "unrecognized.*I L M T V X", info = info)
+expect_message(RNAcount <- count.aa(sequence, molecule = "RNA"), "unrecognized.*I L M T V X", info = info)
 
 
 # Test added on 2013-02-06 in CHNOSZ 1.0.0
@@ -27,11 +27,11 @@ expect_equal(as.numeric(count.aa(myseq, start = 5, stop = 6)[, c("A", "G")]), c(
 
 # Test added on 2013-06-02 in CHNOSZ 1.0.3
 info <- "Nucleobase sequences can be processed with count.aa()"
-expect_message(dna <- count.aa("ABCDEFGHIJ", type = "DNA"), "count.aa: unrecognized letter\\(s\\) in DNA sequence: B D E F H I J", info = info)
+expect_message(dna <- count.aa("ABCDEFGHIJ", molecule = "DNA"), "count.aa: unrecognized letter\\(s\\) in DNA sequence: B D E F H I J", info = info)
 expect_equal(as.numeric(dna), c(1, 1, 1, 0), info = info)
 
 # Test added on 2018-02-17 in CHNOSZ 1.2.0
 info <- "count.aa() correctly processes a longer nucleobase sequence"
 seq <- "ATGTCCCGTTTCTTAGTTGCATTGGTTGCCGCACTTTTAGGAGTTGCAATTGAGATGTCCCTTCTCGTTCGCGCTCAGGGGCAGCAAACCTTGCTTTTGGCTGAAGAAAGCAAGCATTTGTCGCAATTGCGTCAACTGACTTTTGAAGGCACCAATGCCGAAGCGTATTGGTCGCCTGACGGGAAATGGTTGGTCTTTCAATCCACACGCCCACCTTACAAGGCTGACCAAATCTTCATCATGAGAGCGGATGGCTCGGGAGTTCGTGTCGTCAGCACGGGCAAAGGTCGTTGCACTTGTGCCTATTTCACGCCAGATGGCAAAGGCGTTATCTTTGCTACGACCCACCTTGCTGGACCAGAACCGCCGCAAGTGCCCAAACTGGACATTCCACGCTATGTTTGGGGCGTGTTCCCAAGTTACGAACTTTACCTGCGGCGTTTGGACACGATGGAACTTATCCGCTTGACCGATAACGAAGGCTACGACGCTGAAGCGACCATTTGCTGGAAGACTGGGCGAATTGTCTTCACAAGTTACCGCAATGGCGACCTTGACCTTTACAGCATGAAATTAGACGGCAGCGATTTGAAGCGATTGACGAAAACCATCGGCTACGAGGGCGGAGCGTTCTACTCGCCCGACGGGAAGCGGATTGTCTTCCGAGCCTATTTGCCAAAGACGCCTGACGAAATTGACGAATACAAGCGGTTGCTCCAGTTAGGCGTCATAAGCCCACCAAAGATGGAGTGGGTCGTCATGGACGCCGACGGTCGCAACATGAAGCAAATC"
 counts <- data.frame(A = 190, C = 203, G = 211, T = 188)
-expect_equal(as.numeric(count.aa(seq, type = "DNA")), as.numeric(counts), info = info)
+expect_equal(as.numeric(count.aa(seq, molecule = "DNA")), as.numeric(counts), info = info)

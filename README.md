@@ -8,7 +8,7 @@
 
 Chemical analysis of proteins based on their amino acid compositions.
 Amino acid compositions can be read from FASTA files and used to calculate chemical metrics
-including carbon oxidation state and stoichiometric hydration state as described in [Dick et al.(2020)](https://doi.org/10.5194/bg-17-6145-2020).
+including carbon oxidation state and stoichiometric hydration state as described in [Dick et al. (2020)](https://doi.org/10.5194/bg-17-6145-2020).
 Other properties that can be calculated are protein length, grand average of hydropathy (GRAVY), isoelectric point (pI), molecular weight (MW),
 standard molal volume (V0), and metabolic costs
 ([Akashi and Gojobori, 2002](https://doi.org/10.1073/pnas.062526999);
@@ -16,7 +16,7 @@ standard molal volume (V0), and metabolic costs
 [Zhang et al., 2018](https://doi.org/10.1038/s41467-018-06461-1)).
 A database of amino acid compositions of human proteins derived from UniProt is provided.
 
-See the vignettes at <https://chnosz.net/canprot/vignettes>.
+See the vignettes at <https://chnosz.net/canprot/vignettes/>.
 
 ## Installation
 
@@ -30,7 +30,7 @@ install.packages("remotes")
 remotes::install_github("jedick/canprot")
 ```
 
-Use this instead to install the released version from CRAN (his version does not have all the features in the development version).
+Use this instead to install the released version from CRAN (this version does not have all the features in the development version).
 
 ```R
 install.packages("canprot")
