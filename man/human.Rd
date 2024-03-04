@@ -7,7 +7,7 @@
 \alias{human_additional}
 \alias{human_extra}
 \alias{uniprot_updates}
-\title{Data for Amino Acid Compositions of Human Proteins}
+\title{Data for amino acid compositions of human proteins}
 \description{
   Data for amino acid compositions of proteins and conversion from old to new UniProt IDs.
 }

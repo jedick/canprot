@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.2-29 (2024-03-03)
+CHANGES IN canprot 1.1.2-30 (2024-03-03)
 ----------------------------------------
 
 - Objects in cplab are now `quote()`-ed instead of `expression()`s for easier

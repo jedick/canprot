@@ -1,7 +1,7 @@
 \encoding{UTF-8}
 \name{add.cld}
 \alias{add.cld}
-\title{Compact Leter Display}
+\title{Compact letter display}
 \description{
   Adds compact letter display (significant difference letters) to a boxplot.
 }

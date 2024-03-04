@@ -1,7 +1,7 @@
 \encoding{UTF-8}
 \name{human.aa}
 \alias{human.aa}
-\title{Get Amino Acid Compositions of Human Proteins}
+\title{Get amino acid compositions of human proteins}
 \description{
   Get amino acid compositions of human proteins from their UniProt IDs.
 }

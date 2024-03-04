@@ -15,7 +15,7 @@
 \alias{OC}
 \alias{SC}
 \alias{cplab}
-\title{Calculate Chemical Metrics for Proteins}
+\title{Calculate chemical metrics for proteins}
 \description{
 Calculate chemical metrics for proteins from their amino acid compositions.
 }

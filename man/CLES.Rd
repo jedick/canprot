@@ -1,7 +1,7 @@
 \encoding{UTF-8}
 \name{CLES}
 \alias{CLES}
-\title{Common Language Effect Size}
+\title{Common language effect size}
 \description{
   Calculate the common language effect size.
 }

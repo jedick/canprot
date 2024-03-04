@@ -147,13 +147,23 @@ count.aa <- function(sequence, start = NULL, stop = NULL, type = "protein") {
 aasum <- function(AAcomp, abundance = 1, average = FALSE) {
   # Recycle abundance values into same length as number of proteins
   abundance <- rep(abundance, length.out = nrow(AAcomp))
-  # Find columns with names for the amino acids and "chains"
+  # Find columns with names for the amino acids and 'chains'
+  # (number of polypeptide chains)
   AA_names <- c(
     "Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",
     "Met", "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr",
     "chains"
   )
   isAA <- tolower(colnames(AAcomp)) %in% tolower(AA_names)
+  # Remove proteins with NA amino acid composition or abundance
+  ina.aa <- is.na(rowSums(AAcomp[, isAA]))
+  ina.ab <- is.na(abundance)
+  ina <- ina.aa | ina.ab
+  if (any(ina)) {
+      AAcomp <- AAcomp[!ina, ]
+      abundance <- abundance[!ina]
+      message("aasum: dropped ", sum(ina), " proteins with NA amino acid composition and/or abundance")
+  }
   # Multiply amino acid counts by protein abundance
   AAcomp[, isAA] <- AAcomp[, isAA] * abundance
   # Sum amino acid counts

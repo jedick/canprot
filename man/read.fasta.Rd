@@ -3,7 +3,7 @@
 \alias{read.fasta}
 \alias{count.aa}
 \alias{aasum}
-\title{Functions for Reading FASTA Files}
+\title{Functions for reading FASTA files}
 
 \description{
   Read protein amino acid composition or sequences from a file and count numbers of amino acids in given sequences.
@@ -58,10 +58,10 @@ If only one of \code{start} or \code{stop} is present, the other defaults to 1 (
 
 \code{aasum} sums the amino acid compositions in the input \code{AAcomp} data frame.
 It only applies to columns with the three-letter abbreviations of amino acids and to a column named \code{chains} (if present).
-The amino acid compositions are multiplied by the indicated \code{abundance} after recycling to the number of proteins.
-If \code{average} is TRUE the sum is divided by the number of proteins.
+The values in these columns are multiplied by the indicated \code{abundance} after recycling to the number of proteins.
+The values in these columns are then summed; if \code{average} is TRUE then the sum is divided by the number of proteins.
+Proteins with missing values (NA) of amino acid composition or abundance are omitted from the calculation.
 The output has one row and the same number of columns as the input; the value in the non-amino acid columns is taken from the first row of the input.
-Note that missing values (NA) of amino acid composition are treated as zero.
 }
 
 \value{

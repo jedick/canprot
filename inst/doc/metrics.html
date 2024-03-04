@@ -344,11 +344,11 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<p>The <strong>canprot</strong> package has functions to calculate chemical metrics of proteins from their amino acid composition. This vignette was compiled on 2024-02-29 with <strong>canprot</strong> version 1.1.2-24.</p>
+<p>The <strong>canprot</strong> package calculates chemical metrics of proteins from amino acid compositions. This vignette was compiled on 2024-03-04 with <strong>canprot</strong> version 1.1.2-31.</p>
 <p>Previous vignette: <a href="introduction.html">Introduction to canprot</a></p>
 <div id="more-details-on-chemical-metrics" class="section level2">
 <h2>More details on chemical metrics</h2>
-<p>Carbon oxidation state (<i>Z</i><sub>C</sub>) is calculated from elemental ratios, but stoichiometric hydration state (<i>n</i><sub>H<sub>2</sub>O</sub>) depends on a specific choice of thermodynamic components (or basis species). By default, <i>n</i><sub>H<sub>2</sub>O</sub> is calculated from a theoretical reaction to form proteins from this set of basis species, abbreviated as <strong>QEC</strong>:</p>
+<p>Carbon oxidation state (<i>Z</i><sub>C</sub>) is calculated from elemental ratios, but stoichiometric hydration state (<i>n</i><sub>H<sub>2</sub>O</sub>) depends on a specific choice of thermodynamic components (or basis species). In <strong>canprot</strong>, <i>n</i><sub>H<sub>2</sub>O</sub> is calculated from a theoretical reaction to form proteins from the following set of basis species, abbreviated as <strong>QEC</strong>:</p>
 <ul>
 <li>glutamine (Q)</li>
 <li>glutamic acid (E)</li>
@@ -420,7 +420,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="gravy-pi-and-molecular-weight" class="section level2">
 <h2>GRAVY, pI, and molecular weight</h2>
-<p>There are also functions for calculating the grand average of hydropathicity (GRAVY) and isoelectric point (pI) of proteins. Below, values for representative proteins are compared with results from the ProtParam tool <span class="citation">(Gasteiger et al., <a href="#ref-GHG+05" role="doc-biblioref">2005</a>)</span> in UniProt.</p>
+<p>There are also functions for calculating the grand average of hydropathy (GRAVY) and isoelectric point (pI) of proteins. Below, values for representative proteins are compared with results from the ProtParam tool <span class="citation">(Gasteiger et al., <a href="#ref-GHG+05" role="doc-biblioref">2005</a>)</span> in UniProt.</p>
 <p>We first look up a few proteins in CHNOSZ’s list of proteins, then get the amino acid compositions.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>iprotein &lt;-<span class="st"> </span>CHNOSZ<span class="op">::</span><span class="kw">pinfo</span>(<span class="kw">c</span>(<span class="st">&quot;LYSC_CHICK&quot;</span>, <span class="st">&quot;RNAS1_BOVIN&quot;</span>, <span class="st">&quot;AMYA_PYRFU&quot;</span>, <span class="st">&quot;CSG_HALJP&quot;</span>))</span>
 <span id="cb17-2"><a href="#cb17-2"></a>AAcomp &lt;-<span class="st"> </span>CHNOSZ<span class="op">::</span><span class="kw">pinfo</span>(iprotein)</span></code></pre></div>

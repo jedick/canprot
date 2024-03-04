@@ -37,8 +37,8 @@ Previous vignette: [Demo for canprot](demo.html) | Next vignette: [More about me
 Use `read.fasta()` to read the file and return a data frame of amino acid composition.
 
 ```{r read.fasta_KHAB17}
-my_fasta_file <- system.file("extdata/fasta/KHAB17.fasta", package = "canprot")
-aa <- read.fasta(my_fasta_file)
+fasta_file <- system.file("extdata/fasta/KHAB17.fasta", package = "canprot")
+aa <- read.fasta(fasta_file)
 ```
 
 The result is small enough that we can look at it here.
