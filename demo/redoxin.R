@@ -17,13 +17,14 @@ dat <- dat[dat$Protein != "PDI", ]
 
 # Read header lines
 fasta_file <- system.file("extdata/fasta/redoxin.fasta", package = "canprot")
-headers <- read.fasta(fasta_file, type = "header")
+# TODO: change canprot::read.fasta() to read.fasta() after CHNOSZ 2.1.0 is superseded on CRAN 20240304
+headers <- canprot::read.fasta(fasta_file, type = "header")
 # Locate the sequences in the FASTA file
 iseqs <- sapply(dat$ID, grep, x = headers)
 # Loop over proteins
 aalist <- lapply(1:nrow(dat), function(i) {
   # Read the amino acid composition of this protein
-  read.fasta(fasta_file, iseq = iseqs[i], start = dat$Start[i], stop = dat$Stop[i])
+  canprot::read.fasta(fasta_file, iseq = iseqs[i], start = dat$Start[i], stop = dat$Stop[i])
 })
 aa <- do.call(rbind, aalist)
 
