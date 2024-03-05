@@ -28,7 +28,7 @@ export(
 
 # Imports from default packages
 importFrom("stats", "pnorm", "sd", "TukeyHSD", "aov")
-importFrom("utils", "read.csv")
+importFrom("utils", "read.csv", "getFromNamespace")
 importFrom("graphics", "text", "par")
 
 # Imports from other packages

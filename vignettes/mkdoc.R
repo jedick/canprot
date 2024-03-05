@@ -1,5 +1,6 @@
-# canprot/vignettes/mkall.R
-# Process vignette and move html file to ../inst/doc
+# canprot/vignettes/mkdoc.R
+# This script compiles all the vignettes and moves them to inst/doc
+# so they will be installed when the package is installed from GitHub
 # 20200802
 
 files <- dir(pattern = "Rmd")

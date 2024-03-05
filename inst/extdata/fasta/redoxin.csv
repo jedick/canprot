@@ -1,4 +1,4 @@
-Protein,Organism,Name,ID,Start,Stop,E0,Ref,DOI
+protein,organism,name,ID,start,stop,E0,reference,DOI
 Trx,ecoli,Thioredoxin-1,P0AA25,2,109,-270,ABH97,10.1074/jbc.272.49.30780
 Grx1,ecoli,Glutaredoxin-1,P68688,1,85,-232,ABH97,10.1074/jbc.272.49.30780
 Grx3,ecoli,Glutaredoxin-3,P0AC62,2,83,-198,ABH97,10.1074/jbc.272.49.30780

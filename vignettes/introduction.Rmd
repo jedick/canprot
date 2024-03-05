@@ -67,7 +67,7 @@ axis(3, at = 3.5, "GOE (proposed)")
 ```
 
 The vertical line denotes the proposed timing of the Great Oxidation Event (GOE) between Anc. I/III and Anc. I [@KHAB17].
-**This analysis shows that reconstructed ancestral Rubiscos become more oxidized around the GOE.**
+**This analysis shows that reconstructed ancestral Rubiscos become more oxidized around the proposed timing of GOE.**
 
 ## Human proteins in **canprot**
 

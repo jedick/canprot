@@ -81,3 +81,8 @@ expect_equivalent(metrics$SC, SC.ref)
 length.ref <- c(129, 124, 648, 828)
 length.calc <- calc.metrics(AAcomp, "Length")[, 1]
 expect_equal(length.calc, length.ref)
+
+# Test for error added 20240305
+info <- "metrics() signals an error for unavailable metrics"
+metrics <- c("xxx", "Zc", "yyy")
+expect_error(calc.metrics(metrics = metrics), "not available", info = info)

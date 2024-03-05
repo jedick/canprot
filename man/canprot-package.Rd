@@ -21,8 +21,10 @@
   Two demos are available by running \code{demo("location")} and \code{demo("redoxin")}.
   The first shows \Zc and pI for human proteins with different subcellular locations.
   The localization data was taken from Thul et al. (2017) and is stored in \file{extdata/protein/TAW+17_Table_S6_Validated.csv}.
-  The second shows \Zc vs the midpoint reduction potentials of ferredoxin and thioredoxin from spinach and glutaredoxin and thioredoxin from \emph{E. coli}.
-  The sequences were obtained from UniProt and is stored in \file{extdata/fasta/redoxin.fasta}; the reduction potential data was taken from Åslund et al. (1997) and Hirasawa et al. (1999) and is stored in \file{extdata/fasta/redoxin.csv}.
+  The second shows \Zc vs the midpoint reduction potentials of ferredoxin and thioredoxin in spinach and glutaredoxin and thioredoxin in \emph{E. coli}.
+  The sequences were obtained from UniProt and is stored in \file{extdata/fasta/redoxin.fasta}.
+  The reduction potential data was taken from Åslund et al. (1997) and Hirasawa et al. (1999) and is stored in \file{extdata/fasta/redoxin.csv}.
+  This file also lists UniProt IDs and start and stop positions for the protein chains excluding initiator methionines and signal peptides.
 }
 
 \references{

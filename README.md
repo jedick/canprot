@@ -42,7 +42,7 @@ install.packages("canprot")
 demo("canprot")
 ```
 
-<img src="inst/images/canprot.png" alt="Zc and pI for human proteins in subcellular locations" title="canprot demo" width="600px" />
+<img src="inst/images/location.png" alt="Zc and pI for human proteins in subcellular locations" title="Subcellular locations demo for canprot" width="600px" />
 
 These plots show carbon oxidation state (*Z*<sub>C</sub>) and isoelectric point (pI) for human proteins in different subcellular locations.
 The localization data is from Table S6 of [Thul et al. (2017)](https://doi.org/10.1126/science.aal3321) (*A subcellular map of the human proteome*), filtered to include proteins that have both a validated location and only one annotated location.
