@@ -27,18 +27,16 @@ read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
   }
   if(is.null(lines)) {
     message("read.fasta: reading ", filebase, " ... ", appendLF = FALSE)
-    is.nix <- Sys.info()[[1]] == "Linux"
     if(is.archive) {
       # We can't use scan here?
       lines <- readLines(file)
-    } else if(is.nix) {
-      # Retrieve contents using system command (seems slightly faster even than scan())
-      # Figure out whether to use 'cat', 'zcat' or 'xzcat'
-      suffix <- substr(file,nchar(file)-2,nchar(file))
-      if(suffix == ".gz") mycat <- "zcat"
-      else if(suffix == ".xz") mycat <- "xzcat"
-      else mycat <- "cat"
-      lines <- system(paste(mycat,' "',file,'"',sep = ""),intern = TRUE)
+#    } else if(Sys.info()[[1]] == "Linux") {
+#      # Retrieve contents using system command (seems slightly faster even than scan())
+#      # Figure out whether to use 'cat', 'zcat' or 'xzcat'
+#      suffix <- substr(file, nchar(file) - 2, nchar(file))
+#      if(suffix == ".gz") mycat <- "zcat" else
+#      if(suffix == ".xz") mycat <- "xzcat" else mycat <- "cat"
+#      lines <- system(paste(mycat, ' "', file, '"', sep = ""), intern = TRUE)
     } else lines <- scan(file, what = character(), sep = "\n", quiet = TRUE)
   }
   nlines <- length(lines)
@@ -54,20 +52,18 @@ read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
   # Just return the lines from the file
   if(tolower(substr(type, 1, 3)) == "lin") {
     iline <- numeric()
-    for(i in iseq) iline <- c(iline, (begin[i]-1):end[i])
+    for(i in iseq) iline <- c(iline, (begin[i] - 1):end[i])
     return(lines[iline])
   }
   # Just return the headers 20240304
   if(tolower(substr(type, 1, 3)) == "hea") {
-    return(lines[ihead])
+    return(lines[ihead][iseq])
   }
   # Get each sequence from the begin to end lines
   seqfun <- function(i) paste(lines[begin[i]:end[i]], collapse = "")
   sequences <- lapply(iseq, seqfun)
-  # Organism name is from file name
-  # (basename minus extension)
-  bnf <- strsplit(filebase, split = ".", fixed = TRUE)[[1]][1]
-  organism <- bnf
+  # Organism name is from file name (basename minus extension)
+  organism <- file_path_sans_ext(filebase)
   # Protein/gene name is from header line for entry
   # (strip the ">" and go to the first space)
   missid <- missing(id)
@@ -76,7 +72,7 @@ read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
     f1 <- lines[ihead[j]]
     # Stop if the first character is not ">"
     # or the first two charaters are "> "
-    if(substr(f1, 1, 1) != ">" | length(grep("^> ", f1)>0))
+    if(substr(f1, 1, 1) != ">" | length(grep("^> ", f1) > 0))
       stop(paste("file", filebase, "line", j, "doesn't begin with FASTA header '>'."))
     # Discard the leading '>'
     f2 <- substr(f1,  2,  nchar(f1))
@@ -84,30 +80,48 @@ read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
     return(strsplit(f2, " ")[[1]][1])
   } ))
   if(tolower(substr(type, 1, 3)) == "cou") {
-    counts <- count.aa(sequences, start, stop, molecule)
-    ref <- abbrv <- NA
-    chains <- 1
+    
     if(molecule == "protein") {
-      colnames(counts) <- c("Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",
-                            "Met", "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr")
-      # 20090507 Made stringsAsFactors FALSE
-      out <- cbind(protein = id, organism = organism,
-        ref = ref, abbrv = abbrv, chains = chains, stringsAsFactors = FALSE, counts)
-      # 20170117 Extra processing for files from UniProt
-      isUniProt <- grepl("\\|......\\|.*_", out$protein[1])
-      if(isUniProt & missid) {
-        p1 <- sapply(strsplit(out$protein, "\\|"), "[", 1)
-        p2 <- sapply(strsplit(out$protein, "\\|"), "[", 2)
-        p3 <- sapply(strsplit(out$protein, "\\|"), "[", 3)
-        out$abbrv <- sapply(strsplit(p3, "_"), "[", 1)
-        out$organism <- sapply(strsplit(p3, "_"), "[", 2)
-        out$protein <- paste0(p1, "|", p2)
+      if(length(iseq) == 0) {
+        # Deal with length-0 iseq 20240308
+        out <- structure(list(protein = character(0), organism = character(0), 
+          ref = character(0), abbrv = character(0), chains = integer(0), 
+          Ala = numeric(0), Cys = numeric(0), Asp = numeric(0), Glu = numeric(0), 
+          Phe = numeric(0), Gly = numeric(0), His = numeric(0), Ile = numeric(0), 
+          Lys = numeric(0), Leu = numeric(0), Met = numeric(0), Asn = numeric(0), 
+          Pro = numeric(0), Gln = numeric(0), Arg = numeric(0), Ser = numeric(0), 
+          Thr = numeric(0), Val = numeric(0), Trp = numeric(0), Tyr = numeric(0)), row.names = integer(0), class = "data.frame")
+      } else {
+        # Count the number of occurrences of each amino acid
+        counts <- count.aa(sequences, start, stop, molecule)
+        colnames(counts) <- c("Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",
+                              "Met", "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr")
+        out <- cbind(protein = id, organism = organism, ref = NA, abbrv = NA, chains = 1, counts)
+        # 20170117 Extra processing for files from UniProt
+        isUniProt <- grepl("\\|......\\|.*_", out$protein[1])
+        if(isUniProt & missid) {
+          p1 <- sapply(strsplit(out$protein, "\\|"), "[", 1)
+          p2 <- sapply(strsplit(out$protein, "\\|"), "[", 2)
+          p3 <- sapply(strsplit(out$protein, "\\|"), "[", 3)
+          out$abbrv <- sapply(strsplit(p3, "_"), "[", 1)
+          out$organism <- sapply(strsplit(p3, "_"), "[", 2)
+          out$protein <- paste0(p1, "|", p2)
+        }
       }
-      out
     } else if(molecule %in% c("DNA", "RNA")) {
-      cbind(gene = id, organism = organism,
-        ref = ref, abbrv = abbrv, chains = chains, stringsAsFactors = FALSE, counts)
+      if(length(iseq) == 0) {
+        out <- structure(list(gene = character(0), organism = character(0),
+          ref = character(0), abbrv = character(0), chains = integer(0),
+          A = numeric(0), C = numeric(0), G = numeric(0), T = numeric(0)),
+          row.names = integer(0), class = "data.frame")
+        if(molecule == "RNA") colnames(out)[9] <- "U"
+      } else {
+        # Count the number of occurrences of each base
+        counts <- count.aa(sequences, start, stop, molecule)
+        out <- cbind(gene = id, organism = organism, ref = NA, abbrv = NA, chains = 1, counts)
+      }
     }
+    out
   } else return(sequences)
 }
 

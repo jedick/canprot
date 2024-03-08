@@ -13,13 +13,13 @@ canprot <- new.env()
 .onAttach <- function(libname, pkgname) {
   with(canprot, {
     # Read amino acid compositions of human proteins and show some information
-    human_base <- readRDS(system.file("/extdata/aa/human_base.rds", package = "canprot"))
+    human_base <- readRDS(system.file("/extdata/human/human_base.rds", package = "canprot"))
     #packageStartupMessage(paste("human_base:", nrow(human_base), "proteins"))
 
-    human_additional <- readRDS(system.file("/extdata/aa/human_additional.rds", package = "canprot"))
+    human_additional <- readRDS(system.file("/extdata/human/human_additional.rds", package = "canprot"))
     #packageStartupMessage(paste("human_additional:", nrow(human_additional), "proteins"))
 
-    human_extra <- read.csv(system.file("/extdata/aa/human_extra.csv", package = "canprot"), as.is = TRUE)
+    human_extra <- read.csv(system.file("/extdata/human/human_extra.csv", package = "canprot"), as.is = TRUE)
     #packageStartupMessage(paste("human_extra:", nrow(human_extra), "proteins"))
 
     # Create the data frame with all proteins
@@ -30,8 +30,5 @@ canprot <- new.env()
       idup <- duplicated(human_aa$protein)
       if(any(idup)) warning("canprot/zzz.R: duplicated proteins in human_aa: ", paste(human_aa$protein[idup], collapse = " "))
     })
-
-    # Load updates for UniProt IDs
-    uniprot_updates <- read.csv(system.file("/extdata/aa/uniprot_updates.csv", package = "canprot"), as.is = TRUE)
   })
 }

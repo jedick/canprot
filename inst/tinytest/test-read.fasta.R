@@ -21,3 +21,7 @@ expect_equal(plength(aa), dat$stop - dat$start + 1, info = info)
 Zc_ref <- c(-0.223485, -0.09324, -0.126904, -0.139984, -0.166184,
   -0.159664, -0.048673, -0.235294, -0.05036, -0.22028, -0.265018)
 expect_equal(round(Zc(aa), 6), Zc_ref)
+
+# Test added on 20230308
+fasta_file <- system.file("extdata/fasta/redoxin.fasta", package = "canprot")
+expect_equal(nrow(read.fasta(fasta_file, iseq = numeric())), 0)

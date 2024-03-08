@@ -60,7 +60,10 @@ For this demo, just the plot is shown below.
 
 The **canprot** functions used are:
 
-- `read.fasta()`: Reads a FASTA sequence file and returns amino acid compositions of proteins
+- `read.fasta()`: Reads a FASTA sequence file and returns amino acid compositions of proteins. Additional processing is performed by using the following arguments:
+  - `type` to read header lines
+  - `iseq` to read specific sequences
+  - `start` and `stop` to read segments of the sequences
 - `Zc()`: Calculates carbon oxidation state
 
 ```{r echo = FALSE}

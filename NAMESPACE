@@ -30,6 +30,7 @@ export(
 importFrom("stats", "pnorm", "sd", "TukeyHSD", "aov")
 importFrom("utils", "read.csv", "getFromNamespace")
 importFrom("graphics", "text", "par")
+importFrom("tools", "file_path_sans_ext")
 
 # Imports from other packages
 importFrom("stringi", "stri_count_fixed")

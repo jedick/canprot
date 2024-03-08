@@ -6,13 +6,13 @@
 \alias{human_base}
 \alias{human_additional}
 \alias{human_extra}
-\alias{uniprot_updates}
-\title{Data for amino acid compositions of human proteins}
+\title{Amino acid compositions of human proteins}
 \description{
-  Data for amino acid compositions of proteins and conversion from old to new UniProt IDs.
+  Amino acid compositions of human proteins derived from UniProt.
 }
 
 \details{
+
 The amino acid compositions of human proteins are stored in three files under \code{extdata/protein}.
 \itemize{
   \item \code{human_base.rds} contains amino acid compositions of canonical isoforms of manually reviewed proteins in the \href{https://www.uniprot.org/}{UniProt} reference human proteome (computed from sequences in \code{UP000005640_9606.fasta.gz}, dated 2016-04-03).
@@ -22,8 +22,6 @@ The amino acid compositions of human proteins are stored in three files under \c
 
 On loading the package, the individual data files are read and combined, and the result is assigned to the \code{human_aa} object in the \code{human} environment.
 
-As an aid for processing datasets that list old (obsolete) UniProt IDs, the corresponding new (current) IDs are are stored in \code{uniprot_updates}.
-These ID mappings have been manually added as needed for individual datasets, and include proteins from humans as well as other organisms.
 }
 
 \format{
@@ -41,16 +39,9 @@ These ID mappings have been manually added as needed for individual datasets, an
 The \code{protein} column contains UniProt IDs in the format \code{database|accession-isoform}, where \code{database} is most often \samp{sp} (Swiss-Prot) or \samp{tr} (TrEMBL), and \code{isoform} is an optional suffix indicating the isoform of the protein (particularly in the \code{human_additional} file).
 }
 
-\seealso{
-Amino acid compositions of non-human proteins are stored under \code{extdata/aa} in directories \code{archaea}, \code{bacteria}, \code{cow}, \code{dog}, \code{mouse}, \code{rat}, and \code{yeast}.
-These files can be loaded in \code{\link{human.aa}} via the \code{aa_file} argument.
-}
-
 \examples{
 # The number of proteins
 nrow(get("human_aa", canprot))
-# The number of old to new ID mappings
-nrow(get("uniprot_updates", canprot))
 }
 
 \concept{Amino acid composition}
