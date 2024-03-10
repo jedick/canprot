@@ -76,7 +76,8 @@ AA <- structure(list(Ala = 1, Cys = 1, Asp = 1, Glu = 1, Phe = 1, Gly = 1, His =
                      Met = 1, Asn = 1, Pro = 1, Gln = 1, Arg = 1, Ser = 1, Thr = 1, Val = 1, Trp = 1, Tyr = 1), row.names = 6L, class = "data.frame")
 metrics <- names(cplab)
 ref_values <- c(-0.074766, -1.14, -0.655, -0.49, 6.74, 118.886024, 2395.73576,
-  86.785, 1742.989, 1.369891, 1.46729, 0.271028, 0.271028, 0.018692,
-  20, 27.36, 29.075, 7.75, 221.25, 228.05, 47.175)
+  86.785, 1742.989, 0.729985, 1.369891, 35.511, 729.19, 0.298698,
+  0.409184, 1.46729, 0.271028, 0.271028, 0.018692, 20, 27.36, 29.075,
+  7.75, 221.25, 228.05, 47.175)
 calc_values <- as.numeric(round(sapply(metrics, function(metric) get(metric)(AA)), 6))
 expect_equal(calc_values, ref_values)

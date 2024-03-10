@@ -23,5 +23,6 @@ Zc_ref <- c(-0.223485, -0.09324, -0.126904, -0.139984, -0.166184,
 expect_equal(round(Zc(aa), 6), Zc_ref)
 
 # Test added on 20230308
+info <- "read.fasta() handles 0-length 'iseq' argument"
 fasta_file <- system.file("extdata/fasta/redoxin.fasta", package = "canprot")
-expect_equal(nrow(read.fasta(fasta_file, iseq = numeric())), 0)
+expect_equal(nrow(canprot::read.fasta(fasta_file, iseq = numeric())), 0, info = info)

@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.2-32 (2024-03-04)
+CHANGES IN canprot 1.1.2-37 (2024-03-10)
 ----------------------------------------
 
 - Objects in cplab are now `quote()`-ed instead of `expression()`s for easier
@@ -13,9 +13,11 @@ CHANGES IN canprot 1.1.2-32 (2024-03-04)
 - Add '...' argument to chemical metrics to permit using the same arguments for
   all metrics in get() or do.call() constructions.
 
-- Add functions for metrics: plength() (protein length), V0 (standard molal
-  volume from group additivity), Cost() (metabolic cost of amino acids from
-  Akashi and Gojobori, 2002), RespiratoryCost() and FermentativeCost()
+- Add functions for metrics: plength() (protein length), V0() and S0()
+  (standard molal volume and entropy per residue), pV0() and pS0 (volume and
+  entropy per protein), V0g() and S0g() (specific volume and entropy), Density()
+  (mass density), SV() (entropy density) Cost() (metabolic cost of amino acids
+  from Akashi and Gojobori, 2002), RespiratoryCost() and FermentativeCost()
   (respiratory and fermentative costs from Wagner, 2005), and B20Cost(),
   Y20Cost(), and H11Cost() (biosynthetic costs from Zhang et al., 2018).
 

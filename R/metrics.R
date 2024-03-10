@@ -240,6 +240,52 @@ pV0 <- function(AAcomp, terminal_H2O = 1, ...) {
   V0 + terminal_H2O * V0_H2O
 }
 
+# Per-residue entropy 20240308
+S0 <- function(AAcomp, terminal_H2O = 0, ...) {
+  # Entropy per residue using group contributions from Dick et al., 2006:
+  # i.e. residue = [sidechain group] + [backbone group]
+  # S0_AA <- info(info(paste0("[", aminoacids(3), "]")))$S + info(info("[UPBB]"))$S
+  # names(S0_AA) <- aminoacids(3)
+  S0_AA <- c(Ala = 19.86, Cys = 27.35, Asp = 36.25, Glu = 42.23, Phe = 37.63, 
+    Gly = 18.92, His = 47.03, Ile = 30.73, Lys = 42.31, Leu = 31.44, 
+    Met = 43.83, Asn = 38.91, Pro = 30.86, Gln = 43.44, Arg = 57.76, 
+    Ser = 28.27, Thr = 25.26, Val = 26.71, Trp = 40.99, Tyr = 40.44
+  )
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(S0_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(S0_AA))
+  # Calculate total S0 of residues in each protein
+  S0 <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * S0_AA[iAA]))
+  # Add volume of H2O for each pair of terminal groups
+  # S0_H2O <- info(info("[AABB]"))$S - info(info("[UPBB]"))$S
+  S0_H2O <- 18.97
+  S0 <- S0 + terminal_H2O * S0_H2O
+  # Divide by number of residues (length of protein)
+  S0 / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Per-protein entropy 20240308
+pS0 <- function(AAcomp, terminal_H2O = 1, ...) {
+  # Entropy per residue using group contributions from Dick et al., 2006:
+  # i.e. residue = [sidechain group] + [backbone group]
+  # S0_AA <- info(info(paste0("[", aminoacids(3), "]")))$S + info(info("[UPBB]"))$S
+  # names(S0_AA) <- aminoacids(3)
+  S0_AA <- c(Ala = 19.86, Cys = 27.35, Asp = 36.25, Glu = 42.23, Phe = 37.63, 
+    Gly = 18.92, His = 47.03, Ile = 30.73, Lys = 42.31, Leu = 31.44, 
+    Met = 43.83, Asn = 38.91, Pro = 30.86, Gln = 43.44, Arg = 57.76, 
+    Ser = 28.27, Thr = 25.26, Val = 26.71, Trp = 40.99, Tyr = 40.44
+  )
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(S0_AA))
+  iAA <- match(colnames(AAcomp)[isAA], names(S0_AA))
+  # Calculate total S0 of residues in each protein
+  S0 <- rowSums(t(t(AAcomp[, isAA, drop = FALSE]) * S0_AA[iAA]))
+  # Add volume of H2O for each pair of terminal groups
+  # S0_H2O <- info(info("[AABB]"))$S - info(info("[UPBB]"))$S
+  S0_H2O <- 18.97
+  S0 + terminal_H2O * S0_H2O
+}
+
 # Protein length 20200501
 plength <- function(AAcomp, ...) {
   AA_names <- c(
@@ -358,6 +404,21 @@ SC <- function(AAcomp, ...) {
 # Density 20240304
 Density <- function(AAcomp, terminal_H2O = 0, ...) {
   MW(AAcomp, terminal_H2O = 0, ...) / V0(AAcomp, terminal_H2O = 0, ...)
+}
+
+# Specific volume 20240308
+V0g <- function(AAcomp, terminal_H2O = 0, ...) {
+  V0(AAcomp, terminal_H2O = 0, ...) / MW(AAcomp, terminal_H2O = 0, ...)
+}
+
+# Specific entropy 20240308
+S0g <- function(AAcomp, terminal_H2O = 0, ...) {
+  S0(AAcomp, terminal_H2O = 0, ...) / MW(AAcomp, terminal_H2O = 0, ...)
+}
+
+# Entropy density 20240309
+SV <- function(AAcomp, terminal_H2O = 0, ...) {
+  S0(AAcomp, terminal_H2O = 0, ...) / V0(AAcomp, terminal_H2O = 0, ...)
 }
 
 # Metabolic cost 20211220

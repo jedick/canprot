@@ -10,7 +10,12 @@
 \alias{pMW}
 \alias{V0}
 \alias{pV0}
+\alias{V0g}
 \alias{Density}
+\alias{S0}
+\alias{pS0}
+\alias{S0g}
+\alias{SV}
 \alias{HC}
 \alias{NC}
 \alias{OC}
@@ -38,7 +43,12 @@ Calculate chemical metrics for proteins from their amino acid compositions.
   pMW(AAcomp, terminal_H2O = 1, ...)
   V0(AAcomp, terminal_H2O = 0, ...)
   pV0(AAcomp, terminal_H2O = 1, ...)
+  V0g(AAcomp, terminal_H2O = 0, ...)
   Density(AAcomp, terminal_H2O = 0, ...)
+  S0(AAcomp, terminal_H2O = 0, ...)
+  pS0(AAcomp, terminal_H2O = 1, ...)
+  S0g(AAcomp, terminal_H2O = 0, ...)
+  SV(AAcomp, terminal_H2O = 0, ...)
   HC(AAcomp, ...)
   NC(AAcomp, ...)
   OC(AAcomp, ...)
@@ -100,7 +110,14 @@ The metrics are described below:
   The values are derived from group contributions of amino acid sidechains and protein backbones (Dick et al., 2006).
 }
 \item{\code{pV0}}{Standard molal volume per protein.}
+\item{\code{V0g}}{Specific volume (reciprocal density).}
 \item{\code{Density}}{Density (MW / V0).}
+\item{\code{S0}}{Standard molal entropy.
+  The values are derived from group contributions of amino acid sidechains and protein backbones (Dick et al., 2006).
+}
+\item{\code{pS0}}{Standard molal entropy per protein.}
+\item{\code{S0g}}{Specific entropy.}
+\item{\code{SV}}{Entropy density.}
 \item{\code{HC}}{H/C ratio (not counting terminal -H and -OH groups).}
 \item{\code{NC}}{N/C ratio.}
 \item{\code{OC}}{O/C ratio (not counting terminal -H and -OH groups).}

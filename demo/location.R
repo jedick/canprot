@@ -2,6 +2,8 @@
 # Plot chemical metrics of human proteins in different subcellular locations
 # 20240302
 
+library(canprot)
+
 ## @knitr location_demo_setup
 
 # Change to TRUE to make a PDF image

@@ -23,7 +23,11 @@ export(
 # 20240304
 "pMW", "Density", "Cost",
 "RespiratoryCost", "FermentativeCost",
-"B20Cost", "Y20Cost", "H11Cost"
+"B20Cost", "Y20Cost", "H11Cost",
+# 20240308
+"S0", "pS0", "S0g", "V0g",
+# 20240309
+"SV"
 )
 
 # Imports from default packages
