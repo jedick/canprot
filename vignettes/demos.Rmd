@@ -27,9 +27,33 @@ This vignette was compiled on `r Sys.Date()` with **canprot** version `r package
 
 Next vignette: [Introduction to canprot](introduction.html)
 
-## canprot demo #1: Subcellular locations
+## canprot demo #1: Thermophiles
 
-Run the demo using `demo("location")`.
+Run the demo using `demo("thermophiles")`.
+For this demo, just the output is shown below.
+
+The **canprot** functions used are:
+
+- `calc.metrics()`: Calculates metrics named in an argument. The metrics calculated here are:
+  - `S0g`: standard specific entropy
+  - `Zc`: carbon oxidation state
+- `cplab`: This is not a function, but an object that has formatted text labels for each metric.
+- `add.hull()`: Adds a convex hull around data points
+
+```{r echo = FALSE}
+knitr::read_chunk("../demo/thermophiles.R")
+```
+
+```{r thermophiles_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 6, echo = FALSE, message = FALSE}
+```
+
+The data are from @DBCS23 for methanogen genomes (amino acid composition and optimal growth temperature) and from @LLX+24 for *Nitrososphaeria* MAGs (genome assemblies and habitat and respiration types).
+The plots reveal that proteins tend to have higher specific entropy in thermophilic genomes and MAGs from thermal habitats compared to mesophilic genomes and MAGs from nonthermal habitats, for a given carbon oxidation state.
+This implies that, after correcting for *Z*<sub>C</sub>, proteins in thermophilic genomes have a <ins>more negative derivative</ins> of the standard Gibbs energy per gram of protein with respect to temperature.
+
+## canprot demo #2: Subcellular locations
+
+Run the demo using `demo("locations")`.
 The code and output of the demo are shown below.
 
 The **canprot** functions used are:
@@ -41,22 +65,22 @@ The **canprot** functions used are:
 - `add.cld()`: Adds compact letter display to a boxplot
 
 ```{r echo = FALSE}
-knitr::read_chunk("../demo/location.R")
+knitr::read_chunk("../demo/locations.R")
 ```
 
-```{r location_demo_setup, echo = FALSE}
+```{r locations_demo_setup, echo = FALSE}
 ```
 
-```{r location_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 4.5}
+```{r locations_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 4.5}
 ```
 
 The plots show carbon oxidation state (`r Zc`) and isoelectric point (pI) for human proteins in different subcellular locations.
 The localization data is from Table S6 of @TAW+17, filtered to include proteins that have both a validated location and only one predicted location.
 
-## canprot demo #2: Redoxins
+## canprot demo #3: Redoxins
 
-Run the demo using `demo("redoxin")`.
-For this demo, just the plot is shown below.
+Run the demo using `demo("redoxins")`.
+For this demo, just the output is shown below.
 
 The **canprot** functions used are:
 
@@ -67,10 +91,10 @@ The **canprot** functions used are:
 - `Zc()`: Calculates carbon oxidation state
 
 ```{r echo = FALSE}
-knitr::read_chunk("../demo/redoxin.R")
+knitr::read_chunk("../demo/redoxins.R")
 ```
 
-```{r redoxin_demo_body, out.width = "75%", fig.align = "center", fig.width = 6, fig.height = 5, echo = FALSE, message = FALSE}
+```{r redoxins_demo_body, out.width = "75%", fig.align = "center", fig.width = 6, fig.height = 5, echo = FALSE, message = FALSE}
 ```
 
 This is an *exploratory analysis* for hypothesis generation about evolutionary links between midpoint reduction potential and `r Zc` of proteins.

@@ -1,16 +1,16 @@
-# canprot/demo/location.R
+# canprot/demo/locations.R
 # Plot chemical metrics of human proteins in different subcellular locations
 # 20240302
 
 library(canprot)
 
-## @knitr location_demo_setup
+## @knitr locations_demo_setup
 
 # Change to TRUE to make a PDF image
 do.pdf <- FALSE
-if(do.pdf) pdf("canprot.pdf", width = 8, height = 4.5)
+if(do.pdf) pdf("locations.pdf", width = 8, height = 4.5)
 
-## @knitr location_demo_body
+## @knitr locations_demo_body
 
 # Read SI table
 file <- system.file("extdata/protein/TAW+17_Table_S6_Validated.csv", package = "canprot")
@@ -53,7 +53,7 @@ for(metric in c("Zc", "pI")) {
   title(titles[metric], font.main = 1)
 }
 
-## @knitr location_demo_wrapup
+## @knitr locations_demo_wrapup
 
 if(do.pdf) dev.off()
 

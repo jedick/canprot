@@ -1,4 +1,4 @@
-CHANGES IN canprot 1.1.2-37 (2024-03-10)
+CHANGES IN canprot 1.1.2-38 (2024-03-10)
 ----------------------------------------
 
 - Objects in cplab are now `quote()`-ed instead of `expression()`s for easier
@@ -32,9 +32,12 @@ CHANGES IN canprot 1.1.2-37 (2024-03-10)
 
 - Add add.cld() (add compact letter display to boxplots).
 
-- Move chem16S::calc_metrics() to calc.metrics().
+- Move chem16S::calc_metrics() and chem16S::add_hull() to calc.metrics() and
+  add.hull().
 
 - Rename protcomp() to human.aa().
+
+- Add demos \file{thermophiles.R}, \file{locations.R}, and \file{redoxins.R}.
 
 CHANGES IN canprot 1.1.2 (2022-01-17)
 -------------------------------------

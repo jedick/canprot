@@ -344,14 +344,14 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<p>The <strong>canprot</strong> package calculates chemical metrics of proteins from amino acid compositions. This vignette was compiled on 2024-03-05 with <strong>canprot</strong> version 1.1.2-35.</p>
+<p>The <strong>canprot</strong> package calculates chemical metrics of proteins from amino acid compositions. This vignette was compiled on 2024-03-10 with <strong>canprot</strong> version 1.1.2-38.</p>
 <p>Previous vignette: <a href="demos.html">Demos for canprot</a> | Next vignette: <a href="metrics.html">More about metrics</a></p>
 <div id="reading-fasta-files" class="section level2">
 <h2>Reading FASTA files</h2>
 <p><code>KHAB17.fasta</code> was obtained from Supplemental Information of <span class="citation">Kacar et al. (<a href="#ref-KHAB17" role="doc-biblioref">2017</a>)</span> and is provided in the <code>extdata/fasta</code> directory of <strong>canprot</strong>. Use <code>read.fasta()</code> to read the file and return a data frame of amino acid composition.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>fasta_file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;extdata/fasta/KHAB17.fasta&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;canprot&quot;</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>aa &lt;-<span class="st"> </span><span class="kw">read.fasta</span>(fasta_file)</span></code></pre></div>
-<pre><code>## read.fasta: reading KHAB17.fasta ... 62 lines ... 6 sequences</code></pre>
+<pre><code>## read.fasta: reading KHAB17.fasta ... 57 lines ... 6 sequences</code></pre>
 <p>The result is small enough that we can look at it here. The data frame has four columns for identifying information (<code>protein</code>, <code>organism</code>, <code>ref</code>, and <code>abbrv</code>); the first two are filled by <code>read.fasta()</code>. The <code>chains</code> column is the number of polypeptide chains.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>aa</span></code></pre></div>
 <pre><code>##        protein organism ref abbrv chains Ala Cys Asp Glu Phe Gly His Ile Lys

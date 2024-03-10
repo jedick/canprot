@@ -1,0 +1,187 @@
+Order,Family,Accession,Organism,"Respiration type","Habitat type"
+Conexivisphaerales,Conexivisphaeraceae,GCA_015522695.1,"Thaumarchaeota archaeon S016_59_esom",Anaerobic,Thermal
+Conexivisphaerales,Conexivisphaeraceae,GCA_009903775.1,"Thaumarchaeota archaeon EvPrim.Bin14",Anaerobic,Thermal
+Conexivisphaerales,Conexivisphaeraceae,GCA_013340765.1,"Conexivisphaera calida NAS-2",Anaerobic,Thermal
+Conexivisphaerales,DTJL01,GCA_011333845.1,"Nitrososphaeria archaeon SpSt-831",Aerobic,Thermal
+Conexivisphaerales,UBA164,GCA_002499005.1,"Thaumarchaeota archaeon UBA164",Microaerobic,Thermal
+Conexivisphaerales,UBA164,GCA_009903795.1,"Thaumarchaeota archaeon EvPrim.Bin21",Anaerobic,Thermal
+Nitrososphaerales,JAAOZN01,GCA_011605775.1,"Thaumarchaeota archaeon SJ3.Bin66",Anaerobic,Thermal
+Nitrososphaerales,JAAOZN01,GCA_011355215.1,"Nitrososphaerales archaeon SpSt-89",Anaerobic,Thermal
+Nitrososphaerales,JACAEJ01,GCA_013388925.1,"Nitrososphaerales archaeon L.E.AR.22",Anaerobic,Thermal
+Nitrososphaerales,JACAEJ01,GCA_011358735.1,"Nitrososphaerales archaeon SpSt-912",Anaerobic,Thermal
+Nitrososphaerales,UBA141,GCA_002495315.1,"Thaumarchaeota archaeon UBA141",Anaerobic,Nonthermal
+Nitrososphaerales,JACQRY01,GCA_016206275.1,"Thaumarchaeota archaeon NC_groundwater_1371_Ag_S-0.2um_48_37",Anaerobic,Nonthermal
+Nitrososphaerales,JACQRY01,GCA_016184315.1,"Thaumarchaeota archaeon NC_groundwater_291_Ag_S-0.65um_49_13",Aerobic,Nonthermal
+Nitrososphaerales,JACPRH01,GCA_016190055.1,"Thaumarchaeota archaeon NC_groundwater_674_Ag_B-0.1um_49_231",Aerobic,Nonthermal
+Nitrososphaerales,UBA57,GCA_016871995.1,"Thaumarchaeota archaeon K_DeepCast_65m_m2_187",Aerobic,Nonthermal
+Nitrososphaerales,UBA57,GCA_016180375.1,"Thaumarchaeota archaeon NC_groundwater_254_Ag_S-0.2um_46_8",Aerobic,Nonthermal
+Nitrososphaerales,UBA57,GCA_002713205.1,"Thaumarchaeota archaeon SAT139",Aerobic,Nonthermal
+Nitrososphaerales,UBA57,GCA_013378375.1,"Thaumarchaeota archaeon ASW2_bin45",Aerobic,Nonthermal
+Nitrososphaerales,UBA57,GCA_002495905.1,"Thaumarchaeota archaeon UBA223",Aerobic,Nonthermal
+Nitrososphaerales,UBA57,GCA_013306035.1,"Thaumarchaeota archaeon ATL",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_016193005.1,"Thaumarchaeota archaeon NC_groundwater_720_Ag_S-0.2um_54_9",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_003164815.1,"Thaumarchaeota archaeon bog_1369",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_003135575.1,"Thaumarchaeota archaeon palsa_1368",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_005877225.1,"Thaumarchaeota archaeon TA_8",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_016200045.1,"Thaumarchaeota archaeon NC_groundwater_1048_Pr1_S-0.65um_58_13",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_016200025.1,"Thaumarchaeota archaeon NC_groundwater_1049_Pr1_S-0.65um_60_11",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosocaldaceae,GCA_002906215.1,"Candidatus Nitrosocaldus islandicus 3F",Aerobic,Thermal
+Nitrososphaerales,Nitrosocaldaceae,GCA_003695185.1,"Thaumarchaeota archaeon J079",Anaerobic,Thermal
+Nitrososphaerales,UBA213,GCA_011331095.1,"Nitrososphaerales archaeon SpSt-435",Aerobic,Thermal
+Nitrososphaerales,UBA213,GCA_002494485.1,"Nitrososphaerales archaeon UBA213",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_014523625.1,"Nitrososphaerales archaeon TH5896",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_014523665.1,"Nitrososphaerales archaeon TH526",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_009377575.1,"Nitrososphaeraceae archaeon Dino_bin45",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_014523685.1,"Nitrososphaerales archaeon TH5893",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_009898475.1,"Nitrososphaera sp. AFS",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_009665115.1,"Nitrosopumilales archaeon AHI_AL_Thaum02",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_013114715.1,"Nitrososphaera sp. WS208",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_013388945.1,"Nitrososphaera sp. L.E.AR.1",Aerobic,Thermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_000730285.1,"Candidatus Nitrososphaera evergladensis SR1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_000698785.1,"Nitrososphaera viennensis EN76",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_000303155.1,"Candidatus Nitrososphaera gargensis Ga9.2",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_005877425.1,"Thaumarchaeota archaeon TA_3",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_013114725.1,"Nitrososphaeraceae archaeon WS9",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_014523485.1,"Nitrososphaerales archaeon TH5894",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_005877345.1,"Thaumarchaeota archaeon TA_15",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_014523495.1,"Nitrososphaerales archaeon TH1920",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_005877385.1,"Thaumarchaeota archaeon TA_12",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_013694585.1,"Nitrosopumilus sp. MGR_bin297",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_007826885.1,"Candidatus Nitrosocosmicus arcticus Kfb",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_009379865.1,"Candidatus Nitrosocosmicus sp. Dino_bin19",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_000802205.2,"Candidatus Nitrosocosmicus oleophilus MY3",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_008389435.1,"Candidatus Nitrosocosmicus sp. SS",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_900696045.1,"Candidatus Nitrosocosmicus franklandus C13",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_902826075.1,"Candidatus Nitrosocosmicus sp. RBC071",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_013821245.1,"Nitrosopumilus sp. MGR_bin428",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_016782225.1,"Nitrososphaeraceae archaeon LB3_1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrososphaeraceae,GCA_016782245.1,"Nitrososphaeraceae archaeon MB4_1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016200035.1,"Thaumarchaeota archaeon NC_groundwater_1047_Pr1_S-0.65um_38_12",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013330055.1,"Nitrosopumilaceae archaeon UBA8516",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_005877305.1,"Thaumarchaeota archaeon TA_20",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_007280335.1,"Nitrosopumilales archaeon PowLak16_MAG10",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016201435.1,"Thaumarchaeota archaeon NC_groundwater_975_Pr1_S-0.2um_35_340",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_900167955.1,"Candidatus Nitrosotalea bavarica SBT1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_011319475.1,"Candidatus Nitrosotalea sp. FS",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_900177045.1,"Candidatus Nitrosotalea okcheonensis NCS1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_900143675.1,"Candidatus Nitrosotalea sinensis NSIN",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_900065925.1,"Candidatus Nitrosotalea devanaterra Nd1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013288545.1,"Thaumarchaeota archaeon BWOrgHeat_Nextera70_MAG3",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_011319465.1,"Candidatus Nitrosotalea sp. TS",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_005877205.1,"Thaumarchaeota archaeon TA_9",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_005877475.1,"Thaumarchaeota archaeon TA_1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016838825.1,"Nitrosopumilales archaeon NPMR_NP_iota_1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016844685.1,"Candidatus Nitrosotenuis sp. CoA_2_bin.53",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016215465.1,"Thaumarchaeota archaeon NC_groundwater_1836_Pr3_B-0.1um_40_14",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013407275.1,"Candidatus Nitrosotenuis sp. DW1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000685395.1,"Candidatus Nitrosotenuis chungbukensis MY2",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_004322465.1,"Candidatus Nitrosotenuis sp. GW928_bin.17",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000723185.1,"Candidatus Nitrosotenuis uzonensis N4",Aerobic,Thermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000955905.3,"Candidatus Nitrosotenuis cloacae SAT1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_002499525.1,"Nitrosopumilales archaeon UBA218",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_900299125.1,"Nitrosopumilales archaeon AM_0615",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016872015.1,"Thaumarchaeota archaeon M_DeepCast_65m_m1_070",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016872055.1,"Thaumarchaeota archaeon K_DeepCast_100m_mx_034",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_002787055.1,"Candidatus Nitrosotenuis aquarius AQ6f",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_010028495.1,"Nitrososphaeria archaeon WBC_8_2A_255",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016871975.1,"Thaumarchaeota archaeon K_Offshore_80m_m1_039",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016176745.1,"Nitrosopumilales archaeon NC_groundwater_128_Ag_B-0.1um_36_13",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_001443365.1,"Thaumarchaeota archaeon CSP1-1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_001627235.1,"Nitrosopelagicus sp. REDSEA-S31_B2",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000812185.1,"Candidatus Nitrosopelagicus brevis CN25",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_012959225.1,"Candidatus Nitrosopelagicus sp. UWMA-0359",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013390785.1,"Marine Group I thaumarchaeote G13",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_018263495.1,"Thaumarchaeota archaeon SuakinDeep_MAG47_3",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013390745.1,"Marine Group I thaumarchaeote F20",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000402075.1,"Thaumarchaeota archaeon SCGC AAA007-O23",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013390375.1,"Marine Group I thaumarchaeote  D17",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_011523285.1,"Nitrosopumilaceae archaeon CO36406bin_13",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016838785.1,"Nitrosopumilales archaeon NPMR_NP_theta_3",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016838845.1,"Nitrosopumilales archaeon NPMR_NP_theta_1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016838795.1,"Nitrosopumilales archaeon NPMR_NP_theta_2",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000200715.1,"Cenarchaeum symbiosum A",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_003724275.1,"Thaumarchaeota archaeon S13",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016126025.1,"Thaumarchaeota archaeon TS",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_009839185.1,"Cenarchaeum sp. SB0663_bin_5",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_009840065.1,"Cenarchaeum sp. SB0662_bin_33",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_011772925.1,"Nitrosopumilaceae archaeon CS3-C003",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013867335.1,"Nitrosopumilaceae archaeon S2bin1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000204585.1,"Candidatus Nitrosoarchaeum limnia SFB1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013407385.1,"Nitrosarchaeum sp. AC2",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000220175.2,"Nitrosarchaeum koreense MY1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_002789395.1,"Nitrosopumilales archaeon CG_4_9_14_0_8_um_filter_34_10",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016234975.1,"Nitrosarchaeum sp. NC_groundwater_1925_Pr3_S-0.2um_34_2",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_005798405.1,"Nitrosopumilaceae archaeon F1-80-MAGs016",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_014193235.1,"Nitrosopumilaceae archaeon LBMAG",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013521055.1,"Nitrosarchaeum sp. MC17_S15_bin_49",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_018128925.1,"Nitrosopumilus sp. K4",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_007571135.1,"Nitrosopumilus sp. PNGco_C_binVS21",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_012271275.1,"Nitrosopumilaceae archaeon Plut_88866",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_900620265.1,"Nitrosopumilaceae archaeon IBTHAUMO2",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_003724285.1,"Nitrosopumilus sp. H13",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_003724325.1,"Nitrosopumilus sp. D6",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_001510275.1,"Thaumarchaeota archaeon casp-thauma3",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013911135.1,"Nitrosopumilus sp. HM_N",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013390485.1,"Marine Group I thaumarchaeote L14",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_018263505.1,"Nitrosopumilus sp. SuakinDeep_MAG45_8",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_002730325.1,"Thaumarchaeota archaeon NP142",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013215285.1,"Nitrosopumilus sp. DT_77",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_001543015.1,"Nitrosopumilus sp. LS_AOA",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013407185.1,"Nitrosopumilus ureiphilus PS0",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_003175215.1,"Candidatus Nitrosopumilus sp. NM25",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000956175.1,"Nitrosopumilus adriaticus NF5",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_014078525.1,"Nitrosopumilus sp. b3",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_001674955.1,"Candidatus Nitrosopumilus sp. DDS1",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_002788515.1,"Nitrosopumilales archaeon CG_4_9_14_0_2_um_filter_34_16",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_014075315.1,"Nitrosopumilus sp. MH-Pat-all_metabat2_16",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_002506665.1,"Nitrosopumilus sp. UBA526",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000299395.1,"Candidatus Nitrosopumilus sediminis AR2",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013043295.1,"Nitrosopumilus sp. Site_A32",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013407145.1,"Nitrosopumilus cobalaminigenes HCA1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_013407165.1,"Nitrosopumilus oxyclinae HCE1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_014384555.1,"Nitrosopumilus sp. NIOZ-UU107",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_008080815.1,"Nitrosopumilus sp. 32_1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_017855915.1,"Nitrosopumilus sp. CPBay_Sum15L08_50",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_003702545.1,"Nitrosopumilus sp. GoM_MAG6",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_003702525.1,"Nitrosopumilus sp. GoM_MAG5",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000018465.1,"Nitrosopumilus maritimus SCM1",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_006740685.1,"Candidatus Nitrosopumilus sp. SW",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_016125975.1,"Nitrosopumilus sp. PfA",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000328945.1,"Nitrosopumilus sp. SJ",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000875775.1,"Nitrosopumilus piranensis D3C",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_000722915.1,"Marine Group I thaumarchaeote SCGC AAA799-N04",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_003702465.1,"Candidatus Nitrosomarinus sp. GoM_MAG2",Anaerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_001541925.1,"Nitrosopumilus sp. Nsub",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_002156965.1,"Candidatus Nitrosomarinus catalina SPOT01",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_003331425.1,"Nitrosopumilus sp. MED-G94",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_002737455.1,"Thaumarchaeota archaeon Baikal-G2",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_014384445.1,"Nitrosopumilus sp. NIOZ-UU110",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosopumilaceae,GCA_001437625.1,"Nitrosopumilus sp. BACL13 MAG-121220-bin23",Aerobic,Nonthermal
+JACIWG01,JACIWG01,GCA_029776065.1,"Nitrososphaeria archaeon DRTY6_bin.115",Anaerobic,Thermal
+JACIWG01,JACIWG01,GCA_029776125.1,"Nitrososphaeria archaeon DRTY7.bin_36",Anaerobic,Thermal
+Conexivisphaerales,DTJL01,GCA_029775965.1,"Nitrososphaeria archaeon DRTY1_bin.15",Aerobic,Thermal
+Conexivisphaerales,DTJL01,GCA_029784875.1,"Nitrososphaerota archaeon YP1_bin.47",Aerobic,Nonthermal
+Conexivisphaerales,DTJL01,GCA_029784735.1,"Nitrososphaerota archaeon YF1_bin.197",Aerobic,Nonthermal
+Conexivisphaerales,UBA164,GCA_029776015.1,"Nitrososphaeria archaeon DRTY9_bin.7",Microaerobic,Thermal
+Conexivisphaerales,UBA164,GCA_029784635.1,"Nitrososphaerota archaeon FK1_bin.15",Microaerobic,Nonthermal
+Conexivisphaerales,UBA164,GCA_029786515.1,"Nitrososphaerota archaeon FK2_bin.36",Microaerobic,Nonthermal
+Nitrososphaerales,"New family",GCA_029775995.1,"Nitrososphaeria archaeon QQ_bin.110111",Aerobic,Thermal
+Nitrososphaerales,JAAOZN01,GCA_029775855.1,"Nitrososphaeria archaeon DRTY6_bin.124",Anaerobic,Thermal
+Nitrososphaerales,JACAEJ01,GCA_029775915.1,"Nitrososphaeria archaeon JZ1_bin.63",Anaerobic,Thermal
+Nitrososphaerales,JACAEJ01,GCA_029775925.1,"Nitrososphaeria archaeon DRTY6_bin.138",Anaerobic,Thermal
+Nitrososphaerales,JACAEJ01,GCA_029775875.1,"Nitrososphaeria archaeon JZ2_bin.220247",Anaerobic,Thermal
+Nitrososphaerales,CADDZS01,GCA_029784995.1,"Nitrososphaerota archaeon FK1_bin.115",Aerobic,Nonthermal
+Nitrososphaerales,CADDZS01,GCA_029785885.1,"Nitrososphaerota archaeon YF1_bin.190",Anaerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029785595.1,"Nitrososphaerota archaeon MAS3_bin.144",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029786035.1,"Nitrososphaerota archaeon YP1_bin.143",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029785815.1,"Nitrososphaerota archaeon YF1_bin.126",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029785305.1,"Nitrososphaerota archaeon FK5_bin.118",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029785135.1,"Nitrososphaerota archaeon FK2_bin.3",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029786055.1,"Nitrososphaerota archaeon YP1_bin.15",Anaerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029785525.1,"Nitrososphaerota archaeon LSA3_bin.70",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029785825.1,"Nitrososphaerota archaeon YF1_bin.101",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029785715.1,"Nitrososphaerota archaeon WH2_bin.173",Aerobic,Nonthermal
+Nitrososphaerales,UBA183,GCA_029785435.1,"Nitrososphaerota archaeon LSA3_bin.61",Aerobic,Nonthermal
+Nitrososphaerales,Nitrosocaldaceae,GCA_013538675.1,"Candidatus Nitrosocaldus sp. QQ.bins.115137",Aerobic,Thermal
+Nitrososphaerales,Nitrosocaldaceae,GCA_013538805.1,"Candidatus Nitrosocaldus sp. JZ-1.bins.77",Aerobic,Thermal
+Nitrososphaerales,Nitrosocaldaceae,GCA_013538715.1,"Candidatus Nitrosocaldus sp. QQ.bins.88",Aerobic,Thermal

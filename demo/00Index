@@ -1,2 +1,3 @@
-location   Zc and pI for human proteins in subcellular locations
-redoxin    Zc of redoxins vs midpoint reduction potential
+locations      Zc and pI for human proteins in subcellular locations
+redoxins       Zc of redoxins vs midpoint reduction potential
+thermophiles   Distinguishing thermophile genomes using entropy and oxidation state

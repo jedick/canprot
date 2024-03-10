@@ -27,14 +27,17 @@ export(
 # 20240308
 "S0", "pS0", "S0g", "V0g",
 # 20240309
-"SV"
+"SV",
+# 20240310 moved from chem16S
+"add.hull"
 )
 
 # Imports from default packages
 importFrom("stats", "pnorm", "sd", "TukeyHSD", "aov")
 importFrom("utils", "read.csv", "getFromNamespace")
-importFrom("graphics", "text", "par")
+importFrom("graphics", "text", "par", "polygon")
 importFrom("tools", "file_path_sans_ext")
+importFrom("grDevices", "chull", "xy.coords")
 
 # Imports from other packages
 importFrom("stringi", "stri_count_fixed")

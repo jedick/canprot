@@ -1,4 +1,4 @@
-# canprot/demo/redoxin.R
+# canprot/demo/redoxins.R
 # Zc of ferredoxin, thioredoxin, and glutaredoxin vs midpoint reduction potential
 # Based on Fig. 5 in this preprint: http://dx.doi.org/10.1101/004127 dated 20140414
 # Moved from JMDplots::aoscp99() to canprot on 20240304
@@ -7,7 +7,7 @@
 
 library(canprot)
 
-## @knitr redoxin_demo_body
+## @knitr redoxins_demo_body
 
 # Data file with protein IDs, sequence start/stop positions, and midpoint potentials
 data_file <- system.file("extdata/fasta/redoxin.csv", package = "canprot")
