@@ -49,7 +49,7 @@ knitr::read_chunk("../demo/thermophiles.R")
 
 The data are from @DBCS23 for methanogen genomes (amino acid composition and optimal growth temperature) and from @LLX+24 for *Nitrososphaeria* MAGs (genome assemblies and habitat and respiration types).
 The plots reveal that proteins tend to have higher specific entropy in thermophilic genomes and MAGs from thermal habitats compared to mesophilic genomes and MAGs from nonthermal habitats, for a given carbon oxidation state.
-This implies that, after correcting for *Z*<sub>C</sub>, proteins in thermophilic genomes have a <ins>more negative derivative</ins> of the standard Gibbs energy per gram of protein with respect to temperature.
+This implies that, after correcting for *Z*<sub>C</sub>, proteins in thermophiles have a <ins>more negative derivative</ins> of the standard Gibbs energy per gram of protein with respect to temperature.
 
 ## canprot demo #2: Subcellular locations
 

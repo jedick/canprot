@@ -47,12 +47,12 @@ demo("thermophiles")
 #demo("redoxins")
 ```
 
-<img src="inst/images/thermophiles.png" alt="Specific entropy and Zc and pI for Nitrososphaeria MAGs" title="Thermophiles demo for canprot" width="600px" />
+<a href="https://chnosz.net/canprot/vignettes/demos.html"><img src="inst/images/thermophiles.png" alt="Specific entropy and Zc and pI for Nitrososphaeria MAGs" title="Thermophiles demo for canprot" width="400px" /></a>
 
 This is a scatter plot of standard specific entropy (*S*<sup>&deg;</sup> per gram) and carbon oxidation state (*Z*<sub>C</sub>) for proteins in *Nitrososphaeria* (syn. *Thaumarchaeota*) MAGs reported by [Luo et al. (2024)](https://doi.org/10.1093/ismejo/wrad031).
 *S*<sup>&deg;</sup> is calculated using amino acid group contributions ([Dick et al, 2006](https://doi.org/10.1111/gbi.12532)) via `canprot::S0g()`.
 This plot reveals that proteins tend to have higher specific entropy in MAGs from thermal habitats compared to those from nonthermal habitats with similar carbon oxidation state.
-This implies that, after correcting for *Z*<sub>C</sub>, proteins in thermophilic genomes have a <ins>more negative derivative</ins> of the standard Gibbs energy per gram of protein with respect to temperature.
+This implies that, after correcting for *Z*<sub>C</sub>, proteins in thermophiles have a <ins>more negative derivative</ins> of the standard Gibbs energy per gram of protein with respect to temperature.
 See the [Demos for canprot](https://chnosz.net/canprot/vignettes/demos.html) vignette for a similar plot for genomes of methanogenic archaea.
 
 <!--
