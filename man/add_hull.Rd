@@ -1,13 +1,13 @@
 \encoding{UTF-8}
-\name{add.hull}
-\alias{add.hull}
+\name{add_hull}
+\alias{add_hull}
 \title{Add convex hull}
 \description{
   Adds a convex hull around the data.
 }
 
 \usage{
-  add.hull(x, y = NULL, ...)
+  add_hull(x, y = NULL, ...)
 }
 
 \arguments{
@@ -28,7 +28,7 @@ Invisibly returns the result from \code{chull}.
 \examples{
 dat <- iris[, 1:2]
 plot(dat)
-add.hull(dat)
+add_hull(dat)
 }
 
 \concept{Graphics functions}

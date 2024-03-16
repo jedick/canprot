@@ -162,7 +162,7 @@ Zhang H, Wang Y, Li J, Chen H, He X, Zhang H, Liang H, Lu J. 2018. Biosynthetic 
 
 \seealso{
 For calculation of \Zc from an elemental formula (instead of amino acid composition), see the \code{\link[CHNOSZ]{ZC}} function in \pkg{CHNOSZ}.
-\code{\link{calc.metrics}} is a wrapper to calculate one or more metrics specified in an argument.
+\code{\link{calc_metrics}} is a wrapper to calculate one or more metrics specified in an argument.
 }
 
 \examples{

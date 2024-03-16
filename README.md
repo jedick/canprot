@@ -20,20 +20,12 @@ See the vignettes at <https://chnosz.net/canprot/vignettes/>.
 
 ## Installation
 
-Install the development version from GitHub to use the `read.fasta()` function that was previously in [CHNOSZ](https://github.com/jedick/CHNOSZ).
-
 First install the **remotes** package from CRAN, then install **canprot** from GitHub.
 This also installs several other R packages as dependencies:
 
 ```R
 install.packages("remotes")
 remotes::install_github("jedick/canprot")
-```
-
-Use this instead to install the released version from CRAN (this version does not have all the features in the development version).
-
-```R
-install.packages("canprot")
 ```
 
 ### Demo

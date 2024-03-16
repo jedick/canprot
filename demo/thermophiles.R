@@ -40,10 +40,10 @@ bg <- ifelse(ithermo, col2.8, col4.8)
 # Set point symbol for Class I and II
 pch <- ifelse(aa$abbrv == "Class I", 21, 22)
 # Calculate and plot metrics
-metvals <- calc.metrics(aa, metrics)
+metvals <- calc_metrics(aa, metrics)
 plot(metvals, pch = pch, bg = bg, xlab = xlab, ylab = ylab, ylim = ylim)
 # Add convex hull around thermophiles
-add.hull(metvals[ithermo, ], col = col2.5, border = NA)
+add_hull(metvals[ithermo, ], col = col2.5, border = NA)
 # Add legend and title
 text(-0.225, 0.303, "Thermophiles", col = 2)
 text(-0.18, 0.3003, "Mesophiles", col = 4)
@@ -71,12 +71,12 @@ aa <- aa[ifam, ]
 pch <- sapply(dat$Respiration.type, switch, Anaerobic = 21, Aerobic = 22, Microaerobic = 23)
 bg <- sapply(dat$Habitat.type, switch, Thermal = col2.8, Nonthermal = col4.8)
 # Calculate and plot metrics
-metvals <- calc.metrics(aa, metrics)
+metvals <- calc_metrics(aa, metrics)
 # Make plot
 plot(metvals, pch = pch, bg = bg, xlab = xlab, ylab = ylab, ylim = ylim)
 # Add convex hull around MAGs from thermal habitats
 ithermal <- dat$Habitat.type == "Thermal"
-add.hull(metvals[ithermal, ], col = col2.5, border = NA)
+add_hull(metvals[ithermal, ], col = col2.5, border = NA)
 # Add legend and title
 text(-0.215, 0.303, "Thermal habitats", col = 2)
 text(-0.175, 0.3013, "Nonthermal habitats", col = 4)

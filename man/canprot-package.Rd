@@ -9,7 +9,7 @@
 
 \details{
   \itemize{
-    \item \code{\link{read.fasta}} -- start here to read amino acid compositions from FASTA files.
+    \item \code{\link{read_fasta}} -- start here to read amino acid compositions from FASTA files.
     \item \code{\link{metrics}} -- use these functions to calculate chemical metrics from amino acid compositions.
   }
 

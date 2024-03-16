@@ -1,8 +1,8 @@
-# canprot/read.fasta.R
+# canprot/read_fasta.R
 # Read FASTA sequence files to get amino acid compositions of proteins
 # 20240227 Moved from CHNOSZ
 
-read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = NULL,
+read_fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = NULL,
   start = NULL, stop = NULL, molecule = "protein", id = NULL) {
   # Read sequences from a fasta file
   # Some of the following code was adapted from 
@@ -26,7 +26,7 @@ read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
     filebase <- basename(file)
   }
   if(is.null(lines)) {
-    message("read.fasta: reading ", filebase, " ... ", appendLF = FALSE)
+    message("read_fasta: reading ", filebase, " ... ", appendLF = FALSE)
     if(is.archive) {
       # We can't use scan here?
       lines <- readLines(file)
@@ -93,7 +93,7 @@ read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
           Thr = numeric(0), Val = numeric(0), Trp = numeric(0), Tyr = numeric(0)), row.names = integer(0), class = "data.frame")
       } else {
         # Count the number of occurrences of each amino acid
-        counts <- count.aa(sequences, start, stop, molecule)
+        counts <- count_aa(sequences, start, stop, molecule)
         colnames(counts) <- c("Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His", "Ile", "Lys", "Leu",
                               "Met", "Asn", "Pro", "Gln", "Arg", "Ser", "Thr", "Val", "Trp", "Tyr")
         out <- cbind(protein = id, organism = organism, ref = NA, abbrv = NA, chains = 1, counts)
@@ -117,7 +117,7 @@ read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
         if(molecule == "RNA") colnames(out)[9] <- "U"
       } else {
         # Count the number of occurrences of each base
-        counts <- count.aa(sequences, start, stop, molecule)
+        counts <- count_aa(sequences, start, stop, molecule)
         out <- cbind(gene = id, organism = organism, ref = NA, abbrv = NA, chains = 1, counts)
       }
     }
@@ -129,7 +129,7 @@ read.fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
 # 20090423 Use table(strsplit(toupper(seq), "")[[1]]) for counting (CHNOSZ 0.8)
 # 20180517 Use C code for counting (CHNOSZ 1.2.0)
 # 20240229 Use stringi::stri_count_fixed for counting (canprot 1.1.2-22)
-count.aa <- function(sequence, start = NULL, stop = NULL, molecule = "protein") {
+count_aa <- function(sequence, start = NULL, stop = NULL, molecule = "protein") {
   if(molecule == "protein") alphabet <- c("A", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "Y") else
   if(molecule == "DNA") alphabet <- c("A", "C", "G", "T") else
   if(molecule == "RNA") alphabet <- c("A", "C", "G", "U") else
@@ -154,7 +154,7 @@ count.aa <- function(sequence, start = NULL, stop = NULL, molecule = "protein") 
   # Keep only letters for protein, DNA, or RNA
   iab <- match(alphabet, LETTERS)
   ina <- colSums(counts[, -iab, drop = FALSE]) > 0
-  if(any(ina)) message(paste("count.aa: unrecognized letter(s) in", molecule, "sequence:", paste(LETTERS[-iab][ina], collapse = " ")))
+  if(any(ina)) message(paste("count_aa: unrecognized letter(s) in", molecule, "sequence:", paste(LETTERS[-iab][ina], collapse = " ")))
   counts <- counts[, iab, drop = FALSE]
   # Add column and row names
   colnames(counts) <- alphabet
@@ -163,7 +163,7 @@ count.aa <- function(sequence, start = NULL, stop = NULL, molecule = "protein") 
 }
 
 # Sum or average amino acid counts (weighted by abundance if given)
-aasum <- function(AAcomp, abundance = 1, average = FALSE) {
+sum_aa <- function(AAcomp, abundance = 1, average = FALSE) {
   # Recycle abundance values into same length as number of proteins
   abundance <- rep(abundance, length.out = nrow(AAcomp))
   # Find columns with names for the amino acids and 'chains'
@@ -181,7 +181,7 @@ aasum <- function(AAcomp, abundance = 1, average = FALSE) {
   if (any(ina)) {
       AAcomp <- AAcomp[!ina, ]
       abundance <- abundance[!ina]
-      message("aasum: dropped ", sum(ina), " proteins with NA amino acid composition and/or abundance")
+      message("sum_aa: dropped ", sum(ina), " proteins with NA amino acid composition and/or abundance")
   }
   # Multiply amino acid counts by protein abundance
   AAcomp[, isAA] <- AAcomp[, isAA] * abundance

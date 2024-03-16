@@ -1,14 +1,14 @@
-# canprot/human.aa.R
+# canprot/human_aa.R
 # Get amino acid compositions for human proteins from UniProt IDs
 # 20160705 jmd
 
-human.aa <- function(uniprot = NULL, aa_file = NULL, stop.if.missing = FALSE, warn.if.duplicated = FALSE) {
+human_aa <- function(uniprot = NULL, aa_file = NULL, stop_if_missing = FALSE, warn_if_duplicated = FALSE) {
   # Get amino acid compositions of human proteins
-  aa <- get("human_aa", canprot)
+  aa <- get("human.aa", canprot)
   # Add amino acid compositions from external file if specified
   if(!is.null(aa_file)) {
     aa_dat <- read.csv(aa_file, as.is=TRUE)
-    print(paste("human.aa: adding", nrow(aa_dat), "proteins from", aa_file))
+    print(paste("human_aa: adding", nrow(aa_dat), "proteins from", aa_file))
     aa <- rbind(aa_dat, aa)
   }
   if(is.null(uniprot)) {
@@ -20,11 +20,11 @@ human.aa <- function(uniprot = NULL, aa_file = NULL, stop.if.missing = FALSE, wa
     ina <- is.na(alluni)
     alluni[ina] <- aa$protein[ina]
     iuni <- match(uniprot, alluni)
-    if(stop.if.missing) {
+    if(stop_if_missing) {
       # Stop with error if any IDs are not found
       if(any(is.na(iuni))) stop(paste("uniprot IDs not found:", paste(uniprot[is.na(iuni)], collapse = " ")))
     }
-    if(warn.if.duplicated) {
+    if(warn_if_duplicated) {
       # Warn if any IDs are duplicated
       if(any(duplicated(iuni))) warning(paste("some uniprot IDs are duplicated:",
         paste(uniprot[duplicated(iuni)], collapse=" ")), immediate. = TRUE)

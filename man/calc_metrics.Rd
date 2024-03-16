@@ -1,13 +1,13 @@
 \encoding{UTF-8}
-\name{calc.metrics}
-\alias{calc.metrics}
+\name{calc_metrics}
+\alias{calc_metrics}
 \title{Calculate one or more chemical metrics}
 \description{
 Calculates selected chemical metrics from amino acid composition(s) of proteins.
 }
 
 \usage{
-  calc.metrics(AAcomp, metrics = c("Zc", "nO2", "nH2O"), ...)
+  calc_metrics(AAcomp, metrics = c("Zc", "nO2", "nH2O"), ...)
 }
 
 \arguments{
@@ -45,7 +45,7 @@ An error is produced if any of the \code{metrics} is not available for calculati
 # Define the acid composition of alanylglycine
 AG <- data.frame(Ala = 1, Gly = 1)
 # Calculate default metrics (Zc, nO2, nH2O)
-calc.metrics(AG)
+calc_metrics(AG)
 # Calculate selected metrics
-calc.metrics(AG, c("H/C", "O/C", "Length"))
+calc_metrics(AG, c("H/C", "O/C", "Length"))
 }

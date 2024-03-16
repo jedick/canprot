@@ -34,15 +34,15 @@ Previous vignette: [Demos for canprot](demos.html) | Next vignette: [More about 
 ## Reading FASTA files
 
 `KHAB17.fasta` was obtained from Supplemental Information of @KHAB17 and is provided in the `extdata/fasta` directory of **canprot**.
-Use `read.fasta()` to read the file and return a data frame of amino acid composition.
+Use `read_fasta()` to read the file and return a data frame of amino acid composition.
 
-```{r read.fasta_KHAB17}
+```{r read_fasta_KHAB17}
 fasta_file <- system.file("extdata/fasta/KHAB17.fasta", package = "canprot")
-aa <- read.fasta(fasta_file)
+aa <- read_fasta(fasta_file)
 ```
 
 The result is small enough that we can look at it here.
-The data frame has four columns for identifying information (`protein`, `organism`, `ref`, and `abbrv`); the first two are filled by `read.fasta()`.
+The data frame has four columns for identifying information (`protein`, `organism`, `ref`, and `abbrv`); the first two are filled by `read_fasta()`.
 The `chains` column is the number of polypeptide chains.
 ```{r aa_KHAB17}
 aa
@@ -72,10 +72,10 @@ The vertical line denotes the proposed timing of the Great Oxidation Event (GOE)
 ## Human proteins in **canprot**
 
 **canprot** has a database of amino acid compositions of human proteins assembled from UniProt.
-Use `human.aa()` to get the amino acid composition.
+Use `human_aa()` to get the amino acid composition.
 This example is for alanine aminotransferase, which has a UniProt ID of [P24298](https://www.uniprot.org/uniprotkb/P24298):
-```{r human.aa_ALAT1}
-(aa <- human.aa("P24298"))
+```{r human_aa_ALAT1}
+(aa <- human_aa("P24298"))
 Zc(aa)
 ```
 
@@ -107,8 +107,8 @@ down <- c("J3KN67", "Q9Y490", "J3KNQ4", "E7EVA0", "Q01082", "J3KQ32",
 With those UniProt IDs for human proteins we can retrieve the amino acid compositions, then calculate a couple of chemical metrics and make some boxplots comparing the groups of differentially regulated proteins.
 
 ```{r DKM20_plot, out.width = "75%", fig.align = "center", fig.width = 7, fig.height = 5}
-aa_down <- human.aa(down)
-aa_up <- human.aa(up)
+aa_down <- human_aa(down)
+aa_up <- human_aa(up)
 bp_names <- paste0(c("Down (", "Up ("), c(nrow(aa_down), nrow(aa_up)), c(")", ")"))
 
 par(mfrow = c(1, 2))

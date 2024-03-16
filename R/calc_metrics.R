@@ -1,9 +1,9 @@
-# canprot/calc.metrics.R
+# canprot/calc_metrics.R
 # Calculate one or more chemical metrics for proteins
 # 20191027 initial version as canprot/metrics.R
 # 20230704 adapted for chem16S/calc_metrics.R
 # 20240302 moved to canprot
-calc.metrics <- function(AAcomp, metrics = c("Zc", "nO2", "nH2O"), ...) {
+calc_metrics <- function(AAcomp, metrics = c("Zc", "nO2", "nH2O"), ...) {
 
   # Replace shortcuts with function names for metrics 20240305
   metrics.orig <- metrics

@@ -1,7 +1,7 @@
 # Add compact letter display to boxplot 20220531
 # Exported in JMDplots 20220609
 # Moved from JMDplots to canprot 20240301
-add.cld <- function(datlist, bp, dx = NULL, dy = NULL) {
+add_cld <- function(datlist, bp, dx = NULL, dy = NULL) {
   # Add names if missing
   if(is.null(names(datlist))) names(datlist) <- 1:length(datlist)
   # Remove empty elements

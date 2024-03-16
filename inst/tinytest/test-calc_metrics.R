@@ -14,7 +14,7 @@ Zc.ref <- c(-0.11633875106929, -0.0272787757817698, -0.195689166193988, -0.04929
 nO2.ref <- c(-0.699539170506912, -0.522294022617124, -0.81466049382716, -0.574137931034483, -0.716346153846154, -0.471317829457364)
 nH2O.ref <- c(-1.17465437788018, -0.881098546042003, -0.941666666666667, -0.955172413793103, -0.730769230769231, -0.886821705426357)
 
-# Calculate metrics using calc.metrics() function in chem16S
+# Calculate metrics using calc_metrics()
 AAcomp <- 
 structure(list(protein = c("O08452", "AMY", "AMYA", "BPT1", "CYC", 
 "LYSC"), organism = c("PYRFU", "BACSU", "PYRFU", "BOVIN", "BOVIN", 
@@ -33,7 +33,7 @@ structure(list(protein = c("O08452", "AMY", "AMYA", "BPT1", "CYC",
     32, 59, 1, 3, 6), Trp = c(26, 14, 17, 0, 1, 6), Tyr = c(37, 
     28, 41, 4, 4, 3)), row.names = c(NA, 6L), class = "data.frame")
 
-metrics <- calc.metrics(AAcomp)
+metrics <- calc_metrics(AAcomp)
 
 # Perform the tests
 expect_equivalent(metrics$Zc, Zc.ref, info = info)
@@ -71,7 +71,7 @@ OC.ref <- c(0.300163132137031, 0.333913043478261, 0.276517300056721, 0.405287544
 NC.ref <- c(0.314845024469821, 0.297391304347826, 0.250992626205332, 0.264649768329245)
 SC.ref <- c(0.0163132137030995, 0.0208695652173913, 0.00397050482132728, 0)
 
-metrics <- calc.metrics(AAcomp, c("HC", "OC", "NC", "SC"))
+metrics <- calc_metrics(AAcomp, c("HC", "OC", "NC", "SC"))
 expect_equivalent(metrics$HC, HC.ref)
 expect_equivalent(metrics$NC, NC.ref)
 expect_equivalent(metrics$OC, OC.ref)
@@ -79,10 +79,10 @@ expect_equivalent(metrics$SC, SC.ref)
 
 # Test for length added 20240302
 length.ref <- c(129, 124, 648, 828)
-length.calc <- calc.metrics(AAcomp, "Length")[, 1]
+length.calc <- calc_metrics(AAcomp, "Length")[, 1]
 expect_equal(length.calc, length.ref)
 
 # Test for error added 20240305
 info <- "metrics() signals an error for unavailable metrics"
 metrics <- c("xxx", "Zc", "yyy")
-expect_error(calc.metrics(metrics = metrics), "not available", info = info)
+expect_error(calc_metrics(metrics = metrics), "not available", info = info)

@@ -1,4 +1,4 @@
-# canprot/fasta/Nitrososphaeria/prepare.R
+# canprot/extdata/aa/prepare.R
 # Prepare amino amino acid compositions for ribosomal proteins
 # in Nitrososphaeria genomes analyzed by Luo et al., 2024
 # doi:10.1093/ismejo/wrad031
@@ -64,8 +64,8 @@ aalist <- lapply(nitrososphaeria_MAGs$Accession, function(accession) {
   outfile <- paste0(accession, ".faa")
   myaa <- NULL
   if(file.exists(faafile)) {
-    myaa <- read.fasta(faafile)
-    myaa <- aasum(myaa)
+    myaa <- read_fasta(faafile)
+    myaa <- sum_aa(myaa)
     myaa$protein <- "sum"
     myaa$organism <- accession
   }

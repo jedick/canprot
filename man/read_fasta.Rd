@@ -1,8 +1,8 @@
 \encoding{UTF-8}
-\name{read.fasta}
-\alias{read.fasta}
-\alias{count.aa}
-\alias{aasum}
+\name{read_fasta}
+\alias{read_fasta}
+\alias{count_aa}
+\alias{sum_aa}
 \title{Functions for reading FASTA files}
 
 \description{
@@ -10,10 +10,10 @@
 }
 
 \usage{
-  read.fasta(file, iseq = NULL, type = "count", lines = NULL, 
+  read_fasta(file, iseq = NULL, type = "count", lines = NULL, 
     ihead = NULL, start = NULL, stop = NULL, molecule = "protein", id = NULL)
-  count.aa(sequence, start = NULL, stop = NULL, molecule = "protein")
-  aasum(AAcomp, abundance = 1, average = FALSE)
+  count_aa(sequence, start = NULL, stop = NULL, molecule = "protein")
+  sum_aa(AAcomp, abundance = 1, average = FALSE)
 }
 
 \arguments{
@@ -33,7 +33,7 @@
 }
 
 \details{
-\code{read.fasta} is used to retrieve entries from a FASTA file.
+\code{read_fasta} is used to retrieve entries from a FASTA file.
 Use \code{iseq} to select the sequences to read (the default is all sequences).
 
 The function returns various data formats depending on the value of \code{type}:
@@ -51,13 +51,13 @@ this behavior (which may take a while for large files) can be suppressed by supp
 To speed up processing, if the line numbers of the header lines were previously determined, they can be supplied in \code{ihead}. 
 Optionally, the lines of a previously read file may be supplied in \code{lines} (in this case no file is needed so \code{file} should be set to "").
 
-\code{count.aa} is the underlying function that counts the numbers of each amino acid or nucleic-acid base in one or more sequences.
+\code{count_aa} is the underlying function that counts the numbers of each amino acid or nucleic-acid base in one or more sequences.
 The matching of letters is case-insensitive.
 A message is generated if any character in \code{sequence}, excluding spaces, is not one of the single-letter amino acid or nucleobase abbreviations.
 \code{start} and/or \code{stop} can be provided to process a fragment of the sequence.
 If only one of \code{start} or \code{stop} is present, the other defaults to 1 (\code{start}) or the length of the respective sequence (\code{stop}).
 
-\code{aasum} sums the amino acid compositions in the input \code{AAcomp} data frame.
+\code{sum_aa} sums the amino acid compositions in the input \code{AAcomp} data frame.
 It only applies to columns with the three-letter abbreviations of amino acids and to a column named \code{chains} (if present).
 The values in these columns are multiplied by the indicated \code{abundance} after recycling to the number of proteins.
 The values in these columns are then summed; if \code{average} is TRUE then the sum is divided by the number of proteins.
@@ -66,17 +66,17 @@ The output has one row and the same number of columns as the input; the value in
 }
 
 \value{
-\code{count.aa} returns a data frame with these columns (for proteins): \code{Ala}, \code{Cys}, \code{Asp}, \code{Glu}, \code{Phe}, \code{Gly}, \code{His}, \code{Ile}, \code{Lys}, \code{Leu}, \code{Met}, \code{Asn}, \code{Pro}, \code{Gln}, \code{Arg}, \code{Ser}, \code{Thr}, \code{Val}, \code{Trp}, \code{Tyr}.
+\code{count_aa} returns a data frame with these columns (for proteins): \code{Ala}, \code{Cys}, \code{Asp}, \code{Glu}, \code{Phe}, \code{Gly}, \code{His}, \code{Ile}, \code{Lys}, \code{Leu}, \code{Met}, \code{Asn}, \code{Pro}, \code{Gln}, \code{Arg}, \code{Ser}, \code{Thr}, \code{Val}, \code{Trp}, \code{Tyr}.
 For \samp{DNA}, the columns are changed to \code{A}, \code{C}, \code{G}, code{T}, and for \samp{RNA}, the columns are changed to \code{A}, \code{C}, \code{G}, code{U}.
 
-\code{read.fasta} returns a list of sequences (for \code{type} equal to \samp{sequence}) or a list of lines (for \code{type} equal to \samp{lines} or \samp{headers}).
-Otherwise, (for \code{type} equal to \samp{count}) a data frame with these columns: \code{protein}, \code{organism}, \code{ref}, \code{abbrv}, \code{chains}, and the columns described above for \code{count.aa}.
+\code{read_fasta} returns a list of sequences (for \code{type} equal to \samp{sequence}) or a list of lines (for \code{type} equal to \samp{lines} or \samp{headers}).
+Otherwise, (for \code{type} equal to \samp{count}) a data frame with these columns: \code{protein}, \code{organism}, \code{ref}, \code{abbrv}, \code{chains}, and the columns described above for \code{count_aa}.
 
-\code{aasum} returns a one-row data frame.
+\code{sum_aa} returns a one-row data frame.
 }
 
 \seealso{
-Pass the output of \code{read.fasta} to \code{\link[CHNOSZ]{add.protein}} in the CHNOSZ package to set up thermodynamic calculations for proteins.
+Pass the output of \code{read_fasta} to \code{\link[CHNOSZ]{add.protein}} in the CHNOSZ package to set up thermodynamic calculations for proteins.
 }
 
 \examples{
@@ -84,20 +84,20 @@ Pass the output of \code{read.fasta} to \code{\link[CHNOSZ]{add.protein}} in the
 # The path to the file
 file <- system.file("extdata/fasta/KHAB17.fasta", package = "canprot")
 # Read the sequences, and print the first one
-read.fasta(file, type = "seq")[[1]]
+read_fasta(file, type = "seq")[[1]]
 # Count the amino acids in the sequences
-aa <- read.fasta(file)
+aa <- read_fasta(file)
 # Calculate protein length (number of amino acids in each protein)
 plength(aa)
 # Sum the amino acid compositions
-aasum(aa)
+sum_aa(aa)
 
 # Count amino acids in a sequence
-count.aa("GGSGG")
+count_aa("GGSGG")
 # A message is issued for unrecognized characters
-count.aa("AAAXXX")
+count_aa("AAAXXX")
 # Count nucleobases in a sequence
-bases <- count.aa("ACCGGGTTT", molecule = "DNA")
+bases <- count_aa("ACCGGGTTT", molecule = "DNA")
 }
 
 \concept{Amino acid composition}

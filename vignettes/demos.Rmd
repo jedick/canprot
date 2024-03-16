@@ -34,11 +34,11 @@ For this demo, just the output is shown below.
 
 The **canprot** functions used are:
 
-- `calc.metrics()`: Calculates metrics named in an argument. The metrics calculated here are:
+- `calc_metrics()`: Calculates metrics named in an argument. The metrics calculated here are:
   - `S0g`: standard specific entropy
   - `Zc`: carbon oxidation state
 - `cplab`: This is not a function, but an object that has formatted text labels for each metric.
-- `add.hull()`: Adds a convex hull around data points
+- `add_hull()`: Adds a convex hull around data points
 
 ```{r echo = FALSE}
 knitr::read_chunk("../demo/thermophiles.R")
@@ -58,11 +58,11 @@ The code and output of the demo are shown below.
 
 The **canprot** functions used are:
 
-- `human.aa()`: Gets amino acid compositions of human proteins from UniProt IDs
+- `human_aa()`: Gets amino acid compositions of human proteins from UniProt IDs
 - `plength()`: Calculates protein length (this line is commented out)
 - `Zc()`: Calculates carbon oxidation state
 - `pI()`: Calculates isoelectric point
-- `add.cld()`: Adds compact letter display to a boxplot
+- `add_cld()`: Adds compact letter display to a boxplot
 
 ```{r echo = FALSE}
 knitr::read_chunk("../demo/locations.R")
@@ -84,7 +84,7 @@ For this demo, just the output is shown below.
 
 The **canprot** functions used are:
 
-- `read.fasta()`: Reads a FASTA sequence file and returns amino acid compositions of proteins. Additional processing is performed by using the following arguments:
+- `read_fasta()`: Reads a FASTA sequence file and returns amino acid compositions of proteins. Additional processing is performed by using the following arguments:
   - `type` to read header lines
   - `iseq` to read specific sequences
   - `start` and `stop` to read segments of the sequences

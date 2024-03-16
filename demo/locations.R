@@ -21,7 +21,7 @@ dat <- dat[dat$Reliability == "Validated", ]
 dat <- dat[rowSums(dat[, 4:32]) == 1, ]
 
 # Get the amino acid compositions
-aa <- human.aa(dat$Uniprot)
+aa <- human_aa(dat$Uniprot)
 # Put the location into the amino acid data frame
 aa$location <- dat$IF.main.protein.location
 
@@ -44,7 +44,7 @@ titles <- c(Zc = "Carbon oxidation state", pI = "Isoelectric point")
 for(metric in c("Zc", "pI")) {
   datlist <- lapply(aalist, metric)
   bp <- boxplot(datlist, ylab = cplab[[metric]], col = col, show.names = FALSE)
-  add.cld(datlist, bp)
+  add_cld(datlist, bp)
   # Make rotated labels
   x <- (1:6) + 0.1
   y <- par()$usr[3] - 1.5 * strheight("A")

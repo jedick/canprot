@@ -1,13 +1,13 @@
 \encoding{UTF-8}
-\name{add.cld}
-\alias{add.cld}
+\name{add_cld}
+\alias{add_cld}
 \title{Compact letter display}
 \description{
   Adds compact letter display (significant difference letters) to a boxplot.
 }
 
 \usage{
-  add.cld(datlist, bp, dx = NULL, dy = NULL)
+  add_cld(datlist, bp, dx = NULL, dy = NULL)
 }
 
 \arguments{
@@ -30,7 +30,7 @@ Invisibly returns a list with \code{dx}, \code{dy}, and \code{letters} (letters 
 
 \examples{
 # Are there significant differences of nH2O among human proteins with different Zc?
-aa <- get("human_aa", canprot)
+aa <- get("human.aa", canprot)
 # Remove extremely short sequences
 aa <- aa[!plength(aa) < 20, ]
 Zc <- Zc(aa)
@@ -40,7 +40,7 @@ imid <- !ilo & !ihi
 nH2O <- nH2O(aa)
 nH2Olist <- list(lo.Zc = nH2O[ilo], mid.Zc = nH2O[imid], hi.Zc = nH2O[ihi])
 bp <- boxplot(nH2Olist, ylab = cplab$nH2O)
-add.cld(nH2Olist, bp)
+add_cld(nH2Olist, bp)
 # Yes, higher Zc is associated with lower nH2O
 }
 

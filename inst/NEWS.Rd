@@ -2,7 +2,7 @@
 \title{News for Package 'canprot'}
 \encoding{UTF-8}
 
-\section{Changes in canprot version 1.1.2-39 (2024-03-11)}{
+\section{Changes in canprot version 1.1.2-40 (2024-03-16)}{
 
     \itemize{
 
@@ -38,16 +38,15 @@
       in \file{uniprot_updates.csv}) and chemical analysis vignettes have been
       moved from \pkg{canprot} to to \pkg{JMDplots}.
 
-      \item \code{read.fasta()}, \code{count.aa()}, and \code{aasum()} have
-      been moved from \pkg{CHNOSZ} to \pkg{canprot}.
+      \item \code{read_fasta()}, \code{count_aa()}, and \code{sum_aa()} have
+      been renamed and moved from \pkg{CHNOSZ} to \pkg{canprot}.
 
-      \item \code{calc_metrics()} and \code{add_hull()} have been moved to from
-      \pkg{chem16S} to \code{calc.metrics()} and \code{add.hull()} in
-      \pkg{canprot}.
+      \item \code{calc_metrics()} and \code{add_hull()} have been moved from
+      \pkg{chem16S} to \pkg{canprot}.
 
-      \item \code{protcomp()} has been renamed \code{human.aa()}.
+      \item \code{protcomp()} has been renamed \code{human_aa()}.
 
-      \item Add \code{add.cld()} (add compact letter display to boxplots).
+      \item Add \code{add_cld()} (add compact letter display to boxplots).
 
       \item Add demos \file{thermophiles.R}, \file{locations.R}, and
       \file{redoxins.R}.

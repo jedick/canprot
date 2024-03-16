@@ -31,5 +31,5 @@ ref.avg <- structure(list(protein = "O08452", organism = "PYRFU", ref = "UniProt
     Arg = 15.3333333333333, Ser = 20.1666666666667, Thr = 15.1666666666667, 
     Val = 22, Trp = 10.6666666666667, Tyr = 19.5), row.names = 1L, class = "data.frame")
 
-expect_equal(aasum(AAcomp), ref.sum)
-expect_equal(aasum(AAcomp, average = TRUE), ref.avg)
+expect_equal(sum_aa(AAcomp), ref.sum)
+expect_equal(sum_aa(AAcomp, average = TRUE), ref.avg)
