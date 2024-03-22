@@ -16,6 +16,9 @@
 \alias{pS0}
 \alias{S0g}
 \alias{SV}
+\alias{Zcg}
+\alias{nH2Og}
+\alias{nO2g}
 \alias{HC}
 \alias{NC}
 \alias{OC}
@@ -43,12 +46,14 @@ Calculate chemical metrics for proteins from their amino acid compositions.
   pMW(AAcomp, terminal_H2O = 1, ...)
   V0(AAcomp, terminal_H2O = 0, ...)
   pV0(AAcomp, terminal_H2O = 1, ...)
-  V0g(AAcomp, terminal_H2O = 0, ...)
-  Density(AAcomp, terminal_H2O = 0, ...)
+  V0g(AAcomp, ...)
+  Density(AAcomp, ...)
   S0(AAcomp, terminal_H2O = 0, ...)
   pS0(AAcomp, terminal_H2O = 1, ...)
-  S0g(AAcomp, terminal_H2O = 0, ...)
-  SV(AAcomp, terminal_H2O = 0, ...)
+  S0g(AAcomp, ...)
+  SV(AAcomp, ...)
+  nH2Og(AAcomp, ...)
+  nO2g(AAcomp, ...)
   HC(AAcomp, ...)
   NC(AAcomp, ...)
   OC(AAcomp, ...)
@@ -85,14 +90,14 @@ The metrics are described below:
   This metric is independent of the choice of basis species.
   Note that \Zc is normalized by number of carbon atoms, not by number of residues.
 }
-\item{\code{nH2O}}{Stoichiometric hydration state (\nH2O).
+\item{\code{nH2O}}{Stoichiometric hydration state (\nH2O per residue).
   The available \code{basis} species are:
   \itemize{
     \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2 (Dick et al., 2020)}
     \item{\samp{QCa} - glutamine, cysteine, acetic acid, \H2O, \O2}
   }
 }
-\item{\code{nO2}}{Stoichiometric oxidation state (\nO2).
+\item{\code{nO2}}{Stoichiometric oxidation state (\nO2 per residue).
   The basis species also affect this calculation.
 }
 \item{\code{GRAVY}}{Grand average of hydropathy.
@@ -118,6 +123,8 @@ The metrics are described below:
 \item{\code{pS0}}{Standard molal entropy per protein.}
 \item{\code{S0g}}{Specific entropy.}
 \item{\code{SV}}{Entropy density.}
+\item{\code{nH2Og}}{\nH2O per gram.}
+\item{\code{nO2g}}{\nO2 per gram.}
 \item{\code{HC}}{H/C ratio (not counting terminal -H and -OH groups).}
 \item{\code{NC}}{N/C ratio.}
 \item{\code{OC}}{O/C ratio (not counting terminal -H and -OH groups).}

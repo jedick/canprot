@@ -1,6 +1,6 @@
-Date: 2024-03-16
+Date: 2024-03-22
 Package: canprot
-Version: 1.1.2-40
+Version: 1.1.2-41
 Title: Chemical Analysis of Proteins
 Authors@R: c(
     person("Jeffrey", "Dick", email = "j3ffdick@gmail.com", role = c("aut", "cre"),

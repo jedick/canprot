@@ -44,7 +44,7 @@ The **canprot** functions used are:
 knitr::read_chunk("../demo/thermophiles.R")
 ```
 
-```{r thermophiles_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 6, echo = FALSE, message = FALSE}
+```{r thermophiles_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 6, echo = FALSE, message = FALSE, dpi = 150}
 ```
 
 The data are from @DBCS23 for methanogen genomes (amino acid composition and optimal growth temperature) and from @LLX+24 for *Nitrososphaeria* MAGs (genome assemblies and habitat and respiration types).
@@ -71,7 +71,7 @@ knitr::read_chunk("../demo/locations.R")
 ```{r locations_demo_setup, echo = FALSE}
 ```
 
-```{r locations_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 4.5}
+```{r locations_demo_body, out.width = "100%", fig.align = "center", fig.width = 8, fig.height = 4.5, dpi = 150}
 ```
 
 The plots show carbon oxidation state (`r Zc`) and isoelectric point (pI) for human proteins in different subcellular locations.
@@ -94,7 +94,7 @@ The **canprot** functions used are:
 knitr::read_chunk("../demo/redoxins.R")
 ```
 
-```{r redoxins_demo_body, out.width = "75%", fig.align = "center", fig.width = 6, fig.height = 5, echo = FALSE, message = FALSE}
+```{r redoxins_demo_body, out.width = "75%", fig.align = "center", fig.width = 6, fig.height = 5, echo = FALSE, message = FALSE, dpi = 100}
 ```
 
 This is an *exploratory analysis* for hypothesis generation about evolutionary links between midpoint reduction potential and `r Zc` of proteins.

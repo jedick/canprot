@@ -75,9 +75,15 @@ info <- "Metrics don't change"
 AA <- structure(list(Ala = 1, Cys = 1, Asp = 1, Glu = 1, Phe = 1, Gly = 1, His = 1, Ile = 1, Lys = 1, Leu = 1,
                      Met = 1, Asn = 1, Pro = 1, Gln = 1, Arg = 1, Ser = 1, Thr = 1, Val = 1, Trp = 1, Tyr = 1), row.names = 6L, class = "data.frame")
 metrics <- names(cplab)
-ref_values <- c(-0.074766, -1.14, -0.655, -0.49, 6.74, 118.886024, 2395.73576,
-  86.785, 1742.989, 0.729985, 1.369891, 35.511, 729.19, 0.298698,
-  0.409184, 1.46729, 0.271028, 0.271028, 0.018692, 20, 27.36, 29.075,
-  7.75, 221.25, 228.05, 47.175)
+ref_values <- c(
+  -0.074766, -1.14, -0.655, -0.49,       # Zc, nH2O, nO2, GRAVY
+  6.74, 118.886024, 2395.73576,          # pI, MW, pMW
+  86.785, 1742.989, 0.729985, 1.369891,  # V0, pV0, V0g, Density
+  35.511, 729.19, 0.298698, 0.409184,    # S0, pS0, S0g, SV
+  -0.000629, -0.009589, -0.005509,       # ZCg, nH2Og, nO2g
+  1.46729, 0.271028, 0.271028, 0.018692, # HC, NC, OC, SC
+  20, 27.36, 29.075, 7.75,               # plength, Cost, RespiratoryCost, FermentativeCost
+  221.25, 228.05, 47.175                 # B20Cost, Y20Cost, H11Cost
+)
 calc_values <- as.numeric(round(sapply(metrics, function(metric) get(metric)(AA)), 6))
 expect_equal(calc_values, ref_values)

@@ -402,24 +402,40 @@ SC <- function(AAcomp, ...) {
 }
 
 # Density 20240304
-Density <- function(AAcomp, terminal_H2O = 0, ...) {
-  MW(AAcomp, terminal_H2O = 0, ...) / V0(AAcomp, terminal_H2O = 0, ...)
+Density <- function(AAcomp, ...) {
+  MW(AAcomp, ...) / V0(AAcomp, ...)
 }
 
 # Specific volume 20240308
-V0g <- function(AAcomp, terminal_H2O = 0, ...) {
-  V0(AAcomp, terminal_H2O = 0, ...) / MW(AAcomp, terminal_H2O = 0, ...)
+V0g <- function(AAcomp, ...) {
+  V0(AAcomp, ...) / MW(AAcomp, ...)
 }
 
 # Specific entropy 20240308
-S0g <- function(AAcomp, terminal_H2O = 0, ...) {
-  S0(AAcomp, terminal_H2O = 0, ...) / MW(AAcomp, terminal_H2O = 0, ...)
+S0g <- function(AAcomp, ...) {
+  S0(AAcomp, ...) / MW(AAcomp, ...)
 }
 
 # Entropy density 20240309
-SV <- function(AAcomp, terminal_H2O = 0, ...) {
-  S0(AAcomp, terminal_H2O = 0, ...) / V0(AAcomp, terminal_H2O = 0, ...)
+SV <- function(AAcomp, ...) {
+  S0(AAcomp, ...) / V0(AAcomp, ...)
 }
+
+# Specific Zc 20240317
+Zcg <- function(AAcomp, ...) {
+  Zc(AAcomp, ...) / MW(AAcomp, ...)
+}
+
+# Specific nO2 20240317
+nO2g <- function(AAcomp, ...) {
+  nO2(AAcomp, ...) / MW(AAcomp, ...)
+}
+
+# Specific nH2O 20240317
+nH2Og <- function(AAcomp, ...) {
+  nH2O(AAcomp, ...) / MW(AAcomp, ...)
+}
+
 
 # Metabolic cost 20211220
 # Moved from JMDplots/evdevH2O.R to canprot 20240304
