@@ -67,7 +67,7 @@ The output has one row and the same number of columns as the input; the value in
 
 \value{
 \code{count_aa} returns a data frame with these columns (for proteins): \code{Ala}, \code{Cys}, \code{Asp}, \code{Glu}, \code{Phe}, \code{Gly}, \code{His}, \code{Ile}, \code{Lys}, \code{Leu}, \code{Met}, \code{Asn}, \code{Pro}, \code{Gln}, \code{Arg}, \code{Ser}, \code{Thr}, \code{Val}, \code{Trp}, \code{Tyr}.
-For \samp{DNA}, the columns are changed to \code{A}, \code{C}, \code{G}, code{T}, and for \samp{RNA}, the columns are changed to \code{A}, \code{C}, \code{G}, code{U}.
+For \samp{DNA}, the columns are changed to \code{A}, \code{C}, \code{G}, \code{T}, and for \samp{RNA}, the columns are changed to \code{A}, \code{C}, \code{G}, \code{U}.
 
 \code{read_fasta} returns a list of sequences (for \code{type} equal to \samp{sequence}) or a list of lines (for \code{type} equal to \samp{lines} or \samp{headers}).
 Otherwise, (for \code{type} equal to \samp{count}) a data frame with these columns: \code{protein}, \code{organism}, \code{ref}, \code{abbrv}, \code{chains}, and the columns described above for \code{count_aa}.

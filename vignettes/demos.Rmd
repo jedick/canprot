@@ -99,7 +99,7 @@ knitr::read_chunk("../demo/redoxins.R")
 
 This is an *exploratory analysis* for hypothesis generation about evolutionary links between midpoint reduction potential and `r Zc` of proteins.
 The reduction potential data was taken from @ABH97 and @HSJ+99 for *E. coli* and spinach proteins, respectively.
-This plot is modified from Fig. 5 of [this preprint](https://doi.org/10.1101/004127); the figure did not appear in the published version of the paper.
+This plot is modified from Fig. 5 of [this preprint](https://doi.org/10.1101/004127); the figure did not appear in the published paper.
 
 ```{r reset, include=FALSE}
 options(oldopt)

@@ -9,7 +9,7 @@
 Chemical analysis of proteins based on their amino acid compositions.
 Amino acid compositions can be read from FASTA files and used to calculate chemical metrics
 including carbon oxidation state and stoichiometric hydration state as described in [Dick et al. (2020)](https://doi.org/10.5194/bg-17-6145-2020).
-Other properties that can be calculated are protein length, grand average of hydropathy (GRAVY), isoelectric point (pI), molecular weight (MW),
+Other properties that can be calculated include protein length, grand average of hydropathy (GRAVY), isoelectric point (pI), molecular weight (MW),
 standard molal volume (V0), and metabolic costs
 ([Akashi and Gojobori, 2002](https://doi.org/10.1073/pnas.062526999);
 [Wagner, 2005](https://doi.org/10.1093/molbev/msi126);
@@ -41,7 +41,7 @@ demo("thermophiles")
 
 <a href="https://chnosz.net/canprot/vignettes/demos.html"><img src="inst/images/thermophiles.png" alt="Specific entropy and Zc and pI for Nitrososphaeria MAGs" title="Thermophiles demo for canprot" width="400px" /></a>
 
-This is a scatter plot of standard specific entropy (*S*<sup>&deg;</sup> per gram) and carbon oxidation state (*Z*<sub>C</sub>) for proteins in *Nitrososphaeria* (syn. *Thaumarchaeota*) MAGs reported by [Luo et al. (2024)](https://doi.org/10.1093/ismejo/wrad031).
+This is a scatter plot of standard specific entropy (*S*<sup>&deg;</sup> per gram) and carbon oxidation state (*Z*<sub>C</sub>) for proteins in *Nitrososphaeria* (syn. *Thaumarchaeota*) metagenome-assembled genomes (MAGs) reported by [Luo et al. (2024)](https://doi.org/10.1093/ismejo/wrad031).
 *S*<sup>&deg;</sup> is calculated using amino acid group contributions ([Dick et al, 2006](https://doi.org/10.1111/gbi.12532)) via `canprot::S0g()`.
 This plot reveals that proteins tend to have higher specific entropy in MAGs from thermal habitats compared to those from nonthermal habitats with similar carbon oxidation state.
 This implies that, after correcting for *Z*<sub>C</sub>, proteins in thermophiles have a <ins>more negative derivative</ins> of the standard Gibbs energy per gram of protein with respect to temperature.

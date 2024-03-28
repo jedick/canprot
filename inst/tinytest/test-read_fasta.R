@@ -25,3 +25,13 @@ expect_equal(round(Zc(aa), 6), Zc_ref, info = info)
 info <- "read_fasta() handles 0-length 'iseq' argument"
 fasta_file <- system.file("extdata/fasta/redoxin.fasta", package = "canprot")
 expect_equal(nrow(read_fasta(fasta_file, iseq = numeric())), 0, info = info)
+
+# Moved from CHNOSZ on 20240328
+info <- "read_fasta() reads selected sequences correctly"
+fasta_file <- system.file("extdata/fasta/redoxin.fasta", package = "canprot")
+aa <- read_fasta(fasta_file)
+aa1 <- read_fasta(fasta_file, 1)
+expect_equal(aa1, aa[1, ], info = info)
+aa8rev <- read_fasta(fasta_file, 8:1)
+# Use unlist here so that different row names are not compared
+expect_equal(unlist(aa8rev), unlist(aa[8:1, ]), info = info)

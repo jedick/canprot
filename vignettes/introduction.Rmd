@@ -67,7 +67,7 @@ axis(3, at = 3.5, "GOE (proposed)")
 ```
 
 The vertical line denotes the proposed timing of the Great Oxidation Event (GOE) between Anc. I/III and Anc. I [@KHAB17].
-**This analysis shows that reconstructed ancestral Rubiscos become more oxidized around the proposed timing of GOE.**
+This analysis shows that reconstructed ancestral Rubiscos become more oxidized around the proposed timing of GOE.
 
 ## Human proteins in **canprot**
 
@@ -133,7 +133,7 @@ title("Stoichiometric hydration state", font.main = 1)
 We find no significant difference of `r Zc` for the differentially regulated proteins.
 In contrast, `r nH2O` is significantly lower for up-regulated than for down-regulated proteins.
 
-**A similar dehydration trend characterizes most datasets for 3D cell culture [@Dic21a].**
+A similar dehydration trend characterizes most datasets for 3D cell culture [@Dic21a].
 *The differential expression datasets analyzed in that paper, which were previously in **canprot**, have been moved to [JMDplots](https://github.com/jedick/JMDplots).*
 
 ```{r reset, include=FALSE}
