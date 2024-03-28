@@ -31,7 +31,9 @@ export(
 # 20240310 moved from chem16S
 "add_hull",
 # 20240317
-"Zcg", "nO2g", "nH2Og"
+"Zcg", "nO2g", "nH2Og",
+# 20240322
+"nC", "pnC"
 )
 
 # Imports from default packages

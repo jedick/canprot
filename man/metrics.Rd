@@ -2,8 +2,8 @@
 \name{metrics}
 \alias{metrics}
 \alias{Zc}
-\alias{nH2O}
 \alias{nO2}
+\alias{nH2O}
 \alias{GRAVY}
 \alias{pI}
 \alias{MW}
@@ -17,12 +17,14 @@
 \alias{S0g}
 \alias{SV}
 \alias{Zcg}
-\alias{nH2Og}
 \alias{nO2g}
+\alias{nH2Og}
 \alias{HC}
 \alias{NC}
 \alias{OC}
 \alias{SC}
+\alias{nC}
+\alias{pnC}
 \alias{plength}
 \alias{Cost}
 \alias{RespiratoryCost}
@@ -38,8 +40,8 @@ Calculate chemical metrics for proteins from their amino acid compositions.
 
 \usage{
   Zc(AAcomp, ...)
-  nH2O(AAcomp, basis = "QEC", terminal_H2O = 0)
   nO2(AAcomp, basis = "QEC", ...)
+  nH2O(AAcomp, basis = "QEC", terminal_H2O = 0)
   GRAVY(AAcomp, ...)
   pI(AAcomp, terminal_H2O = 1, ...)
   MW(AAcomp, terminal_H2O = 0, ...)
@@ -52,12 +54,15 @@ Calculate chemical metrics for proteins from their amino acid compositions.
   pS0(AAcomp, terminal_H2O = 1, ...)
   S0g(AAcomp, ...)
   SV(AAcomp, ...)
+  Zcg(AAcomp, ...)
   nH2Og(AAcomp, ...)
   nO2g(AAcomp, ...)
   HC(AAcomp, ...)
   NC(AAcomp, ...)
   OC(AAcomp, ...)
   SC(AAcomp, ...)
+  nC(AAcomp, ...)
+  pnC(AAcomp, ...)
   plength(AAcomp, ...)
   Cost(AAcomp, ...)
   RespiratoryCost(AAcomp, ...)
@@ -90,14 +95,14 @@ The metrics are described below:
   This metric is independent of the choice of basis species.
   Note that \Zc is normalized by number of carbon atoms, not by number of residues.
 }
-\item{\code{nH2O}}{Stoichiometric hydration state (\nH2O per residue).
+\item{\code{nO2}}{Stoichiometric oxidation state (\nO2 per residue).
   The available \code{basis} species are:
   \itemize{
     \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2 (Dick et al., 2020)}
     \item{\samp{QCa} - glutamine, cysteine, acetic acid, \H2O, \O2}
   }
 }
-\item{\code{nO2}}{Stoichiometric oxidation state (\nO2 per residue).
+\item{\code{nH2O}}{Stoichiometric hydration state (\nH2O per residue).
   The basis species also affect this calculation.
 }
 \item{\code{GRAVY}}{Grand average of hydropathy.
@@ -123,12 +128,15 @@ The metrics are described below:
 \item{\code{pS0}}{Standard molal entropy per protein.}
 \item{\code{S0g}}{Specific entropy.}
 \item{\code{SV}}{Entropy density.}
-\item{\code{nH2Og}}{\nH2O per gram.}
-\item{\code{nO2g}}{\nO2 per gram.}
+\item{\code{Zcg}}{Carbon oxidation state per gram.}
+\item{\code{nO2g}}{Stoichiometric oxidation state per gram.}
+\item{\code{nH2Og}}{Stoichiometric hydration state per gram.}
 \item{\code{HC}}{H/C ratio (not counting terminal -H and -OH groups).}
 \item{\code{NC}}{N/C ratio.}
 \item{\code{OC}}{O/C ratio (not counting terminal -H and -OH groups).}
 \item{\code{SC}}{S/C ratio.}
+\item{\code{nC}}{Number of carbon atoms per residue.}
+\item{\code{pnC}}{Number of carbon atoms per protein.}
 \item{\code{plength}}{Protein length (number of amino acid residues).}
 \item{\code{Cost}}{Metabolic cost (Akashi and Gojobori, 2002).}
 \item{\code{RespiratoryCost}}{Respiratory cost (Wagner, 2005).}

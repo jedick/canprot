@@ -2,7 +2,7 @@
 \title{News for Package 'canprot'}
 \encoding{UTF-8}
 
-\section{Changes in canprot version 1.1.2-40 (2024-03-16)}{
+\section{Changes in canprot version 1.1.2-42 (2024-03-28)}{
 
     \itemize{
 
@@ -24,12 +24,14 @@
       \code{V0()} and \code{S0()} (standard molal volume and entropy per
       residue), \code{pV0()} and \code{pS0()} (volume and entropy per protein),
       \code{V0g()} and \code{S0g()} (specific volume and entropy),
+      \code{nO2g()} and \code{nH2Og()} (specific oxidation and hydration state),
       \code{Density()} (mass density), \code{SV()} (entropy density),
+      \code{nC()} and \code{pnC()} (C atoms per residue and protein),
       \code{Cost()} (metabolic cost of amino acids from
       \href{https://doi.org/10.1073/pnas.062526999}{Akashi and Gojobori,
         2002}), \code{RespiratoryCost()} and \code{FermentativeCost()}
       (respiratory and fermentative costs from
-      \href{https://doi.org/10.1093/molbev/msi126}{Wagner, 2005}), and
+      \href{https://doi.org/10.1093/molbev/msi126}{Wagner, 2005}),
       \code{B20Cost()}, \code{Y20Cost()}, and \code{H11Cost()} (biosynthetic
       costs from \href{https://doi.org/10.1038/s41467-018-06461-1}{Zhang et
         al., 2018}).

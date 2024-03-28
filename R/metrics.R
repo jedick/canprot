@@ -401,6 +401,36 @@ SC <- function(AAcomp, ...) {
   Stot / Ctot
 }
 
+# Number of carbon atoms per residue 20240322
+nC <- function(AAcomp, ...) {
+  # The number of carbon atoms in each amino acid
+  nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
+    Ile = 6, Lys = 6, Leu = 6, Met = 5, Asn = 4, Pro = 5, Gln = 5, 
+    Arg = 6, Ser = 3, Thr = 4, Val = 5, Trp = 11, Tyr = 9)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nC_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nC_AA)))
+  # Calculate the nC for all occurrences of each amino acid
+  multC <- t(t(AAcomp[, isAA, drop = FALSE]) * nC_AA[iAA])
+  # Calculate the total nC and divide by number of residues (length of protein)
+  rowSums(multC) / rowSums(AAcomp[, isAA, drop = FALSE])
+}
+
+# Number of carbon atoms per protein 20240322
+pnC <- function(AAcomp, ...) {
+  # The number of carbon atoms in each amino acid
+  nC_AA <- c(Ala = 3, Cys = 3, Asp = 4, Glu = 5, Phe = 9, Gly = 2, His = 6, 
+    Ile = 6, Lys = 6, Leu = 6, Met = 5, Asn = 4, Pro = 5, Gln = 5, 
+    Arg = 6, Ser = 3, Thr = 4, Val = 5, Trp = 11, Tyr = 9)
+  # Find columns with names for the amino acids
+  isAA <- tolower(colnames(AAcomp)) %in% tolower(names(nC_AA))
+  iAA <- match(tolower(colnames(AAcomp)[isAA]), tolower(names(nC_AA)))
+  # Calculate the nC for all occurrences of each amino acid
+  multC <- t(t(AAcomp[, isAA, drop = FALSE]) * nC_AA[iAA])
+  # Calculate the total nC
+  rowSums(multC)
+}
+
 # Density 20240304
 Density <- function(AAcomp, ...) {
   MW(AAcomp, ...) / V0(AAcomp, ...)
@@ -423,7 +453,7 @@ SV <- function(AAcomp, ...) {
 
 # Specific Zc 20240317
 Zcg <- function(AAcomp, ...) {
-  Zc(AAcomp, ...) / MW(AAcomp, ...)
+  Zc(AAcomp, ...) * nC(AAcomp, ...) / MW(AAcomp, ...)
 }
 
 # Specific nO2 20240317

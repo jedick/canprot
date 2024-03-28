@@ -27,6 +27,8 @@ cplab <- list(
   NC = "N/C",
   OC = "O/C",
   SC = "S/C",
+  nC = "C atoms per residue",
+  pnC = "C atoms per protein",
   plength = "Protein length",
   Cost = "Metabolic cost",
   RespiratoryCost = "Respiratory cost",

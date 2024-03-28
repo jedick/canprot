@@ -71,16 +71,18 @@ OC.ref <- c(0.300163132137031, 0.333913043478261, 0.276517300056721, 0.405287544
 NC.ref <- c(0.314845024469821, 0.297391304347826, 0.250992626205332, 0.264649768329245)
 SC.ref <- c(0.0163132137030995, 0.0208695652173913, 0.00397050482132728, 0)
 
+info <- "Check HC, OC, NC, and SC"
 metrics <- calc_metrics(AAcomp, c("HC", "OC", "NC", "SC"))
-expect_equivalent(metrics$HC, HC.ref)
-expect_equivalent(metrics$NC, NC.ref)
-expect_equivalent(metrics$OC, OC.ref)
-expect_equivalent(metrics$SC, SC.ref)
+expect_equivalent(metrics$HC, HC.ref, info = info)
+expect_equivalent(metrics$NC, NC.ref, info = info)
+expect_equivalent(metrics$OC, OC.ref, info = info)
+expect_equivalent(metrics$SC, SC.ref, info = info)
 
 # Test for length added 20240302
+info <- "Check protein length"
 length.ref <- c(129, 124, 648, 828)
 length.calc <- calc_metrics(AAcomp, "Length")[, 1]
-expect_equal(length.calc, length.ref)
+expect_equal(length.calc, length.ref, info = info)
 
 # Test for error added 20240305
 info <- "metrics() signals an error for unavailable metrics"
