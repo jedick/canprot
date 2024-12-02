@@ -1,6 +1,5 @@
 # canprot/extdata/aa/prepare.R
-# Prepare amino amino acid compositions for ribosomal proteins
-# in Nitrososphaeria genomes analyzed by Luo et al., 2024
+# Prepare amino acid compositions for Nitrososphaeria genomes analyzed by Luo et al., 2024
 # doi:10.1093/ismejo/wrad031
 # 20240307
 

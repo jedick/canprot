@@ -20,10 +20,7 @@ oldopt <- options(width = 80)
 
 ```{r HTML, include=FALSE}
 Zc <- "<i>Z</i><sub>C</sub>"
-nC <- "<i>n</i><sub>C</sub>"
-nH2O <- "<i>n</i><sub>H<sub>2</sub>O</sub>"
-H2O <- "H<sub>2</sub>O"
-O2 <- "O<sub>2</sub>"
+nH2O <- "<i>n</i>H<sub>2</sub>O"
 ```
 
 The **canprot** package calculates chemical metrics of proteins from amino acid compositions.

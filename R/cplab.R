@@ -6,8 +6,8 @@ cplab <- list(
 
   # Metrics in canprot
   Zc = quote(italic(Z)[C]),
-  nH2O = quote(italic(n)[H[2]*O]),
-  nO2 = quote(italic(n)[O[2]]),
+  nH2O = quote(italic(n)*H[2]*O),
+  nO2 = quote(italic(n)*O[2]),
   GRAVY = "GRAVY",
   pI = "pI",
   MW = "MW per residue",
@@ -21,8 +21,8 @@ cplab <- list(
   S0g = quote("Specific entropy (J K" ^ -1 ~ "g" ^ -1 * ")"),
   SV = quote("Entropy density (J K" ^ -1 ~ "cm" ^ -3 * ")"),
   Zcg = quote("Specific" ~ italic(Z)[C]),
-  nH2Og = quote("Specific" ~ italic(n)[H[2]*O]),
-  nO2g = quote("Specific" ~ italic(n)[O[2]]),
+  nH2Og = quote("Specific" ~ italic(n)*H[2]*O),
+  nO2g = quote("Specific" ~ italic(n)*O[2]),
   HC = "H/C",
   NC = "N/C",
   OC = "O/C",
@@ -44,7 +44,7 @@ cplab <- list(
 #  nN = quote(italic(n)[N] * "/AA"),
 #  nO = quote(italic(n)[O] * "/AA"),
 #  nS = quote(italic(n)[S] * "/AA"),
-#  logfO2 = quote(log~italic("f")[O[2]]),
-#  logaH2O = quote(log~italic("a")[H[2]*O])
+#  logfO2 = quote(log~italic("f")*O[2]),
+#  logaH2O = quote(log~italic("a")*H[2]*O)
 
 )
