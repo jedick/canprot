@@ -31,7 +31,7 @@ Zc <- function(AAcomp, ...) {
   Zctot / nCtot
 }
 
-# Per-residue stoichiometric hydration state 20181228
+# Per-residue stoichiometric water content 20181228
 # Add 'terminal_H2O' argument 20221018
 nH2O <- function(AAcomp, basis = "QEC", terminal_H2O = 0) {
   if(basis == "QEC") {
@@ -67,7 +67,7 @@ nH2O <- function(AAcomp, basis = "QEC", terminal_H2O = 0) {
   nH2O / rowSums(AAcomp[, isAA, drop = FALSE])
 }
 
-# Per-residue stoichiometric oxidation state 20201016
+# Per-residue stoichiometric oxygen content 20201016
 nO2 <- function(AAcomp, basis = "QEC", ...) {
   if(basis == "QEC") {
     # To get the number of O2 in reactions to form amino acid residues from the "QEC" basis:

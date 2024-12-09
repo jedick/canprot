@@ -33,7 +33,7 @@ Previous vignette: [Introduction to canprot](introduction.html)
 
 ## More details on chemical metrics
 
-Carbon oxidation state (`r Zc`) is calculated from elemental ratios, but stoichiometric hydration state (`r nH2O`) depends on a specific choice of thermodynamic components (or basis species).
+Carbon oxidation state (`r Zc`) is calculated from elemental ratios, but stoichiometric water content (`r nH2O`) depends on a specific choice of thermodynamic components (or basis species).
 In **canprot**, `r nH2O` is calculated from a theoretical reaction to form proteins from the following set of basis species, abbreviated as **QEC**:
 
 * glutamine (Q)
@@ -88,7 +88,7 @@ Let's step through the logic:
 * The reaction shows that `r H2Ocoeff` water molecules are *released* (the coefficient is positive) in the theoretical formation of one molecule of the protein.
 * The protein has terminal -H and -OH groups. This means that shorter proteins are "wetter", and we don't want that complication. So, we take one `r H2O` away from the protein and add it to the number of water molecules released, giving `r H2Ocoeff` + 1 = `r H2Ocoeff + 1` `r H2O`. _This step was not performed by @DYT20 but is the default in **canprot** since version 2.0.0._
 * We use the opposite of this value because we are counting how many `r H2O` units go **into** forming the protein.
-* Finally, we divide by the length of the protein to get the stoichiometric hydration state normalized per residue: `r -(H2Ocoeff + 1)` / `r plength(AA)` = `r nH2O(AA)`
+* Finally, we divide by the length of the protein to get the stoichiometric water content normalized per residue: `r -(H2Ocoeff + 1)` / `r plength(AA)` = `r nH2O(AA)`
 
 A general observation: This is a theoretical reaction in terms of thermodynamic components, so we are not dealing with biochemical mechanisms here.
 That's one reason for calling this approach *geochemical biology*.

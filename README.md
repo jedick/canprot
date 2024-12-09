@@ -8,7 +8,7 @@
 
 Chemical analysis of proteins based on their amino acid compositions.
 Amino acid compositions can be read from FASTA files and used to calculate chemical metrics
-including carbon oxidation state and stoichiometric hydration state as described in [Dick et al. (2020)](https://doi.org/10.5194/bg-17-6145-2020).
+including carbon oxidation state and stoichiometric water content as described in [Dick et al. (2020)](https://doi.org/10.5194/bg-17-6145-2020).
 Other properties that can be calculated include protein length, grand average of hydropathy (GRAVY), isoelectric point (pI), molecular weight (MW),
 standard molal volume (V0), and metabolic costs
 ([Akashi and Gojobori, 2002](https://doi.org/10.1073/pnas.062526999);

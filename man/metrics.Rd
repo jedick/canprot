@@ -95,14 +95,14 @@ The metrics are described below:
   This metric is independent of the choice of basis species.
   Note that \Zc is normalized by number of carbon atoms, not by number of residues.
 }
-\item{\code{nO2}}{Stoichiometric oxidation state (\nO2 per residue).
+\item{\code{nO2}}{Stoichiometric oxygen content (\nO2 per residue).
   The available \code{basis} species are:
   \itemize{
     \item{\samp{QEC} - glutamine, glutamic acid, cysteine, \H2O, \O2 (Dick et al., 2020)}
     \item{\samp{QCa} - glutamine, cysteine, acetic acid, \H2O, \O2}
   }
 }
-\item{\code{nH2O}}{Stoichiometric hydration state (\nH2O per residue).
+\item{\code{nH2O}}{Stoichiometric water content (\nH2O per residue).
   The basis species also affect this calculation.
 }
 \item{\code{GRAVY}}{Grand average of hydropathy.
@@ -129,8 +129,8 @@ The metrics are described below:
 \item{\code{S0g}}{Specific entropy.}
 \item{\code{SV}}{Entropy density.}
 \item{\code{Zcg}}{Carbon oxidation state per gram.}
-\item{\code{nO2g}}{Stoichiometric oxidation state per gram.}
-\item{\code{nH2Og}}{Stoichiometric hydration state per gram.}
+\item{\code{nO2g}}{Stoichiometric oxygen content per gram.}
+\item{\code{nH2Og}}{Stoichiometric water content per gram.}
 \item{\code{HC}}{H/C ratio (not counting terminal -H and -OH groups).}
 \item{\code{NC}}{N/C ratio.}
 \item{\code{OC}}{O/C ratio (not counting terminal -H and -OH groups).}

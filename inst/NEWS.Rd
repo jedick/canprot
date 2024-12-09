@@ -7,12 +7,15 @@
 \newcommand{\s}{\ifelse{latex}{\eqn{_{#1}}}{\ifelse{html}{\out{<sub>#1</sub>}}{#1}}}
 \newcommand{\S}{\ifelse{latex}{\eqn{^{#1}}}{\ifelse{html}{\out{<sup>#1</sup>}}{^#1}}}
 
-\section{Changes in canprot version 2.0.0-1 (2024-12-02)}{
+\section{Changes in canprot version 2.0.0-2 (2024-12-09)}{
 
     \itemize{
     
       \item Elemental formulas (O\s{2} and H\s{2}O) are no longer subscripted
       in \code{cplab}.
+
+      \item Update terminology: stoichiometric oxygen and water content instead
+      of oxidation and hydration state.
 
     }
 
