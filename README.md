@@ -1,7 +1,7 @@
 <!-- badges: start -->
 [![CRAN](https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fcloud.r-project.org%2Fweb%2Fpackages%2Fcanprot%2FDESCRIPTION&query=%24.Version&logo=r&label=CRAN&color=4bc51e)](https://cran.r-project.org/package=canprot)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3544985.svg)](https://doi.org/10.5281/zenodo.3544985)
 [![R-CMD-check](https://github.com/jedick/canprot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jedick/canprot/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/jedick/canprot/graph/badge.svg)](https://app.codecov.io/gh/jedick/canprot)
 <!-- badges: end -->
 
 # canprot
