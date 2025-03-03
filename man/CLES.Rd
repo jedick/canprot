@@ -42,8 +42,8 @@ n2 <- 988
 M2 <- 69.7
 SD2 <- 2.6
 # b) Simulate data from a normal distribution with exact mean and SD
-# use rnorm2 function from Ben Bolker's answer to
-# https://stackoverflow.com/questions/18919091/generate-random-numbers-with-fixed-mean-and-sd
+# Use rnorm2 function from Ben Bolker's answer to
+#   https://stackoverflow.com/questions/18919091/generate-random-numbers-with-fixed-mean-and-sd
 rnorm2 <- function(n, mean, sd) { mean + sd * scale(rnorm(n)) }
 set.seed(1234)
 height_female <- rnorm2(n1, M1, SD1)
@@ -53,11 +53,12 @@ CLES_normal <- CLES(height_female, height_male)
 CLES_empirical <- CLES(height_female, height_male, distribution = NA)
 # d) Test numerical equivalence of the results
 # The CLES is approximately 0.92 (McGraw and Wong, 1992)
-# (note: becasue we used rnorm2, this doesn't depend on the seed)
-stopifnot(all.equal(CLES_normal, 0.92, tol = 0.01))
+# (because we used rnorm2, this doesn't depend on the seed)
+# NOTE: stopifnot() expressions are used in the package tests but commented here
+#stopifnot(all.equal(CLES_normal, 0.92, tol = 0.01))
 # With this seed, the difference between the normal curve probability
 # and empirical probability is less than 1%
-stopifnot(all.equal(CLES_normal, CLES_empirical, tol = 0.01))
+#stopifnot(all.equal(CLES_normal, CLES_empirical, tol = 0.01))
 
 # Example 1.5: Use multiple simulated datasets to show approach
 # of empirical probability to normal curve probability
@@ -67,8 +68,8 @@ CLES_empirical_n <- sapply(1:100, function(x) {
   CLES(height_female, height_male, distribution = NA)
 })
 CLES_empirical <- mean(CLES_empirical_n)
-# now we're even closer to the normal curve probability
-stopifnot(all.equal(CLES_normal, CLES_empirical, tol = 0.0001))
+# Now we're even closer to the normal curve probability
+#stopifnot(all.equal(CLES_normal, CLES_empirical, tol = 0.0001))
 
 # Example 2: Multiple datasets in Table 2 of McGraw and Wong, 1992
 # Sample statistics for females
@@ -102,13 +103,7 @@ CLemp <- sapply(1:12, function(i) {
 })
 # The difference between the empirical and normal curve
 # probabilities is not more than 1 percent
-stopifnot(max(abs(CLemp - CLnorm), na.rm = TRUE) <= 1)
-# TODO: Why are some of the calculated values different from
-# Table 2 of McGraw and Wong, 1992?
-CLref <- c(54, 74, 44, 45, 56, 63, 67, 65, 92, 78, 89, 91)
-# Differences range from -4 to 4
-range(CLnorm - CLref) 
-#stopifnot(max(abs(CLnorm - CLref)) == 0)
+#stopifnot(max(abs(CLemp - CLnorm), na.rm = TRUE) <= 1)
 }
 
 \references{
