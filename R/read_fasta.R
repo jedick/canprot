@@ -17,27 +17,10 @@ read_fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
   # value of 'id' is used for 'protein' in output table,
   #   otherwise ID is parsed from FASTA header (can take a while)
   
-  # Check if the file is in an archive (https://github.com/jimhester/archive)
-  if(inherits(file, "archive_read")) {
-    is.archive <- TRUE
-    filebase <- gsub("]", "", basename(summary(file)$description))
-  } else {
-    is.archive <- FALSE
-    filebase <- basename(file)
-  }
+  filebase <- basename(file)
   if(is.null(lines)) {
     message("read_fasta: reading ", filebase, " ... ", appendLF = FALSE)
-    if(is.archive) {
-      # We can't use scan here?
-      lines <- readLines(file)
-#    } else if(Sys.info()[[1]] == "Linux") {
-#      # Retrieve contents using system command (seems slightly faster even than scan())
-#      # Figure out whether to use 'cat', 'zcat' or 'xzcat'
-#      suffix <- substr(file, nchar(file) - 2, nchar(file))
-#      if(suffix == ".gz") mycat <- "zcat" else
-#      if(suffix == ".xz") mycat <- "xzcat" else mycat <- "cat"
-#      lines <- system(paste(mycat, ' "', file, '"', sep = ""), intern = TRUE)
-    } else lines <- scan(file, what = character(), sep = "\n", quiet = TRUE)
+    lines <- scan(file, what = character(), sep = "\n", quiet = TRUE)
   }
   nlines <- length(lines)
   message(nlines, " lines ... ", appendLF = FALSE)
@@ -70,10 +53,6 @@ read_fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
   if(is.null(id)) id <- as.character(lapply(iseq, function(j) {
     # Get the text of the line
     f1 <- lines[ihead[j]]
-    # Stop if the first character is not ">"
-    # or the first two charaters are "> "
-    if(substr(f1, 1, 1) != ">" | length(grep("^> ", f1) > 0))
-      stop(paste("file", filebase, "line", j, "doesn't begin with FASTA header '>'."))
     # Discard the leading '>'
     f2 <- substr(f1,  2,  nchar(f1))
     # Keep everything before the first space
@@ -120,7 +99,7 @@ read_fasta <- function(file, iseq = NULL, type = "count", lines = NULL, ihead = 
         counts <- count_aa(sequences, start, stop, molecule)
         out <- cbind(gene = id, organism = organism, ref = NA, abbrv = NA, chains = 1, counts)
       }
-    }
+    } else stop(paste0("unknown molecule '", molecule, "'"))
     out
   } else return(sequences)
 }

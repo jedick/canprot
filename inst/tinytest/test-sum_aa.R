@@ -34,3 +34,14 @@ ref.avg <- structure(list(protein = "O08452", organism = "PYRFU", ref = "UniProt
 info <- "sum.aa() gives expected results"
 expect_equal(sum_aa(AAcomp), ref.sum, info = info)
 expect_equal(sum_aa(AAcomp, average = TRUE), ref.avg, info = info)
+
+# Test added on 20250304
+info <- "Proteins with NA composition or abundance are excluded from sum"
+# Set NA composition for proteins 2 and 3
+AAcomp$Ala[2:3] <- NA
+# Set NA abundance for proteins 4 and 5
+abundance <- c(1, 1, 1, NA, NA, 1)
+# Calculate sum of compositions
+AAsum <- sum_aa(AAcomp, abundance)
+# This should be the sum of compositions for proteins 1 and 6
+expect_equal(as.numeric(AAsum[1, -(1:5)]), as.numeric(colSums(AAcomp[c(1, 6), -(1:5)])), info = info)
