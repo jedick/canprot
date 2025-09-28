@@ -1,5 +1,5 @@
 <!-- badges: start -->
-[![CRAN/METACRAN Version](https://img.shields.io/cran/v/canprot?label=CRAN&color=4bc51e)](https://cran.r-project.org/package=canprot)
+[![CRAN status](https://www.r-pkg.org/badges/version/canprot)](https://CRAN.R-project.org/package=canprot)
 [![R-CMD-check](https://github.com/jedick/canprot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jedick/canprot/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/jedick/canprot/graph/badge.svg)](https://app.codecov.io/gh/jedick/canprot)
 <!-- badges: end -->
